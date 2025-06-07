@@ -3,6 +3,7 @@
     "Type": "DataTable",
     "Name": "DT_UIMutualExclusionTable",
     "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'PMUIMutualExclusionTableRow'",
@@ -22,7 +23,8 @@
           "ScoreTeamTri",
           "ScoreTeamMulti",
           "ScoreMine",
-          "ScoreZombie"
+          "ScoreZombie",
+          "SettingPage"
         ],
         "HidedByUIs": [
           "BigMap",
@@ -33,10 +35,13 @@
         "BlockedByUIs": [
           "GameKeyTipsPage",
           "SelectRolePage",
-          "GrowthPage",
           "BigMap",
           "ResultGameFinishPage",
-          "RoundResultPage"
+          "RoundResultPage",
+          "GrowthBombPage",
+          "GrowthTeamPage",
+          "GrowthTeamThreePage",
+          "GrowthEscortPage"
         ]
       },
       "ReadyStage": {
@@ -70,11 +75,13 @@
         "ClosedByUIs": [
           "SelectRolePage",
           "ScreenEffect_HuiXingArousalTwo",
-          "ScreenEffect_FlashGrenade"
+          "ScreenEffect_FlashGrenade",
+          "SettingPage",
+          "GrowthPage",
+          "HelpTipsInGameUIGuidePage"
         ],
         "HidedByUIs": [
-          "Esc",
-          "GrowthPage"
+          "Esc"
         ],
         "CollapsedByUIs": [
           "ScorePage"
@@ -135,17 +142,22 @@
           "GameKeyTipsPage",
           "MarkWheelPage",
           "Esc",
-          "GrowthPage",
           "SelectRolePage",
+          "PersonalityWheel",
           "ResultGameFinishPage",
           "RoundResultPage",
+          "SettingPage",
           "ScoreBomb",
           "ScoreEscort",
           "ScoreTeam",
           "ScoreTeamTri",
           "ScoreTeamMulti",
           "ScoreMine",
-          "ScoreZombie"
+          "ScoreZombie",
+          "GrowthBombPage",
+          "GrowthTeamPage",
+          "GrowthTeamThreePage",
+          "GrowthEscortPage"
         ],
         "HidedByUIs": [],
         "CollapsedByUIs": [],
@@ -154,10 +166,22 @@
           "GameKeyTipsPage",
           "MarkWheelPage",
           "Esc",
-          "GrowthPage",
           "SelectRolePage",
+          "PersonalityWheel",
           "ResultGameFinishPage",
-          "RoundResultPage"
+          "RoundResultPage",
+          "SettingPage",
+          "ScoreBomb",
+          "ScoreEscort",
+          "ScoreTeam",
+          "ScoreTeamTri",
+          "ScoreTeamMulti",
+          "ScoreMine",
+          "ScoreZombie",
+          "GrowthBombPage",
+          "GrowthTeamPage",
+          "GrowthTeamThreePage",
+          "GrowthEscortPage"
         ]
       },
       "SettingPage": {
@@ -269,11 +293,22 @@
           "GameKeyTipsPage",
           "MarkWheelPage",
           "Esc",
-          "GrowthPage",
           "SelectRolePage",
           "TacticWheelPage",
           "ResultGameFinishPage",
-          "RoundResultPage"
+          "RoundResultPage",
+          "SettingPage",
+          "ScoreBomb",
+          "ScoreEscort",
+          "ScoreTeam",
+          "ScoreTeamTri",
+          "ScoreTeamMulti",
+          "ScoreMine",
+          "ScoreZombie",
+          "GrowthBombPage",
+          "GrowthTeamPage",
+          "GrowthTeamThreePage",
+          "GrowthEscortPage"
         ],
         "HidedByUIs": [],
         "CollapsedByUIs": [],
@@ -282,11 +317,22 @@
           "GameKeyTipsPage",
           "MarkWheelPage",
           "Esc",
-          "GrowthPage",
           "SelectRolePage",
           "TacticWheelPage",
           "ResultGameFinishPage",
-          "RoundResultPage"
+          "RoundResultPage",
+          "SettingPage",
+          "ScoreBomb",
+          "ScoreEscort",
+          "ScoreTeam",
+          "ScoreTeamTri",
+          "ScoreTeamMulti",
+          "ScoreMine",
+          "ScoreZombie",
+          "GrowthBombPage",
+          "GrowthTeamPage",
+          "GrowthTeamThreePage",
+          "GrowthEscortPage"
         ]
       },
       "MinePage": {
@@ -304,7 +350,8 @@
         "HidedByUIs": [],
         "CollapsedByUIs": [],
         "BlockedByUIs": [
-          "GrowthBombPage"
+          "GrowthBombPage",
+          "SelectRoleLoadingPage"
         ]
       },
       "SpectatorPage": {
@@ -460,6 +507,70 @@
         ],
         "CollapsedByUIs": [],
         "BlockedByUIs": []
+      },
+      "BigHeadPage": {
+        "ClosedByUIs": [],
+        "HidedByUIs": [],
+        "CollapsedByUIs": [
+          "GrowthPage",
+          "SelectRolePage"
+        ],
+        "BlockedByUIs": [
+          "SelectRolePage"
+        ]
+      },
+      "ZombiePage": {
+        "ClosedByUIs": [],
+        "HidedByUIs": [],
+        "CollapsedByUIs": [
+          "GrowthPage",
+          "SelectRolePage"
+        ],
+        "BlockedByUIs": [
+          "SelectRolePage"
+        ]
+      },
+      "HelpTipsInGameUIGuidePage": {
+        "ClosedByUIs": [
+          "SettingPage",
+          "SelectrRolePage"
+        ],
+        "HidedByUIs": [],
+        "CollapsedByUIs": [],
+        "BlockedByUIs": []
+      },
+      "BombPassPage": {
+        "ClosedByUIs": [],
+        "HidedByUIs": [],
+        "CollapsedByUIs": [
+          "GrowthPage",
+          "SelectRolePage"
+        ],
+        "BlockedByUIs": [
+          "SelectRolePage"
+        ]
+      },
+      "UGCPage": {
+        "ClosedByUIs": [],
+        "HidedByUIs": [],
+        "CollapsedByUIs": [
+          "SelectRolePage"
+        ],
+        "BlockedByUIs": [
+          "SelectRolePage"
+        ]
+      },
+      "UGCBagPage": {
+        "ClosedByUIs": [
+          "UGCGenMapImagePage"
+        ],
+        "HidedByUIs": [],
+        "CollapsedByUIs": [
+          "SelectRolePage"
+        ],
+        "BlockedByUIs": [
+          "SelectRolePage"
+        ]
       }
     }
   }

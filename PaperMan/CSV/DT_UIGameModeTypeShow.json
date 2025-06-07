@@ -3,6 +3,7 @@
     "Type": "DataTable",
     "Name": "DT_UIGameModeTypeShow",
     "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'PMUIGameModeTypeShowTableRow'",
@@ -33,15 +34,17 @@
         "HideCharacterStateTypes": [],
         "bNeedsHideInReplayMode": false
       },
-      "Growth": {
+      "GrowthPage": {
         "ShowModeTypes": [],
         "HideModeTypes": [
           "EPMGameModeType::NoviceGuide",
           "EPMGameModeType::Spar",
           "EPMGameModeType::HideSeek",
-          "EPMGameModeType::TeamGuide",
           "EPMGameModeType::SnowBall",
-          "EPMGameModeType::BombGuide"
+          "EPMGameModeType::BombGuide",
+          "EPMGameModeType::TeamGuide",
+          "EPMGameModeType::Zombie",
+          "EPMGameModeType::UGC"
         ],
         "ShowGameStateTypes": [
           "EGStateType::Warmup",
@@ -49,7 +52,11 @@
           "EGStateType::FightPlaced",
           "EGStateType::Prepare",
           "EGStateType::FightEnd",
-          "EGStateType::FightSecond"
+          "EGStateType::FightSecond",
+          "EGStateType::Guide",
+          "EGStateType::FightThird",
+          "EGStateType::FightForth",
+          "EGStateType::FightFifth"
         ],
         "HideGameStateTypes": [
           "EGStateType::GameEnd",
@@ -84,7 +91,10 @@
           "EGStateType::FightPlaced",
           "EGStateType::Prepare",
           "EGStateType::FightEnd",
-          "EGStateType::FightSecond"
+          "EGStateType::FightSecond",
+          "EGStateType::FightThird",
+          "EGStateType::FightForth",
+          "EGStateType::FightFifth"
         ],
         "HideGameStateTypes": [],
         "ShowCharacterStateTypes": [],
@@ -93,7 +103,11 @@
       },
       "BattleDataPage": {
         "ShowModeTypes": [],
-        "HideModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::TeamGuide",
+          "EPMGameModeType::BombPass",
+          "EPMGameModeType::Zombie"
+        ],
         "ShowGameStateTypes": [],
         "HideGameStateTypes": [],
         "ShowCharacterStateTypes": [],
@@ -112,8 +126,6 @@
           "EGStateType::PracticeChallenge",
           "EGStateType::ChallengePrepare",
           "EGStateType::ChallengeWait",
-          "EGStateType::RoleSelect",
-          "EGStateType::RoleReselect",
           "EGStateType::GameOver"
         ],
         "ShowCharacterStateTypes": [],
@@ -130,7 +142,9 @@
         "ShowGameStateTypes": [],
         "HideGameStateTypes": [
           "EGStateType::RoleSelect",
-          "EGStateType::RoleReselect"
+          "EGStateType::RoleReselect",
+          "EGStateType::GameEnd",
+          "EGStateType::GameOver"
         ],
         "ShowCharacterStateTypes": [],
         "HideCharacterStateTypes": [
@@ -146,7 +160,10 @@
           "EPMGameModeType::TeamGuide"
         ],
         "ShowGameStateTypes": [],
-        "HideGameStateTypes": [],
+        "HideGameStateTypes": [
+          "EGStateType::GameEnd",
+          "EGStateType::GameOver"
+        ],
         "ShowCharacterStateTypes": [],
         "HideCharacterStateTypes": [
           "ECStateType::Death"
@@ -162,7 +179,10 @@
           "EGStateType::FightPlaced",
           "EGStateType::Prepare",
           "EGStateType::FightEnd",
-          "EGStateType::FightSecond"
+          "EGStateType::FightSecond",
+          "EGStateType::FightThird",
+          "EGStateType::FightForth",
+          "EGStateType::FightFifth"
         ],
         "HideGameStateTypes": [],
         "ShowCharacterStateTypes": [],
@@ -172,7 +192,8 @@
       "BigMap": {
         "ShowModeTypes": [],
         "HideModeTypes": [
-          "EPMGameModeType::NoviceGuide"
+          "EPMGameModeType::NoviceGuide",
+          "EPMGameModeType::UGC"
         ],
         "ShowGameStateTypes": [],
         "HideGameStateTypes": [
@@ -195,7 +216,10 @@
           "EPMGameModeType::BombGuide"
         ],
         "ShowGameStateTypes": [],
-        "HideGameStateTypes": [],
+        "HideGameStateTypes": [
+          "EGStateType::GameEnd",
+          "EGStateType::GameOver"
+        ],
         "ShowCharacterStateTypes": [],
         "HideCharacterStateTypes": [],
         "bNeedsHideInReplayMode": false
@@ -285,6 +309,77 @@
           "EGStateType::GameEnd",
           "EGStateType::GameOver"
         ],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "RefereeGMPage": {
+        "ShowModeTypes": [],
+        "HideModeTypes": [],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [
+          "EGStateType::GameOver",
+          "EGStateType::GameEnd"
+        ],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "RoguelikeCardPage": {
+        "ShowModeTypes": [
+          "EPMGameModeType::Zombie"
+        ],
+        "HideModeTypes": [],
+        "ShowGameStateTypes": [
+          "EGStateType::Warmup",
+          "EGStateType::Fight",
+          "EGStateType::FightPlaced",
+          "EGStateType::Prepare",
+          "EGStateType::FightEnd",
+          "EGStateType::FightSecond",
+          "EGStateType::Guide"
+        ],
+        "HideGameStateTypes": [
+          "EGStateType::GameEnd",
+          "EGStateType::GameOver"
+        ],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [
+          "ECStateType::Death"
+        ],
+        "bNeedsHideInReplayMode": false
+      },
+      "RoguelikeCardSelectPage": {
+        "ShowModeTypes": [],
+        "HideModeTypes": [],
+        "ShowGameStateTypes": [
+          "EGStateType::Warmup",
+          "EGStateType::Fight",
+          "EGStateType::FightPlaced",
+          "EGStateType::Prepare",
+          "EGStateType::FightEnd",
+          "EGStateType::FightSecond",
+          "EGStateType::Guide",
+          "EGStateType::RoleLoad"
+        ],
+        "HideGameStateTypes": [
+          "EGStateType::GameEnd",
+          "EGStateType::GameOver",
+          "EGStateType::FightEnd"
+        ],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [
+          "ECStateType::Death"
+        ],
+        "bNeedsHideInReplayMode": false
+      },
+      "RoundResultPage": {
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::BombPass"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
         "ShowCharacterStateTypes": [],
         "HideCharacterStateTypes": [],
         "bNeedsHideInReplayMode": false
