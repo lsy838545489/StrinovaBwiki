@@ -1,0 +1,386 @@
+[
+  {
+    "Type": "CyWeaponEffectAsset",
+    "Name": "Effect000",
+    "Class": "UScriptClass'CyWeaponEffectAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DecalConfig": {
+        "FadeStartDelay": 5.0,
+        "FadeDuration": 0.2,
+        "DefaultDecalSet": {
+          "bRandomSize": true,
+          "DecalSizeMax": 12.0,
+          "DecalList": [
+            {
+              "AssetPathName": "/Game/PaperMan/Effects/Decal/Material/Pigment/M_Decal_Super90.M_Decal_Super90",
+              "SubPathString": ""
+            }
+          ]
+        }
+      },
+      "MuzzleFlameConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Baimo/PS_Suppressor_s90_3P.PS_Suppressor_S90_3P",
+          "SubPathString": ""
+        },
+        "FPPAsset": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Baimo/PS_Suppressor_S90_1P.PS_Suppressor_S90_1P",
+          "SubPathString": ""
+        }
+      },
+      "MuzzleSmokeConfig": {
+        "KeepTime": 2.4,
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Common/PS_Common_Smoke.PS_Common_Smoke",
+          "SubPathString": ""
+        }
+      },
+      "ShellCaseConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Common/cartridge/FX_cartridge_SG.FX_cartridge_SG",
+          "SubPathString": ""
+        }
+      },
+      "TrajectoryConfig": {
+        "Default": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BulletTrajectory_ShotGun_C'",
+          "ObjectPath": "PM/Content/PaperMan/Core/Weapons/BP_BulletTrajectory_ShotGun.0"
+        },
+        "DefaultEffect": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_Trail/FX_Bullet_Tracer_Base_1P.FX_Bullet_Tracer_Base_1P",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "ETargetType::Teammate",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_Trail/FX_Bullet_Tracer_Base_3P.FX_Bullet_Tracer_Base_3P",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "ETargetType::Self",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_Trail/FX_Bullet_Tracer_Base_1P.FX_Bullet_Tracer_Base_1P",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "ETargetType::Enemy",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_Trail/FX_Bullet_Tracer_Base_3P.FX_Bullet_Tracer_Base_3P",
+              "SubPathString": ""
+            }
+          }
+        ]
+      },
+      "PredictPathConfig": {
+        "PathEffect": {
+          "ObjectName": "ParticleSystem'P_PPT_Trajectory_Beam_Point'",
+          "ObjectPath": "PM/Content/PaperMan/Effects/ProjectilePathTracer/Particles/P_PPT_Trajectory_Beam_Point.12"
+        },
+        "FinalEffect": {
+          "ObjectName": "ParticleSystem'P_PPT_TrajectoryMarker'",
+          "ObjectPath": "PM/Content/PaperMan/Effects/ProjectilePathTracer/Particles/P_PPT_TrajectoryMarker.11"
+        }
+      },
+      "CrossHairConfig": {
+        "Icons": {
+          "Texture": {
+            "ObjectName": "Texture2D'T_UI_HUDPC_Crosshair_2'",
+            "ObjectPath": "PM/Content/PaperMan/UI/Atlas/Canvas/T_UI_HUDPC_Crosshair_2.0"
+          },
+          "U": 23.0,
+          "V": 23.0,
+          "UL": 18.0,
+          "VL": 18.0
+        },
+        "Icons[1]": {
+          "Texture": {
+            "ObjectName": "Texture2D'T_UI_HUDPC_Crosshair_2'",
+            "ObjectPath": "PM/Content/PaperMan/UI/Atlas/Canvas/T_UI_HUDPC_Crosshair_2.0"
+          },
+          "U": 4.0,
+          "V": 19.0,
+          "UL": 12.0,
+          "VL": 26.0
+        },
+        "Icons[2]": {
+          "Texture": {
+            "ObjectName": "Texture2D'T_UI_HUDPC_Crosshair_2'",
+            "ObjectPath": "PM/Content/PaperMan/UI/Atlas/Canvas/T_UI_HUDPC_Crosshair_2.0"
+          },
+          "U": 48.0,
+          "V": 19.0,
+          "UL": 12.0,
+          "VL": 26.0
+        },
+        "Icons[3]": {
+          "Texture": {
+            "ObjectName": "Texture2D'T_UI_HUDPC_Crosshair_2'",
+            "ObjectPath": "PM/Content/PaperMan/UI/Atlas/Canvas/T_UI_HUDPC_Crosshair_2.0"
+          },
+          "U": 19.0,
+          "V": 48.0,
+          "UL": 26.0,
+          "VL": 12.0
+        },
+        "Icons[4]": {
+          "Texture": {
+            "ObjectName": "Texture2D'T_UI_HUDPC_Crosshair_2'",
+            "ObjectPath": "PM/Content/PaperMan/UI/Atlas/Canvas/T_UI_HUDPC_Crosshair_2.0"
+          },
+          "U": 19.0,
+          "V": 4.0,
+          "UL": 26.0,
+          "VL": 12.0
+        }
+      },
+      "CrossHairConfigFPP": {
+        "Icons": {
+          "Texture": {
+            "ObjectName": "Texture2D'T_UI_HUDPC_Crosshair_1'",
+            "ObjectPath": "PM/Content/PaperMan/UI/Atlas/Canvas/T_UI_HUDPC_Crosshair_1.0"
+          },
+          "U": 7.0,
+          "V": 1.0,
+          "UL": 6.0,
+          "VL": 6.0
+        },
+        "Materails": {
+          "Materail": {
+            "ObjectName": "MaterialInstanceConstant'M_WeaponLaserAim'",
+            "ObjectPath": "PM/Content/PaperMan/UI/Material/M_WeaponLaserAim.0"
+          }
+        },
+        "SizeScaleCurve": {
+          "ObjectName": "CurveFloat'Curve_CrossHairSize'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MG42/Curves/Curve_CrossHairSize.0"
+        }
+      },
+      "BlockAimingConfig": {
+        "Icon": {
+          "Texture": {
+            "ObjectName": "Texture2D'T_UI_CrossHair_Nearaim'",
+            "ObjectPath": "PM/Content/PaperMan/UI/Atlas/Canvas/T_UI_CrossHair_Nearaim.0"
+          }
+        }
+      },
+      "ReloadProgressWidgetName": "ReloadProgressUI_RB_SG",
+      "ExplodeEffect": {
+        "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Common/P_Explosion.P_Explosion",
+        "SubPathString": ""
+      },
+      "HitAudioConfig": {
+        "ObjectName": "AkSurfaceHitConfig'AkSurfaceHitConfig'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkConfigs/AkSurfaceHitConfig.0"
+      },
+      "AkStateBeginEvents": [
+        {
+          "Key": "EFStateType::Equip",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Wpn_3D_Common_Switch'",
+            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_3D_Common_Switch.0"
+          }
+        },
+        {
+          "Key": "EFStateType::ReloadStart",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Weap_Super90_Reload'",
+            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Weap_Super90_Reload.0"
+          }
+        },
+        {
+          "Key": "EFStateType::Reload",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Weap_Super90_Reload'",
+            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Weap_Super90_Reload.0"
+          }
+        }
+      ],
+      "AkHoldBeginEvents": [
+        {
+          "Key": "EFHoldType::Aiming",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Wpn_Common_Aim_01'",
+            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Common_Aim_01.0"
+          }
+        },
+        {
+          "Key": "EFHoldType::ADS",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Wpn_Common_Aim_02'",
+            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Common_Aim_02.0"
+          }
+        }
+      ],
+      "AkHoldEndEvents": [
+        {
+          "Key": "EFHoldType::Aiming",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Wpn_Common_Aim_End_01'",
+            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Common_Aim_End_01.0"
+          }
+        },
+        {
+          "Key": "EFHoldType::ADS",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Wpn_Common_Aim_End_01'",
+            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Common_Aim_End_01.0"
+          }
+        }
+      ],
+      "AkEventAttackStartConfig": {
+        "Default": {
+          "ObjectName": "AkAudioEvent'Weap_Super90_OneShot'",
+          "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Weap_Super90_OneShot.0"
+        }
+      },
+      "AkEventAttackContinuousConfig": {
+        "Default": {
+          "ObjectName": "AkAudioEvent'Weap_Super90_OneShot'",
+          "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Weap_Super90_OneShot.0"
+        }
+      },
+      "AkEventAttackLastBulletConfig": {
+        "Default": {
+          "ObjectName": "AkAudioEvent'Weap_Super90_LastShot'",
+          "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Weap_Super90_LastShot.0"
+        }
+      },
+      "AkEventAttackEmptyConfig": {
+        "Default": {
+          "ObjectName": "AkAudioEvent'Wpn_Common_NoAmmo'",
+          "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Common_NoAmmo.0"
+        }
+      },
+      "AudioBanks": [
+        {
+          "ObjectName": "AkAudioBank'Wpn_Super90'",
+          "ObjectPath": "PM/Content/WwiseAssets/AkBank/Wpn_Super90.0"
+        },
+        {
+          "ObjectName": "AkAudioBank'Wpn_Common'",
+          "ObjectPath": "PM/Content/WwiseAssets/AkBank/Wpn_Common.0"
+        }
+      ],
+      "HitEffectConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Baimo/PS_Baimo_hit.PS_Baimo_hit",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType9",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Baimo/PS_Baimo_hit.PS_Baimo_hit",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType15",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Baimo/PS_Baimo_hit.PS_Baimo_hit",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType27",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Baimo/PS_Baimo_hit.PS_Baimo_hit",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType14",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Baimo/PS_Baimo_hit.PS_Baimo_hit",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType50",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/PS_Hit_Audrey_Shield.PS_Hit_Audrey_Shield",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType10",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Grass/Fx_Hit_Grass_Middle.Fx_Hit_Grass_Middle",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType26",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Limestone/Fx_Hit_Water_Middle.Fx_Hit_Water_Middle",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType51",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/PS_Hit_BlockSkillWall.PS_Hit_BlockSkillWall",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType52",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/PartitionWall/Fx_Hit_PartitionWall_Middle.Fx_Hit_PartitionWall_Middle",
+              "SubPathString": ""
+            }
+          }
+        ]
+      },
+      "HitCharacterEffectConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/P_hit_Role_Middle.P_hit_Role_Middle",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/P_hit_Role_Big.P_hit_Role_Big",
+              "SubPathString": ""
+            }
+          }
+        ]
+      },
+      "HitCharacterEffect2DConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/P_hit_Role_Middle.P_hit_Role_Middle",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/P_hit_Role_Big.P_hit_Role_Big",
+              "SubPathString": ""
+            }
+          }
+        ]
+      },
+      "HitArmorEffectConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/Fx_Hit_Shield_Middle.Fx_Hit_Shield_Middle",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/Fx_Hit_Shield_Big.Fx_Hit_Shield_Big",
+              "SubPathString": ""
+            }
+          }
+        ]
+      }
+    }
+  }
+]
