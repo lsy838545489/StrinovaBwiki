@@ -3,6 +3,7 @@
     "Type": "DataTable",
     "Name": "DT_Guide_TeamGuide_Task",
     "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'CyGuideTask'",
@@ -14,6 +15,9 @@
         "TaskId": 1,
         "bShow": false,
         "bGuideEnd": false,
+        "TaskText": {
+          "CultureInvariantString": null
+        },
         "bPlotMode": true,
         "PlotModeEndSmoothTime": 0.5,
         "bPlotModeEndChangeViewRotation": false,
@@ -57,7 +61,8 @@
         "RelationUniqueNames": [],
         "SequenceMap": [
           {
-            "ECyGuideTaskStateType::Begin": {
+            "Key": "ECyGuideTaskStateType::Begin",
+            "Value": {
               "PlotSequenceId": 0,
               "MapSequenceTags": [
                 "start"
@@ -72,7 +77,8 @@
           "WeaponSlotTypes": [],
           "AbilityInputIDs": [],
           "GameUIFunctionTypes": [],
-          "GameUIFunctionPages": []
+          "GameUIFunctionPages": [],
+          "bNotAutoOpenGameUIFunctionPages": false
         },
         "DisableGameFunctionConfig": {
           "WeaponSlotTypes": [],
@@ -98,9 +104,16 @@
             "ECyGameUIFunctionType::Head",
             "ECyGameUIFunctionType::InGameESC"
           ],
-          "GameUIFunctionPages": []
+          "GameUIFunctionPages": [],
+          "bNotAutoOpenGameUIFunctionPages": false
         },
         "CancelAllAbilityAndSummonTaskStates": [],
+        "SkillApplyConfig": {
+          "ApplyTargetActorType": "EActionApplyTargetActorType::None",
+          "SkillAddPointNum": []
+        },
+        "ShowActorTag": "None",
+        "HideActorTag": "None",
         "SubTasks": [
           {
             "SubTaskId": 1001,
@@ -114,12 +127,19 @@
             "KeyActionData": {
               "ActionName": "None",
               "ActionGamePadName": "None",
+              "KeyBoardDefault": {
+                "KeyName": "None"
+              },
+              "GamePadDefault": {
+                "KeyName": "None"
+              },
               "Scale": 0.0,
               "IsAxisAction": false
             },
             "FormatInputKeyMap": [],
             "Tips": [],
             "TipsConfig": [],
+            "GamePadActionNames": [],
             "SequenceMap": [],
             "EndTaskEvents": [
               {
@@ -144,15 +164,46 @@
             ],
             "FinishTaskNeedNum": 1,
             "TaskState": "ECyGuideSubTaskStateType::None",
-            "FinishTaskNum": 0
+            "FinishTaskNum": 0,
+            "StartTag": {
+              "TagName": "None"
+            },
+            "EndTag": {
+              "TagName": "None"
+            }
           }
         ],
-        "TaskState": "ECyGuideTaskStateType::None"
+        "TaskState": "ECyGuideTaskStateType::None",
+        "StartTag": {
+          "TagName": "None"
+        },
+        "EndTag": {
+          "TagName": "None"
+        },
+        "InputKey": "ECyGuideInputKey::None",
+        "KeyText": {
+          "CultureInvariantString": null
+        },
+        "KeyActionData": {
+          "ActionName": "None",
+          "ActionGamePadName": "None",
+          "KeyBoardDefault": {
+            "KeyName": "None"
+          },
+          "GamePadDefault": {
+            "KeyName": "None"
+          },
+          "Scale": 0.0,
+          "IsAxisAction": false
+        }
       },
       "2": {
         "TaskId": 2,
         "bShow": false,
         "bGuideEnd": false,
+        "TaskText": {
+          "CultureInvariantString": null
+        },
         "bPlotMode": false,
         "PlotModeEndSmoothTime": 0.5,
         "bPlotModeEndChangeViewRotation": false,
@@ -166,7 +217,9 @@
         "bDisableAllInput": true,
         "TaskName": {
           "TableId": "/Game/PaperMan/CyTable/StringTable/ST_KeyMappingFormat.ST_KeyMappingFormat",
-          "Key": "TeamGuideTask1"
+          "Key": "TeamGuideTask1",
+          "SourceString": "与欧泊成员汇合",
+          "LocalizedString": "与欧泊成员汇合"
         },
         "AutoFinishDelay": 0.1,
         "TaskCompleteStateTime": 0.0,
@@ -208,15 +261,23 @@
             "EAInputID::ADS"
           ],
           "GameUIFunctionTypes": [],
-          "GameUIFunctionPages": []
+          "GameUIFunctionPages": [],
+          "bNotAutoOpenGameUIFunctionPages": false
         },
         "DisableGameFunctionConfig": {
           "WeaponSlotTypes": [],
           "AbilityInputIDs": [],
           "GameUIFunctionTypes": [],
-          "GameUIFunctionPages": []
+          "GameUIFunctionPages": [],
+          "bNotAutoOpenGameUIFunctionPages": false
         },
         "CancelAllAbilityAndSummonTaskStates": [],
+        "SkillApplyConfig": {
+          "ApplyTargetActorType": "EActionApplyTargetActorType::None",
+          "SkillAddPointNum": []
+        },
+        "ShowActorTag": "None",
+        "HideActorTag": "None",
         "SubTasks": [
           {
             "SubTaskId": 1001,
@@ -230,12 +291,19 @@
             "KeyActionData": {
               "ActionName": "None",
               "ActionGamePadName": "None",
+              "KeyBoardDefault": {
+                "KeyName": "None"
+              },
+              "GamePadDefault": {
+                "KeyName": "None"
+              },
               "Scale": 0.0,
               "IsAxisAction": false
             },
             "FormatInputKeyMap": [],
             "Tips": [],
             "TipsConfig": [],
+            "GamePadActionNames": [],
             "SequenceMap": [],
             "EndTaskEvents": [
               {
@@ -260,15 +328,46 @@
             ],
             "FinishTaskNeedNum": 0,
             "TaskState": "ECyGuideSubTaskStateType::None",
-            "FinishTaskNum": 0
+            "FinishTaskNum": 0,
+            "StartTag": {
+              "TagName": "None"
+            },
+            "EndTag": {
+              "TagName": "None"
+            }
           }
         ],
-        "TaskState": "ECyGuideTaskStateType::None"
+        "TaskState": "ECyGuideTaskStateType::None",
+        "StartTag": {
+          "TagName": "None"
+        },
+        "EndTag": {
+          "TagName": "None"
+        },
+        "InputKey": "ECyGuideInputKey::None",
+        "KeyText": {
+          "CultureInvariantString": null
+        },
+        "KeyActionData": {
+          "ActionName": "None",
+          "ActionGamePadName": "None",
+          "KeyBoardDefault": {
+            "KeyName": "None"
+          },
+          "GamePadDefault": {
+            "KeyName": "None"
+          },
+          "Scale": 0.0,
+          "IsAxisAction": false
+        }
       },
       "3": {
         "TaskId": 3,
         "bShow": false,
         "bGuideEnd": false,
+        "TaskText": {
+          "CultureInvariantString": null
+        },
         "bPlotMode": false,
         "PlotModeEndSmoothTime": 0.5,
         "bPlotModeEndChangeViewRotation": false,
@@ -282,7 +381,9 @@
         "bDisableAllInput": false,
         "TaskName": {
           "TableId": "/Game/PaperMan/CyTable/StringTable/ST_KeyMappingFormat.ST_KeyMappingFormat",
-          "Key": "TeamGuideTask1"
+          "Key": "TeamGuideTask1",
+          "SourceString": "与欧泊成员汇合",
+          "LocalizedString": "与欧泊成员汇合"
         },
         "AutoFinishDelay": 0.1,
         "TaskCompleteStateTime": 0.0,
@@ -313,7 +414,8 @@
         "RelationUniqueNames": [],
         "SequenceMap": [
           {
-            "ECyGuideTaskStateType::Finish": {
+            "Key": "ECyGuideTaskStateType::Finish",
+            "Value": {
               "PlotSequenceId": 0,
               "MapSequenceTags": [
                 "guide_end"
@@ -328,15 +430,23 @@
           "WeaponSlotTypes": [],
           "AbilityInputIDs": [],
           "GameUIFunctionTypes": [],
-          "GameUIFunctionPages": []
+          "GameUIFunctionPages": [],
+          "bNotAutoOpenGameUIFunctionPages": false
         },
         "DisableGameFunctionConfig": {
           "WeaponSlotTypes": [],
           "AbilityInputIDs": [],
           "GameUIFunctionTypes": [],
-          "GameUIFunctionPages": []
+          "GameUIFunctionPages": [],
+          "bNotAutoOpenGameUIFunctionPages": false
         },
         "CancelAllAbilityAndSummonTaskStates": [],
+        "SkillApplyConfig": {
+          "ApplyTargetActorType": "EActionApplyTargetActorType::None",
+          "SkillAddPointNum": []
+        },
+        "ShowActorTag": "None",
+        "HideActorTag": "None",
         "SubTasks": [
           {
             "SubTaskId": 301,
@@ -350,12 +460,19 @@
             "KeyActionData": {
               "ActionName": "None",
               "ActionGamePadName": "None",
+              "KeyBoardDefault": {
+                "KeyName": "None"
+              },
+              "GamePadDefault": {
+                "KeyName": "None"
+              },
               "Scale": 0.0,
               "IsAxisAction": false
             },
             "FormatInputKeyMap": [],
             "Tips": [],
             "TipsConfig": [],
+            "GamePadActionNames": [],
             "SequenceMap": [],
             "EndTaskEvents": [
               {
@@ -380,15 +497,46 @@
             ],
             "FinishTaskNeedNum": 0,
             "TaskState": "ECyGuideSubTaskStateType::None",
-            "FinishTaskNum": 0
+            "FinishTaskNum": 0,
+            "StartTag": {
+              "TagName": "None"
+            },
+            "EndTag": {
+              "TagName": "None"
+            }
           }
         ],
-        "TaskState": "ECyGuideTaskStateType::None"
+        "TaskState": "ECyGuideTaskStateType::None",
+        "StartTag": {
+          "TagName": "None"
+        },
+        "EndTag": {
+          "TagName": "None"
+        },
+        "InputKey": "ECyGuideInputKey::None",
+        "KeyText": {
+          "CultureInvariantString": null
+        },
+        "KeyActionData": {
+          "ActionName": "None",
+          "ActionGamePadName": "None",
+          "KeyBoardDefault": {
+            "KeyName": "None"
+          },
+          "GamePadDefault": {
+            "KeyName": "None"
+          },
+          "Scale": 0.0,
+          "IsAxisAction": false
+        }
       },
       "4": {
         "TaskId": 4,
         "bShow": false,
         "bGuideEnd": true,
+        "TaskText": {
+          "CultureInvariantString": null
+        },
         "bPlotMode": false,
         "PlotModeEndSmoothTime": 0.5,
         "bPlotModeEndChangeViewRotation": false,
@@ -451,17 +599,47 @@
             "ECyGameUIFunctionType::Head",
             "ECyGameUIFunctionType::InGameESC"
           ],
-          "GameUIFunctionPages": []
+          "GameUIFunctionPages": [],
+          "bNotAutoOpenGameUIFunctionPages": false
         },
         "DisableGameFunctionConfig": {
           "WeaponSlotTypes": [],
           "AbilityInputIDs": [],
           "GameUIFunctionTypes": [],
-          "GameUIFunctionPages": []
+          "GameUIFunctionPages": [],
+          "bNotAutoOpenGameUIFunctionPages": false
         },
         "CancelAllAbilityAndSummonTaskStates": [],
+        "SkillApplyConfig": {
+          "ApplyTargetActorType": "EActionApplyTargetActorType::None",
+          "SkillAddPointNum": []
+        },
+        "ShowActorTag": "None",
+        "HideActorTag": "None",
         "SubTasks": [],
-        "TaskState": "ECyGuideTaskStateType::None"
+        "TaskState": "ECyGuideTaskStateType::None",
+        "StartTag": {
+          "TagName": "None"
+        },
+        "EndTag": {
+          "TagName": "None"
+        },
+        "InputKey": "ECyGuideInputKey::None",
+        "KeyText": {
+          "CultureInvariantString": null
+        },
+        "KeyActionData": {
+          "ActionName": "None",
+          "ActionGamePadName": "None",
+          "KeyBoardDefault": {
+            "KeyName": "None"
+          },
+          "GamePadDefault": {
+            "KeyName": "None"
+          },
+          "Scale": 0.0,
+          "IsAxisAction": false
+        }
       }
     }
   }

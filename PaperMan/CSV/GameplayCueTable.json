@@ -3,6 +3,7 @@
     "Type": "DataTable",
     "Name": "GameplayCueTable",
     "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'GameplayTagTableRow'",
@@ -14,6 +15,10 @@
         "Tag": "GC.XRay.Instigator",
         "DevComment": "仅施法者可见的透视"
       },
+      "GC.XRay.InstigatorNoTipsInstigator": {
+        "Tag": "GC.XRay.InstigatorNoTipsInstigator",
+        "DevComment": "仅施法者可见的透视但施法者无提示版本"
+      },
       "GC.XRay.InstigatorTeam": {
         "Tag": "GC.XRay.InstigatorTeam",
         "DevComment": "施法者全队可见的透视"
@@ -21,6 +26,14 @@
       "GC.XRay.InstigatorTeamNoTips": {
         "Tag": "GC.XRay.InstigatorTeamNoTips",
         "DevComment": "施法者全队可见的透视无提示版本"
+      },
+      "GC.XRay.AllNoTips": {
+        "Tag": "GC.XRay.AllNoTips",
+        "DevComment": "所有人可见的透视无提示版本"
+      },
+      "GC.Lawine.E.Flash": {
+        "Tag": "GC.Lawine.E.Flash",
+        "DevComment": "拉维E技能闪光"
       },
       "GC.Lawine.ArousalThree.XRay": {
         "Tag": "GC.Lawine.ArousalThree.XRay",
@@ -406,13 +419,9 @@
         "Tag": "GC.IceZone",
         "DevComment": "冰面效果"
       },
-      "GC.CrystalloidAlpha.Q": {
-        "Tag": "GC.CrystalloidAlpha.Q",
+      "GC.CrystalloidAlpha.X": {
+        "Tag": "GC.CrystalloidAlpha.X",
         "DevComment": "大鬼护盾效果"
-      },
-      "GC.Fissioner1.Q": {
-        "Tag": "GC.Fissioner1.Q",
-        "DevComment": "小鬼加速效果"
       },
       "GC.Flavia.Q.Heal": {
         "Tag": "GC.Flavia.Q.Heal",
@@ -425,6 +434,10 @@
       "GC.OnHit": {
         "Tag": "GC.OnHit",
         "DevComment": "受击"
+      },
+      "GC.SilenceMichele.E": {
+        "Tag": "GC.SilenceMichele.E",
+        "DevComment": "沉默米雪儿GC"
       },
       "GC.SilenceZone.Mine": {
         "Tag": "GC.SilenceZone.Mine",
@@ -473,6 +486,182 @@
       "GC.Kanami.X": {
         "Tag": "GC.Kanami.X",
         "DevComment": "香奈美大招GC特效"
+      },
+      "GC.Galatea.E": {
+        "Tag": "GC.Galatea.E",
+        "DevComment": "加拉蒂亚C技能GC"
+      },
+      "GC.Fuchsia.E": {
+        "Tag": "GC.Fuchsia.E",
+        "DevComment": "绯莎C技能GC"
+      },
+      "GC.Vertigo.Kanami.E": {
+        "Tag": "GC.Vertigo.Kanami.E",
+        "DevComment": "香奈美E技能眩晕效果"
+      },
+      "GC.BigHead.Upgrade": {
+        "Tag": "GC.BigHead.Upgrade",
+        "DevComment": "大头等级升级"
+      },
+      "GC.BigHead.BecomeKing": {
+        "Tag": "GC.BigHead.BecomeKing",
+        "DevComment": "成为大头王特效"
+      },
+      "GC.Ming.E.Flash": {
+        "Tag": "GC.Ming.E.Flash",
+        "DevComment": "明E技能闪光效果"
+      },
+      "GC.BigHead.HitRecover": {
+        "Tag": "GC.BigHead.HitRecover",
+        "DevComment": "大头模式恢复"
+      },
+      "GC.Maddelena.Block2D.E": {
+        "Tag": "GC.Maddelena.Block2D.E",
+        "DevComment": "玛德蕾娜E技能禁止弦化"
+      },
+      "GC.Maddelena.FootPrint.E": {
+        "Tag": "GC.Maddelena.FootPrint.E",
+        "DevComment": "玛德蕾娜E技能脚印"
+      },
+      "GC.KillerInfo.Instigator": {
+        "Tag": "GC.KillerInfo.Instigator",
+        "DevComment": "显示击杀者信息"
+      },
+      "GC.Leona.P.ArmorRecovery": {
+        "Tag": "GC.Leona.P.ArmorRecovery",
+        "DevComment": "蕾欧娜被动回甲"
+      },
+      "GC.Leona.P.SpeedFactor": {
+        "Tag": "GC.Leona.P.SpeedFactor",
+        "DevComment": "蕾欧娜被动加速"
+      },
+      "GC.OnHit.Q.Leona": {
+        "Tag": "GC.OnHit.Q.Leona",
+        "DevComment": "蕾欧娜Q技能召唤物受击效果"
+      },
+      "GC.OnHit.E.Leona": {
+        "Tag": "GC.OnHit.E.Leona",
+        "DevComment": "蕾欧娜C技能召唤物受击效果"
+      },
+      "GC.OnHit.X.Leona": {
+        "Tag": "GC.OnHit.X.Leona",
+        "DevComment": "蕾欧娜X技能召唤物受击效果"
+      },
+      "GC.Fuchsia.Q.XRayInstigator": {
+        "Tag": "GC.Fuchsia.Q.XRayInstigator",
+        "DevComment": "绯莎q技能自我透视GC"
+      },
+      "GC.Kanami.P.XRayInstigator": {
+        "Tag": "GC.Kanami.P.XRayInstigator",
+        "DevComment": "香奈美p技能自我透视GC"
+      },
+      "GC.Lawine.P.XRayInstigator": {
+        "Tag": "GC.Lawine.P.XRayInstigator",
+        "DevComment": "拉薇p技能自我透视GC"
+      },
+      "GC.Michele.P.XRayInstigator": {
+        "Tag": "GC.Michele.P.XRayInstigator",
+        "DevComment": "米雪儿p技能自我透视GC"
+      },
+      "GC.Reiichi.P.XRayInstigator": {
+        "Tag": "GC.Reiichi.P.XRayInstigator",
+        "DevComment": "令p技能自我透视GC"
+      },
+      "GC.Mara.P": {
+        "Tag": "GC.Mara.P",
+        "DevComment": "玛拉被动回血GC特效"
+      },
+      "GC.Mara.ArousalOne": {
+        "Tag": "GC.Mara.ArousalOne",
+        "DevComment": "玛拉觉醒1魂魄GC特效"
+      },
+      "GC.Mara.ArousalTwo": {
+        "Tag": "GC.Mara.ArousalTwo",
+        "DevComment": "玛拉觉醒2鬼手+眩晕特效GC"
+      },
+      "GC.Mara.E.WhileActive.StealthLow": {
+        "Tag": "GC.Mara.E.WhileActive.StealthLow",
+        "DevComment": "玛拉C技能弦化持续隐身GC特效Low"
+      },
+      "GC.Mara.E.WhileActive.StealthHigh": {
+        "Tag": "GC.Mara.E.WhileActive.StealthHigh",
+        "DevComment": "玛拉C技能弦化持续隐身GC特效High"
+      },
+      "GC.Mara.E.WhileActive.KeepEffect": {
+        "Tag": "GC.Mara.E.WhileActive.KeepEffect",
+        "DevComment": "玛拉C技能持续GC特效"
+      },
+      "GC.Mara.X.Silence": {
+        "Tag": "GC.Mara.X.Silence",
+        "DevComment": "玛拉x技能沉默目标GC特效"
+      },
+      "GC.Mara.X.Instigator": {
+        "Tag": "GC.Mara.X.Instigator",
+        "DevComment": "玛拉x技能命中敌人,自身获取死神来了Buff时的GC"
+      },
+      "GC.Fissioner1.Q": {
+        "Tag": "GC.Fissioner1.Q",
+        "DevComment": "小鬼暴走效果"
+      },
+      "GC.Fissioner2.Q": {
+        "Tag": "GC.Fissioner2.Q",
+        "DevComment": "小鬼隐身效果"
+      },
+      "GC.Role.Zombie.Evolution": {
+        "Tag": "GC.Role.Zombie.Evolution",
+        "DevComment": "生化僵尸进化"
+      },
+      "GC.Role.Human.Hero": {
+        "Tag": "GC.Role.Human.Hero",
+        "DevComment": "生化英雄"
+      },
+      "GC.Role.Card.RescueSelf": {
+        "Tag": "GC.Role.Card.RescueSelf",
+        "DevComment": "角色卡牌自救"
+      },
+      "GC.Maddelena.Pigment": {
+        "Tag": "GC.Maddelena.Pigment",
+        "DevComment": "玛德蕾娜颜料"
+      },
+      "GC.CircleArea": {
+        "Tag": "GC.CircleArea",
+        "DevComment": "圆形区域特效"
+      },
+      "GC.Common.Stealth": {
+        "Tag": "GC.Common.Stealth",
+        "DevComment": "通用隐身"
+      },
+      "GC.Common.IceScope": {
+        "Tag": "GC.Common.IceScope",
+        "DevComment": "通用冰雪区域"
+      },
+      "GC.Flavia.Q.Blind": {
+        "Tag": "GC.Flavia.Q.Blind",
+        "DevComment": "芙拉薇娅致盲GC"
+      },
+      "GC.Zombie.Treatment": {
+        "Tag": "GC.Zombie.Treatment",
+        "DevComment": "僵尸治疗效果"
+      },
+      "GC.XRay.InstigatorEnemy": {
+        "Tag": "GC.XRay.InstigatorEnemy",
+        "DevComment": "对敌人以及队友施加提示"
+      },
+      "GC.XRay.MarkInstigator": {
+        "Tag": "GC.XRay.MarkInstigator",
+        "DevComment": "敌人标记提示"
+      },
+      "GC.Common.DotFireDamage": {
+        "Tag": "GC.Common.DotFireDamage",
+        "DevComment": "灼烧效果"
+      },
+      "GC.Action.Reward.One": {
+        "Tag": "GC.Action.Reward.One",
+        "DevComment": "行为奖励特效1"
+      },
+      "GC.Action.Reward.Two": {
+        "Tag": "GC.Action.Reward.Two",
+        "DevComment": "行为奖励特效2"
       }
     }
   }

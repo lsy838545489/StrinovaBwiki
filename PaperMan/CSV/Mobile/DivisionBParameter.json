@@ -3,6 +3,7 @@
     "Type": "DataTable",
     "Name": "DivisionBParameter",
     "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'CyDivisionBParameterTableRow'",
@@ -11,15 +12,15 @@
     },
     "Rows": {
       "singularity1": {
-        "Value": 36.0,
+        "Value": 3501.0,
         "Range": []
       },
       "singularity2": {
-        "Value": 3000.0,
+        "Value": 1000.0,
         "Range": []
       },
       "singularity3": {
-        "Value": 2800.0,
+        "Value": 3601.0,
         "Range": []
       },
       "singularity4": {
@@ -38,30 +39,18 @@
         "Value": 30.0,
         "Range": []
       },
-      "divisionscore4": {
-        "Value": 120.0,
-        "Range": []
-      },
       "cMMRnewer": {
-        "Value": 1500.0,
+        "Value": 1600.0,
         "Range": []
       },
-      "cMMRmatchclass": {
-        "Value": 0.0,
-        "Range": [
-          0,
-          1,
-          2
-        ]
-      },
-      "cMMRmatchratio": {
+      "cMMRmatchfluctuateratio": {
         "Value": 0.0,
         "Range": [
           0
         ]
       },
       "cMMRoneselfratio": {
-        "Value": 0.6,
+        "Value": 0.3,
         "Range": []
       },
       "PSmatchclass": {
@@ -69,7 +58,10 @@
         "Range": [
           0,
           1,
-          2
+          12,
+          14,
+          22,
+          24
         ]
       },
       "PSmatchcnt": {
@@ -85,23 +77,31 @@
         "Range": []
       },
       "PSroleratio": {
-        "Value": 0.15,
+        "Value": 0.2,
+        "Range": []
+      },
+      "PSmapvalidity": {
+        "Value": 30.0,
         "Range": []
       },
       "PSmapstandard": {
-        "Value": 100.0,
+        "Value": 12000.0,
         "Range": []
       },
       "PSmapstandardratio": {
-        "Value": 0.8,
+        "Value": 0.5,
+        "Range": []
+      },
+      "PSrolevalidity": {
+        "Value": 30.0,
         "Range": []
       },
       "PSrolestandard": {
-        "Value": 1000.0,
+        "Value": 5000.0,
         "Range": []
       },
       "PSrolestandardratio": {
-        "Value": 0.8,
+        "Value": 0.5,
         "Range": []
       },
       "divisionmatchratio": {
@@ -115,39 +115,42 @@
         "Range": []
       },
       "divisionnewer1": {
-        "Value": 0.8,
-        "Range": []
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
       },
       "divisionnewer2": {
-        "Value": 0.4,
-        "Range": []
-      },
-      "divisionresetlarge": {
-        "Value": 5.0,
-        "Range": []
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
       },
       "divisionresetlarge1": {
-        "Value": 0.8,
+        "Value": 3.0,
         "Range": []
       },
       "divisionresetlarge2": {
-        "Value": 0.4,
-        "Range": []
-      },
-      "divisionresetsmall": {
-        "Value": 1.0,
+        "Value": 3.0,
         "Range": []
       },
       "divisionresetsmall1": {
-        "Value": 0.8,
+        "Value": 1.0,
         "Range": []
       },
       "divisionresetsmall2": {
-        "Value": 0.4,
+        "Value": 1.0,
         "Range": []
       },
+      "divisioninheritmin": {
+        "Value": 0.0,
+        "Range": [
+          15,
+          15
+        ]
+      },
       "divisionwinstreak": {
-        "Value": 3.0,
+        "Value": 2.0,
         "Range": []
       },
       "divisionjumpps": {
@@ -155,8 +158,28 @@
         "Range": []
       },
       "divisionjumpcd": {
-        "Value": 72.0,
-        "Range": []
+        "Value": 0.0,
+        "Range": [
+          1,
+          5
+        ]
+      },
+      "divisionjumpresetcd": {
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
+      },
+      "divisionjumpclass": {
+        "Value": 0.0,
+        "Range": [
+          0,
+          1,
+          12,
+          14,
+          22,
+          24
+        ]
       },
       "cMMRbalance2": {
         "Value": 0.0,
@@ -230,11 +253,23 @@
           0
         ]
       },
-      "matchattstreak": {
+      "divisionthreshold": {
+        "Value": 99.0,
+        "Range": []
+      },
+      "divisonmax": {
+        "Value": 37.0,
+        "Range": []
+      },
+      "modethreshold": {
         "Value": 0.0,
         "Range": [
-          0
+          103
         ]
+      },
+      "divisionrewardtrue": {
+        "Value": 1.0,
+        "Range": []
       },
       "matchlosestreak": {
         "Value": 0.5,
@@ -245,53 +280,30 @@
         "Range": []
       },
       "weaklymail": {
-        "Value": 2100.0,
-        "Range": []
-      },
-      "class0": {
         "Value": 0.0,
         "Range": [
-          0,
-          50
+          0
         ]
       },
-      "class1": {
+      "activemail": {
         "Value": 0.0,
         "Range": [
-          51,
-          100
-        ]
-      },
-      "class2": {
-        "Value": 0.0,
-        "Range": [
-          101,
-          150
-        ]
-      },
-      "class3": {
-        "Value": 0.0,
-        "Range": [
-          151,
-          200
-        ]
-      },
-      "class4": {
-        "Value": 0.0,
-        "Range": [
-          201,
-          10000
+          0
         ]
       },
       "shortesttime": {
         "Value": 0.0,
         "Range": [
           3,
-          10
+          12
         ]
       },
       "losestreaktime": {
-        "Value": 48.0,
+        "Value": 72.0,
+        "Range": []
+      },
+      "winstreaktime": {
+        "Value": 72.0,
         "Range": []
       },
       "divisiontype": {
@@ -304,6 +316,104 @@
       "divisioncnt": {
         "Value": 15.0,
         "Range": []
+      },
+      "cMMRdenom": {
+        "Value": 500.0,
+        "Range": []
+      },
+      "divisionaddscore": {
+        "Value": 30.0,
+        "Range": []
+      },
+      "addscore": {
+        "Value": 20.0,
+        "Range": []
+      },
+      "divisionassurescore": {
+        "Value": 30.0,
+        "Range": []
+      },
+      "wincrushcnt": {
+        "Value": 0.0,
+        "Range": [
+          24,
+          5
+        ]
+      },
+      "wincrushmatch": {
+        "Value": 0.0,
+        "Range": [
+          1,
+          2,
+          9,
+          31,
+          5,
+          32,
+          33,
+          34
+        ]
+      },
+      "NegativeAvoidanceCnt": {
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
+      },
+      "AIdramaId": {
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
+      },
+      "AIdivisionset1": {
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
+      },
+      "AIdivisionset2": {
+        "Value": 0.0,
+        "Range": [
+          1,
+          1
+        ]
+      },
+      "matchallmode1": {
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
+      },
+      "matchallcnt1": {
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
+      },
+      "matchallmode2": {
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
+      },
+      "matchallcnt2": {
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
+      },
+      "CampCapacityFix": {
+        "Value": 0.0,
+        "Range": [
+          0
+        ]
+      },
+      "CircuitBreakerParameters": {
+        "Value": 0.0,
+        "Range": [
+          8,
+          3
+        ]
       }
     }
   }

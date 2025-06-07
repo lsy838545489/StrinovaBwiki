@@ -3,6 +3,7 @@
     "Type": "DataTable",
     "Name": "GameplayBuffIconTable",
     "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'GameplayTagTableRow'",
@@ -62,6 +63,10 @@
         "Tag": "BuffIcon.Strong.ArmorRecover.P.Huixing",
         "DevComment": "星造甲生"
       },
+      "BuffIcon.Strong.ArmorRecover.P.Leona": {
+        "Tag": "BuffIcon.Strong.ArmorRecover.P.Leona",
+        "DevComment": "恢复护甲"
+      },
       "BuffIcon.Strong.ArmorMax.Q.Huixing": {
         "Tag": "BuffIcon.Strong.ArmorMax.Q.Huixing",
         "DevComment": "流星盾牌"
@@ -74,9 +79,9 @@
         "Tag": "BuffIcon.Strong.HealthRecover.P.Fuchsia",
         "DevComment": "储能治疗"
       },
-      "BuffIcon.Strong.ExtraHealthMax.P.Fuchsia": {
-        "Tag": "BuffIcon.Strong.ExtraHealthMax.P.Fuchsia",
-        "DevComment": "绯莎被动血量上限提升"
+      "BuffIcon.Strong.ExtraHealthMax": {
+        "Tag": "BuffIcon.Strong.ExtraHealthMax",
+        "DevComment": "血量上限提升"
       },
       "BuffIcon.Weak.XRay": {
         "Tag": "BuffIcon.Weak.XRay",
@@ -104,6 +109,10 @@
       },
       "BuffIcon.Strong.Speed": {
         "Tag": "BuffIcon.Strong.Speed",
+        "DevComment": "速度提升"
+      },
+      "BuffIcon.Strong.Speed.P.Leona": {
+        "Tag": "BuffIcon.Strong.Speed.P.Leona",
         "DevComment": "速度提升"
       },
       "BuffIcon.Strong.AttackSpeed": {
@@ -185,6 +194,10 @@
       "BuffIcon.Strong.ArmorRecover.Growth.Shield": {
         "Tag": "BuffIcon.Strong.ArmorRecover.Growth.Shield",
         "DevComment": "局内成长护甲恢复"
+      },
+      "BuffIcon.Strong.HealthRecover.Growth.Health": {
+        "Tag": "BuffIcon.Strong.HealthRecover.Growth.Health",
+        "DevComment": "局内成长生命值恢复"
       },
       "BuffIcon.Strong.FireAmmo": {
         "Tag": "BuffIcon.Strong.FireAmmo",
@@ -270,9 +283,217 @@
         "Tag": "BuffIcon.Strong.XPointRecover.Payload.WallTeam",
         "DevComment": "充能加速"
       },
+      "BuffIcon.Strong.ArmorChangeHealth": {
+        "Tag": "BuffIcon.Strong.ArmorChangeHealth",
+        "DevComment": "护甲转血量"
+      },
       "BuffIcon.Weak.P.Yugiri": {
         "Tag": "BuffIcon.Weak.P.Yugiri",
         "DevComment": "毒素"
+      },
+      "BuffIcon.Strong.HealthRecover.GameMode": {
+        "Tag": "BuffIcon.Strong.HealthRecover.GameMode",
+        "DevComment": "玩法Buff回血"
+      },
+      "BuffIcon.Strong.ArmorRecover.GameMode": {
+        "Tag": "BuffIcon.Strong.ArmorRecover.GameMode",
+        "DevComment": "玩法Buff回甲"
+      },
+      "BuffIcon.Strong.X.Mara": {
+        "Tag": "BuffIcon.Strong.X.Mara",
+        "DevComment": "死神来了"
+      },
+      "BuffIcon.Weak.X.Mara": {
+        "Tag": "BuffIcon.Weak.X.Mara",
+        "DevComment": "死亡印记"
+      },
+      "BuffIcon.Strong.ArousalOne.Mara": {
+        "Tag": "BuffIcon.Strong.ArousalOne.Mara",
+        "DevComment": "魂魄"
+      },
+      "BuffIcon.Weak.X.Mara.Silence": {
+        "Tag": "BuffIcon.Weak.X.Mara.Silence",
+        "DevComment": "玛拉的沉默"
+      },
+      "BuffIcon.Strong.IgnoreSlowUp": {
+        "Tag": "BuffIcon.Strong.IgnoreSlowUp",
+        "DevComment": "减速免疫"
+      },
+      "BuffIcon.Strong.JumpSpeed": {
+        "Tag": "BuffIcon.Strong.JumpSpeed",
+        "DevComment": "跳跃增强"
+      },
+      "BuffIcon.Weak.Q.Mara": {
+        "Tag": "BuffIcon.Weak.Q.Mara",
+        "DevComment": "灵魂出窍"
+      },
+      "BuffIcon.Strong.10013023CD": {
+        "Tag": "BuffIcon.Strong.10013023CD",
+        "DevComment": "神秘游走"
+      },
+      "BuffIcon.Strong.10013024": {
+        "Tag": "BuffIcon.Strong.10013024",
+        "DevComment": "突袭"
+      },
+      "BuffIcon.Strong.10013024CD": {
+        "Tag": "BuffIcon.Strong.10013024CD",
+        "DevComment": "突袭"
+      },
+      "BuffIcon.Strong.10013028": {
+        "Tag": "BuffIcon.Strong.10013028",
+        "DevComment": "伤害增加"
+      },
+      "BuffIcon.Strong.10013028CD": {
+        "Tag": "BuffIcon.Strong.10013028CD",
+        "DevComment": "纸片充能"
+      },
+      "BuffIcon.Strong.10013028Sign": {
+        "Tag": "BuffIcon.Strong.10013028Sign",
+        "DevComment": "纸片充能"
+      },
+      "BuffIcon.Strong.10013032Sign": {
+        "Tag": "BuffIcon.Strong.10013032Sign",
+        "DevComment": "救主护盾"
+      },
+      "BuffIcon.Strong.10013032CD": {
+        "Tag": "BuffIcon.Strong.10013032CD",
+        "DevComment": "救主护盾"
+      },
+      "BuffIcon.Weak.10013016Marked": {
+        "Tag": "BuffIcon.Weak.10013016Marked",
+        "DevComment": "被标记"
+      },
+      "BuffIcon.Strong.10013015": {
+        "Tag": "BuffIcon.Strong.10013015",
+        "DevComment": "欢乐时光"
+      },
+      "BuffIcon.Strong.10013015CD": {
+        "Tag": "BuffIcon.Strong.10013015CD",
+        "DevComment": "欢乐时光"
+      },
+      "BuffIcon.Strong.10013050": {
+        "Tag": "BuffIcon.Strong.10013050",
+        "DevComment": "技巧爆发"
+      },
+      "BuffIcon.Strong.10013050CD": {
+        "Tag": "BuffIcon.Strong.10013050CD",
+        "DevComment": "技巧爆发-CD"
+      },
+      "BuffIcon.Strong.10013052": {
+        "Tag": "BuffIcon.Strong.10013052",
+        "DevComment": "逆境重生"
+      },
+      "BuffIcon.Strong.10013052CD": {
+        "Tag": "BuffIcon.Strong.10013052CD",
+        "DevComment": "逆境重生-CD"
+      },
+      "BuffIcon.Strong.10013052GodTime": {
+        "Tag": "BuffIcon.Strong.10013052GodTime",
+        "DevComment": "逆境重生-无敌"
+      },
+      "BuffIcon.Strong.10013020": {
+        "Tag": "BuffIcon.Strong.10013020",
+        "DevComment": "霸者铠甲"
+      },
+      "BuffIcon.Strong.10013020CD": {
+        "Tag": "BuffIcon.Strong.10013020CD",
+        "DevComment": "霸者铠甲"
+      },
+      "BuffIcon.Strong.10013087": {
+        "Tag": "BuffIcon.Strong.10013087",
+        "DevComment": "暗影猎手"
+      },
+      "BuffIcon.Weak.10013088": {
+        "Tag": "BuffIcon.Weak.10013088",
+        "DevComment": "嗜血恐惧"
+      },
+      "BuffIcon.Strong.10013014": {
+        "Tag": "BuffIcon.Strong.10013014",
+        "DevComment": "相位猛冲"
+      },
+      "BuffIcon.Strong.10013014CD": {
+        "Tag": "BuffIcon.Strong.10013014CD",
+        "DevComment": "相位猛冲"
+      },
+      "BuffIcon.Strong.CauseDamageFactor": {
+        "Tag": "BuffIcon.Strong.CauseDamageFactor",
+        "DevComment": "伤害增加"
+      },
+      "BuffIcon.Strong.10013063": {
+        "Tag": "BuffIcon.Strong.10013063",
+        "DevComment": "狂暴动能"
+      },
+      "BuffIcon.Strong.10013051": {
+        "Tag": "BuffIcon.Strong.10013051",
+        "DevComment": "紧急修复"
+      },
+      "BuffIcon.Strong.10013051CD": {
+        "Tag": "BuffIcon.Strong.10013051CD",
+        "DevComment": "紧急修复"
+      },
+      "BuffIcon.Strong.10013001": {
+        "Tag": "BuffIcon.Strong.10013001",
+        "DevComment": "饮颅血"
+      },
+      "BuffIcon.Strong.10013001CD": {
+        "Tag": "BuffIcon.Strong.10013001CD",
+        "DevComment": "饮颅血"
+      },
+      "BuffIcon.Strong.10013005": {
+        "Tag": "BuffIcon.Strong.10013005",
+        "DevComment": "筑甲弹"
+      },
+      "BuffIcon.Strong.10013005CD": {
+        "Tag": "BuffIcon.Strong.10013005CD",
+        "DevComment": "筑甲弹"
+      },
+      "BuffIcon.Weak.10013006": {
+        "Tag": "BuffIcon.Weak.10013006",
+        "DevComment": "破甲重伤"
+      },
+      "BuffIcon.Weak.10013006CD": {
+        "Tag": "BuffIcon.Weak.10013006CD",
+        "DevComment": "破甲重伤"
+      },
+      "BuffIcon.Weak.10013076": {
+        "Tag": "BuffIcon.Weak.10013076",
+        "DevComment": "脉冲紊乱"
+      },
+      "BuffIcon.Weak.10013009": {
+        "Tag": "BuffIcon.Weak.10013009",
+        "DevComment": "暗火攻击"
+      },
+      "BuffIcon.Strong.Speed2DFactor": {
+        "Tag": "BuffIcon.Strong.Speed2DFactor",
+        "DevComment": "弦化加速"
+      },
+      "BuffIcon.Strong.Damage2DFactor": {
+        "Tag": "BuffIcon.Strong.Damage2DFactor",
+        "DevComment": "弦化减伤"
+      },
+      "BuffIcon.Strong.10013074": {
+        "Tag": "BuffIcon.Strong.10013074",
+        "DevComment": "不屈意志"
+      },
+      "BuffIcon.Strong.10013074CD": {
+        "Tag": "BuffIcon.Strong.10013074CD",
+        "DevComment": "不屈意志"
+      },
+      "BuffIcon.Strong.10013041": {
+        "Tag": "BuffIcon.Strong.10013041",
+        "DevComment": "鬼影"
+      },
+      "BuffIcon.Strong.10013041CD": {
+        "Tag": "BuffIcon.Strong.10013041CD",
+        "DevComment": "鬼影"
+      },
+      "BuffIcon.Strong.10013034": {
+        "Tag": "BuffIcon.Strong.10013034",
+        "DevComment": ""
+      },
+      "BuffIcon.Strong.KokonaShiki.X": {
+        "Tag": "BuffIcon.Strong.KokonaShiki.X",
+        "DevComment": "重生"
       }
     }
   }

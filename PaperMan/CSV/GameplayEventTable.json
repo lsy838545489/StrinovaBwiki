@@ -3,6 +3,7 @@
     "Type": "DataTable",
     "Name": "GameplayEventTable",
     "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'GameplayTagTableRow'",
@@ -602,13 +603,45 @@
         "Tag": "Event.Summon.Destroy.Ming.Q.Electro",
         "DevComment": "明Q技能区域销毁"
       },
+      "Event.Summon.Destroy.Ming.E.Electro": {
+        "Tag": "Event.Summon.Destroy.Ming.E.Electro",
+        "DevComment": "明E技能区域销毁"
+      },
+      "Event.Summon.Destroy.Ming.E.Projectile": {
+        "Tag": "Event.Summon.Destroy.Ming.E.Projectile",
+        "DevComment": "明E技能子弹销毁"
+      },
+      "Event.Summon.Spawn.Ming.E.Electro": {
+        "Tag": "Event.Summon.Spawn.Ming.E.Electro",
+        "DevComment": "明E技能区域出生"
+      },
+      "Event.Summon.Spawn.Ming.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.Ming.E.Projectile",
+        "DevComment": "明E技能子弹出生"
+      },
       "Event.Summon.Spawn.Reiichi.Q": {
         "Tag": "Event.Summon.Spawn.Reiichi.Q",
         "DevComment": "令一Q技能召唤物出生"
       },
+      "Event.Summon.Spawn.Reiichi.X": {
+        "Tag": "Event.Summon.Spawn.Reiichi.X",
+        "DevComment": "令一X技能召唤物出生"
+      },
+      "Event.Summon.Spawn.Reiichi.E": {
+        "Tag": "Event.Summon.Spawn.Reiichi.E",
+        "DevComment": "令一C技能召唤物出生"
+      },
       "Event.Summon.Destroy.Reiichi.Q": {
         "Tag": "Event.Summon.Destroy.Reiichi.Q",
         "DevComment": "令一Q技能召唤物销毁"
+      },
+      "Event.Summon.Destroy.Reiichi.X": {
+        "Tag": "Event.Summon.Destroy.Reiichi.X",
+        "DevComment": "令一X技能召唤物销毁"
+      },
+      "Event.Summon.Destroy.Reiichi.E": {
+        "Tag": "Event.Summon.Destroy.Reiichi.E",
+        "DevComment": "令一C技能召唤物销毁"
       },
       "Event.Summon.Spawn.Kanami.Q.Projectile": {
         "Tag": "Event.Summon.Spawn.Kanami.Q.Projectile",
@@ -1310,6 +1343,10 @@
         "Tag": "Event.Action.Action",
         "DevComment": "使用动作"
       },
+      "Event.Action.Emotion": {
+        "Tag": "Event.Action.Emotion",
+        "DevComment": "使用表情"
+      },
       "Event.Action.InstallC4": {
         "Tag": "Event.Action.InstallC4",
         "DevComment": "安装C4"
@@ -1741,6 +1778,10 @@
       "Event.CauseInjuredByWeapon.Tool": {
         "Tag": "Event.CauseInjuredByWeapon.Tool",
         "DevComment": "工具造成重伤倒地"
+      },
+      "Event.CauseDamage.PlayerSummon": {
+        "Tag": "Event.CauseDamage.PlayerSummon",
+        "DevComment": "玩家召唤物造成的伤害"
       },
       "Event.TakeInjured": {
         "Tag": "Event.TakeInjured",
@@ -2310,6 +2351,10 @@
         "Tag": "Event.RemoveBuff.RoundEnd",
         "DevComment": "Buff移除事件(回合结束)"
       },
+      "Event.DataAttack.HitTeam": {
+        "Tag": "Event.DataAttack.HitTeam",
+        "DevComment": "记录攻击队友的伤害"
+      },
       "Event.GameState.RoleSelect.PreBegin": {
         "Tag": "Event.GameState.RoleSelect.PreBegin",
         "DevComment": "游戏状态-角色选择阶段开始前"
@@ -2486,6 +2531,14 @@
         "Tag": "Event.GameState.GameOver.Ended",
         "DevComment": "游戏状态-游戏已经结束了状态结束后"
       },
+      "Event.GameZone.StateChange.Enter": {
+        "Tag": "Event.GameZone.StateChange.Enter",
+        "DevComment": "游戏区域状态变化-例如占点区域状态"
+      },
+      "Event.GameZone.StateChange.End": {
+        "Tag": "Event.GameZone.StateChange.End",
+        "DevComment": "游戏区域状态变化-例如占点区域状态"
+      },
       "Event.Skill.Aika.X.OnDetected": {
         "Tag": "Event.Skill.Aika.X.OnDetected",
         "DevComment": "艾卡的X技能检测到敌人"
@@ -2594,21 +2647,29 @@
         "Tag": "Event.GameState.MonitorWaveTimer.TimeLeft.Third",
         "DevComment": "GS波次计时器3剩余时间变化事件"
       },
-      "Event.ExpLevel.LevelChanged.Player.HumanNormal": {
-        "Tag": "Event.ExpLevel.LevelChanged.Player.HumanNormal",
+      "Event.Level.LevelChanged.Player.HumanNormal": {
+        "Tag": "Event.Level.LevelChanged.Player.HumanNormal",
         "DevComment": "普通人类等级变化"
       },
-      "Event.ExpLevel.MaxLevelChanged.Player.HumanNormal": {
-        "Tag": "Event.ExpLevel.MaxLevelChanged.Player.HumanNormal",
+      "Event.Level.MaxLevelChanged.Player.HumanNormal": {
+        "Tag": "Event.Level.MaxLevelChanged.Player.HumanNormal",
         "DevComment": "普通人类最大等级变化"
+      },
+      "Event.ExpLevel.LevelChanged.Player.Human": {
+        "Tag": "Event.ExpLevel.LevelChanged.Player.Human",
+        "DevComment": "人类角色Exp等级变化"
+      },
+      "Event.ExpLevel.ExpChanged.Player.Human": {
+        "Tag": "Event.ExpLevel.ExpChanged.Player.Human",
+        "DevComment": "人类角色Exp经验变化"
       },
       "Event.ExpLevel.LevelChanged.Player.Zombie": {
         "Tag": "Event.ExpLevel.LevelChanged.Player.Zombie",
-        "DevComment": "僵尸角色等级变化"
+        "DevComment": "僵尸角色Exp等级变化"
       },
       "Event.ExpLevel.ExpChanged.Player.Zombie": {
         "Tag": "Event.ExpLevel.ExpChanged.Player.Zombie",
-        "DevComment": "僵尸角色经验变化"
+        "DevComment": "僵尸角色Exp经验变化"
       },
       "Event.Summon.Spawn.CrystalloidBeta1.E.Projectile": {
         "Tag": "Event.Summon.Spawn.CrystalloidBeta1.E.Projectile",
@@ -2729,6 +2790,766 @@
       "Event.Action.WeaponAttack.Melee": {
         "Tag": "Event.Action.WeaponAttack.Melee",
         "DevComment": "武士刀攻击"
+      },
+      "Event.Summon.Destroy.Maddelena.E": {
+        "Tag": "Event.Summon.Destroy.Maddelena.E",
+        "DevComment": "玛德蕾娜 E技能召唤物销毁"
+      },
+      "Event.Summon.Spawn.Maddelena.E": {
+        "Tag": "Event.Summon.Spawn.Maddelena.E",
+        "DevComment": "玛德蕾娜 E技能召唤物生成"
+      },
+      "Event.Summon.Spawn.Leona.Q.Summon": {
+        "Tag": "Event.Summon.Spawn.Leona.Q.Summon",
+        "DevComment": "蕾欧娜Q技能召唤物出生"
+      },
+      "Event.Summon.Spawn.Leona.Q.Projectile": {
+        "Tag": "Event.Summon.Spawn.Leona.Q.Projectile",
+        "DevComment": "蕾欧娜Q技能子弹出生"
+      },
+      "Event.Summon.Destroy.Leona.Q.Summon": {
+        "Tag": "Event.Summon.Destroy.Leona.Q.Summon",
+        "DevComment": "蕾欧娜Q技能召唤物销毁"
+      },
+      "Event.Summon.Destroy.Leona.Q.Projectile": {
+        "Tag": "Event.Summon.Destroy.Leona.Q.Projectile",
+        "DevComment": "蕾欧娜Q技能子弹销毁"
+      },
+      "Event.Summon.Spawn.Leona.ArousalThree.Summon": {
+        "Tag": "Event.Summon.Spawn.Leona.ArousalThree.Summon",
+        "DevComment": "蕾欧娜觉醒3召唤物出生"
+      },
+      "Event.Summon.Destroy.Leona.ArousalThree.Summon": {
+        "Tag": "Event.Summon.Destroy.Leona.ArousalThree.Summon",
+        "DevComment": "蕾欧娜觉醒3召唤物销毁"
+      },
+      "Event.Summon.Spawn.Leona.E.Summon": {
+        "Tag": "Event.Summon.Spawn.Leona.E.Summon",
+        "DevComment": "蕾欧娜C技能召唤物出生"
+      },
+      "Event.Summon.Destroy.Leona.E.Summon": {
+        "Tag": "Event.Summon.Destroy.Leona.E.Summon",
+        "DevComment": "蕾欧娜C技能召唤物销毁"
+      },
+      "Event.Summon.TakeDamage.Reiichi.X": {
+        "Tag": "Event.Summon.TakeDamage.Reiichi.X",
+        "DevComment": "令铁墙受到伤害"
+      },
+      "Event.Accumulator.Lawine.P.Primary": {
+        "Tag": "Event.Accumulator.Lawine.P.Primary",
+        "DevComment": "拉薇被动主武器伤害累计触发事件"
+      },
+      "Event.Accumulator.Lawine.P.PlayerWeapon": {
+        "Tag": "Event.Accumulator.Lawine.P.PlayerWeapon",
+        "DevComment": "拉薇被动武器伤害累计触发事件"
+      },
+      "Event.PlayerDeath.Lawine.P": {
+        "Tag": "Event.PlayerDeath.Lawine.P",
+        "DevComment": "拉薇被动监听玩家死亡事件"
+      },
+      "Event.MonitorWaveTimer.One": {
+        "Tag": "Event.MonitorWaveTimer.One",
+        "DevComment": "GS波次计时器1时间变化事件"
+      },
+      "Event.MonitorWaveTimer.Two": {
+        "Tag": "Event.MonitorWaveTimer.Two",
+        "DevComment": "GS波次计时器2时间变化事件"
+      },
+      "Event.MonitorWaveTimer.Three": {
+        "Tag": "Event.MonitorWaveTimer.Three",
+        "DevComment": "GS波次计时器3时间变化事件"
+      },
+      "Event.MonitorWaveTimer.Four": {
+        "Tag": "Event.MonitorWaveTimer.Four",
+        "DevComment": "GS波次计时器4时间变化事件"
+      },
+      "Event.MonitorWaveTimer.Five": {
+        "Tag": "Event.MonitorWaveTimer.Five",
+        "DevComment": "GS波次计时器5时间变化事件"
+      },
+      "Event.MonitorWaveTimer.Six": {
+        "Tag": "Event.MonitorWaveTimer.Six",
+        "DevComment": "GS波次计时器6时间变化事件"
+      },
+      "Event.Card.TaskPointChanged": {
+        "Tag": "Event.Card.TaskPointChanged",
+        "DevComment": "卡牌任务点数变化"
+      },
+      "Event.ChangeRole.Human.Hero": {
+        "Tag": "Event.ChangeRole.Human.Hero",
+        "DevComment": "生化模式变英雄"
+      },
+      "Event.ExpLevel.LevelChanged.Player.Human.Ability": {
+        "Tag": "Event.ExpLevel.LevelChanged.Player.Human.Ability",
+        "DevComment": "人类能力Exp等级变化"
+      },
+      "Event.ExpLevel.ExpChanged.Player.Human.Ability": {
+        "Tag": "Event.ExpLevel.ExpChanged.Player.Human.Ability",
+        "DevComment": "人类能力Exp经验变化"
+      },
+      "Event.ExpLevel.LevelChanged.Player.Human.Weapon": {
+        "Tag": "Event.ExpLevel.LevelChanged.Player.Human.Weapon",
+        "DevComment": "人类武器Exp等级变化"
+      },
+      "Event.ExpLevel.ExpChanged.Player.Human.Weapon": {
+        "Tag": "Event.ExpLevel.ExpChanged.Player.Human.Weapon",
+        "DevComment": "人类武器Exp经验变化"
+      },
+      "Event.Ability.Activate": {
+        "Tag": "Event.Ability.Activate",
+        "DevComment": "技能激活"
+      },
+      "Event.Ability.PreEnd": {
+        "Tag": "Event.Ability.PreEnd",
+        "DevComment": "技能即将结束"
+      },
+      "Event.Ability.PostEnd": {
+        "Tag": "Event.Ability.PostEnd",
+        "DevComment": "技能结束"
+      },
+      "Event.Pickup.CardBox": {
+        "Tag": "Event.Pickup.CardBox",
+        "DevComment": "拾取卡牌箱子"
+      },
+      "Event.Accumulator.Michele.P.Weapon": {
+        "Tag": "Event.Accumulator.Michele.P.Weapon",
+        "DevComment": "米雪儿被动武器伤害累计触发事件"
+      },
+      "Event.Accumulator.Michele.P.Skill": {
+        "Tag": "Event.Accumulator.Michele.P.Skill",
+        "DevComment": "米雪儿被动技能伤害累计触发事件"
+      },
+      "Event.Game.OnTriggerBeginEvent": {
+        "Tag": "Event.Game.OnTriggerBeginEvent",
+        "DevComment": "进入触发器"
+      },
+      "Event.Game.OnTriggerEndEvent": {
+        "Tag": "Event.Game.OnTriggerEndEvent",
+        "DevComment": "离开触发器"
+      },
+      "Event.Summon.Spawn.Mara.Q": {
+        "Tag": "Event.Summon.Spawn.Mara.Q",
+        "DevComment": "玛拉Q技能子弹生成"
+      },
+      "Event.Summon.Leave.Mara.E": {
+        "Tag": "Event.Summon.Leave.Mara.E",
+        "DevComment": "玛拉E技能召唤物Leave状态事件"
+      },
+      "Event.Summon.Spawn.Mara.E": {
+        "Tag": "Event.Summon.Spawn.Mara.E",
+        "DevComment": "玛拉E技能召唤物生成"
+      },
+      "Event.HitActor.Payload": {
+        "Tag": "Event.HitActor.Payload",
+        "DevComment": "武器命中推车"
+      },
+      "Event.Summon.Leave.Mara.X": {
+        "Tag": "Event.Summon.Leave.Mara.X",
+        "DevComment": "玛拉X技能召唤物Leave状态事件"
+      },
+      "Event.GameState.AddPlayerState": {
+        "Tag": "Event.GameState.AddPlayerState",
+        "DevComment": "PlayerState登入"
+      },
+      "Event.GameState.RemovePlayerState": {
+        "Tag": "Event.GameState.RemovePlayerState",
+        "DevComment": "PlayerState登出"
+      },
+      "Event.Summon.Spawn.Michele.E": {
+        "Tag": "Event.Summon.Spawn.Michele.E",
+        "DevComment": "米雪儿E技能召唤物出生"
+      },
+      "Event.Summon.Spawn.Meredith.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.Meredith.E.Projectile",
+        "DevComment": "梅瑞迪斯E技能子弹出生"
+      },
+      "Event.Summon.Spawn.Lawine.Q.Projectile": {
+        "Tag": "Event.Summon.Spawn.Lawine.Q.Projectile",
+        "DevComment": "拉薇Q技能子弹出生"
+      },
+      "Event.Summon.Spawn.Lawine.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.Lawine.E.Projectile",
+        "DevComment": "拉薇E技能子弹出生"
+      },
+      "Event.Summon.Spawn.Kanami.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.Kanami.E.Projectile",
+        "DevComment": "香奈美E技能子弹出生"
+      },
+      "Event.Summon.Spawn.Aika.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.Aika.E.Projectile",
+        "DevComment": "艾卡E技能子弹出生"
+      },
+      "Event.Summon.Spawn.Huixing.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.Huixing.E.Projectile",
+        "DevComment": "星绘E技能子弹出生"
+      },
+      "Event.Summon.Spawn.Audery.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.Audery.E.Projectile",
+        "DevComment": "奥黛丽E技能子弹出生"
+      },
+      "Event.Summon.Spawn.MoBai.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.MoBai.E.Projectile",
+        "DevComment": "白墨E技能子弹出生"
+      },
+      "Event.Summon.Spawn.Yvette.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.Yvette.E.Projectile",
+        "DevComment": "伊薇特E技能子弹出生"
+      },
+      "Event.Summon.Spawn.KokonaShiki.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.KokonaShiki.E.Projectile",
+        "DevComment": "心夏E技能子弹出生"
+      },
+      "Event.Summon.Spawn.Nobunaga.E.Projectile": {
+        "Tag": "Event.Summon.Spawn.Nobunaga.E.Projectile",
+        "DevComment": "信长E技能子弹出生"
+      },
+      "Event.HitActor.Skill": {
+        "Tag": "Event.HitActor.Skill",
+        "DevComment": "技能命中"
+      },
+      "Event.ChangeRole.HumanDeathToZombie": {
+        "Tag": "Event.ChangeRole.HumanDeathToZombie",
+        "DevComment": "人类死亡变成僵尸"
+      },
+      "Event.ChangeRole.Zombie.Normal": {
+        "Tag": "Event.ChangeRole.Zombie.Normal",
+        "DevComment": "生化模式变小怪"
+      },
+      "Event.ChangeRole.Zombie.Master": {
+        "Tag": "Event.ChangeRole.Zombie.Master",
+        "DevComment": "生化模式变红色母体"
+      },
+      "Event.ChangeRole.Zombie.Ultimate": {
+        "Tag": "Event.ChangeRole.Zombie.Ultimate",
+        "DevComment": "生化模式变蓝色母体"
+      },
+      "Event.Summon.Death.MoBai.X": {
+        "Tag": "Event.Summon.Death.MoBai.X",
+        "DevComment": "白墨信标被摧毁"
+      },
+      "Event.BigHead.AddBigHeadScore": {
+        "Tag": "Event.BigHead.AddBigHeadScore",
+        "DevComment": "更新大头模式得分"
+      },
+      "Event.Zombie.ChangeRoleType": {
+        "Tag": "Event.Zombie.ChangeRoleType",
+        "DevComment": "生化模式角色类型改变"
+      },
+      "Event.Card.ManualAddCard": {
+        "Tag": "Event.Card.ManualAddCard",
+        "DevComment": "手动选择卡牌"
+      },
+      "Event.Zombie.Ultimate.Q.ProjectileExplodeHit": {
+        "Tag": "Event.Zombie.Ultimate.Q.ProjectileExplodeHit",
+        "DevComment": "生化母体Q技能命中"
+      },
+      "Event.Zombie.AddCard.Point": {
+        "Tag": "Event.Zombie.AddCard.Point",
+        "DevComment": "生化模式通过点数获得卡牌"
+      },
+      "Event.Zombie.AddCard.Pickup": {
+        "Tag": "Event.Zombie.AddCard.Pickup",
+        "DevComment": "生化模式通过补给箱获得卡牌"
+      },
+      "Event.Zombie.HeroUnlock": {
+        "Tag": "Event.Zombie.HeroUnlock",
+        "DevComment": "生化模式解锁英雄变身"
+      },
+      "Event.BombPass.OnBombHit": {
+        "Tag": "Event.BombPass.OnBombHit",
+        "DevComment": "炸弹人模式炸弹打到目标"
+      },
+      "Event.BombPass.OnExplode": {
+        "Tag": "Event.BombPass.OnExplode",
+        "DevComment": "炸弹人模式炸弹爆炸"
+      },
+      "Event.CauseDamageByWeaponSlot": {
+        "Tag": "Event.CauseDamageByWeaponSlot",
+        "DevComment": ""
+      },
+      "Event.CauseDamageByWeaponSlot.BombPass": {
+        "Tag": "Event.CauseDamageByWeaponSlot.BombPass",
+        "DevComment": ""
+      },
+      "Event.TakeDamageByWeaponSlot": {
+        "Tag": "Event.TakeDamageByWeaponSlot",
+        "DevComment": ""
+      },
+      "Event.TakeDamageByWeaponSlot.BombPass": {
+        "Tag": "Event.TakeDamageByWeaponSlot.BombPass",
+        "DevComment": ""
+      },
+      "Event.GameState.MatchInitialization": {
+        "Tag": "Event.GameState.MatchInitialization",
+        "DevComment": "游戏状态-游戏初始化"
+      },
+      "Event.GameState.StateTimeEnd": {
+        "Tag": "Event.GameState.StateTimeEnd",
+        "DevComment": "游戏状态-状态倒计时结束"
+      },
+      "Event.Pickup.LifeTimeEnd": {
+        "Tag": "Event.Pickup.LifeTimeEnd",
+        "DevComment": "拾取物到达存在时间"
+      },
+      "Event.BePickup.Energy": {
+        "Tag": "Event.BePickup.Energy",
+        "DevComment": "能量被拾取"
+      },
+      "Event.BePickup.Ammo": {
+        "Tag": "Event.BePickup.Ammo",
+        "DevComment": "弹药被拾取"
+      },
+      "Event.BePickup.Armor": {
+        "Tag": "Event.BePickup.Armor",
+        "DevComment": "护甲被拾取"
+      },
+      "Event.BePickup.Throw": {
+        "Tag": "Event.BePickup.Throw",
+        "DevComment": "投掷物被拾取"
+      },
+      "Event.BePickup.DeathDrop": {
+        "Tag": "Event.BePickup.DeathDrop",
+        "DevComment": "死亡掉落物被拾取"
+      },
+      "Event.AIState.Entry.PreBegin": {
+        "Tag": "Event.AIState.Entry.PreBegin",
+        "DevComment": "AI状态-进入状态-开始前"
+      },
+      "Event.AIState.Entry.Begin": {
+        "Tag": "Event.AIState.Entry.Begin",
+        "DevComment": "AI状态-进入状态-开始"
+      },
+      "Event.AIState.Entry.Begun": {
+        "Tag": "Event.AIState.Entry.Begun",
+        "DevComment": "AI状态-进入状态-开始后"
+      },
+      "Event.AIState.Entry.PreEnd": {
+        "Tag": "Event.AIState.Entry.PreEnd",
+        "DevComment": "AI状态-进入状态-结束前"
+      },
+      "Event.AIState.Entry.End": {
+        "Tag": "Event.AIState.Entry.End",
+        "DevComment": "AI状态-进入状态-结束"
+      },
+      "Event.AIState.Entry.Ended": {
+        "Tag": "Event.AIState.Entry.Ended",
+        "DevComment": "AI状态-进入状态-结束后"
+      },
+      "Event.AIState.Work.PreBegin": {
+        "Tag": "Event.AIState.Work.PreBegin",
+        "DevComment": "AI状态-工作状态1-开始前"
+      },
+      "Event.AIState.Work.Begin": {
+        "Tag": "Event.AIState.Work.Begin",
+        "DevComment": "AI状态-工作状态1-开始"
+      },
+      "Event.AIState.Work.Begun": {
+        "Tag": "Event.AIState.Work.Begun",
+        "DevComment": "AI状态-工作状态1-开始后"
+      },
+      "Event.AIState.Work.PreEnd": {
+        "Tag": "Event.AIState.Work.PreEnd",
+        "DevComment": "AI状态-工作状态1-结束前"
+      },
+      "Event.AIState.Work.End": {
+        "Tag": "Event.AIState.Work.End",
+        "DevComment": "AI状态-工作状态1-结束"
+      },
+      "Event.AIState.Work.Ended": {
+        "Tag": "Event.AIState.Work.Ended",
+        "DevComment": "AI状态-工作状态1-结束后"
+      },
+      "Event.AIState.SecondWork.PreBegin": {
+        "Tag": "Event.AIState.SecondWork.PreBegin",
+        "DevComment": "AI状态-工作状态2-开始前"
+      },
+      "Event.AIState.SecondWork.Begin": {
+        "Tag": "Event.AIState.SecondWork.Begin",
+        "DevComment": "AI状态-工作状态2-开始"
+      },
+      "Event.AIState.SecondWork.Begun": {
+        "Tag": "Event.AIState.SecondWork.Begun",
+        "DevComment": "AI状态-工作状态2-开始后"
+      },
+      "Event.AIState.SecondWork.PreEnd": {
+        "Tag": "Event.AIState.SecondWork.PreEnd",
+        "DevComment": "AI状态-工作状态2-结束前"
+      },
+      "Event.AIState.SecondWork.End": {
+        "Tag": "Event.AIState.SecondWork.End",
+        "DevComment": "AI状态-工作状态2-结束"
+      },
+      "Event.AIState.SecondWork.Ended": {
+        "Tag": "Event.AIState.SecondWork.Ended",
+        "DevComment": "AI状态-工作状态2-结束后"
+      },
+      "Event.AIState.ThirdWork.PreBegin": {
+        "Tag": "Event.AIState.ThirdWork.PreBegin",
+        "DevComment": "AI状态-工作状态3-开始前"
+      },
+      "Event.AIState.ThirdWork.Begin": {
+        "Tag": "Event.AIState.ThirdWork.Begin",
+        "DevComment": "AI状态-工作状态3-开始"
+      },
+      "Event.AIState.ThirdWork.Begun": {
+        "Tag": "Event.AIState.ThirdWork.Begun",
+        "DevComment": "AI状态-工作状态3-开始后"
+      },
+      "Event.AIState.ThirdWork.PreEnd": {
+        "Tag": "Event.AIState.ThirdWork.PreEnd",
+        "DevComment": "AI状态-工作状态3-结束前"
+      },
+      "Event.AIState.ThirdWork.End": {
+        "Tag": "Event.AIState.ThirdWork.End",
+        "DevComment": "AI状态-工作状态3-结束"
+      },
+      "Event.AIState.ThirdWork.Ended": {
+        "Tag": "Event.AIState.ThirdWork.Ended",
+        "DevComment": "AI状态-工作状态3-结束后"
+      },
+      "Event.AIState.FourthWork.PreBegin": {
+        "Tag": "Event.AIState.FourthWork.PreBegin",
+        "DevComment": "AI状态-工作状态4-开始前"
+      },
+      "Event.AIState.FourthWork.Begin": {
+        "Tag": "Event.AIState.FourthWork.Begin",
+        "DevComment": "AI状态-工作状态4-开始"
+      },
+      "Event.AIState.FourthWork.Begun": {
+        "Tag": "Event.AIState.FourthWork.Begun",
+        "DevComment": "AI状态-工作状态4-开始后"
+      },
+      "Event.AIState.FourthWork.PreEnd": {
+        "Tag": "Event.AIState.FourthWork.PreEnd",
+        "DevComment": "AI状态-工作状态4-结束前"
+      },
+      "Event.AIState.FourthWork.End": {
+        "Tag": "Event.AIState.FourthWork.End",
+        "DevComment": "AI状态-工作状态4-结束"
+      },
+      "Event.AIState.FourthWork.Ended": {
+        "Tag": "Event.AIState.FourthWork.Ended",
+        "DevComment": "AI状态-工作状态4-结束后"
+      },
+      "Event.AIState.FifthWork.PreBegin": {
+        "Tag": "Event.AIState.FifthWork.PreBegin",
+        "DevComment": "AI状态-工作状态5-开始前"
+      },
+      "Event.AIState.FifthWork.Begin": {
+        "Tag": "Event.AIState.FifthWork.Begin",
+        "DevComment": "AI状态-工作状态5-开始"
+      },
+      "Event.AIState.FifthWork.Begun": {
+        "Tag": "Event.AIState.FifthWork.Begun",
+        "DevComment": "AI状态-工作状态5-开始后"
+      },
+      "Event.AIState.FifthWork.PreEnd": {
+        "Tag": "Event.AIState.FifthWork.PreEnd",
+        "DevComment": "AI状态-工作状态5-结束前"
+      },
+      "Event.AIState.FifthWork.End": {
+        "Tag": "Event.AIState.FifthWork.End",
+        "DevComment": "AI状态-工作状态5-结束"
+      },
+      "Event.AIState.FifthWork.Ended": {
+        "Tag": "Event.AIState.FifthWork.Ended",
+        "DevComment": "AI状态-工作状态5-结束后"
+      },
+      "Event.AIState.Wait.PreBegin": {
+        "Tag": "Event.AIState.Wait.PreBegin",
+        "DevComment": "AI状态-等待状态-开始前"
+      },
+      "Event.AIState.Wait.Begin": {
+        "Tag": "Event.AIState.Wait.Begin",
+        "DevComment": "AI状态-等待状态-开始"
+      },
+      "Event.AIState.Wait.Begun": {
+        "Tag": "Event.AIState.Wait.Begun",
+        "DevComment": "AI状态-等待状态-开始后"
+      },
+      "Event.AIState.Wait.PreEnd": {
+        "Tag": "Event.AIState.Wait.PreEnd",
+        "DevComment": "AI状态-等待状态-结束前"
+      },
+      "Event.AIState.Wait.End": {
+        "Tag": "Event.AIState.Wait.End",
+        "DevComment": "AI状态-等待状态-结束"
+      },
+      "Event.AIState.Wait.Ended": {
+        "Tag": "Event.AIState.Wait.Ended",
+        "DevComment": "AI状态-等待状态-结束后"
+      },
+      "Event.AIState.Leave.PreBegin": {
+        "Tag": "Event.AIState.Leave.PreBegin",
+        "DevComment": "AI状态-离开状态-开始前"
+      },
+      "Event.AIState.Leave.Begin": {
+        "Tag": "Event.AIState.Leave.Begin",
+        "DevComment": "AI状态-离开状态-开始"
+      },
+      "Event.AIState.Leave.Begun": {
+        "Tag": "Event.AIState.Leave.Begun",
+        "DevComment": "AI状态-离开状态-开始后"
+      },
+      "Event.AIState.Leave.PreEnd": {
+        "Tag": "Event.AIState.Leave.PreEnd",
+        "DevComment": "AI状态-离开状态-结束前"
+      },
+      "Event.AIState.Leave.End": {
+        "Tag": "Event.AIState.Leave.End",
+        "DevComment": "AI状态-离开状态-结束"
+      },
+      "Event.AIState.Leave.Ended": {
+        "Tag": "Event.AIState.Leave.Ended",
+        "DevComment": "AI状态-离开状态-结束后"
+      },
+      "Event.AIState.Death.PreBegin": {
+        "Tag": "Event.AIState.Death.PreBegin",
+        "DevComment": "AI状态-死亡状态-开始前"
+      },
+      "Event.AIState.Death.Begin": {
+        "Tag": "Event.AIState.Death.Begin",
+        "DevComment": "AI状态-死亡状态-开始"
+      },
+      "Event.AIState.Death.Begun": {
+        "Tag": "Event.AIState.Death.Begun",
+        "DevComment": "AI状态-死亡状态-开始后"
+      },
+      "Event.AIState.Death.PreEnd": {
+        "Tag": "Event.AIState.Death.PreEnd",
+        "DevComment": "AI状态-死亡状态-结束前"
+      },
+      "Event.AIState.Death.End": {
+        "Tag": "Event.AIState.Death.End",
+        "DevComment": "AI状态-死亡状态-结束"
+      },
+      "Event.AIState.Death.Ended": {
+        "Tag": "Event.AIState.Death.Ended",
+        "DevComment": "AI状态-死亡状态-结束后"
+      },
+      "Event.Character.Skin.AllAssetLoaded": {
+        "Tag": "Event.Character.Skin.AllAssetLoaded",
+        "DevComment": "角色-皮肤-所有资源加载完毕"
+      },
+      "Event.BombPass.TransmitBomb.ActiveAttack": {
+        "Tag": "Event.BombPass.TransmitBomb.ActiveAttack",
+        "DevComment": "炸弹人模式-传递炸弹-主动攻击传递"
+      },
+      "Event.BombPass.TransmitBomb.ActiveSnatch": {
+        "Tag": "Event.BombPass.TransmitBomb.ActiveSnatch",
+        "DevComment": "炸弹人模式-传递炸弹-主动抢夺炸弹"
+      },
+      "Event.BombPass.TransmitBomb.BeSeized": {
+        "Tag": "Event.BombPass.TransmitBomb.BeSeized",
+        "DevComment": "炸弹人模式-传递炸弹-炸弹被抢夺"
+      },
+      "Event.Weapon.RecordBool.Reiichi.Q": {
+        "Tag": "Event.Weapon.RecordBool.Reiichi.Q",
+        "DevComment": "令Q技能切换墙"
+      },
+      "Event.Card.10013076": {
+        "Tag": "Event.Card.10013076",
+        "DevComment": "卡牌10013076事件"
+      },
+      "Event.Summon.Spawn.Kanami.E.WindField": {
+        "Tag": "Event.Summon.Spawn.Kanami.E.WindField",
+        "DevComment": "香奈美的E出生"
+      },
+      "Event.Summon.Destroy.Kanami.E.WindField": {
+        "Tag": "Event.Summon.Destroy.Kanami.E.WindField",
+        "DevComment": "香奈美的E销毁"
+      },
+      "Event.Summon.Spawn.Yvette.Q.Ice": {
+        "Tag": "Event.Summon.Spawn.Yvette.Q.Ice",
+        "DevComment": "伊维特Q召唤物冰面生成"
+      },
+      "Event.Summon.Destroy.Yvette.Q.Ice": {
+        "Tag": "Event.Summon.Destroy.Yvette.Q.Ice",
+        "DevComment": "伊维特Q召唤物冰面销毁"
+      },
+      "Event.Summon.FoundTarget.Maddelena.E": {
+        "Tag": "Event.Summon.FoundTarget.Maddelena.E",
+        "DevComment": "玛德蕾娜E发现目标"
+      },
+      "Event.Card.10013085": {
+        "Tag": "Event.Card.10013085",
+        "DevComment": "卡牌10013085事件"
+      },
+      "Event.AIState.Entry.End.X.Michele": {
+        "Tag": "Event.AIState.Entry.End.X.Michele",
+        "DevComment": "AI状态-进入状态-结束-米雪儿大招"
+      },
+      "Event.Summon.HitTarget.Kanami.Q": {
+        "Tag": "Event.Summon.HitTarget.Kanami.Q",
+        "DevComment": "香娜美Q命中目标"
+      },
+      "Event.Summon.TakeDamage.Meredith.E": {
+        "Tag": "Event.Summon.TakeDamage.Meredith.E",
+        "DevComment": "梅瑞狄斯沙墙被攻击"
+      },
+      "Event.Card.GainChoice": {
+        "Tag": "Event.Card.GainChoice",
+        "DevComment": "获取卡牌选择机会"
+      },
+      "Event.Enter.Area": {
+        "Tag": "Event.Enter.Area",
+        "DevComment": "进入某个区域事件"
+      },
+      "Event.Leave.Area": {
+        "Tag": "Event.Leave.Area",
+        "DevComment": "离开某个区域事件"
+      },
+      "Event.HotZone.Entry": {
+        "Tag": "Event.HotZone.Entry",
+        "DevComment": "热区-准备解锁"
+      },
+      "Event.HotZone.Work": {
+        "Tag": "Event.HotZone.Work",
+        "DevComment": "热区-解锁"
+      },
+      "Event.HotZone.Death": {
+        "Tag": "Event.HotZone.Death",
+        "DevComment": "热区-关闭"
+      },
+      "Event.HotZone.PlayerEnter": {
+        "Tag": "Event.HotZone.PlayerEnter",
+        "DevComment": "玩家进入热区"
+      },
+      "Event.HotZone.PlayerLeave": {
+        "Tag": "Event.HotZone.PlayerLeave",
+        "DevComment": "玩家离开热区"
+      },
+      "Event.HalfEnter.PlayerJoinGame": {
+        "Tag": "Event.HalfEnter.PlayerJoinGame",
+        "DevComment": "中途加入玩家加入对局"
+      },
+      "Event.Score.CompositeScoreRankChange": {
+        "Tag": "Event.Score.CompositeScoreRankChange",
+        "DevComment": "表现分排名变化"
+      },
+      "Event.Guide.SpawnActorOfWidgetAttach": {
+        "Tag": "Event.Guide.SpawnActorOfWidgetAttach",
+        "DevComment": "引导-UI-Attach的ActorSpawn"
+      },
+      "Event.Weapon.Equip.Begin.Flavia.Q": {
+        "Tag": "Event.Weapon.Equip.Begin.Flavia.Q",
+        "DevComment": "芙拉薇娅Q武器装备事件"
+      },
+      "Event.GameState.FightSecond.PreBegin": {
+        "Tag": "Event.GameState.FightSecond.PreBegin",
+        "DevComment": "游戏状态-游戏战斗阶段2开始前"
+      },
+      "Event.GameState.FightSecond.Begin": {
+        "Tag": "Event.GameState.FightSecond.Begin",
+        "DevComment": "游戏状态-游戏战斗阶段2开始"
+      },
+      "Event.GameState.FightSecond.Begun": {
+        "Tag": "Event.GameState.FightSecond.Begun",
+        "DevComment": "游戏状态-游戏战斗阶段2开始后"
+      },
+      "Event.GameState.FightSecond.PreEnd": {
+        "Tag": "Event.GameState.FightSecond.PreEnd",
+        "DevComment": "游戏状态-游戏战斗阶段2结束前"
+      },
+      "Event.GameState.FightSecond.End": {
+        "Tag": "Event.GameState.FightSecond.End",
+        "DevComment": "游戏状态-游戏战斗阶段2结束"
+      },
+      "Event.GameState.FightSecond.Ended": {
+        "Tag": "Event.GameState.FightSecond.Ended",
+        "DevComment": "游戏状态-游戏战斗阶段2结束后"
+      },
+      "Event.GameState.FightThird.PreBegin": {
+        "Tag": "Event.GameState.FightThird.PreBegin",
+        "DevComment": "游戏状态-游戏战斗阶段3开始前"
+      },
+      "Event.GameState.FightThird.Begin": {
+        "Tag": "Event.GameState.FightThird.Begin",
+        "DevComment": "游戏状态-游戏战斗阶段3开始"
+      },
+      "Event.GameState.FightThird.Begun": {
+        "Tag": "Event.GameState.FightThird.Begun",
+        "DevComment": "游戏状态-游戏战斗阶段3开始后"
+      },
+      "Event.GameState.FightThird.PreEnd": {
+        "Tag": "Event.GameState.FightThird.PreEnd",
+        "DevComment": "游戏状态-游戏战斗阶段3结束前"
+      },
+      "Event.GameState.FightThird.End": {
+        "Tag": "Event.GameState.FightThird.End",
+        "DevComment": "游戏状态-游戏战斗阶段3结束"
+      },
+      "Event.GameState.FightThird.Ended": {
+        "Tag": "Event.GameState.FightThird.Ended",
+        "DevComment": "游戏状态-游戏战斗阶段3结束后"
+      },
+      "Event.GameState.FightForth.PreBegin": {
+        "Tag": "Event.GameState.FightForth.PreBegin",
+        "DevComment": "游戏状态-游戏战斗阶段4开始前"
+      },
+      "Event.GameState.FightForth.Begin": {
+        "Tag": "Event.GameState.FightForth.Begin",
+        "DevComment": "游戏状态-游戏战斗阶段4开始"
+      },
+      "Event.GameState.FightForth.Begun": {
+        "Tag": "Event.GameState.FightForth.Begun",
+        "DevComment": "游戏状态-游戏战斗阶段4开始后"
+      },
+      "Event.GameState.FightForth.PreEnd": {
+        "Tag": "Event.GameState.FightForth.PreEnd",
+        "DevComment": "游戏状态-游戏战斗阶段4结束前"
+      },
+      "Event.GameState.FightForth.End": {
+        "Tag": "Event.GameState.FightForth.End",
+        "DevComment": "游戏状态-游戏战斗阶段4结束"
+      },
+      "Event.GameState.FightForth.Ended": {
+        "Tag": "Event.GameState.FightForth.Ended",
+        "DevComment": "游戏状态-游戏战斗阶段4结束后"
+      },
+      "Event.GameState.FightFifth.PreBegin": {
+        "Tag": "Event.GameState.FightFifth.PreBegin",
+        "DevComment": "游戏状态-游戏战斗阶段5开始前"
+      },
+      "Event.GameState.FightFifth.Begin": {
+        "Tag": "Event.GameState.FightFifth.Begin",
+        "DevComment": "游戏状态-游戏战斗阶段5开始"
+      },
+      "Event.GameState.FightFifth.Begun": {
+        "Tag": "Event.GameState.FightFifth.Begun",
+        "DevComment": "游戏状态-游戏战斗阶段5开始后"
+      },
+      "Event.GameState.FightFifth.PreEnd": {
+        "Tag": "Event.GameState.FightFifth.PreEnd",
+        "DevComment": "游戏状态-游戏战斗阶段5结束前"
+      },
+      "Event.GameState.FightFifth.End": {
+        "Tag": "Event.GameState.FightFifth.End",
+        "DevComment": "游戏状态-游戏战斗阶段5结束"
+      },
+      "Event.GameState.FightFifth.Ended": {
+        "Tag": "Event.GameState.FightFifth.Ended",
+        "DevComment": "游戏状态-游戏战斗阶段5结束后"
+      },
+      "Event.Summon.Spawn.Yvette.Q.Bear": {
+        "Tag": "Event.Summon.Spawn.Yvette.Q.Bear",
+        "DevComment": "伊维特Q的熊生成"
+      },
+      "Event.Summon.Destroy.Yvette.Q.Bear": {
+        "Tag": "Event.Summon.Destroy.Yvette.Q.Bear",
+        "DevComment": "伊维特Q的熊销毁"
+      },
+      "Event.Summon.Spawn.Audery.X.Projectile": {
+        "Tag": "Event.Summon.Spawn.Audery.X.Projectile",
+        "DevComment": "奥黛丽大招技能子弹出生"
+      },
+      "Event.CauseDamage.System.Card": {
+        "Tag": "Event.CauseDamage.System.Card",
+        "DevComment": "由卡牌引起的伤害"
+      },
+      "Event.Card.10013037": {
+        "Tag": "Event.Card.10013037",
+        "DevComment": "卡牌10013037事件"
       }
     }
   }
