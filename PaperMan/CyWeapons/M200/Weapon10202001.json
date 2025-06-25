@@ -89,6 +89,46 @@
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/M200/Weapon10202001.Weapon10202001_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::Walk",
+            "Value": {
+              "Value": 140.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 400.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 530.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
       "WeaponName": "ECyWeaponName::M200",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10202001_C:Root'",
@@ -414,11 +454,13 @@
           "PositionStart": 0.2925,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAtom_PlayForceFeedBack_StartPullBolt_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/StateAtoms/BP_SAtom_PlayForceFeedBack_StartPullBolt.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -501,7 +543,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AnimationBegin": {
-        "Duration": 0.48
+        "Duration": 0.44
       },
       "CameraOffsetInterpSpeed": 50.0,
       "CameraShake": {
@@ -540,10 +582,6 @@
           "RowName": "VerticalRecoilScaleADS"
         }
       },
-      "TimeOnTagActivate": 0.5,
-      "LooseGameplayTags": [
-        "State.Player.CanSwitchMagnification"
-      ],
       "TotalDuration": {
         "Value": 9999999.0
       },
@@ -560,11 +598,13 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SA_ChargedAttack_M200_C'",
             "ObjectPath": "PM/Content/PaperMan/CyWeapons/M200/BP_SA_ChargedAttack_M200.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -631,7 +671,11 @@
     "Properties": {
       "MobileForbiddenHoldTypes": [
         "EFHoldType::Aiming"
-      ]
+      ],
+      "bAllowGASwitchAdsLevel": true,
+      "SwitchAdsLevelAudioTag": {
+        "TagName": "Resource.Audio.OnADSLevelChanged.A"
+      }
     }
   },
   {
@@ -1503,7 +1547,9 @@
     "Properties": {
       "TimeLoad": 0.8,
       "TotalDuration": {
-        "Value": 1.2
+        "Value": 1.104,
+        "bEnableMobile": true,
+        "MobileValue": 1.0
       },
       "AllowedGait": "ECyGait::Sprint",
       "Events": [
@@ -1511,21 +1557,25 @@
           "PositionStart": 0.069,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAtom_PlayForceFeedBack_StartPullBolt_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/StateAtoms/BP_SAtom_PlayForceFeedBack_StartPullBolt.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.4777,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAtom_PlayForceFeedBack_StartPullBolt_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/StateAtoms/BP_SAtom_PlayForceFeedBack_StartPullBolt.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -1597,7 +1647,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AmmoMax": {
-        "Value": 63.0,
+        "Value": 81.0,
         "MobileValue": 63.0
       },
       "AmmoPerMagazine": {

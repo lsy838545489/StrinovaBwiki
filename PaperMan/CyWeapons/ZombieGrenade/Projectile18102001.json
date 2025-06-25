@@ -43,7 +43,7 @@
     "Type": "Projectile18102001_C",
     "Name": "Default__Projectile18102001_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/ZombieGrenade/Projectile18102001.Projectile18102001_C'",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "BlastRadius": 600.0,
       "DamageMap": [
@@ -160,6 +160,17 @@
     "Class": "UScriptClass'CyProjectileFlyDropMovementComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "OnProjectileThrough": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "Projectile18102001_C'Default__Projectile18102001_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieGrenade/Projectile18102001.1"
+            },
+            "FunctionName": "OnThrough"
+          }
+        ]
+      },
       "MaxBounceCount": 2,
       "BouncinessScaleMin": 0.25,
       "BouncinessScaleMax": 0.9,
@@ -197,7 +208,10 @@
     "Name": "SkinComponent",
     "Outer": "Default__Projectile18102001_C",
     "Class": "UScriptClass'CyWeaponSkinComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SkinFolder": "../Grenade/Skins"
+    }
   },
   {
     "Type": "PMAIPerceptionStimuliSourceComponent",

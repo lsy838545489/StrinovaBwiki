@@ -76,9 +76,50 @@
     "Type": "Weapon10304001_C",
     "Name": "Default__Weapon10304001_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/G3SG1/Weapon10304001.Weapon10304001_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::Walk",
+            "Value": {
+              "Value": 200.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 420.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 540.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
       "WeaponName": "ECyWeaponName::HKG3",
+      "WeaponType": "ECyWeaponType::DMR",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10304001_C:Root'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/G3SG1/Weapon10304001.38"
@@ -518,6 +559,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "DefaultAttackType": "EFAttackType::Single",
+      "bAllowGASwitchAttackType": true,
       "SwitchAttackTypeInfoMap": [
         {
           "Key": "EFAttackType::Single",
@@ -526,6 +568,20 @@
         {
           "Key": "EFAttackType::Auto",
           "Value": "EFAttackType::Single"
+        }
+      ],
+      "SwitchAttackTypeAudioTagMap": [
+        {
+          "Key": "EFAttackType::Single",
+          "Value": {
+            "TagName": "Resource.Audio.OnAttackTypeChange.Single"
+          }
+        },
+        {
+          "Key": "EFAttackType::Auto",
+          "Value": {
+            "TagName": "Resource.Audio.OnAttackTypeChange.Auto"
+          }
         }
       ]
     }
@@ -608,11 +664,13 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAtom_P_Nobunaga_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/P/BP_SAtom_P_Nobunaga.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -1438,6 +1496,10 @@
           "TagName": "Buff.Strong.P.Nobunaga"
         }
       ],
+      "bSendAttackActorEvent": true,
+      "SendAttackActorEventTag": {
+        "TagName": "Event.HitActor.Weapon.Primary"
+      },
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_HKG3_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/G3SG1/BP_HKG3_DamageType.0"
@@ -1722,7 +1784,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AmmoMax": {
-        "Value": 175.0,
+        "Value": 225.0,
         "MobileValue": 175.0
       },
       "AmmoPerMagazine": {
@@ -2341,7 +2403,7 @@
         "ObjectName": "CyAmmoUpdateMaterialComponent'Weapon10304001_C:CyAmmoUpdateMaterial_GEN_VARIABLE'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/G3SG1/Weapon10304001.2"
       },
-      "VariableGuid": "11AD6D8F-4CC8CA5E-6CC813AB-1AB31BEF",
+      "VariableGuid": "73AE0A6C-4694386B-D6CD3691-65113B6B",
       "InternalVariableName": "CyAmmoUpdateMaterial"
     }
   },

@@ -260,14 +260,83 @@
     "Class": "UScriptClass'CyFEquipState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "AkEventBegin": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Audrey_Katana_Switch.Wpn_Audrey_Katana_Switch",
-        "SubPathString": ""
-      },
-      "AkEventEnd": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Audrey_Katana_Switch_Stop.Wpn_Audrey_Katana_Switch_Stop",
-        "SubPathString": ""
-      }
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Melee.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Melee.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 1.0,
+          "PositionEnd": 1.1,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Melee.Equip.B"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -285,7 +354,36 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "ViewPitchMax": 60.0,
-      "ViewPitchMin": -60.0
+      "ViewPitchMin": -60.0,
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [
+              "State.Animation.Ready"
+            ],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Melee.Hold.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -329,6 +427,20 @@
       "MaxDashRange": 300.0,
       "SupportUseIDSet": [
         "EUseID::Secondary"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_AddInfoToLinkSubSys_Katana_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/Katana/BP_SA_AddInfoToLinkSubSys_Katana.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
       ]
     }
   },
@@ -346,7 +458,12 @@
       },
       "EffectPlane": {
         "PSTag": {
-          "TagName": "Resource.Particle.AnimNotify.A"
+          "TagName": "Resource.Particle.Melee.Attack.D"
+        },
+        "PSRotation": {
+          "Pitch": -10.0,
+          "Yaw": 180.0,
+          "Roll": 0.0
         }
       },
       "TriggerAttackPosition": 0.1,
@@ -371,10 +488,58 @@
       "TotalDuration": {
         "Value": 1.37
       },
-      "AkEventBegin": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Audrey_Katana_Attack01.Wpn_Audrey_Katana_Attack01",
-        "SubPathString": ""
-      },
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Trail.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Melee.Attack.D"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
       "TimeEndEventTags": [
         {
           "TagName": "Event.Action.KeepSide"
@@ -413,7 +578,12 @@
       },
       "EffectPlane": {
         "PSTag": {
-          "TagName": "Resource.Particle.AnimNotify.A"
+          "TagName": "Resource.Particle.Melee.Attack.A"
+        },
+        "PSRotation": {
+          "Pitch": 0.0,
+          "Yaw": 180.0,
+          "Roll": -10.0
         }
       },
       "bSupport2DState": false,
@@ -429,7 +599,7 @@
         "State.Player.DisableInteract",
         "State.Player.DisableSwitchWeapon",
         "State.Weapon.MeleeAttacking",
-        "State.Player.DisableKeep2D.Side"
+        "State.Player.DisableInput2D.Side"
       ],
       "bUseTimeStamp": true,
       "TotalDuration": {
@@ -438,14 +608,61 @@
           "CurveTable": {
             "ObjectName": "ModeCurveTable'CT_GameMode'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-          },
-          "RowName": "Duration.Katana.MeleeSwitchFirst"
+          }
         }
       },
-      "AkEventBegin": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Audrey_Katana_Attack.Wpn_Audrey_Katana_Attack",
-        "SubPathString": ""
-      },
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Trail.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Melee.Attack.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
       "TimeEndEventTags": [
         {
           "TagName": "Event.Action.KeepSide"
@@ -474,7 +691,7 @@
       },
       "EffectPlane": {
         "PSTag": {
-          "TagName": "Resource.Particle.AnimNotify.A"
+          "TagName": "Resource.Particle.Melee.Attack.B"
         }
       },
       "TriggerAttackPosition": 0.13,
@@ -502,14 +719,61 @@
           "CurveTable": {
             "ObjectName": "ModeCurveTable'CT_GameMode'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-          },
-          "RowName": "Duration.Katana.MeleeSwitchSecond"
+          }
         }
       },
-      "AkEventBegin": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Audrey_Katana_Attack01.Wpn_Audrey_Katana_Attack01",
-        "SubPathString": ""
-      },
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Trail.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Melee.Attack.B"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
       "TimeEndEventTags": [
         {
           "TagName": "Event.Action.KeepSide"
@@ -534,10 +798,15 @@
       },
       "EffectPlane": {
         "PSTag": {
-          "TagName": "Resource.Particle.AnimNotify.A"
+          "TagName": "Resource.Particle.Melee.Attack.C"
+        },
+        "PSRotation": {
+          "Pitch": 0.0,
+          "Yaw": 180.0,
+          "Roll": -15.0
         }
       },
-      "TriggerAttackPosition": 0.135,
+      "TriggerAttackPosition": 0.2,
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
       "TimeOnTagDeactivated": 0.57,
@@ -562,14 +831,61 @@
           "CurveTable": {
             "ObjectName": "ModeCurveTable'CT_GameMode'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-          },
-          "RowName": "Duration.Katana.Smiteswitch"
+          }
         }
       },
-      "AkEventBegin": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Audrey_Katana_Attack02.Wpn_Audrey_Katana_Attack02",
-        "SubPathString": ""
-      },
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Trail.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Melee.Attack.C"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
       "EndEventTags": [
         {
           "TagName": "Event.Action.KeepSide"
@@ -585,7 +901,10 @@
     "Name": "StateUnEquipped",
     "Outer": "Default__Weapon15201001_C",
     "Class": "UScriptClass'CyFUnEquippedState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StopAllMontagesBlendOut": 0.0
+    }
   },
   {
     "Type": "CyMeleeComponent",
@@ -613,7 +932,6 @@
         }
       ],
       "HalfTraceAngle": 90.0,
-      "HalfAttackThickness": 75.0,
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_Katana_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/Katana/BP_Katana_DamageType.0"
