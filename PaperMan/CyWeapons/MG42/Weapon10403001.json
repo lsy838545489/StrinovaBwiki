@@ -100,6 +100,46 @@
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/MG42/Weapon10403001.Weapon10403001_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::Walk",
+            "Value": {
+              "Value": 200.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 420.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 540.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
       "WeaponName": "ECyWeaponName::MG42",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10403001_C:Root'",
@@ -530,8 +570,10 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": null,
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -777,7 +819,7 @@
           "TableId": "/Game/PaperMan/CyTable/StringTable/ST_FeedBack.ST_FeedBack",
           "Key": "Rotate_Limit",
           "SourceString": "旋转被限制",
-          "LocalizedString": "Cannot Rotate"
+          "LocalizedString": "旋转被限制"
         }
       },
       "AdjustCameraOffset": {
@@ -824,6 +866,11 @@
         "State.Player.DisableKeepAim.Aiming"
       ],
       "bAkEventBeginStopOnInterrupt": true,
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Ability.End.Audery.QPlace"
+        }
+      ],
       "EndEventTags": [
         {
           "TagName": "Event.Action.KeepFly"
@@ -1691,11 +1738,13 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SA_SetBarrelMatParameter_P_Audery_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/BP_SA_SetBarrelMatParameter_P_Audery.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -1718,11 +1767,13 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SA_BarrelParticleActive_Q_Audery_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/BP_SA_BarrelParticleActive_Q_Audery.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -1752,7 +1803,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AmmoMax": {
-        "Value": 350.0,
+        "Value": 450.0,
         "MobileValue": 350.0
       },
       "NoReloadTags": {

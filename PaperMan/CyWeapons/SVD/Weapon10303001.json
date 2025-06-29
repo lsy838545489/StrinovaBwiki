@@ -76,9 +76,50 @@
     "Type": "Weapon10303001_C",
     "Name": "Default__Weapon10303001_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/SVD/Weapon10303001.Weapon10303001_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::Walk",
+            "Value": {
+              "Value": 200.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 420.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 540.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
       "WeaponName": "ECyWeaponName::SVD",
+      "WeaponType": "ECyWeaponType::DMR",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10303001_C:Root'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/Weapon10303001.38"
@@ -543,7 +584,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AnimationBegin": {
-        "Duration": 0.48
+        "Duration": 0.44
       },
       "CameraOffsetInterpSpeed": 50.0,
       "CameraShake": {
@@ -583,10 +624,6 @@
           "RowName": "VerticalRecoilScaleADS"
         }
       },
-      "TimeOnTagActivate": 0.5,
-      "LooseGameplayTags": [
-        "State.Player.CanSwitchMagnification"
-      ],
       "TotalDuration": {
         "Value": 1E+10
       },
@@ -603,11 +640,13 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SA_SetWeaponPartMatParameter_P_Reiichi_Work_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Reiichi/P/BP_SA_SetWeaponPartMatParameter_P_Reiichi_Work.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -673,7 +712,11 @@
     "Properties": {
       "MobileForbiddenHoldTypes": [
         "EFHoldType::Aiming"
-      ]
+      ],
+      "bAllowGASwitchAdsLevel": true,
+      "SwitchAdsLevelAudioTag": {
+        "TagName": "Resource.Audio.OnADSLevelChanged.A"
+      }
     }
   },
   {
@@ -1541,7 +1584,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AmmoMax": {
-        "Value": 84.0,
+        "Value": 108.0,
         "bEnableMobile": true,
         "MobileValue": 96.0
       },

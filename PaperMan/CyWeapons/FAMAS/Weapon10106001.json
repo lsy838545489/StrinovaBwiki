@@ -78,6 +78,46 @@
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/FAMAS/Weapon10106001.Weapon10106001_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::Walk",
+            "Value": {
+              "Value": 230.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 440.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 550.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
       "WeaponName": "ECyWeaponName::FAMAS",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10106001_C:Root'",
@@ -481,7 +521,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "BurstEndTime": {
-        "Value": 0.1,
+        "Value": 0.12,
         "MobileValue": 0.1
       },
       "bFullyAutoMatic": {
@@ -489,7 +529,7 @@
         "MobileValue": 1.0
       },
       "TotalDuration": {
-        "Value": 0.075
+        "Value": 0.05
       },
       "EndEventTags": [
         {
@@ -508,6 +548,7 @@
     "Class": "UScriptClass'CyFFireSwitcher'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "bAllowGASwitchAttackType": true,
       "SwitchAttackTypeInfoMap": [
         {
           "Key": "EFAttackType::Auto",
@@ -516,6 +557,20 @@
         {
           "Key": "EFAttackType::Burst",
           "Value": "EFAttackType::Auto"
+        }
+      ],
+      "SwitchAttackTypeAudioTagMap": [
+        {
+          "Key": "EFAttackType::Auto",
+          "Value": {
+            "TagName": "Resource.Audio.OnAttackTypeChange.Auto"
+          }
+        },
+        {
+          "Key": "EFAttackType::Burst",
+          "Value": {
+            "TagName": "Resource.Audio.OnAttackTypeChange.Burst"
+          }
         }
       ]
     }
@@ -958,7 +1013,7 @@
             },
             "RecoilType": "ERecoilMoveType::Decelerate",
             "PitchRecoilLower": {
-              "Value": 0.15,
+              "Value": 0.18,
               "bEnableMobile": false,
               "MobileValue": 0.15,
               "Curve": {
@@ -967,7 +1022,7 @@
               }
             },
             "PitchRecoilHigher": {
-              "Value": 0.18,
+              "Value": 0.21,
               "bEnableMobile": false,
               "MobileValue": 0.18,
               "Curve": {
@@ -976,7 +1031,7 @@
               }
             },
             "PitchRecoilModifier": {
-              "Value": 0.09,
+              "Value": 0.12,
               "bEnableMobile": false,
               "MobileValue": 0.09,
               "Curve": {
@@ -985,7 +1040,7 @@
               }
             },
             "PitchRecoilModifierLimit": {
-              "Value": 0.27,
+              "Value": 0.33,
               "bEnableMobile": false,
               "MobileValue": 0.27,
               "Curve": {
@@ -994,7 +1049,7 @@
               }
             },
             "PitchRecoilScale": {
-              "Value": 0.32,
+              "Value": 0.65,
               "bEnableMobile": false,
               "MobileValue": 0.32,
               "Curve": {
@@ -1003,7 +1058,7 @@
               }
             },
             "PitchRecoilUpperLimit": {
-              "Value": 1.0,
+              "Value": 3.3,
               "bEnableMobile": false,
               "MobileValue": 1.0,
               "Curve": {
@@ -1012,7 +1067,7 @@
               }
             },
             "PitchAimAssistRecoilScale": {
-              "Value": 0.1,
+              "Value": 0.5,
               "bEnableMobile": false,
               "MobileValue": 0.1,
               "Curve": {
@@ -1121,7 +1176,7 @@
           }
         },
         "SpreadMax": {
-          "Value": 2.1,
+          "Value": 2.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1157,7 +1212,7 @@
           }
         },
         "SpreadModifierMax": {
-          "Value": 0.9,
+          "Value": 0.6,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1630,9 +1685,9 @@
           "TriggerType": "ECySEventTriggerType::None",
           "AssetTagContainers": [
             {
-              "AttachComponentType": "EAttachComponentType::Instigator",
+              "AttachComponentType": "EAttachComponentType::Self",
               "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "CharacterMesh0",
+              "MeshName": "None",
               "AssetTagContainer": [
                 "Resource.Particle.Reload.A"
               ],
@@ -1689,11 +1744,13 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAtomMetParameterWithAmmo_C'",
             "ObjectPath": "PM/Content/PaperMan/CyWeapons/FAMAS/BP_SAtomMetParameterWithAmmo.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -1720,7 +1777,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AmmoMax": {
-        "Value": 210.0,
+        "Value": 270.0,
         "MobileValue": 210.0
       },
       "AmmoPerMagazine": {
