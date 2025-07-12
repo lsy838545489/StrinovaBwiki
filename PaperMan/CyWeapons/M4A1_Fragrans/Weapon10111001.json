@@ -67,6 +67,46 @@
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/M4A1_Fragrans/Weapon10111001.Weapon10111001_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::Walk",
+            "Value": {
+              "Value": 230.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 440.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 550.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
       "WeaponName": "ECyWeaponName::M4A1",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10111001_C:Root'",
@@ -471,8 +511,12 @@
     "Class": "UScriptClass'CyFFireSwitchAuto'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "bSetCharacterAnimLengthToDuration": false,
+      "bForceStopAnimationNextNull": false,
       "TotalDuration": {
-        "Value": 0.0863
+        "Value": 0.0821,
+        "bEnableMobile": true,
+        "MobileValue": 0.0816
       }
     }
   },
@@ -754,7 +798,7 @@
           }
         },
         "PitchRecoilLower": {
-          "Value": 0.27,
+          "Value": 0.22,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -766,7 +810,7 @@
           }
         },
         "PitchRecoilHigher": {
-          "Value": 0.33,
+          "Value": 0.26,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -778,7 +822,7 @@
           }
         },
         "PitchRecoilModifier": {
-          "Value": 0.135,
+          "Value": 0.09,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -790,7 +834,6 @@
           }
         },
         "PitchRecoilModifierLimit": {
-          "Value": 0.25,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -837,7 +880,7 @@
         "HRecoilDirectionType": "ERecoilDirectionType::UseMask",
         "HRecoilDirectionMask": 150863999,
         "YawRecoilLower": {
-          "Value": 0.027,
+          "Value": 0.025,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -849,7 +892,7 @@
           }
         },
         "YawRecoilHigher": {
-          "Value": 0.054,
+          "Value": 0.05,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -861,7 +904,7 @@
           }
         },
         "YawRecoilModifier": {
-          "Value": 0.027,
+          "Value": 0.025,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -885,7 +928,7 @@
           }
         },
         "YawRecoilUpperLimit": {
-          "Value": 7.2,
+          "Value": 6.5,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1365,8 +1408,8 @@
       },
       "AttackRange": 100000.0,
       "AttackDamage": {
-        "Value": 24.0,
-        "MobileValue": 24.0
+        "Value": 22.0,
+        "MobileValue": 22.0
       },
       "DamageScaleFor2D": {
         "Value": 0.67,
@@ -1660,7 +1703,6 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "TimeUnLoad": 0.36,
-      "TimeHideMagazine": 0.8,
       "TotalDuration": {
         "Value": 0.75
       }
@@ -1688,7 +1730,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AmmoMax": {
-        "Value": 245.0,
+        "Value": 315.0,
         "MobileValue": 245.0
       },
       "GSAmmoCapacityFactor": {

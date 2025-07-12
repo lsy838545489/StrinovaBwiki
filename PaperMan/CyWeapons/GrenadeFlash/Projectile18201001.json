@@ -11,7 +11,7 @@
       }
     },
     "SuperStruct": {
-      "ObjectName": "Class'CyProjectileFlashGrenade'",
+      "ObjectName": "Class'CyProjectileBlast'",
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
@@ -45,10 +45,6 @@
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/GrenadeFlash/Projectile18201001.Projectile18201001_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "FirstAnimTime": 2.5,
-      "FrontMinFirstAnimTime": 0.5,
-      "BackFirstAnimTime": 0.01,
-      "BackTotalAnimMinTime": 0.8,
       "BlastRadius": 4000.0,
       "DistanceLevelCurves": [
         {
@@ -60,38 +56,6 @@
         {
           "ObjectName": "CurveFloat'AngleLevelCurve'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/GrenadeFlash/AngleLevelCurve.0"
-        }
-      ],
-      "EffectMap": [
-        {
-          "Key": "ETargetType::Enemy",
-          "Value": {
-            "Group": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'GE_Grenade_Flash_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/GrenadeFlash/GE_Grenade_Flash.0"
-              },
-              {
-                "ObjectName": "BlueprintGeneratedClass'GE_Grenade_FlashFirstScetion_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/GrenadeFlash/GE_Grenade_FlashFirstScetion.0"
-              }
-            ]
-          }
-        },
-        {
-          "Key": "ETargetType::Self",
-          "Value": {
-            "Group": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'GE_Grenade_Flash_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/GrenadeFlash/GE_Grenade_Flash.0"
-              },
-              {
-                "ObjectName": "BlueprintGeneratedClass'GE_Grenade_FlashFirstScetion_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/GrenadeFlash/GE_Grenade_FlashFirstScetion.0"
-              }
-            ]
-          }
         }
       ],
       "BlastDamageType": {
@@ -121,6 +85,12 @@
       "AkConfig": {
         "ObjectName": "AkProjectileConfig'AkProjectileConfigFlash'",
         "ObjectPath": "PM/Content/WwiseAssets/AkConfigs/AkProjectileConfigFlash.0"
+      },
+      "ActuatorConfig": {
+        "ActorClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Summon_GrenadeFlash_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/GrenadeFlash/Summon/BP_Summon_GrenadeFlash.0"
+        }
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile18201001_C:PerceptionSystemComponent'",
@@ -181,6 +151,17 @@
     "Class": "UScriptClass'CyProjectileFlyDropMovementComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "OnProjectileThrough": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "Projectile18201001_C'Default__Projectile18201001_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyWeapons/GrenadeFlash/Projectile18201001.1"
+            },
+            "FunctionName": "OnThrough"
+          }
+        ]
+      },
       "MaxBounceCount": 2,
       "BouncinessScaleMin": 0.25,
       "BouncinessScaleMax": 0.9,
