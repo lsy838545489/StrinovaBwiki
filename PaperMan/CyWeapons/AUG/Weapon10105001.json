@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon10105001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.45"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.48"
       }
     },
     "SuperStruct": {
@@ -76,7 +76,7 @@
     "Type": "Weapon10105001_C",
     "Name": "Default__Weapon10105001_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.Weapon10105001_C'",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "SpeedConfig": {
         "Speed3D": [
@@ -121,11 +121,11 @@
       "WeaponName": "ECyWeaponName::AUG",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10105001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.38"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.41"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10105001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.49"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10105001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.38"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon10105001_C:Machine'",
@@ -308,8 +308,8 @@
         {
           "Key": "MeshPartSight",
           "Value": {
-            "ObjectName": "SkeletalMeshComponent'Default__Weapon10105001_C:MeshPartSight'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.46"
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10105001_C:MeshPartSight'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.39"
           }
         },
         {
@@ -322,8 +322,8 @@
         {
           "Key": "MeshPartSightLens",
           "Value": {
-            "ObjectName": "SkeletalMeshComponent'Default__Weapon10105001_C:MeshPartSightLens'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.47"
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10105001_C:MeshPartSightLens'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.40"
           }
         },
         {
@@ -337,7 +337,7 @@
           "Key": "MeshPartSightFocus",
           "Value": {
             "ObjectName": "StaticMeshComponent'Default__Weapon10105001_C:MeshPartSightFocus'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.48"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.49"
           }
         },
         {
@@ -397,7 +397,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon10105001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.38"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.41"
       }
     }
   },
@@ -1683,7 +1683,11 @@
     "Properties": {
       "AmmoMax": {
         "Value": 315.0,
-        "MobileValue": 245.0
+        "bEnableMobile": true,
+        "MobileValue": 280.0
+      },
+      "AmmoPerMagazine": {
+        "bEnableMobile": true
       },
       "GSAmmoCapacityFactor": {
         "AttributeName": "MagazineCapacityFactor",
@@ -2199,6 +2203,45 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon10105001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon10105001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.41"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSight",
+    "Outer": "Default__Weapon10105001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10105001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.38"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSightLens",
+    "Outer": "Default__Weapon10105001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10105001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.38"
+      }
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "Root",
     "Outer": "Default__Weapon10105001_C",
@@ -2225,7 +2268,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon10105001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.39"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.42"
       },
       "VariableGuid": "CC6968F7-40A72372-482EDF8F-A9EE9A81",
       "InternalVariableName": "DefaultSceneRoot"
@@ -2317,68 +2360,42 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.41"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.43"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_4'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.44"
         },
         {
+          "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.46"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.47"
+        },
+        {
           "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.42"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.45"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.41"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.43"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_4'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.44"
         },
         {
+          "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.46"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.47"
+        },
+        {
           "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.42"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.45"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon10105001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.40"
-      }
-    }
-  },
-  {
-    "Type": "SkeletalMeshComponent",
-    "Name": "MeshPartSight",
-    "Outer": "Default__Weapon10105001_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10105001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.49"
-      }
-    }
-  },
-  {
-    "Type": "SkeletalMeshComponent",
-    "Name": "MeshPartSightLens",
-    "Outer": "Default__Weapon10105001_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10105001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.49"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.43"
       }
     }
   },
@@ -2390,20 +2407,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10105001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.49"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon10105001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon10105001_C:Root'",
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10105001_C:MeshFor3PP'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/Weapon10105001.38"
       }
     }
