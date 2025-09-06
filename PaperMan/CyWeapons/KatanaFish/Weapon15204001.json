@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon15204001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.37"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.38"
       }
     },
     "SuperStruct": {
@@ -72,11 +72,11 @@
       "WeaponName": "ECyWeaponName::CustomType241",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon15204001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.31"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.32"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon15204001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.38"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon15204001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.31"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon15204001_C:Machine'",
@@ -269,7 +269,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon15204001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.31"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.32"
       }
     }
   },
@@ -605,10 +605,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchDash'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.0,
-      "TimeAllowEnd": 0.46,
+      "TimeAllowCombo": {
+        "Value": 0.0,
+        "MobileValue": 0.0
+      },
+      "TimeAllowEnd": {
+        "Value": 0.46,
+        "MobileValue": 0.46
+      },
       "AttackPlane": {
-        "PlaneOffset": -115.0
+        "PlaneOffset": {
+          "Value": -115.0,
+          "MobileValue": -115.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -620,7 +629,10 @@
           "Roll": 0.0
         }
       },
-      "TriggerAttackPosition": 0.1,
+      "TriggerAttackPosition": {
+        "Value": 0.1,
+        "MobileValue": 0.1
+      },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
       "TimeOnTagDeactivated": 0.46,
@@ -700,10 +712,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchFirst'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.15,
-      "TimeAllowEnd": 0.4,
+      "TimeAllowCombo": {
+        "Value": 0.15,
+        "MobileValue": 0.15
+      },
+      "TimeAllowEnd": {
+        "Value": 0.4,
+        "MobileValue": 0.4
+      },
       "AttackPlane": {
-        "PlaneOffset": 165.0
+        "PlaneOffset": {
+          "Value": 165.0,
+          "MobileValue": 165.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -735,12 +756,13 @@
       ],
       "bUseTimeStamp": true,
       "TotalDuration": {
-        "Value": 1.37,
+        "Value": 1.0,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_GameMode'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-          }
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.MeleeFirst.KatanaFish"
         }
       },
       "AssetEvents": [
@@ -787,10 +809,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchSecond'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.157,
-      "TimeAllowEnd": 0.4,
+      "TimeAllowCombo": {
+        "Value": 0.157,
+        "MobileValue": 0.157
+      },
+      "TimeAllowEnd": {
+        "Value": 0.4,
+        "MobileValue": 0.4
+      },
       "AttackPlane": {
-        "PlaneOffset": 15.0
+        "PlaneOffset": {
+          "Value": 15.0,
+          "MobileValue": 15.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -802,7 +833,10 @@
           "Roll": 10.0
         }
       },
-      "TriggerAttackPosition": 0.13,
+      "TriggerAttackPosition": {
+        "Value": 0.13,
+        "MobileValue": 0.13
+      },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
       "TimeOnTagDeactivated": 0.4,
@@ -822,12 +856,13 @@
         "State.Player.DisableKeep2D.Side"
       ],
       "TotalDuration": {
-        "Value": 1.37,
+        "Value": 1.0,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_GameMode'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-          }
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.MeleeSecond.KatanaFish"
         }
       },
       "AssetEvents": [
@@ -971,11 +1006,23 @@
     "Class": "UScriptClass'CyFSmiteSwitch'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.45,
-      "TimeAllowEnd": 0.45,
+      "TimeAllowCombo": {
+        "Value": 0.45,
+        "MobileValue": 0.45
+      },
+      "TimeAllowEnd": {
+        "Value": 0.45,
+        "MobileValue": 0.45
+      },
       "AttackPlane": {
-        "PlaneOffset": 360.0,
-        "CenterZOffset": -50.0
+        "PlaneOffset": {
+          "Value": 360.0,
+          "MobileValue": 360.0
+        },
+        "CenterZOffset": {
+          "Value": -50.0,
+          "MobileValue": -50.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -987,7 +1034,10 @@
           "Roll": -15.0
         }
       },
-      "TriggerAttackPosition": 0.2,
+      "TriggerAttackPosition": {
+        "Value": 0.2,
+        "MobileValue": 0.2
+      },
       "bSupport2DState": false,
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_KatanaFish_DamageType_Smite_C'",
@@ -1007,7 +1057,8 @@
         "State.Player.DisableInput2D.Fly",
         "State.Player.DisableInput2D.Side",
         "State.Player.DisableKeep2D.Fly",
-        "State.Player.DisableKeep2D.Side"
+        "State.Player.DisableKeep2D.Side",
+        "State.Weapon.MeleeAttacking"
       ],
       "bUseTimeStamp": true,
       "TotalDuration": {
@@ -1146,60 +1197,212 @@
       "MeleeAttackDamage": [
         {
           "Key": "EFAttackType::MeleeFirst",
-          "Value": 70.0
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.MeleeFirst.KatanaFish"
+            }
+          }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
-          "Value": 70.0
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.MeleeSecond.KatanaFish"
+            }
+          }
         },
         {
           "Key": "EFAttackType::MeleeDash",
-          "Value": 70.0
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.MeleeDash.KatanaFish"
+            }
+          }
         },
         {
           "Key": "EFAttackType::Smite",
-          "Value": 210.0
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.Smite.KatanaFish"
+            }
+          }
         }
       ],
       "MeleeAttackParams": [
         {
           "Key": "EFAttackType::Smite",
           "Value": {
-            "AttackRange": 450.0,
-            "AttackHalfAngle": 180.0,
-            "HalfAttackThickness": 160.0,
+            "AttackRange": {
+              "Value": 450.0,
+              "bEnableMobile": false,
+              "MobileValue": 450.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "AttackHalfAngle": {
+              "Value": 180.0,
+              "bEnableMobile": false,
+              "MobileValue": 180.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "HalfAttackThickness": {
+              "Value": 160.0,
+              "bEnableMobile": false,
+              "MobileValue": 160.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
             "bHorizontalAiming": true
           }
         },
         {
           "Key": "EFAttackType::MeleeFirst",
           "Value": {
-            "AttackRange": 250.0,
-            "AttackHalfAngle": 90.0,
-            "HalfAttackThickness": 60.0,
+            "AttackRange": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 250.0,
+              "Curve": {
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.AttackRange.MeleeFirst.KatanaFish"
+              }
+            },
+            "AttackHalfAngle": {
+              "Value": 90.0,
+              "bEnableMobile": false,
+              "MobileValue": 90.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "HalfAttackThickness": {
+              "Value": 60.0,
+              "bEnableMobile": false,
+              "MobileValue": 60.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
             "bHorizontalAiming": false
           }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
           "Value": {
-            "AttackRange": 250.0,
-            "AttackHalfAngle": 90.0,
-            "HalfAttackThickness": 60.0,
+            "AttackRange": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 250.0,
+              "Curve": {
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.AttackRange.MeleeSecond.KatanaFish"
+              }
+            },
+            "AttackHalfAngle": {
+              "Value": 90.0,
+              "bEnableMobile": false,
+              "MobileValue": 90.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "HalfAttackThickness": {
+              "Value": 60.0,
+              "bEnableMobile": false,
+              "MobileValue": 60.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
             "bHorizontalAiming": false
           }
         },
         {
           "Key": "EFAttackType::MeleeDash",
           "Value": {
-            "AttackRange": 250.0,
-            "AttackHalfAngle": 90.0,
-            "HalfAttackThickness": 60.0,
+            "AttackRange": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 250.0,
+              "Curve": {
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.AttackRange.MeleeDash.KatanaFish"
+              }
+            },
+            "AttackHalfAngle": {
+              "Value": 90.0,
+              "bEnableMobile": false,
+              "MobileValue": 90.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "HalfAttackThickness": {
+              "Value": 60.0,
+              "bEnableMobile": false,
+              "MobileValue": 60.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
             "bHorizontalAiming": false
           }
         }
       ],
-      "HalfTraceAngle": 90.0,
+      "HalfTraceAngle": {
+        "Value": 90.0,
+        "MobileValue": 90.0
+      },
       "CauseDamageInstantTags": [
         "EventTag.Weapon.CauseDamage"
       ],
@@ -1207,7 +1410,10 @@
         "ObjectName": "BlueprintGeneratedClass'BP_KatanaFish_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/BP_KatanaFish_DamageType.0"
       },
-      "AttackRange": 1000.0,
+      "AttackRange": {
+        "Value": 1000.0,
+        "MobileValue": 1000.0
+      },
       "AdditionalDamage": {
         "ModifierOp": "EMagnitudeModOp::Additive",
         "ScalableFloatMagnitude": {
@@ -1570,6 +1776,19 @@
     }
   },
   {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon15204001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon15204001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.32"
+      }
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "Root",
     "Outer": "Default__Weapon15204001_C",
@@ -1596,7 +1815,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon15204001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.32"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.33"
       },
       "VariableGuid": "AA790B2D-47ADDEDA-1106699E-E2A0C6D2",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1669,47 +1888,34 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon15204001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.34"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.35"
         },
         {
           "ObjectName": "SCS_Node'Weapon15204001_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.36"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.37"
         },
         {
           "ObjectName": "SCS_Node'Weapon15204001_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.35"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.36"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon15204001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.34"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.35"
         },
         {
           "ObjectName": "SCS_Node'Weapon15204001_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.36"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.37"
         },
         {
           "ObjectName": "SCS_Node'Weapon15204001_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.35"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.36"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon15204001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.33"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon15204001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon15204001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.31"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaFish/Weapon15204001.34"
       }
     }
   }

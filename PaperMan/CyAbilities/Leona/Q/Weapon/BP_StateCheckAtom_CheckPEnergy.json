@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_StateCheckAtom_CheckPEnergy_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyStateCheckAtomAttributeValue'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_StateCheckAtom_CheckPEnergy_C'Default__BP_StateCheckAtom_CheckPEnergy_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Leona/Q/Weapon/BP_StateCheckAtom_CheckPEnergy.1"
+    }
+  },
+  {
+    "Type": "BP_StateCheckAtom_CheckPEnergy_C",
+    "Name": "Default__BP_StateCheckAtom_CheckPEnergy_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Leona/Q/Weapon/BP_StateCheckAtom_CheckPEnergy.BP_StateCheckAtom_CheckPEnergy_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttributeValue": {
+        "AttributeName": "PEnergy",
+        "Attribute": {
+          "Path": [
+            "PEnergy"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "ContrastType": "EContrast_GreaterThanOrEqual",
+      "bUseScalable": true,
+      "CheckValueScalable": {
+        "Value": -1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.EnergyCost.Q.Leona"
+        }
+      },
+      "CheckTagFrom": "EStateCheckTagFrom::OwnerCharacter",
+      "ReasonTags": {
+        "FilterFailureReason": [
+          "Failed.TagsBlocked"
+        ],
+        "BlockedTag": {
+          "TagName": "Failed.CostEnergy"
+        }
+      }
+    }
+  }
+]

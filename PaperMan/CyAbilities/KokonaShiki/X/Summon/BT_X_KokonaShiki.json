@@ -1,0 +1,284 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_KokonaShiki:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.1"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BD_MoveToTarget'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/BehaviorTree/BD_MoveToTarget.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_0",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_KokonaShiki:CyBTTask_GotoState_6'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.10"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_Blackboard'BT_X_KokonaShiki:BTDecorator_Blackboard_0'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.4"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Selector'BT_X_KokonaShiki:BTComposite_Selector_2'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.2"
+          },
+          "ChildTask": null,
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        {
+          "ObjectName": "CyBTService_UpdateSearchedTarget'BT_X_KokonaShiki:CyBTService_UpdateSearchedTarget_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.6"
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_2",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_KokonaShiki:CyBTTask_GotoState_3'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.9"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_CheckAliveOnActor'BT_X_KokonaShiki:CyBTDecorator_CheckAliveOnActor_0'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.5"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_X_KokonaShiki:BTComposite_Sequence_0'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.3"
+          },
+          "ChildTask": null,
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_KokonaShiki:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.1"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_0",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_KokonaShiki:CyBTTask_GotoState_2'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.8"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_KokonaShiki:CyBTTask_GotoState_1'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.7"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_KokonaShiki:BTComposite_Selector_2'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.2"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Blackboard",
+    "Name": "BTDecorator_Blackboard_0",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CachedDescription": "TargetActor is Is Not Set",
+      "OperationType": 1,
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor"
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "Not SetTarget Condition",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_KokonaShiki:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_CheckAliveOnActor",
+    "Name": "CyBTDecorator_CheckAliveOnActor_0",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'CyBTDecorator_CheckAliveOnActor'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AliveMask": "ELifeMask::Armor",
+      "BlackboardKey": {
+        "SelectedKeyName": "SelfActor"
+      },
+      "bInverseCondition": true,
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_KokonaShiki:BTComposite_Selector_2'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTService_UpdateSearchedTarget",
+    "Name": "CyBTService_UpdateSearchedTarget_0",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'CyBTService_UpdateSearchedTarget'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor"
+      },
+      "RandomDeviation": 0.0,
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_KokonaShiki:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_1",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "NodeName": "Goto Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_KokonaShiki:BTComposite_Sequence_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.3"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_2",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Work",
+      "NodeName": "Goto Work",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_KokonaShiki:BTComposite_Sequence_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.3"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_3",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Death",
+      "NodeName": "Goto Death",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_KokonaShiki:BTComposite_Selector_2'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_6",
+    "Outer": "BT_X_KokonaShiki",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_KokonaShiki'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_KokonaShiki:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/X/Summon/BT_X_KokonaShiki.1"
+      }
+    }
+  }
+]

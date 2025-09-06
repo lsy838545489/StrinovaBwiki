@@ -1,0 +1,56 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_CalculationDamageMara_KnifeHit_Q_Mara_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyCalculationDamageMara'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_CalculationDamageMara_KnifeHit_Q_Mara_C'Default__BP_CalculationDamageMara_KnifeHit_Q_Mara_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Q/Calculation/BP_CalculationDamageMara_KnifeHit_Q_Mara.1"
+    }
+  },
+  {
+    "Type": "BP_CalculationDamageMara_KnifeHit_Q_Mara_C",
+    "Name": "Default__BP_CalculationDamageMara_KnifeHit_Q_Mara_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Mara/Q/Calculation/BP_CalculationDamageMara_KnifeHit_Q_Mara.BP_CalculationDamageMara_KnifeHit_Q_Mara_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Note": "刀+喷火器类：当前生命值/(当前生命值+当前总护甲值(即计算临时护甲)*系数A）*系数B",
+      "DamageMask": 5,
+      "DamageScale": {
+        "Value": 0.1,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.DamageTransport.Q.Mara"
+        }
+      },
+      "AttributeOneFromType": "EAttributeFromType::TargetActorFromEffectCauser",
+      "AttributeTwoFromType": "EAttributeFromType::TargetActorFromEffectCauser",
+      "AttributeMaskTwo": 12,
+      "ParametersA": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.Armor.Multiply.Q.Mara"
+        }
+      }
+    }
+  }
+]

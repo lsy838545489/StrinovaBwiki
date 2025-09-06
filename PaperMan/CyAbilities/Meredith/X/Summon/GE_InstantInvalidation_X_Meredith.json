@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_InstantInvalidation_X_Meredith_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_InstantInvalidation_X_Meredith_C'Default__GE_InstantInvalidation_X_Meredith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Meredith/X/Summon/GE_InstantInvalidation_X_Meredith.1"
+    }
+  },
+  {
+    "Type": "GE_InstantInvalidation_X_Meredith_C",
+    "Name": "Default__GE_InstantInvalidation_X_Meredith_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Meredith/X/Summon/GE_InstantInvalidation_X_Meredith.GE_InstantInvalidation_X_Meredith_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_X_Meredith_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Meredith/X/Weapon/BP_DamageType_X_Meredith.0"
+      },
+      "BuffType": "ECyBuffType::Weak",
+      "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0
+        }
+      },
+      "Period": {
+        "Value": 1.0
+      },
+      "Executions": [
+        {
+          "CalculationClass": {
+            "ObjectName": "BlueprintGeneratedClass'Execution_Instant_InvalidHealth_X_Meredith_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Meredith/X/Summon/Execution_Instant_InvalidHealth_X_Meredith.0"
+          },
+          "PassedInTags": [],
+          "CalculationModifiers": [],
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ConditionalGameplayEffects": []
+        }
+      ],
+      "ConditionalGameplayEffects": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_InstantInvalidation_X_Meredith_Sign_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Meredith/X/Summon/GE_InstantInvalidation_X_Meredith_Sign.0"
+          },
+          "RequiredSourceTags": []
+        }
+      ],
+      "ApplicationTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Injured",
+          "Buff.Weak.InvalidHealth.Sign.MeredithX",
+          "Buff.Weak.InvalidHealth.Delay"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Immunity.Weak"
+        ]
+      }
+    }
+  }
+]

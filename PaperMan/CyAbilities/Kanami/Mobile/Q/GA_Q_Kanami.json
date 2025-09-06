@@ -1,0 +1,462 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Q_Kanami_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Q_Kanami_C'Default__GA_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/GA_Q_Kanami.1"
+    }
+  },
+  {
+    "Type": "GA_Q_Kanami_C",
+    "Name": "Default__GA_Q_Kanami_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/GA_Q_Kanami.GA_Q_Kanami_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bCheckActiveUseRunningInGame": true,
+      "bCheckWeaponActive": false,
+      "bOnlyUseRunningInGame": true,
+      "WeaponStates": [
+        "EFStateType::EnterSwitchAttackType"
+      ],
+      "WeaponAttackType": "EFAttackType::Ability",
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon.0"
+        }
+      ],
+      "PreCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckWeaponType_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_CheckWeaponType.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckSlotWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_CheckSlotWeapon.0"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowRelieveSlide.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowBigMap_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowBigMap.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_SwitchWeapon_Q_Kanami_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/Activator/BP_SwitchWeapon_Q_Kanami.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_EnterAttackType_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/Activator/BP_Activator_EnterAttackType.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorCancelAbility_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorCancelAbility.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Summon.Spawn.Kanami.Q.Projectile"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAttributeReset_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_TriggerAttributeReset.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.Pre.UsePrimaryWeapon"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheck_WeaponSlot_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TCheck_WeaponSlot.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerLeaveAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerLeaveAttackType.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerLeaveAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerLeaveAttackType.0"
+              }
+            ]
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.GameState.FightEnd.Ended"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerWeaponGoToStates_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerWeaponGoToStates.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Consume.Primary"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              }
+            ]
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Shape.2D.Flying"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              }
+            ]
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Shape.2D.Wall"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSetAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerSetAttackType.0"
+              }
+            ]
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Shape.2D.Side"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerLeaveAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerLeaveAttackType.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerReloadWhenMagazineEmpty_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerReloadWhenMagazineEmpty.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerLeaveAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerLeaveAttackType.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerReloadWhenMagazineEmpty_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerReloadWhenMagazineEmpty.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerLeaveAttackType_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerLeaveAttackType.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerReloadWhenMagazineEmpty_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/BP_TriggerReloadWhenMagazineEmpty.0"
+              }
+            ]
+          }
+        }
+      ],
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Primary",
+      "MagnitudeRemainPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.QPoints.Set.Q.Kanami"
+        }
+      },
+      "MagnitudeMaxPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.QPointsMax.Set.Q.Kanami"
+        }
+      },
+      "AttributeRemainPoints": {
+        "AttributeName": "QPoints",
+        "Attribute": {
+          "Path": [
+            "QPoints"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "AttributeMaxPoints": {
+        "AttributeName": "QPointsMax",
+        "Attribute": {
+          "Path": [
+            "QPointsMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "CommitCostMask": 0,
+      "CommitCostEventTags": [
+        "Event.ConsumePlayerSkill.Q"
+      ],
+      "AbilityStatConfig": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbilityStatConfig_Kanami_Q_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/StatConfig/BP_AbilityStatConfig_Kanami_Q.0"
+      },
+      "AbilityTags": [
+        "GA.Ability.SkillQ.Kanami"
+      ],
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'GE_CostQPoints_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GE/GE_CostQPoints.0"
+      },
+      "CooldownGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'CD_Q_Kanami_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/Q/CD_Q_Kanami.0"
+      },
+      "ActivationOwnedTags": [
+        "GA.Ability.SkillQ"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill"
+      ]
+    }
+  }
+]

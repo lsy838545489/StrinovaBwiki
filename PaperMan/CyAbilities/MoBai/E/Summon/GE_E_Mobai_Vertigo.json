@@ -1,0 +1,106 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_E_Mobai_Vertigo_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_E_Mobai_Vertigo_C'Default__GE_E_Mobai_Vertigo_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/E/Summon/GE_E_Mobai_Vertigo.1"
+    }
+  },
+  {
+    "Type": "GE_E_Mobai_Vertigo_C",
+    "Name": "Default__GE_E_Mobai_Vertigo_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/MoBai/E/Summon/GE_E_Mobai_Vertigo.GE_E_Mobai_Vertigo_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_E_MoBai_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/E/BP_DamageType_E_MoBai.0"
+      },
+      "ResponderType": "EResponderType::EffectCauserInstigator",
+      "TargetRemovedEventTag": {
+        "TagName": "Event.Action.KeepAimOrADS"
+      },
+      "BuffType": "ECyBuffType::Weak",
+      "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+            },
+            "RowName": "Duration.Buff.Vertigo.E.MoBai"
+          }
+        }
+      },
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.Shared.Vertigo"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Weak.Vertigo",
+          "Buff.Weak.Vertigo"
+        ],
+        "Added": [
+          "BuffIcon.Weak.Vertigo",
+          "Buff.Weak.Vertigo"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Weak.Vertigo",
+          "State.Player.DisableInputAim.ADS",
+          "State.Player.DisableKeepAim.ADS"
+        ],
+        "Added": [
+          "Buff.Weak.Vertigo",
+          "State.Player.DisableInputAim.ADS",
+          "State.Player.DisableKeepAim.ADS"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Immunity.Weak",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

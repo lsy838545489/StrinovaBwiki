@@ -1,0 +1,109 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_InteractAtom_Ability_Rescue_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyInteractAtomAbilityReplicate'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_InteractAtom_Ability_Rescue_C'Default__BP_InteractAtom_Ability_Rescue_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/BP_InteractAtom_Ability_Rescue.1"
+    }
+  },
+  {
+    "Type": "BP_InteractAtom_Ability_Rescue_C",
+    "Name": "Default__BP_InteractAtom_Ability_Rescue_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/BP_InteractAtom_Ability_Rescue.BP_InteractAtom_Ability_Rescue_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Rescue",
+      "WorkStateType": "EFStateType::Equip",
+      "AbilityTags": [
+        "GA.Action.Rescue"
+      ],
+      "ActiveEvent": {
+        "TagName": "Event.Action.Rescue.Start"
+      },
+      "InteractDisplay": {
+        "TipInfo": {
+          "Namespace": "",
+          "Key": "5513A6C64B02464FD1B713BE2C4F346F",
+          "SourceString": "救人",
+          "LocalizedString": "救人"
+        },
+        "TipInfoSTKey": "Interact_Rescue",
+        "OperationInfo": {
+          "Namespace": "",
+          "Key": "FF671EFA446DB394F9A268ADA2B13851",
+          "SourceString": "救人中",
+          "LocalizedString": "救人中"
+        },
+        "OperationInfoSTKey": "Operation_Interact_Rescue",
+        "TeammateOperationInfo": {
+          "Namespace": "",
+          "Key": "930803E14DF550A4554F179A9965A0A7",
+          "SourceString": "队友救人中",
+          "LocalizedString": "队友救人中"
+        },
+        "TeammateOperationInfoSTKey": "Teammate_Operation_Interact_Rescue",
+        "InteractType": "EInteractType::Rescue"
+      },
+      "Filters": [
+        {
+          "ObjectName": "Class'CyFilterSameTeam'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      ],
+      "OwnerTagRequirements": {
+        "RequireTags": [
+          "State.Health.Injured"
+        ],
+        "IgnoreTags": [
+          "State.Player.BeRescued",
+          "State.Player.DisableBeRescue"
+        ]
+      },
+      "TargetTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Injured",
+          "State.Player.DisableInteract",
+          "State.Health.Death",
+          "State.Motion.InAir",
+          "State.Player.DisableInteractWithDuration",
+          "State.Player.DisableRescue",
+          "State.Shape.2D.Wall"
+        ]
+      },
+      "InteractMaxDistance": 150.0,
+      "ServerOwnerKeepTagRequirements": {
+        "RequireTags": [
+          "State.Health.Injured"
+        ],
+        "IgnoreTags": [
+          "State.Health.Death"
+        ]
+      },
+      "ServerTargetKeepTagRequirements": {
+        "RequireTags": [
+          "GA.Action.Rescue"
+        ],
+        "IgnoreTags": [
+          "State.Health.Injured",
+          "State.Health.Death",
+          "State.Motion.InAir"
+        ]
+      },
+      "KeepInteractMaxDistance": 160.0
+    }
+  }
+]

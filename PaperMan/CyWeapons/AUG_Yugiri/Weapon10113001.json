@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon10113001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.43"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.46"
       }
     },
     "SuperStruct": {
@@ -65,7 +65,7 @@
     "Type": "Weapon10113001_C",
     "Name": "Default__Weapon10113001_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.Weapon10113001_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "SpeedConfig": {
         "Speed3D": [
@@ -107,14 +107,14 @@
           }
         ]
       },
-      "WeaponName": "ECyWeaponName::AUG",
+      "WeaponName": "ECyWeaponName::CustomType236",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10113001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.37"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.40"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10113001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.47"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10113001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.37"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon10113001_C:Machine'",
@@ -297,8 +297,8 @@
         {
           "Key": "MeshPartSight",
           "Value": {
-            "ObjectName": "SkeletalMeshComponent'Default__Weapon10113001_C:MeshPartSight'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.44"
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10113001_C:MeshPartSight'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.38"
           }
         },
         {
@@ -311,8 +311,8 @@
         {
           "Key": "MeshPartSightLens",
           "Value": {
-            "ObjectName": "SkeletalMeshComponent'Default__Weapon10113001_C:MeshPartSightLens'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.45"
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10113001_C:MeshPartSightLens'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.39"
           }
         },
         {
@@ -326,7 +326,7 @@
           "Key": "MeshPartSightFocus",
           "Value": {
             "ObjectName": "StaticMeshComponent'Default__Weapon10113001_C:MeshPartSightFocus'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.46"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.47"
           }
         },
         {
@@ -386,7 +386,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon10113001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.37"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.40"
       }
     }
   },
@@ -405,12 +405,12 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AkEventWhiz": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.Wpn_Bullet_Whiz",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Wpn_Bullet_Whiz'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.0"
       },
       "AkEventShellCase": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Bullet_ShellDrop_AssaultRifle.Bullet_ShellDrop_AssaultRifle",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Bullet_ShellDrop_AssaultRifle'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Bullet_ShellDrop_AssaultRifle.0"
       },
       "AkRtpcAmmoLeftProportion": {
         "ObjectName": "AkRtpc'NumberOfBullets'",
@@ -496,9 +496,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "TotalDuration": {
-        "Value": 0.083333,
-        "bEnableMobile": true,
-        "MobileValue": 0.083333
+        "Value": 0.083333
       }
     }
   },
@@ -1255,15 +1253,15 @@
       },
       "AttenuationProcessor": {
         "DistanceProtectedStart": {
-          "Value": 1000.0,
+          "Value": 0.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10113001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/CurveTable/CT_ModeWeapon_10113001.0"
+              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
+              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
             },
-            "RowName": "DistanceProtectedEnd"
+            "RowName": "DistanceProtectedStart"
           }
         },
         "DistanceProtectedEnd": {
@@ -1272,58 +1270,58 @@
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10113001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/CurveTable/CT_ModeWeapon_10113001.0"
+              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
+              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
             },
             "RowName": "DistanceProtectedEnd"
           }
         },
         "DistanceEffective": {
-          "Value": 1000.0,
+          "Value": 3000.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10113001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/CurveTable/CT_ModeWeapon_10113001.0"
+              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
+              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
             },
-            "RowName": "DistanceProtectedEnd"
+            "RowName": "DistanceEffective"
           }
         },
         "FactorEffective": {
-          "Value": 1000.0,
+          "Value": 0.225,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10113001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/CurveTable/CT_ModeWeapon_10113001.0"
+              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
+              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
             },
-            "RowName": "DistanceProtectedEnd"
+            "RowName": "FactorEffective"
           }
         },
         "DiscreteSpacing": {
-          "Value": 1000.0,
+          "Value": 500.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10113001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/CurveTable/CT_ModeWeapon_10113001.0"
+              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
+              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
             },
-            "RowName": "DistanceProtectedEnd"
+            "RowName": "DiscreteSpacing"
           }
         },
         "FactorMaximal": {
-          "Value": 1000.0,
+          "Value": 0.225,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10113001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/CurveTable/CT_ModeWeapon_10113001.0"
+              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
+              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
             },
-            "RowName": "DistanceProtectedEnd"
+            "RowName": "FactorMaximal"
           }
         }
       },
@@ -1335,7 +1333,10 @@
         "ObjectName": "BlueprintGeneratedClass'BP_AUG_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/BP_AUG_DamageType.0"
       },
-      "AttackRange": 100000.0,
+      "AttackRange": {
+        "Value": 100000.0,
+        "MobileValue": 100000.0
+      },
       "CloseAttackRange": 1000.0,
       "AttackDamage": {
         "Value": 24.0,
@@ -2148,6 +2149,45 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon10113001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon10113001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.40"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSight",
+    "Outer": "Default__Weapon10113001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10113001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.37"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSightLens",
+    "Outer": "Default__Weapon10113001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10113001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.37"
+      }
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "Root",
     "Outer": "Default__Weapon10113001_C",
@@ -2174,7 +2214,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon10113001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.38"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.41"
       },
       "VariableGuid": "CC6968F7-40A72372-482EDF8F-A9EE9A81",
       "InternalVariableName": "DefaultSceneRoot"
@@ -2247,60 +2287,34 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10113001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.40"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.43"
         },
         {
           "ObjectName": "SCS_Node'Weapon10113001_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.41"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.44"
         },
         {
           "ObjectName": "SCS_Node'Weapon10113001_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.42"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.45"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10113001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.40"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.43"
         },
         {
           "ObjectName": "SCS_Node'Weapon10113001_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.41"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.44"
         },
         {
           "ObjectName": "SCS_Node'Weapon10113001_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.42"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.45"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon10113001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.39"
-      }
-    }
-  },
-  {
-    "Type": "SkeletalMeshComponent",
-    "Name": "MeshPartSight",
-    "Outer": "Default__Weapon10113001_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10113001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.47"
-      }
-    }
-  },
-  {
-    "Type": "SkeletalMeshComponent",
-    "Name": "MeshPartSightLens",
-    "Outer": "Default__Weapon10113001_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10113001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.47"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.42"
       }
     }
   },
@@ -2312,20 +2326,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10113001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.47"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon10113001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon10113001_C:Root'",
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10113001_C:MeshFor3PP'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.37"
       }
     }

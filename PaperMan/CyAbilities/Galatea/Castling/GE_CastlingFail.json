@@ -1,0 +1,59 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_CastlingFail_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_CastlingFail_C'Default__GE_CastlingFail_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/GE_CastlingFail.1"
+    }
+  },
+  {
+    "Type": "GE_CastlingFail_C",
+    "Name": "Default__GE_CastlingFail_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Galatea/Castling/GE_CastlingFail.GE_CastlingFail_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 0.5
+        }
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "State.Player.CastlingFail"
+        ],
+        "Added": [
+          "State.Player.CastlingFail"
+        ]
+      },
+      "OngoingTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Alive"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Health.Injured",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

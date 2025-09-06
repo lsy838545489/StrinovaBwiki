@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_Summon_Bomb_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.69"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.67"
       }
     },
     "SuperStruct": {
@@ -336,17 +336,6 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CyBaseEffect",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
-        "PropertyClass": {
-          "ObjectName": "Class'CyBaseEffectComponent'",
-          "ObjectPath": "/Script/PMGame"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
         "Name": "SkeletalMesh",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
@@ -414,7 +403,7 @@
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_Bomb_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.32"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.31"
       },
       "bReplicates": true
     }
@@ -1022,18 +1011,37 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
-    "Type": "CyBaseEffectComponent",
-    "Name": "CyBaseEffect_GEN_VARIABLE",
-    "Outer": "BP_Summon_Bomb_C",
-    "Class": "UScriptClass'CyBaseEffectComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
-  },
-  {
     "Type": "CyFindBombComponent",
     "Name": "CyFindBomb_GEN_VARIABLE",
     "Outer": "BP_Summon_Bomb_C",
     "Class": "UScriptClass'CyFindBombComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CheckDistance_InstallArea": {
+        "DefaultValue": 0.0,
+        "PlatformOverrides": {
+          "Mobile": 2500.0
+        }
+      },
+      "CheckDistance_NoInstallArea": {
+        "DefaultValue": 0.0,
+        "PlatformOverrides": {
+          "Mobile": 1500.0
+        }
+      },
+      "bCheckView": {
+        "DefaultValue": false,
+        "PlatformOverrides": {
+          "Mobile": true
+        }
+      },
+      "CheckDistance_Bomb": {
+        "DefaultValue": 1500.0,
+        "PlatformOverrides": {
+          "Mobile": 10000.0
+        }
+      }
+    }
   },
   {
     "Type": "CyInteractComponent",
@@ -1168,16 +1176,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_Summon_Bomb_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.34"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.33"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.36"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.35"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_26'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.45"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.44"
         }
       ],
       "VariableGuid": "32B394CB-492DCA43-3E513299-493CB38E",
@@ -1202,15 +1210,15 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.42"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.41"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.49"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.48"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.60"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.59"
         }
       ],
       "VariableGuid": "8789008C-411AC7F2-938E2F80-69D6BD97",
@@ -1230,7 +1238,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'BP_Summon_Bomb_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.27"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.26"
       },
       "VariableGuid": "50575803-407F9BBE-3990879B-4796107A",
       "InternalVariableName": "CyRetain"
@@ -1249,7 +1257,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'BP_Summon_Bomb_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.29"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.28"
       },
       "VariableGuid": "9AB04D65-4C1DB467-58B62384-E8778281",
       "InternalVariableName": "CySearchTargets"
@@ -1287,7 +1295,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'BP_Summon_Bomb_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.30"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.29"
       },
       "VariableGuid": "3C830943-455A721D-7C8743B4-4B4BBF65",
       "InternalVariableName": "CySkin"
@@ -1325,7 +1333,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SphereComponent'BP_Summon_Bomb_C:InteractAreaSphere_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.71"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.69"
       },
       "VariableGuid": "D824BB29-4AF38FC6-D3682CAA-E4EC0A61",
       "InternalVariableName": "InteractAreaSphere"
@@ -1363,7 +1371,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyInteractComponent'BP_Summon_Bomb_C:CyInteract_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.26"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.25"
       },
       "VariableGuid": "6B3556CB-4FBFD842-12A76B8E-CCB552F4",
       "InternalVariableName": "CyInteract"
@@ -1401,7 +1409,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySceneMapC4MaskComponent'BP_Summon_Bomb_C:CySceneMapC4Mask_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.28"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.27"
       },
       "VariableGuid": "0CE74E31-4D3A3F0E-D1901681-6523DF0E",
       "InternalVariableName": "CySceneMapC4Mask"
@@ -1458,7 +1466,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'BP_Summon_Bomb_C:SkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.70"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.68"
       },
       "VariableGuid": "8FDDC587-4BF94F68-75317B83-9B10FB1F",
       "InternalVariableName": "SkeletalMesh"
@@ -1667,12 +1675,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SpringArmComponent'BP_Summon_Bomb_C:SpringArm_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.72"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.70"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.66"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.64"
         }
       ],
       "VariableGuid": "13945F18-4BF8CB6E-0880D8AA-21FF9BE4",
@@ -1738,25 +1746,6 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_5",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
-    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class'CyBaseEffectComponent'",
-        "ObjectPath": "/Script/PMGame"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "CyBaseEffectComponent'BP_Summon_Bomb_C:CyBaseEffect_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.24"
-      },
-      "VariableGuid": "3D7C43A8-4BEE2B2A-7F7BFF9B-0A1852D3",
-      "InternalVariableName": "CyBaseEffect"
-    }
-  },
-  {
-    "Type": "SCS_Node",
     "Name": "SCS_Node_6",
     "Outer": "SimpleConstructionScript_0",
     "Class": "UScriptClass'SCS_Node'",
@@ -1768,7 +1757,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySummonLightAIComponent'BP_Summon_Bomb_C:CySummonLightAI_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.31"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.30"
       },
       "VariableGuid": "18AB526E-4ABCA683-B2D1C2A6-1B9BE0A2",
       "InternalVariableName": "CySummonLightAI"
@@ -1806,7 +1795,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyFindBombComponent'BP_Summon_Bomb_C:CyFindBomb_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.25"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.24"
       },
       "VariableGuid": "98266A22-4C819AD5-BC328196-8731F313",
       "InternalVariableName": "CyFindBomb"
@@ -1825,7 +1814,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "PMSummonAnimationComponent'BP_Summon_Bomb_C:PMSummonAnimation_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.33"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.32"
       },
       "VariableGuid": "F1DC23C4-45E7FD3B-B5242B8F-E69FD941",
       "InternalVariableName": "PMSummonAnimation"
@@ -1841,258 +1830,250 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.35"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.64"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.34"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.65"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.38"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.39"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.40"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_18'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.41"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_24'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.43"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_25'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.44"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_28'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.47"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_27'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.46"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_29'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.48"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_30'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.50"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_31'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.51"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_32'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.52"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_33'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.53"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_34'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.54"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_35'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.55"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_36'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.56"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_37'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.57"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_38'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.58"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_39'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.59"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_40'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.61"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_41'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.62"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_42'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.63"
         },
         {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_28'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_27'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_29'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_30'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.49"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_31'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.50"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_32'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_33'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.52"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_36'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_37'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_38'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_39'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_40'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_41'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_42'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.62"
+        },
+        {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.67"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.65"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.68"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.66"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.37"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.36"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.35"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.34"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.36"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.35"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.42"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.49"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.64"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.65"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.38"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.39"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.40"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_18'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.41"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_24'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.43"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_25'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.44"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_26'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.45"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_28'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.47"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_27'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.46"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_29'",
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_3'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.48"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_30'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.50"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_31'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.51"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_32'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.52"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_33'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.53"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_34'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.54"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_35'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.55"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_36'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.56"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_37'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.57"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_38'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.58"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_39'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.59"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_40'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.61"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_41'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.62"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_42'",
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_6'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.63"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.66"
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.37"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_26'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_28'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_27'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_29'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_30'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.49"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_31'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.50"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_32'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_33'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.52"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_36'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_37'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_38'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_39'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_40'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.60"
         },
         {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_41'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_42'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.59"
+        },
+        {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.67"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.65"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.68"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.66"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.37"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.36"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.35"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.34"
       }
     }
   },

@@ -24,7 +24,7 @@
     "Type": "GE_ZombieFlamePistol_SlowDown_C",
     "Name": "Default__GE_ZombieFlamePistol_SlowDown_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/ZombieFlamePistol/GE_ZombieFlamePistol_SlowDown.GE_ZombieFlamePistol_SlowDown_C'",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "BuffType": "ECyBuffType::Weak",
       "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
@@ -33,7 +33,7 @@
       "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
       "DurationMagnitude": {
         "ScalableFloatMagnitude": {
-          "Value": 3.0
+          "Value": 0.5
         }
       },
       "Modifiers": [
@@ -70,7 +70,7 @@
               "ObjectPath": "/Script/PMGame"
             }
           },
-          "ModifierOp": "EGameplayModOp::Additive",
+          "ModifierOp": "EGameplayModOp::Division",
           "Magnitude": {
             "Value": 0.0,
             "bEnableMobile": false,
@@ -142,8 +142,8 @@
             },
             "CustomMagnitude": {
               "CalculationClassMagnitude": {
-                "ObjectName": "BlueprintGeneratedClass'BP_Calculation_AttenuationByDistance_SlowSpeed_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieFlamePistol/BP_Calculation_AttenuationByDistance_SlowSpeed.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_Calculation_AttenuationByDistance_SlowSpeed_AR_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/SlowDownAfterDamage/Caculation/BP_Calculation_AttenuationByDistance_SlowSpeed_AR.0"
               },
               "Coefficient": {
                 "Value": 1.0,
@@ -247,7 +247,7 @@
             },
             "AttributeOwner": null
           },
-          "ModifierOp": "EGameplayModOp::Additive",
+          "ModifierOp": "EGameplayModOp::Division",
           "Magnitude": {
             "Value": 0.0,
             "bEnableMobile": false,
@@ -319,11 +319,11 @@
             },
             "CustomMagnitude": {
               "CalculationClassMagnitude": {
-                "ObjectName": "BlueprintGeneratedClass'BP_Calculation_AttenuationByDistance_SlowSpeed_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieFlamePistol/BP_Calculation_AttenuationByDistance_SlowSpeed.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_Calculation_AttenuationByDistance_SlowSpeed_AR_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/SlowDownAfterDamage/Caculation/BP_Calculation_AttenuationByDistance_SlowSpeed_AR.0"
               },
               "Coefficient": {
-                "Value": 0.75,
+                "Value": 1.0,
                 "bEnableMobile": false,
                 "MobileValue": 1.0,
                 "Curve": {
@@ -438,7 +438,7 @@
         ]
       },
       "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
-      "StackLimitCount": 3
+      "StackLimitCount": 4
     }
   }
 ]

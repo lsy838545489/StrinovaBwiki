@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon15203001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.31"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.32"
       }
     },
     "SuperStruct": {
@@ -37,11 +37,11 @@
       "WeaponName": "ECyWeaponName::CustomType243",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon15203001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.28"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.29"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon15203001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.32"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon15203001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.28"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon15203001_C:Machine'",
@@ -234,7 +234,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon15203001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.28"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.29"
       }
     }
   },
@@ -570,10 +570,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchDash'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.0,
-      "TimeAllowEnd": 0.46,
+      "TimeAllowCombo": {
+        "Value": 0.0,
+        "MobileValue": 0.0
+      },
+      "TimeAllowEnd": {
+        "Value": 0.46,
+        "MobileValue": 0.46
+      },
       "AttackPlane": {
-        "PlaneOffset": -115.0
+        "PlaneOffset": {
+          "Value": -115.0,
+          "MobileValue": -115.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -585,7 +594,10 @@
           "Roll": 0.0
         }
       },
-      "TriggerAttackPosition": 0.1,
+      "TriggerAttackPosition": {
+        "Value": 0.1,
+        "MobileValue": 0.1
+      },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
       "TimeOnTagDeactivated": 0.46,
@@ -666,10 +678,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchFirst'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.15,
-      "TimeAllowEnd": 0.4,
+      "TimeAllowCombo": {
+        "Value": 0.15,
+        "MobileValue": 0.15
+      },
+      "TimeAllowEnd": {
+        "Value": 0.4,
+        "MobileValue": 0.4
+      },
       "AttackPlane": {
-        "PlaneOffset": 165.0
+        "PlaneOffset": {
+          "Value": 165.0,
+          "MobileValue": 165.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -701,12 +722,13 @@
       ],
       "bUseTimeStamp": true,
       "TotalDuration": {
-        "Value": 1.37,
+        "Value": 1.0,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_GameMode'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-          }
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.MeleeFirst.KatanaWowowo"
         }
       },
       "AssetEvents": [
@@ -754,10 +776,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchSecond'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.157,
-      "TimeAllowEnd": 0.4,
+      "TimeAllowCombo": {
+        "Value": 0.157,
+        "MobileValue": 0.157
+      },
+      "TimeAllowEnd": {
+        "Value": 0.4,
+        "MobileValue": 0.4
+      },
       "AttackPlane": {
-        "PlaneOffset": 15.0
+        "PlaneOffset": {
+          "Value": 15.0,
+          "MobileValue": 15.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -769,7 +800,10 @@
           "Roll": 10.0
         }
       },
-      "TriggerAttackPosition": 0.13,
+      "TriggerAttackPosition": {
+        "Value": 0.13,
+        "MobileValue": 0.13
+      },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
       "TimeOnTagDeactivated": 0.4,
@@ -789,12 +823,13 @@
         "State.Player.DisableKeep2D.Side"
       ],
       "TotalDuration": {
-        "Value": 1.37,
+        "Value": 1.0,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_GameMode'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-          }
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.MeleeSecond.KatanaWowowo"
         }
       },
       "AssetEvents": [
@@ -912,10 +947,19 @@
     "Class": "UScriptClass'CyFSmiteSwitch'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.39,
-      "TimeAllowEnd": 0.39,
+      "TimeAllowCombo": {
+        "Value": 0.39,
+        "MobileValue": 0.39
+      },
+      "TimeAllowEnd": {
+        "Value": 0.39,
+        "MobileValue": 0.39
+      },
       "AttackPlane": {
-        "PlaneOffset": 145.0
+        "PlaneOffset": {
+          "Value": 145.0,
+          "MobileValue": 145.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -927,7 +971,10 @@
           "Roll": -15.0
         }
       },
-      "TriggerAttackPosition": 0.05,
+      "TriggerAttackPosition": {
+        "Value": 0.05,
+        "MobileValue": 0.05
+      },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
       "TimeOnTagDeactivated": 0.39,
@@ -943,7 +990,8 @@
         "State.Player.DisableInput2D.Fly",
         "State.Player.DisableInput2D.Side",
         "State.Player.DisableKeep2D.Fly",
-        "State.Player.DisableKeep2D.Side"
+        "State.Player.DisableKeep2D.Side",
+        "State.Weapon.MeleeAttacking"
       ],
       "bUseTimeStamp": true,
       "TotalDuration": {
@@ -1047,22 +1095,66 @@
       "MeleeAttackDamage": [
         {
           "Key": "EFAttackType::MeleeFirst",
-          "Value": 70.0
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.MeleeFirst.KatanaWowowo"
+            }
+          }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
-          "Value": 70.0
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.MeleeSecond.KatanaWowowo"
+            }
+          }
         },
         {
           "Key": "EFAttackType::Smite",
-          "Value": 0.0
+          "Value": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::MeleeDash",
-          "Value": 70.0
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.MeleeDash.KatanaWowowo"
+            }
+          }
         }
       ],
-      "HalfTraceAngle": 90.0,
+      "HalfTraceAngle": {
+        "Value": 90.0,
+        "MobileValue": 90.0
+      },
       "CauseDamageInstantTags": [
         "EventTag.Weapon.CauseDamage"
       ],
@@ -1070,7 +1162,17 @@
         "ObjectName": "BlueprintGeneratedClass'BP_KatanaWowowo_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/BP_KatanaWowowo_DamageType.0"
       },
-      "AttackRange": 250.0,
+      "AttackRange": {
+        "Value": 1.0,
+        "MobileValue": 250.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.AttackRange.KatanaWowowo"
+        }
+      },
       "AdditionalDamage": {
         "ModifierOp": "EMagnitudeModOp::Additive",
         "ScalableFloatMagnitude": {
@@ -1393,6 +1495,19 @@
     }
   },
   {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon15203001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon15203001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.29"
+      }
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "Root",
     "Outer": "Default__Weapon15203001_C",
@@ -1419,7 +1534,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon15203001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.29"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.30"
       },
       "VariableGuid": "AA790B2D-47ADDEDA-1106699E-E2A0C6D2",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1434,20 +1549,7 @@
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon15203001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.30"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon15203001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon15203001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.28"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaWowowo/Weapon15203001.31"
       }
     }
   }

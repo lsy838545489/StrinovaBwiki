@@ -1,0 +1,120 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Shared_UseSecondary_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Shared_UseSecondary_C'Default__GA_Shared_UseSecondary_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseSecondary.1"
+    }
+  },
+  {
+    "Type": "GA_Shared_UseSecondary_C",
+    "Name": "Default__GA_Shared_UseSecondary_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseSecondary.GA_Shared_UseSecondary_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PreCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_EmptyHand_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_Check_EmptyHand.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckSupportSecondaryUse_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckSupportSecondaryUse.0"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowRelieveSlide.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_UseSecondary_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Activator/BP_UseSecondary.0"
+        }
+      ],
+      "ReleasedAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TriggerPressed_EndAbility_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/TriggerPressed/BP_TriggerPressed_EndAbility.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "ActivateEventTags": [
+        "Event.Action.UseSecondary"
+      ],
+      "AbilityTags": [
+        "GA.Use.Secondary"
+      ],
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::LocalOnly",
+      "CancelAbilitiesWithTag": [
+        "GA.Action.Wall"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Use.Secondary"
+      ],
+      "ActivationBlockedTags": [
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Shape.2D.Wall",
+        "State.Health.Death",
+        "State.Player.DisableUseShared",
+        "State.Player.DisableUseSecondary"
+      ]
+    }
+  }
+]

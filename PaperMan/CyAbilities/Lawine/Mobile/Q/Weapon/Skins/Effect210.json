@@ -1,0 +1,146 @@
+[
+  {
+    "Type": "CyWeaponEffectAsset",
+    "Name": "Effect210",
+    "Class": "UScriptClass'CyWeaponEffectAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PredictPathConfig": {
+        "PathEffect": {
+          "ObjectName": "ParticleSystem'P_PPT_Trajectory_Beam_Point'",
+          "ObjectPath": "PM/Content/PaperMan/Effects/ProjectilePathTracer/Particles/P_PPT_Trajectory_Beam_Point.12"
+        },
+        "FinalEffect": {
+          "ObjectName": "ParticleSystem'P_PPT_TrajectoryMarker'",
+          "ObjectPath": "PM/Content/PaperMan/Effects/ProjectilePathTracer/Particles/P_PPT_TrajectoryMarker.11"
+        }
+      },
+      "ProjectileTrailConfig": {
+        "Effect": {
+          "ObjectName": "ParticleSystem'P_lawine_Scan_trail'",
+          "ObjectPath": "PM/Content/PaperMan/Effects/FX_NE/Role/Lawine/P_lawine_Scan_trail.22"
+        },
+        "LocalEffectExtra": {
+          "ObjectName": "ParticleSystem'PS_Trail_Behind'",
+          "ObjectPath": "PM/Content/PaperMan/Effects/FX_NE/Common/PS_Trail_Behind.21"
+        }
+      },
+      "AkStateBeginEvents": [
+        {
+          "Key": "EFStateType::EquipReload",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Char_3DLawine_Knife_Pre_QQSY'",
+            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_3DLawine_Knife_Pre_QQSY.0"
+          }
+        }
+      ],
+      "AkAttackBeginEvents": [
+        {
+          "Key": "EFAttackType::ThrowEnd",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Char_3DLawine_Knife_Throw_QQSY'",
+            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_3DLawine_Knife_Throw_QQSY.0"
+          }
+        }
+      ],
+      "WeaponActionParticleConfig": {
+        "AttachSocket": "Root"
+      },
+      "WeaponStateEffects": [
+        {
+          "StateTypes": [
+            "EFStateType::Equip",
+            "EFStateType::EquipReload",
+            "EFStateType::Attack"
+          ],
+          "Asset": null,
+          "AssetPath": {
+            "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Lawine/20128206/PS_lawine_S206_Q_Weapon_Effect.PS_lawine_S206_Q_Weapon_Effect",
+            "SubPathString": ""
+          },
+          "AssetSelf": null,
+          "AssetPathSelf": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "NotPlayOnMobile": false,
+          "bNeverHide": false,
+          "KeepTime": -1.0,
+          "BlendOutTime": 0.0,
+          "bReset": false,
+          "AttachType": "EEffectSpawnType::AttachSocket",
+          "bShowOnSocketVisible": true,
+          "AttachComponentType": "EAttachComponentType::Self",
+          "AttachSocket": "Root",
+          "OverrideComponentName": "None",
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Location": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Scale": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "bUseAttachParentBound": false,
+          "bRemoveDetach": true,
+          "bScaleByCameraDistance": false,
+          "TranslucencySortPriority": 0,
+          "TranslucencySortDistanceOffset": 0.0,
+          "bRegardLoop": true,
+          "bCanSectionClip": false,
+          "bCommonParticle": false,
+          "bCastShadow": false
+        }
+      ],
+      "AudioBanks": [
+        {
+          "ObjectName": "AkAudioBank'Char_3DLawine'",
+          "ObjectPath": "PM/Content/WwiseAssets/AkBank/Char_3DLawine.0"
+        }
+      ],
+      "HitEffectConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Lawine/P_lawine_PulseKnife_Target.P_lawine_PulseKnife_Target",
+          "SubPathString": ""
+        }
+      },
+      "HitCharacterEffectConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/P_hit_Role_Middle.P_hit_Role_Middle",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/P_hit_Role_Big.P_hit_Role_Big",
+              "SubPathString": ""
+            }
+          }
+        ]
+      },
+      "HitArmorEffectConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/Fx_Hit_Shield_Middle.Fx_Hit_Shield_Middle",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/Fx_Hit_Shield_Big.Fx_Hit_Shield_Big",
+              "SubPathString": ""
+            }
+          }
+        ]
+      }
+    }
+  }
+]

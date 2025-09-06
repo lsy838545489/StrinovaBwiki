@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon10404001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.43"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.46"
       }
     },
     "SuperStruct": {
@@ -110,11 +110,11 @@
       "WeaponName": "ECyWeaponName::CustomType249",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10404001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.37"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.40"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10404001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.47"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10404001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.37"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon10404001_C:Machine'",
@@ -297,8 +297,8 @@
         {
           "Key": "MeshPartSight",
           "Value": {
-            "ObjectName": "SkeletalMeshComponent'Default__Weapon10404001_C:MeshPartSight'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.44"
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10404001_C:MeshPartSight'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.38"
           }
         },
         {
@@ -311,8 +311,8 @@
         {
           "Key": "MeshPartSightLens",
           "Value": {
-            "ObjectName": "SkeletalMeshComponent'Default__Weapon10404001_C:MeshPartSightLens'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.45"
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10404001_C:MeshPartSightLens'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.39"
           }
         },
         {
@@ -326,7 +326,7 @@
           "Key": "MeshPartSightFocus",
           "Value": {
             "ObjectName": "StaticMeshComponent'Default__Weapon10404001_C:MeshPartSightFocus'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.46"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.47"
           }
         },
         {
@@ -398,7 +398,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon10404001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.37"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.40"
       }
     }
   },
@@ -417,12 +417,12 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AkEventWhiz": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.Wpn_Bullet_Whiz",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Wpn_Bullet_Whiz'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.0"
       },
       "AkEventShellCase": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Bullet_ShellDrop_SubmachineGun.Bullet_ShellDrop_SubmachineGun",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Bullet_ShellDrop_SubmachineGun'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Bullet_ShellDrop_SubmachineGun.0"
       },
       "AkRtpcAmmoLeftProportion": {
         "ObjectName": "AkRtpc'NumberOfBullets'",
@@ -1192,7 +1192,10 @@
         "ObjectName": "BlueprintGeneratedClass'BP_Ultimax100_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/BP_Ultimax100_DamageType.0"
       },
-      "AttackRange": 100000.0,
+      "AttackRange": {
+        "Value": 100000.0,
+        "MobileValue": 100000.0
+      },
       "AttackDamage": {
         "Value": 26.0,
         "MobileValue": 26.0
@@ -2124,6 +2127,50 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon10404001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LightingChannels": {
+        "bChannel1": true,
+        "bChannel2": true
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon10404001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.40"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSight",
+    "Outer": "Default__Weapon10404001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoundsScale": 2.0,
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10404001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.37"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSightLens",
+    "Outer": "Default__Weapon10404001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10404001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.37"
+      }
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "Root",
     "Outer": "Default__Weapon10404001_C",
@@ -2150,7 +2197,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon10404001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.38"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.41"
       },
       "VariableGuid": "F161E4AB-40BD5018-1FDFB99A-BC7D9DAC",
       "InternalVariableName": "DefaultSceneRoot"
@@ -2223,61 +2270,34 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10404001_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.40"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.43"
         },
         {
           "ObjectName": "SCS_Node'Weapon10404001_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.41"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.44"
         },
         {
           "ObjectName": "SCS_Node'Weapon10404001_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.42"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.45"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10404001_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.40"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.43"
         },
         {
           "ObjectName": "SCS_Node'Weapon10404001_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.41"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.44"
         },
         {
           "ObjectName": "SCS_Node'Weapon10404001_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.42"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.45"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon10404001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.39"
-      }
-    }
-  },
-  {
-    "Type": "SkeletalMeshComponent",
-    "Name": "MeshPartSight",
-    "Outer": "Default__Weapon10404001_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "BoundsScale": 2.0,
-      "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10404001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.47"
-      }
-    }
-  },
-  {
-    "Type": "SkeletalMeshComponent",
-    "Name": "MeshPartSightLens",
-    "Outer": "Default__Weapon10404001_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10404001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.47"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.42"
       }
     }
   },
@@ -2289,24 +2309,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10404001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.47"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon10404001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "LightingChannels": {
-        "bChannel1": true,
-        "bChannel2": true
-      },
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon10404001_C:Root'",
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10404001_C:MeshFor3PP'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/Ultimax100/Weapon10404001.37"
       }
     }

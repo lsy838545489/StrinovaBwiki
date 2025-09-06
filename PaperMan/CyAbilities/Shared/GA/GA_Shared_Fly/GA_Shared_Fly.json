@@ -1,0 +1,976 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_GA_Shared_Fly",
+    "Outer": "GA_Shared_Fly_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Shared_Fly_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function'GA_Shared_Fly_C:ExecuteUbergraph_GA_Shared_Fly'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Fly/GA_Shared_Fly.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'GA_Shared_Fly_C:ExecuteUbergraph_GA_Shared_Fly'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Fly/GA_Shared_Fly.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_GA_Shared_Fly": {
+        "ObjectName": "Function'GA_Shared_Fly_C:ExecuteUbergraph_GA_Shared_Fly'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Fly/GA_Shared_Fly.0"
+      }
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Shared_Fly_C'Default__GA_Shared_Fly_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Fly/GA_Shared_Fly.2"
+    }
+  },
+  {
+    "Type": "GA_Shared_Fly_C",
+    "Name": "Default__GA_Shared_Fly_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Fly/GA_Shared_Fly.GA_Shared_Fly_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainerAllowFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Fly/BP_CheckContainerAllowFly.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check2DCD_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_Check2DCD.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_Fly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Fly/BP_Activator_Fly.0"
+        }
+      ],
+      "PressCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TC_AllowRelieveWallNotify_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Wall/BP_TC_AllowRelieveWallNotify.0"
+        }
+      ],
+      "ReleasedAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TriggerPressed_EndAbility_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/TriggerPressed/BP_TriggerPressed_EndAbility.0"
+        }
+      ],
+      "ReleaseCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TCheck_RelieveFlyNotify_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Fly/BP_TCheck_RelieveFlyNotify.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponFinishReloadSlot"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_WeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_WeaponAuto.1"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponAttackAfterSlot"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckCurrentWeaponNotAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckCurrentWeaponNotAuto.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckCurrentWeaponNotSkill_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckCurrentWeaponNotSkill.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_WeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_WeaponAuto.1"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.Jump"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.Pre.Jump"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponFinishPullBoltSlot"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.KeepFly"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "State.Weapon.Reload"
+              ]
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_WeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_WeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.StopFly"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopFly_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopFly.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponFinishAttackSlot"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'Trigger_InterruptMeleeWeaponAttack_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/Trigger_InterruptMeleeWeaponAttack.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_WeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_WeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponStopKeepFiringSlotTagData"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckCurrentWeaponNotAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckCurrentWeaponNotAuto.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Health.Injured"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Health.Death"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "GA.Use.Primary"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CurrentWeaponCanStartPrimaryUse_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CurrentWeaponCanStartPrimaryUse.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckMagazineNotEmpty_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckMagazineNotEmpty.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "State.Weapon.Attack"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopFly_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopFly.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "GA.Use.Secondary"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CurrentWeaponCanStartSecondaryUse_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CurrentWeaponCanStartSecondaryUse.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "State.Weapon.Attack"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopFly_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopFly.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Weapon.Attack"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "GA.Use.Primary"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopFly_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopFly.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Weapon.Hold.AimOrADS"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopFly_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopFly.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "GA.Hold.Aiming"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckSRNeedPullBolt_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckSRNeedPullBolt.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopFly_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopFly.0"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "GA.Hold.ADS"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckSRNeedPullBolt_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckSRNeedPullBolt.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopFly_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopFly.0"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Weapon.EnterSwitchAttackType"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopFly_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopFly.0"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Motion.InAir"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckCurrentWeaponPrimaryOrSecondary_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckCurrentWeaponPrimaryOrSecondary.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_WeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_WeaponAuto.1"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Weapon.Hold.AimOrADS"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_WeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_WeaponAuto.1"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Buff.Weak.Block2D"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_WeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_WeaponAuto.1"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_NotWeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_NotWeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Shape.2D.Flying"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopFly_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopFly.0"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Motion.InAir"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "State.Shape.2D.Wall"
+              ]
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Weapon.Attack.Auto"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "State.Weapon.Reload"
+              ]
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepFly_WeaponAuto_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepFly_WeaponAuto.1"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "CancelAbilitiesPreActivateWithTag": [
+        "GA.Ability.SkillQ.KokonaShiki",
+        "GA.Ability.SkillQ.Nobunaga",
+        "GA.Ability.SkillQ.Ming",
+        "GA.Ability.SkillX.Maddelena"
+      ],
+      "AbilityTags": [
+        "GA.Action.Fly"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Action.Fly"
+      ],
+      "ActivationBlockedTags": [
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Health.Death",
+        "State.Player.DisableUseShared"
+      ]
+    }
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SA_ExecuteTagEvent_TargetActor_Q_Mara_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomExecuteGameplayTagEvent'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SA_ExecuteTagEvent_TargetActor_Q_Mara_C'Default__BP_SA_ExecuteTagEvent_TargetActor_Q_Mara_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Q/Summon/BP_SA_ExecuteTagEvent_TargetActor_Q_Mara.1"
+    }
+  },
+  {
+    "Type": "BP_SA_ExecuteTagEvent_TargetActor_Q_Mara_C",
+    "Name": "Default__BP_SA_ExecuteTagEvent_TargetActor_Q_Mara_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Mara/Q/Summon/BP_SA_ExecuteTagEvent_TargetActor_Q_Mara.BP_SA_ExecuteTagEvent_TargetActor_Q_Mara_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetType": "ETargetSourceType::TargetActorComponent",
+      "bCheckTargetStillSameOnTagChanged": true,
+      "bTryToTriggerTagChangedOnRegisterAdd": true,
+      "AddTagEventMapInfoArray": [
+        {
+          "Key": {
+            "TagName": "State.Health.Injured"
+          },
+          "Value": {
+            "ArrayInfo": [
+              {
+                "Dec": "关联受击者倒地，灵魂球进SecWork",
+                "StateCheckAtoms": [],
+                "CheckerType": "ERequireTagType::AND",
+                "TargetRequirements": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "bExecuteBegin": true,
+                "bExecuteEnd": false,
+                "StateAtoms": [
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SA_GoToStateCustom_Q_Mara_ToSecWork_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Q/Summon/BP_SA_GoToStateCustom_Q_Mara_ToSecWork.0"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Health.Death"
+          },
+          "Value": {
+            "ArrayInfo": [
+              {
+                "Dec": "关联受击者死亡，灵魂球进SecWork",
+                "StateCheckAtoms": [],
+                "CheckerType": "ERequireTagType::AND",
+                "TargetRequirements": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "bExecuteBegin": true,
+                "bExecuteEnd": false,
+                "StateAtoms": [
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SA_GoToStateCustom_Q_Mara_ToSecWork_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Q/Summon/BP_SA_GoToStateCustom_Q_Mara_ToSecWork.0"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Buff.Weak.Q.MaraSummonLeave"
+          },
+          "Value": {
+            "ArrayInfo": [
+              {
+                "Dec": "下一个球来，上一个球走Leave直接炸",
+                "StateCheckAtoms": [],
+                "CheckerType": "ERequireTagType::AND",
+                "TargetRequirements": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "bExecuteBegin": true,
+                "bExecuteEnd": false,
+                "StateAtoms": [
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SA_GoToStateCustom_Q_Mara_ToLeave_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Q/Summon/BP_SA_GoToStateCustom_Q_Mara_ToLeave.0"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

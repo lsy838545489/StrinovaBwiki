@@ -1,0 +1,852 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Weapon_X_Fragrans_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.30"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyWeaponSkill'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyTargetLocation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyTargetLocationComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Weapon_X_Fragrans_C'Default__Weapon_X_Fragrans_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.1"
+    }
+  },
+  {
+    "Type": "Weapon_X_Fragrans_C",
+    "Name": "Default__Weapon_X_Fragrans_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.Weapon_X_Fragrans_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bEmptyHanded": false,
+      "bAutoWork": true,
+      "bAutoFinish": true,
+      "bSupport2DState": false,
+      "WeaponName": "ECyWeaponName::SkillX",
+      "RootScene": {
+        "ObjectName": "SceneComponent'Default__Weapon_X_Fragrans_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.23"
+      },
+      "MeshComponent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_X_Fragrans_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.22"
+      },
+      "Machine": {
+        "ObjectName": "CyFMachine'Default__Weapon_X_Fragrans_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.9"
+      },
+      "EffectComponent": {
+        "ObjectName": "CyEffectComponent'Default__Weapon_X_Fragrans_C:EffectComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.3"
+      },
+      "PredictPathComponent": {
+        "ObjectName": "CyPredictPathComponent'Default__Weapon_X_Fragrans_C:PredictPathComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.16"
+      },
+      "CachedComponents": [
+        {
+          "Key": "StateEntry",
+          "Value": {
+            "ObjectName": "CyFEntryState'Default__Weapon_X_Fragrans_C:StateEntry'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.5"
+          }
+        },
+        {
+          "Key": "StateEquip",
+          "Value": {
+            "ObjectName": "CyFEquipState'Default__Weapon_X_Fragrans_C:StateEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.6"
+          }
+        },
+        {
+          "Key": "StateInterrupt",
+          "Value": {
+            "ObjectName": "CyFInterruptState'Default__Weapon_X_Fragrans_C:StateInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.8"
+          }
+        },
+        {
+          "Key": "StateUnEquipped",
+          "Value": {
+            "ObjectName": "CyFUnEquippedState'Default__Weapon_X_Fragrans_C:StateUnEquipped'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.13"
+          }
+        },
+        {
+          "Key": "StateAttack",
+          "Value": {
+            "ObjectName": "CyFAttackState'Default__Weapon_X_Fragrans_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.4"
+          }
+        },
+        {
+          "Key": "PartPendant",
+          "Value": {
+            "ObjectName": "CyPartPendant'Default__Weapon_X_Fragrans_C:PartPendant'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.15"
+          }
+        },
+        {
+          "Key": "StateWork",
+          "Value": {
+            "ObjectName": "CyFWorkState'Default__Weapon_X_Fragrans_C:StateWork'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.14"
+          }
+        },
+        {
+          "Key": "StateSecondWork",
+          "Value": {
+            "ObjectName": "CyFSecondWorkState'Default__Weapon_X_Fragrans_C:StateSecondWork'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.10"
+          }
+        },
+        {
+          "Key": "StateThirdWork",
+          "Value": {
+            "ObjectName": "CyFThirdWorkState'Default__Weapon_X_Fragrans_C:StateThirdWork'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.12"
+          }
+        },
+        {
+          "Key": "StateFinish",
+          "Value": {
+            "ObjectName": "CyFFinishState'Default__Weapon_X_Fragrans_C:StateFinish'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.7"
+          }
+        },
+        {
+          "Key": "StateUnEquip",
+          "Value": null
+        },
+        {
+          "Key": "StateStartReload",
+          "Value": null
+        },
+        {
+          "Key": "StateEndReload",
+          "Value": null
+        }
+      ],
+      "WeaponDataCollectionComponent": {
+        "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_X_Fragrans_C:WeaponDataCollectionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.20"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Weapon_X_Fragrans_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.21"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Weapon_X_Fragrans_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.2"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__Weapon_X_Fragrans_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.23"
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyEffectComponent",
+    "Name": "EffectComponent",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyEffectComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFAttackState",
+    "Name": "StateAttack",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFAttackState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BlockAbilitiesWithTag": [
+        "GA.Action.Wall",
+        "GA.Action.Rescue",
+        "GA.Action.RescueSelf",
+        "GA.Ability.SkillQ",
+        "GA.Ability.SkillX",
+        "GA.Interaction"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableInteract",
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side",
+        "State.Player.DisableInput2D.Side",
+        "State.Player.DisableInput2D.Fly",
+        "State.Player.DisableForceFly"
+      ],
+      "AllowedGait": "ECyGait::Run"
+    }
+  },
+  {
+    "Type": "CyFEntryState",
+    "Name": "StateEntry",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFEntryState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Run"
+    }
+  },
+  {
+    "Type": "CyFEquipState",
+    "Name": "StateEquip",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BlockAbilitiesWithTag": [
+        "GA.Action.Wall",
+        "GA.Action.Rescue",
+        "GA.Action.RescueSelf",
+        "GA.Ability.SkillQ",
+        "GA.Ability.SkillX",
+        "GA.Interaction"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableInteract",
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side",
+        "State.Player.DisableInput2D.Side",
+        "State.Player.DisableInput2D.Fly",
+        "State.Player.DisableForceFly"
+      ],
+      "TotalDuration": {
+        "Value": 0.9
+      },
+      "TimeForWeaponVisible": 0.7,
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "UpperBodyComponent",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "CharacterMesh0",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.C"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": true
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "CharacterMesh0",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.B",
+                "Resource.Audio.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "CharacterMesh0",
+              "AssetTagContainer": [
+                "Resource.Particle.Entry.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Action.StopSide"
+        },
+        {
+          "TagName": "Event.Action.StopFly"
+        }
+      ],
+      "BeginUIEventTag": {
+        "TagName": "UIEvent.Activate.Skill.X"
+      },
+      "Support2DState": {
+        "RangeType": "ERangeType::AlwaysFalse"
+      }
+    }
+  },
+  {
+    "Type": "CyFFinishState",
+    "Name": "StateFinish",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFFinishState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Run"
+    }
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFMachine'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFSecondWorkState",
+    "Name": "StateSecondWork",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFSecondWorkState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.0
+      },
+      "bEnabled": false
+    }
+  },
+  {
+    "Type": "CyFStateMonitor",
+    "Name": "CyFStateMonitor_GEN_VARIABLE",
+    "Outer": "Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFStateMonitor'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MonitorStateTypes": [
+        "EFStateType::Equip",
+        "EFStateType::Work",
+        "EFStateType::Attack"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AtomPlayAsset_X_Loop_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/BP_AtomPlayAsset_X_Loop.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.C"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": true
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "CollisionCylinder",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFThirdWorkState",
+    "Name": "StateThirdWork",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFThirdWorkState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.0
+      },
+      "bEnabled": false
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Run",
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Action.KeepSide"
+        },
+        {
+          "TagName": "Event.Action.KeepFly"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFWorkState",
+    "Name": "StateWork",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyFWorkState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BlockAbilitiesWithTag": [
+        "GA.Action.Wall",
+        "GA.Action.Rescue",
+        "GA.Action.RescueSelf",
+        "GA.Ability.SkillQ",
+        "GA.Ability.SkillX",
+        "GA.Interaction"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableInteract",
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side",
+        "State.Player.DisableInput2D.Side",
+        "State.Player.DisableInput2D.Fly",
+        "State.Player.DisableForceFly"
+      ],
+      "TotalDuration": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Duration.Work.X.Fragrans"
+        }
+      },
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Work_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/BP_SA_SearchTargets_Work.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_ApplyEffect_X_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/BP_SAtom_ApplyEffect_X.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Zombie_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/BP_SA_SearchTargets_Zombie.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 1.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "CollisionCylinder",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.B",
+                "Resource.Audio.UnEquip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "CharacterMesh0",
+              "AssetTagContainer": [
+                "Resource.Particle.Leave.A"
+              ],
+              "AssetTagStopContainer": [],
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Ability.CommitCost.X"
+        }
+      ],
+      "Support2DState": {
+        "RangeType": "ERangeType::AlwaysFalse"
+      }
+    }
+  },
+  {
+    "Type": "CyPartPendant",
+    "Name": "PartPendant",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyPartPendant'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyPredictPathComponent",
+    "Name": "PredictPathComponent",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyPredictPathComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Outer": "Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SourceType": "EDetectorSourceType::ActorInstigator"
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "CySkin_GEN_VARIABLE",
+    "Outer": "Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyTargetLocationComponent",
+    "Name": "CyTargetLocation_GEN_VARIABLE",
+    "Outer": "Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyTargetLocationComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyWeaponDataCollectionComponent",
+    "Name": "WeaponDataCollectionComponent",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon_X_Fragrans_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.23"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Outer": "Default__Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Weapon_X_Fragrans_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.24"
+      },
+      "VariableGuid": "B4979F43-476CF235-365314A9-53143F9E",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySkinComponent'Weapon_X_Fragrans_C:CySkin_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.18"
+      },
+      "VariableGuid": "321D1C3C-48C9A1D3-6C0593A4-3365E895",
+      "InternalVariableName": "CySkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyTargetLocationComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyTargetLocationComponent'Weapon_X_Fragrans_C:CyTargetLocation_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.19"
+      },
+      "VariableGuid": "925E9346-4A038EE6-28331384-39669F5D",
+      "InternalVariableName": "CyTargetLocation"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'Weapon_X_Fragrans_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.17"
+      },
+      "VariableGuid": "6F18C80F-49568B00-C495C59D-230BA2DC",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFStateMonitor'Weapon_X_Fragrans_C:CyFStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.11"
+      },
+      "VariableGuid": "A1C05925-49649FE5-C9AB29B9-4AA0FF48",
+      "InternalVariableName": "CyFStateMonitor"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Weapon_X_Fragrans_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Fragrans_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Fragrans_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Fragrans_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Fragrans_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.29"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Fragrans_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Fragrans_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Fragrans_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Fragrans_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.29"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Weapon_X_Fragrans_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/X/Weapon/Weapon_X_Fragrans.25"
+      }
+    }
+  }
+]
