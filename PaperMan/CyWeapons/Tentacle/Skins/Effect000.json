@@ -37,6 +37,12 @@
               },
               "DecalSizeMax": 6.0,
               "bRandomRotation": false,
+              "bUseCustomRotation": false,
+              "CustomRotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
               "DecalList": [
                 {
                   "AssetPathName": "/Game/PaperMan/Effects/Zombie/Material/M_Talon_DoubleStabbing.M_Talon_DoubleStabbing",
@@ -58,26 +64,83 @@
           "SubPathString": ""
         }
       },
-      "AkAttackBeginEvents": [
+      "AkOptionalAttackBeginEvents": [
         {
           "Key": "EFAttackType::MeleeFirst",
           "Value": {
-            "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
-            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            "Default": {
+              "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            },
+            "OptionalDefaults": [
+              {
+                "MatchWeaponSkinUpgradedType": "EWeaponSkinUpgradedType::Max",
+                "Asset": {
+                  "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha1_XSkill_Light_Attack'",
+                  "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_CrystalloidAlpha1_XSkill_Light_Attack.0"
+                },
+                "RequireTagType": "ERequireTagType::AND",
+                "bInverse": false,
+                "RequireAnyTags": [
+                  "Buff.Strong.X.CrystalloidAlpha"
+                ],
+                "IgnoreAllTags": [],
+                "RequireTags": [],
+                "IgnoreTags": []
+              }
+            ]
           }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
           "Value": {
-            "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
-            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            "Default": {
+              "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            },
+            "OptionalDefaults": [
+              {
+                "MatchWeaponSkinUpgradedType": "EWeaponSkinUpgradedType::Max",
+                "Asset": {
+                  "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha1_XSkill_Light_Attack'",
+                  "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_CrystalloidAlpha1_XSkill_Light_Attack.0"
+                },
+                "RequireTagType": "ERequireTagType::AND",
+                "bInverse": false,
+                "RequireAnyTags": [
+                  "Buff.Strong.X.CrystalloidAlpha"
+                ],
+                "IgnoreAllTags": [],
+                "RequireTags": [],
+                "IgnoreTags": []
+              }
+            ]
           }
         },
         {
           "Key": "EFAttackType::Smite",
           "Value": {
-            "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Heavy_Attack'",
-            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Heavy_Attack.0"
+            "Default": {
+              "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Heavy_Attack'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Heavy_Attack.0"
+            },
+            "OptionalDefaults": [
+              {
+                "MatchWeaponSkinUpgradedType": "EWeaponSkinUpgradedType::Max",
+                "Asset": {
+                  "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha1_XSkill_Heavy_Attack'",
+                  "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_CrystalloidAlpha1_XSkill_Heavy_Attack.0"
+                },
+                "RequireTagType": "ERequireTagType::AND",
+                "bInverse": false,
+                "RequireAnyTags": [
+                  "Buff.Strong.X.CrystalloidAlpha"
+                ],
+                "IgnoreAllTags": [],
+                "RequireTags": [],
+                "IgnoreTags": []
+              }
+            ]
           }
         }
       ],
@@ -89,7 +152,7 @@
           "Value": {
             "Asset": null,
             "AssetPath": {
-              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidAlpha/PS_CrystalloidAlpha_Attack.PS_CrystalloidAlpha_Attack",
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidBeta1/PS_CrystalloidBeta_Attack.PS_CrystalloidBeta_Attack",
               "SubPathString": ""
             },
             "AssetSelf": null,
@@ -140,7 +203,7 @@
           "Value": {
             "Asset": null,
             "AssetPath": {
-              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidAlpha/PS_CrystalloidAlpha_Attack.PS_CrystalloidAlpha_Attack",
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidBeta1/PS_CrystalloidBeta_Attack.PS_CrystalloidBeta_Attack",
               "SubPathString": ""
             },
             "AssetSelf": null,
@@ -191,7 +254,7 @@
           "Value": {
             "Asset": null,
             "AssetPath": {
-              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidAlpha/PS_CrystalloidAlpha_Attack2.PS_CrystalloidAlpha_Attack2",
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidBeta1/PS_CrystalloidBeta_Attack2.PS_CrystalloidBeta_Attack2",
               "SubPathString": ""
             },
             "AssetSelf": null,
@@ -242,7 +305,7 @@
           "Value": {
             "Asset": null,
             "AssetPath": {
-              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidAlpha/PS_CrystalloidAlpha_Attack2.PS_CrystalloidAlpha_Attack2",
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidBeta1/PS_CrystalloidBeta_Attack2.PS_CrystalloidBeta_Attack2",
               "SubPathString": ""
             },
             "AssetSelf": null,
@@ -293,7 +356,7 @@
           "Value": {
             "Asset": null,
             "AssetPath": {
-              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidAlpha/PS_CrystalloidAlpha_Attack_Absorb.PS_CrystalloidAlpha_Attack_Absorb",
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/CrystalloidBeta1/PS_CrystalloidBeta_Attack_Absorb.PS_CrystalloidBeta_Attack_Absorb",
               "SubPathString": ""
             },
             "AssetSelf": null,

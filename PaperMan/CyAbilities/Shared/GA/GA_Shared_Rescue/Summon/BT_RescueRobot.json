@@ -1,0 +1,345 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "BT_RescueRobot",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_12'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.2"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BD_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/BehaviorTree/BD_RescueRobot.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_1",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_RescueRobot:CyBTTask_GotoState_1'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.8"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_CheckActorTagsWithAbort'BT_RescueRobot:CyBTDecorator_CheckActorTagsWithAbort_0'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.5"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_RescueRobot:CyBTTask_GotoState_13'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.10"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_CheckAliveOnActor'BT_RescueRobot:CyBTDecorator_CheckAliveOnActor_0'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.6"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_RescueRobot:BTComposite_Sequence_5'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.3"
+          },
+          "ChildTask": null,
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_12'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.2"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_12",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_RescueRobot:CyBTTask_GotoState_3'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.12"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_Blackboard'BT_RescueRobot:BTDecorator_Blackboard_0'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.4"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_1'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.1"
+          },
+          "ChildTask": null,
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        {
+          "ObjectName": "CyBTService_UpdateSearchedTarget'BT_RescueRobot:CyBTService_UpdateSearchedTarget_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.7"
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_5",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_RescueRobot:CyBTTask_GotoState_11'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.9"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_RescueRobot:CyBTTask_GotoState_2'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.11"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_1'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Blackboard",
+    "Name": "BTDecorator_Blackboard_0",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CachedDescription": "TargetActor is 未设置",
+      "OperationType": 1,
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor"
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "No Tartget",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_12'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_CheckActorTagsWithAbort",
+    "Name": "CyBTDecorator_CheckActorTagsWithAbort_0",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'CyBTDecorator_CheckActorTagsWithAbort'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ActorToCheck": {
+        "SelectedKeyName": "TargetActor"
+      },
+      "GameplayTags": [
+        "State.Health.Injured"
+      ],
+      "CachedDescription": "集中没有任何标签：(GameplayTags=((TagName=\"State.Health.Injured\")))",
+      "bInverseCondition": true,
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_1'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_CheckAliveOnActor",
+    "Name": "CyBTDecorator_CheckAliveOnActor_0",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'CyBTDecorator_CheckAliveOnActor'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AliveMask": "ELifeMask::InjuredHealth",
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor"
+      },
+      "bInverseCondition": true,
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_1'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTService_UpdateSearchedTarget",
+    "Name": "CyBTService_UpdateSearchedTarget_2",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'CyBTService_UpdateSearchedTarget'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor"
+      },
+      "RandomDeviation": 0.0,
+      "NodeName": "UpdateTarget",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_12'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_1",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "NodeName": "Goto Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_1'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_11",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Work",
+      "NodeName": "Goto Work",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_RescueRobot:BTComposite_Sequence_5'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.3"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_13",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "NodeName": "Goto Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_1'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_2",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "NodeName": "Goto Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_RescueRobot:BTComposite_Sequence_5'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.3"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_3",
+    "Outer": "BT_RescueRobot",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "NodeName": "Goto Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RescueRobot'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RescueRobot:BTComposite_Selector_12'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Summon/BT_RescueRobot.2"
+      }
+    }
+  }
+]

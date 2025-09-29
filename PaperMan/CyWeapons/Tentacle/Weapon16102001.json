@@ -389,11 +389,27 @@
     "Class": "UScriptClass'CyFMeleeSwitchFirst'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.25,
-      "TimeAllowEnd": 0.5,
+      "TimeAllowCombo": {
+        "Value": 0.25,
+        "MobileValue": 0.25
+      },
+      "TimeAllowEnd": {
+        "Value": 0.5,
+        "MobileValue": 0.5
+      },
       "AttackPlane": {
-        "PlaneOffset": 45.0,
-        "CenterZOffset": 56.0
+        "PlaneOffset": {
+          "Value": 10.0,
+          "MobileValue": 10.0
+        },
+        "CenterZOffset": {
+          "Value": -20.0,
+          "MobileValue": -20.0
+        },
+        "CenterFOffset": {
+          "Value": 10.0,
+          "MobileValue": 10.0
+        }
       },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
@@ -436,6 +452,7 @@
                 "Resource.Particle.AnimNotify.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -458,10 +475,27 @@
     "Class": "UScriptClass'CyFMeleeSwitchSecond'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.157,
-      "TimeAllowEnd": 0.45,
+      "TimeAllowCombo": {
+        "Value": 0.157,
+        "MobileValue": 0.157
+      },
+      "TimeAllowEnd": {
+        "Value": 0.45,
+        "MobileValue": 0.45
+      },
       "AttackPlane": {
-        "PlaneOffset": 135.0
+        "PlaneOffset": {
+          "Value": 170.0,
+          "MobileValue": 170.0
+        },
+        "CenterZOffset": {
+          "Value": -20.0,
+          "MobileValue": -20.0
+        },
+        "CenterFOffset": {
+          "Value": 10.0,
+          "MobileValue": 10.0
+        }
       },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
@@ -504,6 +538,7 @@
                 "Resource.Particle.AnimNotify.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -518,12 +553,24 @@
     "Class": "UScriptClass'CyFSmiteSwitch'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.123,
-      "TimeAllowEnd": 0.576,
-      "AttackPlane": {
-        "CenterZOffset": 24.0
+      "TimeAllowCombo": {
+        "Value": 0.123,
+        "MobileValue": 0.123
       },
-      "TriggerAttackPosition": 0.4,
+      "TimeAllowEnd": {
+        "Value": 0.576,
+        "MobileValue": 0.576
+      },
+      "AttackPlane": {
+        "CenterZOffset": {
+          "Value": 24.0,
+          "MobileValue": 24.0
+        }
+      },
+      "TriggerAttackPosition": {
+        "Value": 0.4,
+        "MobileValue": 0.4
+      },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
       "TimeOnTagDeactivated": 0.8,
@@ -566,6 +613,7 @@
                 "Resource.Particle.AnimNotify.C"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             },
             {
@@ -576,6 +624,7 @@
                 "Resource.Particle.AnimNotify.D"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -601,6 +650,7 @@
                 "Resource.Particle.AnimNotify.E"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -625,24 +675,57 @@
       "MeleeAttackDamage": [
         {
           "Key": "EFAttackType::MeleeFirst",
-          "Value": 300.0
+          "Value": {
+            "Value": 300.0,
+            "bEnableMobile": false,
+            "MobileValue": 300.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
-          "Value": 300.0
+          "Value": {
+            "Value": 300.0,
+            "bEnableMobile": false,
+            "MobileValue": 300.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::Smite",
-          "Value": 600.0
+          "Value": {
+            "Value": 600.0,
+            "bEnableMobile": false,
+            "MobileValue": 600.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         }
       ],
-      "HalfTraceCount": 1,
-      "HalfTraceAngle": 55.0,
+      "HalfTraceAngle": {
+        "Value": 50.0,
+        "MobileValue": 50.0
+      },
+      "HalfAttackThickness": {
+        "Value": 90.0,
+        "MobileValue": 90.0
+      },
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_Tentacle_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/Tentacle/BP_Tentacle_DamageType.0"
       },
-      "AttackRange": 400.0,
+      "AttackRange": {
+        "Value": 350.0,
+        "MobileValue": 350.0
+      },
       "AimAssistMap": null,
       "BodyDamageFactor": [
         {

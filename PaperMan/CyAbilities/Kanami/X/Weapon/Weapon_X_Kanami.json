@@ -1,0 +1,986 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Weapon_X_Kanami_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Weapon_X_Kanami_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.34"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyWeaponQuickThrow'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySpawnManager",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySpawnManagerComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchLocation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchLocationComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFAttackStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFAttackStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Weapon_X_Kanami_C'Default__Weapon_X_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.1"
+    }
+  },
+  {
+    "Type": "Weapon_X_Kanami_C",
+    "Name": "Default__Weapon_X_Kanami_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.Weapon_X_Kanami_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NeedTargetUseIDSet": [
+        "EUseID::Primary"
+      ],
+      "WeaponName": "ECyWeaponName::SkillX",
+      "WeaponType": "ECyWeaponType::Launcher",
+      "RootScene": {
+        "ObjectName": "SceneComponent'Default__Weapon_X_Kanami_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.28"
+      },
+      "MeshComponent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_X_Kanami_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.27"
+      },
+      "Machine": {
+        "ObjectName": "CyFMachine'Default__Weapon_X_Kanami_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.12"
+      },
+      "AttackComponent": {
+        "ObjectName": "CyThrowComponent'Default__Weapon_X_Kanami_C:AttackComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.24"
+      },
+      "EffectComponent": {
+        "ObjectName": "CyEffectComponent'Default__Weapon_X_Kanami_C:EffectComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.3"
+      },
+      "PredictPathComponent": {
+        "ObjectName": "CyPredictPathComponent'Default__Weapon_X_Kanami_C:PredictPathComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.21"
+      },
+      "CachedComponents": [
+        {
+          "Key": "SwitcherAttack",
+          "Value": {
+            "ObjectName": "CyFThrowSwitcher'Default__Weapon_X_Kanami_C:SwitcherAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.17"
+          }
+        },
+        {
+          "Key": "SwitcherHold",
+          "Value": {
+            "ObjectName": "CyFHoldSwitcher'Default__Weapon_X_Kanami_C:SwitcherHold'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.9"
+          }
+        },
+        {
+          "Key": "StateEntry",
+          "Value": {
+            "ObjectName": "CyFEntryState'Default__Weapon_X_Kanami_C:StateEntry'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.6"
+          }
+        },
+        {
+          "Key": "StateEquip",
+          "Value": {
+            "ObjectName": "CyFEquipState'Default__Weapon_X_Kanami_C:StateEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.8"
+          }
+        },
+        {
+          "Key": "StateInterrupt",
+          "Value": {
+            "ObjectName": "CyFInterruptState'Default__Weapon_X_Kanami_C:StateInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.11"
+          }
+        },
+        {
+          "Key": "StateUnEquipped",
+          "Value": {
+            "ObjectName": "CyFUnEquippedState'Default__Weapon_X_Kanami_C:StateUnEquipped'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.18"
+          }
+        },
+        {
+          "Key": "StateReload",
+          "Value": {
+            "ObjectName": "CyFReloadState'Default__Weapon_X_Kanami_C:StateReload'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.13"
+          }
+        },
+        {
+          "Key": "StateAttack",
+          "Value": {
+            "ObjectName": "CyFThrowState'Default__Weapon_X_Kanami_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.14"
+          }
+        },
+        {
+          "Key": "AttackSwitchInterrupt",
+          "Value": {
+            "ObjectName": "CyFAttackSwitchInterrupt'Default__Weapon_X_Kanami_C:AttackSwitchInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.5"
+          }
+        },
+        {
+          "Key": "PartPendant",
+          "Value": {
+            "ObjectName": "CyPartPendant'Default__Weapon_X_Kanami_C:PartPendant'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.20"
+          }
+        },
+        {
+          "Key": "StateEquipAndReload",
+          "Value": {
+            "ObjectName": "CyFEquipReloadState'Default__Weapon_X_Kanami_C:StateEquipAndReload'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.7"
+          }
+        },
+        {
+          "Key": "ThrowSwitchBegin",
+          "Value": {
+            "ObjectName": "CyFThrowSwitchBegin'Default__Weapon_X_Kanami_C:ThrowSwitchBegin'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.15"
+          }
+        },
+        {
+          "Key": "ThrowSwitchEnd",
+          "Value": {
+            "ObjectName": "CyFThrowSwitchEnd'Default__Weapon_X_Kanami_C:ThrowSwitchEnd'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.16"
+          }
+        },
+        {
+          "Key": "HoldSwitchRelaxed",
+          "Value": {
+            "ObjectName": "CyFHoldSwitchRelaxed'Default__Weapon_X_Kanami_C:HoldSwitchRelaxed'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.10"
+          }
+        },
+        {
+          "Key": "PartMagazine",
+          "Value": {
+            "ObjectName": "CyPartMagazine'Default__Weapon_X_Kanami_C:PartMagazine'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.19"
+          }
+        },
+        {
+          "Key": "StateStartReload",
+          "Value": null
+        },
+        {
+          "Key": "StateEndReload",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchReady",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchRelaxedLow",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchReadyLow",
+          "Value": null
+        }
+      ],
+      "WeaponDataCollectionComponent": {
+        "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_X_Kanami_C:WeaponDataCollectionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.25"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Weapon_X_Kanami_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.26"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Weapon_X_Kanami_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.2"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__Weapon_X_Kanami_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.28"
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyEffectComponent",
+    "Name": "EffectComponent",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyEffectComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFAttackStateMonitor",
+    "Name": "CyFAttackStateMonitor_GEN_VARIABLE",
+    "Outer": "Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFAttackStateMonitor'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MonitorStateTypes": [
+        "EFAttackType::None"
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshComponent",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFAttackSwitchInterrupt",
+    "Name": "AttackSwitchInterrupt",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFAttackSwitchInterrupt'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Run"
+    }
+  },
+  {
+    "Type": "CyFEntryState",
+    "Name": "StateEntry",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFEntryState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Run"
+    }
+  },
+  {
+    "Type": "CyFEquipReloadState",
+    "Name": "StateEquipAndReload",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFEquipReloadState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CanInterruptPosition": {
+        "bEnableMobile": true,
+        "MobileValue": 0.5
+      },
+      "LooseGameplayTags": [
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side"
+      ],
+      "TotalDuration": {
+        "Value": 1.0,
+        "MobileValue": 1.0
+      },
+      "TimeForWeaponVisible": 0.15,
+      "Events": [
+        {
+          "PositionStart": 0.2,
+          "PositionEnd": 0.8,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_MBStartSearchLocation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_MBStartSearchLocation.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshComponent",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshComponent",
+              "AssetTagContainer": [
+                "Resource.Audio.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
+      "bEnabled": true
+    }
+  },
+  {
+    "Type": "CyFEquipState",
+    "Name": "StateEquip",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CanInterruptPosition": {
+        "bEnableMobile": true,
+        "MobileValue": 0.5
+      },
+      "LooseGameplayTags": [
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side"
+      ],
+      "TotalDuration": {
+        "Value": 1.0,
+        "MobileValue": 1.0
+      },
+      "AllowedGait": "ECyGait::Run",
+      "TimeForWeaponVisible": 0.33,
+      "Events": [
+        {
+          "PositionStart": 0.2,
+          "PositionEnd": 0.8,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_MBStartSearchLocation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_MBStartSearchLocation.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshComponent",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFHoldSwitcher",
+    "Name": "SwitcherHold",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFHoldSwitcher'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Run"
+    }
+  },
+  {
+    "Type": "CyFHoldSwitchRelaxed",
+    "Name": "HoldSwitchRelaxed",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFHoldSwitchRelaxed'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimeForProjectilePathVisible": 0.2,
+      "AllowedGait": "ECyGait::Run"
+    }
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Run"
+    }
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFMachine'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFReloadState",
+    "Name": "StateReload",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFReloadState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimeOnTagActivate": 0.2,
+      "TotalDuration": {
+        "Value": 1.23,
+        "MobileValue": 1.23
+      },
+      "TimeForWeaponVisible": 0.15,
+      "bEnabled": false
+    }
+  },
+  {
+    "Type": "CyFThrowState",
+    "Name": "StateAttack",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFThrowState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LooseGameplayTags": [
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side"
+      ],
+      "AllowedGait": "ECyGait::Run",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_StartSearchLocation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_StartSearchLocation.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFThrowSwitchBegin",
+    "Name": "ThrowSwitchBegin",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFThrowSwitchBegin'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_StopSearchLocation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_StopSearchLocation.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFThrowSwitchEnd",
+    "Name": "ThrowSwitchEnd",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFThrowSwitchEnd'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ThrowOutGait": "ECyGait::Run",
+      "TimeLine": {
+        "Events": [
+          {
+            "Position": 0.0,
+            "ActuatorsWithTarget": [],
+            "ActuatorsWithMultiTarget": [],
+            "ActuatorsWithMultiTargets": [],
+            "ActuatorsWithLocation": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'Summon_X_Kanami_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Summon/Summon_X_Kanami.2"
+              }
+            ],
+            "CheckAtom": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BlockTags": [],
+            "bAttachToHitActor": true,
+            "SocketName": "Body",
+            "LocationRule": "EAttachmentRule::KeepWorld",
+            "RotationRule": "EAttachmentRule::KeepWorld",
+            "ScaleRule": "EAttachmentRule::KeepWorld"
+          }
+        ]
+      },
+      "BlockAbilitiesWithTag": [
+        "GA.Action.Wall",
+        "GA.Action.Rescue",
+        "GA.Action.RescueSelf",
+        "GA.Ability.SkillQ",
+        "GA.Ability.SkillX",
+        "GA.Interaction",
+        "GA.Ability.SkillE"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableInteract",
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side",
+        "State.Player.DisableInput2D.Fly",
+        "State.Player.DisableInput2D.Side"
+      ],
+      "TotalDuration": {
+        "Value": 1.1,
+        "MobileValue": 1.1
+      },
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "CharacterMesh0",
+              "AssetTagContainer": [
+                "Resource.Particle.ThrowEnd.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.ThrowEnd.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
+      "BeginUIEventTag": {
+        "TagName": "UIEvent.Activate.Skill.X"
+      }
+    }
+  },
+  {
+    "Type": "CyFThrowSwitcher",
+    "Name": "SwitcherAttack",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFThrowSwitcher'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Run"
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Run",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_StopSearchLocation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_StopSearchLocation.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Action.KeepFly"
+        },
+        {
+          "TagName": "Event.Action.KeepSide"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyPartMagazine",
+    "Name": "PartMagazine",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyPartMagazine'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AmmoMax": {
+        "Value": 9999.0,
+        "MobileValue": 9999.0
+      },
+      "bAutoReload": false,
+      "AmmoConsumeType": "EAmmoConsumeType::Default"
+    }
+  },
+  {
+    "Type": "CyPartPendant",
+    "Name": "PartPendant",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyPartPendant'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyPredictPathComponent",
+    "Name": "PredictPathComponent",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyPredictPathComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TraceChannel": "ECC_GameTraceChannel6"
+    }
+  },
+  {
+    "Type": "CySearchLocationComponent",
+    "Name": "CySearchLocation_GEN_VARIABLE",
+    "Outer": "Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CySearchLocationComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Detectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Detector_Placement_TraceChannel_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/BP_Detector_Placement_TraceChannel.0"
+        }
+      ],
+      "OtherPreviewDetectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Detector_Placement_TraceChannel_Other_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/BP_Detector_Placement_TraceChannel_Other.0"
+        }
+      ],
+      "PreviewActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'Preview_Q_Kanami_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Preview/Preview_Q_Kanami.0"
+      },
+      "InitializeLocationDetectClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Detector_Placement_TraceChannel_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/BP_Detector_Placement_TraceChannel.0"
+      },
+      "SourceType": "EDetectorSourceType::ActorInstigatorWithCameraRotationClamp",
+      "MaxRotationClamp": 30.0,
+      "PermissionMask": 8
+    }
+  },
+  {
+    "Type": "CySpawnManagerComponent",
+    "Name": "CySpawnManager_GEN_VARIABLE",
+    "Outer": "Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CySpawnManagerComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyThrowComponent",
+    "Name": "AttackComponent",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyThrowComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ThrowOffset": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "Projectiles": [
+        null
+      ]
+    }
+  },
+  {
+    "Type": "CyWeaponDataCollectionComponent",
+    "Name": "WeaponDataCollectionComponent",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon_X_Kanami_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.28"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Outer": "Default__Weapon_X_Kanami_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Weapon_X_Kanami_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Weapon_X_Kanami_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.29"
+      },
+      "VariableGuid": "D6DACB1F-47F2A38A-895F5890-11175341",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFAttackStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFAttackStateMonitor'Weapon_X_Kanami_C:CyFAttackStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.4"
+      },
+      "VariableGuid": "3795CDCD-45672151-685EA7AB-6CD88C33",
+      "InternalVariableName": "CyFAttackStateMonitor"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchLocationComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchLocationComponent'Weapon_X_Kanami_C:CySearchLocation_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.22"
+      },
+      "VariableGuid": "B60AFB82-4A999119-BFE225B2-22D08CDE",
+      "InternalVariableName": "CySearchLocation"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySpawnManagerComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySpawnManagerComponent'Weapon_X_Kanami_C:CySpawnManager_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.23"
+      },
+      "VariableGuid": "576E1472-4D1C8E55-D35EB7B4-E0632227",
+      "InternalVariableName": "CySpawnManager"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Weapon_X_Kanami_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Kanami_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Kanami_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.32"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Kanami_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.33"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Kanami_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Kanami_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.32"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_X_Kanami_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.33"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Weapon_X_Kanami_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami.30"
+      }
+    }
+  }
+]

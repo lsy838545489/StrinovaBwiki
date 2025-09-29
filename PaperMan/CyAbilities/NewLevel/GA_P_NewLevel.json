@@ -1,0 +1,71 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_P_NewLevel_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_P_NewLevel_C'Default__GA_P_NewLevel_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/NewLevel/GA_P_NewLevel.1"
+    }
+  },
+  {
+    "Type": "GA_P_NewLevel_C",
+    "Name": "Default__GA_P_NewLevel_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/NewLevel/GA_P_NewLevel.GA_P_NewLevel_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveActuator_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveActuator.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateActuator_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateActuator.0"
+        }
+      ],
+      "ActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'Actuator_P_HealthRecover_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/NewLevel/Actuator_P_HealthRecover.3"
+      },
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerInitiated",
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "State.Health.Alive"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Active"
+        },
+        {
+          "TriggerTag": {
+            "TagName": "State.Health.Injured"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Active"
+        },
+        {
+          "TriggerTag": {
+            "TagName": "State.Health.Death"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::End"
+        }
+      ]
+    }
+  }
+]

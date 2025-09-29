@@ -1,0 +1,114 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SA_ExecuteTagEvent_TargetActor_X_Mara_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomExecuteGameplayTagEvent'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SA_ExecuteTagEvent_TargetActor_X_Mara_C'Default__BP_SA_ExecuteTagEvent_TargetActor_X_Mara_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/X/Summon/BP_SA_ExecuteTagEvent_TargetActor_X_Mara.1"
+    }
+  },
+  {
+    "Type": "BP_SA_ExecuteTagEvent_TargetActor_X_Mara_C",
+    "Name": "Default__BP_SA_ExecuteTagEvent_TargetActor_X_Mara_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Mara/X/Summon/BP_SA_ExecuteTagEvent_TargetActor_X_Mara.BP_SA_ExecuteTagEvent_TargetActor_X_Mara_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetType": "ETargetSourceType::TargetActorComponent",
+      "bCheckTargetStillSameOnTagChanged": true,
+      "bTryToTriggerTagChangedOnRegisterAdd": true,
+      "AddTagEventMapInfoArray": [
+        {
+          "Key": {
+            "TagName": "State.Health.Injured"
+          },
+          "Value": {
+            "ArrayInfo": [
+              {
+                "Dec": "关联受击者倒地，判断目标和施法者身上的Tag，通过后 X 召唤物进ThirdWork",
+                "StateCheckAtoms": [
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SAC_TargetTags_X_Mara_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/X/Summon/BP_SAC_TargetTags_X_Mara.0"
+                  },
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SAC_TagRequire_Instigator_X_Mara_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/X/Summon/BP_SAC_TagRequire_Instigator_X_Mara.0"
+                  }
+                ],
+                "CheckerType": "ERequireTagType::AND",
+                "TargetRequirements": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "bExecuteBegin": true,
+                "bExecuteEnd": false,
+                "StateAtoms": [
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SA_GoToStateCustom_ToThirdWork_X_Mara_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/X/Summon/BP_SA_GoToStateCustom_ToThirdWork_X_Mara.0"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Health.Death"
+          },
+          "Value": {
+            "ArrayInfo": [
+              {
+                "Dec": "关联受击者死亡，判断目标和施法者身上的Tag，通过后 X 召唤物进ThirdWork",
+                "StateCheckAtoms": [
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SAC_TargetTags_X_Mara_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/X/Summon/BP_SAC_TargetTags_X_Mara.0"
+                  },
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SAC_TagRequire_Instigator_X_Mara_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/X/Summon/BP_SAC_TagRequire_Instigator_X_Mara.0"
+                  }
+                ],
+                "CheckerType": "ERequireTagType::AND",
+                "TargetRequirements": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "bExecuteBegin": true,
+                "bExecuteEnd": false,
+                "StateAtoms": [
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SA_GoToStateCustom_ToThirdWork_X_Mara_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/X/Summon/BP_SA_GoToStateCustom_ToThirdWork_X_Mara.0"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

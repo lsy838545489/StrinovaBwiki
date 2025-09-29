@@ -1,0 +1,76 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_Q_Mara_WeakBuff_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_Q_Mara_WeakBuff_C'Default__GE_Q_Mara_WeakBuff_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Q/Summon/GE_Q_Mara_WeakBuff.1"
+    }
+  },
+  {
+    "Type": "GE_Q_Mara_WeakBuff_C",
+    "Name": "Default__GE_Q_Mara_WeakBuff_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Mara/Q/Summon/GE_Q_Mara_WeakBuff.GE_Q_Mara_WeakBuff_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BuffType": "ECyBuffType::Weak",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+            },
+            "RowName": "Duration.Work.Summon.Q.Mara"
+          }
+        }
+      },
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "Buff.Weak.Q.Mara",
+          "Buff.RemoveOnPlayerRestart",
+          "BuffIcon.Weak.Q.Mara"
+        ],
+        "Added": [
+          "Buff.Weak.Q.Mara",
+          "Buff.RemoveOnPlayerRestart",
+          "BuffIcon.Weak.Q.Mara"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Weak.Q.Mara"
+        ],
+        "Added": [
+          "Buff.Weak.Q.Mara"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Injured",
+          "State.Health.Death",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

@@ -1,0 +1,247 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Shared_Wall_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Shared_Wall_C'Default__GA_Shared_Wall_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Wall.1"
+    }
+  },
+  {
+    "Type": "GA_Shared_Wall_C",
+    "Name": "Default__GA_Shared_Wall_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Wall.GA_Shared_Wall_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check2DEnergyWall_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_Check2DEnergyWall.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckBlock2D_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckBlock2D.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check2DCD_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_Check2DCD.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckCanWall_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckCanWall.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateWall_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Activator/BP_ActivateWall.0"
+        }
+      ],
+      "PressedAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TriggerPressed_EndAbility_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/TriggerPressed/BP_TriggerPressed_EndAbility.0"
+        }
+      ],
+      "PressCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TC_AllowRelieveWallNotify_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Wall/BP_TC_AllowRelieveWallNotify.0"
+        }
+      ],
+      "PressTagRequirements": {
+        "IgnoreTags": [
+          "GA.Passive.Galatea.Castling"
+        ]
+      },
+      "ReleaseCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TCheck_RelieveWallNotify_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/TriggerPressed/BP_TCheck_RelieveWallNotify.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.Jump"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "State.Player.Transferring"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchedInterruptFlyWall_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_Trigger_SwitchedInterruptFlyWall.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Health.Injured"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "CancelAbilitiesPreActivateWithTag": [
+        "GA.Ability.SkillQ.Lawine",
+        "GA.Ability.SkillX.Lawine",
+        "GA.Ability.SkillQ.Michele",
+        "GA.Ability.SkillX.Michele",
+        "GA.Ability.SkillQ.Reiichi",
+        "GA.Ability.SkillX.HuiXing",
+        "GA.Ability.SkillX.KokonaShiki",
+        "GA.Ability.SkillQ.KokonaShiki",
+        "GA.Ability.SkillQ.Nobunaga",
+        "GA.Ability.SkillQ.Meredith",
+        "GA.Ability.SkillX.Meredith",
+        "GA.Ability.SkillQ.Yvette",
+        "GA.Ability.SkillX.Yvette",
+        "GA.Ability.SkillQ.Maddelena",
+        "GA.Ability.SkillX.Maddelena",
+        "GA.Ability.SkillQ.Kanami",
+        "GA.Ability.SkillX.Kanami",
+        "GA.Ability.SkillQ.Ming",
+        "GA.Action.CharacterAction",
+        "GA.Ability.SkillX.Aika",
+        "GA.Ability.SkillQ.Aika",
+        "GA.Ability.SkillQ.Galatea",
+        "GA.Ability.SkillX.Galatea",
+        "GA.Ability.SkillQ.Julian",
+        "GA.Ability.SkillX.Julian",
+        "GA.Ability.SkillQ.Fragrans",
+        "GA.Ability.SkillQ.Yugiri",
+        "GA.Ability.SkillX.Yugiri",
+        "GA.Ability.SkillE.Michele",
+        "GA.Ability.SkillE.Yvette",
+        "GA.Ability.SkillE.Yugiri",
+        "GA.Ability.SkillE.Reiichi",
+        "GA.Ability.SkillE.Nobunaga",
+        "GA.Ability.SkillE.MoBai",
+        "GA.Ability.SkillE.Meredith",
+        "GA.Ability.SkillE.Maddelena",
+        "GA.Ability.SkillE.Lawine",
+        "GA.Ability.SkillE.KokonaShiki",
+        "GA.Ability.SkillE.Kanami",
+        "GA.Ability.SkillE.Aika",
+        "GA.Ability.SkillE.Audrey",
+        "GA.Ability.SkillE.Flavia",
+        "GA.Ability.SkillE.Fragrans",
+        "GA.Ability.SkillE.Galatea",
+        "GA.Ability.SkillE.HuiXing",
+        "GA.Ability.SkillQ.Leona",
+        "GA.Ability.SkillE.Ming",
+        "GA.Ability.SkillE.Leona",
+        "GA.Action.Fly",
+        "GA.Action.Side",
+        "GA.Ability.SkillX.Mara",
+        "GA.Ability.SkillQ.Mara",
+        "GA.Ability.SkillX.Chiyo",
+        "GA.Ability.SkillQ.Chiyo",
+        "GA.Ability.SkillE.Chiyo"
+      ],
+      "AbilityTags": [
+        "GA.Action.Wall"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Action.Wall"
+      ],
+      "ActivationBlockedTags": [
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Health.Death",
+        "State.Player.DisableUseShared"
+      ]
+    }
+  }
+]

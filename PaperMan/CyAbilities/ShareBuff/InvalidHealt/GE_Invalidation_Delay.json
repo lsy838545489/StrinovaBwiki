@@ -1,0 +1,82 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_Invalidation_Delay_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'GameplayEffect'",
+      "ObjectPath": "/Script/GameplayAbilities"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_Invalidation_Delay_C'Default__GE_Invalidation_Delay_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/ShareBuff/InvalidHealt/GE_Invalidation_Delay.1"
+    }
+  },
+  {
+    "Type": "GE_Invalidation_Delay_C",
+    "Name": "Default__GE_Invalidation_Delay_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/ShareBuff/InvalidHealt/GE_Invalidation_Delay.GE_Invalidation_Delay_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 3.0
+        }
+      },
+      "PrematureExpirationEffectClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_RecoveryInvalidation_InvalidaHealth_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/ShareBuff/InvalidHealt/GE_RecoveryInvalidation_InvalidaHealth.0"
+        }
+      ],
+      "RoutineExpirationEffectClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_RecoveryInvalidation_InvalidaHealth_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/ShareBuff/InvalidHealt/GE_RecoveryInvalidation_InvalidaHealth.0"
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Weak.InvalidHealth"
+        ],
+        "Added": [
+          "BuffIcon.Weak.InvalidHealth"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Weak.InvalidHealth.Delay"
+        ],
+        "Added": [
+          "Buff.Weak.InvalidHealth.Delay"
+        ]
+      },
+      "OngoingTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Injured"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "Buff.Weak.InvalidHealth.Value1",
+          "Buff.Weak.InvalidHealth.Value2",
+          "Buff.Weak.InvalidHealth.Value5",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1,
+      "StackPeriodResetPolicy": "EGameplayEffectStackingPeriodPolicy::NeverReset"
+    }
+  }
+]

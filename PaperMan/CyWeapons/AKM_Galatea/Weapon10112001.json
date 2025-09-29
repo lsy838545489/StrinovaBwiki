@@ -422,29 +422,13 @@
     "Class": "UScriptClass'CyEffectComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "AkEventAttackStart": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/AKM_Galatea_OneShot.AKM_Galatea_OneShot",
-        "SubPathString": ""
-      },
-      "AkEventAttackContinuous": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/AKM_Galatea_LoopShot.AKM_Galatea_LoopShot",
-        "SubPathString": ""
-      },
-      "AkEventAttackLastBullet": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/AKM_Galatea_LastShot.AKM_Galatea_LastShot",
-        "SubPathString": ""
-      },
-      "AkEventAttackEmpty": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Common_NoAmmo.Wpn_Common_NoAmmo",
-        "SubPathString": ""
-      },
       "AkEventWhiz": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.Wpn_Bullet_Whiz",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Wpn_Bullet_Whiz'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.0"
       },
       "AkEventShellCase": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Bullet_ShellDrop_AssaultRifle.Bullet_ShellDrop_AssaultRifle",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Bullet_ShellDrop_AssaultRifle'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Bullet_ShellDrop_AssaultRifle.0"
       },
       "AkRtpcAmmoLeftProportion": {
         "ObjectName": "AkRtpc'NumberOfBullets'",
@@ -533,7 +517,9 @@
       "bSetWeaponAnimLengthToDuration": false,
       "bForceStopAnimationNextNull": false,
       "TotalDuration": {
-        "Value": 0.08571
+        "Value": 0.08571,
+        "bEnableMobile": true,
+        "MobileValue": 0.08571
       }
     }
   },
@@ -823,7 +809,10 @@
         "ObjectName": "BlueprintGeneratedClass'BP_AK47_Galatea_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AKM_Galatea/BP_AK47_Galatea_DamageType.0"
       },
-      "AttackRange": 100000.0,
+      "AttackRange": {
+        "Value": 100000.0,
+        "MobileValue": 100000.0
+      },
       "AttackDamage": {
         "Value": 25.0,
         "MobileValue": 28.0
@@ -1148,10 +1137,12 @@
     "Properties": {
       "AmmoMax": {
         "Value": 279.0,
+        "bEnableMobile": true,
         "MobileValue": 210.0
       },
       "AmmoPerMagazine": {
         "Value": 26.0,
+        "bEnableMobile": true,
         "MobileValue": 25.0
       },
       "GSAmmoCapacityFactor": {

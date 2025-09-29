@@ -1,0 +1,81 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_InteractAtom_Ability_P_KokonaShiki_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyInteractAtomAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_InteractAtom_Ability_P_KokonaShiki_C'Default__BP_InteractAtom_Ability_P_KokonaShiki_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/KokonaShiki/P/BP_InteractAtom_Ability_P_KokonaShiki.1"
+    }
+  },
+  {
+    "Type": "BP_InteractAtom_Ability_P_KokonaShiki_C",
+    "Name": "Default__BP_InteractAtom_Ability_P_KokonaShiki_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/KokonaShiki/P/BP_InteractAtom_Ability_P_KokonaShiki.BP_InteractAtom_Ability_P_KokonaShiki_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AbilityTags": [
+        "GA.Passive.KokonaShiki"
+      ],
+      "ActiveEvent": {
+        "TagName": "Event.Action.Rescue.Start"
+      },
+      "InteractDisplay": {
+        "TipInfo": {
+          "Namespace": "",
+          "Key": "373C7B2E46463DD7738F08996066D96A",
+          "SourceString": "召唤救援机器人",
+          "LocalizedString": "召唤救援机器人"
+        },
+        "TipInfoSTKey": "Interact_Ability_P_KokonaShiki",
+        "OperationInfo": {
+          "Namespace": "",
+          "Key": "DF3AE18445C7735F0DA33E967AC90582",
+          "SourceString": "召唤救援机器人中",
+          "LocalizedString": "召唤救援机器人中"
+        },
+        "TeammateOperationInfo": {
+          "Namespace": "",
+          "Key": "88C6DA294FFD666BF0BFB285B52E5E07",
+          "SourceString": "队友召唤救援机器人中",
+          "LocalizedString": "队友召唤救援机器人中"
+        },
+        "InteractType": "EInteractType::Rescue"
+      },
+      "Filters": [
+        {
+          "ObjectName": "Class'CyFilterSameTeam'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      ],
+      "OwnerTagRequirements": {
+        "RequireTags": [
+          "State.Health.Injured"
+        ],
+        "IgnoreTags": [
+          "State.Player.BeRescued",
+          "State.Player.DisableBeRescue"
+        ]
+      },
+      "TargetTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Injured",
+          "State.Health.Death"
+        ]
+      },
+      "InteractMaxDistance": 150.0
+    }
+  }
+]

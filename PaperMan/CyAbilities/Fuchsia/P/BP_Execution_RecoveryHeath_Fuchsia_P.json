@@ -1,0 +1,80 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Execution_RecoveryHeath_Fuchsia_P_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyExecutionRecoverHealth'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Execution_RecoveryHeath_Fuchsia_P_C'Default__BP_Execution_RecoveryHeath_Fuchsia_P_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/P/BP_Execution_RecoveryHeath_Fuchsia_P.1"
+    }
+  },
+  {
+    "Type": "BP_Execution_RecoveryHeath_Fuchsia_P_C",
+    "Name": "Default__BP_Execution_RecoveryHeath_Fuchsia_P_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Fuchsia/P/BP_Execution_RecoveryHeath_Fuchsia_P.BP_Execution_RecoveryHeath_Fuchsia_P_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttributeConsume": {
+        "AttributeName": "HealthEnergy",
+        "Attribute": {
+          "Path": [
+            "HealthEnergy"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "TargetTags": {
+        "IgnoreTags": [
+          "Buff.Weak.BeingAttacked",
+          "State.Health.Injured"
+        ]
+      },
+      "ConsumePerExecute": {
+        "bEnableMobile": true,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.HealthRecovery.Set.P.Fuchsia"
+        }
+      },
+      "GameStateScaleAttribute": {
+        "AttributeName": "TreatmentFactor",
+        "Attribute": {
+          "Path": [
+            "TreatmentFactor"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyCustomCharacterAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyCustomCharacterAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "bUseHealthRecovery": true
+    }
+  }
+]
