@@ -87,9 +87,10 @@
     "Type": "Weapon15205001_C",
     "Name": "Default__Weapon15205001_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/KatanaLight/Weapon15205001.Weapon15205001_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AttackSocketSphereRadius": 90.0,
+      "bSupportsAutoAttack": true,
       "bUseSupportLeanWall": true,
       "WeaponName": "ECyWeaponName::CustomType242",
       "RootScene": {
@@ -631,7 +632,7 @@
         "Buff.Strong.Knife.Blocking"
       ],
       "TotalDuration": {
-        "Value": 0.45
+        "Value": 0.35
       },
       "AllowedGait": "ECyGait::NoMove",
       "TimeForWeaponVisible": 0.0,
@@ -684,7 +685,8 @@
         "State.Player.DisableInstallC4",
         "State.Player.DisableDismantleC4",
         "State.Player.DisableJump",
-        "State.Player.DisableSwitchWeapon"
+        "State.Player.DisableSwitchWeapon",
+        "Buff.Strong.Knife.Blocking"
       ],
       "TotalDuration": {
         "Value": 0.1
@@ -1776,7 +1778,7 @@
             "AttackRange": {
               "Value": 400.0,
               "bEnableMobile": false,
-              "MobileValue": 400.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
@@ -1785,7 +1787,7 @@
             "AttackHalfAngle": {
               "Value": 120.0,
               "bEnableMobile": false,
-              "MobileValue": 120.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
@@ -1794,13 +1796,13 @@
             "HalfAttackThickness": {
               "Value": 150.0,
               "bEnableMobile": false,
-              "MobileValue": 150.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
               }
             },
-            "bHorizontalAiming": true
+            "bHorizontalAiming": false
           }
         },
         {
@@ -1809,7 +1811,7 @@
             "AttackRange": {
               "Value": 1.0,
               "bEnableMobile": false,
-              "MobileValue": 250.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": {
                   "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
@@ -1821,7 +1823,7 @@
             "AttackHalfAngle": {
               "Value": 90.0,
               "bEnableMobile": false,
-              "MobileValue": 90.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
@@ -1830,7 +1832,7 @@
             "HalfAttackThickness": {
               "Value": 60.0,
               "bEnableMobile": false,
-              "MobileValue": 60.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
@@ -1845,7 +1847,7 @@
             "AttackRange": {
               "Value": 1.0,
               "bEnableMobile": false,
-              "MobileValue": 250.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": {
                   "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
@@ -1857,7 +1859,7 @@
             "AttackHalfAngle": {
               "Value": 90.0,
               "bEnableMobile": false,
-              "MobileValue": 90.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
@@ -1866,7 +1868,7 @@
             "HalfAttackThickness": {
               "Value": 60.0,
               "bEnableMobile": false,
-              "MobileValue": 60.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
@@ -1879,18 +1881,21 @@
           "Key": "EFAttackType::MeleeDash",
           "Value": {
             "AttackRange": {
-              "Value": 250.0,
+              "Value": 1.0,
               "bEnableMobile": false,
-              "MobileValue": 250.0,
+              "MobileValue": 0.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.AttackRange.MeleeDash.KatanaKatanaLight"
               }
             },
             "AttackHalfAngle": {
               "Value": 90.0,
               "bEnableMobile": false,
-              "MobileValue": 90.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
@@ -1899,7 +1904,7 @@
             "HalfAttackThickness": {
               "Value": 60.0,
               "bEnableMobile": false,
-              "MobileValue": 60.0,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
@@ -1909,10 +1914,6 @@
           }
         }
       ],
-      "HalfTraceAngle": {
-        "Value": 90.0,
-        "MobileValue": 90.0
-      },
       "CauseDamageInstantTags": [
         "EventTag.Weapon.CauseDamage"
       ],

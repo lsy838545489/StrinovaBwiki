@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Projectile_Summon_ArousalTwo_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.11"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.13"
       }
     },
     "SuperStruct": {
@@ -15,6 +15,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyRetain",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRetainComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyDataManager",
@@ -63,11 +74,11 @@
       },
       "RootScene": {
         "ObjectName": "SphereComponent'Default__Projectile_Summon_ArousalTwo_C:RootComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.15"
       },
       "MeshComponent": {
         "ObjectName": "SkeletalMeshComponent'Default__Projectile_Summon_ArousalTwo_C:MeshComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.12"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.14"
       },
       "MovementComponent": {
         "ObjectName": "CyProjectileFlyDropMovementComponent'Default__Projectile_Summon_ArousalTwo_C:MovementComponent'",
@@ -83,13 +94,17 @@
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/IceZone/SummonIceZone_Q_Yvette_ArousalOne.2"
         }
       },
+      "HitEventTag": {
+        "TagName": "Event.OnHitActor.YvetteProjectileSummon"
+      },
+      "bSendEventOnExplode": true,
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile_Summon_ArousalTwo_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.7"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.8"
       },
       "SkinComponent": {
         "ObjectName": "CyWeaponSkinComponent'Default__Projectile_Summon_ArousalTwo_C:SkinComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.6"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.7"
       },
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__Projectile_Summon_ArousalTwo_C:DataSystemComponent'",
@@ -98,7 +113,7 @@
       "bCanBeDamaged": false,
       "RootComponent": {
         "ObjectName": "SphereComponent'Default__Projectile_Summon_ArousalTwo_C:RootComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.15"
       }
     }
   },
@@ -111,7 +126,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SphereComponent'Default__Projectile_Summon_ArousalTwo_C:RootComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.15"
       }
     }
   },
@@ -186,6 +201,24 @@
     }
   },
   {
+    "Type": "CyRetainComponent",
+    "Name": "CyRetain_GEN_VARIABLE",
+    "Outer": "Projectile_Summon_ArousalTwo_C",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ActorGroupInstance": {
+        "ActorGroupChannel": {
+          "bOverrideResponse": true,
+          "OverrideEnemyResponse": "ECyGR_Ignore"
+        }
+      },
+      "SpawnEventTag": {
+        "TagName": "Event.Summon.Spawn.Yvette.SummonProjectile"
+      }
+    }
+  },
+  {
     "Type": "CyWeaponSkinComponent",
     "Name": "SkinComponent",
     "Outer": "Default__Projectile_Summon_ArousalTwo_C",
@@ -222,7 +255,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Projectile_Summon_ArousalTwo_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.8"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.9"
       },
       "VariableGuid": "5576EF7C-4C865D75-022261A2-099923FE",
       "InternalVariableName": "DefaultSceneRoot"
@@ -248,6 +281,25 @@
     }
   },
   {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRetainComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRetainComponent'Projectile_Summon_ArousalTwo_C:CyRetain_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.6"
+      },
+      "VariableGuid": "A7116B16-4AD562D0-D436F98B-BD6543C1",
+      "InternalVariableName": "CyRetain"
+    }
+  },
+  {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
     "Outer": "Projectile_Summon_ArousalTwo_C",
@@ -257,18 +309,26 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Projectile_Summon_ArousalTwo_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.10"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.11"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_Summon_ArousalTwo_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.12"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Projectile_Summon_ArousalTwo_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.10"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.11"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_Summon_ArousalTwo_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.12"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Projectile_Summon_ArousalTwo_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.9"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.10"
       }
     }
   },
@@ -281,7 +341,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SphereComponent'Default__Projectile_Summon_ArousalTwo_C:RootComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/Projectile_Summon_ArousalTwo.15"
       }
     }
   },

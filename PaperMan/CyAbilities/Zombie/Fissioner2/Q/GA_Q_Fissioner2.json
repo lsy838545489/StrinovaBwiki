@@ -31,6 +31,10 @@
         {
           "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Giver_XPointd_X_Fissioner2_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/BP_Giver_XPointd_X_Fissioner2.0"
         }
       ],
       "ActivatorAtoms": [
@@ -73,24 +77,51 @@
             "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
           }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Kill"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddPointsX_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_AddPointsX.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
         }
       ],
       "WeaponClass": {
         "ObjectName": "BlueprintGeneratedClass'Weapon_Q_Fissioner2_C'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.2"
       },
-      "SlotType": "EWeaponSlotTypes::WeaponSlot_Ability",
-      "MagnitudeRemainPoints": {
-        "Value": 1.0
-      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_UltimateAbility",
       "MagnitudeMaxPoints": {
-        "Value": 1.0
+        "Value": 3500.0
       },
       "AttributeRemainPoints": {
-        "AttributeName": "QPoints",
+        "AttributeName": "XPoints",
         "Attribute": {
           "Path": [
-            "QPoints"
+            "XPoints"
           ],
           "ResolvedOwner": {
             "ObjectName": "Class'CyAbilityAttributeSet'",
@@ -103,10 +134,10 @@
         }
       },
       "AttributeMaxPoints": {
-        "AttributeName": "QPointsMax",
+        "AttributeName": "XPointsMax",
         "Attribute": {
           "Path": [
-            "QPointsMax"
+            "XPointsMax"
           ],
           "ResolvedOwner": {
             "ObjectName": "Class'CyAbilityAttributeSet'",
@@ -119,25 +150,16 @@
         }
       },
       "RemainPointEndType": "EPointRemainType::None",
-      "CommitCostMask": 0,
-      "CommitCostEventTags": [
-        "Event.ConsumePlayerSkill.Q"
-      ],
-      "bGamePadInputOverride": true,
-      "bDefaultIsSkillActivatedOnGamePadInputReleased": true,
+      "CommitCDMask": 0,
       "AbilityTags": [
-        "GA.Ability.SkillQ.Fissioner2"
+        "GA.Ability.SkillX.Fissioner2"
       ],
       "CostGameplayEffectClass": {
-        "ObjectName": "BlueprintGeneratedClass'GE_CostQPoints_C'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GE/GE_CostQPoints.0"
-      },
-      "CooldownGameplayEffectClass": {
-        "ObjectName": "BlueprintGeneratedClass'CD_Q_Fissioner2_C'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/CD_Q_Fissioner2.0"
+        "ObjectName": "BlueprintGeneratedClass'GE_Cost_X_Fissioner2_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/GE_Cost_X_Fissioner2.0"
       },
       "ActivationOwnedTags": [
-        "GA.Ability.SkillQ.Fissioner2"
+        "GA.Ability.SkillX.Fissioner2"
       ],
       "ActivationBlockedTags": [
         "Buff.Weak.Silence",
@@ -146,7 +168,8 @@
         "State.Game.Freeze",
         "State.Game.Ready",
         "State.Health.Death",
-        "State.Player.DisableUseSkill"
+        "State.Player.DisableUseSkill",
+        "State.Weapon.MeleeAttacking"
       ]
     }
   }

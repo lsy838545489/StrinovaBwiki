@@ -51,7 +51,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.29"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.31"
       },
       "UberGraphFunction": {
         "ObjectName": "Function'Weapon_Q_Fissioner2_C:ExecuteUbergraph_Weapon_Q_Fissioner2'",
@@ -86,6 +86,28 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "CyFFinishState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFFinishState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFSecondWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFSecondWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "CySearchTargets",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
@@ -114,17 +136,6 @@
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
           "ObjectName": "Class'CyFWorkState'",
-          "ObjectPath": "/Script/PMGame"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CyFFinishState",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
-        "PropertyClass": {
-          "ObjectName": "Class'CyFFinishState'",
           "ObjectPath": "/Script/PMGame"
         }
       }
@@ -162,6 +173,7 @@
         "StateTypes": [
           "EFStateType::Equip",
           "EFStateType::Work",
+          "EFStateType::SecondWork",
           "EFStateType::Finish"
         ]
       },
@@ -177,11 +189,11 @@
       "WeaponName": "ECyWeaponName::SkillQ",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon_Q_Fissioner2_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.23"
       },
       "MeshComponent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Q_Fissioner2_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.21"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.22"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon_Q_Fissioner2_C:Machine'",
@@ -193,7 +205,7 @@
       },
       "PredictPathComponent": {
         "ObjectName": "CyPredictPathComponent'Default__Weapon_Q_Fissioner2_C:PredictPathComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.17"
       },
       "CachedComponents": [
         {
@@ -221,7 +233,7 @@
           "Key": "StateUnEquipped",
           "Value": {
             "ObjectName": "CyFUnEquippedState'Default__Weapon_Q_Fissioner2_C:StateUnEquipped'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.12"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.13"
           }
         },
         {
@@ -235,26 +247,26 @@
           "Key": "PartPendant",
           "Value": {
             "ObjectName": "CyPartPendant'Default__Weapon_Q_Fissioner2_C:PartPendant'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.15"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.16"
           }
         },
         {
           "Key": "StateUnEquip",
           "Value": {
             "ObjectName": "CyFUnEquipState'Default__Weapon_Q_Fissioner2_C:StateUnEquip'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.13"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.14"
           }
         }
       ],
       "WeaponDataCollectionComponent": {
         "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_Q_Fissioner2_C:WeaponDataCollectionComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.19"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.20"
       },
       "UISlotType": "EWeaponSlotTypes::WeaponSlot_Primary",
       "ID": 2,
       "SkinComponent": {
         "ObjectName": "CyWeaponSkinComponent'Default__Weapon_Q_Fissioner2_C:SkinComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.20"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.21"
       },
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__Weapon_Q_Fissioner2_C:DataSystemComponent'",
@@ -262,7 +274,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon_Q_Fissioner2_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.23"
       }
     }
   },
@@ -302,24 +314,18 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "bForceStopAnimationOnEnd": true,
+      "BlockAbilitiesWithTag": [
+        "GA.Action.Jump"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableInteract",
+        "State.Block.UpdatePredictAmmo"
+      ],
       "TotalDuration": {
-        "Value": 0.0
+        "Value": 0.1
       },
       "TimeForWeaponVisible": -1.0,
-      "Events": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_SpawnActor_Q_Fissioner2_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/BP_SA_SpawnActor_Q_Fissioner2.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        }
-      ],
       "BeginUIEventTag": {
         "TagName": "UIEvent.Activate.Skill.Q"
       }
@@ -330,8 +336,35 @@
     "Name": "CyFFinishState_GEN_VARIABLE",
     "Outer": "Weapon_Q_Fissioner2_C",
     "Class": "UScriptClass'CyFFinishState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Outer": "Default__Weapon_Q_Fissioner2_C",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Outer": "Default__Weapon_Q_Fissioner2_C",
+    "Class": "UScriptClass'CyFMachine'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFSecondWorkState",
+    "Name": "CyFSecondWorkState_GEN_VARIABLE",
+    "Outer": "Weapon_Q_Fissioner2_C",
+    "Class": "UScriptClass'CyFSecondWorkState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "bForceStopAnimationNextNull": false,
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableInteract",
+        "State.Block.UpdatePredictAmmo"
+      ],
       "TotalDuration": {
         "Value": 0.1
       },
@@ -347,35 +380,9 @@
           },
           "SubAtoms": [],
           "EventActions": []
-        },
-        {
-          "PositionStart": 1.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_SummonGotoState_Leave_Q_Fissioner2_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/BP_SA_SummonGotoState_Leave_Q_Fissioner2.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
         }
       ]
     }
-  },
-  {
-    "Type": "CyFInterruptState",
-    "Name": "StateInterrupt",
-    "Outer": "Default__Weapon_Q_Fissioner2_C",
-    "Class": "UScriptClass'CyFInterruptState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
-  },
-  {
-    "Type": "CyFMachine",
-    "Name": "Machine",
-    "Outer": "Default__Weapon_Q_Fissioner2_C",
-    "Class": "UScriptClass'CyFMachine'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "CyFUnEquippedState",
@@ -405,10 +412,17 @@
         "EFStateType::UnEquip",
         "EFStateType::UnEquipped"
       ],
-      "bStopAnimationOnEnd": true,
-      "bForceStopAnimationOnEnd": true,
+      "bForceStopAnimationNextNull": false,
+      "BlockAbilitiesWithTag": [
+        "GA.Action.Jump"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableInteract",
+        "State.Block.UpdatePredictAmmo"
+      ],
       "TotalDuration": {
-        "Value": 0.1,
+        "Value": 0.5,
         "MobileValue": 1.0
       },
       "AllowedGait": "ECyGait::NoMove",
@@ -421,6 +435,18 @@
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAtom_ApplyWeaponControlMode_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_ApplyWeaponControlMode.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_Search_Enemies_Q_Fissioner2_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/BP_SA_Search_Enemies_Q_Fissioner2.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -506,8 +532,6 @@
         "ObjectName": "BlueprintGeneratedClass'BP_DetectorViewLocation_C'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/DetectorLocation/BP_DetectorViewLocation.0"
       },
-      "MaxPitch": 45.0,
-      "MinPitch": -45.0,
       "ControlModeName": "Fissioner2QWork",
       "ControlModeEvents": [
         {
@@ -516,14 +540,13 @@
             "bExtraForce": true,
             "bUseImpulse": true,
             "bVelocityChange": true,
-            "ImpulseMagnitude": 8000.0,
+            "ImpulseMagnitude": 2000.0,
             "ForceMagnitude": 1.0
           }
         }
       ],
       "EndControlModeTimer": 0.2,
-      "EndControlModeName": "Fissioner2QEnd",
-      "AddForceInterval": 1.0
+      "EndControlModeName": "Fissioner2QEnd"
     }
   },
   {
@@ -549,7 +572,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__Weapon_Q_Fissioner2_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.23"
       }
     }
   },
@@ -580,29 +603,10 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon_Q_Fissioner2_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.24"
       },
       "VariableGuid": "9969A470-41D7BEBB-FA1A39B1-DD65DE7E",
       "InternalVariableName": "DefaultSceneRoot"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_1",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
-    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class'CyFFinishState'",
-        "ObjectPath": "/Script/PMGame"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "CyFFinishState'Weapon_Q_Fissioner2_C:CyFFinishState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.9"
-      },
-      "VariableGuid": "583F105F-473E7964-5C93399A-A9FD0E8C",
-      "InternalVariableName": "CyFFinishState"
     }
   },
   {
@@ -618,10 +622,29 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyFWorkState'Weapon_Q_Fissioner2_C:CyFWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.15"
       },
       "VariableGuid": "7C4A8579-4F56D1B1-2816BDAF-C40FD545",
       "InternalVariableName": "CyFWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFSecondWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFSecondWorkState'Weapon_Q_Fissioner2_C:CyFSecondWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.12"
+      },
+      "VariableGuid": "CB8BDB0C-45093F72-041366A1-1636C35B",
+      "InternalVariableName": "CyFSecondWorkState"
     }
   },
   {
@@ -637,10 +660,29 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyWeaponControlModeComponent'Weapon_Q_Fissioner2_C:CyWeaponControlMode_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.19"
       },
       "VariableGuid": "20CDB26D-4493757C-3B4FE483-EC9DAD99",
       "InternalVariableName": "CyWeaponControlMode"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFFinishState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFFinishState'Weapon_Q_Fissioner2_C:CyFFinishState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.9"
+      },
+      "VariableGuid": "09F3734F-4F6FB550-3F0C7D92-109A876B",
+      "InternalVariableName": "CyFFinishState"
     }
   },
   {
@@ -656,7 +698,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Weapon_Q_Fissioner2_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.18"
       },
       "VariableGuid": "34788354-43D8D8F1-102D88B5-58A15F7F",
       "InternalVariableName": "CySearchTargets"
@@ -671,43 +713,51 @@
     "Properties": {
       "RootNodes": [
         {
-          "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.25"
-        },
-        {
           "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.26"
         },
         {
           "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.28"
         },
         {
           "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.29"
         }
       ],
       "AllNodes": [
         {
-          "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.25"
-        },
-        {
           "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.26"
         },
         {
           "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.28"
         },
         {
           "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.29"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon_Q_Fissioner2_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner2/Q/Weapon/Weapon_Q_Fissioner2.25"
       }
     }
   }
