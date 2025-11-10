@@ -11,7 +11,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon15301001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.27"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.28"
       }
     },
     "SuperStruct": {
@@ -38,20 +38,21 @@
       "ObjectName": "Weapon15201001_C'Default__Weapon15201001_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/Katana/Weapon15201001.1"
     },
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AttackSockets": [
         "AttackSocket10",
         "AttackSocket11"
       ],
       "AttackSocketSphereRadius": 200.0,
+      "bSupportsAutoAttack": true,
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon15301001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.24"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.25"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon15301001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.28"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon15301001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.24"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon15301001_C:Machine'",
@@ -191,7 +192,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon15301001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.24"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.25"
       }
     }
   },
@@ -342,8 +343,7 @@
       "BlockAbilitiesWithTag": [
         "GA.Ability.SkillQ",
         "GA.Ability.SkillX",
-        "GA.Action.Wall",
-        "GA.Arousal"
+        "GA.Action.Wall"
       ]
     }
   },
@@ -377,8 +377,7 @@
       "BlockAbilitiesWithTag": [
         "GA.Ability.SkillQ",
         "GA.Ability.SkillX",
-        "GA.Action.Wall",
-        "GA.Arousal"
+        "GA.Action.Wall"
       ],
       "bUseTimeStamp": false,
       "TotalDuration": {
@@ -403,8 +402,7 @@
       "BlockAbilitiesWithTag": [
         "GA.Ability.SkillQ",
         "GA.Ability.SkillX",
-        "GA.Action.Wall",
-        "GA.Arousal"
+        "GA.Action.Wall"
       ],
       "TotalDuration": {
         "Value": 1.0,
@@ -425,6 +423,7 @@
     },
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "TimeOnTagDeactivated": 0.58,
       "BlockAbilitiesWithTag": [
         "GA.Ability.SkillQ",
         "GA.Ability.SkillX",
@@ -463,23 +462,53 @@
       "MeleeAttackDamage": [
         {
           "Key": "EFAttackType::MeleeFirst",
-          "Value": 350.0
+          "Value": {
+            "Value": 500.0,
+            "bEnableMobile": false,
+            "MobileValue": 500.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
-          "Value": 350.0
+          "Value": {
+            "Value": 500.0,
+            "bEnableMobile": false,
+            "MobileValue": 500.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::Smite",
-          "Value": 700.0
+          "Value": {
+            "Value": 850.0,
+            "bEnableMobile": false,
+            "MobileValue": 850.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         }
       ],
-      "HalfTraceAngle": 60.0,
+      "HalfTraceAngle": {
+        "Value": 60.0,
+        "MobileValue": 60.0
+      },
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_Katana_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/BP_Katana_DamageType.0"
       },
-      "AttackRange": 350.0
+      "AttackRange": {
+        "Value": 350.0,
+        "MobileValue": 350.0
+      }
     }
   },
   {
@@ -530,13 +559,30 @@
     }
   },
   {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon15301001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon15201001_C:MeshFor3PP'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/Katana/Weapon15201001.24"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon15301001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.25"
+      }
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "Root",
     "Outer": "Default__Weapon15301001_C",
     "Class": "UScriptClass'SceneComponent'",
     "Template": {
       "ObjectName": "SceneComponent'Default__Weapon15201001_C:Root'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/Katana/Weapon15201001.24"
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/Katana/Weapon15201001.25"
     },
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
@@ -560,7 +606,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon15301001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.25"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.26"
       },
       "VariableGuid": "AA790B2D-47ADDEDA-1106699E-E2A0C6D2",
       "InternalVariableName": "DefaultSceneRoot"
@@ -575,24 +621,7 @@
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon15301001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.26"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon15301001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Template": {
-      "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon15201001_C:MeshFor3PP'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/Katana/Weapon15201001.28"
-    },
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon15301001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.24"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.27"
       }
     }
   }

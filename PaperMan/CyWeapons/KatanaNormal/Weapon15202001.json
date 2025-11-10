@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon15202001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.31"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.32"
       }
     },
     "SuperStruct": {
@@ -37,11 +37,11 @@
       "WeaponName": "ECyWeaponName::CustomType244",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon15202001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.28"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.29"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon15202001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.32"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon15202001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.28"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon15202001_C:Machine'",
@@ -234,7 +234,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon15202001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.28"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.29"
       }
     }
   },
@@ -285,6 +285,18 @@
           },
           "SubAtoms": [],
           "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_Atom_AddEffect_SwordMaster_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock/BP_Atom_AddEffect_SwordMaster.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
         }
       ],
       "AssetEvents": [
@@ -309,6 +321,7 @@
                 "Resource.Audio.Melee.Equip.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -334,6 +347,7 @@
                 "Resource.Audio.Melee.Equip.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -445,7 +459,7 @@
         "Buff.Strong.Knife.Blocking"
       ],
       "TotalDuration": {
-        "Value": 0.45
+        "Value": 0.35
       },
       "AllowedGait": "ECyGait::NoMove",
       "TimeForWeaponVisible": 0.0,
@@ -472,6 +486,7 @@
                 "Resource.Audio.KnifeBlocking.WhileActive"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -497,7 +512,8 @@
         "State.Player.DisableInstallC4",
         "State.Player.DisableDismantleC4",
         "State.Player.DisableJump",
-        "State.Player.DisableSwitchWeapon"
+        "State.Player.DisableSwitchWeapon",
+        "Buff.Strong.Knife.Blocking"
       ],
       "TotalDuration": {
         "Value": 0.1
@@ -526,6 +542,7 @@
                 "Resource.Particle.KnifeBlocking.OnActive"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -570,10 +587,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchDash'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.0,
-      "TimeAllowEnd": 0.46,
+      "TimeAllowCombo": {
+        "Value": 0.0,
+        "MobileValue": 0.0
+      },
+      "TimeAllowEnd": {
+        "Value": 0.46,
+        "MobileValue": 0.46
+      },
       "AttackPlane": {
-        "PlaneOffset": -115.0
+        "PlaneOffset": {
+          "Value": -115.0,
+          "MobileValue": -115.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -585,7 +611,10 @@
           "Roll": 0.0
         }
       },
-      "TriggerAttackPosition": 0.1,
+      "TriggerAttackPosition": {
+        "Value": 0.1,
+        "MobileValue": 0.1
+      },
       "AttackerVerifyDistance": 350.0,
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
@@ -636,6 +665,7 @@
                 "Resource.Audio.Melee.Attack.D"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -672,10 +702,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchFirst'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.15,
-      "TimeAllowEnd": 0.4,
+      "TimeAllowCombo": {
+        "Value": 0.15,
+        "MobileValue": 0.15
+      },
+      "TimeAllowEnd": {
+        "Value": 0.4,
+        "MobileValue": 0.4
+      },
       "AttackPlane": {
-        "PlaneOffset": 165.0
+        "PlaneOffset": {
+          "Value": 165.0,
+          "MobileValue": 165.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -737,6 +776,7 @@
                 "Resource.Audio.Melee.Attack.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -759,10 +799,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchSecond'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.157,
-      "TimeAllowEnd": 0.4,
+      "TimeAllowCombo": {
+        "Value": 0.157,
+        "MobileValue": 0.157
+      },
+      "TimeAllowEnd": {
+        "Value": 0.4,
+        "MobileValue": 0.4
+      },
       "AttackPlane": {
-        "PlaneOffset": 15.0
+        "PlaneOffset": {
+          "Value": 15.0,
+          "MobileValue": 15.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -774,7 +823,10 @@
           "Roll": 10.0
         }
       },
-      "TriggerAttackPosition": 0.13,
+      "TriggerAttackPosition": {
+        "Value": 0.13,
+        "MobileValue": 0.13
+      },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
       "TimeOnTagDeactivated": 0.4,
@@ -824,6 +876,7 @@
                 "Resource.Audio.Melee.Attack.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -891,6 +944,7 @@
                 "Resource.Audio.ThrowBegin.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -916,6 +970,7 @@
                 "Resource.Audio.ThrowBegin.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -931,11 +986,23 @@
     "Class": "UScriptClass'CyFSmiteSwitch'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.45,
-      "TimeAllowEnd": 0.45,
+      "TimeAllowCombo": {
+        "Value": 0.45,
+        "MobileValue": 0.45
+      },
+      "TimeAllowEnd": {
+        "Value": 0.45,
+        "MobileValue": 0.45
+      },
       "AttackPlane": {
-        "PlaneOffset": 145.0,
-        "CenterZOffset": -12.0
+        "PlaneOffset": {
+          "Value": 145.0,
+          "MobileValue": 145.0
+        },
+        "CenterZOffset": {
+          "Value": -12.0,
+          "MobileValue": -12.0
+        }
       },
       "EffectPlane": {
         "PSTag": {
@@ -947,7 +1014,10 @@
           "Roll": -15.0
         }
       },
-      "TriggerAttackPosition": 0.075,
+      "TriggerAttackPosition": {
+        "Value": 0.075,
+        "MobileValue": 0.075
+      },
       "bSupport2DState": false,
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_KatanaNormal_DamageType_Smite_C'",
@@ -967,7 +1037,8 @@
         "State.Player.DisableInput2D.Fly",
         "State.Player.DisableInput2D.Side",
         "State.Player.DisableKeep2D.Fly",
-        "State.Player.DisableKeep2D.Side"
+        "State.Player.DisableKeep2D.Side",
+        "State.Weapon.MeleeAttacking"
       ],
       "bUseTimeStamp": true,
       "TotalDuration": {
@@ -1039,6 +1110,7 @@
                 "Resource.Audio.Melee.Attack.C"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -1071,60 +1143,191 @@
       "MeleeAttackDamage": [
         {
           "Key": "EFAttackType::MeleeFirst",
-          "Value": 70.0
+          "Value": {
+            "Value": 70.0,
+            "bEnableMobile": false,
+            "MobileValue": 70.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
-          "Value": 70.0
+          "Value": {
+            "Value": 70.0,
+            "bEnableMobile": false,
+            "MobileValue": 70.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::Smite",
-          "Value": 210.0
+          "Value": {
+            "Value": 210.0,
+            "bEnableMobile": false,
+            "MobileValue": 210.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::MeleeDash",
-          "Value": 70.0
+          "Value": {
+            "Value": 70.0,
+            "bEnableMobile": false,
+            "MobileValue": 70.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         }
       ],
       "MeleeAttackParams": [
         {
           "Key": "EFAttackType::Smite",
           "Value": {
-            "AttackRange": 375.0,
-            "AttackHalfAngle": 90.0,
-            "HalfAttackThickness": 90.0,
+            "AttackRange": {
+              "Value": 375.0,
+              "bEnableMobile": false,
+              "MobileValue": 375.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "AttackHalfAngle": {
+              "Value": 90.0,
+              "bEnableMobile": false,
+              "MobileValue": 90.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "HalfAttackThickness": {
+              "Value": 90.0,
+              "bEnableMobile": false,
+              "MobileValue": 90.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
             "bHorizontalAiming": true
           }
         },
         {
           "Key": "EFAttackType::MeleeFirst",
           "Value": {
-            "AttackRange": 275.0,
-            "AttackHalfAngle": 90.0,
-            "HalfAttackThickness": 60.0,
+            "AttackRange": {
+              "Value": 275.0,
+              "bEnableMobile": false,
+              "MobileValue": 275.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "AttackHalfAngle": {
+              "Value": 90.0,
+              "bEnableMobile": false,
+              "MobileValue": 90.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "HalfAttackThickness": {
+              "Value": 60.0,
+              "bEnableMobile": false,
+              "MobileValue": 60.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
             "bHorizontalAiming": false
           }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
           "Value": {
-            "AttackRange": 275.0,
-            "AttackHalfAngle": 90.0,
-            "HalfAttackThickness": 60.0,
+            "AttackRange": {
+              "Value": 275.0,
+              "bEnableMobile": false,
+              "MobileValue": 275.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "AttackHalfAngle": {
+              "Value": 90.0,
+              "bEnableMobile": false,
+              "MobileValue": 90.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "HalfAttackThickness": {
+              "Value": 60.0,
+              "bEnableMobile": false,
+              "MobileValue": 60.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
             "bHorizontalAiming": false
           }
         },
         {
           "Key": "EFAttackType::MeleeDash",
           "Value": {
-            "AttackRange": 275.0,
-            "AttackHalfAngle": 90.0,
-            "HalfAttackThickness": 60.0,
+            "AttackRange": {
+              "Value": 275.0,
+              "bEnableMobile": false,
+              "MobileValue": 275.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "AttackHalfAngle": {
+              "Value": 90.0,
+              "bEnableMobile": false,
+              "MobileValue": 90.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "HalfAttackThickness": {
+              "Value": 60.0,
+              "bEnableMobile": false,
+              "MobileValue": 60.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
             "bHorizontalAiming": false
           }
         }
       ],
-      "HalfTraceAngle": 90.0,
+      "HalfTraceAngle": {
+        "Value": 90.0,
+        "MobileValue": 90.0
+      },
       "CauseDamageInstantTags": [
         "EventTag.Weapon.CauseDamage"
       ],
@@ -1132,7 +1335,10 @@
         "ObjectName": "BlueprintGeneratedClass'BP_KatanaNormal_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/BP_KatanaNormal_DamageType.0"
       },
-      "AttackRange": 1000.0,
+      "AttackRange": {
+        "Value": 1000.0,
+        "MobileValue": 1000.0
+      },
       "AdditionalDamage": {
         "ModifierOp": "EMagnitudeModOp::Additive",
         "ScalableFloatMagnitude": {
@@ -1439,6 +1645,7 @@
             "Resource.Particle.Mesh.First.3D"
           ],
           "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
           "bAllowLoop": true
         },
         {
@@ -1449,9 +1656,23 @@
             "Resource.Particle.Mesh.Second.3D"
           ],
           "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
           "bAllowLoop": true
         }
       ]
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon15202001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon15202001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.29"
+      }
     }
   },
   {
@@ -1481,7 +1702,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon15202001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.29"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.30"
       },
       "VariableGuid": "AA790B2D-47ADDEDA-1106699E-E2A0C6D2",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1496,20 +1717,7 @@
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon15202001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.30"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon15202001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon15202001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.28"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaNormal/Weapon15202001.31"
       }
     }
   }

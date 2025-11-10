@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon16101001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.27"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.28"
       }
     },
     "SuperStruct": {
@@ -60,16 +60,17 @@
         }
       ],
       "AttackSocketSphereRadius": 50.0,
+      "bSupportsAutoAttack": true,
       "bSupport2DState": false,
       "WeaponName": "ECyWeaponName::CustomType251",
       "WeaponType": "ECyWeaponType::Fist",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon16101001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.24"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.25"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon16101001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.28"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon16101001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.24"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon16101001_C:Machine'",
@@ -268,7 +269,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon16101001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.24"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.25"
       }
     }
   },
@@ -380,10 +381,19 @@
     "Class": "UScriptClass'CyFMeleeSwitchFirst'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.25,
-      "TimeAllowEnd": 0.5,
+      "TimeAllowCombo": {
+        "Value": 0.25,
+        "MobileValue": 0.25
+      },
+      "TimeAllowEnd": {
+        "Value": 0.5,
+        "MobileValue": 0.5
+      },
       "AttackPlane": {
-        "PlaneOffset": 160.0
+        "PlaneOffset": {
+          "Value": 170.0,
+          "MobileValue": 160.0
+        }
       },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
@@ -426,6 +436,7 @@
                 "Resource.Particle.AnimNotify.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -448,11 +459,22 @@
     "Class": "UScriptClass'CyFMeleeSwitchSecond'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.157,
-      "TimeAllowEnd": 0.45,
+      "TimeAllowCombo": {
+        "Value": 0.157,
+        "MobileValue": 0.157
+      },
+      "TimeAllowEnd": {
+        "Value": 0.45,
+        "MobileValue": 0.45
+      },
       "AttackPlane": {
-        "PlaneOffset": 20.0,
-        "CenterZOffset": 24.0
+        "PlaneOffset": {
+          "Value": -10.0,
+          "MobileValue": 20.0
+        },
+        "CenterZOffset": {
+          "MobileValue": 24.0
+        }
       },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
@@ -495,6 +517,7 @@
                 "Resource.Particle.AnimNotify.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -509,12 +532,24 @@
     "Class": "UScriptClass'CyFSmiteSwitch'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeAllowCombo": 0.123,
-      "TimeAllowEnd": 0.576,
-      "AttackPlane": {
-        "PlaneOffset": 180.0
+      "TimeAllowCombo": {
+        "Value": 0.123,
+        "MobileValue": 0.123
       },
-      "TriggerAttackPosition": 0.4,
+      "TimeAllowEnd": {
+        "Value": 0.576,
+        "MobileValue": 0.576
+      },
+      "AttackPlane": {
+        "PlaneOffset": {
+          "Value": 180.0,
+          "MobileValue": 180.0
+        }
+      },
+      "TriggerAttackPosition": {
+        "Value": 0.4,
+        "MobileValue": 0.4
+      },
       "bSupport2DState": false,
       "bStopAnimationOnEnd": true,
       "TimeOnTagDeactivated": 0.66,
@@ -555,6 +590,7 @@
                 "Resource.Particle.AnimNotify.C"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             },
             {
@@ -565,6 +601,7 @@
                 "Resource.Particle.AnimNotify.D"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -590,6 +627,7 @@
                 "Resource.Particle.AnimNotify.E"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -614,23 +652,56 @@
       "MeleeAttackDamage": [
         {
           "Key": "EFAttackType::MeleeFirst",
-          "Value": 240.0
+          "Value": {
+            "Value": 300.0,
+            "bEnableMobile": false,
+            "MobileValue": 240.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
-          "Value": 240.0
+          "Value": {
+            "Value": 300.0,
+            "bEnableMobile": false,
+            "MobileValue": 240.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "Key": "EFAttackType::Smite",
-          "Value": 480.0
+          "Value": {
+            "Value": 600.0,
+            "bEnableMobile": false,
+            "MobileValue": 480.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         }
       ],
-      "HalfTraceAngle": 70.0,
+      "HalfTraceAngle": {
+        "Value": 70.0,
+        "MobileValue": 70.0
+      },
+      "HalfAttackThickness": {
+        "Value": 90.0
+      },
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_Talon_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/BP_Talon_DamageType.0"
       },
-      "AttackRange": 300.0,
+      "AttackRange": {
+        "Value": 300.0,
+        "MobileValue": 300.0
+      },
       "AimAssistMap": null,
       "BodyDamageFactor": [
         {
@@ -905,6 +976,19 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon16101001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon16101001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.25"
+      }
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "Root",
     "Outer": "Default__Weapon16101001_C",
@@ -931,7 +1015,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon16101001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.25"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.26"
       },
       "VariableGuid": "ECA8EE01-421DE0F2-E31A3B9A-CE68E773",
       "InternalVariableName": "DefaultSceneRoot"
@@ -946,20 +1030,7 @@
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon16101001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.26"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon16101001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon16101001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.24"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/Weapon16101001.27"
       }
     }
   }

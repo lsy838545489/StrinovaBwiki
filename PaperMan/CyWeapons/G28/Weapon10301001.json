@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon10301001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.43"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.46"
       }
     },
     "SuperStruct": {
@@ -111,11 +111,11 @@
       "WeaponType": "ECyWeaponType::DMR",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10301001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.37"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.40"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10301001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.47"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10301001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.37"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon10301001_C:Machine'",
@@ -298,8 +298,8 @@
         {
           "Key": "MeshPartSight",
           "Value": {
-            "ObjectName": "SkeletalMeshComponent'Default__Weapon10301001_C:MeshPartSight'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.44"
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10301001_C:MeshPartSight'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.38"
           }
         },
         {
@@ -312,8 +312,8 @@
         {
           "Key": "MeshPartSightLens",
           "Value": {
-            "ObjectName": "SkeletalMeshComponent'Default__Weapon10301001_C:MeshPartSightLens'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.45"
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10301001_C:MeshPartSightLens'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.39"
           }
         },
         {
@@ -327,7 +327,7 @@
           "Key": "MeshPartSightFocus",
           "Value": {
             "ObjectName": "StaticMeshComponent'Default__Weapon10301001_C:MeshPartSightFocus'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.46"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.47"
           }
         },
         {
@@ -389,7 +389,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon10301001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.37"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.40"
       }
     }
   },
@@ -407,29 +407,13 @@
     "Class": "UScriptClass'CyEffectComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "AkEventAttackStart": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Weap_HKG28_OneShot.Weap_HKG28_OneShot",
-        "SubPathString": ""
-      },
-      "AkEventAttackContinuous": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Weap_HKG28_OneShot.Weap_HKG28_OneShot",
-        "SubPathString": ""
-      },
-      "AkEventAttackLastBullet": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Weap_HKG28_LastShot.Weap_HKG28_LastShot",
-        "SubPathString": ""
-      },
-      "AkEventAttackEmpty": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Common_NoAmmo.Wpn_Common_NoAmmo",
-        "SubPathString": ""
-      },
       "AkEventWhiz": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.Wpn_Bullet_Whiz",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Wpn_Bullet_Whiz'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.0"
       },
       "AkEventShellCase": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Bullet_ShellDrop_SniperRifle.Bullet_ShellDrop_SniperRifle",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Bullet_ShellDrop_SniperRifle'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Bullet_ShellDrop_SniperRifle.0"
       },
       "AkRtpcAmmoLeftProportion": {
         "ObjectName": "AkRtpc'NumberOfBullets'",
@@ -514,7 +498,7 @@
       "TotalDuration": {
         "Value": 0.2,
         "bEnableMobile": true,
-        "MobileValue": 0.2181
+        "MobileValue": 0.2
       }
     }
   },
@@ -550,7 +534,7 @@
       "TotalDuration": {
         "Value": 0.2,
         "bEnableMobile": true,
-        "MobileValue": 0.2181
+        "MobileValue": 0.2
       }
     }
   },
@@ -569,7 +553,7 @@
         "ObjectName": "BlueprintGeneratedClass'BP_G28_CameraShake_ADS_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/BP_G28_CameraShake_ADS.0"
       },
-      "TimeSpreadScaleOn": 0.3,
+      "TimeSpreadScaleOn": 0.28,
       "SpreadScale": {
         "Value": 0.01,
         "bEnableMobile": true,
@@ -1222,11 +1206,14 @@
         "ObjectName": "BlueprintGeneratedClass'BP_G28_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/BP_G28_DamageType.0"
       },
-      "AttackRange": 100000.0,
+      "AttackRange": {
+        "Value": 100000.0,
+        "MobileValue": 100000.0
+      },
       "AttackDamage": {
         "Value": 51.0,
         "bEnableMobile": true,
-        "MobileValue": 52.0
+        "MobileValue": 51.0
       },
       "DamageScaleFor2D": {
         "Value": 0.67,
@@ -1551,10 +1538,12 @@
     "Properties": {
       "AmmoMax": {
         "Value": 180.0,
-        "MobileValue": 140.0
+        "bEnableMobile": true,
+        "MobileValue": 160.0
       },
       "AmmoPerMagazine": {
         "Value": 15.0,
+        "bEnableMobile": true,
         "MobileValue": 15.0
       },
       "GSAmmoCapacityFactor": {
@@ -2158,6 +2147,45 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon10301001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon10301001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.40"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSight",
+    "Outer": "Default__Weapon10301001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10301001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.37"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSightLens",
+    "Outer": "Default__Weapon10301001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10301001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.37"
+      }
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "Root",
     "Outer": "Default__Weapon10301001_C",
@@ -2184,7 +2212,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon10301001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.38"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.41"
       },
       "VariableGuid": "35D9F9AF-4B8253A0-E7FC52A4-A73C8B86",
       "InternalVariableName": "DefaultSceneRoot"
@@ -2257,60 +2285,34 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10301001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.40"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.43"
         },
         {
           "ObjectName": "SCS_Node'Weapon10301001_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.41"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.44"
         },
         {
           "ObjectName": "SCS_Node'Weapon10301001_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.42"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.45"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10301001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.40"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.43"
         },
         {
           "ObjectName": "SCS_Node'Weapon10301001_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.41"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.44"
         },
         {
           "ObjectName": "SCS_Node'Weapon10301001_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.42"
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.45"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon10301001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.39"
-      }
-    }
-  },
-  {
-    "Type": "SkeletalMeshComponent",
-    "Name": "MeshPartSight",
-    "Outer": "Default__Weapon10301001_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10301001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.47"
-      }
-    }
-  },
-  {
-    "Type": "SkeletalMeshComponent",
-    "Name": "MeshPartSightLens",
-    "Outer": "Default__Weapon10301001_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10301001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.47"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.42"
       }
     }
   },
@@ -2322,20 +2324,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AttachParent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon10301001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.47"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon10301001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon10301001_C:Root'",
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10301001_C:MeshFor3PP'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/G28/Weapon10301001.37"
       }
     }

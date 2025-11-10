@@ -24,14 +24,20 @@
     "Type": "CD_KatanaSmite_Light_C",
     "Name": "Default__CD_KatanaSmite_Light_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/KatanaLight/CD_KatanaSmite_Light.CD_KatanaSmite_Light_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
       "DurationMagnitude": {
         "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::AttributeBased",
         "AttributeBasedMagnitude": {
           "Coefficient": {
-            "Value": 3.0
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.CD.Smite.KatanaLight"
+            }
           },
           "BackingAttribute": {
             "AttributeToCapture": {

@@ -14,7 +14,6 @@
       "101": {
         "RoleId": 101,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -24,7 +23,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -34,7 +32,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -44,7 +41,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -54,7 +50,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -64,31 +59,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -98,7 +75,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -106,22 +82,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -152,22 +112,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -252,15 +220,15 @@
         "Part5Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
-          },
-          {
-            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
             "Key": "ScatterControlImprovements",
             "SourceString": "散射控制提升",
             "LocalizedString": "+ Spread Control"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "ImprovedRecoilControl",
+            "SourceString": "后坐控制提升",
+            "LocalizedString": "+ Recoil Handling"
           },
           {
             "CultureInvariantString": null
@@ -282,19 +250,14 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "DamageAndRangeIncreased_WithNumParam",
               "SourceString": "伤害和射程增加{0}%",
-              "LocalizedString": "+{0}% Damage and Range"
+              "LocalizedString": "+{0}% DMG and Range"
             },
-            "Arguments": [
-              {
-                "Type": 0,
-                "Value": 50
-              }
-            ]
+            "Arguments": []
           },
           {
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-              "Key": "LimitIncreasedTo_WithNumParam",
+              "Key": "SummonLimitIncreasedTo_WithNumParam",
               "SourceString": "上限增加至{0}个",
               "LocalizedString": "Max +{0}"
             },
@@ -321,13 +284,13 @@
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_101_Q_1",
-              "SourceString": "[主动技能]喵喵卫士的伤害和射程增加<GrowthMB_DescY>{0}%</>\r\n[技能效果说明-喵喵卫士]部署喵喵卫士，自动攻击一定范围内的敌人，并使其减速",
-              "LocalizedString": "[Active] Increase Pawtector's DMG and range by <GrowthMB_DescY>{0}%</>.\n[Skill Effect - Pawtector] Deploy Pawtectors to automatically attack and slow nearby enemies."
+              "SourceString": "[主动技能]喵喵卫士的伤害增加<GrowthMB_DescY>1</>、射程增加<GrowthMB_DescY>{0}米</>\r\n[技能效果说明-喵喵卫士]部署喵喵卫士，自动攻击一定范围内的敌人，并使其减速",
+              "LocalizedString": "[Active] Increase Pawtector's DMG by <GrowthMB_DescY>1</> and range by <GrowthMB_DescY>{0}m</>.\n[Skill Effect - Pawtector] Deploy Pawtectors to automatically attack and slow nearby enemies."
             },
             "Arguments": [
               {
-                "Type": 0,
-                "Value": 50
+                "Type": 3,
+                "Value": 3.5
               }
             ]
           },
@@ -356,8 +319,8 @@
             },
             "Arguments": [
               {
-                "Type": 0,
-                "Value": 2
+                "Type": 3,
+                "Value": 1.5
               }
             ]
           }
@@ -382,24 +345,12 @@
             },
             "Arguments": [
               {
-                "Type": 0,
-                "Value": 2
+                "Type": 3,
+                "Value": 1.5
               }
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -448,8 +399,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -464,18 +415,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -498,12 +437,12 @@
           "ShootSpeed|60|1200",
           "AimSpeed|45|100",
           "Scattering|73|100",
-          "GunRecoil|70|100",
-          "MagazineCapacity|0.75|50",
+          "GunRecoil|72|100",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|57.6|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|55|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -513,51 +452,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
-          "AimSpeed|*0.375"
-        ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
-        "Part5Level11": [
           "Scattering|*0.25"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
+        "Part5Level11": [
+          "GunRecoil|*0.3"
+        ],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -641,7 +556,6 @@
       "132": {
         "RoleId": 132,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -651,7 +565,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -661,7 +574,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -671,7 +583,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -681,7 +592,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -691,31 +601,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -725,7 +617,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -733,22 +624,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -779,22 +654,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -1015,18 +898,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -1075,8 +946,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -1091,18 +962,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -1125,12 +984,12 @@
           "ShootSpeed|50|1200",
           "AimSpeed|45|100",
           "Scattering|58|100",
-          "GunRecoil|67|100",
-          "MagazineCapacity|0.75|50",
+          "GunRecoil|60|100",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|57.6|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|55|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -1140,51 +999,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -1268,7 +1103,6 @@
       "146": {
         "RoleId": 146,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -1278,7 +1112,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -1288,7 +1121,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -1298,7 +1130,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -1308,7 +1139,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -1318,31 +1148,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -1352,7 +1164,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -1360,22 +1171,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -1406,34 +1201,42 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "MaximumRunningSpeedIncreased",
-            "SourceString": "移动速度提升",
-            "LocalizedString": "+ Sprint Speed"
+            "Key": "BaseDamageIncreased",
+            "SourceString": "基础伤害提升",
+            "LocalizedString": "+ Base Damage"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "EffectiveRangeIncreased",
-            "SourceString": "有效射程提升",
-            "LocalizedString": "+ Effective Range"
+            "Key": "BaseRateOfFireIncreased",
+            "SourceString": "基础射速提升",
+            "LocalizedString": "+ Base Rate of Fire"
           },
           {
             "CultureInvariantString": null
@@ -1642,18 +1445,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -1702,8 +1493,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -1718,18 +1509,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -1752,12 +1531,12 @@
           "ShootSpeed|55|1200",
           "AimSpeed|45|100",
           "Scattering|58|100",
-          "GunRecoil|59|100",
-          "MagazineCapacity|0.75|50",
+          "GunRecoil|63|100",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|57.6|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|55|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -1765,53 +1544,29 @@
           "ReducedEmissions|0.99"
         ],
         "Part1Level01": [
-          "MoveSpeed|*0.044"
+          ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
-          "distance_effective_factor|*0.289"
+          ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -1895,7 +1650,6 @@
       "133": {
         "RoleId": 133,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -1905,7 +1659,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -1915,7 +1668,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -1925,7 +1677,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -1935,7 +1686,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -1945,31 +1695,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -1979,7 +1711,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -1987,22 +1718,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -2033,34 +1748,42 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ReloadSpeedIncreased",
-            "SourceString": "换弹速度提升",
-            "LocalizedString": "+ Reload Speed"
+            "Key": "BaseDamageIncreased",
+            "SourceString": "基础伤害提升",
+            "LocalizedString": "+ Base Damage"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedNumberOfBullets",
-            "SourceString": "载弹数量提升",
-            "LocalizedString": "+ Magazine Capacity"
+            "Key": "BaseRateOfFireIncreased",
+            "SourceString": "基础射速提升",
+            "LocalizedString": "+ Base Rate of Fire"
           },
           {
             "CultureInvariantString": null
@@ -2106,15 +1829,15 @@
         "Part4Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ScatterControlImprovements",
-            "SourceString": "散射控制提升",
-            "LocalizedString": "+ Spread Control"
+            "Key": "IncreasedNumberOfBullets",
+            "SourceString": "载弹数量提升",
+            "LocalizedString": "+ Magazine Capacity"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
+            "Key": "ReloadSpeedIncreased",
+            "SourceString": "换弹速度提升",
+            "LocalizedString": "+ Reload Speed"
           },
           {
             "CultureInvariantString": null
@@ -2133,9 +1856,9 @@
         "Part5Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "MaximumRunningSpeedIncreased",
-            "SourceString": "移动速度提升",
-            "LocalizedString": "+ Sprint Speed"
+            "Key": "ScatterControlImprovements",
+            "SourceString": "散射控制提升",
+            "LocalizedString": "+ Spread Control"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -2167,8 +1890,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 3.5
+                "Type": 0,
+                "Value": 4
               }
             ]
           },
@@ -2259,18 +1982,6 @@
             "Arguments": []
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -2319,8 +2030,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -2335,18 +2046,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -2369,12 +2068,12 @@
           "ShootSpeed|65|1200",
           "AimSpeed|45|100",
           "Scattering|60|100",
-          "GunRecoil|50|100",
-          "MagazineCapacity|0.75|50",
+          "GunRecoil|67|100",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|57.6|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|55|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -2382,59 +2081,35 @@
           "ReducedEmissions|0.99"
         ],
         "Part1Level01": [
-          "ReloadSpeed|*0.301"
+          ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
+          ""
+        ],
+        "Part4Level11": [
+          "ReloadSpeed|*0.4"
+        ],
+        "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
-        "Part4Level11": [
-          "AimSpeed|*0.375"
-        ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
-        "Part5Level01": [
-          "MoveSpeed|*0.044"
-        ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_KeepFight",
-            "SourceString": "续航",
-            "LocalizedString": "Capacity"
+            "Key": "Part_Core",
+            "SourceString": "核心",
+            "LocalizedString": "Core"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -2444,15 +2119,15 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Accurate",
-            "SourceString": "精准",
-            "LocalizedString": "Accuracy"
+            "Key": "Part_KeepFight",
+            "SourceString": "续航",
+            "LocalizedString": "Capacity"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Function",
-            "SourceString": "机能",
-            "LocalizedString": "Functions"
+            "Key": "Part_Accurate",
+            "SourceString": "精准",
+            "LocalizedString": "Accuracy"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -2512,7 +2187,6 @@
       "112": {
         "RoleId": 112,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -2522,7 +2196,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -2532,7 +2205,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -2542,7 +2214,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -2552,7 +2223,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -2562,31 +2232,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -2596,7 +2248,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -2604,22 +2255,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -2650,22 +2285,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -2876,18 +2519,6 @@
             "Arguments": []
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -2936,8 +2567,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -2952,18 +2583,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -2986,12 +2605,12 @@
           "ShootSpeed|50|1200",
           "AimSpeed|45|100",
           "Scattering|58|100",
-          "GunRecoil|50|100",
-          "MagazineCapacity|0.75|50",
+          "GunRecoil|59|100",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|57.6|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|55|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -3001,51 +2620,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -3129,7 +2724,6 @@
       "128": {
         "RoleId": 128,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -3139,7 +2733,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -3149,7 +2742,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -3159,7 +2751,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -3169,7 +2760,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -3179,31 +2769,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -3213,7 +2785,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -3221,22 +2792,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -3267,22 +2822,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -3415,8 +2978,8 @@
             },
             "Arguments": [
               {
-                "Type": 0,
-                "Value": 2
+                "Type": 3,
+                "Value": 1.5
               }
             ]
           }
@@ -3455,8 +3018,8 @@
             },
             "Arguments": [
               {
-                "Type": 0,
-                "Value": 2
+                "Type": 3,
+                "Value": 1.5
               }
             ]
           }
@@ -3471,8 +3034,8 @@
             },
             "Arguments": [
               {
-                "Type": 0,
-                "Value": 2
+                "Type": 3,
+                "Value": 1.5
               }
             ]
           }
@@ -3497,24 +3060,12 @@
             },
             "Arguments": [
               {
-                "Type": 0,
-                "Value": 2
+                "Type": 3,
+                "Value": 1.5
               }
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -3563,8 +3114,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -3579,18 +3130,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -3614,11 +3153,11 @@
           "AimSpeed|50|100",
           "Scattering|71|100",
           "GunRecoil|57|100",
-          "MagazineCapacity|0.75|50",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|60|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|55|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -3628,51 +3167,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -3756,7 +3271,6 @@
       "108": {
         "RoleId": 108,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -3766,7 +3280,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -3776,7 +3289,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -3786,7 +3298,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -3796,7 +3307,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -3806,31 +3316,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -3840,7 +3332,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -3848,22 +3339,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -3894,22 +3369,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -3994,15 +3477,15 @@
         "Part5Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
-          },
-          {
-            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
             "Key": "ScatterControlImprovements",
             "SourceString": "散射控制提升",
             "LocalizedString": "+ Spread Control"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "ImprovedRecoilControl",
+            "SourceString": "后坐控制提升",
+            "LocalizedString": "+ Recoil Handling"
           },
           {
             "CultureInvariantString": null
@@ -4130,18 +3613,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -4190,8 +3661,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -4206,18 +3677,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -4241,11 +3700,11 @@
           "AimSpeed|45|100",
           "Scattering|69|100",
           "GunRecoil|72|100",
-          "MagazineCapacity|1.5|50",
+          "MagazineCapacity|1.5|100",
           "ReloadSpeed|21|50",
           "PullBoltSpeed|0|100",
           "MoveSpeed|54|100",
-          "Change2DHurt|60|100"
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.5",
@@ -4255,57 +3714,33 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
-          "AimSpeed|*0.375"
-        ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
-        "Part5Level11": [
           "Scattering|*0.25"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
+        "Part5Level11": [
+          "GunRecoil|*0.3"
+        ],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Core",
-            "SourceString": "核心",
-            "LocalizedString": "Core"
+            "Key": "Part_Output",
+            "SourceString": "输出",
+            "LocalizedString": "Firing"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -4383,7 +3818,6 @@
       "107": {
         "RoleId": 107,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -4393,7 +3827,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -4403,7 +3836,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -4413,7 +3845,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -4423,7 +3854,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -4433,31 +3863,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -4467,7 +3879,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -4475,22 +3886,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -4521,34 +3916,42 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ReloadSpeedIncreased",
-            "SourceString": "换弹速度提升",
-            "LocalizedString": "+ Reload Speed"
+            "Key": "BaseDamageIncreased",
+            "SourceString": "基础伤害提升",
+            "LocalizedString": "+ Base Damage"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedNumberOfBullets",
-            "SourceString": "载弹数量提升",
-            "LocalizedString": "+ Magazine Capacity"
+            "Key": "ScatterControlImprovements",
+            "SourceString": "散射控制提升",
+            "LocalizedString": "+ Spread Control"
           },
           {
             "CultureInvariantString": null
@@ -4594,15 +3997,15 @@
         "Part4Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
+            "Key": "IncreasedNumberOfBullets",
+            "SourceString": "载弹数量提升",
+            "LocalizedString": "+ Magazine Capacity"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ScatterControlImprovements",
-            "SourceString": "散射控制提升",
-            "LocalizedString": "+ Spread Control"
+            "Key": "ReloadSpeedIncreased",
+            "SourceString": "换弹速度提升",
+            "LocalizedString": "+ Reload Speed"
           },
           {
             "CultureInvariantString": null
@@ -4719,14 +4122,14 @@
           {
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-              "Key": "DurationFootPrintIncreasedBy_WithNumParam",
-              "SourceString": "脚印暴露时间增加{0}秒",
-              "LocalizedString": "Track exposure duration +{0}s"
+              "Key": "DurationSpeedFactorIncreased_WithNumParam",
+              "SourceString": "减速时间增加{0}秒",
+              "LocalizedString": "Slow Duration +{0}s"
             },
             "Arguments": [
               {
                 "Type": 0,
-                "Value": 3
+                "Value": 1
               }
             ]
           }
@@ -4757,18 +4160,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -4817,8 +4208,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -4833,18 +4224,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -4867,12 +4246,12 @@
           "ShootSpeed|20|1200",
           "AimSpeed|42|100",
           "Scattering|15|100",
-          "GunRecoil|60|100",
-          "MagazineCapacity|0|50",
+          "GunRecoil|58|100",
+          "MagazineCapacity|0|100",
           "ReloadSpeed|21|50",
           "PullBoltSpeed|0|100",
           "MoveSpeed|54|100",
-          "Change2DHurt|60|100"
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|2.5",
@@ -4880,59 +4259,35 @@
           "ReducedEmissions|0.99"
         ],
         "Part1Level01": [
-          "ReloadSpeed|*0.446"
-        ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
-        "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
+        "Part1Level11": [
+          "Scattering|*0.25"
+        ],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
-          "AimSpeed|*0.334"
+          ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "Scattering|*0.25"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
-          "MoveSpeed|*0.044"
+          "MoveSpeed|*0.08"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_KeepFight",
-            "SourceString": "续航",
-            "LocalizedString": "Capacity"
+            "Key": "Part_Core",
+            "SourceString": "核心",
+            "LocalizedString": "Core"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -4942,15 +4297,15 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Accurate",
-            "SourceString": "精准",
-            "LocalizedString": "Accuracy"
+            "Key": "Part_KeepFight",
+            "SourceString": "续航",
+            "LocalizedString": "Capacity"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Function",
-            "SourceString": "机能",
-            "LocalizedString": "Functions"
+            "Key": "Part_Accurate",
+            "SourceString": "精准",
+            "LocalizedString": "Accuracy"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -5010,7 +4365,6 @@
       "105": {
         "RoleId": 105,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -5020,7 +4374,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -5030,7 +4383,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -5040,7 +4392,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -5050,7 +4401,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -5060,7 +4410,6 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1,
           1
@@ -5069,24 +4418,7 @@
           250,
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -5096,7 +4428,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -5104,22 +4435,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -5150,22 +4465,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -5223,15 +4546,15 @@
         "Part4Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedNumberOfAmmoReserves",
-            "SourceString": "备弹数量提升",
-            "LocalizedString": "+ Max Ammo"
+            "Key": "MaximumRunningSpeedIncreased",
+            "SourceString": "移动速度提升",
+            "LocalizedString": "+ Sprint Speed"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
+            "Key": "HandlingSpeedIncreased",
+            "SourceString": "操控速度提升",
+            "LocalizedString": "+ Handling Speed"
           },
           {
             "CultureInvariantString": null
@@ -5378,18 +4701,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -5438,8 +4749,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -5454,18 +4765,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -5488,12 +4787,12 @@
           "ShootSpeed|50|1200",
           "AimSpeed|45|100",
           "Scattering|59|100",
-          "GunRecoil|67|100",
-          "MagazineCapacity|0.75|50",
+          "GunRecoil|62|100",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|18|50",
           "PullBoltSpeed|0|100",
           "MoveSpeed|54|100",
-          "Change2DHurt|60|100"
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -5503,51 +4802,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
-          "MoveSpeed|*-0.02"
+          "MoveSpeed|*0.08"
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "AimSpeed|*0.375"
+          "AimSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -5631,7 +4906,6 @@
       "124": {
         "RoleId": 124,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -5641,7 +4915,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -5651,7 +4924,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -5661,7 +4933,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -5671,7 +4942,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -5681,7 +4951,6 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1,
           1
@@ -5690,24 +4959,7 @@
           250,
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -5717,7 +4969,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -5725,22 +4976,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -5787,6 +5022,14 @@
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -6011,7 +5254,7 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_124_P_1",
               "SourceString": "[被动技能]急速救援的救起生命值提升<GrowthMB_DescY>{0}</>点\r\n[技能效果说明-急速救援]自己在未受击时缓慢恢复生命值；当救援队友时，会放出援护无人机自动扶起队友",
-              "LocalizedString": "[Passive] Increase First Aid's revival HP by <GrowthMB_DescY>{0}</> points.\n[Skill Effect - First Aid] Slowly regenerate HP when not taking DMG. Deploy a drone to automatically revive a teammate when rescuing them."
+              "LocalizedString": "[Passive] Increase First Aid's revival HP by <GrowthMB_DescY>{0}</> points.\n[Skill Effect - First Aid] Slowly regenerate HP when not taking DMG. When assisting an ally, deploy a support drone to automatically rescue them."
             },
             "Arguments": [
               {
@@ -6025,7 +5268,7 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_124_P_2",
               "SourceString": "[被动技能]急速救援的每秒生命恢复量增加<GrowthMB_DescY>{0}</>点\r\n[技能效果说明-急速救援]自己在未受击时缓慢恢复生命值；当救援队友时，会放出援护无人机自动扶起队友",
-              "LocalizedString": "[Passive] Increase First Aid's HP regen by <GrowthMB_DescY>{0}</>/s.\n[Skill Effect - First Aid] Slowly regenerate HP when not taking DMG. Deploy a drone to automatically revive a teammate when rescuing them."
+              "LocalizedString": "[Passive] Increase First Aid's HP regen by <GrowthMB_DescY>{0}</>/s.\n[Skill Effect - First Aid] Slowly regenerate HP when not taking DMG. When assisting an ally, deploy a support drone to automatically rescue them."
             },
             "Arguments": [
               {
@@ -6035,18 +5278,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -6111,18 +5342,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -6160,51 +5379,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
-          "PullBoltSpeed|*0.501"
+          "PullBoltSpeed|*0.16533"
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
           "ReloadSpeed|*0.301"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "AimSpeed|*0.334"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "MoveSpeed|*0.046"
+          "MoveSpeed|*0.092"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -6288,7 +5483,6 @@
       "110": {
         "RoleId": 110,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -6298,7 +5492,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -6308,7 +5501,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -6318,7 +5510,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -6328,7 +5519,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -6338,31 +5528,15 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
+          1,
           1
         ],
         "PassiveNeed": [
+          250,
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -6372,7 +5546,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -6380,22 +5553,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -6426,28 +5583,36 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedShutgunPellets",
-            "SourceString": "弹丸数提升",
-            "LocalizedString": "Increase Bullets"
+            "Key": "BaseDamageIncreased",
+            "SourceString": "基础伤害提升",
+            "LocalizedString": "+ Base Damage"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -6472,9 +5637,9 @@
         "Part2Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "EffectiveRangeIncreased",
-            "SourceString": "有效射程提升",
-            "LocalizedString": "+ Effective Range"
+            "Key": "MaximumRunningSpeedIncreased",
+            "SourceString": "移动速度提升",
+            "LocalizedString": "+ Sprint Speed"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -6526,15 +5691,15 @@
         "Part5Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "MaximumRunningSpeedIncreased",
-            "SourceString": "移动速度提升",
-            "LocalizedString": "+ Sprint Speed"
-          },
-          {
-            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
             "Key": "ScatterControlImprovements",
             "SourceString": "散射控制提升",
             "LocalizedString": "+ Spread Control"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "HeadshotDamageIncreased",
+            "SourceString": "爆头伤害提升",
+            "LocalizedString": "+ Headshot Damage"
           },
           {
             "CultureInvariantString": null
@@ -6618,6 +5783,20 @@
                 "Value": 0.5
               }
             ]
+          },
+          {
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "ReduceTriggerDamage_WithNumParam",
+              "SourceString": "触发效果所需伤害量减少{0}",
+              "LocalizedString": "-{0} DMG Required to Trigger"
+            },
+            "Arguments": [
+              {
+                "Type": 0,
+                "Value": 10
+              }
+            ]
           }
         ],
         "PassiveIcon": [
@@ -6646,18 +5825,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -6706,8 +5873,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -6722,18 +5889,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -6757,11 +5912,11 @@
           "AimSpeed|42|100",
           "Scattering|10|100",
           "GunRecoil|59|100",
-          "MagazineCapacity|0|50",
+          "MagazineCapacity|0|100",
           "ReloadSpeed|16|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|60|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|57|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -6771,51 +5926,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
-          "distance_effective_factor|*0.334"
+          "MoveSpeed|*0.08"
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
-          "ReloadSpeed|*-0.1"
+          ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
-          "MoveSpeed|*0.043"
+          "Scattering|*0.2"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "Scattering|*0.25"
+          ""
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -6825,9 +5956,9 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_CriticalHit",
-            "SourceString": "暴击",
-            "LocalizedString": "Critical Hit"
+            "Key": "Part_Output",
+            "SourceString": "输出",
+            "LocalizedString": "Firing"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -6837,9 +5968,9 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Function",
-            "SourceString": "机能",
-            "LocalizedString": "Functions"
+            "Key": "Part_Accurate",
+            "SourceString": "精准",
+            "LocalizedString": "Accuracy"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -6899,7 +6030,6 @@
       "109": {
         "RoleId": 109,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -6909,7 +6039,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -6919,7 +6048,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -6929,7 +6057,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -6939,7 +6066,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -6949,31 +6075,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -6983,7 +6091,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -6991,22 +6098,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -7037,34 +6128,42 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ReloadSpeedIncreased",
-            "SourceString": "换弹速度提升",
-            "LocalizedString": "+ Reload Speed"
+            "Key": "BaseDamageIncreased",
+            "SourceString": "基础伤害提升",
+            "LocalizedString": "+ Base Damage"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedNumberOfBullets",
-            "SourceString": "载弹数量提升",
-            "LocalizedString": "+ Magazine Capacity"
+            "Key": "IncreasedCameraOpeningSpeed",
+            "SourceString": "开镜速度提升",
+            "LocalizedString": "+ ADS Speed"
           },
           {
             "CultureInvariantString": null
@@ -7076,7 +6175,7 @@
             "SubPathString": ""
           },
           {
-            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200012.T_Dynamic_GrowthIcon_200012",
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200014.T_Dynamic_GrowthIcon_200014",
             "SubPathString": ""
           }
         ],
@@ -7110,15 +6209,15 @@
         "Part4Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
+            "Key": "IncreasedNumberOfBullets",
+            "SourceString": "载弹数量提升",
+            "LocalizedString": "+ Magazine Capacity"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "MaximumRunningSpeedIncreased",
-            "SourceString": "移动速度提升",
-            "LocalizedString": "+ Sprint Speed"
+            "Key": "ReloadSpeedIncreased",
+            "SourceString": "换弹速度提升",
+            "LocalizedString": "+ Reload Speed"
           },
           {
             "CultureInvariantString": null
@@ -7237,7 +6336,7 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "ActiveTimeShorten_WithNumParam",
               "SourceString": "激活时间缩短{0}秒",
-              "LocalizedString": "Cooldown -{0}s"
+              "LocalizedString": "Activation -{0}s"
             },
             "Arguments": [
               {
@@ -7273,18 +6372,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -7333,8 +6420,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -7349,18 +6436,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -7384,11 +6459,11 @@
           "AimSpeed|42|100",
           "Scattering|15|100",
           "GunRecoil|60|100",
-          "MagazineCapacity|-1|50",
+          "MagazineCapacity|-1|100",
           "ReloadSpeed|22|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|54|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|53|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|2.5",
@@ -7396,59 +6471,35 @@
           "ReducedEmissions|0.99"
         ],
         "Part1Level01": [
-          "ReloadSpeed|*0.446"
-        ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
-        "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
+        "Part1Level11": [
+          "AimSpeed|*0.334"
+        ],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
-          "AimSpeed|*0.334"
+          ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "MoveSpeed|*0.045"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_KeepFight",
-            "SourceString": "续航",
-            "LocalizedString": "Capacity"
+            "Key": "Part_Core",
+            "SourceString": "核心",
+            "LocalizedString": "Core"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -7458,15 +6509,15 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Function",
-            "SourceString": "机能",
-            "LocalizedString": "Functions"
+            "Key": "Part_KeepFight",
+            "SourceString": "续航",
+            "LocalizedString": "Capacity"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Control",
-            "SourceString": "操控",
-            "LocalizedString": "Handling"
+            "Key": "Part_Accurate",
+            "SourceString": "精准",
+            "LocalizedString": "Accuracy"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -7526,7 +6577,6 @@
       "131": {
         "RoleId": 131,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -7536,7 +6586,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -7546,7 +6595,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -7556,7 +6604,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -7566,7 +6613,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -7576,31 +6622,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -7610,7 +6638,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -7618,22 +6645,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -7664,34 +6675,42 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "EffectiveRangeIncreased",
-            "SourceString": "有效射程提升",
-            "LocalizedString": "+ Effective Range"
+            "Key": "BaseDamageIncreased",
+            "SourceString": "基础伤害提升",
+            "LocalizedString": "+ Base Damage"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedNumberOfBullets",
-            "SourceString": "载弹数量提升",
-            "LocalizedString": "+ Magazine Capacity"
+            "Key": "BaseRateOfFireIncreased",
+            "SourceString": "基础射速提升",
+            "LocalizedString": "+ Base Rate of Fire"
           },
           {
             "CultureInvariantString": null
@@ -7770,9 +6789,9 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
+            "Key": "ImprovedRecoilControl",
+            "SourceString": "后坐控制提升",
+            "LocalizedString": "+ Recoil Handling"
           },
           {
             "CultureInvariantString": null
@@ -7869,7 +6888,7 @@
             "Arguments": [
               {
                 "Type": 0,
-                "Value": 50
+                "Value": 66
               }
             ]
           }
@@ -7900,18 +6919,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -7960,8 +6967,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -7976,18 +6983,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -8011,11 +7006,11 @@
           "AimSpeed|56|100",
           "Scattering|73|100",
           "GunRecoil|70|100",
-          "MagazineCapacity|0.5|50",
+          "MagazineCapacity|0.5|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|60|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|58|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -8023,59 +7018,35 @@
           "ReducedEmissions|0.99"
         ],
         "Part1Level01": [
-          "distance_effective_factor|*0.167"
+          ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
-          "MoveSpeed|*0.042"
+          "MoveSpeed|*0.08"
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.299"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "AimSpeed|*0.286"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Core",
-            "SourceString": "核心",
-            "LocalizedString": "Core"
+            "Key": "Part_Output",
+            "SourceString": "输出",
+            "LocalizedString": "Firing"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -8153,7 +7124,6 @@
       "137": {
         "RoleId": 137,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -8163,7 +7133,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -8173,7 +7142,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -8183,7 +7151,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -8193,7 +7160,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -8203,31 +7169,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -8237,7 +7185,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -8245,22 +7192,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -8307,6 +7238,14 @@
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -8474,8 +7413,8 @@
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_137_Q_2",
-              "SourceString": "[主动技能]旋律回响的音符血量增加<GrowthMB_DescY>{0}%</>\r\n[技能效果说明-旋律回响]用主武器发射声呐片生成探查区域，范围内的敌人会被透视",
-              "LocalizedString": "[Active] Increase Echo Chamber's Note HP by <GrowthMB_DescY>{0}%</>.\n[Skill Effect - Echo Chamber] Fire a Sonar Disk with your primary weapon to reveal enemies in range."
+              "SourceString": "[主动技能]旋律回响的音符血量增加<GrowthMB_DescY>{0}</>\r\n[技能效果说明-旋律回响]用主武器发射声呐片生成探查区域，范围内的敌人会被透视",
+              "LocalizedString": "[Active] Increase Echo Chamber's Note HP by <GrowthMB_DescY>{0}</>.\n[Skill Effect - Echo Chamber] Fire a Sonar Disk with your primary weapon to reveal enemies in range."
             },
             "Arguments": [
               {
@@ -8527,18 +7466,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -8603,18 +7530,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -8652,51 +7567,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
-          "PullBoltSpeed|*0.5"
+          "PullBoltSpeed|*0.165"
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
           "ReloadSpeed|*0.301"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "AimSpeed|*0.3"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "MoveSpeed|*0.046"
+          "MoveSpeed|*0.092"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -8780,7 +7671,6 @@
       "115": {
         "RoleId": 115,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -8790,7 +7680,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -8800,7 +7689,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -8810,7 +7698,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -8820,7 +7707,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -8830,31 +7716,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -8864,7 +7732,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -8872,22 +7739,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -8918,22 +7769,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -9101,8 +7960,8 @@
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_115_Q_2",
-              "SourceString": "[主动技能]致幻魅影的致幻球的生命值增加<GrowthMB_DescY>{0}</>%\r\n[技能效果说明-致幻魅影]召唤幻蝶跟随自己，期间损失生命值时会进入短无敌状态并原地生成一个致幻球。致幻球限制敌方视野且可被击碎",
-              "LocalizedString": "[Active] Increase Phantom Mirage's Phantom Orb HP by <GrowthMB_DescY>{0}</>%.\n[Skill Effect - Phantom Mirage] Summon butterflies to follow you. If your HP is lost, become briefly untargetable and create a Phantom Orb that blocks enemy vision but can be destroyed."
+              "SourceString": "[主动技能]致幻魅影的致幻球的生命值增加<GrowthMB_DescY>{0}</>\r\n[技能效果说明-致幻魅影]召唤幻蝶跟随自己，期间损失生命值时会进入短无敌状态并原地生成一个致幻球。致幻球限制敌方视野且可被击碎",
+              "LocalizedString": "[Active] Increase Phantom Mirage's Phantom Orb HP by <GrowthMB_DescY>{0}</>.\n[Skill Effect - Phantom Mirage] Summon butterflies to follow you. If your HP is lost, become briefly untargetable and create a Phantom Orb that blocks enemy vision but can be destroyed."
             },
             "Arguments": [
               {
@@ -9154,18 +8013,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -9214,8 +8061,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -9230,18 +8077,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -9265,11 +8100,11 @@
           "AimSpeed|56|100",
           "Scattering|72|100",
           "GunRecoil|70|100",
-          "MagazineCapacity|0.5|50",
+          "MagazineCapacity|0.5|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|60|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|58|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -9279,51 +8114,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.299"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -9407,7 +8218,6 @@
       "119": {
         "RoleId": 119,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -9417,7 +8227,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -9427,7 +8236,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -9437,7 +8245,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -9447,7 +8254,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -9457,31 +8263,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -9491,7 +8279,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -9499,22 +8286,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -9545,28 +8316,36 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedShutgunPellets",
-            "SourceString": "弹丸数提升",
-            "LocalizedString": "Increase Bullets"
+            "Key": "BaseDamageIncreased",
+            "SourceString": "基础伤害提升",
+            "LocalizedString": "+ Base Damage"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -9591,9 +8370,9 @@
         "Part2Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "EffectiveRangeIncreased",
-            "SourceString": "有效射程提升",
-            "LocalizedString": "+ Effective Range"
+            "Key": "MaximumRunningSpeedIncreased",
+            "SourceString": "移动速度提升",
+            "LocalizedString": "+ Sprint Speed"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -9645,15 +8424,15 @@
         "Part5Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "MaximumRunningSpeedIncreased",
-            "SourceString": "移动速度提升",
-            "LocalizedString": "+ Sprint Speed"
-          },
-          {
-            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
             "Key": "ScatterControlImprovements",
             "SourceString": "散射控制提升",
             "LocalizedString": "+ Spread Control"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "HeadshotDamageIncreased",
+            "SourceString": "爆头伤害提升",
+            "LocalizedString": "+ Headshot Damage"
           },
           {
             "CultureInvariantString": null
@@ -9781,18 +8560,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -9841,8 +8608,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -9857,18 +8624,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -9891,12 +8646,12 @@
           "ShootSpeed|30|1200",
           "AimSpeed|42|100",
           "Scattering|9|100",
-          "GunRecoil|67|100",
-          "MagazineCapacity|0|50",
+          "GunRecoil|50|100",
+          "MagazineCapacity|0|100",
           "ReloadSpeed|21|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|60|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|57|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -9906,51 +8661,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
-          "distance_effective_factor|*0.261"
+          "MoveSpeed|*0.08"
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.3"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
-          "MoveSpeed|*0.043"
+          "Scattering|*0.2"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "Scattering|*0.25"
+          ""
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -9960,9 +8691,9 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_CriticalHit",
-            "SourceString": "暴击",
-            "LocalizedString": "Critical Hit"
+            "Key": "Part_Output",
+            "SourceString": "输出",
+            "LocalizedString": "Firing"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -9972,9 +8703,9 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Function",
-            "SourceString": "机能",
-            "LocalizedString": "Functions"
+            "Key": "Part_Accurate",
+            "SourceString": "精准",
+            "LocalizedString": "Accuracy"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -10034,7 +8765,6 @@
       "205": {
         "RoleId": 205,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -10044,7 +8774,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -10054,7 +8783,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -10064,7 +8792,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -10074,7 +8801,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -10084,7 +8810,6 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1,
           1
@@ -10093,24 +8818,7 @@
           250,
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -10120,7 +8828,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -10128,22 +8835,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -10174,22 +8865,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -10438,18 +9137,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -10498,8 +9185,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -10514,18 +9201,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -10547,13 +9222,13 @@
         "DefaultProperty1": [
           "ShootSpeed|50|1200",
           "AimSpeed|45|100",
-          "Scattering|58|100",
+          "Scattering|65|100",
           "GunRecoil|67|100",
-          "MagazineCapacity|0.75|50",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|57.6|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|55|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -10563,51 +9238,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -10691,7 +9342,6 @@
       "120": {
         "RoleId": 120,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -10701,7 +9351,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -10711,7 +9360,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -10721,7 +9369,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -10731,7 +9378,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -10741,7 +9387,6 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1,
           1
@@ -10750,24 +9395,7 @@
           250,
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -10777,7 +9405,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -10785,22 +9412,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -10831,34 +9442,42 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "MaximumRunningSpeedIncreased",
-            "SourceString": "移动速度提升",
-            "LocalizedString": "+ Sprint Speed"
+            "Key": "BaseDamageIncreased",
+            "SourceString": "基础伤害提升",
+            "LocalizedString": "+ Base Damage"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "EffectiveRangeIncreased",
-            "SourceString": "有效射程提升",
-            "LocalizedString": "+ Effective Range"
+            "Key": "BaseRateOfFireIncreased",
+            "SourceString": "基础射速提升",
+            "LocalizedString": "+ Base Rate of Fire"
           },
           {
             "CultureInvariantString": null
@@ -10931,15 +9550,15 @@
         "Part5Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
-          },
-          {
-            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
             "Key": "ScatterControlImprovements",
             "SourceString": "散射控制提升",
             "LocalizedString": "+ Spread Control"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "ImprovedRecoilControl",
+            "SourceString": "后坐控制提升",
+            "LocalizedString": "+ Recoil Handling"
           },
           {
             "CultureInvariantString": null
@@ -11029,9 +9648,9 @@
           {
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-              "Key": "ScopeExpanded_WithNumParam_Details_P",
-              "SourceString": null,
-              "LocalizedString": null
+              "Key": "ScopeExpanded_WithNumParam",
+              "SourceString": "效果范围扩大{0}%",
+              "LocalizedString": "Area of Effect +{0}%"
             },
             "Arguments": [
               {
@@ -11043,9 +9662,9 @@
           {
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-              "Key": "HealingRecoveryAmountPerSecIncreasedBy_WithNumParam_Details_P",
-              "SourceString": null,
-              "LocalizedString": null
+              "Key": "HealingRecoveryAmountPerSecIncreasedBy_WithNumParam",
+              "SourceString": "每秒生命恢复量增加{0}点",
+              "LocalizedString": "HP Regen +{0}/s"
             },
             "Arguments": [
               {
@@ -11095,18 +9714,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -11155,8 +9762,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -11171,18 +9778,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -11205,12 +9800,12 @@
           "ShootSpeed|60|1200",
           "AimSpeed|45|100",
           "Scattering|73|100",
-          "GunRecoil|70|100",
-          "MagazineCapacity|0.75|50",
+          "GunRecoil|72|100",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|57.6|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|55|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -11218,59 +9813,35 @@
           "ReducedEmissions|0.99"
         ],
         "Part1Level01": [
-          "MoveSpeed|*0.044"
+          ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
-          "distance_effective_factor|*0.263"
+          ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
-          "AimSpeed|*0.375"
-        ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
-        "Part5Level11": [
           "Scattering|*0.25"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
+        "Part5Level11": [
+          "GunRecoil|*0.3"
+        ],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Function",
-            "SourceString": "机能",
-            "LocalizedString": "Functions"
+            "Key": "Part_Output",
+            "SourceString": "输出",
+            "LocalizedString": "Firing"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -11348,7 +9919,6 @@
       "121": {
         "RoleId": 121,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -11358,7 +9928,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -11368,7 +9937,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -11378,7 +9946,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -11388,7 +9955,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -11398,31 +9964,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -11432,7 +9980,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -11440,22 +9987,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -11486,34 +10017,42 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ReloadSpeedIncreased",
-            "SourceString": "换弹速度提升",
-            "LocalizedString": "+ Reload Speed"
+            "Key": "BaseDamageIncreased",
+            "SourceString": "基础伤害提升",
+            "LocalizedString": "+ Base Damage"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedNumberOfBullets",
-            "SourceString": "载弹数量提升",
-            "LocalizedString": "+ Magazine Capacity"
+            "Key": "BaseRateOfFireIncreased",
+            "SourceString": "基础射速提升",
+            "LocalizedString": "+ Base Rate of Fire"
           },
           {
             "CultureInvariantString": null
@@ -11559,15 +10098,15 @@
         "Part4Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ScatterControlImprovements",
-            "SourceString": "散射控制提升",
-            "LocalizedString": "+ Spread Control"
+            "Key": "IncreasedNumberOfBullets",
+            "SourceString": "载弹数量提升",
+            "LocalizedString": "+ Magazine Capacity"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
+            "Key": "ReloadSpeedIncreased",
+            "SourceString": "换弹速度提升",
+            "LocalizedString": "+ Reload Speed"
           },
           {
             "CultureInvariantString": null
@@ -11586,9 +10125,9 @@
         "Part5Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "MaximumRunningSpeedIncreased",
-            "SourceString": "移动速度提升",
-            "LocalizedString": "+ Sprint Speed"
+            "Key": "ScatterControlImprovements",
+            "SourceString": "散射控制提升",
+            "LocalizedString": "+ Spread Control"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -11712,18 +10251,6 @@
             "Arguments": []
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -11772,8 +10299,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -11788,18 +10315,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -11822,12 +10337,12 @@
           "ShootSpeed|65|1200",
           "AimSpeed|54|100",
           "Scattering|60|100",
-          "GunRecoil|50|100",
-          "MagazineCapacity|0.75|50",
+          "GunRecoil|62|100",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|57.6|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|55|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -11835,59 +10350,35 @@
           "ReducedEmissions|0.99"
         ],
         "Part1Level01": [
-          "ReloadSpeed|*0.301"
+          ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
+          ""
+        ],
+        "Part4Level11": [
+          "ReloadSpeed|*0.4"
+        ],
+        "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
-        "Part4Level11": [
-          "AimSpeed|*0.375"
-        ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
-        "Part5Level01": [
-          "MoveSpeed|*0.044"
-        ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_KeepFight",
-            "SourceString": "续航",
-            "LocalizedString": "Capacity"
+            "Key": "Part_Core",
+            "SourceString": "核心",
+            "LocalizedString": "Core"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -11897,15 +10388,15 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Accurate",
-            "SourceString": "精准",
-            "LocalizedString": "Accuracy"
+            "Key": "Part_KeepFight",
+            "SourceString": "续航",
+            "LocalizedString": "Capacity"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "Part_Function",
-            "SourceString": "机能",
-            "LocalizedString": "Functions"
+            "Key": "Part_Accurate",
+            "SourceString": "精准",
+            "LocalizedString": "Accuracy"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -11965,7 +10456,6 @@
       "123": {
         "RoleId": 123,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -11975,7 +10465,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -11985,7 +10474,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -11995,7 +10483,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -12005,7 +10492,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -12015,31 +10501,15 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
+          1,
           1
         ],
         "PassiveNeed": [
+          250,
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -12049,7 +10519,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -12057,22 +10526,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -12103,22 +10556,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -12203,15 +10664,15 @@
         "Part5Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "IncreasedCameraOpeningSpeed",
-            "SourceString": "开镜速度提升",
-            "LocalizedString": "+ ADS Speed"
-          },
-          {
-            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
             "Key": "ScatterControlImprovements",
             "SourceString": "散射控制提升",
             "LocalizedString": "+ Spread Control"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "HandlingSpeedIncreased",
+            "SourceString": "操控速度提升",
+            "LocalizedString": "+ Handling Speed"
           },
           {
             "CultureInvariantString": null
@@ -12238,21 +10699,21 @@
             "Arguments": [
               {
                 "Type": 0,
-                "Value": 100
+                "Value": 150
               }
             ]
           },
           {
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-              "Key": "ReduceEnergyConsumption_WithNumParam",
-              "SourceString": "减少能量消耗{0}%",
-              "LocalizedString": "-{0}% Energy Cost"
+              "Key": "CooldownReducedBySeconds_WithNumParam",
+              "SourceString": "冷却时间减少{0}秒",
+              "LocalizedString": "Cooldown -{0}s"
             },
             "Arguments": [
               {
                 "Type": 0,
-                "Value": 20
+                "Value": 15
               }
             ]
           }
@@ -12311,6 +10772,20 @@
                 "Value": 100
               }
             ]
+          },
+          {
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "EnergyRecoveryIncreasedBy_WithNumParam",
+              "SourceString": "能量恢复速度提升{0}%",
+              "LocalizedString": "Energy Regen +{0}%"
+            },
+            "Arguments": [
+              {
+                "Type": 0,
+                "Value": 50
+              }
+            ]
           }
         ],
         "PassiveIcon": [
@@ -12339,18 +10814,6 @@
             ]
           }
         ],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -12399,8 +10862,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -12415,18 +10878,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -12450,11 +10901,11 @@
           "AimSpeed|45|100",
           "Scattering|60|100",
           "GunRecoil|100|100",
-          "MagazineCapacity|0.75|50",
+          "MagazineCapacity|0.75|100",
           "ReloadSpeed|21|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|54|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|53|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -12464,51 +10915,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
-          "AimSpeed|*0.375"
-        ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
-        "Part5Level11": [
           "Scattering|*0.25"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
+        "Part5Level11": [
+          "AimSpeed|*0.4"
+        ],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -12592,7 +11019,6 @@
       "122": {
         "RoleId": 122,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -12602,7 +11028,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -12612,7 +11037,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -12622,7 +11046,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -12632,7 +11055,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -12642,31 +11064,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -12676,7 +11080,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -12684,22 +11087,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -12730,22 +11117,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -12879,7 +11274,7 @@
             "Arguments": [
               {
                 "Type": 0,
-                "Value": 3
+                "Value": 2
               }
             ]
           }
@@ -12899,9 +11294,9 @@
           {
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-              "Key": "AbsorbArmor_WithNumParam",
-              "SourceString": "吸甲量提升{0}%",
-              "LocalizedString": "Armorsteal +{0}%"
+              "Key": "Recover_WithNumParm",
+              "SourceString": "回血比例提升{0}%",
+              "LocalizedString": "+{0}% Healing Rate"
             },
             "Arguments": [
               {
@@ -12922,18 +11317,6 @@
           }
         ],
         "PassiveDescDetails": [],
-        "EDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -12982,8 +11365,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -12998,18 +11381,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -13033,11 +11404,11 @@
           "AimSpeed|56|100",
           "Scattering|70|100",
           "GunRecoil|68|100",
-          "MagazineCapacity|0.5|50",
+          "MagazineCapacity|0.5|100",
           "ReloadSpeed|24|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|60|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|58|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -13047,51 +11418,27 @@
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
-          "AimSpeed|*0.375"
-        ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
-        "Part5Level11": [
           "Scattering|*0.25"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
+        "Part5Level11": [
+          "GunRecoil|*0.3"
+        ],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -13175,7 +11522,6 @@
       "125": {
         "RoleId": 125,
         "Parts1SingleSelect": true,
-        "Parts1UpgradeNumMax": 0,
         "Parts1Max1": [
           1,
           1
@@ -13185,7 +11531,6 @@
           150
         ],
         "Parts2SingleSelect": true,
-        "Parts2UpgradeNumMax": 0,
         "Parts2Max1": [
           1,
           1
@@ -13195,7 +11540,6 @@
           150
         ],
         "Parts4SingleSelect": true,
-        "Parts4UpgradeNumMax": 0,
         "Parts4Max1": [
           1,
           1
@@ -13205,7 +11549,6 @@
           150
         ],
         "Parts5SingleSelect": true,
-        "Parts5UpgradeNumMax": 0,
         "Parts5Max1": [
           1,
           1
@@ -13215,7 +11558,6 @@
           150
         ],
         "QSingleSelect": true,
-        "QUpgradeNumMax": 0,
         "QMax1": [
           1,
           1
@@ -13225,31 +11567,13 @@
           250
         ],
         "PassiveSingleSelect": true,
-        "PassiveUpgradeNumMax": 0,
         "PassiveMax1": [
           1
         ],
         "PassiveNeed": [
           250
         ],
-        "ESingleSelect": true,
-        "EUpgradeNumMax": 0,
-        "EMax1": [
-          0
-        ],
-        "ENeed": [
-          0
-        ],
-        "XSingleSelect": true,
-        "XUpgradeNumMax": 0,
-        "XMax1": [
-          0
-        ],
-        "XNeed": [
-          0
-        ],
         "ShieldSingleSelect": true,
-        "ShieldUpgradeNumMax": 0,
         "ShieldMax1": [
           1,
           1
@@ -13259,7 +11583,6 @@
           250
         ],
         "SurviveSingleSelect": true,
-        "SurviveUpgradeNumMax": 0,
         "SurviveMax1": [
           1,
           1
@@ -13267,22 +11590,6 @@
         "SurviveNeed": [
           250,
           250
-        ],
-        "HealthSingleSelect": true,
-        "HealthUpgradeNumMax": 0,
-        "HealthMax1": [
-          0
-        ],
-        "HealthNeed": [
-          0
-        ],
-        "InjuredSingleSelect": true,
-        "InjuredUpgradeNumMax": 0,
-        "InjuredMax1": [
-          0
-        ],
-        "InjuredNeed": [
-          0
         ],
         "DowngradeCost": 0.5,
         "RecommendUpgrade": [
@@ -13313,22 +11620,30 @@
         "ArousalDeactivateCost": 0.5,
         "WeaponChange": [
           18101001,
-          50,
+          30,
           18201001,
-          50,
+          30,
           18301001,
-          50,
+          30,
           18401001,
-          50,
+          30,
           18501001,
           50,
           18601001,
           50,
           18701001,
-          50,
+          40,
           18801001,
           50
         ],
+        "EBuyNeed": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "WeaponSellCost": 0.5,
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -13455,14 +11770,14 @@
           {
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-              "Key": "DurationIncreasedBySeconds_WithNumParam",
-              "SourceString": "持续时间增加{0}秒",
-              "LocalizedString": "Duration +{0}s"
+              "Key": "DamageIncreased_WithNumParam",
+              "SourceString": "伤害提升{0}点",
+              "LocalizedString": "Damage +{0}"
             },
             "Arguments": [
               {
                 "Type": 0,
-                "Value": 3
+                "Value": 10
               }
             ]
           }
@@ -13477,14 +11792,43 @@
             "SubPathString": ""
           }
         ],
-        "QDescDetails": [],
+        "QDescDetails": [
+          {
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "Details_125_Q_1",
+              "SourceString": null,
+              "LocalizedString": null
+            },
+            "Arguments": [
+              {
+                "Type": 0,
+                "Value": 5
+              }
+            ]
+          },
+          {
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "Details_125_Q_2",
+              "SourceString": null,
+              "LocalizedString": null
+            },
+            "Arguments": [
+              {
+                "Type": 0,
+                "Value": 10
+              }
+            ]
+          }
+        ],
         "PassiveDesc": [
           {
             "SourceFmt": {
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-              "Key": "AbsorbArmor_WithNumParam",
-              "SourceString": "吸甲量提升{0}%",
-              "LocalizedString": "Armorsteal +{0}%"
+              "Key": "EnergyRecover_WithNumParam",
+              "SourceString": "冷却恢复速率提升{0}%",
+              "LocalizedString": "CD Recovery Rate +{0}%"
             },
             "Arguments": [
               {
@@ -13504,19 +11848,22 @@
             "SubPathString": ""
           }
         ],
-        "PassiveDescDetails": [],
-        "EDesc": [
+        "PassiveDescDetails": [
           {
-            "CultureInvariantString": null
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "Details_125_P_1",
+              "SourceString": null,
+              "LocalizedString": null
+            },
+            "Arguments": [
+              {
+                "Type": 0,
+                "Value": 50
+              }
+            ]
           }
         ],
-        "EIcon": [],
-        "XDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "XIcon": [],
         "ShieldDesc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -13565,8 +11912,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 62.5
+                "Type": 0,
+                "Value": 46
               }
             ]
           }
@@ -13581,18 +11928,6 @@
             "SubPathString": ""
           }
         ],
-        "HealthDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "HealthIcon": [],
-        "InjuredDesc": [
-          {
-            "CultureInvariantString": null
-          }
-        ],
-        "InjuredIcon": [],
         "Awakening1Icon": [
           {
             "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
@@ -13614,67 +11949,43 @@
         "DefaultProperty1": [
           "ShootSpeed|20|1200",
           "AimSpeed|42|100",
-          "Scattering|28|100",
+          "Scattering|64|100",
           "GunRecoil|65|100",
-          "MagazineCapacity|0|50",
+          "MagazineCapacity|0|100",
           "ReloadSpeed|21|50",
           "PullBoltSpeed|0|100",
-          "MoveSpeed|54|100",
-          "Change2DHurt|60|100"
+          "MoveSpeed|53|100",
+          "Change2DHurt|67|100"
         ],
         "DefaultProperty3": [
-          "MagnificationRate|2.5",
+          "MagnificationRate|1.5",
           "MovementSpeedChange|2.25",
           "ReducedEmissions|0.99"
         ],
         "Part1Level01": [
           ""
         ],
-        "Part1Level02": [],
-        "Part1Level03": [],
-        "Part1Level04": [],
         "Part1Level11": [
           ""
         ],
-        "Part1Level12": [],
-        "Part1Level13": [],
-        "Part1Level14": [],
         "Part2Level01": [
           ""
         ],
-        "Part2Level02": [],
-        "Part2Level03": [],
-        "Part2Level04": [],
         "Part2Level11": [
           "Change2DHurt|*0.2"
         ],
-        "Part2Level12": [],
-        "Part2Level13": [],
-        "Part2Level14": [],
         "Part4Level01": [
           ""
         ],
-        "Part4Level02": [],
-        "Part4Level03": [],
-        "Part4Level04": [],
         "Part4Level11": [
-          "ReloadSpeed|*0.301"
+          "ReloadSpeed|*0.4"
         ],
-        "Part4Level12": [],
-        "Part4Level13": [],
-        "Part4Level14": [],
         "Part5Level01": [
           "Scattering|*0.25"
         ],
-        "Part5Level02": [],
-        "Part5Level03": [],
-        "Part5Level04": [],
         "Part5Level11": [
-          "GunRecoil|*0.25"
+          "GunRecoil|*0.3"
         ],
-        "Part5Level12": [],
-        "Part5Level13": [],
-        "Part5Level14": [],
         "PartName": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",

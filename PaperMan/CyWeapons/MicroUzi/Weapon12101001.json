@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon12101001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.40"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.41"
       }
     },
     "SuperStruct": {
@@ -70,11 +70,11 @@
       "WeaponName": "ECyWeaponName::MicroUzi",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon12101001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.34"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.35"
       },
       "MeshComponent": {
-        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon12101001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.41"
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon12101001_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.34"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon12101001_C:Machine'",
@@ -289,7 +289,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon12101001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.34"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.35"
       }
     }
   },
@@ -308,12 +308,12 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AkEventWhiz": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.Wpn_Bullet_Whiz",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Wpn_Bullet_Whiz'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.0"
       },
       "AkEventShellCase": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Bullet_ShellDrop_SubmachineGun.Bullet_ShellDrop_SubmachineGun",
-        "SubPathString": ""
+        "ObjectName": "AkAudioEvent'Bullet_ShellDrop_SubmachineGun'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Bullet_ShellDrop_SubmachineGun.0"
       },
       "AkRtpcAmmoLeftProportion": {
         "ObjectName": "AkRtpc'NumberOfBullets'",
@@ -395,7 +395,9 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "TotalDuration": {
-        "Value": 0.07
+        "Value": 0.07,
+        "bEnableMobile": true,
+        "MobileValue": 0.0685
       },
       "bEnabled": true
     }
@@ -1027,7 +1029,8 @@
       },
       "AttackDamage": {
         "Value": 15.0,
-        "MobileValue": 15.0
+        "bEnableMobile": true,
+        "MobileValue": 16.0
       },
       "DamageScaleFor2D": {
         "Value": 0.67,
@@ -1640,6 +1643,19 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Outer": "Default__Weapon12101001_C",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon12101001_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.35"
+      }
+    }
+  },
+  {
     "Type": "SceneComponent",
     "Name": "Root",
     "Outer": "Default__Weapon12101001_C",
@@ -1666,7 +1682,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon12101001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.35"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.36"
       },
       "VariableGuid": "F5886483-4CFFEDB9-56D36D9F-6CCEA652",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1739,47 +1755,34 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.37"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.38"
         },
         {
-          "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.39"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.40"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.37"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.38"
         },
         {
-          "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.39"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.40"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon12101001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.36"
-      }
-    }
-  },
-  {
-    "Type": "WFBaseSkeletalMeshComponent",
-    "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon12101001_C",
-    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AttachParent": {
-        "ObjectName": "SceneComponent'Default__Weapon12101001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.34"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MicroUzi/Weapon12101001.37"
       }
     }
   }
