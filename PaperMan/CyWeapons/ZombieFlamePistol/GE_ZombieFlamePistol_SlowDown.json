@@ -33,7 +33,7 @@
       "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
       "DurationMagnitude": {
         "ScalableFloatMagnitude": {
-          "Value": 3.0
+          "Value": 0.5
         }
       },
       "Modifiers": [
@@ -55,18 +55,18 @@
             }
           },
           "GameStateScaleAttribute": {
-            "AttributeName": "GrenadeSlowDownFactor",
+            "AttributeName": "AfterDamageSlowDownFactor",
             "Attribute": {
               "Path": [
-                "GrenadeSlowDownFactor"
+                "AfterDamageSlowDownFactor"
               ],
               "ResolvedOwner": {
-                "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+                "ObjectName": "Class'CyCustomCharacterAttributeSet'",
                 "ObjectPath": "/Script/PMGame"
               }
             },
             "AttributeOwner": {
-              "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+              "ObjectName": "Class'CyCustomCharacterAttributeSet'",
               "ObjectPath": "/Script/PMGame"
             }
           },
@@ -240,12 +240,20 @@
             }
           },
           "GameStateScaleAttribute": {
-            "AttributeName": "",
+            "AttributeName": "AfterDamageSlowDownFactor",
             "Attribute": {
-              "Path": [],
-              "ResolvedOwner": null
+              "Path": [
+                "AfterDamageSlowDownFactor"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class'CyCustomCharacterAttributeSet'",
+                "ObjectPath": "/Script/PMGame"
+              }
             },
-            "AttributeOwner": null
+            "AttributeOwner": {
+              "ObjectName": "Class'CyCustomCharacterAttributeSet'",
+              "ObjectPath": "/Script/PMGame"
+            }
           },
           "ModifierOp": "EGameplayModOp::Additive",
           "Magnitude": {
@@ -323,7 +331,7 @@
                 "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieFlamePistol/BP_Calculation_AttenuationByDistance_SlowSpeed.0"
               },
               "Coefficient": {
-                "Value": 0.75,
+                "Value": 0.5,
                 "bEnableMobile": false,
                 "MobileValue": 1.0,
                 "Curve": {
