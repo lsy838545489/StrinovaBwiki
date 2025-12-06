@@ -1,0 +1,103 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SA_SearchTargets_Zombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomSearchTargets'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SA_SearchTargets_Zombie_C'Default__BP_SA_SearchTargets_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/Projectile/BP_SA_SearchTargets_Zombie.1"
+    }
+  },
+  {
+    "Type": "BP_SA_SearchTargets_Zombie_C",
+    "Name": "Default__BP_SA_SearchTargets_Zombie_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/Projectile/BP_SA_SearchTargets_Zombie.BP_SA_SearchTargets_Zombie_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OverrideDetectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TargetDetectorSphere_Zombie_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/Projectile/BP_TargetDetectorSphere_Zombie.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TargetDetectorPlane_Zombie_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/Projectile/BP_TargetDetectorPlane_Zombie.0"
+        }
+      ],
+      "bScaleRadius": true,
+      "ScaleCurveXType": "ECyScaleCurveXType::DeltaTime",
+      "ScaleRadiusCurve": {
+        "ObjectName": "CurveFloat'CurveFloat_SearchScale'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/Projectile/CurveFloat_SearchScale.0"
+      },
+      "EffectsToApply": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_E_Maddelena_Damage_Zombie_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/GE/GE_E_Maddelena_Damage_Zombie.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": 1
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_XRay_E_Maddelena_Zombie_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/GE/GE_XRay_E_Maddelena_Zombie.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": 1
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_E_SpeedFactor_Infinite_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/GE/GE_E_SpeedFactor_Infinite.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": 1
+        }
+      ],
+      "TickInterval": 0.0,
+      "bUseAuthorityMask": true,
+      "AllowedModes": [
+        "EPMGameModeType::Zombie",
+        "EPMGameModeType::ZombieGuide"
+      ]
+    }
+  }
+]

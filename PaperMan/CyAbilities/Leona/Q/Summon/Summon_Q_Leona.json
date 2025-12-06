@@ -307,11 +307,10 @@
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Leona/Q/Summon/Summon_Q_Leona.24"
       },
       "bForceBlockProjectile": true,
-      "ActorHitBoxType": "ECyActorHitBoxType::Cylinder",
+      "ActorHitBoxType": "ECyActorHitBoxType::Box",
       "HitBoxInfo": {
-        "MaxRadius": 100.0,
-        "TopFaraway": 100.0,
-        "DownFaraway": -100.0
+        "ShapeComponentName": "Box",
+        "bUseShapeComponent": true
       },
       "BlockedProcessType": "ECyActorBlockedProcessType::DestroySelf",
       "BlockedDelayProcessProcess": 0.0,
@@ -928,6 +927,7 @@
                 "Resource.Audio.Death.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -956,6 +956,7 @@
                 "Resource.Audio.Death.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -1196,6 +1197,7 @@
                 "Resource.Particle.Work.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -1226,6 +1228,7 @@
                 "Resource.Particle.Work.C"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             },
             {
@@ -1236,6 +1239,7 @@
                 "Resource.Audio.Work.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -1263,6 +1267,7 @@
                 "Resource.Particle.X"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             },
             {
@@ -1273,6 +1278,7 @@
                 "Resource.Particle.Work.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -1303,6 +1309,7 @@
                 "Resource.Particle.Work.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -1333,6 +1340,7 @@
                 "Resource.Particle.Work.C"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             },
             {
@@ -1343,6 +1351,7 @@
                 "Resource.Audio.Work.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -1408,7 +1417,8 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::Infinite"
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": 1
         },
         {
           "EffectClass": {
@@ -1423,7 +1433,8 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
         }
       ],
       "EffectsOnReceiveAnyDamage": [
@@ -1440,7 +1451,8 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::All"
+          "RemoveType": "EEffectRemoveType::All",
+          "StackCount": 1
         }
       ]
     }
@@ -1487,6 +1499,7 @@
             "Resource.Particle.Q.Leona.MergeCube"
           ],
           "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
           "bAllowLoop": false
         }
       ],
@@ -1499,6 +1512,7 @@
             "Resource.Particle.Q.Leona.MergeOnhit"
           ],
           "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
           "bAllowLoop": true
         }
       ],
@@ -2388,6 +2402,10 @@
             {
               "Channel": "Placement",
               "Response": "ECR_Block"
+            },
+            {
+              "Channel": "ThroughWallTest",
+              "Response": "ECR_Block"
             }
           ]
         }
@@ -2416,6 +2434,10 @@
           "ResponseArray": [
             {
               "Channel": "Placement",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "ThroughWallTest",
               "Response": "ECR_Block"
             }
           ]

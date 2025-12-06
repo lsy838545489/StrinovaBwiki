@@ -24,21 +24,16 @@
     "Type": "BP_SCA_WeaponUseNotInAir_Q_Nobunaga_C",
     "Name": "Default__BP_SCA_WeaponUseNotInAir_Q_Nobunaga_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nobunaga/Mobile/Q/Weapon/BP_SCA_WeaponUseNotInAir_Q_Nobunaga.BP_SCA_WeaponUseNotInAir_Q_Nobunaga_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "TagRequirements": {
         "IgnoreTags": [
           "State.Motion.InAir"
         ]
       },
-      "FailureTipsConfig": {
-        "TipsReason": "EPMFeedbackTipsReason::OnlyTextMode",
-        "TipsStyle": "ECyFeedbackTipsStyle::Style_Player",
-        "Desc": {
-          "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GamePlayFailTag.ST_GamePlayFailTag",
-          "Key": "FailedInAir",
-          "SourceString": "空中无法释放",
-          "LocalizedString": "空中无法释放"
+      "ReasonTags": {
+        "BlockedTag": {
+          "TagName": "State.Motion.InAir"
         }
       }
     }

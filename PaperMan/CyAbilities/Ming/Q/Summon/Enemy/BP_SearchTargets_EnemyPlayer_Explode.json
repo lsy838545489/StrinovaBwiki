@@ -24,7 +24,7 @@
     "Type": "BP_SearchTargets_EnemyPlayer_Explode_C",
     "Name": "Default__BP_SearchTargets_EnemyPlayer_Explode_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Ming/Q/Summon/Enemy/BP_SearchTargets_EnemyPlayer_Explode.BP_SearchTargets_EnemyPlayer_Explode_C'",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "OverrideDetectors": [
         {
@@ -47,25 +47,16 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::Infinite"
-        },
-        {
-          "EffectClass": {
-            "ObjectName": "BlueprintGeneratedClass'GE_Q_Ming_Damage_Explode_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Ming/Q/Summon/Enemy/GE_Q_Ming_Damage_Explode.0"
-          },
-          "SourceTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "RemoveType": "EEffectRemoveType::Infinite"
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": 1
         }
       ],
-      "bUseAuthorityMask": true
+      "bUseAuthorityMask": true,
+      "AllowedModes": [
+        "EPMGameModeType::Zombie",
+        "EPMGameModeType::ZombieGuide"
+      ],
+      "bReverseAllowModes": true
     }
   }
 ]

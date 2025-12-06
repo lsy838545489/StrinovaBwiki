@@ -24,7 +24,7 @@
     "Type": "GE_E_CostHealth_C",
     "Name": "Default__GE_E_CostHealth_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Fuchsia/E/Weapon/GE_E_CostHealth.GE_E_CostHealth_C'",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "Modifiers": [
         {
@@ -63,17 +63,14 @@
             }
           },
           "ModifierMagnitude": {
-            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
+            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::CustomCalculationClass",
             "ScalableFloatMagnitude": {
-              "Value": -1.0,
-              "bEnableMobile": true,
-              "MobileValue": 1.0,
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
               "Curve": {
-                "CurveTable": {
-                  "ObjectName": "ModeCurveTable'CT_GameMode'",
-                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-                },
-                "RowName": "Attribute.Cost.Health.E.Fuchsia"
+                "CurveTable": null,
+                "RowName": "None"
               }
             },
             "AttributeBasedMagnitude": {
@@ -126,7 +123,10 @@
               "TargetTagFilter": []
             },
             "CustomMagnitude": {
-              "CalculationClassMagnitude": null,
+              "CalculationClassMagnitude": {
+                "ObjectName": "BlueprintGeneratedClass'BP_CalculationWithAttributes_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/E/Weapon/BP_CalculationWithAttributes.0"
+              },
               "Coefficient": {
                 "Value": 1.0,
                 "bEnableMobile": false,

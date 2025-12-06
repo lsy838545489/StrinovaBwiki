@@ -24,7 +24,7 @@
     "Type": "GA_X_CrystalloidAlpha_C",
     "Name": "Default__GA_X_CrystalloidAlpha_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/X/GA_X_CrystalloidAlpha.GA_X_CrystalloidAlpha_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "bCheckActiveUseRunningInGame": true,
       "bCheckWeaponActive": false,
@@ -36,10 +36,6 @@
         {
           "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon.0"
-        },
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_Giver_XPointd_X_CrystalloidAlpha_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/X/BP_Giver_XPointd_X_CrystalloidAlpha.0"
         }
       ],
       "ActivatorAtoms": [
@@ -51,7 +47,39 @@
       "TriggerEvents": [
         {
           "Key": {
-            "TagName": "Event.Kill"
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToAny_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToAny.0"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Strong.X.CrystalloidAlpha"
           },
           "Value": {
             "CheckAtoms": [],
@@ -70,8 +98,8 @@
             "AtomsForNoActive": [],
             "AtomsForInstance": [
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddPointsX_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_AddPointsX.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
               }
             ],
             "LocallyAtomsForActive": [],
@@ -102,8 +130,12 @@
             "AtomsForNoActive": [],
             "AtomsForInstance": [
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCD_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCD.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GATrigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/X/BP_GATrigger_EndAbility.0"
               }
             ],
             "LocallyAtomsForActive": [],
@@ -116,15 +148,18 @@
         "ObjectName": "BlueprintGeneratedClass'Weapon_X_CrystalloidAlpha_C'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/X/Weapon/Weapon_X_CrystalloidAlpha.0"
       },
-      "SlotType": "EWeaponSlotTypes::WeaponSlot_UltimateAbility",
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Ability",
+      "MagnitudeRemainPoints": {
+        "Value": 1.0
+      },
       "MagnitudeMaxPoints": {
-        "Value": 6500.0
+        "Value": 1.0
       },
       "AttributeRemainPoints": {
-        "AttributeName": "XPoints",
+        "AttributeName": "QPoints",
         "Attribute": {
           "Path": [
-            "XPoints"
+            "QPoints"
           ],
           "ResolvedOwner": {
             "ObjectName": "Class'CyAbilityAttributeSet'",
@@ -137,10 +172,10 @@
         }
       },
       "AttributeMaxPoints": {
-        "AttributeName": "XPointsMax",
+        "AttributeName": "QPointsMax",
         "Attribute": {
           "Path": [
-            "XPointsMax"
+            "QPointsMax"
           ],
           "ResolvedOwner": {
             "ObjectName": "Class'CyAbilityAttributeSet'",
@@ -154,6 +189,7 @@
       },
       "RemainPointEndType": "EPointRemainType::None",
       "CommitCDMask": 0,
+      "CommitCostMask": 0,
       "ActivateEventTags": [
         "Event.Ability.Activate"
       ],
@@ -164,17 +200,21 @@
         "Event.Ability.PostEnd"
       ],
       "CommitCostEventTags": [
-        "Event.ConsumePlayerSkill.X"
+        "Event.ConsumePlayerSkill.Q"
       ],
       "AbilityTags": [
-        "GA.Ability.SkillX.CrystalloidAlpha"
+        "GA.Ability.SkillQ.CrystalloidAlpha"
       ],
       "CostGameplayEffectClass": {
-        "ObjectName": "BlueprintGeneratedClass'Cost_X_CrystalloidAlpha_C'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/X/Cost_X_CrystalloidAlpha.0"
+        "ObjectName": "BlueprintGeneratedClass'GE_CostQPoints_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GE/GE_CostQPoints.0"
+      },
+      "CooldownGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'CD_Q_CrystalloidAlpha_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/X/CD_Q_CrystalloidAlpha.0"
       },
       "ActivationOwnedTags": [
-        "GA.Ability.SkillX.CrystalloidAlpha"
+        "GA.Ability.SkillQ.CrystalloidAlpha"
       ],
       "ActivationBlockedTags": [
         "Buff.Weak.Silence",
@@ -184,7 +224,8 @@
         "State.Game.Ready",
         "State.Health.Death",
         "State.Player.DisableUseSkill",
-        "State.Weapon.MeleeAttacking"
+        "State.Weapon.MeleeAttacking",
+        "Buff.Strong.X.CrystalloidAlpha"
       ]
     }
   }

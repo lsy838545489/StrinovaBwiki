@@ -313,6 +313,14 @@
       "TimeToDestroy": -1.0,
       "bEnableExplodeForLifeOver": false,
       "bStopAttachToHitActor": false,
+      "ActorHitBoxType": "ECyActorHitBoxType::Sphere",
+      "HitBoxInfo": {
+        "BoxExtent": {
+          "X": 600.0,
+          "Y": 550.0,
+          "Z": 0.0
+        }
+      },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile_E_Maddelena_C:PerceptionSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/Projectile/Projectile_E_Maddelena.22"
@@ -814,6 +822,7 @@
     "Class": "UScriptClass'CyAIDeathState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "bUnRegisterActor": true,
       "AssetEvents": [
         {
           "PositionStart": 0.0,
@@ -837,6 +846,7 @@
                 "Resource.Audio.Leave.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -854,6 +864,7 @@
     "Class": "UScriptClass'CyAILeaveState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "bUnRegisterActor": true,
       "AssetEvents": [
         {
           "PositionStart": 0.0,
@@ -877,6 +888,7 @@
                 "Resource.Audio.Leave.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -939,6 +951,18 @@
           },
           "SubAtoms": [],
           "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Zombie_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/Projectile/BP_SA_SearchTargets_Zombie.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -973,6 +997,7 @@
                 "Resource.Audio.Work.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -1001,7 +1026,27 @@
     "Name": "CyLife_GEN_VARIABLE",
     "Outer": "Projectile_E_Maddelena_C",
     "Class": "UScriptClass'CyLifeComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EffectsOnInitialize": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_E_SummonAttributeInit_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/E/Weapon/GE/GE_E_SummonAttributeInit.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": 1
+        }
+      ]
+    }
   },
   {
     "Type": "CyProjectileFlyDropMovementComponent",

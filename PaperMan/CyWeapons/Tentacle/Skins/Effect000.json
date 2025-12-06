@@ -37,6 +37,18 @@
               },
               "DecalSizeMax": 6.0,
               "bRandomRotation": false,
+              "bUseCustomRotation": false,
+              "CustomRotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bUseRotationOffset": false,
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
               "DecalList": [
                 {
                   "AssetPathName": "/Game/PaperMan/Effects/Zombie/Material/M_Talon_DoubleStabbing.M_Talon_DoubleStabbing",
@@ -58,26 +70,86 @@
           "SubPathString": ""
         }
       },
-      "AkAttackBeginEvents": [
+      "ReloadProgressWidgetName": {
+        "Group": "UIName"
+      },
+      "AkOptionalAttackBeginEvents": [
         {
           "Key": "EFAttackType::MeleeFirst",
           "Value": {
-            "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
-            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            "Default": {
+              "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            },
+            "OptionalDefaults": [
+              {
+                "MatchWeaponSkinUpgradedType": "EWeaponSkinUpgradedType::Max",
+                "Asset": {
+                  "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha1_XSkill_Light_Attack'",
+                  "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_CrystalloidAlpha1_XSkill_Light_Attack.0"
+                },
+                "RequireTagType": "ERequireTagType::AND",
+                "bInverse": false,
+                "RequireAnyTags": [
+                  "Buff.Strong.X.CrystalloidAlpha"
+                ],
+                "IgnoreAllTags": [],
+                "RequireTags": [],
+                "IgnoreTags": []
+              }
+            ]
           }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
           "Value": {
-            "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
-            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            "Default": {
+              "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            },
+            "OptionalDefaults": [
+              {
+                "MatchWeaponSkinUpgradedType": "EWeaponSkinUpgradedType::Max",
+                "Asset": {
+                  "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha1_XSkill_Light_Attack'",
+                  "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_CrystalloidAlpha1_XSkill_Light_Attack.0"
+                },
+                "RequireTagType": "ERequireTagType::AND",
+                "bInverse": false,
+                "RequireAnyTags": [
+                  "Buff.Strong.X.CrystalloidAlpha"
+                ],
+                "IgnoreAllTags": [],
+                "RequireTags": [],
+                "IgnoreTags": []
+              }
+            ]
           }
         },
         {
           "Key": "EFAttackType::Smite",
           "Value": {
-            "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Heavy_Attack'",
-            "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Heavy_Attack.0"
+            "Default": {
+              "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Heavy_Attack'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Heavy_Attack.0"
+            },
+            "OptionalDefaults": [
+              {
+                "MatchWeaponSkinUpgradedType": "EWeaponSkinUpgradedType::Max",
+                "Asset": {
+                  "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha1_XSkill_Heavy_Attack'",
+                  "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_CrystalloidAlpha1_XSkill_Heavy_Attack.0"
+                },
+                "RequireTagType": "ERequireTagType::AND",
+                "bInverse": false,
+                "RequireAnyTags": [
+                  "Buff.Strong.X.CrystalloidAlpha"
+                ],
+                "IgnoreAllTags": [],
+                "RequireTags": [],
+                "IgnoreTags": []
+              }
+            ]
           }
         }
       ],
@@ -130,7 +202,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -181,7 +254,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -232,7 +306,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -283,7 +358,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -334,13 +410,14 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         }
       ],
       "HitEffectConfig": {
         "Default": {
-          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/Common/PS_Onhit_BlueMuTi.PS_Onhit_BlueMuTi",
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Limestone/Fx_Hit_Common_Middle.Fx_Hit_Common_Middle",
           "SubPathString": ""
         },
         "EffectMap": [
@@ -519,25 +596,61 @@
               "SubPathString": ""
             }
           }
+        ],
+        "ScratchEffectMap": [
+          {
+            "Key": "SurfaceType15",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Metal/Fx_Hit_Metal_Middle_Scratch.Fx_Hit_Metal_Middle_Scratch",
+              "SubPathString": ""
+            }
+          }
         ]
       },
       "HitCharacterEffectConfig": {
         "Default": {
-          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/Common/PS_Onhit_BlueMuTi.PS_Onhit_BlueMuTi",
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/PS_hit_Role_Middle_HJY_001.PS_hit_Role_Middle_HJY_001",
           "SubPathString": ""
-        }
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/PS_hit_Role_Middle_HJY_001.PS_hit_Role_Middle_HJY_001",
+              "SubPathString": ""
+            }
+          }
+        ]
       },
       "HitCharacterEffect2DConfig": {
         "Default": {
-          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Biochemistry/Common/PS_Onhit_BlueMuTi.PS_Onhit_BlueMuTi",
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/PS_hit_Role_Middle_HJY_001.PS_hit_Role_Middle_HJY_001",
           "SubPathString": ""
-        }
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/PS_hit_Role_Middle_HJY_001.PS_hit_Role_Middle_HJY_001",
+              "SubPathString": ""
+            }
+          }
+        ]
       },
       "HitArmorEffectConfig": {
         "Default": {
-          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/Fx_Hit_Shield_Middle.Fx_Hit_Shield_Middle",
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/Fx_Hit_Shield_Middle_HJY_001.Fx_Hit_Shield_Middle_HJY_001",
           "SubPathString": ""
-        }
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/Fx_Hit_Shield_Middle_HJY_001.Fx_Hit_Shield_Middle_HJY_001",
+              "SubPathString": ""
+            }
+          }
+        ]
       }
     }
   }

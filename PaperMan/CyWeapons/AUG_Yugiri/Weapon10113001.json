@@ -65,7 +65,7 @@
     "Type": "Weapon10113001_C",
     "Name": "Default__Weapon10113001_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/AUG_Yugiri/Weapon10113001.Weapon10113001_C'",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "SpeedConfig": {
         "Speed3D": [
@@ -495,6 +495,8 @@
     "Class": "UScriptClass'CyFFireSwitchAuto'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "bSetCharacterAnimLengthToDuration": false,
+      "bForceStopAnimationNextNull": false,
       "TotalDuration": {
         "Value": 0.083333
       }
@@ -543,13 +545,17 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AnimationBegin": {
-        "Duration": 0.44
+        "Duration": 1.0
       },
       "CameraOffsetInterpSpeed": 50.0,
       "TimeForFPPMesh": 0.0,
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_AUG_CameraShake_ADS_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/BP_AUG_CameraShake_ADS.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadADS'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/SpreadADS.0"
       },
       "SpreadScale": {
         "Value": 0.01,
@@ -582,6 +588,24 @@
           },
           "RowName": "VerticalRecoilScaleADS"
         }
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.ADS.AUG_Yugiri"
+        }
+      },
+      "BeginAnimationDurationRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Animation.Multiply.ADS.AUG_Yugiri"
+        }
       }
     }
   },
@@ -595,6 +619,19 @@
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_AUG_CameraShake_Shoulder_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/BP_AUG_CameraShake_Shoulder.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadAiming'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/SpreadAiming.0"
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.Aiming.AUG_Yugiri"
+        }
       }
     }
   },
@@ -615,6 +652,19 @@
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_AUG_CameraShake_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/BP_AUG_CameraShake.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadWaist'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/SpreadWaist.0"
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.Waist"
+        }
       }
     }
   },
@@ -628,6 +678,10 @@
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_AUG_CameraShake_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/BP_AUG_CameraShake.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadWaist'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG_Yugiri/SpreadWaist.0"
       },
       "SpreadScale": {
         "bEnableMobile": true,
@@ -657,6 +711,15 @@
             "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
           },
           "RowName": "VerticalRecoilScaleWaist"
+        }
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.Waist"
         }
       }
     }
@@ -1094,43 +1157,43 @@
       ],
       "SpreadProcessor": {
         "SpreadMin": {
-          "Value": 0.3,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "SpreadMin"
+            "RowName": "Attribute.SpreadMin.Auto.AUG_Yugiri"
           }
         },
         "SpreadMax": {
-          "Value": 2.1,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "SpreadMax"
+            "RowName": "Attribute.SpreadMax.Auto.AUG_Yugiri"
           }
         },
         "SpreadModifierBase": {
-          "Value": 0.15,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "SpreadModifierBase"
+            "RowName": "Attribute.SpreadModifier.Auto.AUG_Yugiri"
           }
         },
         "SpreadModifierInc": {
-          "Value": 0.15,
+          "Value": 0.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1142,19 +1205,19 @@
           }
         },
         "SpreadModifierMax": {
-          "Value": 0.6,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10105001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AUG/CurveTable/CT_ModeWeapon_10105001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "SpreadModifierMax"
+            "RowName": "Attribute.SpreadModifier.Auto.AUG_Yugiri"
           }
         },
         "SpreadDecSpeed": {
-          "Value": 6.0,
+          "Value": 8.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1166,7 +1229,7 @@
           }
         },
         "SpreadDecSpeedFiring": {
-          "Value": 2.0,
+          "Value": 0.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1189,7 +1252,7 @@
           }
         },
         "SpreadIncSpeedFiring": {
-          "Value": 6.0,
+          "Value": 0.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1246,6 +1309,10 @@
               "RowName": "SpreadInAir"
             }
           }
+        },
+        "PitchAimAssistSpreadScale": {
+          "Value": 0.0,
+          "MobileValue": 0.0
         }
       },
       "CrossHairProcessor": {
@@ -1347,7 +1414,7 @@
         "bEnableMobile": true,
         "MobileValue": 0.5
       },
-      "AttackKeepTime": 0.3,
+      "AttackKeepTime": 0.25,
       "AutoFireType": "ECyWeaponAutoFireTypes::LMG",
       "AimAssistMap": null,
       "BodyDamageFactor": [
@@ -1793,6 +1860,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
@@ -1869,12 +1937,15 @@
               }
             },
             "TargetArmLengthLagSpeed": {
-              "Value": 20.0,
+              "Value": 1.0,
               "bEnableMobile": false,
-              "MobileValue": 20.0,
+              "MobileValue": 1.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.LagSpeed.Aiming.AUG_Yugiri"
               }
             },
             "OffsetLagSpeed": {
@@ -1886,6 +1957,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
@@ -1979,6 +2051,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
@@ -2055,12 +2128,15 @@
               }
             },
             "TargetArmLengthLagSpeed": {
-              "Value": 20.0,
+              "Value": 1.0,
               "bEnableMobile": false,
-              "MobileValue": 20.0,
+              "MobileValue": 1.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.LagSpeed.Aiming.AUG_Yugiri"
               }
             },
             "OffsetLagSpeed": {
@@ -2072,6 +2148,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {

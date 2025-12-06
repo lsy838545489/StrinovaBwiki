@@ -355,34 +355,7 @@
       "TimeLoad": 1.0,
       "TotalDuration": {
         "Value": 0.37
-      },
-      "AssetEvents": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::Instigator",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "CharacterMesh0",
-              "AssetTagContainer": [
-                "Resource.Particle.Reload.C"
-              ],
-              "AssetTagStopContainer": [],
-              "bAllowLoop": true
-            }
-          ]
-        }
-      ]
+      }
     }
   },
   {
@@ -422,7 +395,10 @@
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": null,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_AddToLinkage_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/FlamePistol/BP_SA_AddToLinkage.0"
+          },
           "SubAtoms": [],
           "EventActions": []
         }
@@ -815,17 +791,12 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "DelayFireTime": 0.2,
-      "AkEventDelayFire": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_FlameGun_Fire.Wpn_FlameGun_Fire",
-        "SubPathString": ""
-      },
+      "bStopAllMontages": true,
+      "bStopAllWeaponMontages": true,
       "bForceStopAnimationNextNull": false,
+      "bStopAnimationOnBegin": true,
       "TotalDuration": {
         "Value": 0.2
-      },
-      "AkEventEnd": {
-        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_FlameGun_FireStop.Wpn_FlameGun_FireStop",
-        "SubPathString": ""
       }
     }
   },
@@ -886,11 +857,38 @@
             {
               "AttachComponentType": "EAttachComponentType::Instigator",
               "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "CharacterMesh0",
+              "MeshName": "UpperBodyComponent",
               "AssetTagContainer": [
                 "Resource.Particle.Reload.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshPartMagazine",
+              "AssetTagContainer": [
+                "Resource.Particle.Reload.C"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -918,6 +916,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "TimeUnLoad": 0.35,
+      "TimeHideMagazine": 0.6,
       "TotalDuration": {
         "Value": 0.67
       },
@@ -938,11 +937,12 @@
             {
               "AttachComponentType": "EAttachComponentType::Instigator",
               "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "CharacterMesh0",
+              "MeshName": "UpperBodyComponent",
               "AssetTagContainer": [
                 "Resource.Particle.Reload.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -988,6 +988,7 @@
                 "Resource.Particle.Skin.Red.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": true
             }
           ]
@@ -1000,14 +1001,21 @@
     "Name": "StateUnEquipped",
     "Outer": "Default__Weapon12307001_C",
     "Class": "UScriptClass'CyFUnEquippedState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StopAllMontagesBlendOut": 0.0
+    }
   },
   {
     "Type": "CyPartAccessory",
     "Name": "PartAccessory",
     "Outer": "Default__Weapon12307001_C",
     "Class": "UScriptClass'CyPartAccessory'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bShowMeshWithWeaponVisible": true,
+      "bShowMeshWithWeaponOwnerVisible": true
+    }
   },
   {
     "Type": "CyPartGrip",
@@ -1148,6 +1156,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
@@ -1241,6 +1250,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {

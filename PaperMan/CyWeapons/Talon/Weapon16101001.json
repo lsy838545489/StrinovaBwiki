@@ -60,6 +60,7 @@
         }
       ],
       "AttackSocketSphereRadius": 50.0,
+      "bSupportsAutoAttack": true,
       "bSupport2DState": false,
       "WeaponName": "ECyWeaponName::CustomType251",
       "WeaponType": "ECyWeaponType::Fist",
@@ -391,7 +392,7 @@
       "AttackPlane": {
         "PlaneOffset": {
           "Value": 170.0,
-          "MobileValue": 170.0
+          "MobileValue": 160.0
         }
       },
       "bSupport2DState": false,
@@ -435,6 +436,7 @@
                 "Resource.Particle.AnimNotify.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -468,7 +470,10 @@
       "AttackPlane": {
         "PlaneOffset": {
           "Value": -10.0,
-          "MobileValue": -10.0
+          "MobileValue": 20.0
+        },
+        "CenterZOffset": {
+          "MobileValue": 24.0
         }
       },
       "bSupport2DState": false,
@@ -512,6 +517,7 @@
                 "Resource.Particle.AnimNotify.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -584,6 +590,7 @@
                 "Resource.Particle.AnimNotify.C"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             },
             {
@@ -594,6 +601,7 @@
                 "Resource.Particle.AnimNotify.D"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -619,6 +627,7 @@
                 "Resource.Particle.AnimNotify.E"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -644,7 +653,7 @@
         {
           "Key": "EFAttackType::MeleeFirst",
           "Value": {
-            "Value": 240.0,
+            "Value": 300.0,
             "bEnableMobile": false,
             "MobileValue": 240.0,
             "Curve": {
@@ -656,7 +665,7 @@
         {
           "Key": "EFAttackType::MeleeSecond",
           "Value": {
-            "Value": 240.0,
+            "Value": 300.0,
             "bEnableMobile": false,
             "MobileValue": 240.0,
             "Curve": {
@@ -668,7 +677,7 @@
         {
           "Key": "EFAttackType::Smite",
           "Value": {
-            "Value": 480.0,
+            "Value": 600.0,
             "bEnableMobile": false,
             "MobileValue": 480.0,
             "Curve": {
@@ -683,15 +692,24 @@
         "MobileValue": 70.0
       },
       "HalfAttackThickness": {
-        "Value": 90.0,
-        "MobileValue": 90.0
+        "Value": 90.0
+      },
+      "OnlyAttackOnePlayer": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode_InitAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode_InitAttribute.0"
+          },
+          "RowName": "ZombieSmite"
+        }
       },
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_Talon_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/Talon/BP_Talon_DamageType.0"
       },
       "AttackRange": {
-        "Value": 350.0,
+        "Value": 300.0,
         "MobileValue": 300.0
       },
       "AimAssistMap": null,

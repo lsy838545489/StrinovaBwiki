@@ -68,6 +68,7 @@
         }
       ],
       "AttackSocketSphereRadius": 70.0,
+      "bSupportsAutoAttack": true,
       "bUseSupportLeanWall": true,
       "bSupport2DState": false,
       "WeaponName": "ECyWeaponName::CustomType250",
@@ -400,15 +401,11 @@
       "AttackPlane": {
         "PlaneOffset": {
           "Value": 10.0,
-          "MobileValue": 10.0
+          "MobileValue": 45.0
         },
         "CenterZOffset": {
           "Value": -20.0,
-          "MobileValue": -20.0
-        },
-        "CenterFOffset": {
-          "Value": 10.0,
-          "MobileValue": 10.0
+          "MobileValue": 56.0
         }
       },
       "bSupport2DState": false,
@@ -452,6 +449,7 @@
                 "Resource.Particle.AnimNotify.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -485,15 +483,13 @@
       "AttackPlane": {
         "PlaneOffset": {
           "Value": 170.0,
-          "MobileValue": 170.0
+          "MobileValue": 135.0
         },
         "CenterZOffset": {
-          "Value": -20.0,
-          "MobileValue": -20.0
+          "Value": -20.0
         },
         "CenterFOffset": {
-          "Value": 10.0,
-          "MobileValue": 10.0
+          "Value": 10.0
         }
       },
       "bSupport2DState": false,
@@ -537,6 +533,7 @@
                 "Resource.Particle.AnimNotify.B"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -611,6 +608,7 @@
                 "Resource.Particle.AnimNotify.C"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             },
             {
@@ -621,6 +619,7 @@
                 "Resource.Particle.AnimNotify.D"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -646,6 +645,7 @@
                 "Resource.Particle.AnimNotify.E"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -705,14 +705,27 @@
           }
         }
       ],
+      "HalfTraceCount": {
+        "MobileValue": 1.0
+      },
       "HalfTraceAngle": {
         "Value": 50.0,
-        "MobileValue": 50.0
+        "MobileValue": 55.0
       },
       "HalfAttackThickness": {
-        "Value": 90.0,
-        "MobileValue": 90.0
+        "Value": 90.0
       },
+      "OnlyAttackOnePlayer": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode_InitAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode_InitAttribute.0"
+          },
+          "RowName": "ZombieSmite"
+        }
+      },
+      "bUseHitEffectRotation": false,
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_Tentacle_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/Tentacle/BP_Tentacle_DamageType.0"

@@ -24,7 +24,7 @@
     "Type": "GE_KillSelf_X_Fissioner1_C",
     "Name": "Default__GE_KillSelf_X_Fissioner1_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Zombie/Fissioner1/X/Summon/GE_KillSelf_X_Fissioner1.GE_KillSelf_X_Fissioner1_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'DamageType_KillSelf_X_Fissioner1_C'",
@@ -67,9 +67,9 @@
             }
           },
           "ModifierMagnitude": {
-            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
+            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::CustomCalculationClass",
             "ScalableFloatMagnitude": {
-              "Value": 99999.0,
+              "Value": 0.0,
               "bEnableMobile": false,
               "MobileValue": 0.0,
               "Curve": {
@@ -127,7 +127,10 @@
               "TargetTagFilter": []
             },
             "CustomMagnitude": {
-              "CalculationClassMagnitude": null,
+              "CalculationClassMagnitude": {
+                "ObjectName": "BlueprintGeneratedClass'Calculation_KillSelf_Fissioner1_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/Fissioner1/X/Summon/Calculation_KillSelf_Fissioner1.0"
+              },
               "Coefficient": {
                 "Value": 1.0,
                 "bEnableMobile": false,

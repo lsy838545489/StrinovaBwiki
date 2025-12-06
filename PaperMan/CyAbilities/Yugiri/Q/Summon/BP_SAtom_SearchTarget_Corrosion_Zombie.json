@@ -1,0 +1,88 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SAtom_SearchTarget_Corrosion_Zombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomSearchTargets'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SAtom_SearchTarget_Corrosion_Zombie_C'Default__BP_SAtom_SearchTarget_Corrosion_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/BP_SAtom_SearchTarget_Corrosion_Zombie.1"
+    }
+  },
+  {
+    "Type": "BP_SAtom_SearchTarget_Corrosion_Zombie_C",
+    "Name": "Default__BP_SAtom_SearchTarget_Corrosion_Zombie_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/BP_SAtom_SearchTarget_Corrosion_Zombie.BP_SAtom_SearchTarget_Corrosion_Zombie_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OverrideDetectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TargetDetectorSphere_Corrosion_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/BP_TargetDetectorSphere_Corrosion.0"
+        }
+      ],
+      "bScaleRadius": true,
+      "ScaleCurveXType": "ECyScaleCurveXType::DeltaTime",
+      "ScaleRadiusCurve": {
+        "ObjectName": "CurveFloat'CurveFloat_SearchScale'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/CurveFloat_SearchScale.0"
+      },
+      "EffectsToApply": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Q_ArmorInvalidation_Instant_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/GE_Q_ArmorInvalidation_Instant.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Q_ArmorInvalidation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/GE_Q_ArmorInvalidation.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": 1
+        }
+      ],
+      "bUseAuthorityMask": true,
+      "InstigatorRequireTags": {
+        "IgnoreTags": [
+          "State.Arousal.Two"
+        ]
+      },
+      "AllowedModes": [
+        "EPMGameModeType::Zombie",
+        "EPMGameModeType::ZombieGuide"
+      ],
+      "bReverseAllowModes": true
+    }
+  }
+]

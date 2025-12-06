@@ -131,8 +131,13 @@
     "Type": "Summon_ZombieGrenadeKnockback_C",
     "Name": "Default__Summon_ZombieGrenadeKnockback_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/ZombieGrenadeKnockback/Summon/Summon_ZombieGrenadeKnockback.Summon_ZombieGrenadeKnockback_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "CenterLocationOffset": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 5.0
+      },
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_ZombieGrenadeKnockback_C:ArousalComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/ZombieGrenadeKnockback/Summon/Summon_ZombieGrenadeKnockback.7"
@@ -160,12 +165,7 @@
     "Name": "CyAILeaveState_GEN_VARIABLE",
     "Outer": "Summon_ZombieGrenadeKnockback_C",
     "Class": "UScriptClass'CyAILeaveState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "TotalDuration": {
-        "Value": 0.1
-      }
-    }
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "CyAIMachine",
@@ -249,11 +249,15 @@
                 "Resource.Audio.Work.A"
               ],
               "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
         }
-      ]
+      ],
+      "TotalDuration": {
+        "Value": 0.2
+      }
     }
   },
   {
@@ -271,18 +275,18 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "bIgnoreMass": true,
-      "MaxSpeed": 4000.0,
-      "MaxZSpeed": 5000.0,
+      "MaxSpeed": 2000.0,
+      "MaxZSpeed": 4000.0,
       "MinZSpeed": -1000.0,
       "Priority": 10,
-      "CustomForce": 5000.0,
+      "CustomForce": 50000.0,
       "CustomDirectionType": "EForceDirectionType::CenterOut3D",
       "CustomAttenuationType": "EForceAttenuationType::None",
       "CustomAttenuationDistanceType": "EAttenuationDistanceType::CenterDistance",
       "CustomAttenuation": 50000.0,
       "AttractType": "EForceAttractType::None",
       "WithControlMode": "ZombieGrenadeKnockback",
-      "RemoveControlModeTime": 0.5
+      "RemoveControlModeTime": 1.0
     }
   },
   {

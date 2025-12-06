@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_Q_Huixing_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.31"
       }
     },
     "SuperStruct": {
@@ -15,6 +15,50 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILeaveState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAILeaveState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateNone",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyLightStar",
@@ -146,11 +190,11 @@
     "Properties": {
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_Q_Huixing_C:ArousalComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.5"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.9"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_Q_Huixing_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.11"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.15"
       },
       "bAlwaysRelevant": true,
       "bReplicateMovement": true,
@@ -617,6 +661,48 @@
     }
   },
   {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_GEN_VARIABLE",
+    "Outer": "Summon_Q_Huixing_C",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TotalDuration": {
+        "Value": 1.27
+      },
+      "bAutoActivate": true
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Outer": "Summon_Q_Huixing_C",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DefaultStateType": "EAIStateType::Work"
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIStateNone_GEN_VARIABLE",
+    "Outer": "Summon_Q_Huixing_C",
+    "Class": "UScriptClass'CyAIState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Outer": "Summon_Q_Huixing_C",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TotalDuration": {
+        "Value": 20.0
+      }
+    }
+  },
+  {
     "Type": "CyArousalComponent",
     "Name": "ArousalComponent",
     "Outer": "Default__Summon_Q_Huixing_C",
@@ -644,7 +730,8 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
         },
         {
           "EffectClass": {
@@ -659,7 +746,8 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
         },
         {
           "EffectClass": {
@@ -676,7 +764,8 @@
             ],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
         },
         {
           "EffectClass": {
@@ -693,7 +782,8 @@
             ],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
         },
         {
           "EffectClass": {
@@ -710,7 +800,8 @@
             ],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::Infinite"
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": 1
         }
       ],
       "InstigatorEffects": [
@@ -727,7 +818,8 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
         },
         {
           "EffectClass": {
@@ -742,7 +834,8 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
         },
         {
           "EffectClass": {
@@ -759,7 +852,8 @@
             ],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
         },
         {
           "EffectClass": {
@@ -776,7 +870,8 @@
             ],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": 1
         },
         {
           "EffectClass": {
@@ -793,7 +888,8 @@
             ],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::Infinite"
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": 1
         }
       ]
     }
@@ -831,6 +927,7 @@
             "Resource.Particle.Entry.A"
           ],
           "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
           "bAllowLoop": true
         }
       ]
@@ -863,6 +960,7 @@
         ],
         "bAllowLoop": false
       },
+      "bAllowSelfToTarget": true,
       "bAutoActivate": true
     }
   },
@@ -900,20 +998,39 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_Q_Huixing_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.12"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.16"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.15"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.20"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_19'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.19"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.24"
         }
       ],
       "VariableGuid": "6C5BDAE0-4449B046-85839686-837A8252",
       "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'Summon_Q_Huixing_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.6"
+      },
+      "VariableGuid": "B7C8D68F-4190EC3C-187019BD-E38EC96B",
+      "InternalVariableName": "CyAIMachine"
     }
   },
   {
@@ -929,7 +1046,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_Q_Huixing_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.7"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.11"
       },
       "VariableGuid": "DE2BA3E5-4BA7753D-9FA5D2B0-AF15C011",
       "InternalVariableName": "CyRetain"
@@ -948,7 +1065,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Summon_Q_Huixing_C:SkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.32"
       },
       "VariableGuid": "51C7DFBE-48BDE9F1-3A3E64B7-2848376E",
       "InternalVariableName": "SkeletalMesh"
@@ -967,7 +1084,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_Q_Huixing_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.8"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.12"
       },
       "VariableGuid": "831A5A58-4232D7CA-D3946499-4DCC56B7",
       "InternalVariableName": "CySkin"
@@ -1005,7 +1122,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyTargetActorsComponent'Summon_Q_Huixing_C:CyTargetActors_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.10"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.14"
       },
       "VariableGuid": "2EA579BD-465941CC-533E6BAB-0BE9C704",
       "InternalVariableName": "CyTargetActors"
@@ -1032,6 +1149,25 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'Summon_Q_Huixing_C:CyAIStateNone_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.7"
+      },
+      "VariableGuid": "93C4F501-446318DF-994D9AB0-337704B6",
+      "InternalVariableName": "CyAIStateNone"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_20",
     "Outer": "SimpleConstructionScript_0",
     "Class": "UScriptClass'SCS_Node'",
@@ -1043,7 +1179,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySummonMoveComponent'Summon_Q_Huixing_C:CySummonMove_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.9"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.13"
       },
       "VariableGuid": "15D203C8-49693A00-77FC3080-B9C9BF07",
       "InternalVariableName": "CySummonMove"
@@ -1062,10 +1198,48 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyLightStarComponent'Summon_Q_Huixing_C:CyLightStar_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.6"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.10"
       },
       "VariableGuid": "A17007C3-49D1A803-6B1006B8-D2F9BA49",
       "InternalVariableName": "CyLightStar"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'Summon_Q_Huixing_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.8"
+      },
+      "VariableGuid": "8D32E154-432B7F51-33648AA2-8DA5D104",
+      "InternalVariableName": "CyAIWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAILeaveState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAILeaveState'Summon_Q_Huixing_C:CyAILeaveState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.5"
+      },
+      "VariableGuid": "C5F74D44-4E7C2E37-859DCA8E-AAE43426",
+      "InternalVariableName": "CyAILeaveState"
     }
   },
   {
@@ -1097,82 +1271,114 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.13"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.22"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.14"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.16"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_15'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.17"
         },
         {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.19"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.21"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.22"
+        },
+        {
           "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_18'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.18"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.23"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_20'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.20"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_21'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.21"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.18"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.29"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.13"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.15"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.22"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.14"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.16"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_15'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.17"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_18'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.18"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_19'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.19"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_12'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.20"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.19"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_13'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.21"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.22"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.23"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.24"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.18"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.29"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_Q_Huixing_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/Summon_Q_Huixing.17"
       }
     }
   },

@@ -24,7 +24,7 @@
     "Type": "GE_E_Vertigo_Ming_C",
     "Name": "Default__GE_E_Vertigo_Ming_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Ming/E/Summon/GE_E_Vertigo_Ming.GE_E_Vertigo_Ming_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_DamageType_E_Ming_C'",
@@ -87,12 +87,15 @@
           "ModifierMagnitude": {
             "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
             "ScalableFloatMagnitude": {
-              "Value": -0.15,
+              "Value": 1.0,
               "bEnableMobile": false,
               "MobileValue": 0.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameMode'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+                },
+                "RowName": "Attribute.AttackSpeed.Reduce.E.Ming"
               }
             },
             "AttributeBasedMagnitude": {
@@ -245,12 +248,14 @@
         "CombinedTags": [
           "Buff.RemoveOnPlayerRestart",
           "BuffIcon.Weak.Vertigo",
-          "Buff.Weak.Vertigo"
+          "Buff.Weak.Vertigo",
+          "BuffIcon.Weak.AttackSpeed"
         ],
         "Added": [
           "Buff.RemoveOnPlayerRestart",
           "BuffIcon.Weak.Vertigo",
-          "Buff.Weak.Vertigo"
+          "Buff.Weak.Vertigo",
+          "BuffIcon.Weak.AttackSpeed"
         ]
       },
       "InheritableOwnedTagsContainer": {

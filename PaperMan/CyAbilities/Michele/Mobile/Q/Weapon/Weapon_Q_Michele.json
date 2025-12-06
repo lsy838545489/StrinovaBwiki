@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon_Q_Michele_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.30"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.31"
       }
     },
     "SuperStruct": {
@@ -51,11 +51,11 @@
       "WeaponName": "ECyWeaponName::SkillQ",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon_Q_Michele_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.27"
       },
       "MeshComponent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Q_Michele_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.25"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.26"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon_Q_Michele_C:Machine'",
@@ -63,7 +63,7 @@
       },
       "AttackComponent": {
         "ObjectName": "CyThrowLocationComponent'Default__Weapon_Q_Michele_C:AttackComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.23"
       },
       "EffectComponent": {
         "ObjectName": "CyEffectComponent'Default__Weapon_Q_Michele_C:EffectComponent'",
@@ -71,7 +71,7 @@
       },
       "PredictPathComponent": {
         "ObjectName": "CyPredictPathComponent'Default__Weapon_Q_Michele_C:PredictPathComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.20"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.21"
       },
       "CachedComponents": [
         {
@@ -180,6 +180,13 @@
           }
         },
         {
+          "Key": "PartSight",
+          "Value": {
+            "ObjectName": "CyPartSight'Default__Weapon_Q_Michele_C:PartSight'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.20"
+          }
+        },
+        {
           "Key": "StateStartReload",
           "Value": null
         },
@@ -206,7 +213,7 @@
       ],
       "WeaponDataCollectionComponent": {
         "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_Q_Michele_C:WeaponDataCollectionComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.24"
       },
       "ShowProjectilePathPosition": {
         "bEnableMobile": true,
@@ -214,7 +221,7 @@
       },
       "SkinComponent": {
         "ObjectName": "CyWeaponSkinComponent'Default__Weapon_Q_Michele_C:SkinComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.25"
       },
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__Weapon_Q_Michele_C:DataSystemComponent'",
@@ -222,7 +229,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon_Q_Michele_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.27"
       }
     }
   },
@@ -252,7 +259,10 @@
     "Name": "StateEntry",
     "Outer": "Default__Weapon_Q_Michele_C",
     "Class": "UScriptClass'CyFEntryState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bAcceptAttackInput": true
+    }
   },
   {
     "Type": "CyFEquipReloadState",
@@ -297,6 +307,7 @@
               "AssetTagStopContainer": [
                 "Resource.Particle.Equip.A"
               ],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -348,6 +359,7 @@
               "AssetTagStopContainer": [
                 "Resource.Particle.Equip.A"
               ],
+              "DefaultAssetKey": 0,
               "bAllowLoop": false
             }
           ]
@@ -537,6 +549,7 @@
     "Class": "UScriptClass'CyFUnEquippedState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "bAcceptAttackInput": true,
       "BeginEventTags": [
         {
           "TagName": "Event.Action.KeepFly"
@@ -567,6 +580,13 @@
     "Name": "PartPendant",
     "Outer": "Default__Weapon_Q_Michele_C",
     "Class": "UScriptClass'CyPartPendant'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyPartSight",
+    "Name": "PartSight",
+    "Outer": "Default__Weapon_Q_Michele_C",
+    "Class": "UScriptClass'CyPartSight'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
@@ -649,7 +669,7 @@
       "AnimationMode": "EAnimationMode::AnimationSingleNode",
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__Weapon_Q_Michele_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.27"
       },
       "ComponentTagSet": [
         "WorkingMesh"
@@ -683,7 +703,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon_Q_Michele_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.27"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.28"
       },
       "VariableGuid": "B1A7C4CE-40A7AEF4-99A2429B-F3677D7D",
       "InternalVariableName": "DefaultSceneRoot"
@@ -702,7 +722,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchLocationComponent'Weapon_Q_Michele_C:CySearchLocation_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.21"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.22"
       },
       "VariableGuid": "E4A06B3F-4EB28D43-4846A5AA-BE20BDC8",
       "InternalVariableName": "CySearchLocation"
@@ -718,18 +738,18 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon_Q_Michele_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.30"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon_Q_Michele_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.30"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon_Q_Michele_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.28"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Mobile/Q/Weapon/Weapon_Q_Michele.29"
       }
     }
   }
