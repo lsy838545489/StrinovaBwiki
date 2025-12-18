@@ -24,7 +24,7 @@
     "Type": "BP_SAtom_ApplyEffects_Q_Nobunaga_Lv2_C",
     "Name": "Default__BP_SAtom_ApplyEffects_Q_Nobunaga_Lv2_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nobunaga/Q/Summon/BP_SAtom_ApplyEffects_Q_Nobunaga_Lv2.BP_SAtom_ApplyEffects_Q_Nobunaga_Lv2_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "EffectsToApply": [
         {
@@ -40,7 +40,16 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::Infinite"
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "EffectClass": {
@@ -55,7 +64,16 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::Infinite"
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         }
       ],
       "bUseSearchTargets": false,
@@ -63,6 +81,11 @@
       "RequireTags": {
         "RequireTags": [
           "State.Link.Two"
+        ]
+      },
+      "InstigatorRequireTags": {
+        "RequireAnyTags": [
+          "State.Health.Alive"
         ]
       }
     }

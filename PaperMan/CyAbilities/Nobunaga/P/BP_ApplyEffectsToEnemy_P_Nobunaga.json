@@ -24,7 +24,7 @@
     "Type": "BP_ApplyEffectsToEnemy_P_Nobunaga_C",
     "Name": "Default__BP_ApplyEffectsToEnemy_P_Nobunaga_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nobunaga/P/BP_ApplyEffectsToEnemy_P_Nobunaga.BP_ApplyEffectsToEnemy_P_Nobunaga_C'",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "InstigatorEffects": [
         {
@@ -44,24 +44,23 @@
               "Buff.Wait.P.Nobunaga"
             ]
           },
-          "RemoveType": "EEffectRemoveType::Infinite"
-        },
-        {
-          "EffectClass": {
-            "ObjectName": "BlueprintGeneratedClass'GE_P_Nobunaga_Damage_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/P/GE_P_Nobunaga_Damage.0"
-          },
-          "SourceTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "RemoveType": "EEffectRemoveType::Infinite"
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         }
-      ]
+      ],
+      "AllowedModes": [
+        "EPMGameModeType::Zombie",
+        "EPMGameModeType::ZombieGuide"
+      ],
+      "bReverseAllowModes": true
     }
   }
 ]

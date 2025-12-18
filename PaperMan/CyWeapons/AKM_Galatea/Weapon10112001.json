@@ -562,16 +562,38 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AnimationBegin": {
-        "Duration": 0.44
+        "Duration": 1.0
       },
       "CameraOffsetInterpSpeed": 50.0,
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_AK47_CameraShake_ADS_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AKM/BP_AK47_CameraShake_ADS.0"
       },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadADS'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AKM_Galatea/SpreadADS.0"
+      },
       "SpreadScale": {
         "Value": 0.01,
         "MobileValue": 0.01
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.ADS.AKM_Galatea"
+        }
+      },
+      "BeginAnimationDurationRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Animation.Multiply.ADS.AKM_Galatea"
+        }
       },
       "AkEventBegin": {
         "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Common_Aim_01.Wpn_Common_Aim_01",
@@ -593,6 +615,19 @@
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_AK47_CameraShake_Shoulder_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AKM/BP_AK47_CameraShake_Shoulder.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadAiming'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AKM_Galatea/SpreadAiming.0"
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.Aiming.AKM_Galatea"
+        }
       },
       "AkEventBegin": {
         "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Common_Aim_02.Wpn_Common_Aim_02",
@@ -626,6 +661,19 @@
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_AK47_CameraShake_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AKM/BP_AK47_CameraShake.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadWaist'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AKM_Galatea/SpreadWaist.0"
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.Waist"
+        }
       }
     }
   },
@@ -639,6 +687,19 @@
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_AK47_CameraShake_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AKM/BP_AK47_CameraShake.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadWaist'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AKM_Galatea/SpreadWaist.0"
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.Waist"
+        }
       }
     }
   },
@@ -726,31 +787,63 @@
       },
       "SpreadProcessor": {
         "SpreadMin": {
-          "Value": 0.3,
-          "MobileValue": 0.3
+          "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.SpreadMin.Auto.AKM_Galatea"
+          }
         },
         "SpreadMax": {
-          "Value": 2.1,
-          "MobileValue": 2.4
+          "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.SpreadMax.Auto.AKM_Galatea"
+          }
         },
         "SpreadModifierBase": {
-          "Value": 0.3,
-          "MobileValue": 0.3
+          "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.SpreadModifier.Auto.AKM_Galatea"
+          }
         },
         "SpreadModifierInc": {
-          "Value": 0.15,
+          "Value": 0.0,
           "MobileValue": 0.15
         },
         "SpreadModifierMax": {
-          "Value": 0.6,
-          "MobileValue": 0.6
+          "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.SpreadModifier.Auto.AKM_Galatea"
+          }
         },
         "SpreadDecSpeed": {
-          "Value": 6.0,
+          "Value": 8.0,
           "MobileValue": 6.0
         },
         "SpreadDecSpeedFiring": {
-          "Value": 2.0,
+          "Value": 0.0,
           "MobileValue": 2.0
         },
         "SpreadIncSpeed": {
@@ -758,7 +851,7 @@
           "MobileValue": 4.0
         },
         "SpreadIncSpeedFiring": {
-          "Value": 6.0,
+          "Value": 0.0,
           "MobileValue": 6.0
         },
         "SpreadScale": {
@@ -770,6 +863,10 @@
             "Value": 3.0,
             "MobileValue": 3.0
           }
+        },
+        "PitchAimAssistSpreadScale": {
+          "Value": 0.0,
+          "MobileValue": 0.0
         }
       },
       "CrossHairProcessor": {
@@ -822,7 +919,7 @@
         "bEnableMobile": true,
         "MobileValue": 0.5
       },
-      "AttackKeepTime": 0.5,
+      "AttackKeepTime": 0.25,
       "AutoFireType": "ECyWeaponAutoFireTypes::LMG",
       "AimAssistMap": null,
       "BodyDamageFactor": [
@@ -1284,6 +1381,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [
               {
                 "Value": 0.0,
@@ -1379,12 +1477,15 @@
               }
             },
             "TargetArmLengthLagSpeed": {
-              "Value": 20.0,
+              "Value": 1.0,
               "bEnableMobile": false,
-              "MobileValue": 20.0,
+              "MobileValue": 1.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.LagSpeed.Aiming.AKM_Galatea"
               }
             },
             "OffsetLagSpeed": {
@@ -1396,6 +1497,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
@@ -1489,6 +1591,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
@@ -1565,12 +1668,15 @@
               }
             },
             "TargetArmLengthLagSpeed": {
-              "Value": 20.0,
+              "Value": 1.0,
               "bEnableMobile": false,
-              "MobileValue": 20.0,
+              "MobileValue": 1.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.LagSpeed.Aiming.AKM_Galatea"
               }
             },
             "OffsetLagSpeed": {
@@ -1582,6 +1688,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {

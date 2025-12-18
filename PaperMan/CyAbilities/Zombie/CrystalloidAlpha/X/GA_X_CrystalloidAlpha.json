@@ -24,7 +24,7 @@
     "Type": "GA_X_CrystalloidAlpha_C",
     "Name": "Default__GA_X_CrystalloidAlpha_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/X/GA_X_CrystalloidAlpha.GA_X_CrystalloidAlpha_C'",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "bCheckActiveUseRunningInGame": true,
       "bCheckWeaponActive": false,
@@ -61,8 +61,8 @@
             },
             "BothAtomsForActive": [
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToAny_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToAny.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToOther_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToOther.0"
               }
             ],
             "BothAtomsForNoActive": [],
@@ -70,38 +70,6 @@
             "AtomsForActive": [],
             "AtomsForNoActive": [],
             "AtomsForInstance": [],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
-        }
-      ],
-      "AddTagEvents": [
-        {
-          "Key": {
-            "TagName": "Buff.Strong.X.CrystalloidAlpha"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
-              }
-            ],
             "LocallyAtomsForActive": [],
             "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
@@ -132,10 +100,6 @@
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCD_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCD.0"
-              },
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_GATrigger_EndAbility_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/X/BP_GATrigger_EndAbility.0"
               }
             ],
             "LocallyAtomsForActive": [],
@@ -188,7 +152,7 @@
         }
       },
       "RemainPointEndType": "EPointRemainType::None",
-      "CommitCDMask": 0,
+      "CommitCDMask": 32,
       "CommitCostMask": 0,
       "ActivateEventTags": [
         "Event.Ability.Activate"
@@ -224,7 +188,8 @@
         "State.Game.Ready",
         "State.Health.Death",
         "State.Player.DisableUseSkill",
-        "State.Weapon.MeleeAttacking"
+        "State.Weapon.MeleeAttacking",
+        "Buff.Strong.X.CrystalloidAlpha"
       ]
     }
   }

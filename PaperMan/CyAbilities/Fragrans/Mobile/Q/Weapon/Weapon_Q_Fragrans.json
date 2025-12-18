@@ -17,23 +17,23 @@
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
+        "Name": "CyRecordBool",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRecordBoolComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
         "Name": "CyTargetLocation",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
           "ObjectName": "Class'CyTargetLocationComponent'",
-          "ObjectPath": "/Script/PMGame"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CyFSecondWorkState",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
-        "PropertyClass": {
-          "ObjectName": "Class'CyFSecondWorkState'",
           "ObjectPath": "/Script/PMGame"
         }
       },
@@ -153,7 +153,7 @@
       },
       "PredictPathComponent": {
         "ObjectName": "CyPredictPathComponent'Default__Weapon_Q_Fragrans_C:PredictPathComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.13"
       },
       "CachedComponents": [
         {
@@ -181,7 +181,7 @@
           "Key": "StateUnEquipped",
           "Value": {
             "ObjectName": "CyFUnEquippedState'Default__Weapon_Q_Fragrans_C:StateUnEquipped'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.10"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.9"
           }
         },
         {
@@ -195,14 +195,14 @@
           "Key": "PartPendant",
           "Value": {
             "ObjectName": "CyPartPendant'Default__Weapon_Q_Fragrans_C:PartPendant'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.13"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.12"
           }
         },
         {
           "Key": "StateUnEquip",
           "Value": {
             "ObjectName": "CyFUnEquipState'Default__Weapon_Q_Fragrans_C:StateUnEquip'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.11"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.10"
           }
         },
         {
@@ -305,9 +305,6 @@
     "Class": "UScriptClass'CyFAttackState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "SupportUseIDSet": [
-        "EUseID::Secondary"
-      ],
       "LooseGameplayTags": [
         "State.Player.DisableKeep2D.Fly",
         "State.Player.DisableKeep2D.Side"
@@ -403,219 +400,6 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
-    "Type": "CyFSecondWorkState",
-    "Name": "CyFSecondWorkState_GEN_VARIABLE",
-    "Outer": "Weapon_Q_Fragrans_C",
-    "Class": "UScriptClass'CyFSecondWorkState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "bStopAnimationOnEnd": true,
-      "TimeLine": {
-        "Events": [
-          {
-            "Position": 0.2,
-            "ActuatorsWithTarget": [],
-            "ActuatorsWithMultiTarget": [],
-            "ActuatorsWithMultiTargets": [],
-            "ActuatorsWithLocation": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'Summon_Q_Fragrans_SecondWork_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Q/Summon_SecondWork/Summon_Q_Fragrans_SecondWork.2"
-              }
-            ],
-            "CheckAtom": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": [
-                "State.Arousal.Three",
-                "State.Arousal.Two"
-              ]
-            },
-            "BlockTags": [],
-            "bAttachToHitActor": false,
-            "SocketName": "Body",
-            "LocationRule": "EAttachmentRule::KeepWorld",
-            "RotationRule": "EAttachmentRule::KeepWorld",
-            "ScaleRule": "EAttachmentRule::KeepWorld"
-          },
-          {
-            "Position": 0.2,
-            "ActuatorsWithTarget": [],
-            "ActuatorsWithMultiTarget": [],
-            "ActuatorsWithMultiTargets": [],
-            "ActuatorsWithLocation": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'Summon_Q_Fragrans_ArousalThree_SecondWork_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/ArousalThree/Summon_ArousalThree_SecondWork/Summon_Q_Fragrans_ArousalThree_SecondWork.2"
-              }
-            ],
-            "CheckAtom": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [
-                "State.Arousal.Three"
-              ],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BlockTags": [],
-            "bAttachToHitActor": false,
-            "SocketName": "Body",
-            "LocationRule": "EAttachmentRule::KeepWorld",
-            "RotationRule": "EAttachmentRule::KeepWorld",
-            "ScaleRule": "EAttachmentRule::KeepWorld"
-          },
-          {
-            "Position": 0.2,
-            "ActuatorsWithTarget": [],
-            "ActuatorsWithMultiTarget": [],
-            "ActuatorsWithMultiTargets": [],
-            "ActuatorsWithLocation": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'Summon_Q_Fragrans_Work_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Q/Summon_Work/Summon_Q_Fragrans_Work.2"
-              }
-            ],
-            "CheckAtom": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [
-                "State.Arousal.Two"
-              ],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BlockTags": [],
-            "bAttachToHitActor": false,
-            "SocketName": "Body",
-            "LocationRule": "EAttachmentRule::KeepWorld",
-            "RotationRule": "EAttachmentRule::KeepWorld",
-            "ScaleRule": "EAttachmentRule::KeepWorld"
-          }
-        ]
-      },
-      "BlockAbilitiesWithTag": [
-        "GA.Ability.SkillQ",
-        "GA.Ability.SkillX",
-        "GA.Use.Primary",
-        "GA.Use.Secondary",
-        "GA.Action.Wall",
-        "GA.Action.Rescue",
-        "GA.Action.RescueSelf",
-        "GA.Passive.KokonaShiki"
-      ],
-      "LooseGameplayTags": [
-        "State.Player.DisableSwitchWeapon",
-        "State.Player.DisableInteract",
-        "State.Player.DisableKeep2D.Fly",
-        "State.Player.DisableKeep2D.Side",
-        "State.Player.DisableInput2D.Fly",
-        "State.Player.DisableInput2D.Side"
-      ],
-      "TotalDuration": {
-        "Value": 0.5
-      },
-      "AllowedGait": "ECyGait::Run",
-      "bUseStatePosition": true,
-      "TimeForWeaponInvisible": 0.38,
-      "Events": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_SwitchWeapon_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_AIState/BP_SAtom_SwitchWeapon.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        }
-      ],
-      "AssetEvents": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::Instigator",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "CharacterMesh0",
-              "AssetTagContainer": [
-                "Resource.Particle.Work.B",
-                "Resource.Audio.Work.B"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": false
-            },
-            {
-              "AttachComponentType": "EAttachComponentType::Instigator",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "CharacterMesh0",
-              "AssetTagContainer": [
-                "Resource.Particle.Fragrans.Q.MoveSpeedTrail"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": true
-            }
-          ]
-        },
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [
-              "State.Arousal.Two"
-            ],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::Instigator",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "CharacterMesh0",
-              "AssetTagContainer": [
-                "Resource.Particle.Work.C",
-                "Resource.Audio.Work.C",
-                "Resource.Particle.Fragrans.Q.ArousalTwoTrail"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": true
-            }
-          ]
-        }
-      ],
-      "BeginUIEventTag": {
-        "TagName": "UIEvent.Activate.Skill.Q"
-      }
-    }
-  },
-  {
     "Type": "CyFUnEquippedState",
     "Name": "StateUnEquipped",
     "Outer": "Default__Weapon_Q_Fragrans_C",
@@ -657,10 +441,15 @@
             "ActuatorsWithLocation": [
               {
                 "ObjectName": "BlueprintGeneratedClass'Summon_Q_Fragrans_Work_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Q/Summon_Work/Summon_Q_Fragrans_Work.2"
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Summon_Work/Summon_Q_Fragrans_Work.2"
               }
             ],
-            "CheckAtom": [],
+            "CheckAtom": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_SCA_FragransSummon_Work_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/BP_SCA_FragransSummon_Work.0"
+              }
+            ],
             "TagRequirements": {
               "RequireTagType": "ERequireTagType::AND",
               "bInverse": false,
@@ -686,15 +475,123 @@
             "ActuatorsWithLocation": [
               {
                 "ObjectName": "BlueprintGeneratedClass'Summon_Q_Fragrans_ArousalThree_Work_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/ArousalThree/Summon_ArousalThree_Work/Summon_Q_Fragrans_ArousalThree_Work.2"
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/ArousalThree/Summon_ArousalThree_Work/Summon_Q_Fragrans_ArousalThree_Work.2"
               }
             ],
-            "CheckAtom": [],
+            "CheckAtom": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_SCA_FragransSummon_Work_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/BP_SCA_FragransSummon_Work.0"
+              }
+            ],
             "TagRequirements": {
               "RequireTagType": "ERequireTagType::AND",
               "bInverse": false,
               "RequireAnyTags": [
                 "State.Arousal.Three"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BlockTags": [],
+            "bAttachToHitActor": false,
+            "SocketName": "Body",
+            "LocationRule": "EAttachmentRule::KeepWorld",
+            "RotationRule": "EAttachmentRule::KeepWorld",
+            "ScaleRule": "EAttachmentRule::KeepWorld"
+          },
+          {
+            "Position": 0.2,
+            "ActuatorsWithTarget": [],
+            "ActuatorsWithMultiTarget": [],
+            "ActuatorsWithMultiTargets": [],
+            "ActuatorsWithLocation": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'Summon_Q_Fragrans_SecondWork_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Summon_SecondWork/Summon_Q_Fragrans_SecondWork.2"
+              }
+            ],
+            "CheckAtom": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_SCA_FragransSummon_SecondWork_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/BP_SCA_FragransSummon_SecondWork.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "State.Arousal.Three",
+                "State.Arousal.Two"
+              ]
+            },
+            "BlockTags": [],
+            "bAttachToHitActor": false,
+            "SocketName": "Body",
+            "LocationRule": "EAttachmentRule::KeepWorld",
+            "RotationRule": "EAttachmentRule::KeepWorld",
+            "ScaleRule": "EAttachmentRule::KeepWorld"
+          },
+          {
+            "Position": 0.2,
+            "ActuatorsWithTarget": [],
+            "ActuatorsWithMultiTarget": [],
+            "ActuatorsWithMultiTargets": [],
+            "ActuatorsWithLocation": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'Summon_Q_Fragrans_ArousalThree_SecondWork_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/ArousalThree/Summon_ArousalThree_SecondWork/Summon_Q_Fragrans_ArousalThree_SecondWork.2"
+              }
+            ],
+            "CheckAtom": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_SCA_FragransSummon_SecondWork_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/BP_SCA_FragransSummon_SecondWork.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "State.Arousal.Three"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BlockTags": [],
+            "bAttachToHitActor": false,
+            "SocketName": "Body",
+            "LocationRule": "EAttachmentRule::KeepWorld",
+            "RotationRule": "EAttachmentRule::KeepWorld",
+            "ScaleRule": "EAttachmentRule::KeepWorld"
+          },
+          {
+            "Position": 0.2,
+            "ActuatorsWithTarget": [],
+            "ActuatorsWithMultiTarget": [],
+            "ActuatorsWithMultiTargets": [],
+            "ActuatorsWithLocation": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'Summon_Q_Fragrans_Work_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Summon_Work/Summon_Q_Fragrans_Work.2"
+              }
+            ],
+            "CheckAtom": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_SCA_FragransSummon_SecondWork_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/BP_SCA_FragransSummon_SecondWork.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "State.Arousal.Two"
               ],
               "IgnoreAllTags": [],
               "RequireTags": [],
@@ -849,6 +746,13 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "CyRecordBoolComponent",
+    "Name": "CyRecordBool_GEN_VARIABLE",
+    "Outer": "Weapon_Q_Fragrans_C",
+    "Class": "UScriptClass'CyRecordBoolComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
     "Type": "CySkinComponent",
     "Name": "CySkin_GEN_VARIABLE",
     "Outer": "Weapon_Q_Fragrans_C",
@@ -969,6 +873,25 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRecordBoolComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRecordBoolComponent'Weapon_Q_Fragrans_C:CyRecordBool_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.14"
+      },
+      "VariableGuid": "0C076910-4CADFB64-C4EE06AE-9330D78C",
+      "InternalVariableName": "CyRecordBool"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_7",
     "Outer": "SimpleConstructionScript_0",
     "Class": "UScriptClass'SCS_Node'",
@@ -980,29 +903,10 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyFWorkState'Weapon_Q_Fragrans_C:CyFWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.12"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.11"
       },
       "VariableGuid": "3B257EE3-4E47FBC4-056CB794-23DADDC6",
       "InternalVariableName": "CyFWorkState"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_9",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
-    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class'CyFSecondWorkState'",
-        "ObjectPath": "/Script/PMGame"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "CyFSecondWorkState'Weapon_Q_Fragrans_C:CyFSecondWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.9"
-      },
-      "VariableGuid": "A9C4D4D9-4E6EE18A-93A8ACB9-EFE471DD",
-      "InternalVariableName": "CyFSecondWorkState"
     }
   },
   {
@@ -1019,15 +923,15 @@
         },
         {
           "ObjectName": "SCS_Node'Weapon_Q_Fragrans_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.25"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon_Q_Fragrans_C:SimpleConstructionScript_0.SCS_Node_9'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.26"
         },
         {
           "ObjectName": "SCS_Node'Weapon_Q_Fragrans_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.23"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Q_Fragrans_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.25"
         }
       ],
       "AllNodes": [
@@ -1037,15 +941,15 @@
         },
         {
           "ObjectName": "SCS_Node'Weapon_Q_Fragrans_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.25"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon_Q_Fragrans_C:SimpleConstructionScript_0.SCS_Node_9'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.26"
         },
         {
           "ObjectName": "SCS_Node'Weapon_Q_Fragrans_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.23"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Q_Fragrans_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fragrans/Mobile/Q/Weapon/Weapon_Q_Fragrans.25"
         }
       ],
       "DefaultSceneRootNode": {

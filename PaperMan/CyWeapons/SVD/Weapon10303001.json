@@ -568,14 +568,17 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "AnimationBegin": {
-        "Duration": 0.44
+        "Duration": 1.0
       },
       "CameraOffsetInterpSpeed": 50.0,
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_SVD_CameraShake_ADS_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/BP_SVD_CameraShake_ADS.0"
       },
-      "TimeSpreadScaleOn": 0.28,
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadADS'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/SpreadADS.0"
+      },
       "SpreadScale": {
         "Value": 0.01,
         "bEnableMobile": true,
@@ -606,6 +609,24 @@
             "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/CurveTable/CT_ModeWeapon_10303001.0"
           },
           "RowName": "VerticalRecoilScaleADS"
+        }
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.ADS.SVD"
+        }
+      },
+      "BeginAnimationDurationRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Animation.Multiply.ADS.SVD"
         }
       },
       "TotalDuration": {
@@ -658,6 +679,10 @@
         "ObjectName": "BlueprintGeneratedClass'BP_SVD_CameraShake_Shoulder_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/BP_SVD_CameraShake_Shoulder.0"
       },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadAiming'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/SpreadAiming.0"
+      },
       "SpreadScale": {
         "bEnableMobile": true,
         "MobileValue": 1.0,
@@ -687,6 +712,15 @@
             "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/CurveTable/CT_ModeWeapon_10303001.0"
           },
           "RowName": "VerticalRecoilScaleAiming"
+        }
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.Aiming.SVD"
         }
       },
       "AkEventBegin": {
@@ -725,6 +759,19 @@
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_SVD_CameraShake_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/BP_SVD_CameraShake.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadWaist'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/SpreadWaist.0"
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.Waist"
+        }
       }
     }
   },
@@ -738,6 +785,10 @@
       "CameraShake": {
         "ObjectName": "BlueprintGeneratedClass'BP_SVD_CameraShake_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/BP_SVD_CameraShake.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadWaist'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/SpreadWaist.0"
       },
       "SpreadScale": {
         "bEnableMobile": true,
@@ -767,6 +818,15 @@
             "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/CurveTable/CT_ModeWeapon_10303001.0"
           },
           "RowName": "VerticalRecoilScaleWaist"
+        }
+      },
+      "SpreadScaleTimeRate": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Duration.Spread.Multiply.Waist"
         }
       }
     }
@@ -834,7 +894,7 @@
           }
         },
         "PitchRecoilLower": {
-          "Value": 0.96,
+          "Value": 0.76,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -846,7 +906,7 @@
           }
         },
         "PitchRecoilHigher": {
-          "Value": 1.08,
+          "Value": 0.86,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -858,7 +918,7 @@
           }
         },
         "PitchRecoilModifier": {
-          "Value": 0.24,
+          "Value": 0.19,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -870,7 +930,7 @@
           }
         },
         "PitchRecoilModifierLimit": {
-          "Value": 0.72,
+          "Value": 0.57,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1013,43 +1073,43 @@
       },
       "SpreadProcessor": {
         "SpreadMin": {
-          "Value": 1.5,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10303001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/CurveTable/CT_ModeWeapon_10303001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "SpreadMin"
+            "RowName": "Attribute.SpreadMin.Single.SVD"
           }
         },
         "SpreadMax": {
-          "Value": 3.0,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10303001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/CurveTable/CT_ModeWeapon_10303001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "SpreadMax"
+            "RowName": "Attribute.SpreadMax.Single.SVD"
           }
         },
         "SpreadModifierBase": {
-          "Value": 0.9,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10303001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/CurveTable/CT_ModeWeapon_10303001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "SpreadModifierBase"
+            "RowName": "Attribute.SpreadModifier.Single.SVD"
           }
         },
         "SpreadModifierInc": {
-          "Value": 0.9,
+          "Value": 0.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1061,19 +1121,19 @@
           }
         },
         "SpreadModifierMax": {
-          "Value": 1.8,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10303001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/SVD/CurveTable/CT_ModeWeapon_10303001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "SpreadModifierMax"
+            "RowName": "Attribute.SpreadModifier.Single.SVD"
           }
         },
         "SpreadDecSpeed": {
-          "Value": 6.0,
+          "Value": 8.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1085,7 +1145,7 @@
           }
         },
         "SpreadDecSpeedFiring": {
-          "Value": 2.0,
+          "Value": 0.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1108,7 +1168,7 @@
           }
         },
         "SpreadIncSpeedFiring": {
-          "Value": 6.0,
+          "Value": 0.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1165,6 +1225,10 @@
               "RowName": "SpreadInAir"
             }
           }
+        },
+        "PitchAimAssistSpreadScale": {
+          "Value": 0.0,
+          "MobileValue": 0.0
         }
       },
       "CrossHairProcessor": {
@@ -1705,7 +1769,7 @@
               "RotationMask": 1
             },
             "TargetArmLength": {
-              "Value": 4.0,
+              "Value": 0.0,
               "bEnableMobile": false,
               "MobileValue": 4.0,
               "Curve": {
@@ -1731,6 +1795,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [
               {
                 "Value": 3.0,
@@ -1826,12 +1891,15 @@
               }
             },
             "TargetArmLengthLagSpeed": {
-              "Value": 20.0,
+              "Value": 1.0,
               "bEnableMobile": false,
-              "MobileValue": 20.0,
+              "MobileValue": 1.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.LagSpeed.Aiming.SVD"
               }
             },
             "OffsetLagSpeed": {
@@ -1843,6 +1911,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
@@ -1936,6 +2005,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
@@ -2032,6 +2102,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [
               {
                 "Value": 4.0,
@@ -2127,12 +2198,15 @@
               }
             },
             "TargetArmLengthLagSpeed": {
-              "Value": 20.0,
+              "Value": 1.0,
               "bEnableMobile": false,
-              "MobileValue": 20.0,
+              "MobileValue": 1.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.LagSpeed.Aiming.SVD"
               }
             },
             "OffsetLagSpeed": {
@@ -2144,6 +2218,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
@@ -2237,6 +2312,7 @@
                 "RowName": "None"
               }
             },
+            "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [],
             "bEnableUseMobileSocketOffset": false,
             "SocketOffset": {
