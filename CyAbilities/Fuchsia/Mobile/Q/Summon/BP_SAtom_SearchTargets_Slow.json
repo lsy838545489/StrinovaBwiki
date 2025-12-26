@@ -1,0 +1,66 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SAtom_SearchTargets_Slow_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomSearchTargets'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SAtom_SearchTargets_Slow_C'Default__BP_SAtom_SearchTargets_Slow_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Fuchsia/Mobile/Q/Summon/BP_SAtom_SearchTargets_Slow.1"
+    }
+  },
+  {
+    "Type": "BP_SAtom_SearchTargets_Slow_C",
+    "Name": "Default__BP_SAtom_SearchTargets_Slow_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Fuchsia/Mobile/Q/Summon/BP_SAtom_SearchTargets_Slow.BP_SAtom_SearchTargets_Slow_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OverrideDetectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_DetectorSphere_All_Slow_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/Q/Summon/BP_DetectorSphere_All_Slow"
+        }
+      ],
+      "SearchMode": "ESearchMode::IncrementalOnce",
+      "EffectsToApply": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Q_Fuchsia_Arousal_Slow1s_C'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/ArousalThree/GE_Q_Fuchsia_Arousal_Slow1s"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [
+              "State.Arousal.Three"
+            ],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::None"
+        }
+      ],
+      "OnSearchTargetEvent": {
+        "TagName": "Event.Skill.Fuchsia.Q.OnHunting"
+      },
+      "bUseAuthorityMask": true,
+      "InstigatorRequireTags": {
+        "RequireTags": [
+          "State.Arousal.Three"
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,69 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SearchTargets_InWall_Escort2_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomSearchTargets'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SearchTargets_InWall_Escort2_C'Default__BP_SearchTargets_InWall_Escort2_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Fragrans/Mobile/P/BP_SearchTargets_InWall_Escort2.1"
+    }
+  },
+  {
+    "Type": "BP_SearchTargets_InWall_Escort2_C",
+    "Name": "Default__BP_SearchTargets_InWall_Escort2_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Fragrans/Mobile/P/BP_SearchTargets_InWall_Escort2.BP_SearchTargets_InWall_Escort2_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OverrideDetectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TargetDetectorSphere_InWall_Escort2_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Fragrans/Mobile/P/BP_TargetDetectorSphere_InWall_Escort2"
+        }
+      ],
+      "EffectsToApply": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_P_Fragrans_InWall_Escort2_C'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Fragrans/Mobile/P/GE_P_Fragrans_InWall_Escort2"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite"
+        }
+      ],
+      "bUseAuthorityMask": true,
+      "InstigatorRequireTags": {
+        "RequireTags": [
+          "State.Health.Alive",
+          "State.Shape.2D.Wall"
+        ],
+        "IgnoreTags": [
+          "State.Game.Freeze",
+          "State.Game.Ready",
+          "Buff.Weak.AddHealthCD.P.Fragrans"
+        ]
+      },
+      "AllowedModes": [
+        "EPMGameModeType::Escort2"
+      ]
+    }
+  }
+]

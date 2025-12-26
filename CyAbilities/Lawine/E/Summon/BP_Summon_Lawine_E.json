@@ -1,0 +1,1484 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Summon_Lawine_E_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.35"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySummonActor'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyRetain",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRetainComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_GameStateComponent_Summon",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIDeathState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIDeathState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILeaveState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAILeaveState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIEntryState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIEntryState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateNone",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySummonLightAI",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySummonLightAIComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyLife",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyLifeComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAbilitySystem",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAbilitySystemComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "MainSkeletalMesh",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Summon_Lawine_E_C'Default__BP_Summon_Lawine_E_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.1"
+    }
+  },
+  {
+    "Type": "BP_Summon_Lawine_E_C",
+    "Name": "Default__BP_Summon_Lawine_E_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.BP_Summon_Lawine_E_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ArousalComponent": {
+        "ObjectName": "CyArousalComponent'Default__BP_Summon_Lawine_E_C:ArousalComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.11"
+      },
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_Lawine_E_C:PerceptionSystemComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.17"
+      },
+      "bAlwaysRelevant": true,
+      "bReplicates": true
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'AkComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "UObject",
+    "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyAbilitySystemComponent",
+    "Name": "CyAbilitySystem_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DefaultStartingData": [
+        {
+          "Attributes": {
+            "ObjectName": "Class'CySummonAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "DefaultStartingTable": {
+            "ObjectName": "DataTable'AttributeMetaData'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Lawine/E/Summon/AttributeMetaData"
+          },
+          "MobileStartingTable": null
+        }
+      ],
+      "ReplicatedPredictionKeyMap": {
+        "PredictionKeys": [
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 1,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 2,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 3,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 4,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 5,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 6,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 7,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 8,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 9,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 10,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 11,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 12,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 13,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 14,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 15,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 16,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 17,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 18,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 19,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 20,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 21,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 22,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 23,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 24,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 25,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 26,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 27,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 28,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 29,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 30,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 31,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 32,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          }
+        ],
+        "ArrayReplicationKey": 32
+      }
+    }
+  },
+  {
+    "Type": "CyAIDeathState",
+    "Name": "CyAIDeathState_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyAIDeathState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HideMeshNames": [
+        "MainSkeletalMesh"
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMesh",
+              "AssetTagContainer": [
+                "Resource.Particle.Death.A",
+                "Resource.Audio.Death.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIEntryState",
+    "Name": "CyAIEntryState_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyAIEntryState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 1.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_ApplyEffect_Flash_C'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Lawine/E/Summon/BP_ApplyEffect_Flash"
+          },
+          "SubAtoms": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_SearchSelf_E_AddArmor_C'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Lawine/E/Summon/BP_SAtom_SearchSelf_E_AddArmor"
+          },
+          "SubAtoms": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMesh",
+              "AssetTagContainer": [
+                "Resource.Particle.Entry.A",
+                "Resource.Audio.Entry.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "bEnableMobile": true,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Duration.Entry.E.Lawine"
+        }
+      }
+    }
+  },
+  {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HideMeshNames": [
+        "MainSkeletalMesh"
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMesh",
+              "AssetTagContainer": [
+                "Resource.Particle.Leave.A",
+                "Resource.Audio.Leave.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIStateNone_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyAIState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.0
+      }
+    }
+  },
+  {
+    "Type": "CyArousalComponent",
+    "Name": "ArousalComponent",
+    "Outer": "Default__BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyArousalComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyLifeComponent",
+    "Name": "CyLife_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyLifeComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyRetainComponent",
+    "Name": "CyRetain_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DestroyEventTag": {
+        "TagName": "Event.Summon.Destroy.Lawine.E"
+      }
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Detectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TargetDetectorSphere_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Lawine/E/Summon/BP_TargetDetectorSphere"
+        }
+      ],
+      "InitializeRadius": 4000.0,
+      "LocationType": "ELocationInitializeType::ActorOwnerOffset"
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "CySkin_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bEnableOcclusion": true,
+      "bEnableTeamType": true
+    }
+  },
+  {
+    "Type": "CySummonLightAIComponent",
+    "Name": "CySummonLightAI_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'CySummonLightAIComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AliveMask": "ELifeMask::Armor"
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Outer": "Default__BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StimuliSourceID": 21282
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Summon_Lawine_E_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.18"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.24"
+        }
+      ],
+      "VariableGuid": "CB0E874D-41D1D381-BD865CAD-A8D62F2E",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyLifeComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyLifeComponent'BP_Summon_Lawine_E_C:CyLife_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.12"
+      },
+      "VariableGuid": "C9FE5A70-4048764C-E3284FBF-51A80A25",
+      "InternalVariableName": "CyLife"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIDeathState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIDeathState'BP_Summon_Lawine_E_C:CyAIDeathState_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.5"
+      },
+      "VariableGuid": "AD2604BF-4F1DABE0-350E00AC-1567F6C7",
+      "InternalVariableName": "CyAIDeathState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_GameStateComponent_Summon_C'BP_Summon_Lawine_E_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.3"
+      },
+      "VariableGuid": "8C6A3882-41E48F53-759B8387-0A99C188",
+      "InternalVariableName": "BP_GameStateComponent_Summon"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SkeletalMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkeletalMeshComponent'BP_Summon_Lawine_E_C:MainSkeletalMesh_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.36"
+      },
+      "VariableGuid": "CFDC2C83-4B89B2EC-6FF044A4-94655A40",
+      "InternalVariableName": "MainSkeletalMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'BP_Summon_Lawine_E_C:Ak_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.2"
+      },
+      "VariableGuid": "2E041CEC-42EA2D11-C93FECBE-9E53127E",
+      "InternalVariableName": "Ak"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAbilitySystemComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAbilitySystemComponent'BP_Summon_Lawine_E_C:CyAbilitySystem_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.4"
+      },
+      "VariableGuid": "F8FB1D38-447DF315-E3863096-F9F00226",
+      "InternalVariableName": "CyAbilitySystem"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_15",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySkinComponent'BP_Summon_Lawine_E_C:CySkin_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.15"
+      },
+      "VariableGuid": "02982A5F-41665D20-2D9F9BA7-88CC9CE2",
+      "InternalVariableName": "CySkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_16",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'BP_Summon_Lawine_E_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.14"
+      },
+      "VariableGuid": "BE4561AF-4BD65C29-127AD4AA-5DCAF68C",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySummonLightAIComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySummonLightAIComponent'BP_Summon_Lawine_E_C:CySummonLightAI_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.16"
+      },
+      "VariableGuid": "8687AB50-4C0732B5-945A8094-0A6D4E75",
+      "InternalVariableName": "CySummonLightAI"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'BP_Summon_Lawine_E_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.8"
+      },
+      "VariableGuid": "B28AA084-4027C067-943AACA2-9B061E22",
+      "InternalVariableName": "CyAIMachine"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_Lawine_E_C:CyAIStateNone_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.9"
+      },
+      "VariableGuid": "EA1A50EE-40D41CF4-64F40D8E-083D4F64",
+      "InternalVariableName": "CyAIStateNone"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIEntryState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIEntryState'BP_Summon_Lawine_E_C:CyAIEntryState_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.6"
+      },
+      "VariableGuid": "C19CADCB-4493BF60-E008F695-DA66415E",
+      "InternalVariableName": "CyAIEntryState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'BP_Summon_Lawine_E_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.10"
+      },
+      "VariableGuid": "B60F38A2-4753BA0E-F1C4D28A-89A91902",
+      "InternalVariableName": "CyAIWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAILeaveState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAILeaveState'BP_Summon_Lawine_E_C:CyAILeaveState_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.7"
+      },
+      "VariableGuid": "33BC3058-47FAEF1A-83A82E8F-E4658EAB",
+      "InternalVariableName": "CyAILeaveState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRetainComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRetainComponent'BP_Summon_Lawine_E_C:CyRetain_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.13"
+      },
+      "VariableGuid": "E8E4FB35-469738F3-D8AD58B3-60A4559F",
+      "InternalVariableName": "CyRetain"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.34"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.34"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Summon_Lawine_E_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PaperMan/CyAbilities/Lawine/E/Summon/BP_Summon_Lawine_E.19"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "MainSkeletalMesh_GEN_VARIABLE",
+    "Outer": "BP_Summon_Lawine_E_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ClothingSimulationFactoryNv'",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel4",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SummonMeshCollosion",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 25.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 3.0,
+        "Y": 3.0,
+        "Z": 3.0
+      },
+      "ComponentTagSet": [
+        "WorkingMesh",
+        "OcclusionMesh"
+      ]
+    }
+  }
+]

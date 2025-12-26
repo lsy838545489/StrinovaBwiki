@@ -1,0 +1,128 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Shared_Rescue_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Shared_Rescue_C'Default__GA_Shared_Rescue_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/GA_Shared_Rescue.1"
+    }
+  },
+  {
+    "Type": "GA_Shared_Rescue_C",
+    "Name": "Default__GA_Shared_Rescue_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/GA_Shared_Rescue.GA_Shared_Rescue_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorCacheEventTarget_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorCacheEventTarget"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorCacheRescuer_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorCacheRescuer"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GASwitchWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/BP_GASwitchWeapon"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateWeapon"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Shared_Rescue_ChangeCameraParam_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/BP_Shared_Rescue_ChangeCameraParam"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.Rescue.End"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_Rescue_V2_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GA/GA_Shared_Rescue/Weapon/Weapon_Rescue_V2"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Rescue",
+      "CancelAbilitiesPreActivateWithTag": [
+        "GA.Action.Side"
+      ],
+      "AbilityTags": [
+        "GA.Action.Rescue"
+      ],
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerOnly",
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "Event.Action.Rescue.Start"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::GameplayEvent",
+          "TriggerType": "EGameplayAbilityTriggerType::Default"
+        }
+      ],
+      "BlockAbilitiesWithTag": [
+        "GA.Ability.SkillQ",
+        "GA.Ability.SkillX",
+        "GA.Ability.SkillE"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Action.Rescue"
+      ]
+    }
+  }
+]

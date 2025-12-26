@@ -1,0 +1,77 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_P_Fragrans_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_P_Fragrans_C'Default__GA_P_Fragrans_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Fragrans/Mobile/P/GA_P_Fragrans.1"
+    }
+  },
+  {
+    "Type": "GA_P_Fragrans_C",
+    "Name": "Default__GA_P_Fragrans_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Fragrans/Mobile/P/GA_P_Fragrans.GA_P_Fragrans_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveActuator_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveActuator"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateActuator_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateActuator"
+        }
+      ],
+      "ActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'Actuator_P_Fragrans_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Fragrans/Mobile/P/Actuator_P_Fragrans"
+      },
+      "AbilityTags": [
+        "GA.Passive.Fragrans"
+      ],
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerInitiated",
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "State.Health.Alive"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Active"
+        },
+        {
+          "TriggerTag": {
+            "TagName": "State.Health.Injured"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Active"
+        },
+        {
+          "TriggerTag": {
+            "TagName": "State.Health.Death"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::End"
+        }
+      ],
+      "ActivationOwnedTags": [
+        "GA.Passive.Fragrans"
+      ]
+    }
+  }
+]

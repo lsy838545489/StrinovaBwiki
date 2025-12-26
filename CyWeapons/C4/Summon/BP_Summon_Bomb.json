@@ -1,0 +1,2291 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Summon_Bomb_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.69"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySummonActor'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyRetain",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRetainComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PMSummonAnimation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'PMSummonAnimationComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFindBomb",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFindBombComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SpringArm",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SpringArmComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Camera",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CameraComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIFifthWorkStateMonitor_Countdown5",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIFourthWorkStateMonitor_Countdown4",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIThirdWorkStateMonitor_Countdown3",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAISecondWorkStateMonitor_Countdown2",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkStateMonitor_Countdown1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIDeathState_Remove",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIDeathState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILeaveState_Burst",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAILeaveState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIFifthWorkState_Countdown5",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIFourthWorkState_Countdown4",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIThirdWorkState_Countdown3",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAISecondWorkState_Countdown2",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState_Countdown1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIEntryState_Entry",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIAnimationState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySceneMapC4Mask",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySceneMapC4MaskComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_GameStateComponent_Summon",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyInteract",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyInteractComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIInterruptState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyActuatorBomb",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyActuatorBombComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateNone",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySummonLightAI",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySummonLightAIComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyBaseEffect",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyBaseEffectComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SkeletalMesh",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InteractAreaSphere",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Capsule",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Summon_Bomb_C'Default__BP_Summon_Bomb_C'",
+      "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.1"
+    }
+  },
+  {
+    "Type": "BP_Summon_Bomb_C",
+    "Name": "Default__BP_Summon_Bomb_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.BP_Summon_Bomb_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ArousalComponent": {
+        "ObjectName": "CyArousalComponent'Default__BP_Summon_Bomb_C:ArousalComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.23"
+      },
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_Bomb_C:PerceptionSystemComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.32"
+      },
+      "bReplicates": true
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'AkComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "UObject",
+    "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CameraComponent",
+    "Name": "Camera_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CameraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Capsule_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 70.0,
+      "CapsuleRadius": 30.0,
+      "AreaClass": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel9",
+        "bEnableGravity": false,
+        "CollisionProfileName": "C4Placed",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Interaction",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 70.0
+      }
+    }
+  },
+  {
+    "Type": "CyActuatorBombComponent",
+    "Name": "CyActuatorBomb_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyActuatorBombComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CheckSightProfileName": {
+        "Name": "SpectatorBlock"
+      },
+      "CountdownTickSpeedCurve": {
+        "ObjectName": "CurveFloat'FloatCurve_Countdown_AnimSpeed'",
+        "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/Curves/FloatCurve_Countdown_AnimSpeed"
+      },
+      "AkEvent_BombCountdownTick": {
+        "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Bomb_Time.Wpn_Bomb_Time",
+        "SubPathString": ""
+      }
+    }
+  },
+  {
+    "Type": "CyAIAnimationState",
+    "Name": "CyAIEntryState_Entry_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIAnimationState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StateType": "EAIStateType::Entry",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_PlayInGameVoice_C'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/BP_SA_PlayInGameVoice"
+          },
+          "SubAtoms": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Entry"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "Value": 0.01
+      },
+      "BeginEventTags": [
+        {
+          "TagName": "UIEvent.Game.Install.C4.End"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIDeathState",
+    "Name": "CyAIDeathState_Remove_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIDeathState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bSendDestoryEvent": false,
+      "bRemoveOwnedActors": false,
+      "bPlayRateMatchDuration": false,
+      "TotalDuration": {
+        "Value": 2.0
+      },
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Action.RemoveC4"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_Burst_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bSendDestroyEvent": false,
+      "bDestroyOnEnd": false,
+      "HideMeshNames": [
+        "SkeletalMesh"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_BombBurst_C'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/BP_SA_SearchTargets_BombBurst"
+          },
+          "SubAtoms": [
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSA_KillTargert_C'",
+              "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/BP_SSA_KillTargert"
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ParticleScale_BombBurst_C'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/BP_SA_ParticleScale_BombBurst"
+          },
+          "SubAtoms": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Leave",
+                "Resource.Particle.Bomb.BurstSphere",
+                "Resource.Audio.Leave"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "Value": 2.0
+      },
+      "BeginEventTags": [
+        {
+          "TagName": "Resource.Particle.Bomb.BurstSphere"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIFifthWorkState_Countdown5_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StateType": "EAIStateType::FifthWork",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ParticleScale_WorkSphere_5_C'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/BP_SA_ParticleScale_WorkSphere_5"
+          },
+          "SubAtoms": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 2.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIFourthWorkState_Countdown4_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StateType": "EAIStateType::FourthWork",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ParticleScale_WorkSphere_4_C'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/BP_SA_ParticleScale_WorkSphere_4"
+          },
+          "SubAtoms": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 3.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIInterruptState_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StateType": "EAIStateType::Interrupt"
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAISecondWorkState_Countdown2_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StateType": "EAIStateType::SecondWork",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ParticleScale_WorkSphere_2_C'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/BP_SA_ParticleScale_WorkSphere_2"
+          },
+          "SubAtoms": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 13.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIStateNone_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIThirdWorkState_Countdown3_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StateType": "EAIStateType::ThirdWork",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ParticleScale_WorkSphere_3_C'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/BP_SA_ParticleScale_WorkSphere_3"
+          },
+          "SubAtoms": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 7.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIWorkState_Countdown1_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StateType": "EAIStateType::Work",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ParticleScale_WorkSphere_1_C'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/C4/Summon/BP_SA_ParticleScale_WorkSphere_1"
+          },
+          "SubAtoms": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 25.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIFifthWorkStateMonitor_Countdown5_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::FifthWork"
+      ],
+      "BeginAssetTagContainers": [
+        {
+          "AttachComponentType": "EAttachComponentType::None",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Particle.FifthWork",
+            "Resource.Audio.FifthWork"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIFourthWorkStateMonitor_Countdown4_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::FourthWork",
+        "EAIStateType::FifthWork"
+      ],
+      "BeginAssetTagContainers": [
+        {
+          "AttachComponentType": "EAttachComponentType::None",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Particle.FourthWork",
+            "Resource.Audio.FourthWork"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAISecondWorkStateMonitor_Countdown2_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::SecondWork",
+        "EAIStateType::ThirdWork",
+        "EAIStateType::FourthWork",
+        "EAIStateType::FifthWork"
+      ],
+      "BeginAssetTagContainers": [
+        {
+          "AttachComponentType": "EAttachComponentType::None",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Particle.SecondWork",
+            "Resource.Audio.SecondWork"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIThirdWorkStateMonitor_Countdown3_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::ThirdWork",
+        "EAIStateType::FourthWork",
+        "EAIStateType::FifthWork"
+      ],
+      "BeginAssetTagContainers": [
+        {
+          "AttachComponentType": "EAttachComponentType::None",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Particle.ThirdWork",
+            "Resource.Audio.ThirdWork"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIWorkStateMonitor_Countdown1_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::Work",
+        "EAIStateType::SecondWork",
+        "EAIStateType::ThirdWork",
+        "EAIStateType::FourthWork",
+        "EAIStateType::FifthWork",
+        "EAIStateType::Entry"
+      ],
+      "AnimStateType": "EAIStateType::Work",
+      "BeginAssetTagContainers": [
+        {
+          "AttachComponentType": "EAttachComponentType::None",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Particle.Bomb.CountdownSphere",
+            "Resource.Particle.Work",
+            "Resource.Audio.Work"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        },
+        {
+          "AttachComponentType": "EAttachComponentType::None",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Particle.Work.A",
+            "Resource.Particle.Work.B"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyArousalComponent",
+    "Name": "ArousalComponent",
+    "Outer": "Default__BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyArousalComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyBaseEffectComponent",
+    "Name": "CyBaseEffect_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyBaseEffectComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFindBombComponent",
+    "Name": "CyFindBomb_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyFindBombComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CheckDistance_InstallArea": {
+        "DefaultValue": 0.0,
+        "PlatformOverrides": {
+          "Mobile": 2500.0
+        }
+      },
+      "CheckDistance_NoInstallArea": {
+        "DefaultValue": 0.0,
+        "PlatformOverrides": {
+          "Mobile": 1500.0
+        }
+      },
+      "bCheckView": {
+        "DefaultValue": false,
+        "PlatformOverrides": {
+          "Mobile": true
+        }
+      },
+      "CheckDistance_Bomb": {
+        "DefaultValue": 1500.0,
+        "PlatformOverrides": {
+          "Mobile": 10000.0
+        }
+      }
+    }
+  },
+  {
+    "Type": "CyInteractComponent",
+    "Name": "CyInteract_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyInteractComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GlobalInteractPriority": 999,
+      "InteractPriority": 999,
+      "MaxInteractCount": 1,
+      "CheckPawnSightSkew": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 30.0
+      },
+      "bCheckPawnSightUseProfileConfig": true,
+      "CheckPawnSightProfileName": {
+        "Name": "InteractBlock"
+      },
+      "InteractAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_InteractAtom_DismantleC4_C'",
+          "ObjectPath": "/Game/PaperMan/Blueprints/SharedInteractAtoms/BP_InteractAtom_DismantleC4"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyRetainComponent",
+    "Name": "CyRetain_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bRegisterPlayerActor": false
+    }
+  },
+  {
+    "Type": "CySceneMapC4MaskComponent",
+    "Name": "CySceneMapC4Mask_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CySceneMapC4MaskComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bNeedCheckState": true,
+      "VisionDistance": 9999.0,
+      "VisionSwitch": {
+        "bVisibleToSelf": false,
+        "bVisibleToTeammates": false,
+        "bVisibleInXRay": false
+      },
+      "SceneMapItemName": "SceneMap_BombItem",
+      "TraceRelativeLocation": [
+        {
+          "X": 90.0,
+          "Y": 30.0,
+          "Z": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Detectors": [
+        null
+      ]
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "CySkin_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CySummonLightAIComponent",
+    "Name": "CySummonLightAI_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'CySummonLightAIComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxWorkTimes": {
+        "Value": 1.0
+      },
+      "UseWorkStates": [
+        "EAIStateType::Work",
+        "EAIStateType::SecondWork",
+        "EAIStateType::ThirdWork",
+        "EAIStateType::FourthWork",
+        "EAIStateType::FifthWork"
+      ]
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Outer": "Default__BP_Summon_Bomb_C",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "PMSummonAnimationComponent",
+    "Name": "PMSummonAnimation_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'PMSummonAnimationComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Summon_Bomb_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.34"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_26'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.45"
+        }
+      ],
+      "VariableGuid": "32B394CB-492DCA43-3E513299-493CB38E",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_Summon_Bomb_C:Capsule_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.5"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.49"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.60"
+        }
+      ],
+      "VariableGuid": "8789008C-411AC7F2-938E2F80-69D6BD97",
+      "InternalVariableName": "Capsule"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRetainComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRetainComponent'BP_Summon_Bomb_C:CyRetain_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.27"
+      },
+      "VariableGuid": "50575803-407F9BBE-3990879B-4796107A",
+      "InternalVariableName": "CyRetain"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'BP_Summon_Bomb_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.29"
+      },
+      "VariableGuid": "9AB04D65-4C1DB467-58B62384-E8778281",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_Bomb_C:CyAIStateNone_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.15"
+      },
+      "VariableGuid": "EB1470E4-4E7C3956-97613087-C56474CB",
+      "InternalVariableName": "CyAIStateNone"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_15",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySkinComponent'BP_Summon_Bomb_C:CySkin_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.30"
+      },
+      "VariableGuid": "3C830943-455A721D-7C8743B4-4B4BBF65",
+      "InternalVariableName": "CySkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_18",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyActuatorBombComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyActuatorBombComponent'BP_Summon_Bomb_C:CyActuatorBomb_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.6"
+      },
+      "VariableGuid": "F7102191-4A264CA7-980F4F97-622D71AB",
+      "InternalVariableName": "CyActuatorBomb"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_Summon_Bomb_C:InteractAreaSphere_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.71"
+      },
+      "VariableGuid": "D824BB29-4AF38FC6-D3682CAA-E4EC0A61",
+      "InternalVariableName": "InteractAreaSphere"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_24",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_Bomb_C:CyAIInterruptState_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.13"
+      },
+      "VariableGuid": "C367960A-45C31D18-D4B68AAC-6A4399DD",
+      "InternalVariableName": "CyAIInterruptState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_25",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyInteractComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyInteractComponent'BP_Summon_Bomb_C:CyInteract_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.26"
+      },
+      "VariableGuid": "6B3556CB-4FBFD842-12A76B8E-CCB552F4",
+      "InternalVariableName": "CyInteract"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_26",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'BP_Summon_Bomb_C:Ak_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.2"
+      },
+      "VariableGuid": "B67A6DC3-4187A380-E29719BF-8C9B0817",
+      "InternalVariableName": "Ak"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_27",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySceneMapC4MaskComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySceneMapC4MaskComponent'BP_Summon_Bomb_C:CySceneMapC4Mask_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.28"
+      },
+      "VariableGuid": "0CE74E31-4D3A3F0E-D1901681-6523DF0E",
+      "InternalVariableName": "CySceneMapC4Mask"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_28",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_GameStateComponent_Summon_C'BP_Summon_Bomb_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.3"
+      },
+      "VariableGuid": "888AFB29-4CB979DD-3E842D85-8498AB7A",
+      "InternalVariableName": "BP_GameStateComponent_Summon"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_29",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'BP_Summon_Bomb_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.10"
+      },
+      "VariableGuid": "73924779-43D29880-F602C686-6C7FB98D",
+      "InternalVariableName": "CyAIMachine"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SkeletalMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkeletalMeshComponent'BP_Summon_Bomb_C:SkeletalMesh_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.70"
+      },
+      "VariableGuid": "8FDDC587-4BF94F68-75317B83-9B10FB1F",
+      "InternalVariableName": "SkeletalMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_30",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIAnimationState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIAnimationState'BP_Summon_Bomb_C:CyAIEntryState_Entry_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.7"
+      },
+      "VariableGuid": "18B8E1F9-46AD4245-B59F3CBE-2E6770EE",
+      "InternalVariableName": "CyAIEntryState_Entry"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_31",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_Bomb_C:CyAIWorkState_Countdown1_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.17"
+      },
+      "VariableGuid": "BAF1932E-4E38966E-46E125A1-ABC5F044",
+      "InternalVariableName": "CyAIWorkState_Countdown1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_32",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_Bomb_C:CyAISecondWorkState_Countdown2_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.14"
+      },
+      "VariableGuid": "6981AEB1-4521C124-60242B88-C8BEA979",
+      "InternalVariableName": "CyAISecondWorkState_Countdown2"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_33",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_Bomb_C:CyAIThirdWorkState_Countdown3_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.16"
+      },
+      "VariableGuid": "D0178B41-46E33772-494FF097-35FE23A8",
+      "InternalVariableName": "CyAIThirdWorkState_Countdown3"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_34",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_Bomb_C:CyAIFourthWorkState_Countdown4_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.12"
+      },
+      "VariableGuid": "DF66DD4F-48EB334C-13B0599A-004FCF36",
+      "InternalVariableName": "CyAIFourthWorkState_Countdown4"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_35",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_Bomb_C:CyAIFifthWorkState_Countdown5_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.11"
+      },
+      "VariableGuid": "4BC20C4D-45E647FF-A54D79B4-256B3AF5",
+      "InternalVariableName": "CyAIFifthWorkState_Countdown5"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_36",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAILeaveState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAILeaveState'BP_Summon_Bomb_C:CyAILeaveState_Burst_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.9"
+      },
+      "VariableGuid": "1D29FC82-405F955B-EC3F0598-89603A67",
+      "InternalVariableName": "CyAILeaveState_Burst"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_37",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIDeathState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIDeathState'BP_Summon_Bomb_C:CyAIDeathState_Remove_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.8"
+      },
+      "VariableGuid": "C4DA63AE-4B3504B1-D4628891-1A069902",
+      "InternalVariableName": "CyAIDeathState_Remove"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_38",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_Bomb_C:CyAIWorkStateMonitor_Countdown1_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.22"
+      },
+      "VariableGuid": "9497F4BC-46826E5E-FCDD33BA-1EB174B7",
+      "InternalVariableName": "CyAIWorkStateMonitor_Countdown1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_39",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_Bomb_C:CyAISecondWorkStateMonitor_Countdown2_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.20"
+      },
+      "VariableGuid": "C7E48D13-4A2D6DB0-01DBCCA3-4208667B",
+      "InternalVariableName": "CyAISecondWorkStateMonitor_Countdown2"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SpringArmComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SpringArmComponent'BP_Summon_Bomb_C:SpringArm_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.72"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.66"
+        }
+      ],
+      "VariableGuid": "13945F18-4BF8CB6E-0880D8AA-21FF9BE4",
+      "InternalVariableName": "SpringArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_40",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_Bomb_C:CyAIThirdWorkStateMonitor_Countdown3_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.21"
+      },
+      "VariableGuid": "BB6959B1-4DB7DC14-E7AFB8A1-557DB57F",
+      "InternalVariableName": "CyAIThirdWorkStateMonitor_Countdown3"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_41",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_Bomb_C:CyAIFourthWorkStateMonitor_Countdown4_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.19"
+      },
+      "VariableGuid": "09D23169-43916DD6-9EE7668B-377FAEDE",
+      "InternalVariableName": "CyAIFourthWorkStateMonitor_Countdown4"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_42",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_Bomb_C:CyAIFifthWorkStateMonitor_Countdown5_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.18"
+      },
+      "VariableGuid": "3F4B629B-442CB743-D63B1683-37E56908",
+      "InternalVariableName": "CyAIFifthWorkStateMonitor_Countdown5"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyBaseEffectComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyBaseEffectComponent'BP_Summon_Bomb_C:CyBaseEffect_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.24"
+      },
+      "VariableGuid": "3D7C43A8-4BEE2B2A-7F7BFF9B-0A1852D3",
+      "InternalVariableName": "CyBaseEffect"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySummonLightAIComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySummonLightAIComponent'BP_Summon_Bomb_C:CySummonLightAI_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.31"
+      },
+      "VariableGuid": "18AB526E-4ABCA683-B2D1C2A6-1B9BE0A2",
+      "InternalVariableName": "CySummonLightAI"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CameraComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CameraComponent'BP_Summon_Bomb_C:Camera_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.4"
+      },
+      "VariableGuid": "206AE253-48EC644C-527A55AF-69AAC5E5",
+      "InternalVariableName": "Camera"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFindBombComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFindBombComponent'BP_Summon_Bomb_C:CyFindBomb_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.25"
+      },
+      "VariableGuid": "98266A22-4C819AD5-BC328196-8731F313",
+      "InternalVariableName": "CyFindBomb"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'PMSummonAnimationComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PMSummonAnimationComponent'BP_Summon_Bomb_C:PMSummonAnimation_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.33"
+      },
+      "VariableGuid": "F1DC23C4-45E7FD3B-B5242B8F-E69FD941",
+      "InternalVariableName": "PMSummonAnimation"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.65"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_28'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_27'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_29'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.48"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_30'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.50"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_31'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_32'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.52"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_33'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_36'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_37'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_38'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_39'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_40'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_41'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_42'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.63"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.67"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.68"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.37"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.49"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.65"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_26'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_28'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_27'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_29'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.48"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_30'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.50"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_31'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_32'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.52"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_33'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_36'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_37'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_38'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_39'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_40'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_41'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_42'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.63"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.66"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.67"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.68"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.37"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Summon_Bomb_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PaperMan/CyWeapons/C4/Summon/BP_Summon_Bomb.35"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "SkeletalMesh_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ClothingSimulationFactoryNv'",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv"
+      },
+      "BodyInstance": {
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -70.0
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "InteractAreaSphere_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 120.0,
+      "AreaClass": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "CollisionProfileName": "OverlapPawnOnly",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpringArmComponent",
+    "Name": "SpringArm_GEN_VARIABLE",
+    "Outer": "BP_Summon_Bomb_C",
+    "Class": "UScriptClass'SpringArmComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetArmLength": 800.0,
+      "bDoCollisionTest": false,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -35.0
+      },
+      "RelativeRotation": {
+        "Pitch": -45.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    }
+  }
+]

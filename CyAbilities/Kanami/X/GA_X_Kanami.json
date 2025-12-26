@@ -1,0 +1,313 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_X_Kanami_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_X_Kanami_C'Default__GA_X_Kanami_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Kanami/X/GA_X_Kanami.1"
+    }
+  },
+  {
+    "Type": "GA_X_Kanami_C",
+    "Name": "Default__GA_X_Kanami_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Kanami/X/GA_X_Kanami.GA_X_Kanami_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bCheckActiveUseRunningInGame": true,
+      "SummonActorTag": {
+        "TagName": "ActorTag.Summon.X.Kanami"
+      },
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowRelieveSlide"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowBigMap_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowBigMap"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon"
+        }
+      ],
+      "IgnoreCostTags": {
+        "RequireTags": [
+          "Buff.CostIgnore.SkillX"
+        ]
+      },
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Kill"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddPointsX_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_AddPointsX"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToOther_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToOther"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.Spawn.Kanami.X.Stage"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Weak.ForceFly"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "ActuatorTag": {
+        "TagName": "ActorTag.Summon.X.Kanami"
+      },
+      "ActuatorStateType": [
+        "EAIStateType::Work"
+      ],
+      "IgnoreActuatorStateType": [
+        "EAIStateType::Leave"
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_X_Kanami_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Kanami/X/Weapon/Weapon_X_Kanami"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_UltimateAbility",
+      "CancelAbilitiesPreActivateWithTag": [
+        "GA.Action.Wall"
+      ],
+      "MagnitudeRemainPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.XPoints.Set.X.Kanami"
+        }
+      },
+      "MagnitudeMaxPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.XPointsMax.Set.X.Kanami"
+        }
+      },
+      "AttributeRemainPoints": {
+        "AttributeName": "XPoints",
+        "Attribute": {
+          "Path": [
+            "XPoints"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "AttributeMaxPoints": {
+        "AttributeName": "XPointsMax",
+        "Attribute": {
+          "Path": [
+            "XPointsMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCostMask": 0,
+      "CommitCostEventTags": [
+        "Event.ConsumePlayerSkill.X"
+      ],
+      "AbilityStatConfig": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbilityStatConfig_Kanami_X_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Kanami/X/StatConfig/BP_AbilityStatConfig_Kanami_X"
+      },
+      "AbilityTags": [
+        "GA.Ability.SkillX.Kanami"
+      ],
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'Cost_X_Kanami_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Kanami/X/Cost_X_Kanami"
+      },
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "State.Shape.2D"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Cancel"
+        }
+      ],
+      "ActivationOwnedTags": [
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.GameMode.Spar",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill"
+      ]
+    }
+  }
+]

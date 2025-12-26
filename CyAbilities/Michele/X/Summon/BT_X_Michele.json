@@ -1,0 +1,543 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "BT_X_Michele",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_7'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.2"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BD_RescueRobot'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/BehaviorTree/BD_RescueRobot"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_2",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_0'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.3"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_Blackboard'BT_X_Michele:BTDecorator_Blackboard_0'",
+              "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.7"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        {
+          "ObjectName": "CyBTService_UpdateSearchedTarget'BT_X_Michele:CyBTService_UpdateSearchedTarget_0'",
+          "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.12"
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_7'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.2"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_7",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_5'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.6"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_CheckAlive'BT_X_Michele:CyBTDecorator_CheckAlive_3'",
+              "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.10"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_1'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.4"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_LessLifeSpan'BT_X_Michele:CyBTDecorator_LessLifeSpan_3'",
+              "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.11"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_2'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.5"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_CheckActorTagsWithAbort'BT_X_Michele:CyBTDecorator_CheckActorTagsWithAbort_0'",
+              "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.9"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_2'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.1"
+          },
+          "ChildTask": null,
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Michele:CyBTTask_GotoState_4'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.18"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_0",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Michele:CyBTTask_GotoState_0'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.13"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Michele:CyBTTask_GotoState_1'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.14"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Michele:CyBTTask_GotoState_14'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.15"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_2'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.1"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_1",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Michele:CyBTTask_GotoState_6'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.19"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_7'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.2"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_2",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Michele:CyBTTask_GotoState_15'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.16"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "BTTask_Wait'BT_X_Michele:BTTask_Wait_0'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.8"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_7'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.2"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_5",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Michele:CyBTTask_GotoState_2'",
+            "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.17"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_7'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.2"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Blackboard",
+    "Name": "BTDecorator_Blackboard_0",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CachedDescription": "TargetActor is Is Set",
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor"
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_2'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.1"
+      }
+    }
+  },
+  {
+    "Type": "BTTask_Wait",
+    "Name": "BTTask_Wait_0",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'BTTask_Wait'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WaitTime": 999.0,
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_2'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.5"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_CheckActorTagsWithAbort",
+    "Name": "CyBTDecorator_CheckActorTagsWithAbort_0",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTDecorator_CheckActorTagsWithAbort'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ActorToCheck": {},
+      "GameplayTags": [
+        "State.Game.RemoveBuff"
+      ],
+      "CachedDescription": "Has any tags in set: (GameplayTags=((TagName=\"State.Game.RemoveBuff\")))",
+      "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
+      "NodeName": "Tag Condition",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_7'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_CheckAlive",
+    "Name": "CyBTDecorator_CheckAlive_3",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTDecorator_CheckAlive'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AliveMask": "ELifeMask::Armor",
+      "BlackboardKey": {
+        "SelectedKeyName": "SelfActor"
+      },
+      "bInverseCondition": true,
+      "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_7'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_LessLifeSpan",
+    "Name": "CyBTDecorator_LessLifeSpan_3",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTDecorator_LessLifeSpan'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LimitLifeSpan": 0.1,
+      "BlackboardKey": {
+        "SelectedKeyName": "SelfActor"
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_7'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTService_UpdateSearchedTarget",
+    "Name": "CyBTService_UpdateSearchedTarget_0",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTService_UpdateSearchedTarget'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bAllowTick": false,
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor"
+      },
+      "Interval": 0.1,
+      "RandomDeviation": 0.0,
+      "NodeName": "Update Searched Target To BB",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_2'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_0",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Work",
+      "NodeName": "Goto Work",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_0'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.3"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_1",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::SecondWork",
+      "NodeName": "Goto Work1",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_0'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.3"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_14",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Wait",
+      "bEndStateOnTaskFinished": false,
+      "NodeName": "Goto Wait",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_0'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.3"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_15",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Wait",
+      "bImmediate": true,
+      "bEndStateOnTaskFinished": false,
+      "NodeName": "Goto Wait",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_2'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.5"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_2",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Death",
+      "bImmediate": true,
+      "NodeName": "Goto Death",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_5'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.6"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_4",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Wait",
+      "bEndStateOnTaskFinished": false,
+      "NodeName": "Goto Wait",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Michele:BTComposite_Selector_7'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_6",
+    "Outer": "BT_X_Michele",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "bImmediate": true,
+      "NodeName": "Goto Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Michele'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Michele:BTComposite_Sequence_1'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/X/Summon/BT_X_Michele.4"
+      }
+    }
+  }
+]

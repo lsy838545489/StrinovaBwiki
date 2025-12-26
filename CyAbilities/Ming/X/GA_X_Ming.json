@@ -1,0 +1,522 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_X_Ming_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_X_Ming_C'Default__GA_X_Ming_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Ming/X/GA_X_Ming.1"
+    }
+  },
+  {
+    "Type": "GA_X_Ming_C",
+    "Name": "Default__GA_X_Ming_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Ming/X/GA_X_Ming.GA_X_Ming_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BuffTag": {
+        "TagName": "GC.Ming.X"
+      },
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowRelieveSlide"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowBigMap_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowBigMap"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon"
+        }
+      ],
+      "IgnoreCostTags": {
+        "RequireTags": [
+          "Buff.CostIgnore.SkillX"
+        ]
+      },
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Kill"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddPointsX_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_AddPointsX"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.CauseDamageByWeapon.Gun"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "Buff.Strong.ExtraArmor.X.Ming"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffects_Damage_X_Ming_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/BP_Trigger_AddEffects_Damage_X_Ming"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddEffects_Debuff_X_Ming_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/BP_TriggerAddEffects_Debuff_X_Ming"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.CauseDamage.PlayerSkill.Q"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "Buff.Strong.ExtraArmor.X.Ming"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffects_Damage_X_Ming_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/BP_Trigger_AddEffects_Damage_X_Ming"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.State.ExtraArmor.Cleared"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "Buff.Strong.ExtraArmor.X.Ming"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerRemoveGameEffect_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/BP_TriggerRemoveGameEffect"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.GameState.FightEnd.PreEnd"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerRemoveGameEffect_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/BP_TriggerRemoveGameEffect"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Health.Injured"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerRemoveGameEffect_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/BP_TriggerRemoveGameEffect"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Health.Death"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerRemoveGameEffect_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/BP_TriggerRemoveGameEffect"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Buff.Weak.ForceFly"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "State.Block.CanCancel.X"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Player.Role.Human.Hero"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "State.Block.CanCancel.X"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Strong.ExtraArmor.X.Ming"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "PreviewWeaponRunningState": [
+        "EFStateType::Equip",
+        "EFStateType::Entry"
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_X_Ming_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/Weapon/Weapon_X_Ming"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_UltimateAbility",
+      "MagnitudeRemainPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.XPoints.Set.X.Ming"
+        }
+      },
+      "MagnitudeMaxPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.XPointsMax.Set.X.Ming"
+        }
+      },
+      "AttributeRemainPoints": {
+        "AttributeName": "XPoints",
+        "Attribute": {
+          "Path": [
+            "XPoints"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "AttributeMaxPoints": {
+        "AttributeName": "XPointsMax",
+        "Attribute": {
+          "Path": [
+            "XPointsMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCostMask": 0,
+      "ActivateEventTags": [
+        "Event.ConsumePlayerSkill.X"
+      ],
+      "AbilityStatConfig": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbilityStatConfig_Ming_X_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/StatConfig/BP_AbilityStatConfig_Ming_X"
+      },
+      "AbilityTags": [
+        "GA.Ability.SkillX.Ming"
+      ],
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'Cost_X_Ming_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Ming/X/Cost_X_Ming"
+      },
+      "ActivationOwnedTags": [
+        "GA.Ability.SkillX.Ming"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.GameMode.Spar",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill",
+        "Buff.Strong.ExtraArmor.X.Ming"
+      ]
+    }
+  }
+]

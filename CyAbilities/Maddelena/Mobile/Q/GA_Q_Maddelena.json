@@ -1,0 +1,289 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Q_Maddelena_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Q_Maddelena_C'Default__GA_Q_Maddelena_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Maddelena/Mobile/Q/GA_Q_Maddelena.1"
+    }
+  },
+  {
+    "Type": "GA_Q_Maddelena_C",
+    "Name": "Default__GA_Q_Maddelena_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Maddelena/Mobile/Q/GA_Q_Maddelena.GA_Q_Maddelena_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowRelieveSlide"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowBigMap_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowBigMap"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToOther_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToOther"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Consume.Skill.Q"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Weak.ForceFly"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_Q_Maddelena_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Maddelena/Mobile/Q/Weapon/Weapon_Q_Maddelena"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Ability",
+      "MagnitudeRemainPoints": {
+        "Value": 1.0,
+        "bEnableMobile": true,
+        "MobileValue": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.QPoints.Set.Q.Maddelena"
+        }
+      },
+      "MagnitudeMaxPoints": {
+        "Value": 1.0,
+        "bEnableMobile": true,
+        "MobileValue": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.QPointsMax.Set.Q.Maddelena"
+        }
+      },
+      "AttributeRemainPoints": {
+        "AttributeName": "QPoints",
+        "Attribute": {
+          "Path": [
+            "QPoints"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "AttributeMaxPoints": {
+        "AttributeName": "QPointsMax",
+        "Attribute": {
+          "Path": [
+            "QPointsMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "UpdateRemainPointWhenLevelChange": {
+        "bEnableMobile": true,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode_GrowthOption'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode_GrowthOption"
+          },
+          "RowName": "UpdateRemainPointWhenLevelChange"
+        }
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCostMask": 0,
+      "CommitCostEventTags": [
+        "Event.ConsumePlayerSkill.Q"
+      ],
+      "AbilityStatConfig": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbilityStatConfig_Maddelena_Q_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Maddelena/Mobile/Q/StatConfig/BP_AbilityStatConfig_Maddelena_Q"
+      },
+      "AbilityTags": [
+        "GA.Ability.SkillQ.Maddelena"
+      ],
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'GE_CostQPoints_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GE/GE_CostQPoints"
+      },
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "State.Shape.2D"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Cancel"
+        }
+      ],
+      "CooldownGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'CD_Q_Maddelena_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Maddelena/Mobile/Q/CD_Q_Maddelena"
+      },
+      "CancelAbilitiesWithTag": [
+        "GA.Action.Wall"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Ability.SkillQ.Maddelena",
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill"
+      ]
+    }
+  }
+]

@@ -1,0 +1,251 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_AttackSpeed_Q_Self_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_AttackSpeed_Q_Self_C'Default__GE_AttackSpeed_Q_Self_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Fragrans/Q/Summon_Work/GE_AttackSpeed_Q_Self.1"
+    }
+  },
+  {
+    "Type": "GE_AttackSpeed_Q_Self_C",
+    "Name": "Default__GE_AttackSpeed_Q_Self_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Fragrans/Q/Summon_Work/GE_AttackSpeed_Q_Self.GE_AttackSpeed_Q_Self_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_Q_Fragrans_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Fragrans/Q/BP_DamageType_Q_Fragrans"
+      },
+      "BuffType": "ECyBuffType::Strong",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::Infinite",
+      "Modifiers": [
+        {
+          "Attribute": {
+            "AttributeName": "ExtraAttackSpeedFactor",
+            "Attribute": {
+              "Path": [
+                "ExtraAttackSpeedFactor"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class'CyCharacterAttributeSet'",
+                "ObjectPath": "/Script/PMGame"
+              }
+            },
+            "AttributeOwner": {
+              "ObjectName": "Class'CyCharacterAttributeSet'",
+              "ObjectPath": "/Script/PMGame"
+            }
+          },
+          "GameStateScaleAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "ModifierOp": "EGameplayModOp::Additive",
+          "Magnitude": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ModifierMagnitude": {
+            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::CustomCalculationClass",
+            "ScalableFloatMagnitude": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "AttributeBasedMagnitude": {
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "BackingAttribute": {
+                "AttributeToCapture": {
+                  "AttributeName": "",
+                  "Attribute": {
+                    "Path": [],
+                    "ResolvedOwner": null
+                  },
+                  "AttributeOwner": null
+                },
+                "AttributeSource": "EGameplayEffectAttributeCaptureSource::Source",
+                "bSnapshot": false
+              },
+              "AttributeCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              },
+              "AttributeCalculationType": "EAttributeBasedFloatCalculationType::AttributeMagnitude",
+              "FinalChannel": "EGameplayModEvaluationChannel::Channel0",
+              "SourceTagFilter": [],
+              "TargetTagFilter": []
+            },
+            "CustomMagnitude": {
+              "CalculationClassMagnitude": {
+                "ObjectName": "BlueprintGeneratedClass'BP_CalculationAttributeFloatCurve_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Fragrans/Q/Summon_Work/BP_CalculationAttributeFloatCurve"
+              },
+              "Coefficient": {
+                "Value": 0.5,
+                "bEnableMobile": true,
+                "MobileValue": 0.5,
+                "Curve": {
+                  "CurveTable": {
+                    "ObjectName": "ModeCurveTable'CT_GameMode'",
+                    "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+                  },
+                  "RowName": "Attribute.SpeedFactor.Multiply.Q.Fragrans"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "FinalLookupCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SetByCallerMagnitude": {
+              "DataName": "None",
+              "DataTag": {
+                "TagName": "None"
+              }
+            }
+          },
+          "EvaluationChannelSettings": {
+            "Channel": "EGameplayModEvaluationChannel::Channel0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TargetTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "StackCoefficient": {
+            "Value": 1.0,
+            "bEnableMobile": true,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "CurveTable'CT_StackAttribute'",
+                "ObjectPath": "/Game/PaperMan/CSV/CurveTable/CT_StackAttribute"
+              },
+              "RowName": "Stack.Constant"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.Fragrans.Q.AttackSpeed"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Strong.AttackSpeed"
+        ],
+        "Added": [
+          "BuffIcon.Strong.AttackSpeed"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackExpirationPolicy": "EGameplayEffectStackingExpirationPolicy::RemoveSingleStackAndRefreshDuration"
+    }
+  }
+]

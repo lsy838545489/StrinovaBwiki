@@ -1,0 +1,466 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Castling_Galatea_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Castling_Galatea_C'Default__GA_Castling_Galatea_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Galatea/Mobile/Castling/GA_Castling_Galatea.1"
+    }
+  },
+  {
+    "Type": "GA_Castling_Galatea_C",
+    "Name": "Default__GA_Castling_Galatea_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Galatea/Mobile/Castling/GA_Castling_Galatea.GA_Castling_Galatea_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckWantToOnWall_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/Castling/BP_CheckWantToOnWall"
+        }
+      ],
+      "PressedAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Skill.Galatea.Castling"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddArousalTwoEffect_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalTwo/BP_Trigger_AddArousalTwoEffect"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSpawnSummon_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/Castling/BP_TriggerSpawnSummon"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddArousalOneEffect_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalOne/BP_Trigger_AddArousalOneEffect"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.TakeDamage.Galatea.Q"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_ApplyEffectToDamageCauser_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalThree/BP_Trigger_ApplyEffectToDamageCauser"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.Jump"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_StopWall_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/Castling/BP_Trigger_StopWall"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Health.Injured"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_StopWall_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/Castling/BP_Trigger_StopWall"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.TeleportWallSlide.Success"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddArousalTwoEffect_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalTwo/BP_Trigger_AddArousalTwoEffect"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerSpawnSummon_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/Castling/BP_TriggerSpawnSummon"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddArousalOneEffect_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalOne/BP_Trigger_AddArousalOneEffect"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.TeleportWallSlide.Failed"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToExpectedWeapon_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalTwo/BP_Trigger_SwitchToExpectedWeapon"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffectCastlingFail_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/Castling/BP_Trigger_AddEffectCastlingFail"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.Spawn.Galatea.ArousalThree"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerCheckSummonNum_ArousalThree_Galatea_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalThree/BP_TriggerCheckSummonNum_ArousalThree_Galatea"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Weak.ForceFly"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "Buff.Stealth.ArousalTwo.Galatea"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToExpectedWeapon_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalTwo/BP_Trigger_SwitchToExpectedWeapon"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Buff.Stealth.ArousalTwo.Galatea"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToEmptyHand_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalTwo/BP_Trigger_SwitchToEmptyHand"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Player.CastlingFail"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerCancelAbilityWithTags_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/Castling/BP_TriggerCancelAbilityWithTags"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Stealth.ArousalTwo.Galatea"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToExpectedWeapon_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalTwo/BP_Trigger_SwitchToExpectedWeapon"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Shape.2D.Wall"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [
+                "Buff.Stealth.ArousalTwo.Galatea"
+              ],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToEmptyHand_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/ArousalTwo/BP_Trigger_SwitchToEmptyHand"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_Castling_Galatea_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Galatea/Mobile/Castling/Weapon/Weapon_Castling_Galatea"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Q1",
+      "bEnableModifyPoints": false,
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCDMask": 0,
+      "CommitCostMask": 0,
+      "BlockAbilitiesWithTag": [
+        "GA.Action.Wall"
+      ],
+      "ActivationBlockedTags": [
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Health.Death",
+        "State.Player.DisableUseShared",
+        "GA.Action.Wall"
+      ]
+    }
+  }
+]

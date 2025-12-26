@@ -1,0 +1,54 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Accumulator_P_Flavia_XPoint_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyDamageAccumulator'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Accumulator_P_Flavia_XPoint_C'Default__Accumulator_P_Flavia_XPoint_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Flavia/Mobile/P/Actuator/Accumulator_P_Flavia_XPoint.1"
+    }
+  },
+  {
+    "Type": "Accumulator_P_Flavia_XPoint_C",
+    "Name": "Default__Accumulator_P_Flavia_XPoint_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Flavia/Mobile/P/Actuator/Accumulator_P_Flavia_XPoint.Accumulator_P_Flavia_XPoint_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OngoingTagRequirements": {
+        "RequireTags": [
+          "State.Health.Alive"
+        ]
+      },
+      "TriggerEventTag": {
+        "TagName": "Event.Accumulator.Flavia.P.Xpoint"
+      },
+      "TriggerThreshold": {
+        "Value": 200.0
+      },
+      "ThresholdMultplier": {
+        "bEnableMobile": true,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.Damage.Multiply.P.Flavia.XPoint"
+        }
+      },
+      "Mode": "ECyAccumulatorMode::EveryThreshold",
+      "bResetOnRoundStart": true
+    }
+  }
+]

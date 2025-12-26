@@ -1,0 +1,95 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_InteractAtom_Ability_RescueSelf_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyInteractAtomAbilityReplicate'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_InteractAtom_Ability_RescueSelf_C'Default__BP_InteractAtom_Ability_RescueSelf_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Shared/GA/GA_Shared_RescueSelf/BP_InteractAtom_Ability_RescueSelf.1"
+    }
+  },
+  {
+    "Type": "BP_InteractAtom_Ability_RescueSelf_C",
+    "Name": "Default__BP_InteractAtom_Ability_RescueSelf_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Shared/GA/GA_Shared_RescueSelf/BP_InteractAtom_Ability_RescueSelf.BP_InteractAtom_Ability_RescueSelf_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_RescueSelf",
+      "AbilityTags": [
+        "GA.Action.RescueSelf"
+      ],
+      "ActiveEvent": {
+        "TagName": "Event.Action.RescueSelf.Start"
+      },
+      "InteractDisplay": {
+        "TipInfo": {
+          "Namespace": "",
+          "Key": "B0E8648344A4323E1FCE29A469D1BE16",
+          "SourceString": "自救",
+          "LocalizedString": "自救"
+        },
+        "TipInfoSTKey": "Interact_RescueSelf",
+        "OperationInfo": {
+          "Namespace": "",
+          "Key": "A0E4E9F3413067C68480C4953CC443E9",
+          "SourceString": "自救中",
+          "LocalizedString": "自救中"
+        },
+        "OperationInfoSTKey": "Operation_Interact_RescueSelf",
+        "TeammateOperationInfo": {
+          "Namespace": "",
+          "Key": "06F0B32C4D6366B79944B18AB063C4BF",
+          "SourceString": "队友自救中",
+          "LocalizedString": "队友自救中"
+        },
+        "TeammateOperationInfoSTKey": "Teammate_Operation_Interact_RescueSelf",
+        "InteractType": "EInteractType::Rescue"
+      },
+      "Filters": [
+        {
+          "ObjectName": "Class'CyFilterTargetIsInstigator'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      ],
+      "OwnerTagRequirements": {
+        "RequireTags": [
+          "State.Health.Injured"
+        ],
+        "IgnoreTags": [
+          "State.Player.BeRescued",
+          "State.Player.DisableBeRescue"
+        ]
+      },
+      "TargetTagRequirements": {
+        "RequireTags": [
+          "State.Health.Injured"
+        ]
+      },
+      "ServerTargetKeepTagRequirements": {
+        "RequireTags": [
+          "GA.Action.RescueSelf"
+        ]
+      },
+      "bCanView": true,
+      "ViewFilters": [
+        {
+          "ObjectName": "Class'CyFilterSameTeam'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      ],
+      "ViewInteractMaxDistance": 200.0
+    }
+  }
+]

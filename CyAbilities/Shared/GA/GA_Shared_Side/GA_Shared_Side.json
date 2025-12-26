@@ -1,0 +1,817 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_GA_Shared_Side",
+    "Outer": "GA_Shared_Side_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Shared_Side_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function'GA_Shared_Side_C:ExecuteUbergraph_GA_Shared_Side'",
+        "ObjectPath": "PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/GA_Shared_Side.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'GA_Shared_Side_C:ExecuteUbergraph_GA_Shared_Side'",
+        "ObjectPath": "PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/GA_Shared_Side.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_GA_Shared_Side": {
+        "ObjectName": "Function'GA_Shared_Side_C:ExecuteUbergraph_GA_Shared_Side'",
+        "ObjectPath": "PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/GA_Shared_Side.0"
+      }
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Shared_Side_C'Default__GA_Shared_Side_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/GA_Shared_Side.2"
+    }
+  },
+  {
+    "Type": "GA_Shared_Side_C",
+    "Name": "Default__GA_Shared_Side_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/GA_Shared_Side.GA_Shared_Side_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowSide_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/BP_CheckContainer_AllowSide"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check2DCD_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CheckAtoms/BP_Check2DCD"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_Side_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/BP_Activator_Side"
+        }
+      ],
+      "ReleasedAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TriggerPressed_EndAbility_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/TriggerPressed/BP_TriggerPressed_EndAbility"
+        }
+      ],
+      "ReleaseCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TC_AllowRelieveSideNotify_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/BP_TC_AllowRelieveSideNotify"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponAttackAfterSlot"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckCurrentWeaponNotAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckCurrentWeaponNotAuto"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_NotWeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_NotWeaponAuto"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckCurrentWeaponNotSkill_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckCurrentWeaponNotSkill"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_WeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_WeaponAuto"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_NotWeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_NotWeaponAuto"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponFinishPullBoltSlot"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_NotWeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_NotWeaponAuto"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.KeepSide"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_NotWeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_NotWeaponAuto"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_WeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_WeaponAuto"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.StopSide"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopSide_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopSide"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponFinishAttackSlot"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'Trigger_InterruptMeleeWeaponAttack_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/Trigger_InterruptMeleeWeaponAttack"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_NotWeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_NotWeaponAuto"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_WeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_WeaponAuto"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponStopKeepFiringSlotTagData"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckCurrentWeaponNotAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckCurrentWeaponNotAuto"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_NotWeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_NotWeaponAuto"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Health.Injured"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Health.Death"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "GA.Use.Primary"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CanUseStopSideContainer_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/BP_TC_CanUseStopSideContainer"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckMagazineNotEmpty_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckMagazineNotEmpty"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CurrentWeaponCanStartPrimaryUse_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CurrentWeaponCanStartPrimaryUse"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopSide_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopSide"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "GA.Use.Secondary"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CurrentWeaponCanStartSecondaryUse_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CurrentWeaponCanStartSecondaryUse"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "State.Weapon.Attack"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopSide_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopSide"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Weapon.Attack"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "GA.Use.Primary"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopSide_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopSide"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Weapon.Hold.AimOrADS"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CheckCurrentWeaponPrimaryOrSecondary_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CheckCurrentWeaponPrimaryOrSecondary"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopSide_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopSide"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Weapon.EnterSwitchAttackType"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopSide_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopSide"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Player.DisableInput2D.Side"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopSide_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopSide"
+              }
+            ],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Weapon.Hold.AimOrADS"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_WeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_WeaponAuto"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_NotWeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_NotWeaponAuto"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Buff.Weak.Block2D"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_WeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_WeaponAuto"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_NotWeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_NotWeaponAuto"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Shape.2D.Side"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerStopSide_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerStopSide"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Weapon.Attack.Auto"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_WeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_WeaponAuto"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Motion.InAir"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "GA.Action.Wall",
+                "State.Shape.2D.Wall"
+              ]
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_WeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_WeaponAuto"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerKeepSide_NotWeaponAuto_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerKeepSide_NotWeaponAuto"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_KeepSide_DelayActivated_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/Trigger/BP_Trigger_KeepSide_DelayActivated"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_ActivateSide_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GA/GA_Shared_Side/Trigger/BP_Trigger_ActivateSide"
+              }
+            ],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "CancelAbilitiesPreActivateWithTag": [
+        "GA.Ability.SkillQ.Nobunaga",
+        "GA.Ability.SkillQ.KokonaShiki",
+        "GA.Ability.SkillQ.Ming",
+        "GA.Ability.SkillX.Maddelena",
+        "GA.Action.Wall"
+      ],
+      "IgnoreFailedEventTags": [
+        "State.Motion.InAir"
+      ],
+      "AbilityTags": [
+        "GA.Action.Side"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Action.Side"
+      ],
+      "ActivationBlockedTags": [
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Health.Death"
+      ]
+    }
+  }
+]

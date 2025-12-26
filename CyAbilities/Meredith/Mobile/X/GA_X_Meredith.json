@@ -1,0 +1,481 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_X_Meredith_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_X_Meredith_C'Default__GA_X_Meredith_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Meredith/Mobile/X/GA_X_Meredith.1"
+    }
+  },
+  {
+    "Type": "GA_X_Meredith_C",
+    "Name": "Default__GA_X_Meredith_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Meredith/Mobile/X/GA_X_Meredith.GA_X_Meredith_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bCheckActiveUseRunningInGame": true,
+      "SummonActorTag": {
+        "TagName": "ActorTag.Summon.X.Meredith.Sand"
+      },
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        }
+      ],
+      "PreCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckSummonCount_X_Meredith_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/X/BP_CheckSummonCount_X_Meredith"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckSummonCount_X_Meredith_Projectile_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/X/BP_CheckSummonCount_X_Meredith_Projectile"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckForceFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckAllowRelieveSlide"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowBigMap_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckAllowBigMap"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon"
+        }
+      ],
+      "IgnoreCostTags": {
+        "RequireTags": [
+          "Buff.CostIgnore.SkillX"
+        ]
+      },
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Kill"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "Class'CyGATCheckInstigatorTargetEnemy'",
+                "ObjectPath": "/Script/PMGame"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddXPoints_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_Trigger_AddXPoints"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.Destroy.Meredith.X.Sand"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [
+                "State.Health.Death"
+              ],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerCancelToOther_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerCancelToOther"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.GameState.FightEnd.PreEnd"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheckSummonCount_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/X/BP_TCheckSummonCount"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Weak.ForceFly"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CurrentWeaponNotThrowing_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CurrentWeaponNotThrowing"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "State.Block.IgnoreForceFly.X"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Health.Death"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_CheckSummon_X_Meredith_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/X/BP_CheckSummon_X_Meredith"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GA_DestroySummon_X_Meredith_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/X/BP_GA_DestroySummon_X_Meredith"
+              },
+              {
+                "ObjectName": "Class'CyGATriggerCommitCost'",
+                "ObjectPath": "/Script/PMGame"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "GA.Action.Fly"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CurrentWeaponNotThrowing_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CurrentWeaponNotThrowing"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "GA.Action.Side"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_CurrentWeaponNotThrowing_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerCheck/BP_TC_CurrentWeaponNotThrowing"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "Class'CyGATriggerCancelAbility'",
+                "ObjectPath": "/Script/PMGame"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "ActuatorTag": {
+        "TagName": "ActorTag.Summon.X.Meredith.Sand"
+      },
+      "ActuatorStateType": [
+        "EAIStateType::SecondWork",
+        "EAIStateType::Leave"
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_X_Meredith_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/X/Weapon/Weapon_X_Meredith"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_UltimateAbility",
+      "MagnitudeRemainPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.XPoints.Set.X.Meredith"
+        }
+      },
+      "MagnitudeMaxPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.XPointsMax.Set.X.Meredith"
+        }
+      },
+      "AttributeRemainPoints": {
+        "AttributeName": "XPoints",
+        "Attribute": {
+          "Path": [
+            "XPoints"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "AttributeMaxPoints": {
+        "AttributeName": "XPointsMax",
+        "Attribute": {
+          "Path": [
+            "XPointsMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCostEventTags": [
+        "Event.ConsumePlayerSkill.X"
+      ],
+      "AbilityStatConfig": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbilityStatConfig_Meredith_X_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/X/StatConfig/BP_AbilityStatConfig_Meredith_X"
+      },
+      "AbilityTags": [
+        "GA.Ability.SkillX.Meredith"
+      ],
+      "InputActiveTime": 108.41194,
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'Cost_X_Meredith_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/X/Cost_X_Meredith"
+      },
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "State.Shape.2D"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Cancel"
+        }
+      ],
+      "ActivationOwnedTags": [
+        "GA.Ability.SkillX.Meredith",
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side"
+      ],
+      "ActivationRequiredTags": [
+        "State.Health.Alive"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.GameMode.Spar",
+        "State.Health.Death",
+        "State.Health.Injured",
+        "State.Player.DisableUseSkill"
+      ]
+    }
+  }
+]

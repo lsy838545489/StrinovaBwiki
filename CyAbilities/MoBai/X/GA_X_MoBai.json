@@ -1,0 +1,379 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_X_MoBai_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_X_MoBai_C'Default__GA_X_MoBai_C'",
+      "ObjectPath": "PaperMan/CyAbilities/MoBai/X/GA_X_MoBai.1"
+    }
+  },
+  {
+    "Type": "GA_X_MoBai_C",
+    "Name": "Default__GA_X_MoBai_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/MoBai/X/GA_X_MoBai.GA_X_MoBai_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckClickInterval_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckClickInterval"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_Factory_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/BP_Check_Factory"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_Expected_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon_Expected"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorWeaponStartWork_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/BP_ActivatorWeaponStartWork"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorWeaponStartSecondWork_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/BP_ActivatorWeaponStartSecondWork"
+        }
+      ],
+      "IgnoreCostTags": {
+        "RequireTags": [
+          "Buff.CostIgnore.SkillX"
+        ]
+      },
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToOther_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToOther"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Kill"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddPointsX_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_AddPointsX"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Attribute.Cleared.Health"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheckSummonCount_IsNotZero_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/BP_TCheckSummonCount_IsNotZero"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheckWeaponState_NotEquipAndWorkSecound_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/BP_TCheckWeaponState_NotEquipAndWorkSecound"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelInteraction_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelInteraction"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchWeapon_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_SwitchWeapon"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_WeaponSecondWork_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_WeaponSecondWork"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.Destroy.MoBai.X"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerUIEvent_InputPressedAgain_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerUIEvent_InputPressedAgain"
+              }
+            ]
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Weak.ForceFly"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheckSummonCount_isZero_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/BP_TCheckSummonCount_isZero"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheckWeaponState_Work_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/BP_TCheckWeaponState_Work"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "ActuatorTag": {
+        "TagName": "ActorTag.Summon.X.Mobai"
+      },
+      "ActuatorStateType": [
+        "EAIStateType::Work",
+        "EAIStateType::Entry"
+      ],
+      "IgnoreActuatorStateType": [
+        "EAIStateType::Entry"
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_X_MoBai_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/Weapon/Weapon_X_MoBai"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_UltimateAbility",
+      "CancelAbilitiesPreActivateWithTag": [
+        "GA.Action.Wall"
+      ],
+      "MagnitudeRemainPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.XPoints.Set.X.MoBai"
+        }
+      },
+      "MagnitudeMaxPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.XPointsMax.Set.X.MoBai"
+        }
+      },
+      "AttributeRemainPoints": {
+        "AttributeName": "XPoints",
+        "Attribute": {
+          "Path": [
+            "XPoints"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "AttributeMaxPoints": {
+        "AttributeName": "XPointsMax",
+        "Attribute": {
+          "Path": [
+            "XPointsMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCostMask": 0,
+      "CommitCostEventTags": [
+        "Event.ConsumePlayerSkill.X"
+      ],
+      "AbilityStatConfig": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbilityStatConfig_Mobai_X_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/StatConfig/BP_AbilityStatConfig_Mobai_X"
+      },
+      "AbilityTags": [
+        "GA.Ability.SkillX.MoBai"
+      ],
+      "bReplicateInputDirectly": true,
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'Cost_X_MoBai_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/X/Cost_X_MoBai"
+      },
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "State.Health.Injured"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Cancel"
+        }
+      ],
+      "ActivationOwnedTags": [
+        "GA.Ability.SkillX.MoBai",
+        "State.Player.DisableJump"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Health.Injured",
+        "State.Health.Death",
+        "State.Game.Freeze",
+        "State.GameMode.Spar",
+        "State.Player.DisableUseSkill",
+        "State.Player.Revival",
+        "State.Player.Rescue",
+        "GA.Ability.SkillQ.MoBai",
+        "GA.Ability.SkillE.MoBai"
+      ]
+    }
+  }
+]

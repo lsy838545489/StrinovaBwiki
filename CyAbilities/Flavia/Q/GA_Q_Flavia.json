@@ -1,0 +1,613 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Q_Flavia_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Q_Flavia_C'Default__GA_Q_Flavia_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Flavia/Q/GA_Q_Flavia.1"
+    }
+  },
+  {
+    "Type": "GA_Q_Flavia_C",
+    "Name": "Default__GA_Q_Flavia_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Flavia/Q/GA_Q_Flavia.GA_Q_Flavia_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bCheckActiveUseRunningInGame": true,
+      "bOnlyUseRunningInGame": true,
+      "SummonActorTag": {
+        "TagName": "ActorTag.Summon.Q.Flavia.Butterfly"
+      },
+      "WeaponStates": [
+        "EFStateType::Work"
+      ],
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckForceFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckAllowRelieveSlide"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_SummonCount_Q_Flavia_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Check_SummonCount_Q_Flavia"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_SwitchWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Activator_SwitchWeapon"
+        }
+      ],
+      "bServerPressedAtom": true,
+      "PressedAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToExpected_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_SwitchToExpected"
+        }
+      ],
+      "PressCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TCheck_ClickInterval_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_TCheck_ClickInterval"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TCheck_WeaponWork_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_TCheck_WeaponWork"
+        }
+      ],
+      "PressTagRequirements": {
+        "IgnoreTags": [
+          "State.Player.DisablePressed.Q"
+        ]
+      },
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Accumulator.Flavia.Q"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelInteraction_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_CancelInteraction"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_DestroySummon_Butterfly_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_DestroySummon_Butterfly"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchWeapon_Second_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_SwitchWeapon_Second"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.Spawn.Flavia.Q.Eye"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_ArousalTwo_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/ArousalTwo/BP_Trigger_CommitCost_ArousalTwo"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffect_HealthRecover_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/ArousalOne/BP_Trigger_AddEffect_HealthRecover"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_Q_Flavia_RemoveEffects_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_Q_Flavia_RemoveEffects"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Death"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_DestroySummon_Butterfly_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_DestroySummon_Butterfly"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.TakeInjured"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_DestroySummon_Butterfly_UseLeave_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_DestroySummon_Butterfly_UseLeave"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_Q_Flavia_RemoveEffects_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_Q_Flavia_RemoveEffects"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Weapon.Work.End.Flavia.Q"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCD_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCD"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.Leave.Flavia.Q.Butterfly"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCD_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCD"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.Spawn.Flavia.Q.Butterfly"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "State.Arousal.Two"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Protector.OnDeathProtected"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Health.Injured"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheck_WeaponAbilityWorking_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_TCheck_WeaponAbilityWorking"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Health.Death"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheck_WeaponAbilityWorking_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_TCheck_WeaponAbilityWorking"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Buff.Weak.ForceFly"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "State.Block.CanCancel.Q"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToExpected_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_SwitchToExpected"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToExpected_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_SwitchToExpected"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Game.End"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToExpected_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/BP_Trigger_SwitchToExpected"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "ActuatorTag": {
+        "TagName": "ActorTag.Summon.Q.Flavia.Butterfly"
+      },
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_Q_Flavia_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/Weapon/Weapon_Q_Flavia"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Ability",
+      "MagnitudeRemainPoints": {
+        "Value": 1.0
+      },
+      "MagnitudeMaxPoints": {
+        "Value": 1.0
+      },
+      "AttributeRemainPoints": {
+        "AttributeName": "QPoints",
+        "Attribute": {
+          "Path": [
+            "QPoints"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "AttributeMaxPoints": {
+        "AttributeName": "QPointsMax",
+        "Attribute": {
+          "Path": [
+            "QPointsMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCDMask": 32,
+      "CommitCostMask": 0,
+      "ActivateEventTags": [
+        "Event.ConsumePlayerSkill.Q"
+      ],
+      "AbilityStatConfig": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbilityStatConfig_Flavia_Q_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/StatConfig/BP_AbilityStatConfig_Flavia_Q"
+      },
+      "bGamePadInputOverride": true,
+      "bDefaultIsSkillActivatedOnGamePadInputReleased": true,
+      "AbilityTags": [
+        "GA.Ability.SkillQ.Flavia"
+      ],
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'GE_CostQPoints_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GE/GE_CostQPoints"
+      },
+      "CooldownGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'CD_Q_Flavia_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Flavia/Q/CD_Q_Flavia"
+      },
+      "ActivationOwnedTags": [
+        "GA.Ability.SkillQ.Flavia"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill",
+        "State.Player.Revival"
+      ]
+    }
+  }
+]

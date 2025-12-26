@@ -1,0 +1,277 @@
+[
+  {
+    "Type": "CyWeaponEffectAsset",
+    "Name": "Effect108",
+    "Class": "UScriptClass'CyWeaponEffectAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DecalConfig": {
+        "LifeSpan": 0.0
+      },
+      "MuzzleFlameConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Audrey/PS_Weap_MuzzleFlash_G42+.PS_Weap_MuzzleFlash_G42+",
+          "SubPathString": ""
+        }
+      },
+      "ShellCaseConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Common/cartridge/FX_cartridge_AR.FX_cartridge_AR",
+          "SubPathString": ""
+        }
+      },
+      "TrajectoryConfig": {
+        "Default": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BulletTrajectoryBase_C'",
+          "ObjectPath": "/Game/PaperMan/Core/Weapons/BP_BulletTrajectoryBase"
+        },
+        "DefaultEffect": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_Trail/FX_Bullet_Tracer_Base_1P.FX_Bullet_Tracer_Base_1P",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "ETargetType::Teammate",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_Trail/FX_Bullet_Tracer_Base_3P.FX_Bullet_Tracer_Base_3P",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "ETargetType::Self",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_Trail/FX_Bullet_Tracer_Base_1P.FX_Bullet_Tracer_Base_1P",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "ETargetType::Enemy",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_Trail/FX_Bullet_Tracer_Base_3P.FX_Bullet_Tracer_Base_3P",
+              "SubPathString": ""
+            }
+          }
+        ]
+      },
+      "PredictPathConfig": {
+        "PathEffect": {
+          "ObjectName": "ParticleSystem'P_PPT_Trajectory_Beam_Point'",
+          "ObjectPath": "/Game/PaperMan/Effects/ProjectilePathTracer/Particles/P_PPT_Trajectory_Beam_Point"
+        },
+        "FinalEffect": {
+          "ObjectName": "ParticleSystem'P_PPT_TrajectoryMarker'",
+          "ObjectPath": "/Game/PaperMan/Effects/ProjectilePathTracer/Particles/P_PPT_TrajectoryMarker"
+        }
+      },
+      "ProjectileTrailConfig": {
+        "Effect": {
+          "ObjectName": "ParticleSystem'P_Meredith_Bullet_Trial'",
+          "ObjectPath": "/Game/PaperMan/Effects/FX_NE/Role/Meredith/P_Meredith_Bullet_Trial"
+        },
+        "LocalEffectExtra": {
+          "ObjectName": "ParticleSystem'PS_Trail_Behind'",
+          "ObjectPath": "/Game/PaperMan/Effects/FX_NE/Common/PS_Trail_Behind"
+        }
+      },
+      "CrossHairConfigFPP": {
+        "Icons": {
+          "Texture": {
+            "ObjectName": "Texture2D'T_UI_HUDPC_Crosshair_1'",
+            "ObjectPath": "/Game/PaperMan/UI/Atlas/Canvas/T_UI_HUDPC_Crosshair_1"
+          },
+          "U": 7.0,
+          "V": 1.0,
+          "UL": 6.0,
+          "VL": 6.0
+        }
+      },
+      "HitAudioConfig": {
+        "ObjectName": "AkSurfaceHitConfig'AkSurfaceHitConfig'",
+        "ObjectPath": "/Game/WwiseAssets/AkConfigs/AkSurfaceHitConfig"
+      },
+      "AkStateBeginEvents": [
+        {
+          "Key": "EFStateType::Equip",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Char_3DMeredith_XSkill_Start'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMeredith_XSkill_Start"
+          }
+        },
+        {
+          "Key": "EFStateType::EquipReload",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Char_3DMeredith_XSkill_Start'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMeredith_XSkill_Start"
+          }
+        }
+      ],
+      "AkHoldBeginEvents": [
+        {
+          "Key": "EFHoldType::Relaxed",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Char_3DMeredith_XSkill_Hovering_Loop_ZNQ_XR'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMeredith_XSkill_Hovering_Loop_ZNQ_XR"
+          }
+        }
+      ],
+      "AkHoldEndEvents": [
+        {
+          "Key": "EFHoldType::Relaxed",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Char_3DMeredith_XSkill_Hovering_Loop_Stop_ZNQ_XR'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMeredith_XSkill_Hovering_Loop_Stop_ZNQ_XR"
+          }
+        }
+      ],
+      "AkEventAttackStartConfig": {
+        "Default": {
+          "ObjectName": "AkAudioEvent'Char_3DMeredith_XSkill_Throw'",
+          "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMeredith_XSkill_Throw"
+        }
+      },
+      "AkEventAttackLastBulletConfig": {
+        "Default": {
+          "ObjectName": "AkAudioEvent'Char_3DMeredith_XSkill_Throw'",
+          "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMeredith_XSkill_Throw"
+        }
+      },
+      "ProjectileAudioInfo": {
+        "FlyingEvent": {
+          "ObjectName": "AkAudioEvent'Char_3DMeredith_XSkill_Fly'",
+          "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMeredith_XSkill_Fly"
+        }
+      },
+      "WeaponActionParticleConfig": {
+        "AttachSocket": "root"
+      },
+      "WeaponStateEffects": [
+        {
+          "StateTypes": [
+            "EFStateType::EquipReload",
+            "EFStateType::Attack"
+          ],
+          "Asset": null,
+          "AssetPath": {
+            "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Meredith/20133108/P_Meredith_S108_X_Bullet_buff.P_Meredith_S108_X_Bullet_buff",
+            "SubPathString": ""
+          },
+          "AssetSelf": null,
+          "AssetPathSelf": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "NotPlayOnMobile": false,
+          "bNeverHide": false,
+          "KeepTime": -1.0,
+          "BlendOutTime": 0.0,
+          "bReset": false,
+          "AttachType": "EEffectSpawnType::AttachSocket",
+          "bShowOnSocketVisible": true,
+          "AttachComponentType": "EAttachComponentType::Self",
+          "AttachSocket": "None",
+          "OverrideComponentName": "None",
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Location": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Scale": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "bUseAttachParentBound": false,
+          "bRemoveDetach": true,
+          "bScaleByCameraDistance": false,
+          "TranslucencySortPriority": 0,
+          "TranslucencySortDistanceOffset": 0.0,
+          "bRegardLoop": true,
+          "bCanSectionClip": false,
+          "bCommonParticle": false,
+          "bCastShadow": false
+        }
+      ],
+      "AudioBanks": [
+        {
+          "ObjectName": "AkAudioBank'Char_3DMeredith_XSkill'",
+          "ObjectPath": "/Game/WwiseAssets/AkBank/Char_3DMeredith_XSkill"
+        },
+        {
+          "ObjectName": "AkAudioBank'Char_3DMeredith_XSkill_ZNQ_XR'",
+          "ObjectPath": "/Game/WwiseAssets/AkBank/Char_3DMeredith_XSkill_ZNQ_XR"
+        }
+      ],
+      "HitEffectConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Limestone/Fx_Hit_Limestone_Middle.Fx_Hit_Limestone_Middle",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType9",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Glass/Fx_Hit_Glass_Middle.Fx_Hit_Glass_Middle",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType15",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Metal/Fx_Hit_Metal_Middle.Fx_Hit_Metal_Middle",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType27",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/A_Old/FX_NS/fx_role_hit_wood.fx_role_hit_wood",
+              "SubPathString": ""
+            }
+          },
+          {
+            "Key": "SurfaceType14",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Limestone/Fx_Hit_Limestone_Middle.Fx_Hit_Limestone_Middle",
+              "SubPathString": ""
+            }
+          }
+        ]
+      },
+      "HitCharacterEffectConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/P_hit_Role_Middle.P_hit_Role_Middle",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/P_hit_Role_Big.P_hit_Role_Big",
+              "SubPathString": ""
+            }
+          }
+        ]
+      },
+      "HitArmorEffectConfig": {
+        "Default": {
+          "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/Fx_Hit_Shield_Middle.Fx_Hit_Shield_Middle",
+          "SubPathString": ""
+        },
+        "EffectMap": [
+          {
+            "Key": "SurfaceType29",
+            "Value": {
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Hit/Role/Fx_Hit_Shield_Big.Fx_Hit_Shield_Big",
+              "SubPathString": ""
+            }
+          }
+        ]
+      }
+    }
+  }
+]

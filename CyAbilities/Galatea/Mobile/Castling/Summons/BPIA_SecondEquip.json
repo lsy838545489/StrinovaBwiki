@@ -1,0 +1,82 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BPIA_SecondEquip_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyInteractAtomSwitchWeapon'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BPIA_SecondEquip_C'Default__BPIA_SecondEquip_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Galatea/Mobile/Castling/Summons/BPIA_SecondEquip.1"
+    }
+  },
+  {
+    "Type": "BPIA_SecondEquip_C",
+    "Name": "Default__BPIA_SecondEquip_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Galatea/Mobile/Castling/Summons/BPIA_SecondEquip.BPIA_SecondEquip_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Q1",
+      "EquipID": "EEquipID::Second",
+      "bSaveTarget": true,
+      "WorkStateType": "EFStateType::None",
+      "bSwitchBackOnRelease": false,
+      "bCheckPawnSight": false,
+      "LimitedAngle": 30.0,
+      "InteractionAllowedGait": "ECyGait::Sprint",
+      "InteractDisplay": {
+        "TipInfo": {
+          "Namespace": "",
+          "Key": "7EDF8F274C2D118B51F7CEA24D486F1E",
+          "SourceString": "按下传送",
+          "LocalizedString": "按下传送"
+        },
+        "TipInfoSTKey": "Interact_SecondEquip",
+        "InteractType": "EInteractType::GalatiaDouble"
+      },
+      "Filters": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_FilterCreator_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Filter/BP_FilterCreator"
+        }
+      ],
+      "OwnerTagRequirements": {
+        "RequireAnyTags": [
+          "State.Shape.2D.Wall"
+        ],
+        "IgnoreTags": [
+          "State.Summon.Leave",
+          "State.Summon.Death"
+        ]
+      },
+      "TargetTagRequirements": {
+        "IgnoreTags": [
+          "Buff.Weak.ForceFly",
+          "State.Player.DisableSwitchWeapon",
+          "State.Shape.2D.Wall",
+          "GA.Action.Wall",
+          "State.Game.Freeze",
+          "State.Game.Ready"
+        ]
+      },
+      "InteractMaxDistance": 100000000.0,
+      "OwnerKeepTagRequirements": {
+        "IgnoreTags": [
+          "State.Summon.Leave",
+          "State.Summon.Death"
+        ]
+      },
+      "KeepInteractMaxDistance": 100000000.0
+    }
+  }
+]

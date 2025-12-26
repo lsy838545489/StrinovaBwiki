@@ -1,0 +1,124 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_P_Meredith_MB_Escort_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_P_Meredith_MB_Escort_C'Default__GA_P_Meredith_MB_Escort_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Meredith/Mobile/P/GA_P_Meredith_MB_Escort.1"
+    }
+  },
+  {
+    "Type": "GA_P_Meredith_MB_Escort_C",
+    "Name": "Default__GA_P_Meredith_MB_Escort_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Meredith/Mobile/P/GA_P_Meredith_MB_Escort.GA_P_Meredith_MB_Escort_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'Giver_AddEffects_P_Meredith_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/P/Giver_AddEffects_P_Meredith"
+        }
+      ],
+      "PreCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_CurWeaponHoldType_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/P/BP_Check_CurWeaponHoldType"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_HasTag_MB_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/P/BP_Check_HasTag_MB"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_CurrentWeaponType_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/P/BP_Check_CurrentWeaponType"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'Activater_AddEffects_P_Meredith_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/P/Activater_AddEffects_P_Meredith"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'Activator_AddEffects_P_Meredith_MB_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/P/Activator_AddEffects_P_Meredith_MB"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'Activater_PlayInGameVoice_P_Meredith_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/P/Activater_PlayInGameVoice_P_Meredith"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'Activator_SetControlMode_P_Meredith_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/P/Activator_SetControlMode_P_Meredith"
+        }
+      ],
+      "IgnoreFailedEventTags": [
+        "State.Motion.InAir"
+      ],
+      "AttributeRemainEnery": {
+        "AttributeName": "PEnergy",
+        "Attribute": {
+          "Path": [
+            "PEnergy"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "ActivateEventTags": [
+        "CollectionEvent.StatTime.Start.PlayerSkill.P"
+      ],
+      "PreEndEventTags": [
+        "CollectionEvent.StatTime.End.PlayerSkill.P"
+      ],
+      "AbilityTags": [
+        "GA.Passive.Meredith"
+      ],
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerInitiated",
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "State.Weapon.Hold.WaistOrADS"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagPresent",
+          "TriggerType": "EGameplayAbilityTriggerType::Default"
+        },
+        {
+          "TriggerTag": {
+            "TagName": "State.Motion.InAir.Down"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagPresent",
+          "TriggerType": "EGameplayAbilityTriggerType::Default"
+        }
+      ],
+      "CooldownGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'CD_P_Meredith_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Meredith/Mobile/P/CD_P_Meredith"
+      },
+      "ActivationRequiredTags": [
+        "State.Motion.InAir",
+        "State.Weapon.Hold.WaistOrADS"
+      ]
+    }
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_E_MoBai_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_E_MoBai_C'Default__GE_E_MoBai_C'",
+      "ObjectPath": "PaperMan/CyAbilities/MoBai/E/Summon/GE_E_MoBai.1"
+    }
+  },
+  {
+    "Type": "GE_E_MoBai_C",
+    "Name": "Default__GE_E_MoBai_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/MoBai/E/Summon/GE_E_MoBai.GE_E_MoBai_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_E_MoBai_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/E/BP_DamageType_E_MoBai"
+      },
+      "BuffType": "ECyBuffType::Weak",
+      "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+            },
+            "RowName": "Duration.Buff.Block2D.E.MoBai"
+          }
+        }
+      },
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.MoBai.P"
+          ]
+        },
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.Blocked2D.Particle"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Weak.Block2D",
+          "Buff.Weak.Block2D.P.MoBai"
+        ],
+        "Added": [
+          "BuffIcon.Weak.Block2D",
+          "Buff.Weak.Block2D.P.MoBai"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Weak.Block2D.P.MoBai"
+        ],
+        "Added": [
+          "Buff.Weak.Block2D.P.MoBai"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Immunity.Weak",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

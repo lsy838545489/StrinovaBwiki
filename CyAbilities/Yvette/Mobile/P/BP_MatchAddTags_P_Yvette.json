@@ -1,0 +1,94 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_MatchAddTags_P_Yvette_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomMatchAddLooseTags'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_MatchAddTags_P_Yvette_C'Default__BP_MatchAddTags_P_Yvette_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Yvette/Mobile/P/BP_MatchAddTags_P_Yvette.1"
+    }
+  },
+  {
+    "Type": "BP_MatchAddTags_P_Yvette_C",
+    "Name": "Default__BP_MatchAddTags_P_Yvette_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Yvette/Mobile/P/BP_MatchAddTags_P_Yvette.BP_MatchAddTags_P_Yvette_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bInstigator": true,
+      "AddTags": [
+        "State.Player.NoAction"
+      ],
+      "MatchTags": {
+        "RequireTags": [
+          "State.Shape.3D"
+        ],
+        "IgnoreTags": [
+          "State.Health.Injured",
+          "State.Health.Death",
+          "GA.Interaction",
+          "State.Weapon.Hold.Waist",
+          "State.Weapon.Hold.ADS",
+          "State.Weapon.Hold.Aiming",
+          "State.Weapon.Hold.AimOrADS",
+          "GA.Use.Primary",
+          "GA.Use.Secondary",
+          "State.Weapon.Work",
+          "GA.Action.Rescue",
+          "GA.Action.RescueSelf",
+          "State.Player.C4.Dismantle",
+          "State.Player.C4.Install",
+          "Buff.Strong.Stealth.Common"
+        ]
+      },
+      "MatchMoveTags": {
+        "RequireAnyTags": [
+          "State.Motion.NoMove"
+        ]
+      },
+      "MatchKeepTime": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "CD.P.Yvette"
+        }
+      },
+      "MoveTime": {
+        "Value": 1.0
+      },
+      "EffectsToApply": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Stealth_P_Yvette_C'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Yvette/Mobile/P/GE_Stealth_P_Yvette"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::All"
+        }
+      ],
+      "bAllowTick": true,
+      "bUseAuthorityMask": true
+    }
+  }
+]

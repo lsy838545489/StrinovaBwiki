@@ -1,0 +1,106 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_E_Vertigo_Kanami_Duration_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_E_Vertigo_Kanami_Duration_C'Default__GE_E_Vertigo_Kanami_Duration_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Kanami/Mobile/E/Summon/GE/GE_E_Vertigo_Kanami_Duration.1"
+    }
+  },
+  {
+    "Type": "GE_E_Vertigo_Kanami_Duration_C",
+    "Name": "Default__GE_E_Vertigo_Kanami_Duration_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Kanami/Mobile/E/Summon/GE/GE_E_Vertigo_Kanami_Duration.GE_E_Vertigo_Kanami_Duration_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_E_Kanami_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/BP_DamageType_E_Kanami"
+      },
+      "TargetRemovedEventTag": {
+        "TagName": "Event.Action.KeepAimOrADS"
+      },
+      "BuffType": "ECyBuffType::Weak",
+      "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+            },
+            "RowName": "Duration.Buff.E.Kanami"
+          }
+        }
+      },
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.Shared.Vertigo"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Weak.Vertigo"
+        ],
+        "Added": [
+          "BuffIcon.Weak.Vertigo"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "State.Player.DisableInputAim.ADS",
+          "State.Player.DisableKeepAim.ADS"
+        ],
+        "Added": [
+          "State.Player.DisableInputAim.ADS",
+          "State.Player.DisableKeepAim.ADS"
+        ]
+      },
+      "ApplicationTagRequirements": {
+        "IgnoreTags": [
+          "Buff.Weak.VertigoCD.Kanami.E",
+          "Buff.Weak.Vertigo.Kanami.E"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Immunity.Weak",
+          "State.Game.RemoveBuff",
+          "Buff.Weak.Vertigo.Kanami.E"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

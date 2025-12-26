@@ -1,0 +1,153 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_BombPass_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_BombPass_C'Default__GA_BombPass_C'",
+      "ObjectPath": "PaperMan/CyAbilities/GamePlayAbilities/GA_BombPass/GA_BombPass.1"
+    }
+  },
+  {
+    "Type": "GA_BombPass_C",
+    "Name": "Default__GA_BombPass_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/GamePlayAbilities/GA_BombPass/GA_BombPass.GA_BombPass_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveActuatorAttach_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveActuatorAttach"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateWeapon"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_AddEffects_BombPass_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/GamePlayAbilities/GA_BombPass/BP_Activator_AddEffects_BombPass"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.TakeInjured"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SpawnActor_BombPass_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/GamePlayAbilities/GA_BombPass/BP_Trigger_SpawnActor_BombPass"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Shape.2D.Wall"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchAbilityWeapon_BombPass_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/GamePlayAbilities/GA_BombPass/BP_Trigger_SwitchAbilityWeapon_BombPass"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_BombPass_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/GamePlayAbilities/GA_BombPass/Weapon/Weapon_BombPass"
+      },
+      "SlotType": "EWeaponSlotTypes::CustomType254",
+      "ActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'Summon_BombPass_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/GamePlayAbilities/GA_BombPass/Summon/Summon_BombPass"
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCDMask": 0,
+      "CommitCostMask": 0,
+      "AbilityTags": [
+        "GA.Gameplay.Bomber"
+      ],
+      "CancelAbilitiesWithTag": [
+        "GA.Ability.SkillQ",
+        "GA.Ability.SkillX",
+        "GA.Ability.SkillE",
+        "GA.Ability.Summon.Control"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Gameplay.Bomber",
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableUseSkill"
+      ]
+    }
+  }
+]

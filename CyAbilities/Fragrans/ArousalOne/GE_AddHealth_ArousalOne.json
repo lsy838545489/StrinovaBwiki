@@ -1,0 +1,120 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_AddHealth_ArousalOne_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_AddHealth_ArousalOne_C'Default__GE_AddHealth_ArousalOne_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Fragrans/ArousalOne/GE_AddHealth_ArousalOne.1"
+    }
+  },
+  {
+    "Type": "GE_AddHealth_ArousalOne_C",
+    "Name": "Default__GE_AddHealth_ArousalOne_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Fragrans/ArousalOne/GE_AddHealth_ArousalOne.GE_AddHealth_ArousalOne_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_Q_Fragrans_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Fragrans/Q/BP_DamageType_Q_Fragrans"
+      },
+      "BuffType": "ECyBuffType::Strong",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 10.0
+        }
+      },
+      "Period": {
+        "Value": 1.0
+      },
+      "bExecutePeriodicEffectOnApplication": false,
+      "Executions": [
+        {
+          "CalculationClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_PeriodChangeExecutionCalculation_C'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Fragrans/ArousalOne/BP_PeriodChangeExecutionCalculation"
+          },
+          "PassedInTags": [],
+          "CalculationModifiers": [],
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ConditionalGameplayEffects": []
+        }
+      ],
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": []
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Strong.HealthRecover"
+        ],
+        "Added": [
+          "BuffIcon.Strong.HealthRecover"
+        ]
+      },
+      "OngoingTagRequirements": {
+        "IgnoreTags": [
+          "Buff.Weak.BeingAttacked",
+          "Buff.Strong.X.Fragrans"
+        ]
+      },
+      "ApplicationTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Injured"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Injured",
+          "State.Health.Death",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

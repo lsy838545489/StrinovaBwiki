@@ -1,0 +1,333 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Projectile_Q_Michele_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Projectile_Q_Michele_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.9"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyProjectileBlast'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Projectile_Q_Michele_C'Default__Projectile_Q_Michele_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.1"
+    }
+  },
+  {
+    "Type": "Projectile_Q_Michele_C",
+    "Name": "Default__Projectile_Q_Michele_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.Projectile_Q_Michele_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "IgnoreEnemy": true,
+      "RootScene": {
+        "ObjectName": "SphereComponent'Default__Projectile_Q_Michele_C:RootComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.11"
+      },
+      "MeshComponent": {
+        "ObjectName": "SkeletalMeshComponent'Default__Projectile_Q_Michele_C:MeshComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.10"
+      },
+      "MovementComponent": {
+        "ObjectName": "CyProjectileFlyDropMovementComponent'Default__Projectile_Q_Michele_C:MovementComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.4"
+      },
+      "AkComponent": {
+        "ObjectName": "AkComponent'Default__Projectile_Q_Michele_C:AkComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.2"
+      },
+      "ActuatorConfig": {
+        "ActorClass": {
+          "ObjectName": "BlueprintGeneratedClass'Summon_Q_Michele_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Michele/Q/Summon/Summon_Q_Michele"
+        },
+        "bUseActorLocation": true,
+        "bEnableRotation": true,
+        "bAttachToHitActor": true
+      },
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile_Q_Michele_C:PerceptionSystemComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.6"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Projectile_Q_Michele_C:SkinComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.5"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Projectile_Q_Michele_C:DataSystemComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.3"
+      },
+      "RootComponent": {
+        "ObjectName": "SphereComponent'Default__Projectile_Q_Michele_C:RootComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.11"
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "AkComponent",
+    "Outer": "Default__Projectile_Q_Michele_C",
+    "Class": "UScriptClass'AkComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SphereComponent'Default__Projectile_Q_Michele_C:RootComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.11"
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Outer": "Default__Projectile_Q_Michele_C",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyProjectileFlyDropMovementComponent",
+    "Name": "MovementComponent",
+    "Outer": "Default__Projectile_Q_Michele_C",
+    "Class": "UScriptClass'CyProjectileFlyDropMovementComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StopIgnoreClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_AirWallBlueActor_C'",
+          "ObjectPath": "/Game/PaperMan/Environment/BluePrints/SharedBlueprints/BP_AirWallBlueActor"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_AirWallRedActor_C'",
+          "ObjectPath": "/Game/PaperMan/Environment/BluePrints/SharedBlueprints/BP_AirWallRedActor"
+        }
+      ],
+      "InitialSpeed": 4000.0,
+      "MaxSpeed": 4000.0,
+      "ProjectileGravityScale": 0.0,
+      "OnProjectileBounce": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "Projectile_Q_Michele_C'Default__Projectile_Q_Michele_C'",
+              "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.1"
+            },
+            "FunctionName": "OnBounce"
+          }
+        ]
+      },
+      "OnProjectileStop": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "Projectile_Q_Michele_C'Default__Projectile_Q_Michele_C'",
+              "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.1"
+            },
+            "FunctionName": "OnStop"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Outer": "Default__Projectile_Q_Michele_C",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Outer": "Default__Projectile_Q_Michele_C",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StimuliSourceID": 11011
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Projectile_Q_Michele_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Projectile_Q_Michele_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.7"
+      },
+      "VariableGuid": "6DD6D3BC-4E940EE8-91DFFEB3-5585DA1D",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Projectile_Q_Michele_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Projectile_Q_Michele_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.8"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "MeshComponent",
+    "Outer": "Default__Projectile_Q_Michele_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimationMode": "EAnimationMode::AnimationSingleNode",
+      "BodyInstance": {
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "MoveCheckWorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "AirWall",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "SphereComponent'Default__Projectile_Q_Michele_C:RootComponent'",
+        "ObjectPath": "PaperMan/CyAbilities/Michele/Q/Weapon/Projectile_Q_Michele.11"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "RootComponent",
+    "Outer": "Default__Projectile_Q_Michele_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 11.0,
+      "BodyInstance": {
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "ProjectileBolckStaticAndDynamic",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_RecoveryHealth_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_RecoveryHealth_C'Default__GE_RecoveryHealth_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Fuchsia/P/GE_RecoveryHealth.1"
+    }
+  },
+  {
+    "Type": "GE_RecoveryHealth_C",
+    "Name": "Default__GE_RecoveryHealth_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Fuchsia/P/GE_RecoveryHealth.GE_RecoveryHealth_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_P_Fuchsia_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/P/BP_DamageType_P_Fuchsia"
+      },
+      "ResponderType": "EResponderType::EffectCauserInstigator",
+      "InstigatorAddedEventTag": {
+        "TagName": "Event.GameplayEffect.Add.Fuchsia.P.HPEnergy"
+      },
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+            },
+            "RowName": "Duration.Buff.P.HealthRecovery.Fuchsia"
+          }
+        }
+      },
+      "Period": {
+        "Value": 0.2
+      },
+      "Executions": [
+        {
+          "CalculationClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_Execution_RecoveryHeath_Fuchsia_P_C'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/P/BP_Execution_RecoveryHeath_Fuchsia_P"
+          },
+          "PassedInTags": [],
+          "CalculationModifiers": [],
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ConditionalGameplayEffects": []
+        }
+      ],
+      "PrematureExpirationEffectClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_RemoveHealthEnergy_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/P/GE_RemoveHealthEnergy"
+        }
+      ],
+      "RoutineExpirationEffectClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_RemoveHealthEnergy_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/P/GE_RemoveHealthEnergy"
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Strong.HealthRecover.P.Fuchsia"
+        ],
+        "Added": [
+          "BuffIcon.Strong.HealthRecover.P.Fuchsia"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Fuchsia.P.RecoveryHealth"
+        ],
+        "Added": [
+          "Buff.Fuchsia.P.RecoveryHealth"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Health.Injured",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

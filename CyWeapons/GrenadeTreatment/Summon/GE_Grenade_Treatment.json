@@ -1,0 +1,127 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_Grenade_Treatment_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_Grenade_Treatment_C'Default__GE_Grenade_Treatment_C'",
+      "ObjectPath": "PaperMan/CyWeapons/GrenadeTreatment/Summon/GE_Grenade_Treatment.1"
+    }
+  },
+  {
+    "Type": "GE_Grenade_Treatment_C",
+    "Name": "Default__GE_Grenade_Treatment_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyWeapons/GrenadeTreatment/Summon/GE_Grenade_Treatment.GE_Grenade_Treatment_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Grenade_Treatment_DamageType_C'",
+        "ObjectPath": "/Game/PaperMan/CyWeapons/GrenadeTreatment/BP_Grenade_Treatment_DamageType"
+      },
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 20.0
+        }
+      },
+      "Period": {
+        "Value": 1.0
+      },
+      "bExecutePeriodicEffectOnApplication": false,
+      "Executions": [
+        {
+          "CalculationClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_TreatmentExecutionCalculation_C'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/GrenadeTreatment/Summon/BP_TreatmentExecutionCalculation"
+          },
+          "PassedInTags": [],
+          "CalculationModifiers": [],
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ConditionalGameplayEffects": []
+        }
+      ],
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.Grenade.Treatment"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Strong.HealthRecover"
+        ],
+        "Added": [
+          "BuffIcon.Strong.HealthRecover"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Strong.TreatmentGrenade"
+        ],
+        "Added": [
+          "Buff.Strong.TreatmentGrenade"
+        ]
+      },
+      "OngoingTagRequirements": {
+        "IgnoreTags": [
+          "Buff.Weak.BeingAttacked"
+        ]
+      },
+      "ApplicationTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Injured"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Injured",
+          "State.Health.Death",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1,
+      "StackPeriodResetPolicy": "EGameplayEffectStackingPeriodPolicy::NeverReset"
+    }
+  }
+]

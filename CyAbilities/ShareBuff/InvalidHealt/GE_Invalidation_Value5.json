@@ -1,0 +1,120 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_Invalidation_Value5_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'GameplayEffect'",
+      "ObjectPath": "/Script/GameplayAbilities"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_Invalidation_Value5_C'Default__GE_Invalidation_Value5_C'",
+      "ObjectPath": "PaperMan/CyAbilities/ShareBuff/InvalidHealt/GE_Invalidation_Value5.1"
+    }
+  },
+  {
+    "Type": "GE_Invalidation_Value5_C",
+    "Name": "Default__GE_Invalidation_Value5_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/ShareBuff/InvalidHealt/GE_Invalidation_Value5.GE_Invalidation_Value5_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DurationPolicy": "EGameplayEffectDurationType::Infinite",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 50.0
+        }
+      },
+      "Period": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+          },
+          "RowName": "Attribute.DamageInterval.Set"
+        }
+      },
+      "bExecutePeriodicEffectOnApplication": false,
+      "Executions": [
+        {
+          "CalculationClass": {
+            "ObjectName": "BlueprintGeneratedClass'Execution_InvalidHealth_Value5_C'",
+            "ObjectPath": "/Game/PaperMan/CyAbilities/ShareBuff/InvalidHealt/Execution_InvalidHealth_Value5"
+          },
+          "PassedInTags": [],
+          "CalculationModifiers": [],
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ConditionalGameplayEffects": []
+        }
+      ],
+      "PrematureExpirationEffectClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_Invalidation_Delay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/ShareBuff/InvalidHealt/GE_Invalidation_Delay"
+        }
+      ],
+      "RoutineExpirationEffectClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_Invalidation_Delay_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/ShareBuff/InvalidHealt/GE_Invalidation_Delay"
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Weak.InvalidHealth"
+        ],
+        "Added": [
+          "BuffIcon.Weak.InvalidHealth"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Weak.InvalidHealth.Value5"
+        ],
+        "Added": [
+          "Buff.Weak.InvalidHealth.Value5"
+        ]
+      },
+      "OngoingTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Injured"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Game.RemoveBuff",
+          "State.Immunity.Weak"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackDurationRefreshPolicy": "EGameplayEffectStackingDurationPolicy::NeverRefresh",
+      "StackPeriodResetPolicy": "EGameplayEffectStackingPeriodPolicy::NeverReset"
+    }
+  }
+]

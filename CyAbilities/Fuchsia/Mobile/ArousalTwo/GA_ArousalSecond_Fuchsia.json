@@ -1,0 +1,233 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_ArousalSecond_Fuchsia_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_ArousalSecond_Fuchsia_C'Default__GA_ArousalSecond_Fuchsia_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/GA_ArousalSecond_Fuchsia.1"
+    }
+  },
+  {
+    "Type": "GA_ArousalSecond_Fuchsia_C",
+    "Name": "Default__GA_ArousalSecond_Fuchsia_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/GA_ArousalSecond_Fuchsia.GA_ArousalSecond_Fuchsia_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckTagRequirements_ArousalSecond_Fuchsia_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/BP_CheckTagRequirements_ArousalSecond_Fuchsia"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_ChangeState_ArousalSecond_Fuchsia_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/BP_Activator_ChangeState_ArousalSecond_Fuchsia"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'Activater_AddEffects_Arousal2_Fuchsia_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/Activater_AddEffects_Arousal2_Fuchsia"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.SetDefaults"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [
+                "State.Arousal.Two"
+              ],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffect_InjuredHealth_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/BP_Trigger_AddEffect_InjuredHealth"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.GameState.FightEnd.PreEnd"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.GameMode.RestartPlayer.After"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [
+                "State.Arousal.Two"
+              ],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffect_InjuredHealth_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/BP_Trigger_AddEffect_InjuredHealth"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Arousal.Two"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "Buff.Weak.Arousal2.Fuchsia"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffect_InjuredHealth_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/BP_Trigger_AddEffect_InjuredHealth"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Arousal.Two"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "Buff.Weak.Arousal2.Fuchsia"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_RemoveEffect_InjuredHealth_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/BP_Trigger_RemoveEffect_InjuredHealth"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "DurationEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'Duration_ArousalSecond_Fuchsia_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Fuchsia/Mobile/ArousalTwo/Duration_ArousalSecond_Fuchsia"
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCDMask": 0,
+      "AbilityTags": [
+        "GA.Arousal.Second.Fuchsia"
+      ],
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerInitiated",
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "State.Health.Injured"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Active"
+        }
+      ],
+      "ActivationOwnedTags": [
+        "GA.Arousal.Second.Fuchsia"
+      ]
+    }
+  }
+]

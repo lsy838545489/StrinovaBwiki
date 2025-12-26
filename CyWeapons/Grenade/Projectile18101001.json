@@ -1,0 +1,356 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Projectile18101001_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Projectile18101001_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.11"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyProjectileBlast'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyDataManager",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyDataManagerComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Projectile18101001_C'Default__Projectile18101001_C'",
+      "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.1"
+    }
+  },
+  {
+    "Type": "Projectile18101001_C",
+    "Name": "Default__Projectile18101001_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyWeapons/Grenade/Projectile18101001.Projectile18101001_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BlastRadius": 600.0,
+      "DamageMap": [
+        {
+          "Key": "ETargetType::Self",
+          "Value": {
+            "ObjectName": "CurveFloat'DamageCurve_Self'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/Grenade/DamageCurve_Self"
+          }
+        },
+        {
+          "Key": "ETargetType::Enemy",
+          "Value": {
+            "ObjectName": "CurveFloat'DamageCurve'",
+            "ObjectPath": "/Game/PaperMan/CyWeapons/Grenade/DamageCurve"
+          }
+        }
+      ],
+      "BlastDamageType": {
+        "ObjectName": "BlueprintGeneratedClass'DamageType_Grenade_C'",
+        "ObjectPath": "/Game/PaperMan/CyWeapons/Grenade/DamageType_Grenade"
+      },
+      "PreWarningConfig": {
+        "Radius": 600.0
+      },
+      "CustomDamageFactorAttribute": {
+        "AttributeName": "GrenadeDamageFactor",
+        "Attribute": {
+          "Path": [
+            "GrenadeDamageFactor"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "RootScene": {
+        "ObjectName": "SphereComponent'Default__Projectile18101001_C:RootComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.13"
+      },
+      "MeshComponent": {
+        "ObjectName": "SkeletalMeshComponent'Default__Projectile18101001_C:MeshComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.12"
+      },
+      "MovementComponent": {
+        "ObjectName": "CyProjectileFlyDropMovementComponent'Default__Projectile18101001_C:MovementComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.5"
+      },
+      "AkComponent": {
+        "ObjectName": "AkComponent'Default__Projectile18101001_C:AkComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.2"
+      },
+      "ExplodeType": "EExplodeType::OnLifeOver",
+      "TimeToDestroy": 1.25,
+      "AkConfig": {
+        "ObjectName": "AkProjectileConfig'AkProjectileConfigGrenade'",
+        "ObjectPath": "/Game/WwiseAssets/AkConfigs/AkProjectileConfigGrenade"
+      },
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile18101001_C:PerceptionSystemComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.7"
+      },
+      "ID": 18101001,
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Projectile18101001_C:SkinComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.6"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Projectile18101001_C:DataSystemComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.4"
+      },
+      "bCanBeDamaged": false,
+      "InitialLifeSpan": 3.0,
+      "RootComponent": {
+        "ObjectName": "SphereComponent'Default__Projectile18101001_C:RootComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.13"
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "AkComponent",
+    "Outer": "Default__Projectile18101001_C",
+    "Class": "UScriptClass'AkComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SphereComponent'Default__Projectile18101001_C:RootComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.13"
+      }
+    }
+  },
+  {
+    "Type": "CyDataManagerComponent",
+    "Name": "CyDataManager_GEN_VARIABLE",
+    "Outer": "Projectile18101001_C",
+    "Class": "UScriptClass'CyDataManagerComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SpawnEventTag": {
+        "TagName": "CollectionEvent.UsedCount.Grenade"
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Outer": "Default__Projectile18101001_C",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyProjectileFlyDropMovementComponent",
+    "Name": "MovementComponent",
+    "Outer": "Default__Projectile18101001_C",
+    "Class": "UScriptClass'CyProjectileFlyDropMovementComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxBounceCount": 2,
+      "BouncinessScaleMin": 0.25,
+      "BouncinessScaleMax": 0.9,
+      "BouncinessDistanceMin": 300.0,
+      "BouncinessDistanceMax": 3000.0,
+      "InitialSpeed": 3300.0,
+      "bShouldBounce": true,
+      "Bounciness": 0.2,
+      "OnProjectileBounce": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "Projectile18101001_C'Default__Projectile18101001_C'",
+              "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.1"
+            },
+            "FunctionName": "OnBounce"
+          }
+        ]
+      },
+      "OnProjectileStop": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "Projectile18101001_C'Default__Projectile18101001_C'",
+              "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.1"
+            },
+            "FunctionName": "OnStop"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Outer": "Default__Projectile18101001_C",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Outer": "Default__Projectile18101001_C",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StimuliSourceID": 11813
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "Projectile18101001_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Projectile18101001_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.8"
+      },
+      "VariableGuid": "5576EF7C-4C865D75-022261A2-099923FE",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyDataManagerComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyDataManagerComponent'Projectile18101001_C:CyDataManager_GEN_VARIABLE'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.3"
+      },
+      "VariableGuid": "B4621236-4CDC07C6-D056CBB5-AC47EC75",
+      "InternalVariableName": "CyDataManager"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "Projectile18101001_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Projectile18101001_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.10"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Projectile18101001_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.10"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Projectile18101001_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.9"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "MeshComponent",
+    "Outer": "Default__Projectile18101001_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SphereComponent'Default__Projectile18101001_C:RootComponent'",
+        "ObjectPath": "PaperMan/CyWeapons/Grenade/Projectile18101001.13"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "RootComponent",
+    "Outer": "Default__Projectile18101001_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 5.0,
+      "BodyInstance": {
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "ProjectileIgnoreSummon",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

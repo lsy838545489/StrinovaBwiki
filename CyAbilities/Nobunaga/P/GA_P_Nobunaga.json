@@ -1,0 +1,126 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_P_Nobunaga_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_P_Nobunaga_C'Default__GA_P_Nobunaga_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Nobunaga/P/GA_P_Nobunaga.1"
+    }
+  },
+  {
+    "Type": "GA_P_Nobunaga_C",
+    "Name": "Default__GA_P_Nobunaga_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Nobunaga/P/GA_P_Nobunaga.GA_P_Nobunaga_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GiveEffects_P_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Nobunaga/P/BP_GiveEffects_P"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_AddWaitAfterADS_P_Nobunaga_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Nobunaga/P/BP_Activator_AddWaitAfterADS_P_Nobunaga"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.CauseDamage.PlayerWeapon.Primary"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "Buff.Strong.P.Nobunaga"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "Buff.Wait.P.Nobunaga"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_ApplyEffectsToEnemy_P_Nobunaga_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Nobunaga/P/BP_ApplyEffectsToEnemy_P_Nobunaga"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Consume.Primary"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "Buff.Strong.P.Nobunaga"
+              ],
+              "IgnoreAllTags": [
+                "Buff.Wait.P.Nobunaga"
+              ],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_AddWaitAfterAttack_P_Nobunaga_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Nobunaga/P/BP_AddWaitAfterAttack_P_Nobunaga"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AbilityTags": [
+        "GA.Passive.Nobunaga"
+      ],
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerInitiated",
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "State.Weapon.Hold.ADS"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagPresent",
+          "TriggerType": "EGameplayAbilityTriggerType::Default"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_XRayInstigator_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_XRayInstigator_C'Default__GE_XRayInstigator_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Michele/Mobile/ArousalOne/GE_XRayInstigator.1"
+    }
+  },
+  {
+    "Type": "GE_XRayInstigator_C",
+    "Name": "Default__GE_XRayInstigator_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Michele/Mobile/ArousalOne/GE_XRayInstigator.GE_XRayInstigator_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_Q_Michele_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Michele/Mobile/Q/Summon/BP_DamageType_Q_Michele"
+      },
+      "BuffType": "ECyBuffType::Weak",
+      "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::Infinite",
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.XRay.InstigatorTeam"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Weak.XRay"
+        ],
+        "Added": [
+          "BuffIcon.Weak.XRay"
+        ]
+      },
+      "ApplicationTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Death",
+          "Buff.Stealth",
+          "Buff.Strong.Immune"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "Buff.Stealth",
+          "Buff.Strong.Immune",
+          "State.Game.RemoveBuff",
+          "State.Immunity.Weak"
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,187 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Q_CrystalloidBeta1_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Q_CrystalloidBeta1_C'Default__GA_Q_CrystalloidBeta1_C'",
+      "ObjectPath": "PaperMan/CyAbilities/Zombie/CrystalloidBeta1/Mobile/Q/GA_Q_CrystalloidBeta1.1"
+    }
+  },
+  {
+    "Type": "GA_Q_CrystalloidBeta1_C",
+    "Name": "Default__GA_Q_CrystalloidBeta1_C",
+    "Class": "BlueprintGeneratedClass'PaperMan/CyAbilities/Zombie/CrystalloidBeta1/Mobile/Q/GA_Q_CrystalloidBeta1.GA_Q_CrystalloidBeta1_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponAttackType": "EFAttackType::ThrowEnd",
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GA_SwitchWeapon_C'",
+          "ObjectPath": "/Game/PaperMan/CyAbilities/Zombie/CrystalloidBeta1/Mobile/Q/Atom/BP_GA_SwitchWeapon"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Summon.Spawn.CrystalloidBeta1.E.Projectile"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToAny_C'",
+                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToAny"
+              }
+            ],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_Q_CrystalloidBeta1_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Zombie/CrystalloidBeta1/Mobile/Q/Weapon/Weapon_Q_CrystalloidBeta1"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Ability",
+      "MagnitudeRemainPoints": {
+        "Value": 1.0
+      },
+      "MagnitudeMaxPoints": {
+        "Value": 1.0
+      },
+      "AttributeRemainPoints": {
+        "AttributeName": "QPoints",
+        "Attribute": {
+          "Path": [
+            "QPoints"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "AttributeMaxPoints": {
+        "AttributeName": "QPointsMax",
+        "Attribute": {
+          "Path": [
+            "QPointsMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAbilityAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAbilityAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCostMask": 0,
+      "ActivateEventTags": [
+        "Event.Ability.Activate"
+      ],
+      "PreEndEventTags": [
+        "Event.Ability.PreEnd"
+      ],
+      "PostEndEventTags": [
+        "Event.Ability.PostEnd"
+      ],
+      "CommitCostEventTags": [
+        "Event.ConsumePlayerSkill.Q"
+      ],
+      "AbilityTags": [
+        "GA.Ability.SkillQ.CrystalloidBeta1"
+      ],
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'GE_CostQPoints_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GE/GE_CostQPoints"
+      },
+      "CooldownGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'CD_Q_CrystalloidBeta1_C'",
+        "ObjectPath": "/Game/PaperMan/CyAbilities/Zombie/CrystalloidBeta1/Mobile/Q/CD_Q_CrystalloidBeta1"
+      },
+      "ActivationOwnedTags": [
+        "GA.Ability.SkillQ.CrystalloidBeta1"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill",
+        "State.Weapon.MeleeAttacking"
+      ]
+    }
+  }
+]
