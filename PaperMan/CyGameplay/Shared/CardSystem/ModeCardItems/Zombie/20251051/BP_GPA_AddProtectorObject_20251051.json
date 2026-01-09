@@ -1,0 +1,79 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GPA_AddProtectorObject_20251051_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGPAction_AddProtectorObject'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GPA_AddProtectorObject_20251051_C'Default__BP_GPA_AddProtectorObject_20251051_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20251051/BP_GPA_AddProtectorObject_20251051.1"
+    }
+  },
+  {
+    "Type": "BP_GPA_AddProtectorObject_20251051_C",
+    "Name": "Default__BP_GPA_AddProtectorObject_20251051_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20251051/BP_GPA_AddProtectorObject_20251051.BP_GPA_AddProtectorObject_20251051_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ProtectorTag": {
+        "TagName": "State.Card.20251051"
+      },
+      "TakerRequirements": {
+        "IgnoreTags": [
+          "State.Health.Injured",
+          "CD.CardItem.20251051"
+        ]
+      },
+      "EffectsAfterDeathProtected": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Protector_20251051_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20251051/GE_Protector_20251051.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "DeathProtectTag": {
+        "TagName": "Event.DeathProtect.Card.20251051"
+      },
+      "LimitDeathProtectCount": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode_CardLevelAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_CardLevelAttribute.0"
+          },
+          "RowName": "Card.ProtectCount.20251051"
+        }
+      },
+      "Priority": -9.0
+    }
+  }
+]

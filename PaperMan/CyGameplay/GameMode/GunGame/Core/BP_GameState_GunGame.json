@@ -1,0 +1,1543 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GameState_GunGame_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_GameState_GunGame_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.29"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySharedGameState'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyGunGameTeamWeaponLevel",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyGunGameTeamWeaponLevelComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyGStatePrepare",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyGStatePrepare'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyGStateWarmup",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyGStateWarmup'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyInGameDataTrack",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyInGameDataTrack'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyCustomModeGame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyCustomModeGameComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_NotPlaceable | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GameState_GunGame_C'Default__BP_GameState_GunGame_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.1"
+    }
+  },
+  {
+    "Type": "BP_GameState_GunGame_C",
+    "Name": "Default__BP_GameState_GunGame_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.BP_GameState_GunGame_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DefaultNumTeams": {
+        "Value": 5.0
+      },
+      "bSupportSelectRole": true,
+      "bEnableDeathMarker": true,
+      "ModeType": "EPMGameModeType::GunGame",
+      "ModeCurveType": "EModeCurveType::CustomType239",
+      "Machine": {
+        "ObjectName": "CyGMachine'Default__BP_GameState_GunGame_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.6"
+      },
+      "CachedComponents": [
+        {
+          "Key": "CyGStateRoleSelect",
+          "Value": {
+            "ObjectName": "CyGStateRoleSelect'Default__BP_GameState_GunGame_C:CyGStateRoleSelect'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.17"
+          }
+        },
+        {
+          "Key": "CyGStateRoleReselect",
+          "Value": {
+            "ObjectName": "CyGStateRoleReselect'Default__BP_GameState_GunGame_C:CyGStateRoleReselect'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.16"
+          }
+        },
+        {
+          "Key": "CyGStateRoleLoad",
+          "Value": {
+            "ObjectName": "CyGStateRoleLoad'Default__BP_GameState_GunGame_C:CyGStateRoleLoad'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.15"
+          }
+        },
+        {
+          "Key": "CyGStateReStart",
+          "Value": {
+            "ObjectName": "CyGStateReStart'Default__BP_GameState_GunGame_C:CyGStateReStart'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.14"
+          }
+        },
+        {
+          "Key": "CyGStateFight",
+          "Value": {
+            "ObjectName": "CyGStateFight'Default__BP_GameState_GunGame_C:CyGStateFight'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.8"
+          }
+        },
+        {
+          "Key": "CyGStateFightEnd",
+          "Value": {
+            "ObjectName": "CyGStateFightEnd'Default__BP_GameState_GunGame_C:CyGStateFightEnd'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.9"
+          }
+        },
+        {
+          "Key": "CyGStateGameEnd",
+          "Value": {
+            "ObjectName": "CyGStateGameEnd'Default__BP_GameState_GunGame_C:CyGStateGameEnd'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.10"
+          }
+        },
+        {
+          "Key": "CyGStateGameOver",
+          "Value": {
+            "ObjectName": "CyGStateGameOver'Default__BP_GameState_GunGame_C:CyGStateGameOver'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.11"
+          }
+        },
+        {
+          "Key": "CyGStateNone",
+          "Value": {
+            "ObjectName": "CyGStateNone'Default__BP_GameState_GunGame_C:CyGStateNone'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.12"
+          }
+        },
+        {
+          "Key": "CyGSMonitorMuteInGameSound",
+          "Value": {
+            "ObjectName": "CyGSMonitorMuteInGameSound'Default__BP_GameState_GunGame_C:CyGSMonitorMuteInGameSound'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.7"
+          }
+        }
+      ],
+      "bEnableQuestSystem": true,
+      "AbilitySystem": {
+        "ObjectName": "CyAbilitySystemComponent'Default__BP_GameState_GunGame_C:AbilitySystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.2"
+      },
+      "TeamManagerComponent": {
+        "ObjectName": "CyTeamManagerComponent'Default__BP_GameState_GunGame_C:TeamManagerComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.21"
+      },
+      "WatchGameTeamColorDisplayMode": "EWatchGameDisplayMode::Relative",
+      "bGrowthSlotDowngradeCostEnabled": false,
+      "bGrowthArousalActivateEnabled": false,
+      "bGrowthArousalDeactivateCostEnabled": false,
+      "DefaultInitAttributeEffects": {
+        "Elements": [
+          {
+            "EffectClass": {
+              "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_GunGameMatch_C'",
+              "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Attributes/GE_InitAttributes_GunGameMatch.0"
+            },
+            "SourceTags": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "RemoveType": "EEffectRemoveType::Infinite",
+            "StackCount": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "EffectClass": {
+              "ObjectName": "BlueprintGeneratedClass'GE_God_GunGame_C'",
+              "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Abilities/GE_God_GunGame.0"
+            },
+            "SourceTags": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "RemoveType": "EEffectRemoveType::Infinite",
+            "StackCount": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "EffectClass": {
+              "ObjectName": "BlueprintGeneratedClass'GE_GameMode_Infinite_Armor_C'",
+              "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Abilities/GE_GameMode_Infinite_Armor.0"
+            },
+            "SourceTags": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "RemoveType": "EEffectRemoveType::Infinite",
+            "StackCount": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
+      "DefaultInitAbilityAttributeEffects": {
+        "Elements": [
+          {
+            "EffectClass": {
+              "ObjectName": "BlueprintGeneratedClass'GE_InitAbilityAttributes_GunGameMatch_C'",
+              "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Attributes/GE_InitAbilityAttributes_GunGameMatch.0"
+            },
+            "SourceTags": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "RemoveType": "EEffectRemoveType::Infinite",
+            "StackCount": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
+      "DefaultTeamMemberNum": [
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        },
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        },
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        },
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        },
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        }
+      ],
+      "DefaultCustomGameMask": 4294957139,
+      "DefaultCustomPlayerMask": 4294590523,
+      "DefaultCustomGameMask_Mobile": 4294957139,
+      "DefaultCustomPlayerMask_Mobile": 4294959227,
+      "CustomConfigAsset": {
+        "ObjectName": "CyCustomConfigDataAsset'CustomConfigDataAsset'",
+        "ObjectPath": "PM/Content/PaperMan/Core/GameModes/CustomConfigDataAsset.0"
+      },
+      "GeneralDataControlComponent": {
+        "ObjectName": "CyEventDataControlComponent'Default__BP_GameState_GunGame_C:GeneralDataControlComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.5"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__BP_GameState_GunGame_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.4"
+      }
+    }
+  },
+  {
+    "Type": "CyAbilitySystemComponent",
+    "Name": "AbilitySystemComponent",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ReplicatedPredictionKeyMap": {
+        "PredictionKeys": [
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 1,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 2,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 3,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 4,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 5,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 6,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 7,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 8,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 9,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 10,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 11,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 12,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 13,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 14,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 15,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 16,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 17,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 18,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 19,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 20,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 21,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 22,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 23,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 24,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 25,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 26,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 27,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 28,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 29,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 30,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 31,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 32,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          }
+        ],
+        "ArrayReplicationKey": 32
+      }
+    }
+  },
+  {
+    "Type": "CyCustomModeGameComponent",
+    "Name": "CyCustomModeGame_GEN_VARIABLE",
+    "Outer": "BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyCustomModeGameComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttributeSetClass": [
+        {
+          "ObjectName": "Class'CyCustomAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        },
+        {
+          "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyEventDataControlComponent",
+    "Name": "GeneralDataControlComponent",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyEventDataControlComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyGMachine",
+    "Name": "Machine",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGMachine'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyGSMonitorMuteInGameSound",
+    "Name": "CyGSMonitorMuteInGameSound",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGSMonitorMuteInGameSound'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyGStateFight",
+    "Name": "CyGStateFight",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateFight'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyGStateFightEnd",
+    "Name": "CyGStateFightEnd",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateFightEnd'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyGStateGameEnd",
+    "Name": "CyGStateGameEnd",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateGameEnd'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_EndPerformance_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_GSSA_EndPerformance.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyGStateGameOver",
+    "Name": "CyGStateGameOver",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateGameOver'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_EvaluateRoleTitle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_GSSA_EvaluateRoleTitle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyGStateNone",
+    "Name": "CyGStateNone",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateNone'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyGStatePrepare",
+    "Name": "CyGStatePrepare_GEN_VARIABLE",
+    "Outer": "BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStatePrepare'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bAllowOpenGrowthPage": false,
+      "TimePromptInGameVoiceTags": [
+        {
+          "Key": "3",
+          "Value": {
+            "TagName": "UIEvent.Game.TeamDeath.Ready"
+          }
+        }
+      ],
+      "bIgnorePawnInput": true,
+      "bAllowScore": false,
+      "TotalDuration": {
+        "Value": 5.0
+      }
+    }
+  },
+  {
+    "Type": "CyGStateReStart",
+    "Name": "CyGStateReStart",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateReStart'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyGStateRoleLoad",
+    "Name": "CyGStateRoleLoad",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateRoleLoad'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bInitializeQuest": false
+    }
+  },
+  {
+    "Type": "CyGStateRoleReselect",
+    "Name": "CyGStateRoleReselect",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateRoleReselect'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyGStateRoleSelect",
+    "Name": "CyGStateRoleSelect",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateRoleSelect'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bInitializeQuest": true
+    }
+  },
+  {
+    "Type": "CyGStateWarmup",
+    "Name": "CyGStateWarmup_GEN_VARIABLE",
+    "Outer": "BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGStateWarmup'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyGunGameTeamWeaponLevelComponent",
+    "Name": "CyGunGameTeamWeaponLevel_GEN_VARIABLE",
+    "Outer": "BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyGunGameTeamWeaponLevelComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OptionalFirstWeaponList": [
+        {
+          "bKillShareTeam": true,
+          "bTeamUpgrade": true,
+          "bLowerLevelNoScore": true,
+          "WeaponList": [
+            {
+              "WeaponId": 10106001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10101001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10404001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10301001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10305001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10502001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10602001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10201001,
+              "KillCount": 5
+            }
+          ]
+        },
+        {
+          "bKillShareTeam": true,
+          "bTeamUpgrade": true,
+          "bLowerLevelNoScore": true,
+          "WeaponList": [
+            {
+              "WeaponId": 10105001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10111001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10403001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10304001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10303001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10501001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10603001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10202001,
+              "KillCount": 5
+            }
+          ]
+        },
+        {
+          "bKillShareTeam": true,
+          "bTeamUpgrade": true,
+          "bLowerLevelNoScore": true,
+          "WeaponList": [
+            {
+              "WeaponId": 10102001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10113001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10404001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10301001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10305001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10502001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10602001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10201001,
+              "KillCount": 5
+            }
+          ]
+        },
+        {
+          "bKillShareTeam": true,
+          "bTeamUpgrade": true,
+          "bLowerLevelNoScore": true,
+          "WeaponList": [
+            {
+              "WeaponId": 10104001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10112001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10403001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10304001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10303001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10501001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10603001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10202001,
+              "KillCount": 5
+            }
+          ]
+        },
+        {
+          "bKillShareTeam": true,
+          "bTeamUpgrade": true,
+          "bLowerLevelNoScore": true,
+          "WeaponList": [
+            {
+              "WeaponId": 10112001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10108001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10404001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10301001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10305001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10503001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10602001,
+              "KillCount": 5
+            },
+            {
+              "WeaponId": 10201001,
+              "KillCount": 5
+            }
+          ]
+        }
+      ],
+      "OptionalSecondWeaponList": [
+        {
+          "bKillShareTeam": false,
+          "bTeamUpgrade": false,
+          "bLowerLevelNoScore": true,
+          "WeaponList": [
+            {
+              "WeaponId": 12307001,
+              "KillCount": 3
+            },
+            {
+              "WeaponId": 12303001,
+              "KillCount": 3
+            },
+            {
+              "WeaponId": 15201001,
+              "KillCount": 3
+            }
+          ]
+        },
+        {
+          "bKillShareTeam": false,
+          "bTeamUpgrade": false,
+          "bLowerLevelNoScore": true,
+          "WeaponList": [
+            {
+              "WeaponId": 12307001,
+              "KillCount": 3
+            },
+            {
+              "WeaponId": 12201001,
+              "KillCount": 3
+            },
+            {
+              "WeaponId": 15201001,
+              "KillCount": 3
+            }
+          ]
+        },
+        {
+          "bKillShareTeam": false,
+          "bTeamUpgrade": false,
+          "bLowerLevelNoScore": true,
+          "WeaponList": [
+            {
+              "WeaponId": 12307001,
+              "KillCount": 3
+            },
+            {
+              "WeaponId": 12101001,
+              "KillCount": 3
+            },
+            {
+              "WeaponId": 15201001,
+              "KillCount": 3
+            }
+          ]
+        }
+      ],
+      "UpgradeEffects": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GE_DelayUpgradePlayerLevelCD_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/GE/BP_GE_DelayUpgradePlayerLevelCD.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::All",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "bReplicates": true
+    }
+  },
+  {
+    "Type": "CyInGameDataTrack",
+    "Name": "CyInGameDataTrack_GEN_VARIABLE",
+    "Outer": "BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyInGameDataTrack'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "Class'CyDataTrackAtomGunGameMatchData'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "Class'CyDataTrackAtomGunGameMatchPlayerData'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "Class'CyDataTrackAtomGeneralRoundData'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "Class'CyDataTrackAtomTeamAntiCheat'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "Class'CyDataTrackAtomRoleKillData'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "Class'CyDataTrackAtomRoleInjuredData'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "Class'CyDataTrackAtomSecAntiDataFlow'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "Class'CyDataTrackAtomUsingFlowPlayerData'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyTeamManagerComponent",
+    "Name": "TeamManagerComponent",
+    "Outer": "Default__BP_GameState_GunGame_C",
+    "Class": "UScriptClass'CyTeamManagerComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_GameState_GunGame_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_GameState_GunGame_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.22"
+      },
+      "VariableGuid": "67800B38-4944D2A4-F183239D-21DF5D8D",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyGunGameTeamWeaponLevelComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyGunGameTeamWeaponLevelComponent'BP_GameState_GunGame_C:CyGunGameTeamWeaponLevel_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.19"
+      },
+      "VariableGuid": "65690B10-4D51FBC1-01113BB5-CAC04B36",
+      "InternalVariableName": "CyGunGameTeamWeaponLevel"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyCustomModeGameComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyCustomModeGameComponent'BP_GameState_GunGame_C:CyCustomModeGame_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.3"
+      },
+      "VariableGuid": "AC4E2A63-498965B8-A11F3298-F588D1EA",
+      "InternalVariableName": "CyCustomModeGame"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyInGameDataTrack'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyInGameDataTrack'BP_GameState_GunGame_C:CyInGameDataTrack_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.20"
+      },
+      "VariableGuid": "5B6198E2-4F9C3D36-C759C7AA-A33B7A1F",
+      "InternalVariableName": "CyInGameDataTrack"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyGStateWarmup'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyGStateWarmup'BP_GameState_GunGame_C:CyGStateWarmup_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.18"
+      },
+      "VariableGuid": "D3A544BD-424D19BA-5B40AE9B-89F48447",
+      "InternalVariableName": "CyGStateWarmup"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyGStatePrepare'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyGStatePrepare'BP_GameState_GunGame_C:CyGStatePrepare_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.13"
+      },
+      "VariableGuid": "25339D98-413DAB63-25944281-5546AD56",
+      "InternalVariableName": "CyGStatePrepare"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_GameState_GunGame_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.24"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.24"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_GameState_GunGame_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/GunGame/Core/BP_GameState_GunGame.23"
+      }
+    }
+  }
+]

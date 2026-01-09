@@ -1,0 +1,99 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_Zombie_Stealth_20351004_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_Zombie_Stealth_20351004_C'Default__GE_Zombie_Stealth_20351004_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20351004/GE_Zombie_Stealth_20351004.1"
+    }
+  },
+  {
+    "Type": "GE_Zombie_Stealth_20351004_C",
+    "Name": "Default__GE_Zombie_Stealth_20351004_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20351004/GE_Zombie_Stealth_20351004.GE_Zombie_Stealth_20351004_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode_CardLevelAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_CardLevelAttribute.0"
+            },
+            "RowName": "Duration.Stealth.20351004"
+          }
+        }
+      },
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.Zombie.Stealth"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Strong.Stealth"
+        ],
+        "Added": [
+          "BuffIcon.Strong.Stealth"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Stealth",
+          "Buff.Strong.ZombieStealth.20351004"
+        ],
+        "Added": [
+          "Buff.Stealth",
+          "Buff.Strong.ZombieStealth.20351004"
+        ]
+      },
+      "OngoingTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Alive"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireTagType": "ERequireTagType::OR",
+        "RequireAnyTags": [
+          "State.Health.Injured",
+          "State.Health.Death",
+          "GA.Interaction",
+          "State.Weapon.Hold.Waist",
+          "State.Weapon.Hold.ADS",
+          "State.Weapon.Hold.Aiming",
+          "State.Weapon.Hold.AimOrADS",
+          "State.Weapon.Work"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

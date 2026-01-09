@@ -1,0 +1,180 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GameMode_EscortGuide_MB_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_GameMode_EscortGuide_MB_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_GameMode_EscortGuide_MB.5"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyEscortGuideGameMode'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Transient | CLASS_Optional | CLASS_NotPlaceable | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GameMode_EscortGuide_MB_C'Default__BP_GameMode_EscortGuide_MB_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_GameMode_EscortGuide_MB.1"
+    }
+  },
+  {
+    "Type": "BP_GameMode_EscortGuide_MB_C",
+    "Name": "Default__BP_GameMode_EscortGuide_MB_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_GameMode_EscortGuide_MB.BP_GameMode_EscortGuide_MB_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AIController_Escort_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/GameModes/EscortMatch/BP_AIController_Escort.0"
+      },
+      "DifficultyLevel": "EPMAIDifficultyLevel::PMAI_DL_Easy",
+      "StartStateGroup": [
+        "EGStateType::Guide"
+      ],
+      "MatchHasEndedAtoms": [
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSEA_UpdatePlayerScore_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortMatch_MB/Core/EventAtom/PlayerScore/BP_GSEA_UpdatePlayerScore.0"
+          },
+          "Instance": null
+        }
+      ],
+      "CustomEventAtoms": [
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSEA_EnterLeaveRestartArea_Escort_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortMatch/RestartArea/EventAtoms/BP_GSEA_EnterLeaveRestartArea_Escort.0"
+          },
+          "Instance": null
+        }
+      ],
+      "LoopExecuteAtoms": [
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSEA_UpdatePlayerScore_NoLog_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortMatch_MB/Core/EventAtom/PlayerScore/BP_GSEA_UpdatePlayerScore_NoLog.0"
+          },
+          "Instance": null
+        }
+      ],
+      "LoopExecuteAtomTime": 0.5,
+      "QuestManagerComponent": {
+        "ObjectName": "CyQuestManagerComponent'Default__BP_GameMode_EscortGuide_MB_C:QuestManager'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_GameMode_EscortGuide_MB.2"
+      },
+      "GameStateClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GameState_EscortGuide_MB_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_GameState_EscortGuide_MB.2"
+      },
+      "PlayerControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Controller_EscortGuide_MB_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_Controller_EscortGuide_MB.0"
+      },
+      "PlayerStateClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PlayerState_EscortGuide_MB_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_PlayerState_EscortGuide_MB.0"
+      },
+      "DefaultPawnClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PMCharacterBase_V3_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/Characters/BP_PMCharacterBase_V3.1"
+      },
+      "SpectatorClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_SpectatorPawn_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Spectator/BP_SpectatorPawn.0"
+      },
+      "ReplaySpectatorPlayerControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_SpectatorPlayerController_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Spectator/BP_SpectatorPlayerController.0"
+      }
+    }
+  },
+  {
+    "Type": "CyQuestManagerComponent",
+    "Name": "QuestManager",
+    "Outer": "Default__BP_GameMode_EscortGuide_MB_C",
+    "Class": "UScriptClass'CyQuestManagerComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GameplayQuestPacks": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GQP_EscortGuide_Mobile_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/GQPack/BP_GQP_EscortGuide_Mobile.0"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_GameMode_EscortGuide_MB_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_GameMode_EscortGuide_MB_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_GameMode_EscortGuide_MB.3"
+      },
+      "VariableGuid": "3FE9DF84-423B2C42-431894AF-D067207E",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_GameMode_EscortGuide_MB_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameMode_EscortGuide_MB_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_GameMode_EscortGuide_MB.4"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameMode_EscortGuide_MB_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_GameMode_EscortGuide_MB.4"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_GameMode_EscortGuide_MB_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/EscortGuide_MB/Core/BP_GameMode_EscortGuide_MB.4"
+      }
+    }
+  }
+]

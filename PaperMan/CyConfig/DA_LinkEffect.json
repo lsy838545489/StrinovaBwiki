@@ -1,0 +1,145 @@
+[
+  {
+    "Type": "CyLinkEffectDataAsset",
+    "Name": "DA_LinkEffect",
+    "Class": "UScriptClass'CyLinkEffectDataAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ConfigMap": [
+        {
+          "Key": "ECyWeaponType::Blade",
+          "Value": {
+            "InstigatorTagRequire": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [
+                "State.Animation.Relax"
+              ],
+              "IgnoreTags": [
+                "State.Shape.2D.Wall",
+                "State.Shape.2D.Flying"
+              ]
+            },
+            "TargetActorMask": 10,
+            "LinkedNumMax": 5,
+            "MaxDistanceCheck": 1000.0,
+            "KeepLinkAssetInfos": [
+              {
+                "ComponentName": "MeshComponent",
+                "AssetTag": {
+                  "TagName": "Resource.Particle.LinkFx.KeepLink.A"
+                },
+                "bLoop": true
+              },
+              {
+                "ComponentName": "None",
+                "AssetTag": {
+                  "TagName": "Resource.Audio.LinkFx.KeepLink.A"
+                },
+                "bLoop": true
+              }
+            ],
+            "KeepLinkFxTargetSocketName": "Muzzle",
+            "KeepLinkFxVectorParamName": "ShockBeamEnd",
+            "SourceNormalLoopAssetInfos": [
+              {
+                "ComponentName": "None",
+                "AssetTag": {
+                  "TagName": "Resource.Particle.LinkFx.Loop.A"
+                },
+                "bLoop": true
+              },
+              {
+                "ComponentName": "None",
+                "AssetTag": {
+                  "TagName": "Resource.Audio.LinkFx.Loop.A"
+                },
+                "bLoop": true
+              }
+            ],
+            "TargetNormalLoopAssetInfos": [
+              {
+                "ComponentName": "None",
+                "AssetTag": {
+                  "TagName": "Resource.Particle.LinkFx.Loop.A"
+                },
+                "bLoop": true
+              },
+              {
+                "ComponentName": "None",
+                "AssetTag": {
+                  "TagName": "Resource.Audio.LinkFx.Loop.A"
+                },
+                "bLoop": true
+              }
+            ],
+            "OnStartLinkAssetInfos": [
+              {
+                "ComponentName": "None",
+                "AssetTag": {
+                  "TagName": "Resource.Particle.LinkFx.OnStart.A"
+                },
+                "bLoop": false
+              },
+              {
+                "ComponentName": "None",
+                "AssetTag": {
+                  "TagName": "Resource.Audio.LinkFx.OnStart.A"
+                },
+                "bLoop": false
+              }
+            ],
+            "OnEndLinkAssetInfos": [
+              {
+                "ComponentName": "None",
+                "AssetTag": {
+                  "TagName": "Resource.Particle.LinkFx.OnEnd.A"
+                },
+                "bLoop": false
+              },
+              {
+                "ComponentName": "None",
+                "AssetTag": {
+                  "TagName": "Resource.Audio.LinkFx.OnEnd.A"
+                },
+                "bLoop": false
+              }
+            ]
+          }
+        }
+      ],
+      "EffectsConfigMap": [
+        {
+          "Key": "ECyWeaponName::FlamePistol",
+          "Value": {
+            "InstigatorTagRequire": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [
+                "State.Animation.Relax"
+              ],
+              "IgnoreTags": [
+                "State.Shape.2D.Wall",
+                "State.Shape.2D.Flying"
+              ]
+            },
+            "LinkedNumMax": 5,
+            "MaxTriggerDistance": 1000.0,
+            "MinTriggerNum": 2,
+            "TriggerDelayTime": 2.0,
+            "EffectsClass": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_LinkEffect_Orbit_FlamePistal_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyWeapons/FlamePistol/BP_LinkEffect_Orbit_FlamePistal.0"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

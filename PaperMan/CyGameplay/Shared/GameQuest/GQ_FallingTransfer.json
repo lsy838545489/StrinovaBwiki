@@ -1,0 +1,119 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GQ_FallingTransfer_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayQuest'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GQ_FallingTransfer_C'Default__GQ_FallingTransfer_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameQuest/GQ_FallingTransfer.1"
+    }
+  },
+  {
+    "Type": "GQ_FallingTransfer_C",
+    "Name": "Default__GQ_FallingTransfer_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/GameQuest/GQ_FallingTransfer.GQ_FallingTransfer_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ApplicationTagRequirements": {
+        "RequireTagType": "ERequireTagType::None",
+        "IgnoreTags": [
+          "State.Player.InSkillTransit"
+        ]
+      },
+      "OngoingTagRequirements": {
+        "RequireTagType": "ERequireTagType::None",
+        "IgnoreTags": [
+          "State.Player.InSkillTransit"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Player.InSkillTransit"
+        ]
+      },
+      "QuestItems": [
+        {
+          "Item": {
+            "ObjectName": "BlueprintGeneratedClass'GSQTimer_DelayTransfer_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameSubQuest/GSQTimer_DelayTransfer.0"
+          },
+          "AmountPerEvent": {
+            "ModifierOp": "EMagnitudeModOp::Multiply",
+            "ScalableFloatMagnitude": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "LevelCalculation": null,
+            "GameStateAttribute": {
+              "AttributeName": "",
+              "Attribute": {
+                "Path": [],
+                "ResolvedOwner": null
+              },
+              "AttributeOwner": null
+            },
+            "OwnerAttribute": {
+              "AttributeName": "",
+              "Attribute": {
+                "Path": [],
+                "ResolvedOwner": null
+              },
+              "AttributeOwner": null
+            },
+            "MagnitudeCalculation": null
+          },
+          "TotalCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "bSaveOverflowCount": false
+        }
+      ],
+      "OnCompletedActions": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GPAction_Transfer_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/Action/GPAction_Transfer.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'GPAction_AddIgnoreFallingDmg_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/Action/GPAction_AddIgnoreFallingDmg.0"
+        }
+      ],
+      "OnGiveActions": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GPA_RemoveOwnerQuest_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/Action/BP_GPA_RemoveOwnerQuest.0"
+        }
+      ],
+      "OnGiveLocalActions": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GPAction_PlayTransferEffect_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/Action/GPAction_PlayTransferEffect.0"
+        }
+      ],
+      "bReplicates": true
+    }
+  }
+]

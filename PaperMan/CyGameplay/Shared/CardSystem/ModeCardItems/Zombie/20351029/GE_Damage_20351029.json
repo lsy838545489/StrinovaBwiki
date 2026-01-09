@@ -1,0 +1,92 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_Damage_20351029_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_Damage_20351029_C'Default__GE_Damage_20351029_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20351029/GE_Damage_20351029.1"
+    }
+  },
+  {
+    "Type": "GE_Damage_20351029_C",
+    "Name": "Default__GE_Damage_20351029_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20351029/GE_Damage_20351029.GE_Damage_20351029_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_20351029_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20351029/BP_DamageType_20351029.0"
+      },
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode_CardLevelAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_CardLevelAttribute.0"
+            },
+            "RowName": "Duration.Damage.20351029"
+          }
+        }
+      },
+      "Period": {
+        "Value": 1.0
+      },
+      "bExecutePeriodicEffectOnApplication": false,
+      "Executions": [
+        {
+          "CalculationClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_MoveDistExecutionCalculation_20351029_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20351029/BP_MoveDistExecutionCalculation_20351029.0"
+          },
+          "PassedInTags": [],
+          "CalculationModifiers": [],
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ConditionalGameplayEffects": []
+        }
+      ],
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateBySource",
+      "StackLimitCount": 1,
+      "StackPeriodResetPolicy": "EGameplayEffectStackingPeriodPolicy::NeverReset",
+      "StackExpirationPolicy": "EGameplayEffectStackingExpirationPolicy::RemoveSingleStackAndRefreshDuration",
+      "StackingPolicyMask": 1
+    }
+  }
+]

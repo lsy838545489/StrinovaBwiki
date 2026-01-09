@@ -1,0 +1,102 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GQ_OnRestartAfter_SelectZombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayQuest'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GQ_OnRestartAfter_SelectZombie_C'Default__BP_GQ_OnRestartAfter_SelectZombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/Core/Module/Gameplay/ZombieSelect/BP_GQ_OnRestartAfter_SelectZombie.1"
+    }
+  },
+  {
+    "Type": "BP_GQ_OnRestartAfter_SelectZombie_C",
+    "Name": "Default__BP_GQ_OnRestartAfter_SelectZombie_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/Core/Module/Gameplay/ZombieSelect/BP_GQ_OnRestartAfter_SelectZombie.BP_GQ_OnRestartAfter_SelectZombie_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OngoingTagRequirements": {
+        "RequireTags": [
+          "State.Player.Role.Zombie"
+        ],
+        "IgnoreTags": [
+          "State.Player.Zombie.Selected",
+          "State.Player.Zombie.Selecting",
+          "State.Game.End"
+        ]
+      },
+      "RepeatTimes": {
+        "Value": 0.0
+      },
+      "QuestItems": [
+        {
+          "Item": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GPEM_RestartAfter_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/QuestSystem/GPEventMonitor/BP_GPEM_RestartAfter.0"
+          },
+          "AmountPerEvent": {
+            "ModifierOp": "EMagnitudeModOp::Multiply",
+            "ScalableFloatMagnitude": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "LevelCalculation": null,
+            "GameStateAttribute": {
+              "AttributeName": "",
+              "Attribute": {
+                "Path": [],
+                "ResolvedOwner": null
+              },
+              "AttributeOwner": null
+            },
+            "OwnerAttribute": {
+              "AttributeName": "",
+              "Attribute": {
+                "Path": [],
+                "ResolvedOwner": null
+              },
+              "AttributeOwner": null
+            },
+            "MagnitudeCalculation": null
+          },
+          "TotalCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "bSaveOverflowCount": false
+        }
+      ],
+      "OnCompletedActions": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GPA_AddEffect_ZombieSelecting_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/Core/Module/Gameplay/ZombieSelect/BP_GPA_AddEffect_ZombieSelecting.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GPA_CacheSelectingCards_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/QuestSystem/GPAction/BP_GPA_CacheSelectingCards.0"
+        }
+      ]
+    }
+  }
+]

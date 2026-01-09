@@ -1,0 +1,69 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GSEA_HandleCharacterDeath_AddExp_Zombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGSEventAtomHandleCharacterDeath_AddExp'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GSEA_HandleCharacterDeath_AddExp_Zombie_C'Default__BP_GSEA_HandleCharacterDeath_AddExp_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/EventAtom/BP_GSEA_HandleCharacterDeath_AddExp_Zombie.1"
+    }
+  },
+  {
+    "Type": "BP_GSEA_HandleCharacterDeath_AddExp_Zombie_C",
+    "Name": "Default__BP_GSEA_HandleCharacterDeath_AddExp_Zombie_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/EventAtom/BP_GSEA_HandleCharacterDeath_AddExp_Zombie.BP_GSEA_HandleCharacterDeath_AddExp_Zombie_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InstigatorExpLevelComponentNames": [
+        "ZombieExpLevelComponent"
+      ],
+      "TagInstigatorAddExp": [
+        {
+          "Key": {
+            "TagName": "State.Player.Role.Zombie.Normal"
+          },
+          "Value": 500.0
+        },
+        {
+          "Key": {
+            "TagName": "State.Player.Role.Zombie.Master"
+          },
+          "Value": 500.0
+        },
+        {
+          "Key": {
+            "TagName": "State.Player.Role.Zombie.Ultimate"
+          },
+          "Value": 500.0
+        }
+      ],
+      "InstigatorTagRequirements": {
+        "RequireAnyTags": [
+          "State.Player.Role.Zombie"
+        ]
+      },
+      "ListenGameplayEventTags": [
+        {
+          "TagName": "Event.GameMode.HandleCharacterDeath"
+        }
+      ],
+      "GStateCheck": {
+        "AllowedStates": [
+          "EGStateType::Fight"
+        ]
+      }
+    }
+  }
+]
