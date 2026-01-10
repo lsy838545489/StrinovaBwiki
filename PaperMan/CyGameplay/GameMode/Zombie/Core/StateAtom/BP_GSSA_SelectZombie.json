@@ -1,0 +1,85 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GSSA_SelectZombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGSStateAtomSelectZombies'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GSSA_SelectZombie_C'Default__BP_GSSA_SelectZombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_SelectZombie.1"
+    }
+  },
+  {
+    "Type": "BP_GSSA_SelectZombie_C",
+    "Name": "Default__BP_GSSA_SelectZombie_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_SelectZombie.BP_GSSA_SelectZombie_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InitRoleExp": [
+        {
+          "Key": "EZombieModeRoleType::ZombieNormal",
+          "Value": 1000.0
+        },
+        {
+          "Key": "EZombieModeRoleType::ZombieMaster",
+          "Value": 2000.0
+        }
+      ],
+      "ExpLevelComponentTags": [
+        "ZombieExpLevelComponent"
+      ],
+      "PrepSelectZombieTags": [
+        {
+          "Key": "EZombieModeRoleType::ZombieNormal",
+          "Value": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [
+              "State.Player.PrepRole.Zombie.Normal"
+            ],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          }
+        },
+        {
+          "Key": "EZombieModeRoleType::ZombieMaster",
+          "Value": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [
+              "State.Player.PrepRole.Zombie.Master"
+            ],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          }
+        },
+        {
+          "Key": "EZombieModeRoleType::ZombieUltimate",
+          "Value": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [
+              "State.Player.PrepRole.Zombie.Ultimate"
+            ],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,489 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_PickupCard_Template_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_PickupCard_Template_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.15"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyPickupActor'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySceneMapMask",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySceneMapMaskComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_CommonOverheadComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_CommonOverheadComponent_C'",
+          "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Sphere",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PB_PickMovement",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'PB_PickMovement_C'",
+          "ObjectPath": "PM/Content/PaperMan/Core/Pickups/BaseComponents/PB_PickMovement.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyPickupCard",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyPickupCard'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_PickupCard_Template_C'Default__BP_PickupCard_Template_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.1"
+    }
+  },
+  {
+    "Type": "BP_PickupCard_Template_C",
+    "Name": "Default__BP_PickupCard_Template_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.BP_PickupCard_Template_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowPickupRadius": 150.0,
+      "LifeTime": 99999.0,
+      "PickupWayType": "EPickupWayType::Auto",
+      "StimuliSourceComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_PickupCard_Template_C:StimuliSourceComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.7"
+      },
+      "SkinComponent": {
+        "ObjectName": "CySkinComponent'Default__BP_PickupCard_Template_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.5"
+      }
+    }
+  },
+  {
+    "Type": "BP_CommonOverheadComponent_C",
+    "Name": "BP_CommonOverheadComponent_GEN_VARIABLE",
+    "Outer": "BP_PickupCard_Template_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.BP_CommonOverheadComponent_C'",
+    "Template": {
+      "ObjectName": "BP_CommonOverheadComponent_C'Default__BP_CommonOverheadComponent_C'",
+      "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WidgetClassUIName": {
+        "Name": "CardDropOverhead"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 40.0
+      }
+    }
+  },
+  {
+    "Type": "CyPickupCard",
+    "Name": "CyPickupCard_GEN_VARIABLE",
+    "Outer": "BP_PickupCard_Template_C",
+    "Class": "UScriptClass'CyPickupCard'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CySceneMapMaskComponent",
+    "Name": "CySceneMapMask_GEN_VARIABLE",
+    "Outer": "BP_PickupCard_Template_C",
+    "Class": "UScriptClass'CySceneMapMaskComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "VisionSwitch": {
+        "bVisibleToSelf": false,
+        "bVisibleToTeammates": false,
+        "bVisibleInXRay": false
+      },
+      "SceneMapItemNameOption": "SceneMap_CardDropItem"
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "SkinComponent",
+    "Outer": "Default__BP_PickupCard_Template_C",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "PB_PickMovement_C",
+    "Name": "PB_PickMovement_GEN_VARIABLE",
+    "Outer": "BP_PickupCard_Template_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/Core/Pickups/BaseComponents/PB_PickMovement.PB_PickMovement_C'",
+    "Template": {
+      "ObjectName": "PB_PickMovement_C'Default__PB_PickMovement_C'",
+      "ObjectPath": "PM/Content/PaperMan/Core/Pickups/BaseComponents/PB_PickMovement.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxSpeed": 1000.0,
+      "BounceVelocityStopSimulatingThreshold": 5.0,
+      "Velocity": {
+        "X": 1.0,
+        "Y": 0.0,
+        "Z": 2.0
+      }
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "StimuliSourceComponent",
+    "Outer": "Default__BP_PickupCard_Template_C",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_PickupCard_Template_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_PickupCard_Template_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.8"
+      },
+      "VariableGuid": "971127A7-46536B36-B08B2BB0-193F9BA5",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyPickupCard'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyPickupCard'BP_PickupCard_Template_C:CyPickupCard_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.3"
+      },
+      "VariableGuid": "6901E0E0-41664569-5EC2C299-F51F18BB",
+      "InternalVariableName": "CyPickupCard"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySceneMapMaskComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySceneMapMaskComponent'BP_PickupCard_Template_C:CySceneMapMask_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.4"
+      },
+      "VariableGuid": "18E920DE-4F7EA92F-23B78392-224238F2",
+      "InternalVariableName": "CySceneMapMask"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'PB_PickMovement_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/Pickups/BaseComponents/PB_PickMovement.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PB_PickMovement_C'BP_PickupCard_Template_C:PB_PickMovement_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.6"
+      },
+      "VariableGuid": "B735DB9E-4C849DC2-4EDAF092-B8DE8EAF",
+      "InternalVariableName": "PB_PickMovement"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_CommonOverheadComponent_C'",
+        "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_CommonOverheadComponent_C'BP_PickupCard_Template_C:BP_CommonOverheadComponent_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.2"
+      },
+      "VariableGuid": "69ED0C0D-486317D2-92D8218D-E641EE23",
+      "InternalVariableName": "BP_CommonOverheadComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_PickupCard_Template_C:Sphere_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.16"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.13"
+        }
+      ],
+      "VariableGuid": "8304B6DA-4D6589DE-FB159286-74458CA8",
+      "InternalVariableName": "Sphere"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_PickupCard_Template_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.11"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.11"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_PickupCard_Template_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/BP_PickupCard_Template.9"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "Sphere_GEN_VARIABLE",
+    "Outer": "BP_PickupCard_Template_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AreaClass": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel3",
+        "CollisionProfileName": "PickupCard",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

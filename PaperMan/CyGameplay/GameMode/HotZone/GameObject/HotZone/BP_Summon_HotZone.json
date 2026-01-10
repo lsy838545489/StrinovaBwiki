@@ -1,0 +1,1366 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Summon_HotZone_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.32"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySummonActor'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySceneMapHotZonePoint",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySceneMapHotZonePointComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyRetain",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRetainComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_CommonOverheadComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_CommonOverheadComponent_C'",
+          "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyHotZone",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyHotZoneComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WaitState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWaitState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DeathState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIDeathState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "UnlockState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LockedState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIEntryState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAbilitySystem",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAbilitySystemComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Summon_HotZone_C'Default__BP_Summon_HotZone_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.1"
+    }
+  },
+  {
+    "Type": "BP_Summon_HotZone_C",
+    "Name": "Default__BP_Summon_HotZone_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.BP_Summon_HotZone_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ArousalComponent": {
+        "ObjectName": "CyArousalComponent'Default__BP_Summon_HotZone_C:ArousalComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.10"
+      },
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_HotZone_C:PerceptionSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.16"
+      },
+      "bReplicates": true
+    }
+  },
+  {
+    "Type": "BP_CommonOverheadComponent_C",
+    "Name": "BP_CommonOverheadComponent_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.BP_CommonOverheadComponent_C'",
+    "Template": {
+      "ObjectName": "BP_CommonOverheadComponent_C'Default__BP_CommonOverheadComponent_C'",
+      "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WidgetClassUIName": {
+        "Name": "HotZonePointOverhead"
+      },
+      "DrawSize": {
+        "X": 64,
+        "Y": 64
+      }
+    }
+  },
+  {
+    "Type": "CyAbilitySystemComponent",
+    "Name": "CyAbilitySystem_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ReplicatedPredictionKeyMap": {
+        "PredictionKeys": [
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 1,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 2,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 3,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 4,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 5,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 6,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 7,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 8,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 9,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 10,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 11,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 12,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 13,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 14,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 15,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 16,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 17,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 18,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 19,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 20,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 21,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 22,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 23,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 24,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 25,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 26,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 27,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 28,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 29,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 30,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 31,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 32,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          }
+        ],
+        "ArrayReplicationKey": 32
+      }
+    }
+  },
+  {
+    "Type": "CyAIDeathState",
+    "Name": "DeathState_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyAIDeathState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bRemoveOwnedActors": false,
+      "bDestroyOnEnd": false,
+      "TotalDuration": {
+        "Value": 999.0
+      },
+      "BeginEventTags": [
+        {
+          "TagName": "Event.HotZone.Death"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIEntryState",
+    "Name": "LockedState_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyAIEntryState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SetHotZoneLocked_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SA_SetHotZoneLocked.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_CloseParticle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SA_CloseParticle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 9999.0
+      },
+      "BeginEventTags": [
+        {
+          "TagName": "Event.HotZone.Entry"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DefaultStateType": "EAIStateType::Wait"
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIStateMonitor_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::Wait",
+        "EAIStateType::Death"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_CloseParticle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SA_CloseParticle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SetHotZoneClosed_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SA_SetHotZoneClosed.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIWaitState",
+    "Name": "WaitState_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyAIWaitState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TotalDuration": {
+        "Value": 9999.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "UnlockState_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SetHotZoneActive_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SA_SetHotZoneActive.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchHotZonePlayer_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SA_SearchHotZonePlayer.0"
+          },
+          "SubAtoms": [
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSA_HandleHotZoneState_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SSA_HandleHotZoneState.0"
+            }
+          ],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_CalHotZoneProgress_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SA_CalHotZoneProgress.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ChangeHotZoneParticle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SA_ChangeHotZoneParticle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_PlayUnlockAudio_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_GSSA_PlayUnlockAudio.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_CalHotZoneTeamScores_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_SA_CalHotZoneTeamScores.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 9999.0
+      },
+      "BeginEventTags": [
+        {
+          "TagName": "Event.GameZone.StateChange.Enter"
+        },
+        {
+          "TagName": "Event.HotZone.Work"
+        }
+      ],
+      "EndEventTags": [
+        {
+          "TagName": "Event.GameZone.StateChange.End"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyArousalComponent",
+    "Name": "ArousalComponent",
+    "Outer": "Default__BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyArousalComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyHotZoneComponent",
+    "Name": "CyHotZone_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyHotZoneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TeamReadingSpeedConfig": [
+        20.0,
+        30.0,
+        30.0,
+        40.0,
+        40.0
+      ],
+      "EnemyFallBackSpeedConfig": [
+        -20.0,
+        -30.0,
+        -30.0,
+        -40.0,
+        -40.0
+      ],
+      "NoTeamFallBackSpeed": -20.0,
+      "bReplicates": true
+    }
+  },
+  {
+    "Type": "CyRetainComponent",
+    "Name": "CyRetain_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bRegisterPlayerActor": false,
+      "bRegisterTeamActor": false,
+      "bRegisterSortTag": true,
+      "DefinitionTagContainer": [
+        "ActorTag.HotZone"
+      ],
+      "OwnerActorTag": {
+        "TagName": "ActorTag.HotZone"
+      }
+    }
+  },
+  {
+    "Type": "CySceneMapHotZonePointComponent",
+    "Name": "CySceneMapHotZonePoint_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CySceneMapHotZonePointComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SceneMapItemNameOption": "SceneMap_HotZonePointItem",
+      "bAlwaysVisible": true,
+      "bCanView": false
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "CySkin_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Outer": "Default__BP_Summon_HotZone_C",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Summon_HotZone_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.17"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.23"
+        }
+      ],
+      "VariableGuid": "A8B6FDB1-4AC8DDF1-41EF6CB3-2D07C8FA",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'BP_Summon_HotZone_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.6"
+      },
+      "VariableGuid": "2F5B0106-44999007-95EBDDBC-9AEFC818",
+      "InternalVariableName": "CyAIMachine"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_HotZone_C:CyAIStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.7"
+      },
+      "VariableGuid": "5DD6368B-4B795376-DFBE1F96-BE114C0C",
+      "InternalVariableName": "CyAIStateMonitor"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'BP_Summon_HotZone_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.14"
+      },
+      "VariableGuid": "3E8F6BB8-4EFE86F6-583C00AE-72B40302",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_17",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRetainComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRetainComponent'BP_Summon_HotZone_C:CyRetain_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.12"
+      },
+      "VariableGuid": "E8F7C0C3-49DA3285-92D70394-EF71CB89",
+      "InternalVariableName": "CyRetain"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_18",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_CommonOverheadComponent_C'",
+        "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_CommonOverheadComponent_C'BP_Summon_HotZone_C:BP_CommonOverheadComponent_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.2"
+      },
+      "VariableGuid": "A05C7557-4DF99299-5A68A689-175E3EB9",
+      "InternalVariableName": "BP_CommonOverheadComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAbilitySystemComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAbilitySystemComponent'BP_Summon_HotZone_C:CyAbilitySystem_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.3"
+      },
+      "VariableGuid": "A216C428-46982BD1-51F65A85-5FD17028",
+      "InternalVariableName": "CyAbilitySystem"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySkinComponent'BP_Summon_HotZone_C:CySkin_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.15"
+      },
+      "VariableGuid": "809FA7A5-4A0CD7B6-677A3589-6008D1DB",
+      "InternalVariableName": "CySkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIEntryState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIEntryState'BP_Summon_HotZone_C:LockedState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.5"
+      },
+      "VariableGuid": "C1D08901-4085E189-D0EAF080-EDB3B25E",
+      "InternalVariableName": "LockedState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'BP_Summon_HotZone_C:UnlockState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.9"
+      },
+      "VariableGuid": "91C717B4-4B719A18-3F9E25A8-79E56686",
+      "InternalVariableName": "UnlockState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIDeathState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIDeathState'BP_Summon_HotZone_C:DeathState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.4"
+      },
+      "VariableGuid": "2E122105-4D26B9DC-BC5BB2A8-2DE4DDE7",
+      "InternalVariableName": "DeathState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyHotZoneComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyHotZoneComponent'BP_Summon_HotZone_C:CyHotZone_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.11"
+      },
+      "VariableGuid": "E950547A-4C4D7430-9E2D8B91-059601BC",
+      "InternalVariableName": "CyHotZone"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWaitState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWaitState'BP_Summon_HotZone_C:WaitState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.8"
+      },
+      "VariableGuid": "5390489C-4EF91192-A02C85A6-9E89C0C8",
+      "InternalVariableName": "WaitState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySceneMapHotZonePointComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySceneMapHotZonePointComponent'BP_Summon_HotZone_C:CySceneMapHotZonePoint_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.13"
+      },
+      "VariableGuid": "688E7C08-42FF9295-6010D6B5-0AD1F93B",
+      "InternalVariableName": "CySceneMapHotZonePoint"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Summon_HotZone_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.31"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.31"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Summon_HotZone_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/HotZone/GameObject/HotZone/BP_Summon_HotZone.18"
+      }
+    }
+  }
+]

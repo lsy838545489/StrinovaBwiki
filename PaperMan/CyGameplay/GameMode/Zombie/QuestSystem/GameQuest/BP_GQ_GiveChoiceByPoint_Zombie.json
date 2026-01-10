@@ -1,0 +1,111 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GQ_GiveChoiceByPoint_Zombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayQuest'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GQ_GiveChoiceByPoint_Zombie_C'Default__BP_GQ_GiveChoiceByPoint_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/GameQuest/BP_GQ_GiveChoiceByPoint_Zombie.1"
+    }
+  },
+  {
+    "Type": "BP_GQ_GiveChoiceByPoint_Zombie_C",
+    "Name": "Default__BP_GQ_GiveChoiceByPoint_Zombie_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/GameQuest/BP_GQ_GiveChoiceByPoint_Zombie.BP_GQ_GiveChoiceByPoint_Zombie_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OngoingTagRequirements": {
+        "RequireTags": [
+          "State.Game.Start",
+          "State.Player.Role.Zombie"
+        ]
+      },
+      "ResetTagRequirements": {
+        "RequireAnyTags": [
+          "State.Game.End"
+        ]
+      },
+      "RepeatTimes": {
+        "Value": 0.0
+      },
+      "QuestItems": [
+        {
+          "Item": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GPEM_GiveChoiceByPoint_Zombie_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/GPEventMonitor/BP_GPEM_GiveChoiceByPoint_Zombie.0"
+          },
+          "AmountPerEvent": {
+            "ModifierOp": "EMagnitudeModOp::Multiply",
+            "ScalableFloatMagnitude": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "LevelCalculation": null,
+            "GameStateAttribute": {
+              "AttributeName": "",
+              "Attribute": {
+                "Path": [],
+                "ResolvedOwner": null
+              },
+              "AttributeOwner": null
+            },
+            "OwnerAttribute": {
+              "AttributeName": "GiveCardTaskPointFactor",
+              "Attribute": {
+                "Path": [
+                  "GiveCardTaskPointFactor"
+                ],
+                "ResolvedOwner": {
+                  "ObjectName": "Class'CyAttributeSet_Card'",
+                  "ObjectPath": "/Script/PMGame"
+                }
+              },
+              "AttributeOwner": {
+                "ObjectName": "Class'CyAttributeSet_Card'",
+                "ObjectPath": "/Script/PMGame"
+              }
+            },
+            "MagnitudeCalculation": {
+              "ObjectName": "BlueprintGeneratedClass'BP_MC_EventMagnitude_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/Calculation/BP_MC_EventMagnitude.0"
+            }
+          },
+          "TotalCount": {
+            "Value": 2000.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "bSaveOverflowCount": true
+        }
+      ],
+      "OnCompletedActions": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GPA_GiveChoiceByPoint_Zombie_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/GPAction/BP_GPA_GiveChoiceByPoint_Zombie.0"
+        }
+      ],
+      "bReplicates": true
+    }
+  }
+]

@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.43"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.47"
       }
     },
     "SuperStruct": {
@@ -15,6 +15,28 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyPlayerPartBigHead",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyPlayerPartBigHead'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PMSummonAnimation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'PMSummonAnimationComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyAIInPoolState",
@@ -249,7 +271,7 @@
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_Q_MoBai_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.21"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.22"
       },
       "bEnableAimAssist": true
     }
@@ -1035,6 +1057,18 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "CyPlayerPartBigHead",
+    "Name": "CyPlayerPartBigHead_GEN_VARIABLE",
+    "Outer": "Summon_Q_MoBai_C",
+    "Class": "UScriptClass'CyPlayerPartBigHead'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bUseInstigatorSkinID": true,
+      "bUseInstigatorScale": true,
+      "bUseVisibleCount": false
+    }
+  },
+  {
     "Type": "CyRetainComponent",
     "Name": "CyRetain_GEN_VARIABLE",
     "Outer": "Summon_Q_MoBai_C",
@@ -1072,6 +1106,7 @@
     "Class": "UScriptClass'CySkinComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "bEnableOcclusion": true,
       "bEnableTeamType": true
     }
   },
@@ -1107,6 +1142,13 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "PMSummonAnimationComponent",
+    "Name": "PMSummonAnimation_GEN_VARIABLE",
+    "Outer": "Summon_Q_MoBai_C",
+    "Class": "UScriptClass'PMSummonAnimationComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
     "Outer": "Summon_Q_MoBai_C",
@@ -1126,7 +1168,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_Q_MoBai_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.24"
       },
       "VariableGuid": "9EF99C32-4782B2D4-F20F37BD-74E3C9ED",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1150,11 +1192,11 @@
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.34"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.36"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.41"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.43"
         }
       ],
       "VariableGuid": "525C3CF0-4BEF3903-C83DB38D-7DB674C0",
@@ -1212,7 +1254,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_Q_MoBai_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.17"
       },
       "VariableGuid": "B84648B5-46AF20C8-17AA2CB1-ECE02A5C",
       "InternalVariableName": "CyRetain"
@@ -1250,7 +1292,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_Q_MoBai_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.19"
       },
       "VariableGuid": "B46D53CA-4B26D828-C13BED85-C0C4980F",
       "InternalVariableName": "CySkin"
@@ -1269,7 +1311,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySummonLightAIComponent'Summon_Q_MoBai_C:CySummonLightAI_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.19"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.20"
       },
       "VariableGuid": "21EE67BC-4DD369AE-761022AB-CABC4054",
       "InternalVariableName": "CySummonLightAI"
@@ -1345,7 +1387,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Summon_Q_MoBai_C:MainSkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.44"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.48"
       },
       "VariableGuid": "B687D839-41B454B3-155BA8AE-A87AB067",
       "InternalVariableName": "MainSkeletalMesh"
@@ -1440,7 +1482,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySceneMapSummonMaskComponent'Summon_Q_MoBai_C:CySceneMapSummonMask_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.18"
       },
       "VariableGuid": "4FF1372E-42DCA806-FE3944AC-52168BFB",
       "InternalVariableName": "CySceneMapSummonMask"
@@ -1459,7 +1501,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyTargetCopyCharacterComponent'Summon_Q_MoBai_C:CyTargetCopyCharacter_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.20"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.21"
       },
       "VariableGuid": "065BAC08-4E0FBA17-69F84B91-E046AD1C",
       "InternalVariableName": "CyTargetCopyCharacter"
@@ -1504,6 +1546,44 @@
     }
   },
   {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'PMSummonAnimationComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PMSummonAnimationComponent'Summon_Q_MoBai_C:PMSummonAnimation_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.23"
+      },
+      "VariableGuid": "9A02DE75-441DBBFB-331F36A2-4E49C4A8",
+      "InternalVariableName": "PMSummonAnimation"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyPlayerPartBigHead'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyPlayerPartBigHead'Summon_Q_MoBai_C:CyPlayerPartBigHead_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.16"
+      },
+      "VariableGuid": "B4886E72-41E9129E-EC143EAC-B411A7B3",
+      "InternalVariableName": "CyPlayerPartBigHead"
+    }
+  },
+  {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
     "Outer": "Summon_Q_MoBai_C",
@@ -1513,154 +1593,170 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.24"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.25"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_21'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.26"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.27"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_21'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.28"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_22'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.29"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_26'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_23'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.30"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_27'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_25'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.31"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_28'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_26'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.32"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_29'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_27'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.33"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_30'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_28'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.34"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_29'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.35"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_31'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.36"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_32'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_30'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.37"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_33'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_31'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.38"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_32'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.39"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_33'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.40"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.41"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_35'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.42"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.46"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.24"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.25"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.34"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.41"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_21'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.26"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.27"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_23'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.28"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_25'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.29"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_26'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.30"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_27'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.31"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_28'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.32"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_29'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.33"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_30'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.35"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_31'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_3'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.36"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_32'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.43"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_26'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.32"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_27'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.33"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_28'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.34"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_29'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.35"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_30'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.37"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_33'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_31'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.38"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_32'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.39"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_33'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.40"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.41"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_35'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.42"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.46"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.25"
       }
     }
   },

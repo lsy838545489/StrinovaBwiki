@@ -667,9 +667,49 @@
     "Class": "UScriptClass'CyAILeaveState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TotalDuration": {
-        "Value": 1.27
-      },
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_AttachToInstigator_Q_HuiXing_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/Q/Summon/BP_SA_AttachToInstigator_Q_HuiXing.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMesh",
+              "AssetTagContainer": [
+                "Resource.Audio.Entry.A",
+                "Resource.Particle.Leave.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
       "bAutoActivate": true
     }
   },
@@ -697,6 +737,35 @@
     "Class": "UScriptClass'CyAIWorkState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMesh",
+              "AssetTagContainer": [
+                "Resource.Audio.Entry.A",
+                "Resource.Particle.Entry.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
       "TotalDuration": {
         "Value": 20.0
       }
@@ -728,10 +797,20 @@
             "RequireAnyTags": [],
             "IgnoreAllTags": [],
             "RequireTags": [],
-            "IgnoreTags": []
+            "IgnoreTags": [
+              "State.Arousal.Three"
+            ]
           },
           "RemoveType": "EEffectRemoveType::None",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "EffectClass": {
@@ -744,10 +823,20 @@
             "RequireAnyTags": [],
             "IgnoreAllTags": [],
             "RequireTags": [],
-            "IgnoreTags": []
+            "IgnoreTags": [
+              "State.Arousal.Three"
+            ]
           },
           "RemoveType": "EEffectRemoveType::None",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "EffectClass": {
@@ -765,7 +854,15 @@
             "IgnoreTags": []
           },
           "RemoveType": "EEffectRemoveType::None",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "EffectClass": {
@@ -783,7 +880,41 @@
             "IgnoreTags": []
           },
           "RemoveType": "EEffectRemoveType::None",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Q_Huixing_ArousalThree_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/ArousalThree/GE_Q_Huixing_ArousalThree.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [
+              "State.Arousal.Three"
+            ],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "EffectClass": {
@@ -801,7 +932,15 @@
             "IgnoreTags": []
           },
           "RemoveType": "EEffectRemoveType::Infinite",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         }
       ],
       "InstigatorEffects": [
@@ -816,10 +955,20 @@
             "RequireAnyTags": [],
             "IgnoreAllTags": [],
             "RequireTags": [],
-            "IgnoreTags": []
+            "IgnoreTags": [
+              "State.Arousal.Three"
+            ]
           },
           "RemoveType": "EEffectRemoveType::None",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "EffectClass": {
@@ -832,10 +981,20 @@
             "RequireAnyTags": [],
             "IgnoreAllTags": [],
             "RequireTags": [],
-            "IgnoreTags": []
+            "IgnoreTags": [
+              "State.Arousal.Three"
+            ]
           },
           "RemoveType": "EEffectRemoveType::None",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "EffectClass": {
@@ -853,7 +1012,15 @@
             "IgnoreTags": []
           },
           "RemoveType": "EEffectRemoveType::None",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "EffectClass": {
@@ -871,7 +1038,41 @@
             "IgnoreTags": []
           },
           "RemoveType": "EEffectRemoveType::None",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Q_HuixingSelf_ArousalThree_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Huixing/ArousalThree/GE_Q_HuixingSelf_ArousalThree.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [
+              "State.Arousal.Three"
+            ],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         },
         {
           "EffectClass": {
@@ -889,7 +1090,15 @@
             "IgnoreTags": []
           },
           "RemoveType": "EEffectRemoveType::Infinite",
-          "StackCount": 1
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
         }
       ]
     }
@@ -915,23 +1124,7 @@
     "Name": "CySkin_GEN_VARIABLE",
     "Outer": "Summon_Q_Huixing_C",
     "Class": "UScriptClass'CySkinComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "BeginAssetTagContainers": [
-        {
-          "AttachComponentType": "EAttachComponentType::Self",
-          "ResourceClassify": "ECyGCResourceClassify::Effect",
-          "MeshName": "SkeletalMesh",
-          "AssetTagContainer": [
-            "Resource.Audio.Entry.A",
-            "Resource.Particle.Entry.A"
-          ],
-          "AssetTagStopContainer": [],
-          "DefaultAssetKey": 0,
-          "bAllowLoop": true
-        }
-      ]
-    }
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "CySummonMoveComponent",

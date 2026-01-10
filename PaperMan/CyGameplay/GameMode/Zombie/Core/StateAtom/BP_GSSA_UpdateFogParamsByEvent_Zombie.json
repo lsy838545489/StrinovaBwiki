@@ -1,0 +1,81 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GSSA_UpdateFogParamsByEvent_Zombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGSStateAtomUpdateFogParamsByEvent'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GSSA_UpdateFogParamsByEvent_Zombie_C'Default__BP_GSSA_UpdateFogParamsByEvent_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateFogParamsByEvent_Zombie.1"
+    }
+  },
+  {
+    "Type": "BP_GSSA_UpdateFogParamsByEvent_Zombie_C",
+    "Name": "Default__BP_GSSA_UpdateFogParamsByEvent_Zombie_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateFogParamsByEvent_Zombie.BP_GSSA_UpdateFogParamsByEvent_Zombie_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FogParamsByEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Ability.Activate"
+          },
+          "Value": {
+            "TargetRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "State.Player.Role.Zombie.Master",
+                "State.Player.Role.Zombie.Ultimate"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "EndEventTag": {
+              "TagName": "Event.Ability.PostEnd"
+            },
+            "ModifierOp": "EGameplayModOp::Additive",
+            "CurveStart_X": 0.0,
+            "CurveEnd_X": 99999.0,
+            "LoopCurveStart_X": 0.0,
+            "LoopCurveEnd_X": 99999.0,
+            "FogDensityCurve": {
+              "ObjectName": "CurveFloat'Curve_FogDensity_ActivateAbility'",
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/Curve_FogDensity_ActivateAbility.0"
+            },
+            "FogMaxOpacityCurve": null,
+            "FogStartDistanceCurve": null
+          }
+        }
+      ],
+      "EndEventTagMap": [
+        {
+          "Key": {
+            "TagName": "Event.Ability.PostEnd"
+          },
+          "Value": {
+            "TagName": "Event.Ability.Activate"
+          }
+        }
+      ],
+      "FogActorTags": [
+        "RoundFog"
+      ],
+      "HideFogActorTags": [
+        "SelectRoleFog"
+      ]
+    }
+  }
+]

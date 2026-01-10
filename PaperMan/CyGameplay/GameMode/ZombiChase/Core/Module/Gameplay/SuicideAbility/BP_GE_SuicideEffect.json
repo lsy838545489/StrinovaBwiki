@@ -1,0 +1,73 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GE_SuicideEffect_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'GameplayEffect'",
+      "ObjectPath": "/Script/GameplayAbilities"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GE_SuicideEffect_C'Default__BP_GE_SuicideEffect_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/Core/Module/Gameplay/SuicideAbility/BP_GE_SuicideEffect.1"
+    }
+  },
+  {
+    "Type": "BP_GE_SuicideEffect_C",
+    "Name": "Default__BP_GE_SuicideEffect_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/Core/Module/Gameplay/SuicideAbility/BP_GE_SuicideEffect.BP_GE_SuicideEffect_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DurationPolicy": "EGameplayEffectDurationType::Infinite",
+      "OngoingTagRequirements": {
+        "RequireAnyTags": [
+          "State.Player.Role.Zombie"
+        ]
+      },
+      "ApplicationTagRequirements": {
+        "RequireAnyTags": [
+          "State.Player.Role.Zombie"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "bInverse": true,
+        "RequireAnyTags": [
+          "State.Player.Role.Zombie"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1,
+      "GrantedAbilities": [
+        {
+          "Ability": {
+            "ObjectName": "BlueprintGeneratedClass'GA_ZombieChase_Suicide_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/Core/Module/Gameplay/SuicideAbility/GA_ZombieChase_Suicide.0"
+          },
+          "LevelScalableFloat": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "InputID": 24,
+          "RemovalPolicy": "EGameplayEffectGrantedAbilityRemovePolicy::CancelAbilityImmediately",
+          "SourceObject": null,
+          "AssignedHandle": {
+            "Handle": -1
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GSEA_HandleCharacterDeath_Human_RushHour_Zombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGSEventAtomHandleCharacterDeath_AddGE'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GSEA_HandleCharacterDeath_Human_RushHour_Zombie_C'Default__BP_GSEA_HandleCharacterDeath_Human_RushHour_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie_MB/Core/EventAtom/BP_GSEA_HandleCharacterDeath_Human_RushHour_Zombie.1"
+    }
+  },
+  {
+    "Type": "BP_GSEA_HandleCharacterDeath_Human_RushHour_Zombie_C",
+    "Name": "Default__BP_GSEA_HandleCharacterDeath_Human_RushHour_Zombie_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Zombie_MB/Core/EventAtom/BP_GSEA_HandleCharacterDeath_Human_RushHour_Zombie.BP_GSEA_HandleCharacterDeath_Human_RushHour_Zombie_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InstigatorEffects": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Duration_RushHour_Zombie_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie_MB/Core/GE/RandomBuffs/Human/GE_RandomBuff_Duration_RushHour_Zombie.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::All",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "InstigatorTagRequirements": {
+        "RequireTags": [
+          "State.Player.Role.Human"
+        ]
+      },
+      "ListenGameplayEventTags": [
+        {
+          "TagName": "Event.GameMode.HandleCharacterDeath"
+        }
+      ],
+      "GStateCheck": {
+        "AllowedStates": [
+          "EGStateType::Fight"
+        ]
+      },
+      "GSTagRequirements": {
+        "RequireTags": [
+          "State.GameState.RandomBuff.Human.RushHour"
+        ]
+      }
+    }
+  }
+]

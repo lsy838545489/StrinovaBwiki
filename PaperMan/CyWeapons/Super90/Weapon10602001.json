@@ -590,7 +590,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "TotalDuration": {
-        "Value": 0.3157,
+        "Value": 0.283,
         "bEnableMobile": true,
         "MobileValue": 0.2666
       }
@@ -618,7 +618,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "DefaultAttackType": "EFAttackType::Single",
-      "AttackCount": 7
+      "AttackCount": 13
     }
   },
   {
@@ -629,7 +629,7 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "TotalDuration": {
-        "Value": 0.2608,
+        "Value": 0.283,
         "bEnableMobile": true,
         "MobileValue": 0.2666
       }
@@ -1174,6 +1174,26 @@
             "RowName": "SpreadIncSpeedFiring"
           }
         },
+        "LocomotionSpreadIncSpeed": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.Spread.Modifier.Move.Super90"
+          }
+        },
+        "LocomotionSpreadDecSpeed": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.Spread.Modifier.NoMove.Super90"
+          }
+        },
         "SpreadScale": {
           "NoMove": {
             "bEnableMobile": true,
@@ -1233,40 +1253,76 @@
             "SpreadScaleMax": 0.0
           },
           {
+            "AngleMin": 45.0,
+            "AngleMax": 45.0,
+            "SpreadScaleMin": 0.33,
+            "SpreadScaleMax": 0.33
+          },
+          {
+            "AngleMin": -45.0,
+            "AngleMax": -45.0,
+            "SpreadScaleMin": 0.33,
+            "SpreadScaleMax": 0.33
+          },
+          {
+            "AngleMin": 135.0,
+            "AngleMax": 135.0,
+            "SpreadScaleMin": 0.33,
+            "SpreadScaleMax": 0.33
+          },
+          {
+            "AngleMin": -135.0,
+            "AngleMax": -135.0,
+            "SpreadScaleMin": 0.33,
+            "SpreadScaleMax": 0.33
+          },
+          {
             "AngleMin": 90.0,
             "AngleMax": 90.0,
-            "SpreadScaleMin": 0.16373,
-            "SpreadScaleMax": 0.16373
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
           },
           {
             "AngleMin": -90.0,
             "AngleMax": -90.0,
-            "SpreadScaleMin": 0.16373,
-            "SpreadScaleMax": 0.16373
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
           },
           {
-            "AngleMin": 90.0,
-            "AngleMax": 90.0,
-            "SpreadScaleMin": 0.345098,
-            "SpreadScaleMax": 0.345098
+            "AngleMin": 0.0,
+            "AngleMax": 0.0,
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
           },
           {
-            "AngleMin": -90.0,
-            "AngleMax": -90.0,
-            "SpreadScaleMin": 0.345098,
-            "SpreadScaleMax": 0.345098
+            "AngleMin": 180.0,
+            "AngleMax": 180.0,
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
           },
           {
-            "AngleMin": 90.0,
-            "AngleMax": 90.0,
-            "SpreadScaleMin": 0.6666,
-            "SpreadScaleMax": 0.6666
+            "AngleMin": 45.0,
+            "AngleMax": 45.0,
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
           },
           {
-            "AngleMin": -90.0,
-            "AngleMax": -90.0,
-            "SpreadScaleMin": 0.6666,
-            "SpreadScaleMax": 0.6666
+            "AngleMin": -45.0,
+            "AngleMax": -45.0,
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
+          },
+          {
+            "AngleMin": 135.0,
+            "AngleMax": 135.0,
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
+          },
+          {
+            "AngleMin": -135.0,
+            "AngleMax": -135.0,
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
           }
         ],
         "UpgradeFixedSpreadParams": [
@@ -1361,12 +1417,12 @@
         "MobileValue": 100000.0
       },
       "AttackDamage": {
-        "Value": 12.0,
+        "Value": 7.0,
         "bEnableMobile": true,
         "MobileValue": 7.0
       },
       "DamageScaleFor2D": {
-        "Value": 0.67,
+        "Value": 0.75,
         "bEnableMobile": true,
         "MobileValue": 0.5
       },
@@ -1588,7 +1644,7 @@
     "Properties": {
       "bForceStopAnimationNextNotAnimState": true,
       "TotalDuration": {
-        "Value": 0.3
+        "Value": 0.28
       },
       "AimSwitchInputType": "EAimSwitchInputType::None",
       "Events": [
@@ -1616,7 +1672,7 @@
     "Properties": {
       "bForceStopAnimationNextNotAnimState": true,
       "TotalDuration": {
-        "Value": 0.45
+        "Value": 0.42
       },
       "AimSwitchInputType": "EAimSwitchInputType::DisableClose",
       "Events": [
