@@ -1,0 +1,94 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GQ_PermaDeath_DeathByMelee_Zombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayQuest'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GQ_PermaDeath_DeathByMelee_Zombie_C'Default__BP_GQ_PermaDeath_DeathByMelee_Zombie_C'",
+      "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/GameQuest/BP_GQ_PermaDeath_DeathByMelee_Zombie.1"
+    }
+  },
+  {
+    "Type": "BP_GQ_PermaDeath_DeathByMelee_Zombie_C",
+    "Name": "Default__BP_GQ_PermaDeath_DeathByMelee_Zombie_C",
+    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/GameQuest/BP_GQ_PermaDeath_DeathByMelee_Zombie.BP_GQ_PermaDeath_DeathByMelee_Zombie_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OngoingTagRequirements": {
+        "RequireTags": [
+          "State.Player.Role.Zombie",
+          "State.Game.Start"
+        ]
+      },
+      "RepeatTimes": {
+        "Value": 0.0
+      },
+      "QuestItems": [
+        {
+          "Item": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GPEM_DeathByMeleeWeapon_C'",
+            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/GPEventMonitor/BP_GPEM_DeathByMeleeWeapon"
+          },
+          "AmountPerEvent": {
+            "ModifierOp": "EMagnitudeModOp::Multiply",
+            "ScalableFloatMagnitude": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "LevelCalculation": null,
+            "GameStateAttribute": {
+              "AttributeName": "",
+              "Attribute": {
+                "Path": [],
+                "ResolvedOwner": null
+              },
+              "AttributeOwner": null
+            },
+            "OwnerAttribute": {
+              "AttributeName": "",
+              "Attribute": {
+                "Path": [],
+                "ResolvedOwner": null
+              },
+              "AttributeOwner": null
+            },
+            "MagnitudeCalculation": null
+          },
+          "TotalCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "bSaveOverflowCount": false
+        }
+      ],
+      "OnCompletedActions": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GPA_AddPermadeathTag_C'",
+          "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/GPAction/BP_GPA_AddPermadeathTag"
+        }
+      ]
+    }
+  }
+]

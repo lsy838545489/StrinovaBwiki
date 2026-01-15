@@ -1,0 +1,132 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GSSA_PrepSelectZombies_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGSStateAtomPrepSelectZombies'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GSSA_PrepSelectZombies_C'Default__BP_GSSA_PrepSelectZombies_C'",
+      "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PrepSelectZombies.1"
+    }
+  },
+  {
+    "Type": "BP_GSSA_PrepSelectZombies_C",
+    "Name": "Default__BP_GSSA_PrepSelectZombies_C",
+    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PrepSelectZombies.BP_GSSA_PrepSelectZombies_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GSAllBossTagRequirements": {
+        "RequireAnyTags": [
+          "State.GameState.RandomBuff.Zombie.AllBoss"
+        ]
+      },
+      "MasterZombieNum": [
+        {
+          "Key": "16",
+          "Value": 1
+        }
+      ],
+      "NormalZombieNum": [
+        {
+          "Key": "7",
+          "Value": 0
+        },
+        {
+          "Key": "12",
+          "Value": 1
+        },
+        {
+          "Key": "16",
+          "Value": 2
+        }
+      ],
+      "GSMoreHeroTagRequirements": {
+        "RequireTags": [
+          "State.GameState.RandomBuff.Human.MoreHumanHero"
+        ]
+      },
+      "SelectedRoleEffects": [
+        {
+          "Key": "EZombieModeRoleType::ZombieNormal",
+          "Value": {
+            "Elements": [
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_PrepRole_ZombieNormal_C'",
+                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/PrepRole/GE_PrepRole_ZombieNormal"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              }
+            ]
+          }
+        },
+        {
+          "Key": "EZombieModeRoleType::ZombieMaster",
+          "Value": {
+            "Elements": [
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_PrepRole_ZombieMaster_C'",
+                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/PrepRole/GE_PrepRole_ZombieMaster"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              }
+            ]
+          }
+        },
+        {
+          "Key": "EZombieModeRoleType::ZombieUltimate",
+          "Value": {
+            "Elements": [
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_PrepRole_ZombieUltimate_C'",
+                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/PrepRole/GE_PrepRole_ZombieUltimate"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              }
+            ]
+          }
+        }
+      ],
+      "PrepZombieTags": [
+        "State.Player.PrepRole.Zombie"
+      ]
+    }
+  }
+]

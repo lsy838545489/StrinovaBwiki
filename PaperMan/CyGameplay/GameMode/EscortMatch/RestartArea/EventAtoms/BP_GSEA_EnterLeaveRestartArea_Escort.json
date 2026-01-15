@@ -1,0 +1,81 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GSEA_EnterLeaveRestartArea_Escort_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGSEventAtomEnterLeaveRestartArea'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GSEA_EnterLeaveRestartArea_Escort_C'Default__BP_GSEA_EnterLeaveRestartArea_Escort_C'",
+      "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/EscortMatch/RestartArea/EventAtoms/BP_GSEA_EnterLeaveRestartArea_Escort.1"
+    }
+  },
+  {
+    "Type": "BP_GSEA_EnterLeaveRestartArea_Escort_C",
+    "Name": "Default__BP_GSEA_EnterLeaveRestartArea_Escort_C",
+    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyGameplay/GameMode/EscortMatch/RestartArea/EventAtoms/BP_GSEA_EnterLeaveRestartArea_Escort.BP_GSEA_EnterLeaveRestartArea_Escort_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EnterEventTag": {
+        "TagName": "Event.RestartArea.Enter"
+      },
+      "LeaveEventTag": {
+        "TagName": "Event.RestartArea.Leave"
+      },
+      "AddAreaStateEffects": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_RestartAreaState_C'",
+            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/EscortMatch/RestartArea/GE/GE_RestartAreaState"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite"
+        }
+      ],
+      "AddEffectDelay": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode_Gameplay'",
+            "ObjectPath": "/Game/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_Gameplay"
+          },
+          "RowName": "RestartArea.Buff.ApplyDelay"
+        }
+      },
+      "AddEffects": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_RestartArea_C'",
+            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/EscortMatch/RestartArea/GE/GE_RestartArea"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite"
+        }
+      ]
+    }
+  }
+]

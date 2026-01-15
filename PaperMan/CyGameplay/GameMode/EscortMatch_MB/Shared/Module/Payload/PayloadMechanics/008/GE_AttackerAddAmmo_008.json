@@ -1,0 +1,91 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_AttackerAddAmmo_008_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_AttackerAddAmmo_008_C'Default__GE_AttackerAddAmmo_008_C'",
+      "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/EscortMatch_MB/Shared/Module/Payload/PayloadMechanics/008/GE_AttackerAddAmmo_008.1"
+    }
+  },
+  {
+    "Type": "GE_AttackerAddAmmo_008_C",
+    "Name": "Default__GE_AttackerAddAmmo_008_C",
+    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyGameplay/GameMode/EscortMatch_MB/Shared/Module/Payload/PayloadMechanics/008/GE_AttackerAddAmmo_008.GE_AttackerAddAmmo_008_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DurationPolicy": "EGameplayEffectDurationType::Infinite",
+      "Period": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "CurveTable'CT_Gameplay_Payload_Mechanics'",
+            "ObjectPath": "/Game/PaperMan/CSV/Mobile/CT_Gameplay_Payload_Mechanics"
+          },
+          "RowName": "Payload.Mechanics.Attacker.Period.8"
+        }
+      },
+      "bExecutePeriodicEffectOnApplication": false,
+      "Executions": [
+        {
+          "CalculationClass": {
+            "ObjectName": "BlueprintGeneratedClass'Execution_AttackerAddAmmo_008_C'",
+            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/EscortMatch_MB/Shared/Module/Payload/PayloadMechanics/008/Execution_AttackerAddAmmo_008"
+          },
+          "PassedInTags": [],
+          "CalculationModifiers": [],
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ConditionalGameplayEffects": []
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Strong.AmmoRecover.Primary.Payload.WallPlayer"
+        ],
+        "Added": [
+          "BuffIcon.Strong.AmmoRecover.Primary.Payload.WallPlayer"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireTagType": "ERequireTagType::OR",
+        "RequireAnyTags": [
+          "State.Game.End"
+        ],
+        "IgnoreTags": [
+          "State.Player.Payload.EscortArea"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

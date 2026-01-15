@@ -1,0 +1,188 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GSSA_PlayBGM_Zombie_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGSSA_PlayBGM_Zombie'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GSSA_PlayBGM_Zombie_C'Default__BP_GSSA_PlayBGM_Zombie_C'",
+      "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PlayBGM_Zombie.1"
+    }
+  },
+  {
+    "Type": "BP_GSSA_PlayBGM_Zombie_C",
+    "Name": "Default__BP_GSSA_PlayBGM_Zombie_C",
+    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PlayBGM_Zombie.BP_GSSA_PlayBGM_Zombie_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InitAudioEvent": {
+        "ObjectName": "AkAudioEvent'Bgm_Biohazard_Init'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_Init"
+      },
+      "PrepareAudioEvent": {
+        "ObjectName": "AkAudioEvent'Bgm_Biohazard_WarmUp'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_WarmUp"
+      },
+      "HumanToZombieInitEvent": {
+        "ObjectName": "AkAudioEvent'Char_Boss_ChangeFissioner'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_Boss_ChangeFissioner"
+      },
+      "HumanToZombieBossInitEvent": {
+        "ObjectName": "AkAudioEvent'Char_Boss_ChangeCrystalloid'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_Boss_ChangeCrystalloid"
+      },
+      "HumanToZombieEvent": {
+        "ObjectName": "AkAudioEvent'Char_Fissioner_Born_Vox'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_Fissioner_Born_Vox"
+      },
+      "HumanToHeroEvent": {
+        "ObjectName": "AkAudioEvent'Char_Boss_ChangeHero'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_Boss_ChangeHero"
+      },
+      "ZombieToBossEvent": {
+        "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha_Born_Vox'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_CrystalloidAlpha_Born_Vox"
+      },
+      "FightStageAudioEventMap": [
+        {
+          "Key": "EZombieStageType::StageOne",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Basic_Song'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Basic_Song"
+          }
+        },
+        {
+          "Key": "EZombieStageType::StageTwo",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Full_Song'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Full_Song"
+          }
+        },
+        {
+          "Key": "EZombieStageType::FinalStage",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Bgm_Biohazard_Final'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_Final"
+          }
+        }
+      ],
+      "RoleAudioEventMap": [
+        {
+          "Key": "EZombieModeRoleType::ZombieNormal",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Bgm_Biohazard_NormalZombie'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_NormalZombie"
+          }
+        },
+        {
+          "Key": "EZombieModeRoleType::ZombieMaster",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Bgm_Biohazard_NormalBoss'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_NormalBoss"
+          }
+        },
+        {
+          "Key": "EZombieModeRoleType::ZombieUltimate",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Bgm_Biohazard_NormalBoss'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_NormalBoss"
+          }
+        },
+        {
+          "Key": "EZombieModeRoleType::HumanNormal",
+          "Value": {
+            "ObjectName": "AkAudioEvent'Bgm_Biohazard_NormalHuman'",
+            "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_NormalHuman"
+          }
+        }
+      ],
+      "HumanToZombieAudioBGMEvent": {
+        "ObjectName": "AkAudioEvent'Bgm_Biohazard_HumanToZombie'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_HumanToZombie"
+      },
+      "ZombieToBossAudioBGMEvent": {
+        "ObjectName": "AkAudioEvent'Bgm_Biohazard_ZombieToBoss'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_ZombieToBoss"
+      },
+      "EventRequirements": [
+        {
+          "Key": {
+            "TagName": "Event.MonitorWaveTimer.One"
+          },
+          "Value": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [
+              "State.Player.Role.Human"
+            ],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.MonitorWaveTimer.Two"
+          },
+          "Value": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [
+              "State.Player.Role.Zombie"
+            ],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          }
+        }
+      ],
+      "LoseAudioEvent": {
+        "ObjectName": "AkAudioEvent'Bgm_Biohazard_Sattlement_OtherSituation'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_Sattlement_OtherSituation"
+      },
+      "ZombieWinAudioEvent": {
+        "ObjectName": "AkAudioEvent'Bgm_Biohazard_Sattlement_Zombie'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_Sattlement_Zombie"
+      },
+      "HumanWinAudioEvent": {
+        "ObjectName": "AkAudioEvent'Bgm_Biohazard_Sattlement_Human'",
+        "ObjectPath": "/Game/WwiseAssets/AkEvent/Bgm_Biohazard_Sattlement_Human"
+      },
+      "EventAudioTagMap": [
+        {
+          "Key": {
+            "TagName": "Event.MonitorWaveTimer.One"
+          },
+          "Value": {
+            "TagName": "UIEvent.Game.Zombie.HumanSupply"
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.MonitorWaveTimer.Two"
+          },
+          "Value": {
+            "TagName": "UIEvent.Game.Zombie.ZombieSupply"
+          }
+        }
+      ],
+      "ListeningTagContainer": [
+        "Event.MonitorWaveTimer.One",
+        "Event.MonitorWaveTimer.Two"
+      ],
+      "bUseAuthorityMask": false,
+      "bIngoreDedicatedServer": true
+    }
+  }
+]

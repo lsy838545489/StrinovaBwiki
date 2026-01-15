@@ -1,0 +1,117 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SA_Payload_Wall_PlayerBuff_Escort2_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomApplyEffectsByTagEvent'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SA_Payload_Wall_PlayerBuff_Escort2_C'Default__BP_SA_Payload_Wall_PlayerBuff_Escort2_C'",
+      "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/EscortMatch2_MB/Payload/StateAtoms/BP_SA_Payload_Wall_PlayerBuff_Escort2.1"
+    }
+  },
+  {
+    "Type": "BP_SA_Payload_Wall_PlayerBuff_Escort2_C",
+    "Name": "Default__BP_SA_Payload_Wall_PlayerBuff_Escort2_C",
+    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyGameplay/GameMode/EscortMatch2_MB/Payload/StateAtoms/BP_SA_Payload_Wall_PlayerBuff_Escort2.BP_SA_Payload_Wall_PlayerBuff_Escort2_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ListenApplyTags": [
+        "Event.Payload.Wall.PlayerEnter"
+      ],
+      "ListenRemoveTags": [
+        "Event.Payload.Wall.PlayerLeave"
+      ],
+      "AttackerApplyEffectDelay": {
+        "Value": 1.0,
+        "bEnableMobile": true,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode_Gameplay_Payload'",
+            "ObjectPath": "/Game/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_Gameplay_Payload"
+          },
+          "RowName": "Payload.Wall.PlayerBuff.Attacker.ApplyDelay"
+        }
+      },
+      "DefenderApplyEffectDelay": {
+        "Value": 1.0,
+        "bEnableMobile": true,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode_Gameplay_Payload'",
+            "ObjectPath": "/Game/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_Gameplay_Payload"
+          },
+          "RowName": "Payload.Wall.PlayerBuff.Defender.ApplyDelay"
+        }
+      },
+      "AttackerEffects": [
+        {
+          "EffectClass": null,
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite"
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Payload_Wall_SlowDown_C'",
+            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/EscortMatch2_MB/Payload/GE/GE_Payload_Wall_SlowDown"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite"
+        }
+      ],
+      "DefenderEffects": [
+        {
+          "EffectClass": null,
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite"
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Payload_Wall_SlowDown_C'",
+            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/EscortMatch2_MB/Payload/GE/GE_Payload_Wall_SlowDown"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite"
+        }
+      ]
+    }
+  }
+]
