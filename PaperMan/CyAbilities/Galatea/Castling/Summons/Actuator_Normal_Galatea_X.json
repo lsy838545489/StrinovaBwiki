@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.55"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.59"
       }
     },
     "SuperStruct": {
@@ -15,6 +15,28 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyPlayerPartBigHead",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyPlayerPartBigHead'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PMSummonAnimation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'PMSummonAnimationComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyAIStateMonitorEntryAndWork",
@@ -318,16 +340,16 @@
       ],
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Actuator_Normal_Galatea_X_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.27"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.28"
       },
       "bEnableAimAssist": true,
       "Mesh": {
         "ObjectName": "SkeletalMeshComponent'Default__Actuator_Normal_Galatea_X_C:CharacterMesh0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.56"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.60"
       },
       "CharacterMovement": {
         "ObjectName": "CySummonsMovementComponent'Default__Actuator_Normal_Galatea_X_C:CharMoveComp'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.25"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.26"
       },
       "CapsuleComponent": {
         "ObjectName": "CapsuleComponent'Default__Actuator_Normal_Galatea_X_C:CollisionCylinder'",
@@ -1476,7 +1498,7 @@
               ],
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
-              "bAllowLoop": false
+              "bAllowLoop": true
             }
           ]
         }
@@ -1579,6 +1601,18 @@
     }
   },
   {
+    "Type": "CyPlayerPartBigHead",
+    "Name": "CyPlayerPartBigHead_GEN_VARIABLE",
+    "Outer": "Actuator_Normal_Galatea_X_C",
+    "Class": "UScriptClass'CyPlayerPartBigHead'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bUseInstigatorSkinID": true,
+      "bUseInstigatorScale": true,
+      "bUseVisibleCount": false
+    }
+  },
+  {
     "Type": "CyRetainComponent",
     "Name": "CyRetain_GEN_VARIABLE",
     "Outer": "Actuator_Normal_Galatea_X_C",
@@ -1672,6 +1706,13 @@
         null
       ]
     }
+  },
+  {
+    "Type": "PMSummonAnimationComponent",
+    "Name": "PMSummonAnimation_GEN_VARIABLE",
+    "Outer": "Actuator_Normal_Galatea_X_C",
+    "Class": "UScriptClass'PMSummonAnimationComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "RuntimeMeshComponent",
@@ -1772,7 +1813,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Actuator_Normal_Galatea_X_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.29"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.31"
       },
       "VariableGuid": "905ABC35-43987D6E-2249438B-D076B981",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1810,7 +1851,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Actuator_Normal_Galatea_X_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.24"
       },
       "VariableGuid": "D995F075-4D440981-87E67DA6-1E062457",
       "InternalVariableName": "CySkin"
@@ -1829,7 +1870,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Actuator_Normal_Galatea_X_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.20"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.21"
       },
       "VariableGuid": "306C4120-44767F9F-6760DD91-D299CD48",
       "InternalVariableName": "CyRetain"
@@ -1848,14 +1889,14 @@
       },
       "ComponentTemplate": {
         "ObjectName": "RuntimeMeshComponent'Actuator_Normal_Galatea_X_C:InWallMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.28"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.30"
       },
       "ParentComponentOrVariableName": "CollisionCylinder",
       "bIsParentComponentNative": true,
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.50"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.54"
         }
       ],
       "VariableGuid": "8E4F6FAD-48AD902A-726120BC-8E1FBB4B",
@@ -1875,7 +1916,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "WFSlideWallMoveComponent'Actuator_Normal_Galatea_X_C:WFSlideWallMove_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.57"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.61"
       },
       "VariableGuid": "C2E377D3-45184E46-2209E387-30ECED0C",
       "InternalVariableName": "WFSlideWallMove"
@@ -1951,7 +1992,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySummonLightAIComponent'Actuator_Normal_Galatea_X_C:CySummonLightAI_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.25"
       },
       "VariableGuid": "20E73D96-4BFC71EC-99D117BA-1C8AD365",
       "InternalVariableName": "CySummonLightAI"
@@ -1989,7 +2030,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Actuator_Normal_Galatea_X_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.23"
       },
       "VariableGuid": "9EB4D303-4D473288-0F5BE488-D7082C69",
       "InternalVariableName": "CySearchTargets"
@@ -2067,7 +2108,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySceneMapSummonMaskComponent'Actuator_Normal_Galatea_X_C:CySceneMapSummonMask_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.21"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.22"
       },
       "VariableGuid": "E2D9E27A-4A387F43-0A985CB7-47C07C04",
       "InternalVariableName": "CySceneMapSummonMask"
@@ -2086,7 +2127,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyTargetCopyCharacterComponent'Actuator_Normal_Galatea_X_C:CyTargetCopyCharacter_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.27"
       },
       "VariableGuid": "D2D2C757-4A50824A-258B08AD-C87646D9",
       "InternalVariableName": "CyTargetCopyCharacter"
@@ -2109,6 +2150,44 @@
       },
       "VariableGuid": "F1F61FB7-42A2C565-0D96F29E-75492899",
       "InternalVariableName": "CyAIStateMonitorEntryAndWork"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_25",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'PMSummonAnimationComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PMSummonAnimationComponent'Actuator_Normal_Galatea_X_C:PMSummonAnimation_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.29"
+      },
+      "VariableGuid": "6F512045-466D09DD-30B06E88-D95A751D",
+      "InternalVariableName": "PMSummonAnimation"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_26",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyPlayerPartBigHead'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyPlayerPartBigHead'Actuator_Normal_Galatea_X_C:CyPlayerPartBigHead_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.20"
+      },
+      "VariableGuid": "C32E9EC6-4BF33A72-3061EFA5-F9E681E1",
+      "InternalVariableName": "CyPlayerPartBigHead"
     }
   },
   {
@@ -2256,198 +2335,214 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.31"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.42"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.48"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.52"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.53"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.54"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.32"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_11'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.33"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.35"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.36"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.34"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.49"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.37"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_16'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.38"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_17'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.39"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_18'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.40"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_19'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.41"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.44"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_22'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.45"
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.52"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_23'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.46"
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.56"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.51"
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.57"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.58"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.34"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.35"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.37"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.38"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.36"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.53"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.39"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.40"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.41"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.42"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_19'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.43"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.46"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_22'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.47"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.48"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.55"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.49"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.50"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_26'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.51"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.31"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.42"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.48"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.52"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.53"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.54"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.32"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_11'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.33"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.35"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.36"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.34"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.49"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.50"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.37"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_16'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.38"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_17'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.39"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_18'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.40"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_19'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.41"
-        },
-        {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.44"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_22'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.45"
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.52"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_23'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.46"
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.56"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.51"
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.57"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.58"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.34"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.35"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.37"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.38"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.36"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.53"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.54"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.39"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.40"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.41"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.42"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_19'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.43"
         },
         {
-          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.46"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_22'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.47"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.48"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.55"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.49"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.50"
+        },
+        {
+          "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_26'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.51"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Actuator_Normal_Galatea_X_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.30"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/Actuator_Normal_Galatea_X.32"
       }
     }
   },

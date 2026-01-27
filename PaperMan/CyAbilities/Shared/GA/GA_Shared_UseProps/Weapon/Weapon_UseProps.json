@@ -36,7 +36,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon_UseProps_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.30"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.32"
       },
       "UberGraphFunction": {
         "ObjectName": "Function'Weapon_UseProps_C:ExecuteUbergraph_Weapon_UseProps'",
@@ -67,6 +67,17 @@
         "Struct": {
           "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
           "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
         }
       },
       {
@@ -136,11 +147,11 @@
       "WeaponName": "ECyWeaponName::UseProps",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon_UseProps_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.25"
       },
       "MeshComponent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_UseProps_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.24"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon_UseProps_C:Machine'",
@@ -152,7 +163,7 @@
       },
       "PredictPathComponent": {
         "ObjectName": "CyPredictPathComponent'Default__Weapon_UseProps_C:PredictPathComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.18"
       },
       "CachedComponents": [
         {
@@ -180,7 +191,7 @@
           "Key": "StateUnEquipped",
           "Value": {
             "ObjectName": "CyFUnEquippedState'Default__Weapon_UseProps_C:StateUnEquipped'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.14"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.15"
           }
         },
         {
@@ -194,14 +205,14 @@
           "Key": "PartPendant",
           "Value": {
             "ObjectName": "CyPartPendant'Default__Weapon_UseProps_C:PartPendant'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.16"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.17"
           }
         },
         {
           "Key": "StateWork",
           "Value": {
             "ObjectName": "CyFWorkState'Default__Weapon_UseProps_C:StateWork'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.15"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.16"
           }
         },
         {
@@ -215,7 +226,7 @@
           "Key": "StateThirdWork",
           "Value": {
             "ObjectName": "CyFThirdWorkState'Default__Weapon_UseProps_C:StateThirdWork'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.13"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.14"
           }
         },
         {
@@ -272,11 +283,11 @@
       ],
       "WeaponDataCollectionComponent": {
         "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_UseProps_C:WeaponDataCollectionComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.21"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.22"
       },
       "SkinComponent": {
         "ObjectName": "CyWeaponSkinComponent'Default__Weapon_UseProps_C:SkinComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.23"
       },
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__Weapon_UseProps_C:DataSystemComponent'",
@@ -284,7 +295,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon_UseProps_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.25"
       }
     }
   },
@@ -389,7 +400,8 @@
             "SocketName": "Body",
             "LocationRule": "EAttachmentRule::KeepWorld",
             "RotationRule": "EAttachmentRule::KeepWorld",
-            "ScaleRule": "EAttachmentRule::KeepWorld"
+            "ScaleRule": "EAttachmentRule::KeepWorld",
+            "bAllowUseInstigatorAsTarget": false
           },
           {
             "Position": 0.5,
@@ -421,7 +433,8 @@
             "SocketName": "Body",
             "LocationRule": "EAttachmentRule::KeepWorld",
             "RotationRule": "EAttachmentRule::KeepWorld",
-            "ScaleRule": "EAttachmentRule::KeepWorld"
+            "ScaleRule": "EAttachmentRule::KeepWorld",
+            "bAllowUseInstigatorAsTarget": false
           },
           {
             "Position": 0.5,
@@ -453,27 +466,14 @@
             "SocketName": "Body",
             "LocationRule": "EAttachmentRule::KeepWorld",
             "RotationRule": "EAttachmentRule::KeepWorld",
-            "ScaleRule": "EAttachmentRule::KeepWorld"
+            "ScaleRule": "EAttachmentRule::KeepWorld",
+            "bAllowUseInstigatorAsTarget": false
           }
         ]
       },
       "TotalDuration": {
         "Value": 0.6
       },
-      "Events": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_LockTargets_UseProps_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/BP_GSSA_LockTargets_UseProps.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        }
-      ],
       "AssetEvents": [
         {
           "PositionStart": 0.2,
@@ -536,6 +536,33 @@
     "Outer": "Default__Weapon_UseProps_C",
     "Class": "UScriptClass'CyFSecondWorkState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CyFStateMonitor",
+    "Name": "CyFStateMonitor_GEN_VARIABLE",
+    "Outer": "Weapon_UseProps_C",
+    "Class": "UScriptClass'CyFStateMonitor'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MonitorStateTypes": [
+        "EFStateType::Equip",
+        "EFStateType::Finish"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_LockTargets_UseProps_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/BP_GSSA_LockTargets_UseProps.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
   },
   {
     "Type": "CyFThirdWorkState",
@@ -704,7 +731,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__Weapon_UseProps_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.25"
       }
     }
   },
@@ -735,10 +762,29 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon_UseProps_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.25"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.26"
       },
       "VariableGuid": "5EAA96E8-44C31840-7E0373B4-89462C55",
       "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFStateMonitor'Weapon_UseProps_C:CyFStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.13"
+      },
+      "VariableGuid": "0D3B9EDD-4BFC3FBD-C6528BB4-DCE965B6",
+      "InternalVariableName": "CyFStateMonitor"
     }
   },
   {
@@ -754,7 +800,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchGroupComponent'Weapon_UseProps_C:CySearchGroup_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.19"
       },
       "VariableGuid": "1B315197-4A84C0FA-8DCB29A2-56BEEB3F",
       "InternalVariableName": "CySearchGroup"
@@ -773,7 +819,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyTargetDisplayComponent'Weapon_UseProps_C:CyTargetDisplay_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.20"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.21"
       },
       "VariableGuid": "B2E057BE-4E3BE21D-33281892-1BD9CC0D",
       "InternalVariableName": "CyTargetDisplay"
@@ -792,7 +838,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyTargetActorsComponent'Weapon_UseProps_C:CyTargetActors_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.19"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.20"
       },
       "VariableGuid": "2F51C9E6-4DE0845B-128A1589-BE1822B4",
       "InternalVariableName": "CyTargetActors"
@@ -808,34 +854,42 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon_UseProps_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.29"
         },
         {
           "ObjectName": "SCS_Node'Weapon_UseProps_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.30"
         },
         {
           "ObjectName": "SCS_Node'Weapon_UseProps_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_UseProps_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.28"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon_UseProps_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.29"
         },
         {
           "ObjectName": "SCS_Node'Weapon_UseProps_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.30"
         },
         {
           "ObjectName": "SCS_Node'Weapon_UseProps_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_UseProps_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.28"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon_UseProps_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseProps/Weapon/Weapon_UseProps.27"
       }
     }
   }

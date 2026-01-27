@@ -24,12 +24,28 @@
     "Type": "BP_GPA_GiveChoiceOnRoundBegin_Human_C",
     "Name": "Default__BP_GPA_GiveChoiceOnRoundBegin_Human_C",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Zombie/QuestSystem/GPAction/BP_GPA_GiveChoiceOnRoundBegin_Human.BP_GPA_GiveChoiceOnRoundBegin_Human_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "ChoiceCount": {
-        "Value": 2.0,
-        "MobileValue": 2.0
+      "ChoiceCountCalculation": {
+        "ModifierOp": "EMagnitudeModOp::Override",
+        "OwnerAttribute": {
+          "AttributeName": "InitCardChoiceCount",
+          "Attribute": {
+            "Path": [
+              "InitCardChoiceCount"
+            ],
+            "ResolvedOwner": {
+              "ObjectName": "Class'CyAttributeSet_Card'",
+              "ObjectPath": "/Script/PMGame"
+            }
+          },
+          "AttributeOwner": {
+            "ObjectName": "Class'CyAttributeSet_Card'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        }
       },
+      "ModifierOp": "EMagnitudeModOp::Override",
       "SelectCondition": {
         "bAllowRepeatCard": false,
         "LimitTeamType": 4

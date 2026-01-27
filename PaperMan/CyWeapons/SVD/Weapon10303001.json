@@ -531,6 +531,7 @@
     "Class": "UScriptClass'CyFFireSwitchBurst'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
+      "BurstCount": 1,
       "TotalDuration": {
         "Value": 0.3
       }
@@ -1179,6 +1180,26 @@
             "RowName": "SpreadIncSpeedFiring"
           }
         },
+        "LocomotionSpreadIncSpeed": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.Spread.Modifier.Move.SVD"
+          }
+        },
+        "LocomotionSpreadDecSpeed": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.Spread.Modifier.NoMove.SVD"
+          }
+        },
         "SpreadScale": {
           "NoMove": {
             "bEnableMobile": true,
@@ -1229,7 +1250,33 @@
         "PitchAimAssistSpreadScale": {
           "Value": 0.0,
           "MobileValue": 0.0
-        }
+        },
+        "UpgradeFixedSpreadParams": [
+          {
+            "AngleMin": 0.0,
+            "AngleMax": 0.0,
+            "SpreadScaleMin": 0.0,
+            "SpreadScaleMax": 0.0
+          },
+          {
+            "AngleMin": 60.0,
+            "AngleMax": 60.0,
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
+          },
+          {
+            "AngleMin": -60.0,
+            "AngleMax": -60.0,
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
+          },
+          {
+            "AngleMin": 180.0,
+            "AngleMax": 180.0,
+            "SpreadScaleMin": 0.66,
+            "SpreadScaleMax": 0.66
+          }
+        ]
       },
       "CrossHairProcessor": {
         "MinOffset": 0.4
@@ -1272,7 +1319,7 @@
           }
         },
         "FactorEffective": {
-          "Value": 0.12,
+          "Value": 0.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -1296,7 +1343,7 @@
           }
         },
         "FactorMaximal": {
-          "Value": 0.07,
+          "Value": 0.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
@@ -2076,7 +2123,7 @@
               "RotationMask": 1
             },
             "TargetArmLength": {
-              "Value": 4.0,
+              "Value": 0.0,
               "bEnableMobile": false,
               "MobileValue": 4.0,
               "Curve": {
@@ -2286,7 +2333,7 @@
               "RotationMask": 1
             },
             "TargetArmLength": {
-              "Value": 10.0,
+              "Value": 0.0,
               "bEnableMobile": false,
               "MobileValue": 10.0,
               "Curve": {

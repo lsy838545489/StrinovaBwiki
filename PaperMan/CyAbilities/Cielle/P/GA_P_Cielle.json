@@ -1,0 +1,326 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_P_Cielle_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_P_Cielle_C'Default__GA_P_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/GA_P_Cielle.1"
+    }
+  },
+  {
+    "Type": "GA_P_Cielle_C",
+    "Name": "Default__GA_P_Cielle_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/P/GA_P_Cielle.GA_P_Cielle_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowRelieveSlide.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowBigMap_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowBigMap.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TagRequire_InSkillQX_P_Cielle_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_TagRequire_InSkillQX_P_Cielle.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TagRequire_NotInCd_P_Cielle_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_TagRequire_NotInCd_P_Cielle.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_WeaponInSkillQ_P_Cielle_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_Check_WeaponInSkillQ_P_Cielle.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TagRequire_InWeaponState_P_Cielle_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_TagRequire_InWeaponState_P_Cielle.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_PlayVoice_SkillP_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_Activator_PlayVoice_SkillP.0"
+        }
+      ],
+      "IgnoreCostTags": {
+        "RequireAnyTags": [
+          "Buff.CostIgnore.SkillQ",
+          "Buff.CostIgnore.SkillX"
+        ]
+      },
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Weapon.Work.End.Cielle.Q"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "GA.Passive.Cielle",
+                "GA.Ability.SkillQ.Cielle"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_CD_P_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_TriggerAddGE_CD_P_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GATrigger_EndAbility_PDash_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_GATrigger_EndAbility_PDash_Cielle.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.ClearArmor.Cielle.Q"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_RemoveEe_Cd_AfterX_P_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_GAT_RemoveEe_Cd_AfterX_P_Cielle.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_PrimaryCD_P_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/ForAddAmmo/BP_TriggerAddGE_PrimaryCD_P_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_RemoveEe_PrimaryCd_P_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/ForAddAmmo/BP_GAT_RemoveEe_PrimaryCd_P_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_SecondaryCD_P_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/ForAddAmmo/BP_TriggerAddGE_SecondaryCD_P_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_RemoveEe_SecondaryCd_P_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/ForAddAmmo/BP_GAT_RemoveEe_SecondaryCd_P_Cielle.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Strong.X.Cielle"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_RemoveEe_Cd_AfterX_P_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_GAT_RemoveEe_Cd_AfterX_P_Cielle.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Buff.Strong.P.Cielle.Primary"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddAmmo_Primary_P_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/ForAddAmmo/BP_GAT_AddAmmo_Primary_P_Cielle.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Buff.Strong.P.Cielle.Secondary"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddAmmo_Secondary_P_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/ForAddAmmo/BP_GAT_AddAmmo_Secondary_P_Cielle.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Strong.P.Cielle.Dash"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_ExtraEquipSpeed_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/P/BP_TriggerAddGE_ExtraEquipSpeed_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_SpeedUp_Arousal1_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/ArousalOne/BP_TriggerAddGE_SpeedUp_Arousal1_Cielle.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AbilityTags": [
+        "GA.Passive.Cielle"
+      ],
+      "ActivationOwnedTags": [
+        "Buff.Strong.P.Cielle.Dash",
+        "GA.Passive.Cielle"
+      ],
+      "ActivationRequiredTags": [
+        "GA.Ability.SkillQ.Cielle"
+      ]
+    }
+  }
+]

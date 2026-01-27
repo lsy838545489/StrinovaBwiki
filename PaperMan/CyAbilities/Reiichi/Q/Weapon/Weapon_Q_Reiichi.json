@@ -253,20 +253,14 @@
     "Name": "AttackSwitchInterrupt",
     "Outer": "Default__Weapon_Q_Reiichi_C",
     "Class": "UScriptClass'CyFAttackSwitchInterrupt'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AllowedGait": "ECyGait::Run"
-    }
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "CyFEntryState",
     "Name": "StateEntry",
     "Outer": "Default__Weapon_Q_Reiichi_C",
     "Class": "UScriptClass'CyFEntryState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AllowedGait": "ECyGait::Run"
-    }
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "CyFEquipReloadState",
@@ -284,9 +278,10 @@
         "State.Player.DisableKeep2D.Side"
       ],
       "TotalDuration": {
-        "Value": 0.72,
+        "Value": 0.6,
         "MobileValue": 0.9
       },
+      "AllowedGait": "ECyGait::Sprint",
       "TimeForWeaponVisible": 0.15,
       "Events": [
         {
@@ -349,10 +344,9 @@
         "State.Player.DisableKeep2D.Side"
       ],
       "TotalDuration": {
-        "Value": 0.72,
+        "Value": 0.6,
         "MobileValue": 0.9
       },
-      "AllowedGait": "ECyGait::Run",
       "Events": [
         {
           "PositionStart": 0.2,
@@ -402,10 +396,7 @@
     "Name": "SwitcherHold",
     "Outer": "Default__Weapon_Q_Reiichi_C",
     "Class": "UScriptClass'CyFHoldSwitcher'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AllowedGait": "ECyGait::Run"
-    }
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "CyFHoldSwitchRelaxed",
@@ -414,8 +405,7 @@
     "Class": "UScriptClass'CyFHoldSwitchRelaxed'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "TimeForProjectilePathVisible": 0.0,
-      "AllowedGait": "ECyGait::Run"
+      "TimeForProjectilePathVisible": 0.0
     }
   },
   {
@@ -423,10 +413,7 @@
     "Name": "StateInterrupt",
     "Outer": "Default__Weapon_Q_Reiichi_C",
     "Class": "UScriptClass'CyFInterruptState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AllowedGait": "ECyGait::Run"
-    }
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "CyFMachine",
@@ -465,7 +452,6 @@
         "State.Player.DisableKeep2D.Fly",
         "State.Player.DisableKeep2D.Side"
       ],
-      "AllowedGait": "ECyGait::Run",
       "Events": [
         {
           "PositionStart": 0.0,
@@ -487,7 +473,10 @@
     "Name": "ThrowSwitchBegin",
     "Outer": "Default__Weapon_Q_Reiichi_C",
     "Class": "UScriptClass'CyFThrowSwitchBegin'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AllowedGait": "ECyGait::Sprint"
+    }
   },
   {
     "Type": "CyFThrowSwitchEnd",
@@ -497,7 +486,6 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "ThrowOutPosition": 0.6428572,
-      "ThrowOutGait": "ECyGait::Run",
       "TimeLine": {
         "Events": [
           {
@@ -530,7 +518,8 @@
             "SocketName": "Body",
             "LocationRule": "EAttachmentRule::KeepWorld",
             "RotationRule": "EAttachmentRule::KeepWorld",
-            "ScaleRule": "EAttachmentRule::KeepWorld"
+            "ScaleRule": "EAttachmentRule::KeepWorld",
+            "bAllowUseInstigatorAsTarget": false
           },
           {
             "Position": 0.64,
@@ -562,7 +551,8 @@
             "SocketName": "Body",
             "LocationRule": "EAttachmentRule::KeepWorld",
             "RotationRule": "EAttachmentRule::KeepWorld",
-            "ScaleRule": "EAttachmentRule::KeepWorld"
+            "ScaleRule": "EAttachmentRule::KeepWorld",
+            "bAllowUseInstigatorAsTarget": false
           }
         ]
       },
@@ -582,9 +572,10 @@
         "State.Player.DisableInput2D.Side"
       ],
       "TotalDuration": {
-        "Value": 0.67,
+        "Value": 0.6,
         "MobileValue": 0.84
       },
+      "AllowedGait": "ECyGait::Sprint",
       "TimeForWeaponInvisible": 0.74,
       "AkEventBegin": {
         "AssetPathName": "/Game/WwiseAssets/AkEvent/Char_3DReiichi_QSkill_Cast.Char_3DReiichi_QSkill_Cast",
@@ -614,10 +605,7 @@
     "Name": "SwitcherAttack",
     "Outer": "Default__Weapon_Q_Reiichi_C",
     "Class": "UScriptClass'CyFThrowSwitcher'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AllowedGait": "ECyGait::Run"
-    }
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "CyFUnEquippedState",
@@ -626,7 +614,6 @@
     "Class": "UScriptClass'CyFUnEquippedState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "AllowedGait": "ECyGait::Run",
       "Events": [
         {
           "PositionStart": 0.0,

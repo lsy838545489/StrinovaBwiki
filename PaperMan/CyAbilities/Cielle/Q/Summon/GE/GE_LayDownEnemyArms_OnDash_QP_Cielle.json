@@ -1,0 +1,101 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_LayDownEnemyArms_OnDash_QP_Cielle_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_LayDownEnemyArms_OnDash_QP_Cielle_C'Default__GE_LayDownEnemyArms_OnDash_QP_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/GE/GE_LayDownEnemyArms_OnDash_QP_Cielle.1"
+    }
+  },
+  {
+    "Type": "GE_LayDownEnemyArms_OnDash_QP_Cielle_C",
+    "Name": "Default__GE_LayDownEnemyArms_OnDash_QP_Cielle_C",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/GE/GE_LayDownEnemyArms_OnDash_QP_Cielle.GE_LayDownEnemyArms_OnDash_QP_Cielle_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ResponderType": "EResponderType::Instigator",
+      "TargetAddedEventTag": {
+        "TagName": "Event.Action.ForceSwitchToExpectedWeapon"
+      },
+      "BuffType": "ECyBuffType::Weak",
+      "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0
+        }
+      },
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.Cielle.Q.DashHitEnemy",
+            "GC.Shared.SilenceNoAudio"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "Buff.RemoveOnPlayerRestart",
+          "Buff.Week.QP.Cielle.OnDashHitEnemy",
+          "BuffIcon.Week.LayDownArms"
+        ],
+        "Added": [
+          "Buff.RemoveOnPlayerRestart",
+          "Buff.Week.QP.Cielle.OnDashHitEnemy",
+          "BuffIcon.Week.LayDownArms"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "State.Player.DisableUsePrimary",
+          "State.Player.DisableUseSecondary",
+          "Buff.Weak.Silence",
+          "Buff.Week.QP.Cielle.OnDashHitEnemy",
+          "Buff.Weak.StopUsePrimary",
+          "Buff.Weak.StopUseSecondary"
+        ],
+        "Added": [
+          "State.Player.DisableUsePrimary",
+          "State.Player.DisableUseSecondary",
+          "Buff.Weak.Silence",
+          "Buff.Week.QP.Cielle.OnDashHitEnemy",
+          "Buff.Weak.StopUsePrimary",
+          "Buff.Weak.StopUseSecondary"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Immunity.Weak",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget"
+    }
+  }
+]

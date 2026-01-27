@@ -26,17 +26,7 @@
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseSecondary.GA_Shared_UseSecondary_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "PreCheckAtoms": [
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_Check_EmptyHand_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_Check_EmptyHand.0"
-        },
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_CheckSupportSecondaryUse_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckSupportSecondaryUse.0"
-        }
-      ],
-      "CheckAtoms": [
+      "CheckTipsAtoms": [
         {
           "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly.0"
@@ -48,6 +38,16 @@
         {
           "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall.0"
+        }
+      ],
+      "PreCheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_EmptyHand_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_Check_EmptyHand.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckSupportSecondaryUse_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckSupportSecondaryUse.0"
         }
       ],
       "ActivatorAtoms": [
@@ -66,6 +66,38 @@
         {
           "Key": {
             "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "Buff.Weak.StopUseSecondary"
           },
           "Value": {
             "CheckAtoms": [],

@@ -461,7 +461,10 @@
     "Name": "StateAttack",
     "Outer": "Default__Weapon10603001_C",
     "Class": "UScriptClass'CyFFireState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bFireInterruptReload": true
+    }
   },
   {
     "Type": "CyFFireSwitchAuto",
@@ -482,7 +485,19 @@
     "Name": "AttackSwitchBurst",
     "Outer": "Default__Weapon10603001_C",
     "Class": "UScriptClass'CyFFireSwitchBurst'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BurstCount": 2,
+      "BurstEndTime": {
+        "Value": 0.177713
+      },
+      "bFullyAutoMatic": {
+        "Value": 1.0
+      },
+      "TotalDuration": {
+        "Value": 0.085
+      }
+    }
   },
   {
     "Type": "CyFFireSwitcher",
@@ -1079,6 +1094,26 @@
               "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
             },
             "RowName": "SpreadIncSpeedFiring"
+          }
+        },
+        "LocomotionSpreadIncSpeed": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.Spread.Modifier.Move.AA12"
+          }
+        },
+        "LocomotionSpreadDecSpeed": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.Spread.Modifier.NoMove.AA12"
           }
         },
         "SpreadScale": {

@@ -11,11 +11,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_Summon_CheckPoint_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.14"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.17"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler'BP_Summon_CheckPoint_C:InheritableComponentHandler'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.8"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.10"
       }
     },
     "SuperStruct": {
@@ -23,6 +23,17 @@
       "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint_Base.0"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "TriggerBox",
@@ -59,13 +70,21 @@
     "Properties": {
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__BP_Summon_CheckPoint_C:ArousalComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.4"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.5"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_CheckPoint_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.10"
-      }
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.12"
+      },
+      "RemoteRole": "ROLE_SimulatedProxy"
     }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_GEN_VARIABLE",
+    "Outer": "BP_Summon_CheckPoint_C",
+    "Class": "UScriptClass'AkComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
     "Type": "BoxComponent",
@@ -179,6 +198,25 @@
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
   },
   {
+    "Type": "CyBlackboardDataComponent",
+    "Name": "CyBlackboardData_GEN_VARIABLE",
+    "Outer": "BP_Summon_CheckPoint_C",
+    "Class": "UScriptClass'CyBlackboardDataComponent'",
+    "Template": {
+      "ObjectName": "CyBlackboardDataComponent'BP_Summon_CheckPoint_Base_C:CyBlackboardData_GEN_VARIABLE'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint_Base.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "ConfigIntMap": [
+        {
+          "Key": "CustomHumanMidPointTime",
+          "Value": -1
+        }
+      ]
+    }
+  },
+  {
     "Type": "CyCheckPointComponent",
     "Name": "CyCheckPoint_GEN_VARIABLE",
     "Outer": "BP_Summon_CheckPoint_C",
@@ -256,7 +294,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CyTriggerSystemComponent'BP_Summon_CheckPoint_C:CyTriggerSystem_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.7"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.9"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -278,7 +316,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CyCheckPointComponent'BP_Summon_CheckPoint_C:CyCheckPoint_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.5"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.7"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -300,7 +338,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CyEventActionComponent'BP_Summon_CheckPoint_C:CyEventAction_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.6"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.8"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -322,7 +360,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "ParticleSystemComponent'BP_Summon_CheckPoint_C:ParticleSystem_NextPoint_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.9"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.11"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -344,7 +382,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "BP_CommonOverheadComponent_C'BP_Summon_CheckPoint_C:BP_CommonOverheadComponent_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.3"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.4"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -353,6 +391,28 @@
             },
             "SCSVariableName": "BP_CommonOverheadComponent",
             "AssociatedGuid": "13339A34-45A9DA21-01F01DB1-D58F4D67"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'CyBlackboardDataComponent'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "CyBlackboardDataComponent'BP_Summon_CheckPoint_C:CyBlackboardData_GEN_VARIABLE'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.6"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Summon_CheckPoint_Base_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint_Base.0"
+            },
+            "SCSVariableName": "CyBlackboardData",
+            "AssociatedGuid": "AD303B82-47F576D3-504BDF89-83A6FA31"
           },
           "CookedComponentInstancingData": {
             "ChangedPropertyList": [],
@@ -378,8 +438,8 @@
         "ObjectPath": "PM/Content/PaperMan/Effects/FX_NE/Gameplay/HotZone/FX_HotZone_Square_Blue_01.175"
       },
       "RelativeScale3D": {
-        "X": 0.3,
-        "Y": 0.3,
+        "X": 0.25,
+        "Y": 0.25,
         "Z": 1.0
       },
       "PrimaryComponentTick": {
@@ -418,7 +478,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_Summon_CheckPoint_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.11"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.13"
       },
       "VariableGuid": "B557FE34-462B838A-51A9EB81-20A0FFA0",
       "InternalVariableName": "DefaultSceneRoot"
@@ -437,12 +497,33 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BoxComponent'BP_Summon_CheckPoint_C:TriggerBox_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.2"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.3"
       },
       "ParentComponentOrVariableName": "DefaultSceneRoot",
       "ParentComponentOwnerClassName": "BP_Summon_CheckPoint_Base_C",
       "VariableGuid": "C8A43C25-49DCCECB-59E17FB2-203A2C4A",
       "InternalVariableName": "TriggerBox"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'BP_Summon_CheckPoint_C:Ak_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.2"
+      },
+      "ParentComponentOrVariableName": "DefaultSceneRoot",
+      "ParentComponentOwnerClassName": "BP_Summon_CheckPoint_Base_C",
+      "VariableGuid": "290F0164-4EF1EE4D-D25ACC92-CBED7ADE",
+      "InternalVariableName": "Ak"
     }
   },
   {
@@ -455,18 +536,26 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_CheckPoint_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.13"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_CheckPoint_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.16"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_CheckPoint_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.13"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_CheckPoint_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.16"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_Summon_CheckPoint_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.12"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/ZombiChase/CheckPoint/BP_Summon_CheckPoint.14"
       }
     }
   }
