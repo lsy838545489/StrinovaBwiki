@@ -1,0 +1,100 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SA_MatchAddTags_P_Leona_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomMatchAddLooseTags'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SA_MatchAddTags_P_Leona_C'Default__BP_SA_MatchAddTags_P_Leona_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Leona/P/Summon/BP_SA_MatchAddTags_P_Leona.1"
+    }
+  },
+  {
+    "Type": "BP_SA_MatchAddTags_P_Leona_C",
+    "Name": "Default__BP_SA_MatchAddTags_P_Leona_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Leona/P/Summon/BP_SA_MatchAddTags_P_Leona.BP_SA_MatchAddTags_P_Leona_C'",
+    "Properties": {
+      "bInstigator": true,
+      "AddTags": [
+        "State.Player.NoAction"
+      ],
+      "MatchTags": {
+        "IgnoreTags": [
+          "State.Health.Injured",
+          "State.Health.Death"
+        ]
+      },
+      "MatchMoveTags": {
+        "RequireAnyTags": [
+          "State.Motion.NoMove",
+          "State.Motion.InWall.NoMove"
+        ]
+      },
+      "ApplyTags": {
+        "RequireAnyTags": [
+          "BuffIcon.Strong.ArmorRecover.P.Leona"
+        ]
+      },
+      "MatchKeepTime": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "CD.P.Leona"
+        }
+      },
+      "MoveTime": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Duration.P.Leona"
+        }
+      },
+      "EffectsToApply": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_P_Leona_AddArmor_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Leona/P/GE_P_Leona_AddArmor.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::All",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "bAllowTick": true,
+      "bUseAuthorityMask": true
+    }
+  }
+]
