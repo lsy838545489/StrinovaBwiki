@@ -2,8 +2,8 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "GE_LayDownEnemyArms_OnDash_QPX_Cielle_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "SuperStruct": {
       "ObjectName": "Class'CyGameplayEffect'",
       "ObjectPath": "/Script/PMGame"
@@ -23,8 +23,8 @@
   {
     "Type": "GE_LayDownEnemyArms_OnDash_QPX_Cielle_C",
     "Name": "Default__GE_LayDownEnemyArms_OnDash_QPX_Cielle_C",
-    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/GE/GE_LayDownEnemyArms_OnDash_QPX_Cielle.GE_LayDownEnemyArms_OnDash_QPX_Cielle_C'",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/GE/GE_LayDownEnemyArms_OnDash_QPX_Cielle.GE_LayDownEnemyArms_OnDash_QPX_Cielle_C'",
     "Properties": {
       "ResponderType": "EResponderType::Instigator",
       "TargetAddedEventTag": {
@@ -37,7 +37,14 @@
       "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
       "DurationMagnitude": {
         "ScalableFloatMagnitude": {
-          "Value": 1.0
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+            },
+            "RowName": "Duration.LayDown.Q.Cielle"
+          }
         }
       },
       "GameplayCues": [
@@ -53,7 +60,8 @@
           "MinLevel": 0.0,
           "MaxLevel": 0.0,
           "GameplayCueTags": [
-            "GC.Cielle.Q.DashHitEnemyInX"
+            "GC.Cielle.Q.DashHitEnemyInX",
+            "GC.Shared.SilenceNoAudio"
           ]
         }
       ],
@@ -74,18 +82,17 @@
           "State.Player.DisableUsePrimary",
           "State.Player.DisableUseSecondary",
           "Buff.Weak.Silence",
-          "Buff.Week.QP.Cielle.OnDashHitEnemy"
+          "Buff.Week.QP.Cielle.OnDashHitEnemy",
+          "Buff.Weak.StopUsePrimary",
+          "Buff.Weak.StopUseSecondary"
         ],
         "Added": [
           "State.Player.DisableUsePrimary",
           "State.Player.DisableUseSecondary",
           "Buff.Weak.Silence",
-          "Buff.Week.QP.Cielle.OnDashHitEnemy"
-        ]
-      },
-      "ApplicationTagRequirements": {
-        "RequireAnyTags": [
-          "State.Shape"
+          "Buff.Week.QP.Cielle.OnDashHitEnemy",
+          "Buff.Weak.StopUsePrimary",
+          "Buff.Weak.StopUseSecondary"
         ]
       },
       "RemovalTagRequirements": {

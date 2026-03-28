@@ -2,8 +2,8 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "GA_X_Cielle_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "SuperStruct": {
       "ObjectName": "Class'CyBaseAbility'",
       "ObjectPath": "/Script/PMGame"
@@ -23,8 +23,8 @@
   {
     "Type": "GA_X_Cielle_C",
     "Name": "Default__GA_X_Cielle_C",
-    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/X/GA_X_Cielle.GA_X_Cielle_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/X/GA_X_Cielle.GA_X_Cielle_C'",
     "Properties": {
       "BuffTag": {
         "TagName": "Buff.Strong.X.Cielle"
@@ -208,7 +208,39 @@
       "AddTagEvents": [
         {
           "Key": {
-            "TagName": "Buff.Strong.X.Cielle"
+            "TagName": "State.Game.RemoveBuff"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "Buff.Strong.X.Cielle"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Health.Injured"
           },
           "Value": {
             "CheckAtoms": [],
@@ -223,15 +255,15 @@
             "BothAtomsForActive": [],
             "BothAtomsForNoActive": [],
             "BothAtomsForInstance": [],
-            "AtomsForActive": [],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [],
-            "LocallyAtomsForActive": [
+            "AtomsForActive": [
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_InGameVoice_X_Cielle_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/X/BP_Trigger_InGameVoice_X_Cielle.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
               }
             ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
             "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
           }
@@ -326,6 +358,7 @@
           "ObjectPath": "/Script/PMGame"
         }
       },
+      "RemainPointEndType": "EPointRemainType::None",
       "CommitCostMask": 0,
       "PostEndEventTags": [
         "Event.Action.KeepSide",
@@ -345,20 +378,18 @@
       },
       "ActivationOwnedTags": [
         "State.Player.DisableSwitchWeapon",
-        "State.Player.DisableInteract",
         "State.Player.DisableInput2D.Fly",
         "State.Player.DisableInput2D.Side",
         "State.Player.DisableInput.KnifeBlock",
-        "State.Player.DisableJump",
         "State.Player.DisableUsePrimary",
         "State.Player.DisableUseSecondary",
-        "State.Player.DisableUseShared",
         "State.Player.DisableUseSkill",
         "State.Player.DisableInputAim.ADS",
         "State.Player.DisableInputAim.Aiming",
         "State.Player.DisableKeep2D.Fly",
         "State.Player.DisableKeep2D.Side",
-        "GA.Ability.SkillX.Cielle"
+        "GA.Ability.SkillX.Cielle",
+        "State.Player.DisableInteractWithDuration"
       ],
       "ActivationBlockedTags": [
         "Buff.Weak.Silence",

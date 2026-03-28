@@ -2,8 +2,8 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
@@ -17,12 +17,12 @@
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
-        "Name": "CyAIEntryState",
+        "Name": "CyTargetActors",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
-          "ObjectName": "Class'CyAIEntryState'",
+          "ObjectName": "Class'CyTargetActorsComponent'",
           "ObjectPath": "/Script/PMGame"
         }
       },
@@ -196,19 +196,20 @@
   {
     "Type": "Summon_DashOnHit_Q_Cielle_C",
     "Name": "Default__Summon_DashOnHit_Q_Cielle_C",
-    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.Summon_DashOnHit_Q_Cielle_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.Summon_DashOnHit_Q_Cielle_C'",
     "Properties": {
       "bSupportHitAudio": false,
       "bSupportHitEffect": false,
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_DashOnHit_Q_Cielle_C:ArousalComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.12"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.11"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_DashOnHit_Q_Cielle_C:PerceptionSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.17"
       },
+      "BlockedProcessType": "ECyActorBlockedProcessType::Ignore",
       "bReplicates": true,
       "InitialLifeSpan": 21.0
     }
@@ -216,16 +217,22 @@
   {
     "Type": "AkComponent",
     "Name": "Ak_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'AkComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    }
   },
   {
     "Type": "ArrowComponent",
     "Name": "Arrow_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'ArrowComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'ArrowComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
       "ArrowColor": {
         "B": 255,
@@ -240,24 +247,30 @@
   {
     "Type": "BP_GameStateComponent_Summon_C",
     "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Template": {
       "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
     },
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
-      "RoundFreezeEventType": "ERoundEventType::Death",
-      "RoundEndEventType": "ERoundEventType::Death"
+      "RoundClearEventType": "ERoundEventType::None",
+      "bClearedOnInstigatorEndPlay": false
     }
   },
   {
     "Type": "CyAbilitySystemComponent",
     "Name": "CyAbilitySystem_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'CyAbilitySystemComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
       "ReplicatedPredictionKeyMap": {
         "PredictionKeys": [
@@ -685,9 +698,12 @@
   {
     "Type": "CyAIDeathState",
     "Name": "CyAIDeathState_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'CyAIDeathState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIDeathState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
       "TotalDuration": {
         "Value": 0.5
@@ -695,45 +711,17 @@
     }
   },
   {
-    "Type": "CyAIEntryState",
-    "Name": "CyAIEntryState_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'CyAIEntryState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "Events": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 0.0,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_AttachTo_First_DashOnHit_Q_Cielle_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/BP_SA_AttachTo_First_DashOnHit_Q_Cielle.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        }
-      ],
-      "TotalDuration": {
-        "Value": 0.1
-      },
-      "EndEventTags": [
-        {
-          "TagName": "Event.Summon.Cielle.QPDashHit.LeaveEvent"
-        }
-      ]
-    }
-  },
-  {
     "Type": "CyAIMachine",
     "Name": "CyAIMachine_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'CyAIMachine'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
+      "DefaultStateType": "EAIStateType::Work",
       "InitStateQueue": [
-        "EAIStateType::Work",
         "EAIStateType::Death"
       ],
       "bAutoEndDefault": true
@@ -742,19 +730,24 @@
   {
     "Type": "CyAIState",
     "Name": "CyAIStateNone_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyAIState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    }
   },
   {
     "Type": "CyAIStateMonitor",
     "Name": "CyAIStateMonitor_EntryWork_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'CyAIStateMonitor'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
       "MonitorStateTypes": [
-        "EAIStateType::Entry",
         "EAIStateType::Work"
       ],
       "Events": [
@@ -764,10 +757,68 @@
           "bEndWithState": false,
           "bNoSkipped": false,
           "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_AddForceMoveComp_Q_Cielle_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/BP_AddForceMoveComp_Q_Cielle.0"
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_AddForceMoveOnFoundActor_Q_Cielle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/BP_SA_AddForceMoveOnFoundActor_Q_Cielle.0"
           },
           "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemy_Damage_QX_Cielle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/BP_SA_SearchEnemy_Damage_QX_Cielle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemy_Damage_Q_Cielle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/AllowMode/BP_SA_SearchEnemy_Damage_Q_Cielle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemy_AddForce_Q_Cielle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/BP_SA_SearchEnemy_AddForce_Q_Cielle.0"
+          },
+          "SubAtoms": [
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSA_InterruptCurWeaponState_Q_Cielle_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/BP_SSA_InterruptCurWeaponState_Q_Cielle.0"
+            }
+          ],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemy_AddForce_QX_Cielle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/BP_SA_SearchEnemy_AddForce_QX_Cielle.0"
+          },
+          "SubAtoms": [
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSA_InterruptCurWeaponState_Q_Cielle_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/BP_SSA_InterruptCurWeaponState_Q_Cielle.0"
+            }
+          ],
           "EventActions": []
         }
       ]
@@ -776,33 +827,37 @@
   {
     "Type": "CyAIWorkState",
     "Name": "CyAIWorkState_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'CyAIWorkState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
       "TotalDuration": {
-        "Value": 0.1
-      },
-      "BeginEventTags": [
-        {
-          "TagName": "Event.Summon.Cielle.QPDashHit.LeaveEvent"
-        }
-      ]
+        "Value": 0.5
+      }
     }
   },
   {
     "Type": "CyArousalComponent",
     "Name": "ArousalComponent",
-    "Outer": "Default__Summon_DashOnHit_Q_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyArousalComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Summon_DashOnHit_Q_Cielle_C'Default__Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.1"
+    }
   },
   {
     "Type": "CyForceMoveComponent",
     "Name": "CyForceMove_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'CyForceMoveComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyForceMoveComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
       "CalVelocityType": "ECalVelocityType::Always",
       "bIgnoreMass": true,
@@ -831,24 +886,38 @@
   {
     "Type": "CyRetainComponent",
     "Name": "CyRetain_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'CyRetainComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
+      "ActorGroupInstance": {
+        "ActorGroupChannel": {
+          "bIsZone": true
+        }
+      },
       "DefinitionTagContainer": [
         "ActorTag.Summon.QPDashHit.Cielle"
       ],
       "OwnerActorTag": {
         "TagName": "ActorTag.Summon.QPDashHit.Cielle"
+      },
+      "SpawnEventTag": {
+        "TagName": "Event.Summon.Cielle.QPDashHit.LeaveEvent"
       }
     }
   },
   {
     "Type": "CySearchTargetsComponent",
     "Name": "CySearchTargets_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'CySearchTargetsComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
       "PermissionMask": 42
     }
@@ -856,16 +925,32 @@
   {
     "Type": "CySkinComponent",
     "Name": "CySkin_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CySkinComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    }
+  },
+  {
+    "Type": "CyTargetActorsComponent",
+    "Name": "CyTargetActors_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyTargetActorsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    }
   },
   {
     "Type": "PMAIPerceptionStimuliSourceComponent",
     "Name": "PerceptionSystemComponent",
-    "Outer": "Default__Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "Summon_DashOnHit_Q_Cielle_C'Default__Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.1"
+    },
     "Properties": {
       "StimuliSourceID": 21315
     }
@@ -873,16 +958,22 @@
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SceneComponent'",
@@ -899,7 +990,7 @@
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.28"
         }
       ],
       "VariableGuid": "0D2BDD0D-422F1DCB-21B1C6BC-BBE71DC1",
@@ -909,9 +1000,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_1",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIMachine'",
@@ -919,7 +1013,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIMachine'Summon_DashOnHit_Q_Cielle_C:CyAIMachine_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.8"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.7"
       },
       "VariableGuid": "2634C664-4A50DFBC-3F0806B6-EE003603",
       "InternalVariableName": "CyAIMachine"
@@ -928,9 +1022,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_10",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
@@ -947,9 +1044,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_11",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'AkComponent'",
@@ -966,9 +1066,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_12",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAbilitySystemComponent'",
@@ -985,9 +1088,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_13",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIWorkState'",
@@ -995,7 +1101,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_DashOnHit_Q_Cielle_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.11"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.10"
       },
       "VariableGuid": "4762B1CF-4D86082B-BA5075A9-7A1CA748",
       "InternalVariableName": "CyAIWorkState"
@@ -1004,9 +1110,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_14",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyRetainComponent'",
@@ -1014,7 +1123,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_DashOnHit_Q_Cielle_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.13"
       },
       "VariableGuid": "D52BAEAC-41C6B096-9E945A92-D57BA878",
       "InternalVariableName": "CyRetain"
@@ -1022,29 +1131,13 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_15",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
-    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class'CyAIEntryState'",
-        "ObjectPath": "/Script/PMGame"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "CyAIEntryState'Summon_DashOnHit_Q_Cielle_C:CyAIEntryState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.7"
-      },
-      "VariableGuid": "E602C11D-44201941-D28A74BB-56078015",
-      "InternalVariableName": "CyAIEntryState"
-    }
-  },
-  {
-    "Type": "SCS_Node",
     "Name": "SCS_Node_2",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySkinComponent'",
@@ -1052,7 +1145,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_DashOnHit_Q_Cielle_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.15"
       },
       "VariableGuid": "2ABDD5A3-4DA36268-8E16F889-0DC3C207",
       "InternalVariableName": "CySkin"
@@ -1061,9 +1154,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_3",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIStateMonitor'",
@@ -1071,7 +1167,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIStateMonitor'Summon_DashOnHit_Q_Cielle_C:CyAIStateMonitor_EntryWork_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.10"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.9"
       },
       "VariableGuid": "9836889D-4F185CB6-B17938A0-0E45C6E2",
       "InternalVariableName": "CyAIStateMonitor_EntryWork"
@@ -1080,9 +1176,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_4",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'ArrowComponent'",
@@ -1099,9 +1198,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_5",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIState'",
@@ -1109,7 +1211,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIState'Summon_DashOnHit_Q_Cielle_C:CyAIStateNone_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.9"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.8"
       },
       "VariableGuid": "5400F338-46DD1746-11E12689-F17BC444",
       "InternalVariableName": "CyAIStateNone"
@@ -1118,9 +1220,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_6",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySearchTargetsComponent'",
@@ -1128,7 +1233,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Summon_DashOnHit_Q_Cielle_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.15"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.14"
       },
       "VariableGuid": "3E06E7E7-4B8A9CDB-3392058C-5B4ED0C1",
       "InternalVariableName": "CySearchTargets"
@@ -1137,9 +1242,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_7",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyForceMoveComponent'",
@@ -1147,7 +1255,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyForceMoveComponent'Summon_DashOnHit_Q_Cielle_C:CyForceMove_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.12"
       },
       "VariableGuid": "A402032A-49CD05EF-D09D3BB9-4DA14EA9",
       "InternalVariableName": "CyForceMove"
@@ -1156,9 +1264,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_8",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIDeathState'",
@@ -1173,11 +1284,36 @@
     }
   },
   {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyTargetActorsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyTargetActorsComponent'Summon_DashOnHit_Q_Cielle_C:CyTargetActors_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.16"
+      },
+      "VariableGuid": "E4C09FD3-4C319DDA-0E356696-AB28994E",
+      "InternalVariableName": "CyTargetActors"
+    }
+  },
+  {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
-    "Outer": "Summon_DashOnHit_Q_Cielle_C",
-    "Class": "UScriptClass'SimpleConstructionScript'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_DashOnHit_Q_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.0"
+    },
     "Properties": {
       "RootNodes": [
         {
@@ -1186,7 +1322,7 @@
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_1'",
@@ -1194,7 +1330,7 @@
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.30"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_10'",
@@ -1214,23 +1350,23 @@
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.33"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_7'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.32"
         },
         {
-          "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.26"
+          "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.33"
         }
       ],
       "AllNodes": [
@@ -1240,7 +1376,7 @@
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_1'",
@@ -1248,7 +1384,7 @@
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.30"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_10'",
@@ -1272,27 +1408,27 @@
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.28"
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.33"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_7'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.32"
         },
         {
-          "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.26"
+          "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_DashOnHit_Q_Cielle_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Summon/SummonDashOnHit/Summon_DashOnHit_Q_Cielle.33"
         }
       ],
       "DefaultSceneRootNode": {

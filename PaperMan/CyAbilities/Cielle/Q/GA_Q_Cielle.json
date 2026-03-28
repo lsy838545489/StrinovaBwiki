@@ -2,8 +2,8 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "GA_Q_Cielle_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "SuperStruct": {
       "ObjectName": "Class'CyBaseAbility'",
       "ObjectPath": "/Script/PMGame"
@@ -23,8 +23,8 @@
   {
     "Type": "GA_Q_Cielle_C",
     "Name": "Default__GA_Q_Cielle_C",
-    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/Q/GA_Q_Cielle.GA_Q_Cielle_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/Q/GA_Q_Cielle.GA_Q_Cielle_C'",
     "Properties": {
       "SummonActorTag": {
         "TagName": "ActorTag.Summon.Q.Cielle"
@@ -75,20 +75,16 @@
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay.0"
         },
         {
-          "ObjectName": "BlueprintGeneratedClass'BP_Activator_SwitchWeapon_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_CharacterAction/BP_Activator_SwitchWeapon.0"
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_Q_Cielle_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_ActivatorSwitchWeapon_Q_Cielle.0"
         },
         {
           "ObjectName": "BlueprintGeneratedClass'BP_GAA_SummonGotoEntryWork_Q_Cielle_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAA_SummonGotoEntryWork_Q_Cielle.0"
         }
       ],
-      "IgnoreCostTags": {
-        "RequireAnyTags": [
-          "Buff.CostIgnore.SkillQ"
-        ]
-      },
-      "ShortPressEvents": [
+      "bServerPressedAtom": true,
+      "PressedAtoms": [
         {
           "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddExpectedSlotType_Q_Cielle_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_AddExpectedSlotType_Q_Cielle.0"
@@ -100,8 +96,22 @@
         {
           "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_Release_Q_Cielle_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_Trigger_EndAbility_Release_Q_Cielle.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TriggerUIEvent_InputPressedAgainNoActive_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TriggerAtoms/BP_TriggerUIEvent_InputPressedAgainNoActive.0"
         }
       ],
+      "PressTagRequirements": {
+        "RequireAnyTags": [
+          "GA.Ability.SkillQ.Cielle"
+        ]
+      },
+      "IgnoreCostTags": {
+        "RequireAnyTags": [
+          "Buff.CostIgnore.SkillQ"
+        ]
+      },
       "TriggerEvents": [
         {
           "Key": {
@@ -158,8 +168,12 @@
             "AtomsForNoActive": [],
             "AtomsForInstance": [
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_SummonHit_Q_Cielle_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_TriggerAddGE_SummonHit_Q_Cielle.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_SummonHit_TagRequire_Q_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_TriggerAddGE_SummonHit_TagRequire_Q_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_RemoveEe_BlockAddArmor_Q_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_RemoveEe_BlockAddArmor_Q_Cielle.0"
               }
             ],
             "LocallyAtomsForActive": [],
@@ -186,94 +200,47 @@
             "BothAtomsForInstance": [],
             "AtomsForActive": [
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_GAT_SummonGotoThirdWork_Q_Cielle_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_SummonGotoThirdWork_Q_Cielle.0"
-              },
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_EndAbility_SummonArmorClear_Q_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_EndAbility_SummonArmorClear_Q_Cielle.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddGe_OnQSummonClearArmor_QX_Cielle_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_AddGe_OnQSummonClearArmor_QX_Cielle.0"
               },
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_GAT_RemoveEe_Cd_RemoveXStrongBuff_QX_Cielle_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_RemoveEe_Cd_RemoveXStrongBuff_QX_Cielle.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_SummonClearArmor_Q_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_TriggerAddGE_SummonClearArmor_Q_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_BlockAddArmor_Q_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_TriggerAddGE_BlockAddArmor_Q_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddGE_WaitToRemoveXBuff_X_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/X/BP_GAT_AddGE_WaitToRemoveXBuff_X_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_SummonGotoThirdWork_Q_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_SummonGotoThirdWork_Q_Cielle.0"
               },
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
               },
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCD_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCD.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_ModifyGameplayEffectDuration_A2_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/ArousalTwo/BP_GAT_ModifyGameplayEffectDuration_A2_Cielle.0"
               },
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_GAT_EndAbility_SummonArmorClear_Q_Cielle_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_EndAbility_SummonArmorClear_Q_Cielle.0"
-              }
-            ],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
-        },
-        {
-          "Key": {
-            "TagName": "Event.GameMode.RestartPlayer.After"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_GAT_SummonGotoFifthWork_Q_Cielle_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_SummonGotoFifthWork_Q_Cielle.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddGE_ExtraArmor_A2_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/ArousalTwo/BP_TriggerAddGE_ExtraArmor_A2_Cielle.0"
               },
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddGe_SummonFullArmor_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_AddGe_SummonFullArmor.0"
-              }
-            ],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
-        },
-        {
-          "Key": {
-            "TagName": "Event.Skill.Cielle.Q.OnForceMoveDashHit"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_SpawnSummon_DashOnHit_Q_CIelle_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_SpawnSummon_DashOnHit_Q_CIelle.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_RemoveEe_WaitToModifyQCD_A2_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/ArousalTwo/BP_GAT_RemoveEe_WaitToModifyQCD_A2_Cielle.0"
               }
             ],
             "LocallyAtomsForActive": [],
@@ -467,8 +434,87 @@
             "AtomsForNoActive": [],
             "AtomsForInstance": [
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_GAT_SummonGotoSecWork_Q_Cielle_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_SummonGotoSecWork_Q_Cielle.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddGE_WaitToRemoveXBuff_X_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/X/BP_GAT_AddGE_WaitToRemoveXBuff_X_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_SummonGotoFifthWork_Q_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_SummonGotoFifthWork_Q_Cielle.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.Cielle.Q.FiftWork.Begin"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [
+                "Buff.Strong.X.CielleWaitToRemoveX"
+              ],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_RemoveEe_Cd_RemoveXStrongBuff_QX_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_RemoveEe_Cd_RemoveXStrongBuff_QX_Cielle.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.GameMode.RestartPlayer.After"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddGE_WaitToRemoveXBuff_X_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/X/BP_GAT_AddGE_WaitToRemoveXBuff_X_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_SummonGotoFifthWork_Q_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_SummonGotoFifthWork_Q_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_RemoveEe_RemoveXBuff_NotSummon_QX_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_RemoveEe_RemoveXBuff_NotSummon_QX_Cielle.0"
               }
             ],
             "LocallyAtomsForActive": [],
@@ -671,6 +717,44 @@
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddGe_SummonInQCD_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_AddGe_SummonInQCD.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Game.RemoveBuff"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddGE_WaitToRemoveXBuff_X_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/X/BP_GAT_AddGE_WaitToRemoveXBuff_X_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_SummonGotoFifthWork_Q_Cielle_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_SummonGotoFifthWork_Q_Cielle.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_GAT_AddGe_SummonFullArmor_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/BP_GAT_AddGe_SummonFullArmor.0"
               }
             ],
             "LocallyAtomsForActive": [],

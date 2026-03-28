@@ -2,8 +2,8 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_GameState_MineTri_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_GameState_MineTri_C:SimpleConstructionScript_0'",
@@ -119,8 +119,8 @@
   {
     "Type": "BP_GameState_MineTri_C",
     "Name": "Default__BP_GameState_MineTri_C",
-    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.BP_GameState_MineTri_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.BP_GameState_MineTri_C'",
     "Properties": {
       "MineDataAsset": {
         "ObjectName": "CyMineDataAsset'DA_MineTriAsset'",
@@ -130,6 +130,7 @@
         "Value": 3.0,
         "MobileValue": 3.0
       },
+      "bDefaultEquipESkill": false,
       "DefaultMapId": 999,
       "ModeType": "EPMGameModeType::Mine3",
       "Machine": {
@@ -326,6 +327,13 @@
             "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/EventAtom/BP_Shared_GSSA_CustomMatchInitFightDuration.0"
           },
           "Instance": null
+        },
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSEA_InfinitySecondaryAmmo_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/Module/InfinityAmmo/BP_GSEA_InfinitySecondaryAmmo.0"
+          },
+          "Instance": null
         }
       ],
       "GeneralDataControlComponent": {
@@ -341,13 +349,16 @@
   {
     "Type": "BP_GameGrowthComponent_C",
     "Name": "BP_GameGrowthComponent_GEN_VARIABLE",
-    "Outer": "BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Shared/Core/Components/BP_GameGrowthComponent.BP_GameGrowthComponent_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.0"
+    },
     "Template": {
       "ObjectName": "BP_GameGrowthComponent_C'Default__BP_GameGrowthComponent_C'",
       "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/Core/Components/BP_GameGrowthComponent.1"
     },
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "bGrowthEnabled": true,
       "AllowPlayerTagReq": {
@@ -356,15 +367,127 @@
           "State.Player.CanUseGrowth"
         ]
       },
-      "bSlotDowngradeCostEnabled": false
+      "bSlotDowngradeCostEnabled": false,
+      "bArousalDeactivateCostEnabled": false,
+      "bWeaponSellReturnCostEnabled": false,
+      "bWeaponSellCostEnabled": false,
+      "bGrenadeCDEnabled": true,
+      "DefaultBuyGrenadeGetType": "ECyGrowthWeaponBuyGetType::ApplyNewCD",
+      "bESkillCDEnabled": true,
+      "bRestartInitRoleEnabled": true,
+      "RestartInitRoleConfig": {
+        "InitWeaponConfigMap": [
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_Grenade_1",
+            "Value": {
+              "bUseWeapon": true,
+              "bUsePrevRoleWeapon": true,
+              "bUsePrevRoleAmmo": true,
+              "bUsePrevRoleAmmoInMagazine": false
+            }
+          },
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_Grenade_2",
+            "Value": {
+              "bUseWeapon": true,
+              "bUsePrevRoleWeapon": true,
+              "bUsePrevRoleAmmo": true,
+              "bUsePrevRoleAmmoInMagazine": false
+            }
+          }
+        ],
+        "InitSkillConfigMap": [
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_Ability",
+            "Value": {
+              "bUseSkill": true,
+              "InitSkillPointType": "ECyGrowthRestartInitSkillPointType::None",
+              "InheritPrevRoleSkillPointRatio": 1.0,
+              "InheritPrevRoleSkillPointRatioMax": 1.0
+            }
+          },
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_UltimateAbility",
+            "Value": {
+              "bUseSkill": true,
+              "InitSkillPointType": "ECyGrowthRestartInitSkillPointType::None",
+              "InheritPrevRoleSkillPointRatio": 1.0,
+              "InheritPrevRoleSkillPointRatioMax": 1.0
+            }
+          },
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_E",
+            "Value": {
+              "bUseSkill": true,
+              "InitSkillPointType": "ECyGrowthRestartInitSkillPointType::PrevRoleSkillPointNum",
+              "InheritPrevRoleSkillPointRatio": 1.0,
+              "InheritPrevRoleSkillPointRatioMax": 1.0
+            }
+          }
+        ]
+      },
+      "RestartInitNewRoleConfig": {
+        "InitWeaponConfigMap": [
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_Grenade_1",
+            "Value": {
+              "bUseWeapon": true,
+              "bUsePrevRoleWeapon": true,
+              "bUsePrevRoleAmmo": true,
+              "bUsePrevRoleAmmoInMagazine": false
+            }
+          },
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_Grenade_2",
+            "Value": {
+              "bUseWeapon": true,
+              "bUsePrevRoleWeapon": true,
+              "bUsePrevRoleAmmo": true,
+              "bUsePrevRoleAmmoInMagazine": false
+            }
+          }
+        ],
+        "InitSkillConfigMap": [
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_Ability",
+            "Value": {
+              "bUseSkill": true,
+              "InitSkillPointType": "ECyGrowthRestartInitSkillPointType::None",
+              "InheritPrevRoleSkillPointRatio": 1.0,
+              "InheritPrevRoleSkillPointRatioMax": 1.0
+            }
+          },
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_UltimateAbility",
+            "Value": {
+              "bUseSkill": true,
+              "InitSkillPointType": "ECyGrowthRestartInitSkillPointType::PrevRoleSkillPointRatio",
+              "InheritPrevRoleSkillPointRatio": 1.0,
+              "InheritPrevRoleSkillPointRatioMax": 0.4
+            }
+          },
+          {
+            "Key": "EWeaponSlotTypes::WeaponSlot_E",
+            "Value": {
+              "bUseSkill": true,
+              "InitSkillPointType": "ECyGrowthRestartInitSkillPointType::PrevRoleSkillPointNum",
+              "InheritPrevRoleSkillPointRatio": 1.0,
+              "InheritPrevRoleSkillPointRatioMax": 1.0
+            }
+          }
+        ]
+      }
     }
   },
   {
     "Type": "CyAbilitySystemComponent",
     "Name": "AbilitySystemComponent",
-    "Outer": "Default__BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyAbilitySystemComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    },
     "Properties": {
       "ReplicatedPredictionKeyMap": {
         "PredictionKeys": [
@@ -792,9 +915,12 @@
   {
     "Type": "CyCustomModeGameComponent",
     "Name": "CyCustomModeGame_GEN_VARIABLE",
-    "Outer": "BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyCustomModeGameComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyCustomModeGameComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.0"
+    },
     "Properties": {
       "AttributeSetClass": [
         {
@@ -811,37 +937,52 @@
   {
     "Type": "CyDataSystemComponent",
     "Name": "DataSystemComponent",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyDataSystemComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyEventDataControlComponent",
     "Name": "GeneralDataControlComponent",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyEventDataControlComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyGMachine",
     "Name": "Machine",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGMachine'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyGSMonitorMuteInGameSound",
     "Name": "CyGSMonitorMuteInGameSound",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGSMonitorMuteInGameSound'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyGStateFight",
     "Name": "CyGStateFight",
-    "Outer": "Default__BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyGStateFight'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateFight'",
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    },
     "Properties": {
       "TotalDuration": {
         "Value": 1200.0
@@ -865,16 +1006,22 @@
   {
     "Type": "CyGStateFightEnd",
     "Name": "CyGStateFightEnd",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGStateFightEnd'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyGStateGameEnd",
     "Name": "CyGStateGameEnd",
-    "Outer": "Default__BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyGStateGameEnd'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateGameEnd'",
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    },
     "Properties": {
       "Events": [
         {
@@ -895,9 +1042,12 @@
   {
     "Type": "CyGStateGameOver",
     "Name": "CyGStateGameOver",
-    "Outer": "Default__BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyGStateGameOver'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateGameOver'",
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    },
     "Properties": {
       "Events": [
         {
@@ -918,9 +1068,12 @@
   {
     "Type": "CyGStateMonitor",
     "Name": "CyGStateMonitor_BGM_GEN_VARIABLE",
-    "Outer": "BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyGStateMonitor'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.0"
+    },
     "Properties": {
       "MonitorStateTypes": [
         "EGStateType::Prepare",
@@ -948,9 +1101,12 @@
   {
     "Type": "CyGStateMonitor",
     "Name": "CyGStateMonitor_GEN_VARIABLE",
-    "Outer": "BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyGStateMonitor'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.0"
+    },
     "Properties": {
       "MonitorStateTypes": [
         "EGStateType::Fight"
@@ -1001,9 +1157,12 @@
   {
     "Type": "CyGStateMonitor",
     "Name": "CyGStateMonitorDelayRespawn_GEN_VARIABLE",
-    "Outer": "BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyGStateMonitor'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.0"
+    },
     "Properties": {
       "MonitorStateTypes": [
         "EGStateType::Prepare",
@@ -1043,16 +1202,22 @@
   {
     "Type": "CyGStateNone",
     "Name": "CyGStateNone",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGStateNone'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyGStatePrepare",
     "Name": "CyGStatePrepare_GEN_VARIABLE",
-    "Outer": "BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyGStatePrepare'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStatePrepare'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.0"
+    },
     "Properties": {
       "TimePromptInGameVoiceTags": [
         {
@@ -1070,37 +1235,52 @@
   {
     "Type": "CyGStateReStart",
     "Name": "CyGStateReStart",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGStateReStart'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyGStateRoleLoad",
     "Name": "CyGStateRoleLoad",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGStateRoleLoad'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyGStateRoleReselect",
     "Name": "CyGStateRoleReselect",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGStateRoleReselect'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyGStateRoleSelect",
     "Name": "CyGStateRoleSelect",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGStateRoleSelect'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "CyInGameDataTrack",
     "Name": "CyInGameDataTrack_GEN_VARIABLE",
-    "Outer": "BP_GameState_MineTri_C",
-    "Class": "UScriptClass'CyInGameDataTrack'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyInGameDataTrack'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.0"
+    },
     "Properties": {
       "Events": [
         {
@@ -1217,23 +1397,32 @@
   {
     "Type": "CyTeamManagerComponent",
     "Name": "TeamManagerComponent",
-    "Outer": "Default__BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyTeamManagerComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_MineTri_C'Default__BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.1"
+    }
   },
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
-    "Outer": "BP_GameState_MineTri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.0"
+    }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_MineTri_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.33"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SceneComponent'",
@@ -1250,9 +1439,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_1",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_MineTri_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.33"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGStateMonitor'",
@@ -1269,9 +1461,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_2",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_MineTri_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.33"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGStatePrepare'",
@@ -1288,9 +1483,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_3",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_MineTri_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.33"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGStateMonitor'",
@@ -1307,9 +1505,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_4",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_MineTri_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.33"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyInGameDataTrack'",
@@ -1326,9 +1527,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_5",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_MineTri_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.33"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyCustomModeGameComponent'",
@@ -1345,9 +1549,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_6",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_MineTri_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.33"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGStateMonitor'",
@@ -1363,10 +1570,13 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_7",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
+    "Name": "SCS_Node_8",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_MineTri_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.33"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_GameGrowthComponent_C'",
@@ -1376,16 +1586,19 @@
         "ObjectName": "BP_GameGrowthComponent_C'BP_GameState_MineTri_C:BP_GameGrowthComponent_GEN_VARIABLE'",
         "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.2"
       },
-      "VariableGuid": "52C06A65-496B0DFB-93D3AF99-DC1A8EF0",
+      "VariableGuid": "9AC9A10A-4D1D6362-8CF20B93-5E07D8A2",
       "InternalVariableName": "BP_GameGrowthComponent"
     }
   },
   {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
-    "Outer": "BP_GameState_MineTri_C",
-    "Class": "UScriptClass'SimpleConstructionScript'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_MineTri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.0"
+    },
     "Properties": {
       "RootNodes": [
         {
@@ -1417,7 +1630,7 @@
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.31"
         },
         {
-          "ObjectName": "SCS_Node'BP_GameState_MineTri_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectName": "SCS_Node'BP_GameState_MineTri_C:SimpleConstructionScript_0.SCS_Node_8'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.32"
         }
       ],
@@ -1451,7 +1664,7 @@
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.31"
         },
         {
-          "ObjectName": "SCS_Node'BP_GameState_MineTri_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectName": "SCS_Node'BP_GameState_MineTri_C:SimpleConstructionScript_0.SCS_Node_8'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/MineMatch_Tri/BP_GameState_MineTri.32"
         }
       ],

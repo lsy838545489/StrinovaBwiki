@@ -2,8 +2,8 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Projectile_E_Cielle_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Projectile_E_Cielle_C:SimpleConstructionScript_0'",
@@ -64,8 +64,8 @@
   {
     "Type": "Projectile_E_Cielle_C",
     "Name": "Default__Projectile_E_Cielle_C",
-    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.Projectile_E_Cielle_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.Projectile_E_Cielle_C'",
     "Properties": {
       "BlastRadius": 0.0,
       "IgnoreEnemy": true,
@@ -118,9 +118,12 @@
   {
     "Type": "AkComponent",
     "Name": "AkComponent",
-    "Outer": "Default__Projectile_E_Cielle_C",
-    "Class": "UScriptClass'AkComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_E_Cielle_C'Default__Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.1"
+    },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SphereComponent'Default__Projectile_E_Cielle_C:RootComponent'",
@@ -131,20 +134,26 @@
   {
     "Type": "BP_GameStateComponent_Summon_C",
     "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
-    "Outer": "Projectile_E_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.0"
+    },
     "Template": {
       "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
-    },
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    }
   },
   {
     "Type": "CyDataManagerComponent",
     "Name": "CyDataManager_GEN_VARIABLE",
-    "Outer": "Projectile_E_Cielle_C",
-    "Class": "UScriptClass'CyDataManagerComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataManagerComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.0"
+    },
     "Properties": {
       "SpawnEventTag": {
         "TagName": "CollectionEvent.UsedCount.Grenade"
@@ -154,16 +163,22 @@
   {
     "Type": "CyDataSystemComponent",
     "Name": "DataSystemComponent",
-    "Outer": "Default__Projectile_E_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyDataSystemComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Projectile_E_Cielle_C'Default__Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.1"
+    }
   },
   {
     "Type": "CyProjectileFlyDropMovementComponent",
     "Name": "MovementComponent",
-    "Outer": "Default__Projectile_E_Cielle_C",
-    "Class": "UScriptClass'CyProjectileFlyDropMovementComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyProjectileFlyDropMovementComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_E_Cielle_C'Default__Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.1"
+    },
     "Properties": {
       "OnProjectileThrough": {
         "InvocationList": [
@@ -177,15 +192,14 @@
         ]
       },
       "bStopOnGround": true,
-      "MaxBounceCount": 4,
-      "BouncinessScaleMin": 1.0,
+      "MaxBounceCount": 2,
+      "BouncinessScaleMin": 0.25,
+      "BouncinessScaleMax": 0.9,
       "BouncinessDistanceMin": 300.0,
       "BouncinessDistanceMax": 3000.0,
       "InitialSpeed": 3300.0,
       "bShouldBounce": true,
-      "bBounceAngleAffectsFriction": true,
       "Bounciness": 0.2,
-      "BounceVelocityStopSimulatingThreshold": 0.0,
       "OnProjectileBounce": {
         "InvocationList": [
           {
@@ -213,23 +227,32 @@
   {
     "Type": "CyRetainComponent",
     "Name": "CyRetain_GEN_VARIABLE",
-    "Outer": "Projectile_E_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyRetainComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.0"
+    }
   },
   {
     "Type": "CyWeaponSkinComponent",
     "Name": "SkinComponent",
-    "Outer": "Default__Projectile_E_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyWeaponSkinComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Projectile_E_Cielle_C'Default__Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.1"
+    }
   },
   {
     "Type": "PMAIPerceptionStimuliSourceComponent",
     "Name": "PerceptionSystemComponent",
-    "Outer": "Default__Projectile_E_Cielle_C",
-    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_E_Cielle_C'Default__Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.1"
+    },
     "Properties": {
       "StimuliSourceID": 11309
     }
@@ -237,16 +260,22 @@
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
-    "Outer": "Projectile_E_Cielle_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.0"
+    }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_E_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.15"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SceneComponent'",
@@ -263,9 +292,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_1",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_E_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.15"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyDataManagerComponent'",
@@ -282,9 +314,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_2",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_E_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.15"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyRetainComponent'",
@@ -301,9 +336,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_3",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_E_Cielle_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.15"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
@@ -320,9 +358,12 @@
   {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
-    "Outer": "Projectile_E_Cielle_C",
-    "Class": "UScriptClass'SimpleConstructionScript'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.0"
+    },
     "Properties": {
       "RootNodes": [
         {
@@ -361,9 +402,12 @@
   {
     "Type": "SkeletalMeshComponent",
     "Name": "MeshComponent",
-    "Outer": "Default__Projectile_E_Cielle_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_E_Cielle_C'Default__Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.1"
+    },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SphereComponent'Default__Projectile_E_Cielle_C:RootComponent'",
@@ -374,9 +418,12 @@
   {
     "Type": "SphereComponent",
     "Name": "RootComponent",
-    "Outer": "Default__Projectile_E_Cielle_C",
-    "Class": "UScriptClass'SphereComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SphereComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_E_Cielle_C'Default__Projectile_E_Cielle_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/E/Weapon/Projectile_E_Cielle.1"
+    },
     "Properties": {
       "SphereRadius": 5.0,
       "BodyInstance": {

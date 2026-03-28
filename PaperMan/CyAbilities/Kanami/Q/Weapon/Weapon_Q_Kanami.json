@@ -2,9 +2,12 @@
   {
     "Type": "Function",
     "Name": "ExecuteUbergraph_Weapon_Q_Kanami",
-    "Outer": "Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'Function'",
     "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'Function'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.2"
+    },
     "ChildProperties": [
       {
         "Type": "IntProperty",
@@ -20,14 +23,50 @@
         "ElementSize": 4
       }
     ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_ComputedJump",
+        "StatementIndex": 0,
+        "OffsetExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Weapon_Q_Kanami_C:ExecuteUbergraph_Weapon_Q_Kanami'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.0"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "EntryPoint",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 10,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 12
+      }
+    ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
   },
   {
     "Type": "Function",
     "Name": "ReceiveTick",
-    "Outer": "Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'Function'",
     "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'Function'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.2"
+    },
     "SuperStruct": {
       "ObjectName": "Function'Actor:ReceiveTick'",
       "ObjectPath": "/Script/Engine"
@@ -41,13 +80,73 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       }
     ],
+    "ScriptBytecode": [
+      {
+        "Inst": "EX_LetValueOnPersistentFrame",
+        "StatementIndex": 0,
+        "DestinationProperty": {
+          "Owner": {
+            "ObjectName": "Function'Weapon_Q_Kanami_C:ExecuteUbergraph_Weapon_Q_Kanami'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.0"
+          },
+          "Property": {
+            "Type": "FloatProperty",
+            "Name": "K2Node_Event_DeltaSeconds",
+            "Flags": "RF_Public",
+            "ElementSize": 4
+          }
+        },
+        "AssignmentExpression": {
+          "Inst": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Weapon_Q_Kanami_C:ReceiveTick'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.1"
+            },
+            "Property": {
+              "Type": "FloatProperty",
+              "Name": "DeltaSeconds",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Inst": "EX_LocalFinalFunction",
+        "StatementIndex": 18,
+        "Function": {
+          "ObjectName": "Function'Weapon_Q_Kanami_C:ExecuteUbergraph_Weapon_Q_Kanami'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.0"
+        },
+        "Parameters": [
+          {
+            "Inst": "EX_IntConst",
+            "Value": 10
+          }
+        ],
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.ExecuteUbergraph_Weapon_Q_Kanami[10]"
+      },
+      {
+        "Inst": "EX_Return",
+        "StatementIndex": 33,
+        "Expression": {
+          "Inst": "EX_Nothing"
+        }
+      },
+      {
+        "Inst": "EX_EndOfScript",
+        "StatementIndex": 35
+      }
+    ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   },
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon_Q_Kanami_C:SimpleConstructionScript_0'",
@@ -110,8 +209,8 @@
   {
     "Type": "Weapon_Q_Kanami_C",
     "Name": "Default__Weapon_Q_Kanami_C",
-    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.Weapon_Q_Kanami_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.Weapon_Q_Kanami_C'",
     "Properties": {
       "UberGraphFrame": {},
       "AttachSocketOverride": "Bip001-R-Hand",
@@ -268,37 +367,52 @@
   {
     "Type": "CyDataSystemComponent",
     "Name": "DataSystemComponent",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyDataSystemComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyEffectComponent",
     "Name": "EffectComponent",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyEffectComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyFAttackSwitchInterrupt",
     "Name": "AttackSwitchInterrupt",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyFAttackSwitchInterrupt'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyFEntryState",
     "Name": "StateEntry",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyFEntryState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyFEquipReloadState",
     "Name": "StateEquipAndReload",
-    "Outer": "Default__Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'CyFEquipReloadState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipReloadState'",
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    },
     "Properties": {
       "LooseGameplayTags": [
         "State.Player.DisableKeep2D.Fly",
@@ -342,9 +456,12 @@
   {
     "Type": "CyFEquipState",
     "Name": "StateEquip",
-    "Outer": "Default__Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'CyFEquipState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    },
     "Properties": {
       "LooseGameplayTags": [
         "State.Player.DisableKeep2D.Fly",
@@ -387,44 +504,62 @@
   {
     "Type": "CyFHoldSwitcher",
     "Name": "SwitcherHold",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyFHoldSwitcher'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyFHoldSwitchRelaxed",
     "Name": "HoldSwitchRelaxed",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyFHoldSwitchRelaxed'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyFInterruptState",
     "Name": "StateInterrupt",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyFInterruptState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyFMachine",
     "Name": "Machine",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyFMachine'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyFReloadState",
     "Name": "StateReload",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyFReloadState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyFThrowState",
     "Name": "StateAttack",
-    "Outer": "Default__Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'CyFThrowState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFThrowState'",
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    },
     "Properties": {
       "LooseGameplayTags": [
         "State.Player.DisableKeep2D.Fly",
@@ -463,9 +598,12 @@
   {
     "Type": "CyFThrowSwitchBegin",
     "Name": "ThrowSwitchBegin",
-    "Outer": "Default__Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'CyFThrowSwitchBegin'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFThrowSwitchBegin'",
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    },
     "Properties": {
       "TerminatorStates": [
         "EFAttackType::ThrowEnd"
@@ -491,9 +629,12 @@
   {
     "Type": "CyFThrowSwitchEnd",
     "Name": "ThrowSwitchEnd",
-    "Outer": "Default__Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'CyFThrowSwitchEnd'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFThrowSwitchEnd'",
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    },
     "Properties": {
       "ThrowOutPosition": 0.4,
       "bForceStopAnimationNextNull": false,
@@ -585,16 +726,22 @@
   {
     "Type": "CyFThrowSwitcher",
     "Name": "SwitcherAttack",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyFThrowSwitcher'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyFUnEquippedState",
     "Name": "StateUnEquipped",
-    "Outer": "Default__Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'CyFUnEquippedState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    },
     "Properties": {
       "BeginEventTags": [
         {
@@ -609,9 +756,12 @@
   {
     "Type": "CyPartMagazine",
     "Name": "PartMagazine",
-    "Outer": "Default__Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'CyPartMagazine'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartMagazine'",
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    },
     "Properties": {
       "AmmoMax": {
         "Value": 99999.0,
@@ -624,23 +774,32 @@
   {
     "Type": "CyPartPendant",
     "Name": "PartPendant",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyPartPendant'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyPredictPathComponent",
     "Name": "PredictPathComponent",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyPredictPathComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyThrowComponent",
     "Name": "AttackComponent",
-    "Outer": "Default__Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'CyThrowComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyThrowComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    },
     "Properties": {
       "ThrowOffset": {
         "X": 0.0,
@@ -663,23 +822,32 @@
   {
     "Type": "CyWeaponDataCollectionComponent",
     "Name": "WeaponDataCollectionComponent",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "CyWeaponSkinComponent",
     "Name": "SkinComponent",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyWeaponSkinComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "PMWeaponSkeletalMeshComponent",
     "Name": "MeshFor3PP",
-    "Outer": "Default__Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__Weapon_Q_Kanami_C:Root'",
@@ -690,23 +858,32 @@
   {
     "Type": "SceneComponent",
     "Name": "Root",
-    "Outer": "Default__Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Weapon_Q_Kanami_C'Default__Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.3"
+    }
   },
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
-    "Outer": "Weapon_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.2"
+    }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Q_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.30"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SceneComponent'",
@@ -723,9 +900,12 @@
   {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
-    "Outer": "Weapon_Q_Kanami_C",
-    "Class": "UScriptClass'SimpleConstructionScript'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Weapon/Weapon_Q_Kanami.2"
+    },
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon_Q_Kanami_C:SimpleConstructionScript_0.SCS_Node_0'",
