@@ -23,7 +23,7 @@
   {
     "Type": "GE_EnergyRecover_Yugiri_C",
     "Name": "Default__GE_EnergyRecover_Yugiri_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Yugiri/Q/GE_EnergyRecover_Yugiri.GE_EnergyRecover_Yugiri_C'",
     "Properties": {
       "DurationPolicy": "EGameplayEffectDurationType::Infinite",
@@ -66,12 +66,15 @@
           "ModifierMagnitude": {
             "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
             "ScalableFloatMagnitude": {
-              "Value": 4.0,
+              "Value": 1.0,
               "bEnableMobile": false,
               "MobileValue": 0.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameMode'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+                },
+                "RowName": "Attribute.EnergyRecover.Q.Yugiri"
               }
             },
             "AttributeBasedMagnitude": {
