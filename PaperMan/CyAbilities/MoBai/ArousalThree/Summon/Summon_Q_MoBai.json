@@ -284,7 +284,8 @@
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_Q_MoBai_C:PerceptionSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.23"
       },
-      "bEnableAimAssist": true
+      "bEnableAimAssist": true,
+      "SpawnCollisionHandlingMethod": "ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn"
     }
   },
   {
@@ -1133,7 +1134,11 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalThree/Summon/Summon_Q_MoBai.0"
     },
     "Properties": {
-      "bStopOnGround": true
+      "bStopOnGround": true,
+      "MaxBounceCount": 1,
+      "InitialSpeed": 1.0,
+      "MaxSpeed": 5000.0,
+      "bShouldBounce": true
     }
   },
   {
@@ -1967,41 +1972,49 @@
       },
       "BodyInstance": {
         "ObjectType": "ECC_GameTraceChannel9",
-        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
-        "CollisionProfileName": "SummonOverlapPawn",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SummonDestructableVisibleNoCollision",
         "CollisionResponses": {
           "ResponseArray": [
             {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
               "Channel": "Pawn",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Camera",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "PhysicsBody",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Vehicle",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Destructible",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Projectile",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Pickup",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Mesh",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Mark",
@@ -2009,7 +2022,7 @@
             },
             {
               "Channel": "Summon",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             }
           ]
         }
