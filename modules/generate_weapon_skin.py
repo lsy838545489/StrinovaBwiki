@@ -70,6 +70,17 @@ def export_weapon_skin_data():
                     skin_data[custom_keys["BabloCrystals"]] = ""
                     skin_data[custom_keys["Basestrings"]] = ""
 
+                if Quality_name == 5 and "-" in SkinName_string:
+                    keys_to_remove = [
+                        custom_keys["Get"],
+                        custom_keys["BabloCrystals"],
+                        custom_keys["Basestrings"],
+                        custom_keys["LocalizedString"],
+                        custom_keys["Desc"]
+                    ]
+                    for key in keys_to_remove:
+                        skin_data.pop(key, None)
+
             # 将键名替换为自定义键名
             if weapon_id not in output_data:
                 output_data[weapon_id] = {}

@@ -69,10 +69,10 @@ def fill_skill_data(role_id, formatted_data, role_skill_data):
         passive_skills = role_skills.get("被动技能", [])
 
         for skill in active_skills:
-            formatted_data["主动技能"]["name"] = skill.get("Name", "")
+            formatted_data["主动技能"]["name"] = skill.get("name", "")
 
         for skill in passive_skills:
-            formatted_data["被动技能"]["name"] = skill.get("Name", "")
+            formatted_data["被动技能"]["name"] = skill.get("name", "")
 
 def process_growth_data(mode_name, json_filename, page_title):
     """

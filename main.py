@@ -19,6 +19,7 @@ from modules.generate_badge import export_badge_data
 from modules.generate_achievement import export_achievement_data
 from modules.generate_change_bg import export_change_background_data
 from modules.generate_login_fx import export_login_fx_data
+from modules.generate_zombie_card import export_zombie_card_data
 import sys
 import os
 
@@ -46,7 +47,8 @@ def main_menu():
         "15": export_achievement_data,
         "16": export_mascot_head_data,
         "17": export_change_background_data,
-        "18": export_login_fx_data
+        "18": export_login_fx_data,
+        "19": export_zombie_card_data
     }
     while True:
         print("\n" + "=" * 40)
@@ -70,7 +72,7 @@ def main_menu():
         print("16. 生成头套数据 (MascotHead)")
         print("17. 生成房间背景数据 (ChangeBackground)")
         print("18. 生成登录特效数据 (LoginFX)")
-
+        print("19. 生成僵尸卡牌数据 (ZombieCard)")
 
         print("0. 退出程序")
         print("=" * 40)

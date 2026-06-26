@@ -44,8 +44,8 @@ def export_role_skill_data():
             for key, value in custom_keys.items():
                 skill_ids = extracted_data.get(key, [])
                 skill_details = [{
-                    "Name": skill_id_to_info[skill_id]["Name"],
-                    "Intro": skill_id_to_info[skill_id]["Intro"],
+                    "name": skill_id_to_info[skill_id]["Name"],
+                    "desc": skill_id_to_info[skill_id]["Intro"],
                 } for skill_id in skill_ids if skill_id in skill_id_to_info]
                 custom_data[value] = skill_details
 

@@ -1,6 +1,7 @@
 import sys
 import json
 import os
+import re
 import mwclient
 import time
 import rookiepy
@@ -205,13 +206,28 @@ def upload_wiki_data(page_title, filename):
         print("登录失败，请检查 SESSDATA 是否有效")
 
 
+# Lua 保留关键字集合
+LUA_KEYWORDS = {
+    "and", "break", "do", "else", "elseif", "end", "false", "for", "function", "goto",
+    "if", "in", "local", "nil", "not", "or", "repeat", "return", "then", "true",
+    "until", "while"
+}
+
 def format_lua_table(input_val, indent_level=0, is_root=True):
     """递归将 Python 数据格式化为多行 Lua 适用的字符串表示喵（支持列表和字典）"""
     indent_str = "\t" * indent_level
     next_indent_str = "\t" * (indent_level + 1)
 
+    def is_valid_lua_identifier(s):
+        s_str = str(s)
+        if s_str in LUA_KEYWORDS:
+            return False
+        return bool(re.match(r"^[a-zA-Z_][a-zA-Z0-9_]*$", s_str))
+
     result = ""
-    if isinstance(input_val, (int, float)):
+    if isinstance(input_val, bool):
+        result = "true" if input_val else "false"
+    elif isinstance(input_val, (int, float)):
         result = str(input_val)
     elif isinstance(input_val, str):
         clean_str = input_val.replace('"', '\\"')
@@ -221,12 +237,14 @@ def format_lua_table(input_val, indent_level=0, is_root=True):
             result = "{}"
         else:
             is_simple_list = all(isinstance(x, (int, float, str)) for x in input_val)
-
             if is_simple_list:
                 inner = ", ".join(format_lua_table(x, indent_level, False) for x in input_val)
                 result = f"{{ {inner} }}"
             else:
-                inner = ",\n".join(f"{next_indent_str}{format_lua_table(x, indent_level + 1, False)}" for x in input_val)
+                inner = ",\n".join(
+                    f"{next_indent_str}{format_lua_table(x, indent_level + 1, False)}"
+                    for x in input_val
+                )
                 result = f"{{\n{inner},\n{indent_str}}}"
     elif isinstance(input_val, dict):
         if not input_val:
@@ -234,11 +252,34 @@ def format_lua_table(input_val, indent_level=0, is_root=True):
         else:
             inner_parts = []
             for k, v in input_val.items():
-                inner_parts.append(f"{next_indent_str}['{k}'] = {format_lua_table(v, indent_level + 1, False)}")
-            inner = ",\n".join(inner_parts)
-            result = f"{{\n{inner},\n{indent_str}}}"
+                if v is None:
+                    continue
+
+                val_str = format_lua_table(v, indent_level + 1, False)
+
+                # 修复点：优先判断键是否为数值类型
+                if isinstance(k, (int, float)):
+                    # 原生数值类型的键，不需要加引号
+                    inner_parts.append(f"{next_indent_str}[{k}] = {val_str}")
+                elif isinstance(k, str) and k.isdigit():
+                    # 纯数字组成的字符串键，自动转为 Lua 的数值索引
+                    inner_parts.append(f"{next_indent_str}[{k}] = {val_str}")
+                elif is_valid_lua_identifier(k):
+                    # 合法的标识符键，直接使用 k = ...
+                    inner_parts.append(f"{next_indent_str}{k} = {val_str}")
+                else:
+                    # 其他字符串类型的键，使用 ['k'] = ...
+                    clean_k = str(k).replace("'", "\\'")
+                    inner_parts.append(f"{next_indent_str}['{clean_k}'] = {val_str}")
+
+            if not inner_parts:
+                result = "{}"
+            else:
+                inner = ",\n".join(inner_parts)
+                result = f"{{\n{inner},\n{indent_str}}}"
     else:
         result = str(input_val)
+
     if is_root:
         return f"return {result}\n"
     return result
