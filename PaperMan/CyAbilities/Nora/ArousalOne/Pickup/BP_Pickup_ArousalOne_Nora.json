@@ -1,0 +1,483 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Pickup_ArousalOne_Nora_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.13"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyPickupSphereActor'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_CommonOverheadComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_CommonOverheadComponent_C'",
+          "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyPickupDevourEnergy",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyPickupDevourEnergy'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PB_PickMovement",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'PB_PickMovement_C'",
+          "ObjectPath": "PM/Content/PaperMan/Core/Pickups/BaseComponents/PB_PickMovement.0"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Pickup_ArousalOne_Nora_C'Default__BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.1"
+    }
+  },
+  {
+    "Type": "BP_Pickup_ArousalOne_Nora_C",
+    "Name": "Default__BP_Pickup_ArousalOne_Nora_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.BP_Pickup_ArousalOne_Nora_C'",
+    "Properties": {
+      "AllowPickupRadius": 2000.0,
+      "LifeTime": 15.0,
+      "PickupEventTag": {
+        "TagName": "Event.Pickup.Energy"
+      },
+      "PickupWayType": "EPickupWayType::Auto",
+      "RelevantType": "EPickupRelevantType::Instigator",
+      "InitializePickState": "EPickupStateType::Pickable",
+      "StimuliSourceComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Pickup_ArousalOne_Nora_C:StimuliSourceComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.7"
+      },
+      "ShapeComponent": {
+        "ObjectName": "SphereComponent'Default__BP_Pickup_ArousalOne_Nora_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.14"
+      },
+      "SkinComponent": {
+        "ObjectName": "CySkinComponent'Default__BP_Pickup_ArousalOne_Nora_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.5"
+      },
+      "AkComponent": {
+        "ObjectName": "AkComponent'Default__BP_Pickup_ArousalOne_Nora_C:AkComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.2"
+      },
+      "BeginPickupStateAssetMap": [
+        {
+          "Key": "EPickupStateType::EndPlay",
+          "Value": {
+            "MeshTagContainerArray": [
+              {
+                "AttachComponentType": "EAttachComponentType::None",
+                "ResourceClassify": "ECyGCResourceClassify::Effect",
+                "MeshName": "None",
+                "AssetTagContainer": [
+                  "Resource.Audio.Leave.A"
+                ],
+                "AssetTagStopContainer": [],
+                "DefaultAssetKey": 0,
+                "bAllowLoop": false
+              }
+            ]
+          }
+        },
+        {
+          "Key": "EPickupStateType::Pickable",
+          "Value": {
+            "MeshTagContainerArray": [
+              {
+                "AttachComponentType": "EAttachComponentType::None",
+                "ResourceClassify": "ECyGCResourceClassify::Effect",
+                "MeshName": "None",
+                "AssetTagContainer": [
+                  "Resource.Particle.ArousalFirst"
+                ],
+                "AssetTagStopContainer": [],
+                "DefaultAssetKey": 0,
+                "bAllowLoop": true
+              }
+            ]
+          }
+        }
+      ],
+      "RootComponent": {
+        "ObjectName": "SphereComponent'Default__BP_Pickup_ArousalOne_Nora_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.14"
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "AkComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BP_Pickup_ArousalOne_Nora_C'Default__BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SphereComponent'Default__BP_Pickup_ArousalOne_Nora_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.14"
+      }
+    }
+  },
+  {
+    "Type": "BP_CommonOverheadComponent_C",
+    "Name": "BP_CommonOverheadComponent_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.BP_CommonOverheadComponent_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.0"
+    },
+    "Template": {
+      "ObjectName": "BP_CommonOverheadComponent_C'Default__BP_CommonOverheadComponent_C'",
+      "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.1"
+    },
+    "Properties": {
+      "WidgetClassUIName": {
+        "Name": "NoraSummonOverhead",
+        "Group": "UIName"
+      },
+      "bReloadWidgetOnPoolBeginPlay": true,
+      "BodyInstance": {
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 100.0
+      },
+      "ComponentTagSet": [
+        "CollisionMesh"
+      ]
+    }
+  },
+  {
+    "Type": "CyPickupDevourEnergy",
+    "Name": "CyPickupDevourEnergy_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPickupDevourEnergy'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.0"
+    },
+    "Properties": {
+      "PickupEffectTag": {
+        "TagName": "Resource.Particle.ArousalFirst"
+      },
+      "PickEffect": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DevourEnergy_PickupEffect_ArousalOne_Nora_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_DevourEnergy_PickupEffect_ArousalOne_Nora.0"
+      },
+      "RequireTags": {
+        "IgnoreTags": [
+          "State.Health.Injured",
+          "State.Health.Death"
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BP_Pickup_ArousalOne_Nora_C'Default__BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.1"
+    },
+    "Properties": {
+      "BeginAssetTagContainers": [
+        {
+          "AttachComponentType": "EAttachComponentType::Self",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Particle.P"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        },
+        {
+          "AttachComponentType": "EAttachComponentType::Self",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Audio.P"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "PB_PickMovement_C",
+    "Name": "PB_PickMovement_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/Core/Pickups/BaseComponents/PB_PickMovement.PB_PickMovement_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.0"
+    },
+    "Template": {
+      "ObjectName": "PB_PickMovement_C'Default__PB_PickMovement_C'",
+      "ObjectPath": "PM/Content/PaperMan/Core/Pickups/BaseComponents/PB_PickMovement.1"
+    },
+    "Properties": {
+      "InitialSpeed": 0.0,
+      "MaxSpeed": 0.0,
+      "bShouldBounce": false,
+      "bBounceAngleAffectsFriction": false
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "StimuliSourceComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "BP_Pickup_ArousalOne_Nora_C'Default__BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.13"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Pickup_ArousalOne_Nora_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.8"
+      },
+      "VariableGuid": "2FD7D2CF-4B39D4CB-737A81BF-F0109D82",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.13"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'PB_PickMovement_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/Pickups/BaseComponents/PB_PickMovement.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PB_PickMovement_C'BP_Pickup_ArousalOne_Nora_C:PB_PickMovement_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.6"
+      },
+      "VariableGuid": "05F216F9-44799597-30AE16A2-5EE620ED",
+      "InternalVariableName": "PB_PickMovement"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.13"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_CommonOverheadComponent_C'",
+        "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_CommonOverheadComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_CommonOverheadComponent_C'BP_Pickup_ArousalOne_Nora_C:BP_CommonOverheadComponent_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.3"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "846EFC08-48AFBBCE-9D28D3AD-875FDD7F",
+      "InternalVariableName": "BP_CommonOverheadComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.13"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyPickupDevourEnergy'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyPickupDevourEnergy'BP_Pickup_ArousalOne_Nora_C:CyPickupDevourEnergy_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.4"
+      },
+      "VariableGuid": "4C42E5F5-4637023E-F3A02E88-00187E65",
+      "InternalVariableName": "CyPickupDevourEnergy"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.11"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.11"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Pickup_ArousalOne_Nora_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.9"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "Root",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SphereComponent'",
+    "Outer": {
+      "ObjectName": "BP_Pickup_ArousalOne_Nora_C'Default__BP_Pickup_ArousalOne_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalOne/Pickup/BP_Pickup_ArousalOne_Nora.1"
+    },
+    "Properties": {
+      "ComponentTagSet": [
+        "CollisionMesh"
+      ]
+    }
+  }
+]

@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
       }
     },
     "SuperStruct": {
@@ -174,7 +174,7 @@
   {
     "Type": "BP_GameState_BigHead_C",
     "Name": "Default__BP_GameState_BigHead_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.BP_GameState_BigHead_C'",
     "Properties": {
       "DefaultNumTeams": {
@@ -236,28 +236,28 @@
           "Key": "CyGStateRoleSelect",
           "Value": {
             "ObjectName": "CyGStateRoleSelect'Default__BP_GameState_BigHead_C:CyGStateRoleSelect'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.26"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.27"
           }
         },
         {
           "Key": "CyGStateRoleReselect",
           "Value": {
             "ObjectName": "CyGStateRoleReselect'Default__BP_GameState_BigHead_C:CyGStateRoleReselect'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.25"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.26"
           }
         },
         {
           "Key": "CyGStateRoleLoad",
           "Value": {
             "ObjectName": "CyGStateRoleLoad'Default__BP_GameState_BigHead_C:CyGStateRoleLoad'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.24"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.25"
           }
         },
         {
           "Key": "CyGStateReStart",
           "Value": {
             "ObjectName": "CyGStateReStart'Default__BP_GameState_BigHead_C:CyGStateReStart'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.23"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.24"
           }
         },
         {
@@ -272,6 +272,13 @@
           "Value": {
             "ObjectName": "CyGStateFightEnd'Default__BP_GameState_BigHead_C:CyGStateFightEnd'",
             "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.12"
+          }
+        },
+        {
+          "Key": "CyGStateInteraction",
+          "Value": {
+            "ObjectName": "CyGStateInteraction'Default__BP_GameState_BigHead_C:CyGStateInteraction'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.16"
           }
         },
         {
@@ -292,7 +299,7 @@
           "Key": "CyGStateNone",
           "Value": {
             "ObjectName": "CyGStateNone'Default__BP_GameState_BigHead_C:CyGStateNone'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.21"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.22"
           }
         },
         {
@@ -323,7 +330,7 @@
       },
       "TeamManagerComponent": {
         "ObjectName": "CyTeamManagerComponent'Default__BP_GameState_BigHead_C:TeamManagerComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.28"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.29"
       },
       "WatchGameTeamColorDisplayMode": "EWatchGameDisplayMode::OnlyEnemyColor",
       "bGrowthEnabled": true,
@@ -382,6 +389,30 @@
             "EffectClass": {
               "ObjectName": "BlueprintGeneratedClass'GE_InitAbilityAttributes_BigHeadAbility_C'",
               "ObjectPath": "PM/Content/PaperMan/Core/GameModes/BigHeadMode/GE_InitAbilityAttributes_BigHeadAbility.0"
+            },
+            "SourceTags": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "RemoveType": "EEffectRemoveType::Infinite",
+            "StackCount": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "EffectClass": {
+              "ObjectName": "BlueprintGeneratedClass'GE_GameMode_Infinite_Armor_C'",
+              "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Abilities/GE_GameMode_Infinite_Armor.0"
             },
             "SourceTags": {
               "RequireTagType": "ERequireTagType::AND",
@@ -1244,6 +1275,16 @@
     }
   },
   {
+    "Type": "CyGStateInteraction",
+    "Name": "CyGStateInteraction",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateInteraction'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BigHead_C'Default__BP_GameState_BigHead_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.1"
+    }
+  },
+  {
     "Type": "CyGStateMonitor",
     "Name": "CyGStateMonitorAllFight_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
@@ -1664,7 +1705,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1673,7 +1714,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_GameState_BigHead_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.29"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.30"
       },
       "VariableGuid": "55D171B5-48F49773-46EE5F9C-3A48DCA0",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1686,7 +1727,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1695,7 +1736,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGStatePrepare'BP_GameState_BigHead_C:CyGStatePrepare_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.22"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.23"
       },
       "VariableGuid": "B044778F-45193B2D-BA300099-EDF26B0C",
       "InternalVariableName": "CyGStatePrepare"
@@ -1708,7 +1749,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1717,7 +1758,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGStateMonitor'BP_GameState_BigHead_C:CyGStateMonitorAllFight_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.16"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.17"
       },
       "VariableGuid": "6D9BB915-4D80ECA6-856E2695-55245FB0",
       "InternalVariableName": "CyGStateMonitorAllFight"
@@ -1730,7 +1771,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1752,7 +1793,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1774,7 +1815,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1796,7 +1837,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1805,7 +1846,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGStateMonitor'BP_GameState_BigHead_C:CyGStateMonitorDelayRespawn_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.17"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.18"
       },
       "VariableGuid": "7DCFD87B-47556779-BB12A2A4-CF6B8B5F",
       "InternalVariableName": "CyGStateMonitorDelayRespawn"
@@ -1818,7 +1859,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1827,7 +1868,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGStateMonitor'BP_GameState_BigHead_C:CyGStateMonitorPrepareFight_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.20"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.21"
       },
       "VariableGuid": "F4FDC906-4E79DA8E-AFE73D87-E24CE0DF",
       "InternalVariableName": "CyGStateMonitorPrepareFight"
@@ -1840,7 +1881,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1849,7 +1890,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGStateMonitor'BP_GameState_BigHead_C:CyGStateMonitorFightSecondEnd_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.18"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.19"
       },
       "VariableGuid": "AA2F8B39-4F04D432-5F04F8B7-1F4A7A06",
       "InternalVariableName": "CyGStateMonitorFightSecondEnd"
@@ -1862,7 +1903,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1884,7 +1925,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1906,7 +1947,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1915,7 +1956,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGStateMonitor'BP_GameState_BigHead_C:CyGStateMonitorFightState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.19"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.20"
       },
       "VariableGuid": "C79E64DB-4A834FBB-934E3B84-322FAF2D",
       "InternalVariableName": "CyGStateMonitorFightState"
@@ -1928,7 +1969,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_BigHead_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.44"
     },
     "Properties": {
       "ComponentClass": {
@@ -1937,7 +1978,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyInGameDataTrack'BP_GameState_BigHead_C:CyInGameDataTrack_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.27"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.28"
       },
       "VariableGuid": "0E7E9E27-421D49B6-D5C0A0AC-EE30D459",
       "InternalVariableName": "CyInGameDataTrack"
@@ -1956,114 +1997,114 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.30"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.31"
         },
         {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.35"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.36"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.37"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.38"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.39"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.40"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.41"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.42"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.32"
         },
         {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_10'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.33"
         },
         {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_11'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.34"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.35"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.30"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.31"
         },
         {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.35"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.36"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.37"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.38"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.39"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.40"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.41"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.42"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.32"
         },
         {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_10'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.33"
         },
         {
-          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_11'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.34"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.35"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_GameState_BigHead_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.30"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BigHead/Core/BP_GameState_BigHead.31"
       }
     }
   }

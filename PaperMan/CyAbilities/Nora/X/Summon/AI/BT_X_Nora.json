@@ -1,0 +1,558 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "BT_X_Nora",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_6'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.2"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BD_LockTarget'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/BehaviorTree/BD_LockTarget.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_X_Nora:BTComposite_Sequence_21'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.4"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_Blackboard'BT_X_Nora:BTDecorator_Blackboard_15'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.7"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "PMBTTask_MoveToAboveTarget'BT_X_Nora:PMBTTask_MoveToAboveTarget_0'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.17"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_StateCheck'BT_X_Nora:CyBTDecorator_StateCheck_4'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.11"
+            }
+          ],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        {
+          "ObjectName": "CyBTService_UpdateSearchedTarget'BT_X_Nora:CyBTService_UpdateSearchedTarget_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.12"
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_6'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.2"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_6",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_X_Nora:BTComposite_Sequence_2'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.3"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_HasInstigator'BT_X_Nora:CyBTDecorator_HasInstigator_0'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.9"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_X_Nora:BTComposite_Sequence_4'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.6"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_LessLifeSpan'BT_X_Nora:CyBTDecorator_LessLifeSpan_1'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.10"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_X_Nora:BTComposite_Sequence_3'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.5"
+          },
+          "ChildTask": null,
+          "Decorators": [
+            {
+              "ObjectName": "CyBTDecorator_CheckAliveOnActor'BT_X_Nora:CyBTDecorator_CheckAliveOnActor_1'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.8"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_0'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.1"
+          },
+          "ChildTask": null,
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Nora:CyBTTask_GotoState_5'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.15"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "NodeName": "角色被替换，直接销毁",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_6'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.2"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_21",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Nora:CyBTTask_GotoState_2'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.13"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.1"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Nora:CyBTTask_GotoState_4'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.14"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "NodeName": "自己死亡",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_6'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.2"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_X_Nora:CyBTTask_GotoState_6'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.16"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "NodeName": "生命周期结束",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_6'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.2"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Blackboard",
+    "Name": "BTDecorator_Blackboard_15",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "CachedDescription": "TargetActor is Is Not Set",
+      "OperationType": 1,
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor",
+        "bNoneIsAllowedValue": true
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::Self",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_CheckAliveOnActor",
+    "Name": "CyBTDecorator_CheckAliveOnActor_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTDecorator_CheckAliveOnActor'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "AliveMask": "ELifeMask::Armor",
+      "BlackboardKey": {
+        "SelectedKeyName": "SelfActor",
+        "bNoneIsAllowedValue": true
+      },
+      "bInverseCondition": true,
+      "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_6'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_HasInstigator",
+    "Name": "CyBTDecorator_HasInstigator_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTDecorator_HasInstigator'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "bInverseCondition": true,
+      "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_6'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_LessLifeSpan",
+    "Name": "CyBTDecorator_LessLifeSpan_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTDecorator_LessLifeSpan'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "LimitLifeSpan": 1.0,
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor",
+        "bNoneIsAllowedValue": true
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_6'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTDecorator_StateCheck",
+    "Name": "CyBTDecorator_StateCheck_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTDecorator_StateCheck'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "IgnoreAnyStates": [
+        "EAIStateType::SecondWork"
+      ],
+      "RequireAnyStates": [
+        "EAIStateType::Entry",
+        "EAIStateType::Work"
+      ],
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "Check Work",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTService_UpdateSearchedTarget",
+    "Name": "CyBTService_UpdateSearchedTarget_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTService_UpdateSearchedTarget'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor",
+        "bNoneIsAllowedValue": true
+      },
+      "Interval": 0.1,
+      "RandomDeviation": 0.05,
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "bImmediate": true,
+      "bEndStateOnTaskFinished": false,
+      "NodeName": "Goto Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Nora:BTComposite_Sequence_21'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.4"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "TargetStateType": "EAIStateType::Death",
+      "bImmediate": true,
+      "bEndStateOnTaskFinished": false,
+      "NodeName": "Goto Death",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Nora:BTComposite_Sequence_3'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.5"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "TargetStateType": "EAIStateType::Death",
+      "bImmediate": true,
+      "bEndStateOnTaskFinished": false,
+      "NodeName": "Goto Death",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Nora:BTComposite_Sequence_2'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.3"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_6",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "TargetStateType": "EAIStateType::Death",
+      "bImmediate": true,
+      "bEndStateOnTaskFinished": false,
+      "NodeName": "Goto Death",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_X_Nora:BTComposite_Sequence_4'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.6"
+      }
+    }
+  },
+  {
+    "Type": "PMBTTask_MoveToAboveTarget",
+    "Name": "PMBTTask_MoveToAboveTarget_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMBTTask_MoveToAboveTarget'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_X_Nora'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+    },
+    "Properties": {
+      "MinimumHeightAboveTarget": 0.0,
+      "MaximumHeightAboveTarget": 0.0,
+      "BB_In_MoveToAcceptRadius": {
+        "bNoneIsAllowedValue": true
+      },
+      "BB_In_MoveToFilterType": {
+        "bNoneIsAllowedValue": true
+      },
+      "BB_Out_MoveToTaskResult": {
+        "bNoneIsAllowedValue": true
+      },
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor",
+        "bNoneIsAllowedValue": true
+      },
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_X_Nora'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_X_Nora:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/BT_X_Nora.1"
+      }
+    }
+  }
+]

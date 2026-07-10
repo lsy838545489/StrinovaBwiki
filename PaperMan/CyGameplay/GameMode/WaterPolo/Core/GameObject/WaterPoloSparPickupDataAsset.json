@@ -1,0 +1,87 @@
+[
+  {
+    "Type": "CyWaterPoloSparPickupDataAsset",
+    "Name": "WaterPoloSparPickupDataAsset",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWaterPoloSparPickupDataAsset'",
+    "Properties": {
+      "NormalSparScore": 10,
+      "SpecialSparScore": 250,
+      "ComboBonusTable": [
+        {
+          "MinCombo": 2,
+          "MaxCombo": 3,
+          "BonusScore": 1
+        },
+        {
+          "MinCombo": 4,
+          "MaxCombo": 5,
+          "BonusScore": 2
+        },
+        {
+          "MinCombo": 6,
+          "MaxCombo": -1,
+          "BonusScore": 3
+        }
+      ],
+      "BuffPool": [
+        {
+          "BuffEffect": {
+            "ObjectName": "BlueprintGeneratedClass'GE_WaterPolo_SpeedUp_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/GE/GE_WaterPolo_SpeedUp.0"
+          },
+          "Weight": 10
+        },
+        {
+          "BuffEffect": {
+            "ObjectName": "BlueprintGeneratedClass'GE_WaterPolo_Invincible_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/GE/GE_WaterPolo_Invincible.0"
+          },
+          "Weight": 10
+        },
+        {
+          "BuffEffect": {
+            "ObjectName": "BlueprintGeneratedClass'GE_WaterPolo_Stealth_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/GE/GE_WaterPolo_Stealth.0"
+          },
+          "Weight": 10
+        },
+        {
+          "BuffEffect": {
+            "ObjectName": "BlueprintGeneratedClass'GE_WaterPolo_AddForceMove_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/GE/GE_WaterPolo_AddForceMove.0"
+          },
+          "Weight": 10
+        }
+      ],
+      "WetnessMaxDropRatio": 0.6,
+      "WetnessMaxDropScore": 600,
+      "WetnessScatterRatio": 0.75,
+      "DropSparActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Pickup_DropSpar_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/GameObject/BP_Pickup_DropSpar.0"
+      },
+      "DirectScoreEffectActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Summon_WaterPoloEffect_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/GameObject/BP_Summon_WaterPoloEffect.0"
+      },
+      "WetnessMaxSoundEvent": {
+        "ObjectName": "AkAudioEvent'Char_WaterBall_Splash'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_WaterBall_Splash.0"
+      },
+      "WetnessSplashHitScorePenalty": 10,
+      "WetnessHitConfigs": [
+        {
+          "ChargeLevel": 1,
+          "DirectHitDelta": 0.25,
+          "SplashHitDelta": 0.15
+        },
+        {
+          "ChargeLevel": 2,
+          "DirectHitDelta": 0.4,
+          "SplashHitDelta": 0.25
+        }
+      ]
+    }
+  }
+]

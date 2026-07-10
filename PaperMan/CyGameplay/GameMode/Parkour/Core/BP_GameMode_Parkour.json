@@ -1,0 +1,227 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GameMode_Parkour_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_GameMode_Parkour_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.5"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySharedGameMode'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Transient | CLASS_Optional | CLASS_NotPlaceable | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GameMode_Parkour_C'Default__BP_GameMode_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.1"
+    }
+  },
+  {
+    "Type": "BP_GameMode_Parkour_C",
+    "Name": "Default__BP_GameMode_Parkour_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.BP_GameMode_Parkour_C'",
+    "Properties": {
+      "bEnableChooseConfig": true,
+      "ChooseConfig": {
+        "bCheckSpawnGroup": true,
+        "bCheckTeam": false,
+        "bEnablePriority": false,
+        "bEnableRandom": true
+      },
+      "KillScore": 0,
+      "AIControllerClass": {
+        "ObjectName": "Class'PMAIController'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "DeathTypeDrops": [
+        "EWeaponSlotTypes::WeaponSlot_Grenade_1",
+        "EWeaponSlotTypes::WeaponSlot_Grenade_2"
+      ],
+      "MatchInitializeAtoms": [
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_Shared_GSEA_MatchInitialization_AddNowRound_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/EventAtom/BP_Shared_GSEA_MatchInitialization_AddNowRound.0"
+          },
+          "Instance": null
+        }
+      ],
+      "StateChangedAtomMap": [
+        {
+          "Key": "EGStateType::FightEnd",
+          "Value": {
+            "EventAtomConfigArray": [
+              {
+                "Atom": {
+                  "ObjectName": "BlueprintGeneratedClass'BP_GSEA_UpdatePlayerScore_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/PlayerScore/BP_GSEA_UpdatePlayerScore.0"
+                },
+                "Instance": null
+              }
+            ]
+          }
+        }
+      ],
+      "StateTimeEndAtoms": [
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSEA_StateTimeEnd_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/EventAtom/BP_GSEA_StateTimeEnd.0"
+          },
+          "Instance": null
+        }
+      ],
+      "OnHandleDeathAtoms": [
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_Shared_GSEA_HandleCharacterDeath_CalcAssistPlayer_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/EventAtom/BP_Shared_GSEA_HandleCharacterDeath_CalcAssistPlayer.0"
+          },
+          "Instance": null
+        }
+      ],
+      "QuestManagerComponent": {
+        "ObjectName": "CyQuestManagerComponent'Default__BP_GameMode_Parkour_C:QuestManager'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.2"
+      },
+      "GameStateClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GameState_Parkour_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.0"
+      },
+      "PlayerControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PlayerController_Parkour_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_PlayerController_Parkour.0"
+      },
+      "PlayerStateClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PlayerState_Parkour_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_PlayerState_Parkour.0"
+      },
+      "HUDClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_ParkourHUD_C'",
+        "ObjectPath": "PM/Content/PaperMan/UI/HUD/BP_ParkourHUD.0"
+      },
+      "DefaultPawnClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PMCharacterBase_V3_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/Characters/BP_PMCharacterBase_V3.1"
+      },
+      "SpectatorClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_SpectatorPawn_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Spectator/BP_SpectatorPawn.0"
+      },
+      "ReplaySpectatorPlayerControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_SpectatorPlayerController_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Spectator/BP_SpectatorPlayerController.0"
+      }
+    }
+  },
+  {
+    "Type": "CyQuestManagerComponent",
+    "Name": "QuestManager",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyQuestManagerComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameMode_Parkour_C'Default__BP_GameMode_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.1"
+    },
+    "Properties": {
+      "GameplayQuestPacks": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GQP_ParkourGameplay_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/Module/BP_GQP_ParkourGameplay.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GQP_GameDataUpdate_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/Module/GameDataUpdate/BP_GQP_GameDataUpdate.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GQP_StatPlayerBattleData_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/StatBattleData/PlayerData/BP_GQP_StatPlayerBattleData.0"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameMode_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameMode_Parkour_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.5"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_GameMode_Parkour_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.3"
+      },
+      "VariableGuid": "BFEABD6F-4A45E36C-12F1FAAE-385A3468",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameMode_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameMode_Parkour_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.4"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameMode_Parkour_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.4"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_GameMode_Parkour_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameMode_Parkour.4"
+      }
+    }
+  }
+]

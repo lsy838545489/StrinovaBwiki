@@ -92,6 +92,40 @@
       "AttackSocketSphereRadius": 90.0,
       "bSupportsAutoAttack": true,
       "bUseSupportLeanWall": true,
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.Speed.Run.Katana"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.Speed.Sprint.Katana"
+              }
+            }
+          }
+        ]
+      },
       "WeaponName": "ECyWeaponName::CustomType242",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon15205001_C:Root'",
@@ -960,7 +994,7 @@
     },
     "Properties": {
       "TimeAllowCombo": {
-        "Value": 0.15,
+        "Value": 0.2,
         "MobileValue": 0.15
       },
       "TimeAllowEnd": {
@@ -1087,7 +1121,7 @@
     },
     "Properties": {
       "TimeAllowCombo": {
-        "Value": 0.157,
+        "Value": 0.2,
         "MobileValue": 0.157
       },
       "TimeAllowEnd": {
@@ -1418,6 +1452,7 @@
     },
     "Properties": {
       "bEnableTriggerAttack": false,
+      "bIgnoreAttackSwitcherScale": true,
       "bStopAnimationOnEnd": true,
       "BlockAbilitiesWithTag": [
         "GA.Ability.SkillQ",
@@ -1610,6 +1645,7 @@
             "LocationRule": "EAttachmentRule::KeepWorld",
             "RotationRule": "EAttachmentRule::KeepWorld",
             "ScaleRule": "EAttachmentRule::KeepWorld",
+            "bIgnorePlacementBlockActor": false,
             "bAllowUseInstigatorAsTarget": false
           }
         ]

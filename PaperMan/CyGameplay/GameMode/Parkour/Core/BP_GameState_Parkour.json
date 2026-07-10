@@ -1,0 +1,1336 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GameState_Parkour_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_GameState_Parkour_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.30"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySharedGameState'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyGStateMonitor_PlayBGM2",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyGStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyGStateMonitor_PlayBGM1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyGStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyGStateFightSecond",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyGStateFightSecond'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyGStatePrepare",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyGStatePrepare'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyCustomModeGame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyCustomModeGameComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_NotPlaceable | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "BP_GameState_Parkour_C",
+    "Name": "Default__BP_GameState_Parkour_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.BP_GameState_Parkour_C'",
+    "Properties": {
+      "DefaultNumTeams": {
+        "Value": 5.0
+      },
+      "bSupportSelectRole": true,
+      "bEnableDeathMarker": true,
+      "ModeType": "EPMGameModeType::Parkour",
+      "ModeCurveType": "EModeCurveType::CustomType240",
+      "Machine": {
+        "ObjectName": "CyGMachine'Default__BP_GameState_Parkour_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.6"
+      },
+      "CachedComponents": [
+        {
+          "Key": "CyGStateRoleSelect",
+          "Value": {
+            "ObjectName": "CyGStateRoleSelect'Default__BP_GameState_Parkour_C:CyGStateRoleSelect'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.21"
+          }
+        },
+        {
+          "Key": "CyGStateRoleReselect",
+          "Value": {
+            "ObjectName": "CyGStateRoleReselect'Default__BP_GameState_Parkour_C:CyGStateRoleReselect'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.20"
+          }
+        },
+        {
+          "Key": "CyGStateRoleLoad",
+          "Value": {
+            "ObjectName": "CyGStateRoleLoad'Default__BP_GameState_Parkour_C:CyGStateRoleLoad'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.19"
+          }
+        },
+        {
+          "Key": "CyGStateReStart",
+          "Value": {
+            "ObjectName": "CyGStateReStart'Default__BP_GameState_Parkour_C:CyGStateReStart'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.18"
+          }
+        },
+        {
+          "Key": "CyGStateFight",
+          "Value": {
+            "ObjectName": "CyGStateFight'Default__BP_GameState_Parkour_C:CyGStateFight'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.8"
+          }
+        },
+        {
+          "Key": "CyGStateFightEnd",
+          "Value": {
+            "ObjectName": "CyGStateFightEnd'Default__BP_GameState_Parkour_C:CyGStateFightEnd'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.9"
+          }
+        },
+        {
+          "Key": "CyGStateInteraction",
+          "Value": {
+            "ObjectName": "CyGStateInteraction'Default__BP_GameState_Parkour_C:CyGStateInteraction'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.13"
+          }
+        },
+        {
+          "Key": "CyGStateGameEnd",
+          "Value": {
+            "ObjectName": "CyGStateGameEnd'Default__BP_GameState_Parkour_C:CyGStateGameEnd'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.11"
+          }
+        },
+        {
+          "Key": "CyGStateGameOver",
+          "Value": {
+            "ObjectName": "CyGStateGameOver'Default__BP_GameState_Parkour_C:CyGStateGameOver'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.12"
+          }
+        },
+        {
+          "Key": "CyGStateNone",
+          "Value": {
+            "ObjectName": "CyGStateNone'Default__BP_GameState_Parkour_C:CyGStateNone'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.16"
+          }
+        },
+        {
+          "Key": "CyGSMonitorMuteInGameSound",
+          "Value": {
+            "ObjectName": "CyGSMonitorMuteInGameSound'Default__BP_GameState_Parkour_C:CyGSMonitorMuteInGameSound'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.7"
+          }
+        }
+      ],
+      "DefaultTeamGameStageIds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "bEnableQuestSystem": true,
+      "GameRoundConfig": {
+        "HalfMaxRoundScalableFloat": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode_Gameplay'",
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_Gameplay.0"
+            },
+            "RowName": "HalfMaxRound"
+          }
+        }
+      },
+      "AbilitySystem": {
+        "ObjectName": "CyAbilitySystemComponent'Default__BP_GameState_Parkour_C:AbilitySystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.2"
+      },
+      "TeamManagerComponent": {
+        "ObjectName": "CyTeamManagerComponent'Default__BP_GameState_Parkour_C:TeamManagerComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.22"
+      },
+      "WatchGameTeamColorDisplayMode": "EWatchGameDisplayMode::Relative",
+      "bGrowthSlotDowngradeCostEnabled": false,
+      "bGrowthArousalActivateEnabled": false,
+      "bGrowthArousalDeactivateCostEnabled": false,
+      "DefaultInitAttributeEffects": {
+        "Elements": [
+          {
+            "EffectClass": {
+              "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_ParkourMatch_C'",
+              "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Attributes/GE_InitAttributes_ParkourMatch.0"
+            },
+            "SourceTags": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "RemoveType": "EEffectRemoveType::Infinite",
+            "StackCount": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "EffectClass": {
+              "ObjectName": "BlueprintGeneratedClass'GE_God_GunGame_C'",
+              "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Abilities/GE_God_GunGame.0"
+            },
+            "SourceTags": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "RemoveType": "EEffectRemoveType::Infinite",
+            "StackCount": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "EffectClass": {
+              "ObjectName": "BlueprintGeneratedClass'GE_GameMode_Infinite_Armor_C'",
+              "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Abilities/GE_GameMode_Infinite_Armor.0"
+            },
+            "SourceTags": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "RemoveType": "EEffectRemoveType::Infinite",
+            "StackCount": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
+      "DefaultInitAbilityAttributeEffects": {
+        "Elements": [
+          {
+            "EffectClass": {
+              "ObjectName": "BlueprintGeneratedClass'GE_InitAbilityAttributes_ParkourMatch_C'",
+              "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Attributes/GE_InitAbilityAttributes_ParkourMatch.0"
+            },
+            "SourceTags": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "RemoveType": "EEffectRemoveType::Infinite",
+            "StackCount": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 1.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
+      "DefaultTeamMemberNum": [
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        },
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        },
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        },
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        },
+        {
+          "DefaultValue": 3,
+          "PlatformOverrides": {}
+        }
+      ],
+      "DefaultCustomGameMask": 4294957377,
+      "DefaultCustomPlayerMask": 4294067771,
+      "DefaultCustomGameMask_Mobile": 4294957139,
+      "DefaultCustomPlayerMask_Mobile": 4294959227,
+      "CustomConfigAsset": {
+        "ObjectName": "CyCustomConfigDataAsset'CustomConfigDataAsset'",
+        "ObjectPath": "PM/Content/PaperMan/Core/GameModes/CustomConfigDataAsset.0"
+      },
+      "MatchStartedAtoms": [
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_Shared_GSSA_CustomMatchInitFightDuration_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/EventAtom/BP_Shared_GSSA_CustomMatchInitFightDuration.0"
+          },
+          "Instance": null
+        }
+      ],
+      "GeneralDataControlComponent": {
+        "ObjectName": "CyEventDataControlComponent'Default__BP_GameState_Parkour_C:GeneralDataControlComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.5"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__BP_GameState_Parkour_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.4"
+      }
+    }
+  },
+  {
+    "Type": "CyAbilitySystemComponent",
+    "Name": "AbilitySystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    },
+    "Properties": {
+      "ReplicatedPredictionKeyMap": {
+        "PredictionKeys": [
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 1,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 2,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 3,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 4,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 5,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 6,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 7,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 8,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 9,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 10,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 11,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 12,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 13,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 14,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 15,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 16,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 17,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 18,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 19,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 20,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 21,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 22,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 23,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 24,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 25,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 26,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 27,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 28,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 29,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 30,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 31,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 32,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          }
+        ],
+        "ArrayReplicationKey": 32
+      }
+    }
+  },
+  {
+    "Type": "CyCustomModeGameComponent",
+    "Name": "CyCustomModeGame_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyCustomModeGameComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.0"
+    },
+    "Properties": {
+      "AttributeSetClass": [
+        {
+          "ObjectName": "Class'CyCustomAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        },
+        {
+          "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyEventDataControlComponent",
+    "Name": "GeneralDataControlComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventDataControlComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyGMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGMachine'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyGSMonitorMuteInGameSound",
+    "Name": "CyGSMonitorMuteInGameSound",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorMuteInGameSound'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyGStateFight",
+    "Name": "CyGStateFight",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateFight'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyGStateFightEnd",
+    "Name": "CyGStateFightEnd",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateFightEnd'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyGStateFightSecond",
+    "Name": "CyGStateFightSecond_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateFightSecond'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.0"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 30.0
+      }
+    }
+  },
+  {
+    "Type": "CyGStateGameEnd",
+    "Name": "CyGStateGameEnd",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateGameEnd'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_EndPerformance_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_GSSA_EndPerformance.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyGStateGameOver",
+    "Name": "CyGStateGameOver",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateGameOver'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_EvaluateRoleTitle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_GSSA_EvaluateRoleTitle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyGStateInteraction",
+    "Name": "CyGStateInteraction",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateInteraction'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyGStateMonitor",
+    "Name": "CyGStateMonitor_PlayBGM1_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EGStateType::Prepare",
+        "EGStateType::Fight"
+      ],
+      "TotalDuration": {
+        "Value": 9999999.0
+      },
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_PlayBGM1_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/StateAtom/BP_GSSA_PlayBGM1.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyGStateMonitor",
+    "Name": "CyGStateMonitor_PlayBGM2_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EGStateType::FightSecond"
+      ],
+      "TotalDuration": {
+        "Value": 999999.0
+      },
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_PlayBGM2_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/StateAtom/BP_GSSA_PlayBGM2.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyGStateNone",
+    "Name": "CyGStateNone",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateNone'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyGStatePrepare",
+    "Name": "CyGStatePrepare_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStatePrepare'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.0"
+    },
+    "Properties": {
+      "bAllowOpenGrowthPage": false,
+      "TimePromptInGameVoiceTags": [
+        {
+          "Key": "3",
+          "Value": {
+            "TagName": "UIEvent.Game.TeamDeath.Ready"
+          }
+        }
+      ],
+      "bAllowScore": false,
+      "TotalDuration": {
+        "Value": 10.0
+      }
+    }
+  },
+  {
+    "Type": "CyGStateReStart",
+    "Name": "CyGStateReStart",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateReStart'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyGStateRoleLoad",
+    "Name": "CyGStateRoleLoad",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateRoleLoad'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    },
+    "Properties": {
+      "bInitializeQuest": false
+    }
+  },
+  {
+    "Type": "CyGStateRoleReselect",
+    "Name": "CyGStateRoleReselect",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateRoleReselect'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "CyGStateRoleSelect",
+    "Name": "CyGStateRoleSelect",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateRoleSelect'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    },
+    "Properties": {
+      "bInitializeQuest": true
+    }
+  },
+  {
+    "Type": "CyTeamManagerComponent",
+    "Name": "TeamManagerComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyTeamManagerComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Parkour_C'Default__BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Parkour_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_GameState_Parkour_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.23"
+      },
+      "VariableGuid": "67800B38-4944D2A4-F183239D-21DF5D8D",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Parkour_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyGStateFightSecond'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyGStateFightSecond'BP_GameState_Parkour_C:CyGStateFightSecond_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.10"
+      },
+      "VariableGuid": "D3F39B75-4B6BF5C9-FA5DDCA3-3DBE67B6",
+      "InternalVariableName": "CyGStateFightSecond"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Parkour_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyCustomModeGameComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyCustomModeGameComponent'BP_GameState_Parkour_C:CyCustomModeGame_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.3"
+      },
+      "VariableGuid": "AC4E2A63-498965B8-A11F3298-F588D1EA",
+      "InternalVariableName": "CyCustomModeGame"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Parkour_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyGStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyGStateMonitor'BP_GameState_Parkour_C:CyGStateMonitor_PlayBGM1_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.14"
+      },
+      "VariableGuid": "C4BFF3C2-48872FDA-07D41FAB-B9D10191",
+      "InternalVariableName": "CyGStateMonitor_PlayBGM1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Parkour_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyGStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyGStateMonitor'BP_GameState_Parkour_C:CyGStateMonitor_PlayBGM2_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.15"
+      },
+      "VariableGuid": "29008CCC-488B9BD4-38978D92-4108C06B",
+      "InternalVariableName": "CyGStateMonitor_PlayBGM2"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Parkour_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyGStatePrepare'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyGStatePrepare'BP_GameState_Parkour_C:CyGStatePrepare_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.17"
+      },
+      "VariableGuid": "25339D98-413DAB63-25944281-5546AD56",
+      "InternalVariableName": "CyGStatePrepare"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Parkour_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.28"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.28"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_GameState_Parkour_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Parkour/Core/BP_GameState_Parkour.24"
+      }
+    }
+  }
+]

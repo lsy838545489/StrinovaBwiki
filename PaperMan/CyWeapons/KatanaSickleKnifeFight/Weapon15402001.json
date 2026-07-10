@@ -53,12 +53,46 @@
   {
     "Type": "Weapon15402001_C",
     "Name": "Default__Weapon15402001_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/KatanaSickleKnifeFight/Weapon15402001.Weapon15402001_C'",
     "Properties": {
       "AttackSocketSphereRadius": 90.0,
       "bSupportsAutoAttack": true,
       "bUseSupportLeanWall": true,
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.Speed.Run.Katana"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.Speed.Sprint.Katana"
+              }
+            }
+          }
+        ]
+      },
       "WeaponName": "ECyWeaponName::CustomType232",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon15402001_C:Root'",
@@ -372,7 +406,7 @@
               ],
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
-              "bAllowLoop": true
+              "bAllowLoop": false
             }
           ]
         },
@@ -815,7 +849,7 @@
     },
     "Properties": {
       "TimeAllowCombo": {
-        "Value": 0.15,
+        "Value": 0.2,
         "MobileValue": 0.15
       },
       "TimeAllowEnd": {
@@ -917,7 +951,7 @@
     },
     "Properties": {
       "TimeAllowCombo": {
-        "Value": 0.157,
+        "Value": 0.2,
         "MobileValue": 0.157
       },
       "TimeAllowEnd": {
@@ -1313,6 +1347,9 @@
     "Outer": {
       "ObjectName": "Weapon15402001_C'Default__Weapon15402001_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaSickleKnifeFight/Weapon15402001.1"
+    },
+    "Properties": {
+      "StopAllMontagesBlendOut": 0.0
     }
   },
   {
@@ -1337,7 +1374,7 @@
                 "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
               },
-              "RowName": "Attribute.AttackDamage.MeleeFirst.KatataSickle2"
+              "RowName": "Attribute.AttackDamage.MeleeFirst.KatanaSickle2"
             }
           }
         },
@@ -1352,7 +1389,7 @@
                 "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
               },
-              "RowName": "Attribute.AttackDamage.MeleeSecond.KatataSickle2"
+              "RowName": "Attribute.AttackDamage.MeleeSecond.KatanaSickle2"
             }
           }
         },
@@ -1379,7 +1416,7 @@
                 "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
               },
-              "RowName": "Attribute.AttackDamage.MeleeDash.KatataSickle2"
+              "RowName": "Attribute.AttackDamage.MeleeDash.KatanaSickle2"
             }
           }
         }
@@ -1884,23 +1921,14 @@
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaSickleKnifeFight/Weapon15402001.1"
     },
     "Properties": {
+      "SkinFolder": "../KatanaSickle/Skins",
       "BeginAssetTagContainers": [
         {
           "AttachComponentType": "EAttachComponentType::Self",
           "ResourceClassify": "ECyGCResourceClassify::Effect",
           "MeshName": "MeshFor3PP",
           "AssetTagContainer": [
-            "Resource.Particle.Mesh.First.3D"
-          ],
-          "AssetTagStopContainer": [],
-          "DefaultAssetKey": 0,
-          "bAllowLoop": true
-        },
-        {
-          "AttachComponentType": "EAttachComponentType::Self",
-          "ResourceClassify": "ECyGCResourceClassify::Effect",
-          "MeshName": "MeshFor3PP",
-          "AssetTagContainer": [
+            "Resource.Particle.Mesh.First.3D",
             "Resource.Particle.Mesh.Second.3D"
           ],
           "AssetTagStopContainer": [],

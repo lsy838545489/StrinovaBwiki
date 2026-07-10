@@ -33,7 +33,7 @@
   {
     "Type": "Weapon15301001_C",
     "Name": "Default__Weapon15301001_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/ZombieKatana/Weapon15301001.Weapon15301001_C'",
     "Template": {
       "ObjectName": "Weapon15201001_C'Default__Weapon15201001_C'",
@@ -380,7 +380,12 @@
         "GA.Ability.SkillQ",
         "GA.Ability.SkillX",
         "GA.Action.Wall"
-      ]
+      ],
+      "TotalDuration": {
+        "Curve": {
+          "RowName": "Attribute.Duration.MeleeFirst.ZombieKatana"
+        }
+      }
     }
   },
   {
@@ -423,9 +428,8 @@
       ],
       "bUseTimeStamp": false,
       "TotalDuration": {
-        "Value": 1.0,
         "Curve": {
-          "CurveTable": null
+          "RowName": "Attribute.Duration.MeleeFirst.ZombieKatana"
         }
       }
     }
@@ -450,9 +454,8 @@
         "GA.Action.Wall"
       ],
       "TotalDuration": {
-        "Value": 1.0,
         "Curve": {
-          "CurveTable": null
+          "RowName": "Attribute.Duration.MeleeSecond.ZombieKatana"
         }
       }
     }
@@ -478,9 +481,8 @@
         "GA.Action.Wall"
       ],
       "TotalDuration": {
-        "Value": 1.0,
         "Curve": {
-          "CurveTable": null
+          "RowName": "Attribute.Duration.Smite.ZombieKatana"
         }
       }
     }
@@ -517,36 +519,60 @@
         {
           "Key": "EFAttackType::MeleeFirst",
           "Value": {
-            "Value": 500.0,
+            "Value": 1.0,
             "bEnableMobile": false,
             "MobileValue": 500.0,
             "Curve": {
-              "CurveTable": null,
-              "RowName": "None"
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.MeleeFirst.ZombieKatana"
             }
           }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
           "Value": {
-            "Value": 500.0,
+            "Value": 1.0,
             "bEnableMobile": false,
             "MobileValue": 500.0,
             "Curve": {
-              "CurveTable": null,
-              "RowName": "None"
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.MeleeSecond.ZombieKatana"
             }
           }
         },
         {
           "Key": "EFAttackType::Smite",
           "Value": {
-            "Value": 850.0,
+            "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 850.0,
+            "MobileValue": 500.0,
             "Curve": {
-              "CurveTable": null,
-              "RowName": "None"
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.Smite.ZombieKatana"
+            }
+          }
+        },
+        {
+          "Key": "EFAttackType::MeleeDash",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 500.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.AttackDamage.MeleeFirst.ZombieKatana"
             }
           }
         }
