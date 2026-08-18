@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_GameState_UGC_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.21"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.22"
       }
     },
     "SuperStruct": {
@@ -60,7 +60,7 @@
         "Value": 1.0
       },
       "ModeType": "EPMGameModeType::UGC",
-      "ModeCurveType": "EModeCurveType::Default",
+      "ModeCurveType": "EModeCurveType::CustomType230",
       "Machine": {
         "ObjectName": "CyGMachine'Default__BP_GameState_UGC_C:Machine'",
         "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.6"
@@ -70,28 +70,28 @@
           "Key": "CyGStateRoleSelect",
           "Value": {
             "ObjectName": "CyGStateRoleSelect'Default__BP_GameState_UGC_C:CyGStateRoleSelect'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.16"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.17"
           }
         },
         {
           "Key": "CyGStateRoleReselect",
           "Value": {
             "ObjectName": "CyGStateRoleReselect'Default__BP_GameState_UGC_C:CyGStateRoleReselect'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.15"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.16"
           }
         },
         {
           "Key": "CyGStateRoleLoad",
           "Value": {
             "ObjectName": "CyGStateRoleLoad'Default__BP_GameState_UGC_C:CyGStateRoleLoad'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.14"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.15"
           }
         },
         {
           "Key": "CyGStateReStart",
           "Value": {
             "ObjectName": "CyGStateReStart'Default__BP_GameState_UGC_C:CyGStateReStart'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.13"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.14"
           }
         },
         {
@@ -106,6 +106,13 @@
           "Value": {
             "ObjectName": "CyGStateFightEnd'Default__BP_GameState_UGC_C:CyGStateFightEnd'",
             "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.9"
+          }
+        },
+        {
+          "Key": "CyGStateInteraction",
+          "Value": {
+            "ObjectName": "CyGStateInteraction'Default__BP_GameState_UGC_C:CyGStateInteraction'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.12"
           }
         },
         {
@@ -126,7 +133,7 @@
           "Key": "CyGStateNone",
           "Value": {
             "ObjectName": "CyGStateNone'Default__BP_GameState_UGC_C:CyGStateNone'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.12"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.13"
           }
         },
         {
@@ -144,7 +151,7 @@
       },
       "TeamManagerComponent": {
         "ObjectName": "CyTeamManagerComponent'Default__BP_GameState_UGC_C:TeamManagerComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.17"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.18"
       },
       "DefaultInitAttributeEffects": {
         "Elements": [
@@ -198,8 +205,8 @@
           }
         ]
       },
-      "DefaultCustomPlayerMask": 4294959103,
-      "DefaultCustomPlayerMask_Mobile": 4294959103,
+      "DefaultCustomPlayerMask": 4294893567,
+      "DefaultCustomPlayerMask_Mobile": 4294901759,
       "CustomConfigAsset": {
         "ObjectName": "CyCustomConfigDataAsset'CustomConfigDataAsset'",
         "ObjectPath": "PM/Content/PaperMan/Core/GameModes/CustomConfigDataAsset.0"
@@ -677,6 +684,12 @@
       "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.0"
     },
     "Properties": {
+      "ModeSettingActorItemIDs": [
+        {
+          "Key": "21",
+          "Value": 999
+        }
+      ],
       "GameModeCheckConditions": [
         {
           "Key": "EPMGameModeType::Bomb",
@@ -871,6 +884,30 @@
               }
             ]
           }
+        },
+        {
+          "Key": "EPMGameModeType::MOSA",
+          "Value": {
+            "ConditionArray": [
+              {
+                "ItemID": 13,
+                "DemandCount": 5
+              },
+              {
+                "ItemID": 156,
+                "DemandCount": 1
+              },
+              {
+                "ItemID": 16,
+                "DemandCount": 1
+              },
+              {
+                "ItemID": 159,
+                "DemandCount": 1
+              }
+            ],
+            "CheckArray": []
+          }
         }
       ],
       "AutoSaveTag": {
@@ -974,6 +1011,16 @@
     }
   },
   {
+    "Type": "CyGStateInteraction",
+    "Name": "CyGStateInteraction",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateInteraction'",
+    "Outer": {
+      "ObjectName": "BP_GameState_UGC_C'Default__BP_GameState_UGC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.1"
+    }
+  },
+  {
     "Type": "CyGStateNone",
     "Name": "CyGStateNone",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
@@ -1050,7 +1097,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_UGC_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.21"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.22"
     },
     "Properties": {
       "ComponentClass": {
@@ -1059,7 +1106,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_GameState_UGC_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.18"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.19"
       },
       "VariableGuid": "F0303880-4D8E751B-5A34A1A3-250B5E8A",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1072,7 +1119,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_GameState_UGC_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.21"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.22"
     },
     "Properties": {
       "ComponentClass": {
@@ -1100,26 +1147,26 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_GameState_UGC_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.19"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.20"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_UGC_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.20"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.21"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_GameState_UGC_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.19"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.20"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_UGC_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.20"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.21"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_GameState_UGC_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.19"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/UGC/Core/BP_GameState_UGC.20"
       }
     }
   }

@@ -41,8 +41,8 @@
       "EffectsToApply": [
         {
           "EffectClass": {
-            "ObjectName": "BlueprintGeneratedClass'GE_Q_Damage_Yugiri_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/GE_Q_Damage_Yugiri.0"
+            "ObjectName": "BlueprintGeneratedClass'GE_Q_ArmorInvalidation_Instant_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/GE_Q_ArmorInvalidation_Instant.0"
           },
           "SourceTags": {
             "RequireTagType": "ERequireTagType::AND",
@@ -50,6 +50,56 @@
             "RequireAnyTags": [],
             "IgnoreAllTags": [],
             "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Q_ArmorInvalidation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/GE_Q_ArmorInvalidation.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_ArousalOne_SpeedFactorEnemy_Infinite_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/ArousalOne/GE_ArousalOne_SpeedFactorEnemy_Infinite.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [
+              "State.Arousal.One"
+            ],
             "IgnoreTags": []
           },
           "RemoveType": "EEffectRemoveType::Infinite",
@@ -72,8 +122,10 @@
       },
       "AllowedModes": [
         "EPMGameModeType::Zombie",
-        "EPMGameModeType::ZombieGuide"
-      ]
+        "EPMGameModeType::Escort2",
+        "EPMGameModeType::MOSA"
+      ],
+      "bReverseAllowModes": true
     }
   }
 ]

@@ -450,8 +450,8 @@
           "bEndWithState": false,
           "bNoSkipped": false,
           "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_ChangeMiParam_Q_Cielle_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Weapon/BP_SA_ChangeMiParam_Q_Cielle.0"
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_HideCharacterMaterial_Q_Cielle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Weapon/BP_SA_HideCharacterMaterial_Q_Cielle.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -464,6 +464,18 @@
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SA_NotEnableHitReaction_Q_Cielle_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Weapon/BP_SA_NotEnableHitReaction_Q_Cielle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ForceFullAnimTickOnDS_Q_SC_Cielle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Weapon/BP_SA_ForceFullAnimTickOnDS_Q_SC_Cielle.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -560,6 +572,30 @@
           },
           "SubAtoms": [],
           "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ModifyComp_AppearMesh_Q_Cielle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Weapon/InX/BP_SA_ModifyComp_AppearMesh_Q_Cielle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.6,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SpawnActor_SkinSummon_Cielle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/SkinSummon/BP_SA_SpawnActor_SkinSummon_Cielle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
         }
       ],
       "AssetEvents": [
@@ -614,6 +650,32 @@
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
               "bAllowLoop": false
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshFor3PP",
+              "AssetTagContainer": [
+                "Resource.MeshAnim.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
             }
           ]
         }
@@ -673,7 +735,14 @@
         "Buff.Strong.P.Cielle.Dash"
       ],
       "TotalDuration": {
-        "Value": 0.45
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Duration.Dash.P.Cielle"
+        }
       },
       "AllowedGait": "ECyGait::NoMove",
       "AimSwitchInputType": "EAimSwitchInputType::DisableClose",
@@ -925,6 +994,11 @@
           ]
         }
       ],
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Shift.Begin"
+        }
+      ],
       "EndEventTags": [
         {
           "TagName": "Event.Weapon.Work.End.Cielle.Q"
@@ -1008,7 +1082,8 @@
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__WeaponCustom_Q_Cielle_C:Root'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Cielle/Q/Weapon/WeaponCustom_Q_Cielle.24"
-      }
+      },
+      "bVisible": false
     }
   },
   {

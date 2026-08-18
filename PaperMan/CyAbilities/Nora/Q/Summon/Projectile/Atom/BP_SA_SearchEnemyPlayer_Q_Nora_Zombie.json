@@ -1,0 +1,99 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SA_SearchEnemyPlayer_Q_Nora_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomSearchTargets'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SA_SearchEnemyPlayer_Q_Nora_Zombie_C'Default__BP_SA_SearchEnemyPlayer_Q_Nora_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Projectile/Atom/BP_SA_SearchEnemyPlayer_Q_Nora_Zombie.1"
+    }
+  },
+  {
+    "Type": "BP_SA_SearchEnemyPlayer_Q_Nora_Zombie_C",
+    "Name": "Default__BP_SA_SearchEnemyPlayer_Q_Nora_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Projectile/Atom/BP_SA_SearchEnemyPlayer_Q_Nora_Zombie.BP_SA_SearchEnemyPlayer_Q_Nora_Zombie_C'",
+    "Properties": {
+      "OverrideDetectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TargetDetectorSphere_EnemyPlayer_Q_Nora_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Projectile/Atom/BP_TargetDetectorSphere_EnemyPlayer_Q_Nora.0"
+        }
+      ],
+      "SearchMode": "ESearchMode::IncrementalOnce",
+      "EffectsToApply": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Q_Damage_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Projectile/Atom/GE_Q_Damage_Nora.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": [
+              "State.Arousal.Three"
+            ]
+          },
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_ArousalThree_Damage_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/ArousalThree/Summon/GA/Primary/GE_ArousalThree_Damage_Nora.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [
+              "State.Arousal.Three"
+            ],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::None",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "bAllowTick": false,
+      "bUseAuthorityMask": true,
+      "AllowedModes": [
+        "EPMGameModeType::Zombie",
+        "EPMGameModeType::ZombieChase",
+        "EPMGameModeType::MOSA"
+      ]
+    }
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GameMode_WaterPolo_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_GameMode_WaterPolo_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.5"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySharedGameMode'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Transient | CLASS_Optional | CLASS_NotPlaceable | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GameMode_WaterPolo_C'Default__BP_GameMode_WaterPolo_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.1"
+    }
+  },
+  {
+    "Type": "BP_GameMode_WaterPolo_C",
+    "Name": "Default__BP_GameMode_WaterPolo_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.BP_GameMode_WaterPolo_C'",
+    "Properties": {
+      "bEnableChooseConfig": true,
+      "ChooseConfig": {
+        "UpdatePriorityClass": null
+      },
+      "KillScore": 0,
+      "AIControllerClass": {
+        "ObjectName": "Class'PMAIController'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "StartStateGroup": [
+        "EGStateType::RoleSelect",
+        "EGStateType::RoleLoad",
+        "EGStateType::Prepare",
+        "EGStateType::Fight",
+        "EGStateType::FightSecond"
+      ],
+      "MatchHasEndedAtoms": [
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSEA_UpdatePlayerScore_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/PlayerScore/BP_GSEA_UpdatePlayerScore.0"
+          },
+          "Instance": null
+        }
+      ],
+      "LoopExecuteAtoms": [
+        {
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSEA_UpdatePlayerScore_NoLog_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/PlayerScore/BP_GSEA_UpdatePlayerScore_NoLog.0"
+          },
+          "Instance": null
+        }
+      ],
+      "QuestManagerComponent": {
+        "ObjectName": "CyQuestManagerComponent'Default__BP_GameMode_WaterPolo_C:QuestManager'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.2"
+      },
+      "GameStateClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GameState_WaterPolo_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameState_WaterPolo.0"
+      },
+      "PlayerControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PlayerController_WaterPolo_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_PlayerController_WaterPolo.0"
+      },
+      "PlayerStateClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PlayerState_WaterPolo_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_PlayerState_WaterPolo.0"
+      },
+      "HUDClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PMWaterPoloHUD_C'",
+        "ObjectPath": "PM/Content/PaperMan/UI/HUD/BP_PMWaterPoloHUD.0"
+      },
+      "DefaultPawnClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PMCharacterBase_V3_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/Characters/BP_PMCharacterBase_V3.1"
+      },
+      "SpectatorClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_SpectatorPawn_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Spectator/BP_SpectatorPawn.0"
+      },
+      "ReplaySpectatorPlayerControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_SpectatorPlayerController_C'",
+        "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Spectator/BP_SpectatorPlayerController.0"
+      }
+    }
+  },
+  {
+    "Type": "CyQuestManagerComponent",
+    "Name": "QuestManager",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyQuestManagerComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameMode_WaterPolo_C'Default__BP_GameMode_WaterPolo_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.1"
+    },
+    "Properties": {
+      "GameplayQuestPacks": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GQP_WaterPoloGameplay_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/Module/BP_GQP_WaterPoloGameplay.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GQP_GameDataUpdate_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/Module/GameDataUpdate/BP_GQP_GameDataUpdate.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GQP_StatPlayerBattleData_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/StatBattleData/PlayerData/BP_GQP_StatPlayerBattleData.0"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameMode_WaterPolo_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameMode_WaterPolo_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.5"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_GameMode_WaterPolo_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.3"
+      },
+      "VariableGuid": "BFEABD6F-4A45E36C-12F1FAAE-385A3468",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameMode_WaterPolo_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameMode_WaterPolo_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.4"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GameMode_WaterPolo_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.4"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_GameMode_WaterPolo_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/WaterPolo/Core/BP_GameMode_WaterPolo.4"
+      }
+    }
+  }
+]

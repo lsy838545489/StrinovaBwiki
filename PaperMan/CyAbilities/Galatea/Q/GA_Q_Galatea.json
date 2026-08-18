@@ -23,7 +23,7 @@
   {
     "Type": "GA_Q_Galatea_C",
     "Name": "Default__GA_Q_Galatea_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Galatea/Q/GA_Q_Galatea.GA_Q_Galatea_C'",
     "Properties": {
       "GiverAtoms": [
@@ -34,34 +34,30 @@
       ],
       "CheckAtoms": [
         {
-          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckForceFly.0"
-        },
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckAllowRelieveSlide.0"
-        },
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowBigMap_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckAllowBigMap.0"
-        },
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall.0"
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckFactory_Q_Galatea_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Q/BP_CheckFactory_Q_Galatea.0"
         }
       ],
       "ActivatorAtoms": [
         {
-          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly.0"
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_Q_Galatea_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Q/BP_ActivateEndFly_Q_Galatea.0"
         },
         {
-          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay.0"
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_Q_Galatea_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Q/BP_ActivateEndSideWay_Q_Galatea.0"
         },
         {
-          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon.0"
+          "ObjectName": "BlueprintGeneratedClass'BP_SwitchWeapon_Q_Galatea_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Q/BP_SwitchWeapon_Q_Galatea.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateWeapon_Q_Galatea_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Q/BP_ActivateWeapon_Q_Galatea.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_UIEvent_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Q/BP_Activator_UIEvent.0"
         }
       ],
       "TriggerEvents": [
@@ -97,6 +93,44 @@
         },
         {
           "Key": {
+            "TagName": "Event.Summon.Spawn.Galatea.Q.Summon"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerCheckSummonNum_Q_Galatea_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Q/BP_TriggerCheckSummonNum_Q_Galatea.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
             "TagName": "Event.Consume.Skill.Q"
           },
           "Value": {
@@ -119,42 +153,7 @@
               }
             ],
             "AtomsForNoActive": [],
-            "AtomsForInstance": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
-              }
-            ],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
-        },
-        {
-          "Key": {
-            "TagName": "Event.Summon.Spawn.Galatea.Q.Summon"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_TriggerCheckSummonNum_Q_Galatea_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Q/BP_TriggerCheckSummonNum_Q_Galatea.0"
-              }
-            ],
+            "AtomsForInstance": [],
             "LocallyAtomsForActive": [],
             "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
@@ -203,9 +202,6 @@
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Q/Weapon/Weapon_Q_Galatea.0"
       },
       "SlotType": "EWeaponSlotTypes::WeaponSlot_Ability",
-      "CancelAbilitiesPreActivateWithTag": [
-        "GA.Action.Wall"
-      ],
       "MagnitudeRemainPoints": {
         "Value": 1.0
       },

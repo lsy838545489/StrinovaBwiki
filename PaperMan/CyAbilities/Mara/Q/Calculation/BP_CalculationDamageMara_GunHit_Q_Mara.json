@@ -28,6 +28,15 @@
     "Properties": {
       "Note": "普通枪械类：当前生命值/(当前生命值+当前总护甲值(即计算临时护甲)*系数A）*系数B",
       "DamageMask": 5,
+      "bGetDamageUseCallerMap": true,
+      "OpTypeLists": [
+        "EOpTypeCustom::Addition"
+      ],
+      "CallerTagLists": [
+        {
+          "TagName": "Event.CauseDamage.PlayerSummon"
+        }
+      ],
       "DamageScale": {
         "Value": 1.0,
         "Curve": {
@@ -38,8 +47,8 @@
           "RowName": "Attribute.DamageTransport.Q.Mara"
         }
       },
-      "AttributeOneFromType": "EAttributeFromType::TargetActorFromEffectCauser",
-      "AttributeTwoFromType": "EAttributeFromType::TargetActorFromEffectCauser",
+      "AttributeOneFromType": "EAttributeFromType::SourceObject",
+      "AttributeTwoFromType": "EAttributeFromType::SourceObject",
       "AttributeMaskTwo": 12,
       "ParametersA": {
         "Value": 1.0,

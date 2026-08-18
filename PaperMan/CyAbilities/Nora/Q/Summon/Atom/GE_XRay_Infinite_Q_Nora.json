@@ -1,0 +1,120 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_XRay_Infinite_Q_Nora_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_XRay_Infinite_Q_Nora_C'Default__GE_XRay_Infinite_Q_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Atom/GE_XRay_Infinite_Q_Nora.1"
+    }
+  },
+  {
+    "Type": "GE_XRay_Infinite_Q_Nora_C",
+    "Name": "Default__GE_XRay_Infinite_Q_Nora_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Atom/GE_XRay_Infinite_Q_Nora.GE_XRay_Infinite_Q_Nora_C'",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'DamageType_Q_Nora_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Projectile/Atom/DamageType_Q_Nora.0"
+      },
+      "BuffType": "ECyBuffType::Weak",
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::Infinite",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+            },
+            "RowName": "Duration.Buff.Xray.Q.Nora"
+          }
+        }
+      },
+      "PrematureExpirationEffectClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_XRay_Duration_Q_Nora_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Atom/GE_XRay_Duration_Q_Nora.0"
+        }
+      ],
+      "RoutineExpirationEffectClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_XRay_Duration_Q_Nora_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Atom/GE_XRay_Duration_Q_Nora.0"
+        }
+      ],
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.XRay.InstigatorTeam"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Weak.XRay",
+          "Buff.Weak.XRay",
+          "Buff.Weak.Q.Nora.Debuff.Infinite"
+        ],
+        "Added": [
+          "BuffIcon.Weak.XRay",
+          "Buff.Weak.XRay",
+          "Buff.Weak.Q.Nora.Debuff.Infinite"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Weak.XRay",
+          "Buff.Weak.Q.Nora.Debuff.Infinite"
+        ],
+        "Added": [
+          "Buff.Weak.XRay",
+          "Buff.Weak.Q.Nora.Debuff.Infinite"
+        ]
+      },
+      "ApplicationTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Death",
+          "Buff.Stealth",
+          "Buff.Strong.Immune",
+          "State.Immunity.Weak"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "Buff.Stealth",
+          "Buff.Strong.Immune",
+          "State.Immunity.Weak",
+          "State.Game.RemoveBuff"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
+    }
+  }
+]

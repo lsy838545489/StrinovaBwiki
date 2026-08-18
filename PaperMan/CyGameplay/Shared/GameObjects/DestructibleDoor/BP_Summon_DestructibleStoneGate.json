@@ -11,11 +11,11 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler'BP_Summon_DestructibleStoneGate_C:InheritableComponentHandler'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.11"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.12"
       }
     },
     "SuperStruct": {
@@ -23,6 +23,17 @@
       "ObjectPath": "PM/Content/PaperMan/Core/GameActor/DestructibleActor/Summon_DestructibleActor.2"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "FlyingNavDynamicObstacle",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'FlyingNavDynamicObstacleComponent'",
+          "ObjectPath": "/Script/FlyingNavSystem"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyRetain",
@@ -118,7 +129,7 @@
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_DestructibleStoneGate_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.12"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.13"
       },
       "RemoteRole": "ROLE_SimulatedProxy"
     }
@@ -569,7 +580,7 @@
             "MostRecentArrayReplicationKey": -1
           }
         ],
-        "ArrayReplicationKey": 128
+        "ArrayReplicationKey": 160
       }
     }
   },
@@ -596,6 +607,18 @@
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAtomOpenPortalWhenWork_C'",
             "ObjectPath": "PM/Content/PaperMan/Core/StateAtoms/BP_SAtomOpenPortalWhenWork.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_CloseFlyingNavObstacle_C'",
+            "ObjectPath": "PM/Content/PaperMan/Core/StateAtoms/BP_SAtom_CloseFlyingNavObstacle.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -641,6 +664,18 @@
           },
           "SubAtoms": [],
           "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_OpenFlyingNavObstacle_C'",
+            "ObjectPath": "PM/Content/PaperMan/Core/StateAtoms/BP_SAtom_OpenFlyingNavObstacle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
         }
       ],
       "TotalDuration": {
@@ -680,6 +715,18 @@
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAtom_SAtomChangeEffectByArmor_C'",
             "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_SAtom_SAtomChangeEffectByArmor.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_OpenFlyingNavObstacle_C'",
+            "ObjectPath": "PM/Content/PaperMan/Core/StateAtoms/BP_SAtom_OpenFlyingNavObstacle.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -821,6 +868,23 @@
     }
   },
   {
+    "Type": "FlyingNavDynamicObstacleComponent",
+    "Name": "FlyingNavDynamicObstacle_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'FlyingNavDynamicObstacleComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_DestructibleStoneGate_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.0"
+    },
+    "Properties": {
+      "BoxExtent": {
+        "X": 20.0,
+        "Y": 160.0,
+        "Z": 160.0
+      }
+    }
+  },
+  {
     "Type": "InheritableComponentHandler",
     "Name": "InheritableComponentHandler",
     "Flags": "RF_WasLoaded | RF_LoadCompleted",
@@ -838,7 +902,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "StaticMeshComponent'BP_Summon_DestructibleStoneGate_C:Cube_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.22"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.24"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1022,7 +1086,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
     },
     "Properties": {
       "ComponentClass": {
@@ -1031,7 +1095,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_Summon_DestructibleStoneGate_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.13"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.14"
       },
       "VariableGuid": "026F33B5-48E86161-095736A4-AF524899",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1044,7 +1108,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
     },
     "Properties": {
       "ComponentClass": {
@@ -1066,7 +1130,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
     },
     "Properties": {
       "ComponentClass": {
@@ -1075,7 +1139,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_Summon_DestructibleStoneGate_C:StaticMesh4_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.26"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.28"
       },
       "ParentComponentOrVariableName": "StaticMesh",
       "ParentComponentOwnerClassName": "Summon_DestructibleActor_C",
@@ -1090,7 +1154,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
     },
     "Properties": {
       "ComponentClass": {
@@ -1099,7 +1163,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_Summon_DestructibleStoneGate_C:StaticMesh3_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.25"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.27"
       },
       "ParentComponentOrVariableName": "StaticMesh",
       "ParentComponentOwnerClassName": "Summon_DestructibleActor_C",
@@ -1114,7 +1178,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
     },
     "Properties": {
       "ComponentClass": {
@@ -1131,12 +1195,36 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'FlyingNavDynamicObstacleComponent'",
+        "ObjectPath": "/Script/FlyingNavSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "FlyingNavDynamicObstacleComponent'BP_Summon_DestructibleStoneGate_C:FlyingNavDynamicObstacle_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.11"
+      },
+      "ParentComponentOrVariableName": "DefaultSceneRoot",
+      "ParentComponentOwnerClassName": "Summon_DestructibleActor_C",
+      "VariableGuid": "51839D48-456D77F4-E29863AE-53A24F38",
+      "InternalVariableName": "FlyingNavDynamicObstacle"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_6",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
     },
     "Properties": {
       "ComponentClass": {
@@ -1145,7 +1233,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_Summon_DestructibleStoneGate_C:StaticMesh2_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.24"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.26"
       },
       "ParentComponentOrVariableName": "StaticMesh",
       "ParentComponentOwnerClassName": "Summon_DestructibleActor_C",
@@ -1160,7 +1248,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
     },
     "Properties": {
       "ComponentClass": {
@@ -1169,7 +1257,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "StaticMeshComponent'BP_Summon_DestructibleStoneGate_C:StaticMesh1_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.23"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.25"
       },
       "ParentComponentOrVariableName": "DefaultSceneRoot",
       "ParentComponentOwnerClassName": "Summon_DestructibleActor_C",
@@ -1190,58 +1278,66 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.19"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.20"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.22"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.16"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_13'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.17"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_13'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.18"
         },
         {
+          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.19"
+        },
+        {
           "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.15"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.20"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.19"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.21"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.20"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.22"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.16"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_13'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.17"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_13'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.18"
         },
         {
+          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.19"
+        },
+        {
           "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.15"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.20"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_Summon_DestructibleStoneGate_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.14"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.15"
       }
     }
   },
@@ -1300,7 +1396,8 @@
         "Pitch": 0.0,
         "Yaw": -270.00037,
         "Roll": 0.0
-      }
+      },
+      "bCanEverAffectNavigation": false
     }
   },
   {
@@ -1326,7 +1423,8 @@
         "Pitch": 0.0,
         "Yaw": -270.0003,
         "Roll": 0.0
-      }
+      },
+      "bCanEverAffectNavigation": false
     }
   },
   {
@@ -1367,7 +1465,8 @@
         "X": 3.237964,
         "Y": 3.237964,
         "Z": 3.237964
-      }
+      },
+      "bCanEverAffectNavigation": false
     }
   },
   {
@@ -1408,7 +1507,8 @@
         "X": 3.237964,
         "Y": 3.237964,
         "Z": 3.237964
-      }
+      },
+      "bCanEverAffectNavigation": false
     }
   }
 ]

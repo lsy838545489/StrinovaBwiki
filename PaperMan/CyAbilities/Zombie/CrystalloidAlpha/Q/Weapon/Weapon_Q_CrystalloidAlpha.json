@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon_Q_CrystalloidAlpha_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.30"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.31"
       }
     },
     "SuperStruct": {
@@ -15,6 +15,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Effect",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CySearchLocation",
@@ -252,8 +263,22 @@
       "bSetCharacterAnimLengthToDuration": false,
       "bStopAnimationOnEnd": false,
       "TotalDuration": {
-        "Value": 0.4
+        "Value": 0.1
       },
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_CostEnergy_Q_CrystalloidAlpha_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Atom/BP_SA_CostEnergy_Q_CrystalloidAlpha.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
       "bEnabled": true
     }
   },
@@ -267,9 +292,26 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.1"
     },
     "Properties": {
+      "AcceptAttackInputPosition": 1.1,
+      "bSetCharacterAnimLengthToDuration": false,
+      "bStopAnimationOnEnd": false,
       "TotalDuration": {
-        "Value": 0.0
-      }
+        "Value": 0.1
+      },
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_CostEnergy_Q_CrystalloidAlpha_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Atom/BP_SA_CostEnergy_Q_CrystalloidAlpha.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
     }
   },
   {
@@ -342,9 +384,6 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.1"
     },
     "Properties": {
-      "TotalDuration": {
-        "Value": 3.0
-      },
       "Events": [
         {
           "PositionStart": 0.0,
@@ -360,48 +399,36 @@
         },
         {
           "PositionStart": 0.0,
-          "PositionEnd": 0.25,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_AddLooseTagStage1_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Atom/BP_SAtom_AddLooseTagStage1.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        },
-        {
-          "PositionStart": 0.25,
-          "PositionEnd": 0.5,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_AddLooseTagStage2_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Atom/BP_SAtom_AddLooseTagStage2.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        },
-        {
-          "PositionStart": 0.5,
-          "PositionEnd": 0.75,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_AddLooseTagStage3_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Atom/BP_SAtom_AddLooseTagStage3.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        },
-        {
-          "PositionStart": 0.75,
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
           "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_AddLooseTagStage4_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Atom/BP_SAtom_AddLooseTagStage4.0"
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_AddLooseTagsOnEnergy_Q_CrystalloidAlpha_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Atom/BP_SA_AddLooseTagsOnEnergy_Q_CrystalloidAlpha.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ChangeComponentScale_Q_CrystalloidAlpha_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Atom/BP_SA_ChangeComponentScale_Q_CrystalloidAlpha.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ChangeComponentScale_Q_CrystalloidAlpha_Hextech_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Hextech/BP_SA_ChangeComponentScale_Q_CrystalloidAlpha_Hextech.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -424,36 +451,10 @@
             {
               "AttachComponentType": "EAttachComponentType::None",
               "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "MeshComponent",
+              "MeshName": "Effect",
               "AssetTagContainer": [
                 "Resource.Audio.Work",
                 "Resource.Particle.Work.A"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": true
-            }
-          ]
-        },
-        {
-          "PositionStart": 1.0,
-          "PositionEnd": 1.1,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::None",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "MeshComponent",
-              "AssetTagContainer": [
-                "Resource.Particle.Work.B"
               ],
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
@@ -472,14 +473,6 @@
     "Outer": {
       "ObjectName": "Weapon_Q_CrystalloidAlpha_C'Default__Weapon_Q_CrystalloidAlpha_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.1"
-    },
-    "Properties": {
-      "TerminatorStates": [
-        "EFAttackType::ThrowEnd"
-      ],
-      "TotalDuration": {
-        "Value": 5.0
-      }
     }
   },
   {
@@ -833,7 +826,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon_Q_CrystalloidAlpha_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.30"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -855,7 +848,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon_Q_CrystalloidAlpha_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.30"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -868,6 +861,30 @@
       },
       "VariableGuid": "1B9D259A-41C9E144-A89644A3-0D4CC316",
       "InternalVariableName": "CySearchLocation"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Q_CrystalloidAlpha_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.31"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SkeletalMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkeletalMeshComponent'Weapon_Q_CrystalloidAlpha_C:Effect_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.32"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "67634969-417D5A27-0D6C46A9-63587B9F",
+      "InternalVariableName": "Effect"
     }
   },
   {
@@ -884,18 +901,45 @@
         {
           "ObjectName": "SCS_Node'Weapon_Q_CrystalloidAlpha_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Q_CrystalloidAlpha_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.30"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon_Q_CrystalloidAlpha_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Q_CrystalloidAlpha_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.30"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon_Q_CrystalloidAlpha_C:SimpleConstructionScript_0.SCS_Node_0'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.28"
       }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "Effect_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Q_CrystalloidAlpha_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Zombie/CrystalloidAlpha/Q/Weapon/Weapon_Q_CrystalloidAlpha.0"
+    },
+    "Properties": {
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ClothingSimulationFactoryNv'",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv"
+      },
+      "ComponentTagSet": [
+        "Effect"
+      ]
     }
   }
 ]

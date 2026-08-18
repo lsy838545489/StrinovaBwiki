@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon_E_Galatea_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.30"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.32"
       }
     },
     "SuperStruct": {
@@ -15,6 +15,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyWeaponProjectClearLifeSpan",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyWeaponProjectClearLifeSpanComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CySearchLocation",
@@ -51,11 +62,11 @@
       "WeaponName": "ECyWeaponName::CustomType254",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon_E_Galatea_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.27"
       },
       "MeshComponent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_E_Galatea_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.25"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.26"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon_E_Galatea_C:Machine'",
@@ -187,7 +198,7 @@
       "UISlotType": "EWeaponSlotTypes::WeaponSlot_E",
       "SkinComponent": {
         "ObjectName": "CyWeaponSkinComponent'Default__Weapon_E_Galatea_C:SkinComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.25"
       },
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__Weapon_E_Galatea_C:DataSystemComponent'",
@@ -195,7 +206,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon_E_Galatea_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.27"
       }
     }
   },
@@ -376,7 +387,6 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.1"
     },
     "Properties": {
-      "ViewPitchMax": 30.0,
       "TimeForProjectilePathVisible": 0.0
     }
   },
@@ -686,6 +696,8 @@
         "Yaw": 0.0,
         "Roll": 0.0
       },
+      "bUseThrowPitchClamp": true,
+      "ThrowViewPitchMax": 30.0,
       "Projectiles": [
         {
           "ObjectName": "BlueprintGeneratedClass'Projectile_E_Galatea_C'",
@@ -702,6 +714,21 @@
     "Outer": {
       "ObjectName": "Weapon_E_Galatea_C'Default__Weapon_E_Galatea_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.1"
+    }
+  },
+  {
+    "Type": "CyWeaponProjectClearLifeSpanComponent",
+    "Name": "CyWeaponProjectClearLifeSpan_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponProjectClearLifeSpanComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_E_Galatea_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.0"
+    },
+    "Properties": {
+      "ProjectActorTag": {
+        "TagName": "ActorTag.Summon.E.Galatea.Projectile"
+      }
     }
   },
   {
@@ -726,7 +753,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__Weapon_E_Galatea_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.27"
       }
     }
   },
@@ -757,7 +784,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon_E_Galatea_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.30"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.32"
     },
     "Properties": {
       "ComponentClass": {
@@ -766,7 +793,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon_E_Galatea_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.27"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.28"
       },
       "VariableGuid": "0B17BBE5-4B643032-8767E4BB-E8D7830C",
       "InternalVariableName": "DefaultSceneRoot"
@@ -779,7 +806,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon_E_Galatea_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.30"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.32"
     },
     "Properties": {
       "ComponentClass": {
@@ -795,6 +822,28 @@
     }
   },
   {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_E_Galatea_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyWeaponProjectClearLifeSpanComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyWeaponProjectClearLifeSpanComponent'Weapon_E_Galatea_C:CyWeaponProjectClearLifeSpan_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.24"
+      },
+      "VariableGuid": "1111E24C-4790DA17-910132A8-30A2F8B3",
+      "InternalVariableName": "CyWeaponProjectClearLifeSpan"
+    }
+  },
+  {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
@@ -807,18 +856,26 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon_E_Galatea_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_E_Galatea_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.31"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon_E_Galatea_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_E_Galatea_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.31"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon_E_Galatea_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.28"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/E/Weapon/Weapon_E_Galatea.29"
       }
     }
   }

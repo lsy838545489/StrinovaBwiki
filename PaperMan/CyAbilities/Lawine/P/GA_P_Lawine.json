@@ -23,13 +23,19 @@
   {
     "Type": "GA_P_Lawine_C",
     "Name": "Default__GA_P_Lawine_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Lawine/P/GA_P_Lawine.GA_P_Lawine_C'",
     "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveEffects_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/P/BP_GAGiveEffects.0"
+        }
+      ],
       "TriggerEvents": [
         {
           "Key": {
-            "TagName": "Event.CauseDamage.PlayerWeapon.Primary"
+            "TagName": "Event.CauseDamageByWeapon.Gun"
           },
           "Value": {
             "CheckAtoms": [],
@@ -39,9 +45,7 @@
               "RequireAnyTags": [],
               "IgnoreAllTags": [],
               "RequireTags": [],
-              "IgnoreTags": [
-                "State.Arousal.One"
-              ]
+              "IgnoreTags": []
             },
             "BothAtomsForActive": [],
             "BothAtomsForNoActive": [],
@@ -55,49 +59,7 @@
               }
             ],
             "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'TriggerIngameVoice_P_Lawine_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/P/TriggerIngameVoice_P_Lawine.0"
-              }
-            ],
-            "LocallyAtomsForInstance": []
-          }
-        },
-        {
-          "Key": {
-            "TagName": "Event.CauseDamage"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [
-                "State.Arousal.One"
-              ],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'TriggerAddEffects_P_Lawine_ArousalOne_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/ArousalOne/TriggerAddEffects_P_Lawine_ArousalOne.0"
-              }
-            ],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'TriggerIngameVoice_P_Lawine_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/P/TriggerIngameVoice_P_Lawine.0"
-              }
-            ],
+            "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
           }
         }
