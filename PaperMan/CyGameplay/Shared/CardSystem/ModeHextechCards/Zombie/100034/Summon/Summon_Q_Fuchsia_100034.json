@@ -4,10 +4,11 @@
     "Name": "Summon_Q_Fuchsia_100034_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
       }
     },
     "SuperStruct": {
@@ -15,6 +16,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateMonitor_EntryWork",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CySceneMapFushciaQ",
@@ -176,17 +188,18 @@
     "Name": "Default__Summon_Q_Fuchsia_100034_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.Summon_Q_Fuchsia_100034_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034",
     "Properties": {
       "UnWorkingStateSet": [
         "EAIStateType::Entry"
       ],
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_Q_Fuchsia_100034_C:ArousalComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.9"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.10"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_Q_Fuchsia_100034_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.14"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.15"
       },
       "bReplicates": true
     }
@@ -225,32 +238,6 @@
       "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.0"
     },
     "Properties": {
-      "Events": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 0.5,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_AttachToHand_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/Q/Summon/BP_SAtom_AttachToHand.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        },
-        {
-          "PositionStart": 0.5,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_AttachToFace_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/Q/Summon/BP_SAtom_AttachToFace.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        }
-      ],
       "AssetEvents": [
         {
           "PositionStart": 1.0,
@@ -400,6 +387,48 @@
     }
   },
   {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIStateMonitor_EntryWork_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_Fuchsia_100034_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::Entry",
+        "EAIStateType::Work"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_AttachToFace_IsNora_100034_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/BP_SA_AttachToFace_IsNora_100034.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_AttachToFace_NotNora_100034_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/BP_SA_AttachToFace_NotNora_100034.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
     "Type": "CyAIWorkState",
     "Name": "CyAIWorkState_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
@@ -410,18 +439,6 @@
     },
     "Properties": {
       "Events": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_AttachToFace_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/Q/Summon/BP_SAtom_AttachToFace.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
@@ -688,7 +705,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -697,16 +714,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_Q_Fuchsia_100034_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.15"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.16"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.17"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.18"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.27"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
         }
       ],
       "VariableGuid": "E60C2103-4E9D4235-443323AF-7B1D1D7F",
@@ -720,7 +737,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -729,7 +746,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Summon_Q_Fuchsia_100034_C:MainSkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.30"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.32"
       },
       "VariableGuid": "8F1AE130-4E6BF2ED-B004BCA9-66FDF4D5",
       "InternalVariableName": "MainSkeletalMesh"
@@ -742,7 +759,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -751,7 +768,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_Q_Fuchsia_100034_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.8"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.9"
       },
       "VariableGuid": "EC9C8D1A-471D027C-0C3B8FB7-101F11C1",
       "InternalVariableName": "CyAIWorkState"
@@ -764,7 +781,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -786,7 +803,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -808,7 +825,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -817,10 +834,32 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySceneMapSummonMaskComponent'Summon_Q_Fuchsia_100034_C:CySceneMapFushciaQ_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.11"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.12"
       },
       "VariableGuid": "4CDB01D6-4F0E3652-5C34A287-0AC71EB4",
       "InternalVariableName": "CySceneMapFushciaQ"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'Summon_Q_Fuchsia_100034_C:CyAIStateMonitor_EntryWork_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.8"
+      },
+      "VariableGuid": "CC5C87AC-45464E66-6BDE91BF-64C5D5D1",
+      "InternalVariableName": "CyAIStateMonitor_EntryWork"
     }
   },
   {
@@ -830,7 +869,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -839,7 +878,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_Q_Fuchsia_100034_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.13"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.14"
       },
       "VariableGuid": "80088088-4B11BFF1-FE24418C-F667BA98",
       "InternalVariableName": "CySkin"
@@ -852,7 +891,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -861,7 +900,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Summon_Q_Fuchsia_100034_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.12"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.13"
       },
       "VariableGuid": "BD5539EA-4BA453E6-8B6B4198-1F052DFB",
       "InternalVariableName": "CySearchTargets"
@@ -874,7 +913,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -896,7 +935,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -905,7 +944,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_Q_Fuchsia_100034_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.10"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.11"
       },
       "VariableGuid": "FA84B30F-4FF47BCB-E770FDB3-F2BC677C",
       "InternalVariableName": "CyRetain"
@@ -918,7 +957,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -940,7 +979,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -962,7 +1001,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -990,106 +1029,114 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.16"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.17"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.22"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.26"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.28"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.18"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.20"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_5'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.24"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.25"
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.28"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.23"
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.30"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_10'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.19"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_12'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.21"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.20"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.22"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.23"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.16"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.17"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.22"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.26"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.28"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.18"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.20"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.24"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.25"
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.28"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.23"
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.30"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_10'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.19"
         },
         {
-          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.21"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_6'",
           "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.27"
         },
         {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.20"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.29"
+        },
+        {
           "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.21"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.22"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.23"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_Q_Fuchsia_100034_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.16"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100034/Summon/Summon_Q_Fuchsia_100034.17"
       }
     }
   },

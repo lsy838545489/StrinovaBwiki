@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_ICon_A3Rm_Mara_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Mara/Remake/ArousalThree/GE_Config/GE_ICon_A3Rm_Mara",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_ICon_A3Rm_Mara_C'Default__GE_ICon_A3Rm_Mara_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Remake/ArousalThree/GE_Config/GE_ICon_A3Rm_Mara.1"
+    }
+  },
+  {
+    "Type": "GE_ICon_A3Rm_Mara_C",
+    "Name": "Default__GE_ICon_A3Rm_Mara_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Mara/Remake/ArousalThree/GE_Config/GE_ICon_A3Rm_Mara.GE_ICon_A3Rm_Mara_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Mara/Remake/ArousalThree/GE_Config/GE_ICon_A3Rm_Mara",
+    "Properties": {
+      "BuffType": "ECyBuffType::Strong",
+      "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+            },
+            "RowName": "Duration.HPReduce.ArousalTree.Mara"
+          }
+        }
+      },
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "Buff.RemoveOnPlayerRestart",
+          "BuffIcon.Weak.A3Rm.Mara.IsBleeding"
+        ],
+        "Added": [
+          "Buff.RemoveOnPlayerRestart",
+          "BuffIcon.Weak.A3Rm.Mara.IsBleeding"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "State.Health.Injured"
+        ]
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateBySource",
+      "StackLimitCount": 1
+    }
+  }
+]

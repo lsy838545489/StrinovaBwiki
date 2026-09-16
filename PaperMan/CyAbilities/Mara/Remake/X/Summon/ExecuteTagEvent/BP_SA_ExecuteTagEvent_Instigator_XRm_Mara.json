@@ -1,0 +1,100 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SA_ExecuteTagEvent_Instigator_XRm_Mara_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Mara/Remake/X/Summon/ExecuteTagEvent/BP_SA_ExecuteTagEvent_Instigator_XRm_Mara",
+    "SuperStruct": {
+      "ObjectName": "Class'CySAtomExecuteGameplayTagEvent'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SA_ExecuteTagEvent_Instigator_XRm_Mara_C'Default__BP_SA_ExecuteTagEvent_Instigator_XRm_Mara_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Remake/X/Summon/ExecuteTagEvent/BP_SA_ExecuteTagEvent_Instigator_XRm_Mara.1"
+    }
+  },
+  {
+    "Type": "BP_SA_ExecuteTagEvent_Instigator_XRm_Mara_C",
+    "Name": "Default__BP_SA_ExecuteTagEvent_Instigator_XRm_Mara_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Mara/Remake/X/Summon/ExecuteTagEvent/BP_SA_ExecuteTagEvent_Instigator_XRm_Mara.BP_SA_ExecuteTagEvent_Instigator_XRm_Mara_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Mara/Remake/X/Summon/ExecuteTagEvent/BP_SA_ExecuteTagEvent_Instigator_XRm_Mara",
+    "Properties": {
+      "TargetType": "ETargetSourceType::Instigator",
+      "bCheckTargetStillSameOnTagChanged": true,
+      "bTryToTriggerTagChangedOnRegisterAdd": true,
+      "TriggerTagEventMapInfoArray": [
+        {
+          "Key": {
+            "TagName": "Event.Death"
+          },
+          "Value": {
+            "ArrayInfo": [
+              {
+                "Dec": "施法者死亡召唤物进Death",
+                "StateCheckAtoms": [],
+                "CheckerType": "ERequireTagType::AND",
+                "TargetRequirements": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "InstantActions": [],
+                "bExecuteBegin": true,
+                "bExecuteEnd": false,
+                "StateAtoms": [
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SA_SummonGoToDeath_XRm_Mara_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Remake/X/Summon/GoToState/BP_SA_SummonGoToDeath_XRm_Mara.0"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Skill.Mara.XRm.InstigatorRemoveXStrongBuff"
+          },
+          "Value": {
+            "ArrayInfo": [
+              {
+                "Dec": "死神来了Buff移除，召唤物进Death",
+                "StateCheckAtoms": [],
+                "CheckerType": "ERequireTagType::AND",
+                "TargetRequirements": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "InstantActions": [],
+                "bExecuteBegin": true,
+                "bExecuteEnd": false,
+                "StateAtoms": [
+                  {
+                    "ObjectName": "BlueprintGeneratedClass'BP_SA_SummonGoToDeath_XRm_Mara_C'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Mara/Remake/X/Summon/GoToState/BP_SA_SummonGoToDeath_XRm_Mara.0"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

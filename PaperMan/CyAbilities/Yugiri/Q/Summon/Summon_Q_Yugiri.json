@@ -4,6 +4,7 @@
     "Name": "Summon_Q_Yugiri_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/Summon_Q_Yugiri",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_Q_Yugiri_C:SimpleConstructionScript_0'",
@@ -319,6 +320,7 @@
     "Name": "Default__Summon_Q_Yugiri_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/Summon_Q_Yugiri.Summon_Q_Yugiri_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yugiri/Q/Summon/Summon_Q_Yugiri",
     "Properties": {
       "OwnerAbilityTag": {
         "TagName": "GA.Ability.SkillQ.Yugiri"
@@ -999,7 +1001,10 @@
       ],
       "LooseGameplayTags": [
         "State.Summon.Entry"
-      ]
+      ],
+      "TotalDuration": {
+        "Value": 0.5
+      }
     }
   },
   {
@@ -1625,7 +1630,10 @@
       ],
       "LooseGameplayTags": [
         "State.Summon.Work.First"
-      ]
+      ],
+      "TotalDuration": {
+        "Value": 0.5
+      }
     }
   },
   {
@@ -1677,7 +1685,7 @@
       "ActorGroupInstance": {
         "ActorGroupChannel": {
           "bOverrideResponse": true,
-          "OverrideEnemyResponse": "ECyGR_Ignore"
+          "OverrideEnemyResponse": "ECyGroupResponse::ECyGR_Ignore"
         }
       },
       "bRegisterVisibleBlockActor": true,
@@ -2750,6 +2758,10 @@
             {
               "Channel": "Summon",
               "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BulletRadius",
+              "Response": "ECR_Block"
             }
           ]
         }

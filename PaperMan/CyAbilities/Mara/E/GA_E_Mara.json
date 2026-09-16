@@ -4,6 +4,7 @@
     "Name": "GA_E_Mara_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Mara/E/GA_E_Mara",
     "SuperStruct": {
       "ObjectName": "Class'CyBaseAbility'",
       "ObjectPath": "/Script/PMGame"
@@ -23,8 +24,9 @@
   {
     "Type": "GA_E_Mara_C",
     "Name": "Default__GA_E_Mara_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Mara/E/GA_E_Mara.GA_E_Mara_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Mara/E/GA_E_Mara",
     "Properties": {
       "bCheckWeaponActive": false,
       "SummonActorTag": {
@@ -275,10 +277,24 @@
       },
       "SlotType": "EWeaponSlotTypes::WeaponSlot_E",
       "MagnitudeRemainPoints": {
-        "Value": 1.0
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.EPoints.Set.E.Mara"
+        }
       },
       "MagnitudeMaxPoints": {
-        "Value": 1.0
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.EPointsMax.Set.E.Mara"
+        }
       },
       "AttributeRemainPoints": {
         "AttributeName": "EPoints",
@@ -313,6 +329,7 @@
         }
       },
       "RemainPointEndType": "EPointRemainType::None",
+      "CommitCDMask": 32,
       "CommitCostMask": 0,
       "CommitCostEventTags": [
         "Event.ConsumePlayerSkill.E"
