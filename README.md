@@ -8,7 +8,7 @@
 
 | 分支名称 | 用途说明 | 主要包含内容 |
 | :--- | :--- | :--- |
-| **`main`** | **仓库说明与导航（当前分支）** | README、协作规范、数据字典、Issue模板 |
+| **`main`** | **仓库说明与导航（当前分支）** | WIKI模板、WIKI模块、README |
 | **`ExportScripts`** | 本地数据导出脚本 | 用于从游戏客户端提取原始数据的 Python/Node 脚本 |
 | **`GameOrganizeData`** | 游戏整理数据 | 将源数据清洗、格式化后的整理数据 |
 | **`GameSourceData/CN`** | 国服（CN）游戏源数据 | 国服解包 JSON/CSV/Lua 等原始数据 |
