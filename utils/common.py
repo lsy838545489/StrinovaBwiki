@@ -8,9 +8,29 @@ import rookiepy
 import shutil
 from datetime import datetime
 
-# 设置项目根目录
-PROJECT_ROOT = r"Z:\Gitee\StrinovaBwikiScript"  # 使用原始字符串以防止转义字符问题
-os.chdir(PROJECT_ROOT)  # 更改当前工作目录为项目根目录
+# ================= 路径配置 =================
+
+# 1. 获取当前脚本（common.py）所在的绝对路径，即 ExportScripts 目录
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# 2. 项目根目录（即 ExportScripts）
+PROJECT_ROOT = SCRIPT_DIR
+
+# 3. 项目最外层根目录（StrinovaBwiki）
+WIKI_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT, ".."))
+
+# 4. 数据组织目录（GameOrganizeData）
+DATA_ROOT = os.path.join(WIKI_ROOT, "GameOrganizeData")
+
+# 切换到项目根目录
+os.chdir(PROJECT_ROOT)
+sys.path.append(PROJECT_ROOT)
+
+# 5. 源数据路径，基于 WIKI_ROOT 拼接
+DEFAULT_FOLDERS = [
+    os.path.join(WIKI_ROOT, "GameSourceDataCN", "PaperMan", "CSV"),
+    os.path.join(WIKI_ROOT, "GameSourceDataCN", "PaperMan", "CyTable", "StringTable"),
+]
 
 # 导入所需模块
 sys.path.append(PROJECT_ROOT)
@@ -167,11 +187,6 @@ id_to_Quality_name = {
     6: "私服",
     8: "臻藏",
 }
-
-DEFAULT_FOLDERS = [
-    r"Z:\Gitee\CN\PaperMan\CSV\\",
-    r"Z:\Gitee\CN\PaperMan\CyTable\StringTable\\",
-]
 
 
 def wiki_login():
@@ -340,8 +355,8 @@ def save_and_diff_data(file_name, new_data, id_key="id"):
     """
     保存数据并对比增量，增量数据仅导出 Lua 表文件喵！
     """
-    data_dir = os.path.join(PROJECT_ROOT, "data")
-    data_old_dir = os.path.join(PROJECT_ROOT, "data_old")
+    data_dir = os.path.join(DATA_ROOT, "data")
+    data_old_dir = os.path.join(DATA_ROOT, "data_old")
 
     os.makedirs(data_dir, exist_ok=True)
     os.makedirs(data_old_dir, exist_ok=True)
@@ -454,33 +469,24 @@ def extract_added_by_id(old_data, new_data, id_key="id"):
 def backup_existing_file(filePath):
     """
     备份逻辑：只移动指定的目标文件到 data_old 目录喵！
-    若 data_old 目录已存在同名文件，将直接进行覆盖喵。
-    :param filePath: 要检查的单文件完整路径 (例如 PROJECT_ROOT/data/ProfileData.json)
-    :return: bool 是否处理成功
     """
-    # 1. 如果文件不存在，说明是第一次生成，无需备份喵
     if not os.path.exists(filePath):
         return True
 
-    # 2. 安全防御：严格限制必须是【普通文件】，防止误把整个 data 目录移走喵！
     if not os.path.isfile(filePath):
         print(f"警告：备份路径 {filePath} 不是单个文件（可能是目录），已拦截操作以防破坏数据喵！")
         return False
 
     try:
-        # 3. 确保脚本根目录下的 data_old 目录存在
-        backupDir = os.path.join(PROJECT_ROOT, "data_old")
+        backupDir = os.path.join(DATA_ROOT, "data_old")
         os.makedirs(backupDir, exist_ok=True)
 
-        # 4. 只提取当前这一个文件的文件名 (例如 "ProfileData.json")
         fileName = os.path.basename(filePath)
         backupPath = os.path.join(backupDir, fileName)
 
-        # 5. 只移动这单份旧文件到 data_old 目录喵
         os.replace(filePath, backupPath)
-        print(f"检测到旧文件，已单独将 {fileName} 移动并覆盖至 data_old/{fileName} 喵！")
+        print(f"检测到旧文件，已单独将 {fileName} 移动并覆盖至 GameOrganizeData/data_old/{fileName} 喵！")
         return True
-
     except Exception as e:
         print(f"移动备份文件 {filePath} 到 data_old 失败了喵！错误信息: {e}")
         return False
@@ -488,12 +494,8 @@ def backup_existing_file(filePath):
 def save_data_file(fileName, data, fileType="json"):
     """
     通用导出与备份函数喵！
-    :param fileName: 不带扩展名的文件名 (如 "ProfileData")
-    :param data: 要保存的数据。如果是 json 类型则传入字典/列表，如果是 lua 类型则传入格式化好的字符串
-    :param fileType: 'json' 或 'lua'
-    :return: bool 是否成功保存
     """
-    outputDir = os.path.join(PROJECT_ROOT, "data")
+    outputDir = os.path.join(DATA_ROOT, "data")
     os.makedirs(outputDir, exist_ok=True)
 
     fileExt = ".json" if fileType.lower() == "json" else ".lua"

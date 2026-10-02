@@ -8,13 +8,29 @@ import rookiepy
 import shutil
 from datetime import datetime
 
-# 设置项目根目录
-PROJECT_ROOT = r"Z:\Gitee\StrinovaBwikiScript"  # 使用原始字符串以防止转义字符问题
-os.chdir(PROJECT_ROOT)  # 更改当前工作目录为项目根目录
+# ================= 路径配置 =================
+# 1. 获取当前脚本（common_mobile.py）所在的绝对路径，即 ExportScripts 目录
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# 导入所需模块
+# 2. 项目根目录（即 ExportScripts）
+PROJECT_ROOT = SCRIPT_DIR
+
+# 3. 项目最外层根目录（StrinovaBwiki）
+WIKI_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT, ".."))
+
+# 4. 数据组织目录（GameOrganizeData）
+DATA_ROOT = os.path.join(WIKI_ROOT, "GameOrganizeData")
+
+# 切换到项目根目录
+os.chdir(PROJECT_ROOT)
 sys.path.append(PROJECT_ROOT)
 
+DEFAULT_FOLDERS = [
+    os.path.join(WIKI_ROOT, "GameSourceDataMobile", "PaperMan", "CSV", "Mobile"),
+    os.path.join(WIKI_ROOT, "GameSourceDataMobile", "PaperMan", "CSV", "ChannelCfgRedirect", "Mobile"),
+    os.path.join(WIKI_ROOT, "GameSourceDataMobile", "PaperMan", "CyTable", "StringTable"),
+    os.path.join(WIKI_ROOT, "GameSourceDataMobile", "PaperMan", "CSV"),
+]
 
 # 角色ID和角色名的映射
 id_to_Role_name = {
@@ -126,13 +142,6 @@ id_to_Weapon_name = {
     "M1887": "潮音",
     "P90": "雨晦",
 }
-
-DEFAULT_FOLDERS = [
-    "Z:\\Gitee\\Mobile\\PaperMan\\CSV\\Mobile",
-    "Z:\\Gitee\\Mobile\\PaperMan\\CSV\\ChannelCfgRedirect\\Mobile",
-    "Z:\\Gitee\\Mobile\\PaperMan\\CyTable\\StringTable",
-    "Z:\\Gitee\\Mobile\\PaperMan\\CSV"
-]
 
 def wiki_login():
     site = mwclient.Site("wiki.biligame.com", path="/klbq/")
@@ -300,8 +309,8 @@ def save_and_diff_data(file_name, new_data, id_key="id"):
     """
     保存数据并对比增量，增量数据仅导出 Lua 表文件喵！
     """
-    data_dir = os.path.join(PROJECT_ROOT, "data_mobile")
-    data_old_dir = os.path.join(PROJECT_ROOT, "data_old_mobile")
+    data_dir = os.path.join(DATA_ROOT, "data_mobile")
+    data_old_dir = os.path.join(DATA_ROOT, "data_old_mobile")
 
     os.makedirs(data_dir, exist_ok=True)
     os.makedirs(data_old_dir, exist_ok=True)
@@ -429,7 +438,7 @@ def backup_existing_file(filePath):
 
     try:
         # 3. 确保脚本根目录下的 data_old_mobile 目录存在
-        backupDir = os.path.join(PROJECT_ROOT, "data_old_mobile")
+        backupDir = os.path.join(DATA_ROOT, "data_old_mobile")
         os.makedirs(backupDir, exist_ok=True)
 
         # 4. 只提取当前这一个文件的文件名 (例如 "ProfileData.json")
