@@ -1,0 +1,142 @@
+<div class="fl-wrapper">
+<div class="fl-item">
+<div class="fl-logo-wrapper">[[文件:灰烬战线LOGO.png|48px|link=https://wiki.biligame.com/hjzx]]</div>
+<div class="fl-info">
+<span class="fl-title">{{a|https://wiki.biligame.com/hjzx|灰烬战线WIKI}}</span>
+<span class="fl-desc">“期盼每个编辑者恪尽职守。”</span>
+</div>
+</div>
+<div class="fl-item">
+<div class="fl-logo-wrapper">[[文件:战争雷霆LOGO.png|48px|link=https://wiki.biligame.com/warthunder]]</div>
+<div class="fl-info">
+<span class="fl-title">{{a|https://wiki.biligame.com/warthunder|战争雷霆WIKI}}</span>
+<span class="fl-desc">安东星兵科所是为玩家们方便查阅数据和攻略而建立的反科学兵工研究院，我们努力记录关于战争雷霆的一切。</span>
+</div>
+</div>
+<div class="fl-item">
+<div class="fl-logo-wrapper">[[文件:Crosscore.png|48px|link=https://wiki.biligame.com/crosscore]]</div>
+<div class="fl-info">
+<span class="fl-title">{{a|https://wiki.biligame.com/crosscore|交错战线WIKI}}</span>
+<span class="fl-desc">本调查组秉持以总队长为本，人人都能轻松上手为愿景。来嘛，让我看看你游戏水平，设计思路和代码水准正不正常啊❤~</span>
+</div>
+</div>
+<div class="fl-item">
+<div class="fl-logo-wrapper">[[文件:生死狙击2.png|48px|link=https://wiki.biligame.com/ssjj2]]</div>
+<div class="fl-info">
+<span class="fl-title">{{a|https://wiki.biligame.com/ssjj2|生死狙击2WIKI}}</span>
+<span class="fl-desc">零界资料站，为《生死狙击2》玩家准备的高效、全面的游戏百科全书，旨在提供比官方更细致、更实用的游戏信息。</span>
+</div>
+</div>
+<div class="fl-item">
+<div class="fl-logo-wrapper">[[文件:VLRT ICON.jpg|48px|link=https://wiki.biligame.com/valorant]]</div>
+<div class="fl-info">
+<span class="fl-title">{{a|https://wiki.biligame.com/valorant|无畏契约WIKI}}</span>
+<span class="fl-desc">BWIKI无畏源能编辑组的宗旨是用文字记录无畏契约的一切，努力创建全网具有突出影响力的中文游戏资讯站。</span>
+</div>
+</div>
+</div>
+<noinclude>[[分类:首页模板]]</noinclude>
+<bstyle>/*<pre>*/
+.fl-wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 12px;
+	margin-bottom: 16px;
+}
+.fl-item {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 12px 14px;
+	background: rgba(248, 249, 250, 0.9);
+	border: 1px solid rgba(147, 197, 253, 0.3);
+	border-radius: 16px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+	backdrop-filter: blur(4px);
+	transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fl-item:hover, .fl-item:focus {
+  	transform: translateY(-3px) translateZ(0);
+  	background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(224, 242, 254, 0.8));
+  	border-color: rgba(147, 197, 253, 0.8);
+  	box-shadow: 0 6px 16px rgba(96, 165, 250, 0.2);
+  }
+}
+.fl-logo-wrapper {
+	flex-shrink: 0;
+	width: 48px;
+	height: 48px;
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.06);
+	padding: 2px;
+	transform: scale(1) rotate(0deg) translateZ(0);
+	backface-visibility: hidden;
+	transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+	position: relative;
+	z-index: 2;
+	overflow: hidden;
+}
+.fl-logo-wrapper img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border-radius: 10px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fl-item:hover .fl-logo-wrapper {
+  	transform: scale(1.08) rotate(5deg) translateZ(0);
+  }
+}
+.fl-info {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	flex-grow: 1;
+	min-width: 0; 
+	padding-top: 2px;
+}
+.fl-title {
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.3;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.fl-title a {
+	color: #475569;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fl-item:hover .fl-title a {
+  	color: #3b82f6;
+  }
+}
+.fl-desc {
+	font-size: 12px;
+	color: #94a3b8;
+	line-height: 1.5;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-word;
+}
+.fl-title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+/*</pre>*/</bstyle>

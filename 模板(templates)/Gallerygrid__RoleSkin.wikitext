@@ -1,0 +1,150 @@
+<includeonly><div class="gallerygrid-item klbq-skin-card" data-param1="{{{角色|}}}" data-param2="{{{稀有度|}}}" data-param3="{{{获得方式数据|}}}" data-param4="{{{巴布洛晶核数据|}}}" data-param5="{{{基弦数据|}}}">
+<div class="klbq-skin-card__imagebox">{{{时装图片|}}}</div>
+<div class="klbq-skin-card__captionbox">
+<div class="klbq-skin-card__name">{{{角色|}}}：{{{时装名称|}}}</div>
+<div class="klbq-skin-card__stats">
+<div class="klbq-skin-card__stat"><span class="klbq-skin-card__label">稀有度：</span><span class="klbq-skin-card__value card-item-value">{{{稀有度标签|}}}</span></div>
+<div class="klbq-skin-card__stat"><span class="klbq-skin-card__label">获得方式：</span><span class="klbq-skin-card__value card-item-value">{{{获得方式|}}}</span></div>
+<div class="klbq-skin-card__stat"><span class="klbq-skin-card__label">巴布洛晶核：</span><span class="klbq-skin-card__value card-item-value">{{{巴布洛晶核}}}</span></div>
+<div class="klbq-skin-card__stat"><span class="klbq-skin-card__label">基弦：</span><span class="klbq-skin-card__value card-item-value">{{{基弦}}}</span></div>
+</div>
+<div class="klbq-skin-card__desc"><span class="klbq-skin-card__label">简介：</span><span class="klbq-skin-card__value">{{{简介}}}</span></div>
+{{#if:{{{备注|}}}|<div class="klbq-skin-card__remark"><span class="klbq-skin-card__label">备注：</span><span class="klbq-skin-card__value">{{{备注}}}</span></div>}}
+</div>
+</div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
+{{#if:{{#varexists:role-skin-gallery-grid-CSS}} || {{#vardefine:role-skin-gallery-grid-CSS | 1 }}<bstyle>/*<pre>*/
+.gallerygrid { /* 容器基础排版 */
+    display: grid;
+    grid-gap: 1.5rem 1rem;
+    --gallerygrid-fit: contain;
+    justify-content: center;
+    padding: 10px;
+}
+@media (min-width: 320px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
+}
+@media (min-width: 768px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 320px); }
+}
+.gallerygrid-item { /* 子项高度撑满 */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* --- 角色皮肤卡片 Block --- */
+.klbq-skin-card {
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 16px;
+    border: 1.5px solid rgba(226, 232, 240, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 动态品质边框与辉光 */
+.klbq-skin-card[data-param2="5"], .klbq-skin-card[data-param2="6"] { border-color: var(--item-quality-Legendary, #f85555); box-shadow: 0 4px 12px rgba(248, 85, 85, 0.12); }
+.klbq-skin-card[data-param2="4"] { border-color: var(--item-quality-Perfect, #ffc555); box-shadow: 0 4px 12px rgba(255, 197, 85, 0.12); }
+.klbq-skin-card[data-param2="3"] { border-color: var(--item-quality-Superior, #f285ff); box-shadow: 0 4px 12px rgba(242, 133, 255, 0.12); }
+.klbq-skin-card[data-param2="2"] { border-color: var(--item-quality-Exquisite, #60a3f7); box-shadow: 0 4px 12px rgba(242, 133, 255, 0.12); }
+
+/* --- 头部皮肤展示区 --- */
+.klbq-skin-card__imagebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 8px 8px 8px;
+    background: linear-gradient(180deg, rgba(160, 207, 255, 0.12) 0%, rgba(160, 207, 255, 0.02) 100%);
+    border-radius: 14px 14px 0 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- 内容信息区（纵向流式排版） --- */
+.klbq-skin-card__captionbox {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 10px 12px 10px;
+    color: #475569;
+    flex-grow: 1;
+}
+
+.klbq-skin-card__name {
+    color: #334155;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-align: center;
+    padding: 6px 0;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, transparent, rgba(160, 207, 255, 0.2), transparent);
+    border-bottom: 1px dashed rgba(160, 207, 255, 0.5);
+}
+
+.klbq-skin-card__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(160, 207, 255, 0.2);
+    margin-bottom: 8px;
+}
+
+.klbq-skin-card__stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 4px;
+    font-size: 0.825rem;
+}
+
+.klbq-skin-card__desc, .klbq-skin-card__remark {
+    display: flex;
+    flex-direction: column;
+    padding: 6px 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(160, 207, 255, 0.2);
+    margin-bottom: 6px;
+    font-size: 0.825rem;
+    line-height: 1.4;
+}
+
+.klbq-skin-card__label { color: #64748b; font-size: 11px; margin-bottom: 2px; }
+.klbq-skin-card__value { color: #00acc1; font-weight: 700; }
+.klbq-skin-card__desc .klbq-skin-card__value, .klbq-skin-card__remark .klbq-skin-card__value { color: #334155; font-weight: normal; }
+
+/* --- 暗色模式适配 (Dark Mode) --- */
+.client-js.wiki-dark-mode .klbq-skin-card {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.client-js.wiki-dark-mode .klbq-skin-card__imagebox {
+    background: linear-gradient(180deg, rgba(14, 165, 233, 0.15) 0%, rgba(14, 165, 233, 0.02) 100%);
+}
+
+.client-js.wiki-dark-mode .klbq-skin-card__name {
+    color: var(--wiki-dark-text, #f1f5f9);
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.25), transparent);
+    border-bottom-color: rgba(14, 165, 233, 0.4);
+}
+
+.client-js.wiki-dark-mode .klbq-skin-card__stats,
+.client-js.wiki-dark-mode .klbq-skin-card__desc,
+.client-js.wiki-dark-mode .klbq-skin-card__remark {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(14, 165, 233, 0.2);
+}
+
+.client-js.wiki-dark-mode .klbq-skin-card__label { color: #94a3b8; }
+.client-js.wiki-dark-mode .klbq-skin-card__value { color: var(--wiki-dark-accent, #38bdf8); }
+.client-js.wiki-dark-mode .klbq-skin-card__desc .klbq-skin-card__value,
+.client-js.wiki-dark-mode .klbq-skin-card__remark .klbq-skin-card__value { color: var(--wiki-dark-text, #f1f5f9); }
+/*</pre>*/</bstyle>}}

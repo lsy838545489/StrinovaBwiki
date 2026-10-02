@@ -1,0 +1,145 @@
+<includeonly><div class="gallerygrid-item klbq-weapon-card">
+<div class="klbq-weapon-card__imagebox">[[文件:武器-{{{1|}}}.png|180px|link={{{1|}}}]]</div>
+<div class="klbq-weapon-card__captionbox">
+<div class="klbq-weapon-card__name">[[{{{1|}}}]]</div>
+<div class="klbq-weapon-card__desc"><span class="klbq-weapon-card__label">武器介绍：</span><span class="klbq-weapon-card__value">{{{武器介绍|}}}</span></div>
+</div></div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
+{{#if:{{#varexists:klbq-weapon-card-CSS}} || {{#vardefine:klbq-weapon-card-CSS | 1 }}<bstyle>/*<pre>*/
+/* --- 武器卡片 Block --- */
+.gallerygrid { /* 容器基础排版 */
+    display: grid;
+    grid-gap: 1.5rem 1rem;
+    --gallerygrid-fit: contain;
+    justify-content: center;
+    padding: 10px;
+}
+@media (min-width: 320px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
+}
+@media (min-width: 768px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 260px); }
+}
+.gallerygrid-item { /* 子项高度撑满 */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.klbq-weapon-card {
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 172, 193, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .klbq-weapon-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 172, 193, 0.18);
+        border-color: rgba(0, 172, 193, 0.5);
+        z-index: 2;
+    }
+}
+
+/* --- 武器图片展示区 (顶部战术青渐变) --- */
+.klbq-weapon-card__imagebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 8px 8px 8px;
+    background: linear-gradient(180deg, rgba(0, 172, 193, 0.1) 0%, rgba(0, 172, 193, 0) 100%);
+}
+
+.klbq-weapon-card__imagebox img {
+    object-position: center;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .klbq-weapon-card:hover .klbq-weapon-card__imagebox img {
+      transform: scale(1.05);
+  }
+}
+
+/* --- 内容信息区 --- */
+.klbq-weapon-card__captionbox {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 10px 12px 10px;
+    color: #475569;
+    flex-grow: 1;
+}
+
+.klbq-weapon-card__name {
+    color: #334155;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 6px 0;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, transparent, rgba(0, 172, 193, 0.15), transparent);
+    border-bottom: 1px dashed rgba(0, 172, 193, 0.4);
+}
+
+.klbq-weapon-card__desc {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 172, 193, 0.15);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.klbq-weapon-card__label {
+    color: #64748b;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.klbq-weapon-card__value {
+    color: #334155;
+}
+
+/* --- 暗色模式适配 (Dark Mode) --- */
+.client-js.wiki-dark-mode .klbq-weapon-card {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(14, 165, 233, 0.3);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .client-js.wiki-dark-mode .klbq-weapon-card:hover {
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+      border-color: rgba(14, 165, 233, 0.6);
+  }
+}
+
+.client-js.wiki-dark-mode .klbq-weapon-card__imagebox {
+    background: linear-gradient(180deg, rgba(14, 165, 233, 0.12) 0%, rgba(15, 23, 42, 0) 100%);
+}
+
+.client-js.wiki-dark-mode .klbq-weapon-card__name {
+    color: var(--wiki-dark-text, #f1f5f9);
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.25), transparent);
+    border-bottom-color: rgba(14, 165, 233, 0.4);
+}
+
+.client-js.wiki-dark-mode .klbq-weapon-card__desc {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(14, 165, 233, 0.25);
+}
+
+.client-js.wiki-dark-mode .klbq-weapon-card__label { color: #94a3b8; }
+.client-js.wiki-dark-mode .klbq-weapon-card__value { color: var(--wiki-dark-text, #f1f5f9); }
+/*</pre>*/</bstyle>}}

@@ -1,0 +1,145 @@
+<includeonly><div class="klbq-event-card">
+<div class="klbq-event-card__imagebox">[[文件:{{{活动图片|}}}|300px|link={{{活动名|}}}]]</div>
+<div class="klbq-event-card__captionbox">
+<div class="klbq-event-card__title">[[{{{活动名|}}}]]</div>
+<div class="klbq-event-card__time-group">
+<div class="klbq-event-card__time-item"><span class="klbq-event-card__label">开始：</span><span class="klbq-event-card__value">{{#invoke:TimeNormalizer|to_chinese_time|{{{活动开始时间|}}}}}</span></div>
+<div class="klbq-event-card__time-item"><span class="klbq-event-card__label">结束：</span><span class="klbq-event-card__value">{{#replace: {{#invoke:TimeNormalizer|to_chinese_time|{{{活动结束时间|}}}}} | 未知 | 常驻 | 1 }}</span></div>
+</div>
+<div class="klbq-event-card__desc">{{{活动简介|}}}</div>
+</div>
+</div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
+{{#if:{{#varexists:klbq-event-card-css}} || {{#vardefine:klbq-event-card-css | 1 }}<bstyle>/*<pre>*/
+/* --- 活动汇总外层网格容器 --- */
+.klbq-event-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    .klbq-event-summary {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+/* --- 活动卡片 Block --- */
+.klbq-event-card {
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 16px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .klbq-event-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 172, 193, 0.18);
+        border-color: rgba(0, 172, 193, 0.5);
+    }
+}
+
+/* --- 图片展示区 (固定 16:9 比例) --- */
+.klbq-event-card__imagebox {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: rgba(160, 207, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.klbq-event-card__imagebox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- 内容信息区 --- */
+.klbq-event-card__captionbox {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 8px;
+}
+
+.klbq-event-card__title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #334155;
+    text-align: center;
+    padding-bottom: 6px;
+    background: linear-gradient(90deg, transparent, rgba(160, 207, 255, 0.2), transparent);
+    border-bottom: 1px dashed rgba(160, 207, 255, 0.5);
+}
+
+.klbq-event-card__time-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(160, 207, 255, 0.2);
+    font-size: 0.825rem;
+}
+
+.klbq-event-card__time-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.klbq-event-card__label { color: #64748b; font-size: 11px; }
+.klbq-event-card__value { color: #00acc1; font-weight: 700; }
+
+.klbq-event-card__desc {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.5;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(160, 207, 255, 0.15);
+}
+
+/* --- 暗色模式适配 (Dark Mode) --- */
+.client-js.wiki-dark-mode .klbq-event-card {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .client-js.wiki-dark-mode .klbq-event-card:hover {
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+      border-color: rgba(14, 165, 233, 0.6);
+  }
+}
+
+.client-js.wiki-dark-mode .klbq-event-card__title {
+    color: var(--wiki-dark-text, #f1f5f9);
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.25), transparent);
+    border-bottom-color: rgba(14, 165, 233, 0.4);
+}
+
+.client-js.wiki-dark-mode .klbq-event-card__time-group,
+.client-js.wiki-dark-mode .klbq-event-card__desc {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(14, 165, 233, 0.2);
+}
+
+.client-js.wiki-dark-mode .klbq-event-card__label { color: #94a3b8; }
+.client-js.wiki-dark-mode .klbq-event-card__value { color: var(--wiki-dark-accent, #38bdf8); }
+.client-js.wiki-dark-mode .klbq-event-card__desc { color: var(--wiki-dark-text, #f1f5f9); }
+/*</pre>*/</bstyle>}}

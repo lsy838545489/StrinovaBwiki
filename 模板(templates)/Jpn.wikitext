@@ -1,0 +1,41 @@
+<includeonly><!--
+if-->{{#if:{{{1|}}}<!--
+then-->|<!--
+  if-->{{#if:{{{2|}}}<!--
+  then-->|{{Ruby|{{{1|}}}<!--
+        -->|{{#invoke:String|replace|source={{{2|}}}|pattern='|replace=|plain=true}}<!--
+      -->|ja|ja}}<!--
+  else-->|{{lj|{{#invoke:String|replace|source={{{1|}}}|pattern='|replace=|plain=true}}}}<!--
+  fi-->}}<!--
+fi-->}}<!--
+if-->{{#if:{{{3|}}}<!--
+then-->|<nowiki> </nowiki><!--
+  if-->{{#switch:{{{4|}}}<!--
+  then-->|？|?|={{lj|{{#invoke:String|replace|source={{{3|}}}|pattern='|replace=|plain=true}}}}<!--
+  else-->|#default={{Ruby|{{{3|}}}<!--
+        -->|{{#invoke:String|replace|source={{{4|}}}|pattern='|replace=|plain=true}}<!--
+      -->|ja|ja}}<!--
+  fi-->}}<!--
+fi-->}}<!--
+if-->{{#if:{{{normj|}}}<!--
+then-->|<!--
+else-->|{{#if:{{{nobr|}}}|<nowiki> </nowiki>|<br />}}<!--
+    -->(<!--
+  if-->{{#switch:{{{romaji|{{{5|}}}}}}<!--
+  then-->|？|?|=<!--
+    if-->{{#if:{{{2|}}}<!--
+    then-->|{{tJa|{{{2|}}}}}<!--
+    else-->|{{tJa|{{{1|}}}}}<!--
+    fi-->}}<!--
+    if-->{{#if:{{{3|}}}<!--
+    then-->|<nowiki> </nowiki><!--
+      if-->{{#switch:{{{4|}}}<!--
+      then-->|？|?|={{tJa|{{{3|}}}}}<!--
+      else-->|#default={{tJa|{{{4|}}}}}<!--
+      fi-->}}<!--
+    fi-->}}<!--
+  else-->|#default={{{romaji|{{{5|}}}}}}<!--
+  fi-->}}<!--
+    -->)<!--
+fi-->}}<!--
+--></includeonly><noinclude>{{Lua|String}}{{Documentation}}</noinclude>

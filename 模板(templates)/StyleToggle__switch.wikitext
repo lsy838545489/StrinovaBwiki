@@ -1,0 +1,90 @@
+<includeonly>{{#vardefine:id|{{{1|styleToggle}}}}}<span class="klbq-style-toggle" style="{{{css|{{{style|}}}}}}">{{切换显示按钮|{{#var:id}}={{#var:id}}|{{#var:id}}-off={{#var:id}}-off|@radio=1|@default={{#var:id}}|@forceNoCancel=1}}{{切换显示|{{#var:id}}-off|2=<span class="klbq-style-toggle__track klbq-style-toggle__track--active"><span class="klbq-style-toggle__thumb"></span></span>}}{{切换显示|{{#var:id}}|2=<span class="klbq-style-toggle__track"><span class="klbq-style-toggle__thumb"></span></span>}}</span></includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>{{#if:{{#varexists:StyleToggle-switch-CSS}} || {{#vardefine:StyleToggle-switch-CSS | 1 }}<bstyle>/*<pre>*/
+/* --- 动画目标基础过渡 --- */
+.styleToggle-transform,
+.styleToggle-color,
+.styleToggle-opacity,
+.styleToggle-font-size,
+.styleToggle-font-weight,
+.styleToggle-width,
+.styleToggle-font-family,
+.styleToggle-display {
+	transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.textToggleDisplay.hidden + .styleToggle-transform {
+	transform: inherit !important;
+}
+.textToggleDisplay.hidden + .styleToggle-display {
+	display: inline !important;
+}
+/* --- BEM 化开关组件 (Block: klbq-style-toggle) --- */
+.klbq-style-toggle { /* 按钮交互外层容器 */
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	height: 24px;
+	vertical-align: middle;
+	user-select: none;
+}
+.klbq-style-toggle label { /* MediaWiki 逻辑切换点击层 */
+	display: inline-block;
+	width: 0;
+	height: 24px;
+	border: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	z-index: 2;
+	opacity: 0;
+}
+.klbq-style-toggle label:not(.on) { /* 未激活点击命中区域 */
+	cursor: pointer;
+	width: 42px;
+}
+.klbq-style-toggle input { /* 隐藏原生单选框 */
+	display: none;
+}
+/* 开关轨道 (Element: __track) */
+.klbq-style-toggle__track { /* 开关背景轨道 */
+	display: inline-flex;
+	align-items: center;
+	width: 42px;
+	height: 22px;
+	box-sizing: border-box;
+	border-radius: 12px;
+	background-color: rgba(148, 163, 184, 0.4);
+	border: 1px solid rgba(148, 163, 184, 0.5);
+	position: absolute;
+	left: 0;
+    top: 50%;
+	transform: translateY(-50%);
+	transition: all 0.25s ease;
+	padding: 2px;
+}
+.klbq-style-toggle__track--active { /* 激活状态轨道 Modifier */
+	background-color: #00acc1;
+	border-color: #00acc1;
+	box-shadow: 0 0 8px rgba(0, 172, 193, 0.4);
+	justify-content: flex-end;
+}
+/* 开关滑块 (Element: __thumb) */
+.klbq-style-toggle__thumb { /* 内部白色圆形滑块 */
+	display: block;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background-color: #ffffff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	transition: all 0.25s ease;
+}
+/* 暗色模式适配 */
+.client-js.wiki-dark-mode .klbq-style-toggle__track { /* 暗色模式未激活轨道 */
+	background-color: rgba(51, 65, 85, 0.8);
+	border-color: rgba(100, 116, 139, 0.5);
+}
+.client-js.wiki-dark-mode .klbq-style-toggle__track--active { /* 暗色模式激活轨道 */
+	background-color: #38bdf8;
+	border-color: #38bdf8;
+	box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+/*</pre>*/</bstyle>}}

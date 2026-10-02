@@ -1,0 +1,59 @@
+<noinclude>[[分类:模板]]{{活动进度/个|2024/12/26 6:00|2025/03/25 5:59|第9赛季 「隙间重构」}}</noinclude><includeonly>{{#vardefine:{{{3|}}}活动进度|{{#expr:({{#expr:{{#time:U|+8hours}}-{{#time:U|{{{1}}}}}}})/({{#expr:{{#time:U|{{{2}}}}}-{{#time:U|{{{1}}}}}}})*100 round 2}}}}<div class="klbq-event-card"><div class="klbq-event-card__info"><span class="klbq-event-card__title" title="{{{3|}}}">{{{3|}}}</span><span class="klbq-event-card__timer">{{活动计时||{{{1}}}|{{{2}}}}}</span></div><div class="klbq-event-card__progress-track"><div class="klbq-event-card__progress-fill" style="width: {{#ifexpr:{{#var:{{{3}}}活动进度}}<0|0|{{#ifexpr:{{#var:{{{3}}}活动进度}}>100|100|{{#var:{{{3}}}活动进度}}}}}}%;"></div></div></div></includeonly>
+{{#if:{{#varexists:klbq-event-card-css}} || {{#vardefine:klbq-event-card-css | 1 }}<bstyle>/*<pre>*/
+.klbq-event-card {
+    background: var(--wiki-content-bg, rgba(255,255,255,0.8));
+    border: 1px solid var(--wiki-border, rgba(59, 130, 246, 0.15));
+    border-radius: 6px;
+    padding: 8px 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .klbq-event-card:hover {
+      box-shadow: 0 4px 8px rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.4);
+  }
+}
+.klbq-event-card__info { /* BEM Elements: 卡片内部结构 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    white-space: nowrap;
+}
+.klbq-event-card__title {
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--wiki-text, #334155);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50%;
+}
+.klbq-event-card__timer {
+    font-size: 12px;
+}
+.klbq-event-card__timer .eventTimer { /* 强行覆盖你原有 EventTimer 的 margin */
+    margin: 0 !important; 
+    color: #C02A35;
+    font-weight: 500;
+}
+.klbq-event-card__progress-track { /* BEM Elements: 极细进度条组件 */
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.klbq-event-card__progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 2px;
+}
+.wiki-dark-mode .klbq-event-card { /* 适配暗色模式 */
+    background: rgba(30, 41, 59, 0.8);
+    border-color: rgba(255,255,255,0.1);
+}
+.wiki-dark-mode .klbq-event-card__progress-track { 
+    background: #334155; 
+}
+/*</pre>*/</bstyle>}}

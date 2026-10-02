@@ -1,0 +1,38 @@
+<includeonly><span class="badge rounded-pill quality-badge" data-quality="{{{1|初始}}}" style="font-size: {{{size|13px}}};">{{#switch: {{{1|}}} | 8| 臻藏 = <span style="display: none">8</span>臻藏 | 6 | 私服 = <span style="display: none">6</span>私服 | 5 |传说 = <span style="display: none">5</span>传说  | 4 | 完美 = <span style="display: none">4</span>完美 | 3 | 卓越 = <span style="display: none">3</span>卓越  | 2| 精致 = <span style="display: none">2</span>精致  | 1| 优秀 = <span style="display: none">1</span>优秀 | #default = <span style="display: none">0</span>初始 }}</span></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
+{{#if:{{#varexists:稀有度标签样式}} || {{#vardefine:稀有度标签样式 | 1 }}<bstyle>/*<pre>*/
+.quality-badge {
+	border-radius: 3px;
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 75%);
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 75%);
+    vertical-align: baseline;
+    color: var(--wiki-text);
+}
+.quality-badge[data-quality="臻藏"],
+.quality-badge[data-quality="私服"],
+.quality-badge[data-quality="8"],
+.quality-badge[data-quality="6"] {
+	background: var(--item-quality-Secret);
+}
+.quality-badge[data-quality="传说"],
+.quality-badge[data-quality="5"] {
+	background: var(--item-quality-Legendary);
+}
+.quality-badge[data-quality="完美"],
+.quality-badge[data-quality="4"] {
+	background: var(--item-quality-Perfect);
+}
+.quality-badge[data-quality="卓越"],
+.quality-badge[data-quality="3"] {
+	background: var(--item-quality-Superior);
+}
+.quality-badge[data-quality="精致"],
+.quality-badge[data-quality="2"] {
+	background: var(--item-quality-Exquisite);
+}
+.quality-badge[data-quality="优秀"],
+.quality-badge[data-quality="初始"],
+.quality-badge[data-quality="1"] {
+	color: #64748b;
+	background: var(--item-quality-Initial);
+}
+/*</pre>*/</bstyle>}}

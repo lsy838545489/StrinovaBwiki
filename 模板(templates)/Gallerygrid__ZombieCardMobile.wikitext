@@ -1,0 +1,226 @@
+<includeonly><div class="gallerygrid-item zombie-card-mobile" data-param1="{{{2|}}}" data-param2="{{{3|}}}" data-param3="{{{7|}}}">
+<div class="zombie-card-mobile__imagebox">[[{{{filename|}}}|200px|link=]]<div class="zombie-card-mobile__badges">{{#if:{{{2|}}}|<span class="zombie-card-mobile__badge zombie-card-mobile__badge--faction">{{{2|}}}</span>}}{{#if:{{{3|}}}|<span class="zombie-card-mobile__badge zombie-card-mobile__badge--category">{{{3|}}}</span>}}</div></div>
+<div class="zombie-card-mobile__captionbox">
+<div class="zombie-card-mobile__name">{{{1|}}}</div>
+<div class="zombie-card-mobile__stat"><span class="zombie-card-mobile__label">最大等级：</span><span class="zombie-card-mobile__value card-item-value">'''{{{4|}}}'''</span></div>
+<div class="zombie-card-mobile__desc"><span class="zombie-card-mobile__label">等级效果描述：</span><span class="zombie-card-mobile__value">{{{5|}}}</span></div>
+{{#if:{{{6|}}}|<div class="zombie-card-mobile__role"><span class="zombie-card-mobile__label">适用角色：</span><span class="zombie-card-mobile__value card-item-value">'''{{{6|}}}'''</span></div>}}
+</div>
+</div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
+{{#if:{{#varexists:gallery-grid-CSS}} || {{#vardefine:gallery-grid-CSS | 1 }}<bstyle>/*<pre>*/
+.gallerygrid { /* 容器基础排版 */
+    justify-content: center;
+    padding: 10px;
+}
+@media (min-width: 320px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 180px); }
+}
+@media (min-width: 768px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 200px); }
+}
+.gallerygrid-item { /* 子项高度撑满 */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.zombie-card-mobile { /* Block: zombie-card-mobile */
+    background: rgba(248, 249, 250, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative; 
+    z-index: 1;         
+    overflow: hidden;
+}
+.zombie-card-mobile[data-param3="4"] { /* 完美品质 */
+    border: 1.5px solid var(--item-quality-Perfect);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 0 16px -4px var(--item-quality-Perfect);
+}
+.zombie-card-mobile[data-param3="3"] { /* 卓越品质 */
+    border: 1.5px solid var(--item-quality-Superior);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 0 16px -4px var(--item-quality-Superior);
+}
+.zombie-card-mobile[data-param3="2"] { /* 精良品质 */
+    border: 1.5px solid var(--item-quality-Exquisite);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 0 16px -4px var(--item-quality-Exquisite);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .zombie-card-mobile:hover {
+        transform: none;
+        z-index: 2;
+    }
+    .zombie-card-mobile[data-param3="4"]:hover { 
+        border-color: #fff;
+        box-shadow: 0 0 5px #fff, 0 0 15px var(--item-quality-Perfect), 0 0 30px 2px var(--item-quality-Perfect);
+    }
+    .zombie-card-mobile[data-param3="3"]:hover { 
+        border-color: #fff;
+        box-shadow: 0 0 5px #fff, 0 0 15px var(--item-quality-Superior), 0 0 30px 2px var(--item-quality-Superior);
+    }
+    .zombie-card-mobile[data-param3="2"]:hover { 
+        border-color: #fff;
+        box-shadow: 0 0 5px #fff, 0 0 15px var(--item-quality-Exquisite), 0 0 30px 2px var(--item-quality-Exquisite);
+    }
+}
+
+.zombie-card-mobile__imagebox { /* Elements: Image Box & Badges */
+    position: relative; 
+    background: linear-gradient(180deg, rgba(160, 207, 255, 0.1) 0%, rgba(248, 249, 250, 0) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+.zombie-card-mobile__imagebox img { 
+    object-position: center;
+    object-fit: var(--gallerygrid-fit, contain);
+}
+
+.zombie-card-mobile__badges { 
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    z-index: 1;
+}
+.zombie-card-mobile__badge { 
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+.zombie-card-mobile__badge--faction { 
+    background: rgba(0, 172, 193, 0.1);
+    color: #00acc1;
+    border: 1px solid rgba(0, 172, 193, 0.3);
+}
+.zombie-card-mobile[data-param1="晶源体"] .zombie-card-mobile__badge--faction { 
+    background: rgba(240, 106, 106, 0.1);
+    color: #f06a6a;
+    border: 1px solid rgba(240, 106, 106, 0.3);
+}
+.zombie-card-mobile[data-param1="超弦体"] .zombie-card-mobile__badge--faction { 
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+.zombie-card-mobile__badge--category { 
+    background: rgba(160, 207, 255, 0.15);
+    color: #4b89ff;
+    border: 1px solid rgba(160, 207, 255, 0.4);
+}
+
+.zombie-card-mobile__captionbox { /* Elements: Caption Content */
+    display: flex;
+    flex-direction: column;
+    padding: 4px 8px 12px 8px;
+    color: #475569;
+}
+.zombie-card-mobile__name { 
+    color: #334155;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 8px 0;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, transparent, rgba(160, 207, 255, 0.15), transparent);
+    border-bottom: 1px dashed rgba(160, 207, 255, 0.4);
+}
+.zombie-card-mobile__stat { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    font-size: 0.875rem;
+    color: #475569;
+}
+.zombie-card-mobile__label { 
+    color: #64748b;
+    font-size: 12px;
+}
+.zombie-card-mobile__value { 
+    color: #00acc1;
+    font-weight: 700;
+}
+.zombie-card-mobile__desc, 
+.zombie-card-mobile__role { 
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    margin-top: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 172, 193, 0.1);
+    font-size: 0.875rem;
+    color: #475569;
+}
+.zombie-card-mobile__desc .zombie-card-mobile__label, 
+.zombie-card-mobile__role .zombie-card-mobile__label { 
+    margin-bottom: 4px;
+}
+.zombie-card-mobile__desc .zombie-card-mobile__value, 
+.zombie-card-mobile__role .zombie-card-mobile__value { 
+    color: #334155;
+    font-weight: normal;
+    line-height: 1.5;
+}
+.zombie-card-mobile__desc .zombie-card-mobile__value ol { 
+    margin: 0;
+    padding-left: 10px;
+}
+
+/* --- 暗色模式 --- */
+.client-js.wiki-dark-mode .zombie-card-mobile { background: rgba(30, 41, 59, 0.8); }
+.client-js.wiki-dark-mode .zombie-card-mobile[data-param3="4"] { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 16px -2px var(--item-quality-Perfect); }
+.client-js.wiki-dark-mode .zombie-card-mobile[data-param3="3"] { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 16px -2px var(--item-quality-Superior); }
+.client-js.wiki-dark-mode .zombie-card-mobile[data-param3="2"] { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 16px -2px var(--item-quality-Exquisite); }
+
+@media (hover: hover) and (pointer: fine) {
+    .client-js.wiki-dark-mode .zombie-card-mobile[data-param3="4"]:hover { border-color: #ffffff; box-shadow: 0 0 5px #ffffff, 0 0 15px var(--item-quality-Perfect), 0 0 30px 4px var(--item-quality-Perfect); }
+    .client-js.wiki-dark-mode .zombie-card-mobile[data-param3="3"]:hover { border-color: #ffffff; box-shadow: 0 0 5px #ffffff, 0 0 15px var(--item-quality-Superior), 0 0 30px 4px var(--item-quality-Superior); }
+    .client-js.wiki-dark-mode .zombie-card-mobile[data-param3="2"]:hover { border-color: #ffffff; box-shadow: 0 0 5px #ffffff, 0 0 15px var(--item-quality-Exquisite), 0 0 30px 4px var(--item-quality-Exquisite); }
+}
+
+.client-js.wiki-dark-mode .zombie-card-mobile__badge--faction { background: rgba(14, 165, 233, 0.15); color: #38bdf8; border-color: rgba(14, 165, 233, 0.4); }
+.client-js.wiki-dark-mode .zombie-card-mobile[data-param1="晶源体"] .zombie-card-mobile__badge--faction { background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.4); }
+.client-js.wiki-dark-mode .zombie-card-mobile[data-param1="超弦体"] .zombie-card-mobile__badge--faction { background: rgba(168, 85, 247, 0.15); color: #c084fc; border-color: rgba(168, 85, 247, 0.4); }
+.client-js.wiki-dark-mode .zombie-card-mobile__badge--category { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; border-color: rgba(56, 189, 248, 0.4); }
+
+.client-js.wiki-dark-mode .zombie-card-mobile__imagebox { background: linear-gradient(180deg, rgba(14, 165, 233, 0.1) 0, rgba(15, 23, 42, 0) 100%); }
+.client-js.wiki-dark-mode .zombie-card-mobile__imagebox::before { opacity: 0.2; }
+
+.client-js.wiki-dark-mode .zombie-card-mobile__name {
+    color: var(--wiki-dark-text);
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.2), transparent);
+    border-bottom: 1px dashed rgba(14, 165, 233, 0.5);
+    text-shadow: 0 0 8px rgba(14, 165, 233, 0.3);
+}
+
+.client-js.wiki-dark-mode .zombie-card-mobile__stat--odd { background: rgba(14, 165, 233, 0.08); }
+
+.client-js.wiki-dark-mode .zombie-card-mobile__label { color: #94a3b8; }
+.client-js.wiki-dark-mode .zombie-card-mobile__value { color: var(--wiki-dark-accent); text-shadow: 0 0 4px rgba(0, 172, 193, 0.3); }
+
+.client-js.wiki-dark-mode .zombie-card-mobile__desc,
+.client-js.wiki-dark-mode .zombie-card-mobile__role {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    color: var(--wiki-dark-text-muted);
+}
+.client-js.wiki-dark-mode .zombie-card-mobile__desc .zombie-card-mobile__value,
+.client-js.wiki-dark-mode .zombie-card-mobile__role .zombie-card-mobile__value {
+    color: var(--wiki-dark-text);
+    text-shadow: none;
+}
+/*</pre>*/</bstyle>}}

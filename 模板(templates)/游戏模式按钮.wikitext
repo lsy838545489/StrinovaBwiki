@@ -1,0 +1,133 @@
+<includeonly>
+{{#forargs: 
+| key
+| value 
+| {{#switch: {{#var:value}}
+|一般爆破=<span class="playmode-btn" data-mode="2">[[战斗模式/一般爆破|一般爆破]]</span>
+|极限推进=<span class="playmode-btn" data-mode="3">[[战斗模式/极限推进|极限推进]]</span>
+|超弦推进=<span class="playmode-btn" data-mode="4">[[战斗模式/超弦推进|超弦推进]]</span>
+|晶源感染=<span class="playmode-btn" data-mode="6">[[战斗模式/晶源感染|晶源感染]]</span>
+|晶源追击=<span class="playmode-btn" data-mode="6">[[战斗模式/晶源追击|晶源追击]]</span>
+|大头乱斗=<span class="playmode-btn" data-mode="7">[[战斗模式/大头乱斗|大头乱斗]]</span>
+|个人乱斗=<span class="playmode-btn" data-mode="5">[[战斗模式/个人乱斗|个人乱斗]]</span>
+|排位爆破=<span class="playmode-btn" data-mode="2">[[战斗模式/排位爆破|排位爆破]]</span>
+|晶矿抢攻|晶能冲突=<span class="playmode-btn" data-mode="1">[[战斗模式/晶能冲突|晶能冲突]]</span>
+|#default=<span class="playmode-btn" data-mode="1">[[战斗模式/{{#var:value}}|{{#var:value}}]]</span>
+}}
+}}</includeonly>
+{{#if:{{#varexists:playmode-btn-CSS}} || {{#vardefine:playmode-btn-CSS | 1 }}<bstyle>/*<pre>*/
+/* --- 1. 按钮大容器 (Span) --- */
+.playmode-btn {
+    display: inline-block;
+    position: relative;
+    margin: 8px;
+    min-width: 180px;
+    min-height: 50px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    border: 2px solid #e6ebf1;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+    vertical-align: middle;
+}
+
+/* --- 2. 伪元素：图标靠左对齐 --- */
+.playmode-btn[data-mode="1"]::before {
+    background-image: url('https://patchwiki.biligame.com/images/klbq/f/f4/8rqkdkdeomy3q2rqds22m4ltec627f6.png');
+}
+.playmode-btn[data-mode="2"]::before {
+    background-image: url('https://patchwiki.biligame.com/images/klbq/9/9d/jkm5enhkwtpzda3pc2jg5dduzbfh6ff.png');
+}
+.playmode-btn[data-mode="3"]::before {
+    background-image: url('https://patchwiki.biligame.com/images/klbq/2/23/hcajzx5wg5zd0zhlz149uh7n11x5pr1.png');
+}
+.playmode-btn[data-mode="4"]::before {
+    background-image: url('https://patchwiki.biligame.com/images/klbq/8/85/bffi2la3j0q2tit7a8xzbcv1asq2kre.png');
+}
+.playmode-btn[data-mode="5"]::before {
+    background-image: url('https://patchwiki.biligame.com/images/klbq/5/58/ebhto3b6yvge1wtusckk8zzfozpi5vc.png');
+}
+.playmode-btn[data-mode="6"]::before {
+    background-image: url('https://patchwiki.biligame.com/images/klbq/7/7f/njbyznnarh67f9p2yef16ytctuoae9b.png');
+}
+.playmode-btn[data-mode="7"]::before {
+    background-image: url('https://patchwiki.biligame.com/images/klbq/f/fb/qh5z97vjy83f85zalv2j5w0izbs66c1.png');
+}
+.playmode-btn::before {
+    content: "";
+    position: absolute;
+    /* 垂直居中，水平靠左 */
+    top: 50%;
+    left: 10px; /* 控制图标离左边缘的距离 */
+    transform: translateY(-50%);
+    
+    /* 调整图标显示尺寸，使其更像列表图标 */
+    width: 60px; 
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    pointer-events: none;
+    transition: all 0.4s ease;
+
+    /* 调色：白转淡蓝 */
+    filter: invert(0.5) sepia(1) hue-rotate(190deg) saturate(2) brightness(1.2);
+    opacity: 0.8; 
+}
+
+/* --- 3. 内部链接：文字靠右对齐 --- */
+.playmode-btn a {
+    display: flex;
+    align-items: center;
+    /* 核心修改：让文字水平靠右 */
+    justify-content: flex-end; 
+
+    /* 右侧 padding 留出空间，左侧 padding 避开图标 */
+    padding: 15px 25px 15px 80px; 
+    
+    color: #556a8e !important;
+    font-size: 18px;
+    font-weight: 800;
+    text-decoration: none !important;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  /* --- 交互效果 --- */
+  .playmode-btn:hover {
+      border-color: #a0cfff;
+      background-color: #f9fbff;
+  }
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .playmode-btn:hover a {
+      color: #409eff !important;
+  }
+}
+
+/* 选中状态 (Selflink) */
+.playmode-btn a.selflink {
+    background-color: #409eff;
+    border-color: #409eff;
+    color: #ffffff !important;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  /* 选中态下图标变白且稍微放大 */
+  .playmode-btn:hover a.selflink::before {
+      filter: none; 
+      opacity: 0.3;
+      left: 15px; /* 选中时图标往右错开一点点 */
+      transform: translateY(-50%) scale(1.1);
+  }
+}
+/*</pre>*/</bstyle>}}

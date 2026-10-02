@@ -1,0 +1,56 @@
+<includeonly><div class="cdkey-entry-card">
+<div class="cdkey-entry-card__code" title="点击全选">{{{兑换码|}}}</div>
+<div class="cdkey-entry-card__rewards">{{#invoke:兑换码录入|main|{{{奖励内容|}}}}}</div>
+<div class="cdkey-entry-card__time">有效期至：{{{失效时间|}}}</div></div>{{#subobject:|兑换码={{{兑换码|}}}|奖励内容={{{奖励内容|}}}|兑换码失效时间={{#invoke:TimeNormalizer|format_time|{{{失效时间|}}}}}}}</includeonly><noinclude>[[分类:模板]]</noinclude>
+{{#if:{{#varexists:cdkey-entry-card-CSS}} || {{#vardefine:cdkey-entry-card-CSS | 1 }}<bstyle>/*<pre>*/
+.cdkey-entry-card { /* 兑换码录入卡片 */
+    background-color: rgba(248, 249, 250, 0.9);
+    border-radius: 12px;
+    border-top: 4px solid #87CEEB;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    transition: transform 0.2s ease;
+}
+.cdkey-entry-card__code { /* 兑换码文本*/
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Consolas, monospace;
+    color: #2c3e50;
+    word-break: break-all;
+    -webkit-user-select: all;
+    user-select: all;
+}
+.cdkey-entry-card__time {
+    font-size: 12px;
+    color: #94a3b8;
+    text-align: right;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 8px;
+    margin-top: 4px;
+}
+
+/* --- 暗色模式 --- */
+.client-js.wiki-dark-mode .cdkey-entry-card {
+    background-color: rgba(30, 41, 59, 0.8);
+    border-top-color: var(--wiki-dark-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .client-js.wiki-dark-mode .cdkey-entry-card:hover {
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.2);
+      transform: translateY(-2px);
+  }
+}
+.client-js.wiki-dark-mode .cdkey-entry-card__code {
+    color: var(--wiki-dark-text);
+    text-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
+}
+.client-js.wiki-dark-mode .cdkey-entry-card__time {
+    color: var(--wiki-dark-text-muted);
+    border-top-color: rgba(14, 165, 233, 0.3);
+}
+/*</pre>*/</bstyle>}}

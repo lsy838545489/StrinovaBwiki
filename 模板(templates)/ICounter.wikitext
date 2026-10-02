@@ -1,0 +1,10 @@
+<includeonly>{{ {{{|safesubst:}}}#switch:{{{1|}}}
+|name={{ {{{|safesubst:}}}#ifeq:{{{noecho|}}}|true||{{ {{{|safesubst:}}}#var:{{{name|{{{2|counter}}}}}}|{{{default|0}}}}}}}{{ {{{|safesubst:}}}#vardefine:{{{name|{{{2|counter}}}}}}|{{ {{{|safesubst:}}}#expr:{{ {{{|safesubst:}}}#var:{{{name|{{{2|counter}}}}}}}} + 1}}}}
+|new={{ {{{|safesubst:}}}#vardefine:counter.name|{{{2|counter}}}}}
+|++={{ {{{|safesubst:}}}#vardefine:{{ {{{|safesubst:}}}#var:counter.name|counter}}.count|{{ {{{|safesubst:}}}#expr:{{ {{{|safesubst:}}}#var:{{ {{{|safesubst:}}}#var:counter.name|counter}}.count}}+1}}}}
+|--={{ {{{|safesubst:}}}#vardefine:{{ {{{|safesubst:}}}#var:counter.name|counter}}.count|{{ {{{|safesubst:}}}#expr:{{ {{{|safesubst:}}}#var:{{ {{{|safesubst:}}}#var:counter.name|counter}}.count}}-1}}}}
+|get|count={{ {{{|safesubst:}}}#var:{{{2|{{ {{{|safesubst:}}}#var:counter.name|counter}}}}}.{{{3|count}}}|{{{default|0}}}}}
+|set={{ {{{|safesubst:}}}#vardefine:{{{2|{{ {{{|safesubst:}}}#var:counter.name|counter}}}}}.{{{3|count}}}|{{{4|value}}}}}
+|0|reset={{ {{{|safesubst:}}}#vardefine:{{ {{{|safesubst:}}}#var:counter.name|counter}}.count|{{{default|0}}}}}
+|#default={{ {{{|safesubst:}}}#switch:{{{2|{{{default|0}}}}}}|++={{ {{{|safesubst:}}}#vardefine:{{{1|counter}}}.count|{{ {{{|safesubst:}}}#expr:{{ {{{|safesubst:}}}#var:{{{1|counter}}}.count}}+1}}}}|--={{ {{{|safesubst:}}}#vardefine:{{{1|counter}}}.count|{{ {{{|safesubst:}}}#expr:{{ {{{|safesubst:}}}#var:{{{1|counter}}}.count}}-1}}}}|#default={{ {{{|safesubst:}}}#vardefine:{{{1|counter}}}.count|{{{2|{{{default|0}}}}}}}}}}
+}}</includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>

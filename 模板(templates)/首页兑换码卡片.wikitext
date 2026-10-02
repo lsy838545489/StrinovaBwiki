@@ -1,0 +1,33 @@
+<includeonly><div class="cdkey-card">
+<div class="cdkey-info">
+<div class="cdkey" title="点击全选">{{{兑换码|}}}</div>
+<div class="time">有效期至：{{#invoke:TimeNormalizer|to_chinese_time|{{{兑换码失效时间|}}}}}</div></div>
+<div class="cdkey-reward">{{#invoke:兑换码录入|main|{{{奖励内容|}}}|50px}}</div></div></includeonly><noinclude>[[分类:首页模板]]</noinclude>
+{{#if:{{#varexists:cdkey-entry-card-CSS}} || {{#vardefine:cdkey-entry-card-CSS | 1 }}<bstyle>/*<pre>*/
+.cdkey-card {
+    background-color: rgba(248, 249, 250, 0.9);
+    border-radius: 12px;
+    border-left: 5px solid #87CEEB;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.cdkey-card .cdkey-info .cdkey {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+    font-family: Consolas, monospace;
+    cursor: pointer;
+    -webkit-user-select: all;
+    user-select: all;
+}
+.cdkey-card .cdkey-info .time {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+/*</pre>*/</bstyle>}}

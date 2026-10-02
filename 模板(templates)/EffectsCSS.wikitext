@@ -1,0 +1,37 @@
+<noinclude>{{Documentation}}[[分类:模板]]</noinclude>
+{{#if:{{#varexists:effects-CSS}} || {{#vardefine:effects-CSS | 1 }}<bstyle>/*<pre>*/
+.hovers-blur-reverse,
+.hovers-contrast-reverse {
+    border-radius: 12px;
+    overflow: hidden;
+}
+.hovers-blur-reverse img,
+.hovers-contrast-reverse img {
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
+    display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hovers-blur-reverse:hover img,
+  .hovers-blur-reverse.active img {
+      transform: scale(1.06);
+      filter: brightness(1.05);
+  }
+}
+
+.hvr-bounce-out {
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    transition-duration: 0.4s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hvr-bounce-out:hover,
+  .hvr-bounce-out:focus,
+  .hvr-bounce-out:active {
+      transform: scale(0.95);
+      transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+/*</pre>*/</bstyle>}}

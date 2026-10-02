@@ -1,0 +1,104 @@
+<includeonly>{{#widget:Freezeframe}}{{#ask:[[分类:角色时装官宣图]][[分类:{{ROOTPAGENAME}}]]
+|template=时装官宣图/format
+|intro=<div class="artwork-gallery-wrapper"><ul class="official-artwork-gallery collapsed">
+|outro=</ul><div class="expand-btn-container"><div class="gallery-expand-btn">展示更多</div></div></div>
+|order=desc
+|sort=Creation_date
+|link=none
+}}</includeonly><noinclude>[[分类:SMW模板]]</noinclude>
+{{#if:{{#varexists:官宣图-CSS}} || {{#vardefine:官宣图-CSS | 1 }}<bstyle>/*<pre>*/
+.artwork-gallery-wrapper {
+    position: relative;
+    margin: 15px 0;
+}
+/* --- 画廊容器：保持自适应 --- */
+.official-artwork-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 15px 0 !important;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* --- 静态卡片 --- */
+.official-artwork-gallery .static-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    background: #fcfcfc;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+/* --- 图片展示区 --- */
+.official-artwork-gallery .static-card .static-image {
+    width: 100%;
+    padding: 5px;
+    aspect-ratio: 1 / 1;
+    background-color: #fcfcfc;
+    overflow: hidden;
+}
+
+.official-artwork-gallery .static-card .static-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* --- 图片名称文字区 --- */
+.official-artwork-gallery .static-card .static-title {
+    padding: 6px 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #64748b;
+    text-align: center;
+    background-color: #f8fafc;
+    border-top: 1px solid #eaedf2;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* 初始折叠状态下，隐藏第 10 个之后的所有 li 元素 */
+.official-artwork-gallery.collapsed li:nth-child(n+11) {
+    display: none;
+}
+
+/* 按钮容器居中 */
+.expand-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* 展开按钮样式：半透明圆润淡蓝点缀 */
+.gallery-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0 24px;
+    background: rgba(248, 249, 250, 0.9);
+    border: 1px solid rgba(147, 197, 253, 0.5);
+    border-radius: 20px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  /* 按钮悬停交互：淡蓝渐变光效 */
+  .gallery-expand-btn:hover {
+      color: #fff;
+      background: linear-gradient(to bottom, rgba(96, 165, 250, 0.7), rgba(160, 207, 255, 0.8));
+      border-color: rgba(147, 197, 253, 0.6);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  }
+}
+/*</pre>*/</bstyle>}}

@@ -1,0 +1,138 @@
+<includeonly>{{#invoke:Bootstrap|tabs}}</includeonly><noinclude>{{Documentation}}[[分类:首页模板]]</noinclude>
+{{#if:{{#varexists:首页tabs样式}} || {{#vardefine:首页tabs样式 | 1 }}<bstyle>/*<pre>*/
+.tab-nav {
+    background-color: rgba(248, 249, 250, 0.8);
+    border-bottom: 2px solid #e2e8f0;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.nav-tabs {
+    border-bottom: none;
+}
+.tab>ul { /* 标签基础样式 */
+    margin: 0;
+}
+.tab>ul>li {
+    display: inline-flex;
+    position: relative;
+    margin-bottom: 0;
+}
+.tab>ul>li::before {
+    animation: tact-pop 0.2s ease-out;
+}
+.tab>ul>li>a {
+    font-size: 1rem;
+    color: #64748b;
+    padding: 10px 20px;
+    font-weight: 500;
+    border: none !important;
+    background: transparent !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    letter-spacing: 1px;
+    z-index: 1;
+    text-decoration:none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tab>ul>li:not(.active)>a:hover { /* --- Hover 状态：淡蓝色“预选中” --- */
+      color: #3b82f6;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+      border-radius: 5px 5px 0 0;
+  }
+  .tab>ul>li:not(.active):hover::before { /* Hover 时的小装饰（蓝色版） */
+      content: "";
+      position: absolute;
+      top: 6px; 
+      left: 6px;
+      width: 4px; 
+      height: 4px;
+      background-color: #3b82f6;
+      transform: rotate(45deg);
+      z-index: 2;
+  }
+  .tab>ul>li:not(.active):hover::after {
+      content: "";
+      position: absolute;
+      bottom: 0; 
+      left: 20%;
+      width: 60%; 
+      height: 2px;
+      background-color: #3b82f6;
+      border-radius: 2px 2px 0 0;
+  }
+}
+.tab>ul>li.active>a { /* 激活状态 */
+    color: rgba(255, 107, 47, 1);
+    background-color: rgba(248, 249, 250, 1);
+    font-weight: bold;
+    transform: translateY(-1px); 
+}
+.tab>ul>li.active::before { /* 激活时的小方块（橙色版） */
+    content: "";
+    position: absolute;
+    top: 6px; 
+    left: 6px;
+    width: 4px; 
+    height: 4px;
+    background-color: rgba(255, 107, 47, 1);
+    transform: rotate(45deg);
+    z-index: 2;
+    box-shadow: 0 0 5px rgba(255, 107, 47, 0.5);
+}
+.tab>ul>li.active::after { /* 激活时的下划线（橙色版） */
+    content: "";
+    position: absolute;
+    bottom: 0; 
+    left: 10%;
+    width: 80%; 
+    height: 3px;
+    background-color: rgba(255, 107, 47, 1);
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 -2px 6px rgba(255, 107, 47, 0.4);
+}
+@keyframes tact-pop {
+    from { transform: rotate(45deg) scale(0); opacity: 0; }
+    to { transform: rotate(45deg) scale(1); opacity: 1; }
+}
+
+/* -----------暗色模式----------- */
+.client-js.wiki-dark-mode .tab-nav {
+	background-color: rgba(30, 41, 59, 0.8);
+	border-bottom: 2px solid var(--wiki-dark-border);
+}
+.client-js.wiki-dark-mode .tab > ul > li > a {
+	color: var(--wiki-dark-text-muted);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .client-js.wiki-dark-mode .tab > ul > li:not(.active) > a:hover {
+  	color: var(--wiki-dark-accent-hover);
+  	background-color: rgba(14, 165, 233, 0.1) !important;
+  }
+  .client-js.wiki-dark-mode .tab > ul > li:not(.active):hover::before,
+  .client-js.wiki-dark-mode .tab > ul > li:not(.active):hover::after {
+  	background-color: var(--wiki-dark-accent-hover);
+  }
+  .client-js.wiki-dark-mode .tab > ul > li:not(.active):hover::before {
+  	box-shadow: 0 0 4px rgba(0, 172, 193, 0.5);
+  }
+  .client-js.wiki-dark-mode .tab > ul > li:not(.active):hover::after {
+  	box-shadow: 0 -1px 4px rgba(0, 172, 193, 0.5);
+  }
+}
+.client-js.wiki-dark-mode .tab > ul > li.active > a {
+	color: rgba(255, 107, 47, 1);
+	background-color: rgba(15, 23, 42, 0.95);
+}
+.client-js.wiki-dark-mode .tab > ul > li.active::before {
+	background-color: rgba(255, 107, 47, 1);
+	box-shadow: 0 0 6px rgba(255, 107, 47, 0.7);
+}
+.client-js.wiki-dark-mode .tab > ul > li.active::after {
+	background-color: rgba(255, 107, 47, 1);
+	box-shadow: 0 -2px 8px rgba(255, 107, 47, 0.6);
+}
+/*</pre>*/</bstyle>}}

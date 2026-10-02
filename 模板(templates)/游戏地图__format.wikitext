@@ -1,0 +1,108 @@
+<includeonly><!--
+--><div class="klbq-map-card">[[{{{1|}}}|<span class="klbq-map-card__link"></span>]]<!--
+  --><div class="klbq-map-card__image">[[文件:地图-{{{1|}}}.png]]</div><!--
+  --><div class="klbq-map-card__floating-name">[[{{{1|}}}]]</div><!--
+--></div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
+{{#if:{{#varexists:klbq-map-card-css}} || {{#vardefine:klbq-map-card-css | 1 }}<bstyle>/*<pre>*/
+.klbq-map {
+  display: grid;
+  gap: 0.625rem;
+  width: 100%;
+}
+@media (min-width: 320px) { /* 响应式网格布局 */
+  .klbq-map {
+    grid-template-columns: repeat(auto-fill, 260px);
+  }
+}
+@media (min-width: 768px) {
+  .klbq-map {
+    grid-template-columns: repeat(auto-fill, 340px);
+  }
+}
+.klbq-map-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 12px;
+  min-height: 80px;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .klbq-map-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 172, 193, 0.45);
+    box-shadow: 0 0.25rem 0.875rem rgba(0, 172, 193, 0.15);
+  }
+}
+
+/* 1. 悬浮名称：定位在左上角 (带半透明毛玻璃胶囊底图) */
+.klbq-map-card__floating-name {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  z-index: 2;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 0.375rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.2;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+  pointer-events: auto;
+}
+.klbq-map-card__link {
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	display: block;
+}
+/* 2. 地图图片展区：最大化利用卡片空间 */
+.klbq-map-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  background: radial-gradient(circle at center, rgba(0, 172, 193, 0.05) 0%, transparent 75%);
+}
+
+.klbq-map-card__image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.klbq-map-card:hover .klbq-map-card__image img {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   暗色模式适配 (Dark Mode)
+   ========================================================= */
+.client-js.wiki-dark-mode .klbq-map-card {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.client-js.wiki-dark-mode .klbq-map-card:hover {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.client-js.wiki-dark-mode .klbq-map-card__floating-name {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+/*</pre>*/</bstyle>}}

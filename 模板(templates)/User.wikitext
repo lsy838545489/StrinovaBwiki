@@ -1,0 +1,40 @@
+<includeonly><div class="inline_user">{{#tag:bilicontributors|{{{1}}}}}</div></includeonly><noinclude>
+基于bilicontributors的用户信息显示。比如我：{{User|39886146}}这个模板默认无法在一行内显示，需要以div包裹该行：
+
+<div><nowiki><div></nowiki>传说中BWiki有一些编辑超过十万次的用户，比如：{{User|378797}} 和 {{User|29136181}}<nowiki></div></nowiki></div>
+
+这是受限于bilicontributors结构影响WM渲染的解决方案。
+
+
+要更简单的行内显示，请使用有JS支持的模板
+[[分类:模板]]</noinclude>{{#if:{{#varexists:UserCSSLoader}}||{{#vardefineecho:UserCSSLoader|<bstyle>/*<pre>*/
+.inline_user{
+    display:inline-block;
+    vertical-align: -10px;
+}
+.inline_user .user-follow-wrap{
+    position: unset;
+    margin-top: 0;
+    width: auto;
+    background: none;
+    border: none;
+    display: inline-block;
+}
+.inline_user  .user-follow-wrap .user-item-detail .detail-pic{
+    width: 30px;
+    height: 30px;
+}
+.inline_user  .user-follow-wrap .user-item-detail .detail-des .des-name{
+    font-size: 13px;
+}
+.inline_user  .user-follow-wrap .user-item-detail{
+    background-color: unset;
+    padding: 0;
+}
+.inline_user .user-follow-wrap .user-item-detail .detail-des{
+    padding: 0 0 0 5px;
+}
+.inline_user  .user-follow-wrap .detail-follow{
+    display:none;
+}
+/*</pre>*/</bstyle>}} }}

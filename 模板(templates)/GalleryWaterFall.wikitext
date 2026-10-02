@@ -1,0 +1,57 @@
+<includeonly><div class="wiki-waterfall-gallery">
+{{#forargs: 
+| key 
+| value 
+| {{#switch:{{#var:key}}
+| 列数 =<!-- 跳过参数 -->
+| #default = <div class="wiki-waterfall-gallery__item">[[文件:{{#var:key}}]]<div class="wiki-waterfall-gallery__caption">{{#var:value}}</div></div>}}}}
+</div></includeonly><noinclude>[[分类:模板]]{{documentation}}</noinclude>{{#if:{{#varexists:waterfall-gallery-css}} || {{#vardefine:waterfall-gallery-css | 1 }}{{#css:
+.wiki-waterfall-gallery { /* 瀑布流主容器 */
+    column-count: {{{列数|2}}};
+    column-gap: 16px;
+    padding: 20px;
+    border-radius: 16px;
+}
+@media (max-width: 1024px) { /* 响应式调整 */
+    .wiki-waterfall-gallery { column-count: 2; }
+}
+@media (max-width: 600px) {
+    .wiki-waterfall-gallery { column-count: 1; }
+}
+.wiki-waterfall-gallery__item { /* 图片卡片框体 */
+    break-inside: avoid;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(255, 182, 193, 0.4);
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.15);
+}
+.wiki-waterfall-gallery__item img { /* 针对 MediaWiki 解析生成的 img 标签进行调整 */
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px 12px 0 0;
+}
+.wiki-waterfall-gallery__caption { /* 文字标注元素 */
+    padding: 10px 12px;
+    text-align: center;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    border-top: 1px solid rgba(255, 182, 193, 0.4);
+    margin-top: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+}}
+<bstyle>/*<pre>*/
+.client-js.wiki-dark-mode .wiki-waterfall-gallery__item { /* 暗色模式 */
+    background: rgba(30, 41, 59, 0.6);
+	border: 1px solid var(--wiki-dark-border);
+}
+.client-js.wiki-dark-mode .wiki-waterfall-gallery__caption {
+    color: var(--wiki-dark-text-muted);
+	border-top: 1px solid var(--wiki-dark-border);
+}
+/*</pre>*/</bstyle>}}

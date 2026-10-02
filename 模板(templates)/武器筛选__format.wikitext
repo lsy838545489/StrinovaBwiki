@@ -1,0 +1,220 @@
+<includeonly><div class="gallerygrid-item klbq-main-weapon-card" data-param1="{{{类型|}}}" data-param2="{{#rreplace:{{{开火模式|}}}|、|,}}"> 
+<div class="klbq-main-weapon-card__badges">
+<span class="klbq-main-weapon-card__badge klbq-main-weapon-card__badge--type">{{{类型|}}}</span><!--
+--><span class="klbq-main-weapon-card__badge klbq-main-weapon-card__badge--mode">{{{开火模式|}}}</span>
+</div>
+<div class="klbq-main-weapon-card__imagebox">[[文件:{{{1}}}-weapon.png|180px|link={{{1}}}]]</div>
+<div class="klbq-main-weapon-card__captionbox">
+<div class="klbq-main-weapon-card__name">[[{{{1}}}]]</div>
+<div class="klbq-main-weapon-card__stats">
+<div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">射速：</span><span class="klbq-main-weapon-card__value card-item-value">{{{射速}}}</span></div>
+<div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">弹匣容量：</span><span class="klbq-main-weapon-card__value card-item-value">{{{弹匣容量}}}</span></div>
+<div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">瞄准速度：</span><span class="klbq-main-weapon-card__value card-item-value">{{{瞄准速度}}}</span></div>
+<div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">散射控制：</span><span class="klbq-main-weapon-card__value card-item-value">{{{散射控制}}}</span></div>
+<div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">后坐力控制：</span><span class="klbq-main-weapon-card__value card-item-value">{{{后坐力控制}}}</span></div>
+<div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">装填速度：</span><span class="klbq-main-weapon-card__value card-item-value">{{{装填速度}}}</span></div><!--
+-->{{#if:{{{蓄力速度|}}}|<div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">蓄力速度：</span><span class="klbq-main-weapon-card__value card-item-value">{{{蓄力速度}}}</span></div>}}<!--
+--><div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">放大倍率：</span><span class="klbq-main-weapon-card__value card-item-value">{{{放大倍率}}}</span></div>
+<div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">移速变化：</span><span class="klbq-main-weapon-card__value card-item-value">{{{移速变化}}}</span></div>
+<div class="klbq-main-weapon-card__stat"><span class="klbq-main-weapon-card__label">使用者：</span><span class="klbq-main-weapon-card__value card-item-value">{{#rreplace:{{{使用者}}}|,|、}}</span></div>
+</div>
+</div>
+</div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
+{{#if:{{#varexists:klbq-main-weapon-card-CSS}} || {{#vardefine:klbq-main-weapon-card-CSS | 1 }}<bstyle>/*<pre>*/
+.gallerygrid { /* 容器基础排版 */
+    display: grid;
+    grid-gap: 1.5rem 1rem;
+    --gallerygrid-fit: contain;
+    justify-content: center;
+    padding: 10px;
+}
+@media (min-width: 320px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
+}
+@media (min-width: 768px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 260px); }
+}
+.gallerygrid-item { /* 子项高度撑满 */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+/* --- 主武器卡片 Block --- */
+.klbq-main-weapon-card {
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 172, 193, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .klbq-main-weapon-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 172, 193, 0.18);
+        border-color: rgba(0, 172, 193, 0.5);
+        z-index: 2;
+    }
+}
+
+/* --- 顶部独立角标栏 --- */
+.klbq-main-weapon-card__badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 8px 4px 8px;
+    background: linear-gradient(180deg, rgba(0, 172, 193, 0.12) 0%, rgba(0, 172, 193, 0.02) 100%);
+    border-bottom: 1px dashed rgba(0, 172, 193, 0.3);
+}
+
+.klbq-main-weapon-card__badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.klbq-main-weapon-card__badge--type {
+    background: rgba(0, 172, 193, 0.12);
+    color: #00acc1;
+    border: 1px solid rgba(0, 172, 193, 0.35);
+}
+
+.klbq-main-weapon-card__badge--mode {
+    background: rgba(160, 207, 255, 0.15);
+    color: #4b89ff;
+    border: 1px solid rgba(160, 207, 255, 0.4);
+}
+
+/* --- 武器展示区 --- */
+.klbq-main-weapon-card__imagebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 8px 6px 8px;
+}
+
+.klbq-main-weapon-card__imagebox img {
+    object-position: center;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .klbq-main-weapon-card:hover .klbq-main-weapon-card__imagebox img {
+      transform: scale(1.05);
+  }
+}
+
+/* --- 内容信息区 --- */
+.klbq-main-weapon-card__captionbox {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 10px 12px 10px;
+    color: #475569;
+    flex-grow: 1;
+}
+
+.klbq-main-weapon-card__name {
+    color: #334155;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 6px 0;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, transparent, rgba(0, 172, 193, 0.15), transparent);
+    border-bottom: 1px dashed rgba(0, 172, 193, 0.4);
+}
+
+.klbq-main-weapon-card__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 172, 193, 0.12);
+}
+
+.klbq-main-weapon-card__stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 4px;
+    font-size: 0.825rem;
+}
+
+.klbq-main-weapon-card__stat:nth-child(even) {
+    background: rgba(0, 172, 193, 0.04);
+    border-radius: 4px;
+}
+
+.klbq-main-weapon-card__label {
+    color: #64748b;
+    font-size: 12px;
+    word-break: keep-all;
+}
+
+.klbq-main-weapon-card__value {
+    color: #00acc1;
+    font-weight: 700;
+}
+
+/* --- 暗色模式适配 (Dark Mode) --- */
+.client-js.wiki-dark-mode .klbq-main-weapon-card {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(14, 165, 233, 0.3);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .client-js.wiki-dark-mode .klbq-main-weapon-card:hover {
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+      border-color: rgba(14, 165, 233, 0.6);
+  }
+}
+
+.client-js.wiki-dark-mode .klbq-main-weapon-card__badges {
+    background: linear-gradient(180deg, rgba(14, 165, 233, 0.18) 0%, rgba(14, 165, 233, 0.03) 100%);
+    border-bottom-color: rgba(14, 165, 233, 0.25);
+}
+
+.client-js.wiki-dark-mode .klbq-main-weapon-card__badge--type {
+    background: rgba(14, 165, 233, 0.2);
+    color: #38bdf8;
+    border-color: rgba(14, 165, 233, 0.5);
+}
+
+.client-js.wiki-dark-mode .klbq-main-weapon-card__badge--mode {
+    background: rgba(56, 189, 248, 0.15);
+    color: #7dd3fc;
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.client-js.wiki-dark-mode .klbq-main-weapon-card__name {
+    color: var(--wiki-dark-text, #f1f5f9);
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.25), transparent);
+    border-bottom-color: rgba(14, 165, 233, 0.4);
+}
+
+.client-js.wiki-dark-mode .klbq-main-weapon-card__stats {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(14, 165, 233, 0.2);
+}
+
+.client-js.wiki-dark-mode .klbq-main-weapon-card__stat:nth-child(even) {
+    background: rgba(14, 165, 233, 0.08);
+}
+
+.client-js.wiki-dark-mode .klbq-main-weapon-card__label { color: #94a3b8; }
+.client-js.wiki-dark-mode .klbq-main-weapon-card__value { color: var(--wiki-dark-accent, #38bdf8); }
+/*</pre>*/</bstyle>}}

@@ -1,0 +1,43 @@
+<includeonly><li class="infect-pass__item"><span class="infect-pass__level">{{{等级|}}}</span><span class="infect-pass__connector"></span><div class="infect-pass__content">
+{{{1|}}}
+</div></li></includeonly><noinclude>[[分类:模板]]</noinclude><includeonly>{{#if:{{#varexists:晶源战备道具CSS}}||{{#vardefine:晶源战备道具CSS|1}}<bstyle>/*<pre>*/
+.infect-pass { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0; margin: 0; position: relative; } /* BEM块：感染模式通行证主容器 */
+.infect-pass::before { content: ""; position: absolute; left: 2.5%; top: 0; bottom: 0; width: 6px; background-color: #A855F7; border-radius: 3px; z-index: 0; box-shadow: 0 0 8px rgba(168, 85, 247, 0.4); } /* 晶源紫主线，带有辐射发光效果 */
+.infect-pass__item { position: relative; width: 95%; padding: 0; margin: 0; z-index: 1; } /* BEM元素：单层奖励项 */
+.infect-pass__content { background: rgba(248, 249, 250, 0.9); border-radius: 16px; box-shadow: 0 4px 16px rgba(168, 85, 247, 0.15); margin: 12px 20px 12px 40px; padding: 8px 12px; text-align: left; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease; }
+@media (hover: hover) and (pointer: fine) {
+  /* BEM元素：内容面板，融入紫色环境光阴影 */
+  .infect-pass__content:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35); }
+} /* BEM元素状态：悬停晶源辉光增强 */
+.infect-pass__content img { border-radius: 8px; }
+.infect-pass__connector { display: block; height: 0; border-bottom: 4px dotted #A855F7; width: 30px; position: absolute; top: 50%; left: 0; transform: translateY(-50%); z-index: -1; } /* BEM元素：连接线段，改为点状线模拟晶体碎片感 */
+.infect-pass__level { display: inline-block; position: absolute; left: -15px; top: 50%; transform: translate(-100%, -50%); white-space: nowrap; background: linear-gradient(135deg, #C084FC, #A855F7); border-radius: 20px; padding: 4px 12px; color: #fff; box-shadow: 0 2px 8px rgba(168, 85, 247, 0.5); z-index: 2; font-size: 14px; font-weight: bold; transition: box-shadow 0.3s ease; } /* BEM元素：等级标签，使用微渐变增加晶体质感 */
+
+/* --- 暗色模式样式适配 --- */
+.client-js.wiki-dark-mode .infect-pass__content { background: rgba(51, 65, 85, 0.9); color: #E2E8F0; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(168, 85, 247, 0.2); }
+@media (hover: hover) and (pointer: fine) {
+  /* 系统级暗色：加入内描边模拟晶体边缘反光 */
+  .client-js.wiki-dark-mode .infect-pass__content:hover { box-shadow: 0 6px 24px rgba(168, 85, 247, 0.25), inset 0 0 0 1px rgba(168, 85, 247, 0.4); }
+} 
+.client-js.wiki-dark-mode .infect-pass__level { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); border: 1px solid #C084FC; } 
+.client-js.wiki-dark-mode .infect-pass__content,
+.client-js.wiki-dark-mode .infect-pass__content,
+.client-js.wiki-dark-mode .infect-pass__content { background: rgba(51, 65, 85, 0.9); color: #E2E8F0; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(168, 85, 247, 0.2); }
+@media (hover: hover) and (pointer: fine) {
+  /* WIKI类名暗色 */
+  .client-js.wiki-dark-mode .infect-pass__content:hover,
+  .client-js.wiki-dark-mode .infect-pass__content:hover,
+  .client-js.wiki-dark-mode .infect-pass__content:hover { box-shadow: 0 6px 24px rgba(168, 85, 247, 0.25), inset 0 0 0 1px rgba(168, 85, 247, 0.4); }
+} 
+.client-js.wiki-dark-mode .infect-pass__level,
+.client-js.wiki-dark-mode .infect-pass__level,
+.client-js.wiki-dark-mode .infect-pass__level { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); border: 1px solid #C084FC; }
+
+/* --- 移动端响应式 --- */
+@media screen and (max-width:768px) {
+.infect-pass::before { left: 2.5%; width: 4px; }
+.infect-pass__level { left: 10px; font-size: 12px; top: 0; transform: translate(0, -50%); }
+.infect-pass__content { margin: 20px 10px 20px 20px; }
+.infect-pass__connector { display: none; }
+}
+/*</pre>*/</bstyle>}}

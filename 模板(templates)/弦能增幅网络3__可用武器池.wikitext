@@ -1,0 +1,98 @@
+<includeonly><div class="growth-weapon-card">[[{{{1|}}}|<span class="growth-weapon-card__link"></span>]]<div class="growth-weapon-card__image">[[文件:{{{1|}}}-weapon.png|220px|link={{{1|}}}]]</div>
+<div class="growth-weapon-card__floating-name">[[{{{1|}}}]]</div>
+</div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
+{{#if:{{#varexists:growth-weapon-pool-css}} || {{#vardefine:growth-weapon-pool-css | 1 }}<bstyle>/*<pre>*/
+.growth-weapon-pool {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.625rem;
+  width: 100%;
+}
+
+.growth-weapon-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 0.625rem;
+  min-height: 5.5rem;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .growth-weapon-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 172, 193, 0.45);
+    box-shadow: 0 0.25rem 0.875rem rgba(0, 172, 193, 0.15);
+  }
+}
+
+/* 1. 悬浮名称：定位在左上角 (带半透明毛玻璃胶囊底图) */
+.growth-weapon-card__floating-name {
+  position: absolute;
+  top: 0.375rem;
+  left: 0.375rem;
+  z-index: 2;
+  padding: 0.125rem 0.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 0.375rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 800;
+  line-height: 1.2;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+  pointer-events: auto;
+}
+.growth-weapon-card__link {
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	display: block;
+}
+/* 2. 武器图片展区：最大化利用卡片空间 */
+.growth-weapon-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem 0.5rem 0.5rem 0.5rem;
+  background: radial-gradient(circle at center, rgba(0, 172, 193, 0.05) 0%, transparent 75%);
+}
+
+.growth-weapon-card__image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.growth-weapon-card:hover .growth-weapon-card__image img {
+  transform: scale(1.08); /* 悬浮时微放大放大气感 */
+}
+
+/* =========================================================
+   暗色模式适配 (Dark Mode)
+   ========================================================= */
+
+.client-js.wiki-dark-mode .growth-weapon-card {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.client-js.wiki-dark-mode .growth-weapon-card:hover {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.client-js.wiki-dark-mode .growth-weapon-card__floating-name {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+/*</pre>*/</bstyle>}}

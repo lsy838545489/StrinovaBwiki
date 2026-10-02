@@ -1,0 +1,39 @@
+<includeonly><span class="wiki-jump-btn">[[{{{1|}}}|{{#ifeq:{{{2|}}}||{{{1|}}}|{{{2|}}}}}]]</span></includeonly><noinclude>[[分类:模板]]</noinclude>{{#if:{{#varexists:wiki-jump-btn-CSS}} || {{#vardefine:wiki-jump-btn-CSS | 1 }}<bstyle>/*<pre>*/
+.wiki-jump-btn {
+	display: inline-block;
+	margin: 5px;
+}
+.wiki-jump-btn a {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 24px;
+	background-color: #fff;
+	border: 1.5px solid #00acc1;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	font-weight: bold;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wiki-jump-btn a:hover {
+  	background-color: #00acc1;
+  	color: #ffffff;
+  	box-shadow: 0 0 15px rgba(0, 172, 193, 0.4);
+  }
+}
+
+/* --- 暗色模式 --- */
+.client-js.wiki-dark-mode .wiki-jump-btn a {
+	background-color: rgba(15, 23, 42, 0.6);
+	color: #00acc1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .client-js.wiki-dark-mode .wiki-jump-btn a:hover {
+  	background-color: #00acc1;
+  	color: #ffffff;
+  	box-shadow: 0 0 20px rgba(0, 172, 193, 0.6);
+  }
+}
+/*</pre>*/</bstyle>}}

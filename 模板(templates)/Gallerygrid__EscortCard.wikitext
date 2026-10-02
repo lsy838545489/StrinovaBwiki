@@ -1,0 +1,194 @@
+<includeonly><div class="divsort gallerygrid-item mobile-card" data-param1="{{{2|}}}" data-param2="{{{5|}}}">
+<div class="gallerygrid-imagebox" style="height:{{{height|}}}">[[{{{filename|}}}|{{{width|}}}|link=]]</div>
+<div class="gallerygrid-captionbox">
+<div class="mobile-card-name">{{{1|}}}</div>
+<div class="mobile-card-item"><span class="card-item-key">分类：</span><span class="card-item-value">'''{{{2|}}}'''</span></div>
+<div class="mobile-card-desc"><span class="card-item-key">效果描述：</span><span class="card-item-value">{{{3|}}}</span></div>
+{{#if: {{{4|}}} | <div class="mobile-card-role"><span class="card-item-key">适用角色：</span><span class="card-item-value">'''{{{4|}}}'''</span></div>}}
+</div>
+</div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
+{{#if:{{#varexists:gallery-grid-CSS}} || {{#vardefine:gallery-grid-CSS | 1 }}<bstyle>/*<pre>*/
+.gallerygrid {
+    justify-content: center;
+    padding: 10px;
+}
+@media (min-width: 320px) {
+  .gallerygrid {
+    grid-template-columns: repeat(auto-fit, 180px);
+  }
+}
+@media (min-width: 768px) {
+  .gallerygrid {
+    grid-template-columns: repeat(auto-fit, 200px);
+  }
+}
+.gallerygrid-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.mobile-card {
+    background: rgba(248, 249, 250, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+.mobile-card[data-param2="4"] {
+	border: 1.5px solid var(--item-quality-Perfect);
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.03), 
+        0 0 16px -4px var(--item-quality-Perfect);
+}
+.mobile-card[data-param2="3"] {
+	border: 1.5px solid var(--item-quality-Superior);
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.03), 
+        0 0 16px -4px var(--item-quality-Superior);
+}
+.mobile-card[data-param2="2"] {
+	border: 1.5px solid var(--item-quality-Exquisite);
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.03), 
+        0 0 16px -4px var(--item-quality-Exquisite);
+}
+@media (hover: hover) and (pointer: fine) {
+    .mobile-card[data-param2="4"]:hover {
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.03), 
+        0 0 16px -4px var(--item-quality-Perfect);
+}
+    .mobile-card[data-param2="3"]:hover {
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.03), 
+        0 0 16px -4px var(--item-quality-Superior);
+}
+    .mobile-card[data-param2="2"]:hover {
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.03), 
+        0 0 16px -4px var(--item-quality-Exquisite);
+}
+    .mobile-card:hover {
+        transform: translateY(-6px) scale(1.01);
+    }
+}
+/* 顶部图片区域 */
+.gallerygrid-imagebox {
+    position: relative;
+    background: linear-gradient(180deg, rgba(160, 207, 255, 0.1) 0%, rgba(248, 249, 250, 0) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    overflow: hidden;
+}
+.gallerygrid-imagebox::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.12; 
+    pointer-events: none;
+    z-index: 1;
+}
+.mobile-card[data-param2="4"] .gallerygrid-imagebox::before {
+	background-color: var(--item-quality-Perfect);
+}
+.mobile-card[data-param2="3"] .gallerygrid-imagebox::before {
+	background-color:  var(--item-quality-Superior);
+}
+.mobile-card[data-param2="2"] .gallerygrid-imagebox::before {
+	background-color:  var(--item-quality-Exquisite);
+}
+
+.gallerygrid-imagebox img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: var(--gallerygrid-fit, contain);
+}
+.gallerygrid-imagebox a,
+.gallerygrid-imagebox img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: var(--gallerygrid-fit, contain);
+}
+
+/* 内容区域 */
+.gallerygrid-captionbox {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 8px 12px 8px;
+    color: #475569;
+}
+
+/* 标题 */
+.gallerygrid-captionbox .mobile-card-name {
+    color: #334155;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 8px 0;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, transparent, rgba(160, 207, 255, 0.15), transparent);
+    border-bottom: 1px dashed rgba(160, 207, 255, 0.4);
+}
+
+/* 列表项基础样式 */
+.gallerygrid-captionbox .mobile-card-item, 
+.gallerygrid-captionbox .mobile-card-item-odd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    font-size: 13px;
+    color: #475569;
+}
+
+/* 斑马线柔和化处理 */
+.gallerygrid-captionbox .mobile-card-item-odd {
+    background: rgba(0, 172, 193, 0.04);
+    border-radius: 6px;
+}
+
+/* 键值对颜色区分 */
+.card-item-key {
+    color: #64748b;
+    font-size: 12px;
+}
+.card-item-value {
+    color: #00acc1;
+    font-weight: 700;
+}
+
+/* 长文本描述区域 */
+.gallerygrid-captionbox .mobile-card-desc,
+.gallerygrid-captionbox .mobile-card-role {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    margin-top: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 172, 193, 0.1);
+    font-size: 13px;
+    color: #475569;
+}
+.gallerygrid-captionbox .mobile-card-desc .card-item-key,
+.gallerygrid-captionbox .mobile-card-role .card-item-key {
+    margin-bottom: 4px;
+}
+.gallerygrid-captionbox .mobile-card-desc .card-item-value, 
+.gallerygrid-captionbox .mobile-card-role .card-item-value {
+    color: #334155;
+    font-weight: normal;
+    line-height: 1.5;
+}
+.gallerygrid-captionbox .mobile-card-desc .card-item-value ol {
+    margin: 0;
+    padding-left: 20px;
+}
+/*</pre>*/</bstyle>}}

@@ -1,0 +1,53 @@
+<includeonly><span class="colormu colormu-{{{l|{{#if:{{ColorOps|isDark|{{{2|#000}}}}}|drk|bri}}}}}" title="{{{3|你知道的太多了}}}" style="background-color:{{{2|#66ccff}}};color:{{{color|}}};{{{css|}}}"><span>{{{1}}}</span></span></includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>
+<bstyle>/*<pre>*/
+/*
+.colormu_toggle_on是为了黑幕开关(MediaWiki:Gadget-heimu-toggle.js)做适配。
+.colormu-drk、.colormu-bri分别是暗色背景和亮色背景，
+暗色背景的文字通常是浅色，在半隐背景后，颜色需要变成深色。
+*/
+ 
+.colormu-drk {
+	color: #FFF;
+    border-radius: 3px;
+}
+.colormu-bri {
+	color: #000;
+    border-radius: 3px;
+}
+.colormu-drk:not(.colormu_toggle_on) a {
+	color: #add8e6;
+}
+.colormu-drk:not(.colormu_toggle_on) a.new {
+	color: #FCC;
+}
+.colormu>span, .colormu a, .colormu a>span {
+	transition: color 0.2s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .colormu:not(:hover):not(:active):not(.colormu_toggle_on)>span,
+  .colormu:not(:hover):not(:active):not(.colormu_toggle_on) a {
+  	color: transparent;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  /* for T:Coloredlink in T:彩幕 */
+  .colormu:not(:hover):not(:active):not(.colormu_toggle_on) a>span {
+  	color: transparent !important;
+  }
+}
+ 
+/* for T:彩幕 in link */
+a .colormu-bri {
+	color: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover .colormu>span, a:active .colormu>span,
+  /* and for MediaWiki:Gadget-heimu-toggle.js */
+  .colormu-drk.colormu_toggle_on, .colormu_toggle_on>span, .colormu-drk.colormu_toggle_on a>span {
+  	color: inherit !important;
+  }
+}
+/*</pre>*/</bstyle>

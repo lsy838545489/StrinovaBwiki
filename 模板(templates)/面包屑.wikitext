@@ -1,0 +1,90 @@
+<includeonly>{{#invoke:SEO|main}}<div class="klbq-breadcrumb-bar"><div class="breadcrumb-path">[[首页]]{{#vardefine:base|}}{{#fornumargs: num | value | {{#vardefine:base|{{#var:base}}{{#if:{{#var:base}}|/}}{{#var:value}} }} <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> [[:{{#var:base}}|{{#var:value}}]] }} <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="current-page">'''[[:{{FULLPAGENAME}}|{{#if: {{SUBPAGENAME}} | {{SUBPAGENAME}} |{{PAGENAME}}}}]]'''</span></div></div></includeonly><noinclude>
+== 描述 ==
+
+面包屑用于回到上级页面，无上级页面时，则回到首页， 首页不需要添加。
+
+== 语法 ==
+
+*上级页面只有首页时
+<pre>
+{{面包屑}}
+</pre>
+
+
+*有其他上级页面时
+<pre>
+{{面包屑|上级页面}}
+</pre>
+
+
+== 示例 ==
+
+*上级页面只有首页时
+
+{{面包屑}}
+
+
+*有其他上级页面时
+
+{{面包屑|特别行动|第3赛季}}
+[[分类:模板]]</noinclude>
+<bstyle>/*<pre>*/
+#contentSub {
+	display: none;
+}
+.klbq-breadcrumb-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 4px 12px;
+	margin-bottom: 5px;
+	background: var(--wiki-content-bg);
+	border-radius: 8px;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	border-left: 4px solid #00acc1;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+	font-size: 14px;
+}
+.klbq-breadcrumb-bar .breadcrumb-path a {
+	color: var(--wiki-text-muted);
+	transition: color 0.3s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+	.klbq-breadcrumb-bar .breadcrumb-path a:hover {
+		color: #00acc1;
+	}
+}
+.klbq-breadcrumb-bar .separator {
+	color: #cbd5e1;
+	font-size: 0.75rem;
+	margin: 0 4px;
+	transform: scale(0.9);
+}
+.klbq-breadcrumb-bar .current-page b,
+.klbq-breadcrumb-bar .current-page a {
+	color: #00acc1;
+	font-weight: 700;
+}
+
+.client-js.wiki-dark-mode .klbq-breadcrumb-bar {
+	background: rgba(30, 41, 59, 0.6);
+	border: 1px solid var(--wiki-dark-border);
+	border-left: 4px solid var(--wiki-dark-accent);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.client-js.wiki-dark-mode .klbq-breadcrumb-bar .breadcrumb-path a {
+	color: var(--wiki-dark-text-muted);
+}
+@media (hover: hover) and (pointer: fine) {
+	.client-js.wiki-dark-mode .klbq-breadcrumb-bar .breadcrumb-path a:hover {
+		color: var(--wiki-dark-accent-hover);
+	}
+}
+.client-js.wiki-dark-mode .klbq-breadcrumb-bar .separator {
+	color: #475569;
+}
+.client-js.wiki-dark-mode .klbq-breadcrumb-bar .current-page b,
+.client-js.wiki-dark-mode .klbq-breadcrumb-bar .current-page a {
+	color: var(--wiki-dark-accent) !important;
+}
+/*</pre>*/</bstyle>

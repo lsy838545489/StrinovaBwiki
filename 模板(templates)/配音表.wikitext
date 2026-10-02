@@ -1,0 +1,91 @@
+<includeonly><includeonly>{{#vardefine:valist|{{#expr:{{#var:valist|0}}+1}}}}<div class="klbq-va-list-header" style="display:{{#if:{{{hide|}}}|none|flex}};"><span class="klbq-va-list-header__label">排序方式</span>
+<div class="klbq-va-list-header__controls"><span class="klbq-va-list-header__option">年代倒序</span>
+{{styleToggle/switch|peiyin{{#var:valist}}|css=margin:0 6px;}}<span class="klbq-va-list-header__option">年代正序</span>
+</div>
+</div>
+{{styleToggle|1={{#fornumargs:
+| key
+| val
+|{{styleToggle|1=
+<div class="klbq-va-year-group">
+<div class="klbq-va-year-group__badge">{{#var: key}} 年</div>
+<div class="klbq-va-year-group__content">
+{{#var: val}}
+</div>
+</div>|transform=rotate(-180deg)|css=transition:none;backface-visibility:hidden;|id=peiyin{{#var:valist}}}}
+}}|transform=rotate(180deg)|css=display:flex;flex-direction:column;gap:12px;transition:none;backface-visibility:hidden;{{{css|}}}|id=peiyin{{#var:valist}}}}</includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>{{#if:{{#varexists:Voice-Cast-CSS}} || {{#vardefine:Voice-Cast-CSS | 1 }}<bstyle>/*<pre>*/
+/* --- 配音表顶部控制栏 (Block: klbq-va-list-header) --- */
+.klbq-va-list-header { /* 顶部毛玻璃控制容器 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    margin-bottom: 12px;
+    background: rgba(244, 250, 255, 0.85);
+    border: 1px solid rgba(147, 197, 253, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.klbq-va-list-header__label { /* 排序标题文本 */
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #00acc1;
+}
+
+.klbq-va-list-header__controls { /* 右侧控制组 */
+    display: flex;
+    align-items: center;
+}
+.klbq-va-list-header__option { /* 倒序/正序辅助文本 */
+    font-size: 0.825rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* --- 年代分组卡片 (Block: klbq-va-year-group) --- */
+.klbq-va-year-group { /* 单个年份数据卡片 */
+    background: rgba(248, 249, 250, 0.7);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+.klbq-va-year-group__badge { /* 年份微型徽章 */
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00acc1 0%, #3b82f6 100%);
+    padding: 2px 12px;
+    border-radius: 6px 2px 6px 2px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 6px rgba(0, 172, 193, 0.2);
+}
+.klbq-va-year-group__content { /* 配音作品列表容器 */
+    color: #334155;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* --- 暗色模式适配 --- */
+.client-js.wiki-dark-mode .klbq-va-list-header { /* 暗色模式控制栏 */
+    background: rgba(15, 23, 42, 0.75);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.client-js.wiki-dark-mode .klbq-va-list-header__label { /* 暗色模式标题文本 */
+    color: #38bdf8;
+}
+.client-js.wiki-dark-mode .klbq-va-list-header__option { /* 暗色模式辅助文本 */
+    color: #94a3b8;
+}
+.client-js.wiki-dark-mode .klbq-va-year-group { /* 暗色模式年份卡片 */
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+.client-js.wiki-dark-mode .klbq-va-year-group__content { /* 暗色模式作品列表文本 */
+    color: #f1f5f9;
+}
+/*</pre>*/</bstyle>}}

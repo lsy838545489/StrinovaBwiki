@@ -1,0 +1,31 @@
+<includeonly>{{#if:{{#varexists:防止多次加载Swiper}}||{{#vardefineecho:防止多次加载Swiper|{{#widget:swiper}}}}}}<!---->{{#vardefine: paramindex | 1 }}{{#while: | {{#if: {{{ {{#var: paramindex }}| }}} | true }} | {{#vardefine: paramindex | {{#expr: {{#var: paramindex }} + 1 }} }} }} {{#vardefine:slidenum| {{#expr: {{#var:paramindex}} -1 }} }}<!--
+-->{{#vardefine:参数|autoHeight:true, 
+{{#switch:{{{联动|主图}}}
+|主图=effect:'{{{效果|slide}}}',
+{{#ifeq:{{{循环|是}}}{{#ifeq:{{#var:slidenum}}|1|1}}|是|loop:true,}}
+{{#ifeq:{{{自动播放|是}}}{{#ifeq:{{#var:slidenum}}|1|1}}|是|autoplay:{delay:{{{延迟|2500}}},disableOnInteraction:false,},}}
+{{#ifeq:{{{分页|是}}}|是|pagination: { el: $(el).find(".swiper-pagination")[0], clickable: true},}}
+{{#ifeq:{{{翻页|}}}|箭头|navigation:{nextEl:$(el).find(".swiper-button-next")[0], prevEl: $(el).find(".swiper-button-prev")[0]},}}
+{{#ifeq:{{{联动}}}|主图|thumbs: {swiper: $(el).parent().find(".bwiki-swiper-thumbs")[0].swiper},}}
+|缩略图=freeMode:true,watchSlidesProgress:true,
+}}}}<!--
+
+--><div id="{{{id|}}}" class="swiper bwiki-swiper radius5 {{#ifeq:{{{联动}}}|缩略图|bwiki-swiper-thumbs}}" data-swiper-options='{{urlencode: { {{#var:参数}} {{#ifeq:{{{联动}}}|缩略图|slidesPerView:{{#var:slidenum}},}} {{{额外参数|}}} } }}' style="{{{style|}}}">
+<div class="swiper-wrapper">
+{{#vardefine: paramindex | 1 }}{{#while: | {{#if: {{{ {{#var: paramindex }}| }}} | true }} | 
+<div class="swiper-slide">{{{ {{#var: paramindex }} }}} </div>
+{{#vardefine: paramindex | {{#expr: {{#var: paramindex }} + 1 }} }} }}
+</div>{{#vardefineecho:切换节点|{{#ifeq:{{{分页|是}}}|是|<div class="swiper-pagination"></div>}}{{#ifeq:{{{翻页|}}}|箭头|<div class="swiper-button-next"></div><div class="swiper-button-prev"></div>}}}}</div>
+{{#if:{{#varexists:防止多次加载Swiper样式}}||{{#vardefineecho:防止多次加载Swiper样式|<bstyle>
+.swiper-button-prev, .swiper-button-next{color:white;top: 0; margin-top: 0;height:100%;outline:none;}
+.swiper-pagination-bullet-active{background:rgba(0,0,0,0);outline:none;}
+.swiper-pagination{min-height:30px;padding-top:10px;margin-bottom:-10px}
+.bwiki-swiper{width:100%;height:auto; position:relative;margin-left:auto;margin-right:auto;user-select:none;align-items: center;align-content: center;}
+.swiper-wrapper{height:auto}
+.swiper-slide{text-align:center;font-size:18px;background:rgba(0,0,0,0);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;background-size:cover;background-position:center}
+.swiper-slide img{display:block;width:100%;height:auto;object-fit:cover;}
+.bwiki-swiper-thumbs .swiper-slide{width:25%;height:auto;opacity:0.4;cursor:pointer}
+.bwiki-swiper-thumbs .swiper-slide:hover{opacity:0.8}
+.bwiki-swiper-thumbs .swiper-slide-thumb-active, .bwiki-swiper-thumbs .swiper-slide-thumb-active:hover{opacity:1}
+.bwiki-swiper-thumbs .swiper-slide > *{pointer-events:none}
+</bstyle>}}}}</includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>

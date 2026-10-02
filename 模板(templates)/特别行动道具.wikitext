@@ -1,0 +1,61 @@
+<includeonly><li class="battle-pass__item"><span class="battle-pass__level">{{{等级|}}}</span><span class="battle-pass__connector"></span><div class="battle-pass__content">
+{| style="text-align: center;"
+{{#if: {{{免费|}}} | {{!}}+免费 |  }}
+|-
+{{#switch: {{{道具类型}}} 
+| 角色时装 ={{!}} {{道具图标|类型=时装|{{{角色时装|}}}|imgsize=70px}}
+| 武器皮肤 ={{!}} {{道具图标|类型=外观|{{{武器皮肤|}}}|imgsize=70px}}
+| 基弦 ={{!}} {{道具图标|基弦|数量={{{数量|100}}}|imgsize=70px}}
+| 弦列维度礼盒 ={{!}} {{道具图标|弦列维度礼盒|数量={{{数量|1}}}|imgsize=70px}}
+| 巴布洛晶核 ={{!}} {{道具图标|巴布洛晶核|数量={{{数量|68}}}|imgsize=70px}}
+| 记忆序列 ={{!}} {{道具图标|记忆序列|数量={{{数量|1}}}|imgsize=70px}}
+| 其它 ={{!}} {{道具图标|{{{名称|}}}|数量={{{数量|1}}}|imgsize=70px}}
+| 角色语音 =
+{{!}} {{道具图标|类型=语音|{{{语音角色|}}}|imgsize=70px}} '''{{{语音名称|}}}'''
+{{!}}  {{Audio|{{{语音文件|}}}.mp3|mini=true}}
+| 表情 ={{!}} {{道具图标|类型=表情|{{{表情名称|}}}|imgsize=70px}}
+| 喷漆 ={{!}} {{道具图标|类型=喷漆|{{{喷漆名称|}}}|imgsize=70px}}
+| 基板 ={{!}} {{道具图标|类型=基板|{{{基板名称|}}}|imgsize=70px}}
+| 勋章 ={{!}} {{道具图标|类型=勋章|{{{勋章名称|}}}|imgsize=70px}}
+| }}
+|}</div></li></includeonly><noinclude>[[分类:模板]]</noinclude>{{#if:{{#varexists:特别行动道具CSS}}||{{#vardefine:特别行动道具CSS|1}}<bstyle>/*<pre>*/
+.battle-pass { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0; margin: 0; position: relative; } /* BEM块：通行证主容器 */
+.battle-pass::before { content: ""; position: absolute; left: 2.5%; top: 0; bottom: 0; width: 6px; background-color: #82B1FF; border-radius: 3px; z-index: 0; } /* 贯穿整个容器的连续主线 */
+.battle-pass__item { position: relative; width: 95%; padding: 0; margin: 0; z-index: 1; } /* BEM元素：单层奖励项 */
+.battle-pass__content { background: rgba(248, 249, 250, 0.9); border-radius: 16px; box-shadow: 0 4px 16px rgba(130, 177, 255, 0.15); margin: 12px 20px 12px 40px; padding: 8px 12px; text-align: left; transition: transform 0.2s ease; }
+@media (hover: hover) and (pointer: fine) {
+  /* BEM元素：内容面板 */
+  .battle-pass__content:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(130, 177, 255, 0.25); }
+} /* BEM元素状态：悬停交互 */
+.battle-pass__content img { border-radius: 8px; }
+.battle-pass__connector { display: block; height: 0; border-bottom: 4px dashed #82B1FF; width: 30px; position: absolute; top: 50%; left: 0; transform: translateY(-50%); z-index: -1; } /* BEM元素：连接线段 */
+.battle-pass__level { display: inline-block; position: absolute; left: -5px; top: 50%; transform: translate(-100%, -50%); white-space: nowrap; background: #82B1FF; border-radius: 20px; padding: 4px 12px; color: #fff; box-shadow: 0 2px 6px rgba(130, 177, 255, 0.4); z-index: 2; font-size: 0.875rem; font-weight: bold; } /* BEM元素：等级标签 */
+@media screen and (max-width:768px) {
+	.battle-pass::before { left: 2.5%; width: 4px; }
+	.battle-pass__level { left: 10px; font-size: 12px; top: 0; transform: translate(0, -50%); } /* 移动端：取消向左延展，改为正常的向右延展以防遮挡 */
+	.battle-pass__content { margin: 20px 10px 20px 20px; }
+	.battle-pass__connector { display: none; }
+}
+
+/* --- 暗色模式样式适配 --- */
+.client-js.wiki-dark-mode .battle-pass__content { background: rgba(51, 65, 85, 0.9); color: #E2E8F0; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); }
+@media (hover: hover) and (pointer: fine) {
+  /* 系统级暗色：内容面板背景与阴影 */
+  .client-js.wiki-dark-mode .battle-pass__content:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6); }
+} /* 系统级暗色：悬停加深阴影 */
+.client-js.wiki-dark-mode .battle-pass__level { box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); } /* 系统级暗色：等级标签阴影调整 */
+.client-js.wiki-dark-mode .battle-pass__content, html.dark .battle-pass__content, body.darkmode .battle-pass__content { background: rgba(51, 65, 85, 0.9); color: #E2E8F0; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); }
+@media (hover: hover) and (pointer: fine) {
+  /* WIKI类名暗色：内容面板背景与文字 */
+  .client-js.wiki-dark-mode .battle-pass__content:hover, html.dark .battle-pass__content:hover, body.darkmode .battle-pass__content:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6); }
+} /* WIKI类名暗色：悬停阴影 */
+.client-js.wiki-dark-mode .battle-pass__level, html.dark .battle-pass__level, body.darkmode .battle-pass__level { box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); } /* WIKI类名暗色：标签阴影 */
+
+/* --- 移动端响应式 --- */
+@media screen and (max-width:768px) {
+	.client-js.wiki-dark-mode .battle-pass::before { left: 2.5%; width: 4px; }
+	.client-js.wiki-dark-mode .battle-pass__level { left: 10px; font-size: 12px; top: 0; transform: translate(0, -50%); }
+	.client-js.wiki-dark-mode .battle-pass__content { margin: 20px 10px 20px 20px; }
+	.client-js.wiki-dark-mode .battle-pass__connector { display: none; }
+}
+/*</pre>*/</bstyle>}}

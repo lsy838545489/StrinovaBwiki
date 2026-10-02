@@ -1,0 +1,351 @@
+<includeonly><div class="gallerygrid-item klbq-char-card" data-id="{{{ID|}}}" data-param1="{{{阵营|}}}" data-param2="{{{定位|}}}" data-param3="{{{武器类型|}}}">
+<div class="klbq-char-card__badges">
+<span class="klbq-char-card__badge klbq-char-card__badge--role">{{超弦体定位图标|{{{定位|}}}|显示名称=1}}</span>
+</div>
+<div class="klbq-char-card__imagebox">[[文件:{{{1|}}}头像.png|150px|link={{{1|}}}]]</div>
+<div class="klbq-char-card__captionbox">
+<div class="klbq-char-card__name">[[{{{1|}}}]]</div>
+<div class="klbq-char-card__stat"><span class="klbq-char-card__label">中文 CV：</span><span class="klbq-char-card__value card-item-value">'''[[{{{中文声优|}}}]]'''</span></div>
+<div class="klbq-char-card__stat"><span class="klbq-char-card__label">日文 CV：</span><span class="klbq-char-card__value card-item-value">'''[[{{{日文声优|}}}]]'''</span></div>
+<div class="klbq-char-card__weapon"><span class="klbq-char-card__label">可用武器：</span><span class="klbq-char-card__weapon-list">{{#arraymap: {{#ask:[[分类:主武器]][[使用者::{{{1|}}}]]
+|format=plainlist
+|named args=yes
+|link=none
+}}|, |@|<span class="klbq-char-card__badge klbq-char-card__badge--weapon">[[@]]</span>| }}</span></div>
+<div class="klbq-char-card__traits"><span class="klbq-char-card__label">超弦体特性：</span><div class="klbq-char-card__trait-list">{{#arraymap:{{{超弦体特性|}}}|、|@|<span class="klbq-char-card__badge klbq-char-card__badge--trait">@</span>| }}</div></div>
+</div>
+</div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>{{#if:{{#varexists:klbq-char-card-CSS}} || {{#vardefine:klbq-char-card-CSS | 1 }}<bstyle>/*<pre>*/
+.gallerygrid { /* 容器基础排版 */
+    display: grid;
+    grid-gap: 1.5rem 1rem;
+    --gallerygrid-fit: contain;
+    justify-content: center;
+    padding: 10px;
+}
+@media (min-width: 320px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
+}
+@media (min-width: 768px) {
+  .gallerygrid { grid-template-columns: repeat(auto-fit, 260px); }
+}
+.gallerygrid-item { /* 子项高度撑满 */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* --- 角色卡片 Block (基础样式) --- */
+.klbq-char-card {
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 16px;
+    border: 1.5px solid rgba(226, 232, 240, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* --- 阵营专属边框与背景色彩映射 (浅色模式) --- */
+
+/* 1. 欧泊 (#4b77dc) */
+.klbq-char-card[data-param1="欧泊"] {
+    border-color: rgba(75, 119, 220, 0.4);
+}
+.klbq-char-card[data-param1="欧泊"] .klbq-char-card__imagebox {
+    background: linear-gradient(180deg, rgba(75, 119, 220, 0.15) 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+/* 2. 剪刀手 (#bc3b47) */
+.klbq-char-card[data-param1="剪刀手"] {
+    border-color: rgba(188, 59, 71, 0.4);
+}
+.klbq-char-card[data-param1="剪刀手"] .klbq-char-card__imagebox {
+    background: linear-gradient(180deg, rgba(188, 59, 71, 0.15) 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+/* 3. 乌尔比诺 (#deb639) */
+.klbq-char-card[data-param1="乌尔比诺"] {
+    border-color: rgba(222, 182, 57, 0.45);
+}
+.klbq-char-card[data-param1="乌尔比诺"] .klbq-char-card__imagebox {
+    background: linear-gradient(180deg, rgba(222, 182, 57, 0.18) 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+/* 扫描线光效 */
+.klbq-char-card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -20%;
+    height: 20%;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255, 107, 47, 0.08),
+        transparent
+    );
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* 编号角标 */
+.klbq-char-card::before {
+    content: attr(data-id);
+    position: absolute;
+    top: 9px;
+    right: -25px;
+    width: 82px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto Mono", "Consolas", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: #64748b;
+    transform: rotate(35deg);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* 悬浮微弹与阵营专属辉光 */
+@media (hover: hover) and (pointer: fine) {
+    .klbq-char-card:hover {
+        transform: translateY(-4px);
+        z-index: 2;
+    }
+    .klbq-char-card[data-param1="欧泊"]:hover {
+        border-color: #4b77dc;
+        box-shadow: 0 8px 20px rgba(75, 119, 220, 0.25);
+    }
+    .klbq-char-card[data-param1="剪刀手"]:hover {
+        border-color: #bc3b47;
+        box-shadow: 0 8px 20px rgba(188, 59, 71, 0.25);
+    }
+    .klbq-char-card[data-param1="乌尔比诺"]:hover {
+        border-color: #deb639;
+        box-shadow: 0 8px 20px rgba(222, 182, 57, 0.3);
+    }
+
+    .klbq-char-card:hover::after {
+        opacity: 1;
+        animation: klbq-card-scan 1.2s ease-out;
+    }
+}
+
+@keyframes klbq-card-scan {
+    from { top: -20%; }
+    to { top: 100%; }
+}
+
+/* --- 图像容器 --- */
+.klbq-char-card__imagebox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12px;
+}
+.klbq-char-card__imagebox::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    right: -25px;
+    top: 15px;
+    border: 1px solid rgba(0, 172, 193, .12);
+    transform: rotate(45deg);
+}
+.klbq-char-card__imagebox::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 1px;
+    left: -20px;
+    bottom: 15px;
+    background: rgba(0, 172, 193, .15);
+}
+.klbq-char-card__imagebox img {
+    object-position: center;
+    object-fit: contain;
+}
+
+/* 角标定位与武器类型 */
+.klbq-char-card__badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 8px 4px 8px;
+    background: linear-gradient(180deg, rgba(160, 207, 255, 0.15) 0%, rgba(160, 207, 255, 0.05) 100%);
+    border-bottom: 1px dashed rgba(160, 207, 255, 0.3);
+}
+
+.klbq-char-card__badge {
+	display: inline-flex;
+	align-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.klbq-char-card__badge--role,
+.klbq-char-card__badge--weapon,
+.klbq-char-card__badge--trait {
+    background: rgba(160, 207, 255, 0.15);
+    color: #4b89ff;
+    border: 1px solid rgba(160, 207, 255, 0.4);
+}
+
+/* --- 内容信息区域 --- */
+.klbq-char-card__captionbox {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 10px 12px 10px;
+    color: #475569;
+    flex-grow: 1;
+}
+
+.klbq-char-card__name {
+    color: #334155;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 6px 0;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, transparent, rgba(160, 207, 255, 0.2), transparent);
+    border-bottom: 1px dashed rgba(160, 207, 255, 0.5);
+}
+
+.klbq-char-card__stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 6px;
+    font-size: 0.85rem;
+}
+
+.klbq-char-card__label {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.klbq-char-card__value {
+    color: #00acc1;
+    font-weight: 700;
+}
+
+.klbq-char-card__weapon,
+.klbq-char-card__traits {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 8px;
+    margin-top: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 172, 193, 0.12);
+}
+.klbq-char-card__weapon::before {
+    content: "WEAPON";
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    opacity: .35;
+}
+.klbq-char-card__traits::before {
+    content: "TRAIT";
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    opacity: .35;
+}
+.klbq-char-card__badge--trait::before {
+    content: "◆";
+    font-size: .6em;
+    margin-right: 4px;
+}
+.klbq-char-card__weapon-list,
+.klbq-char-card__trait-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+/* --- 暗色模式适配 (Dark Mode) --- */
+.client-js.wiki-dark-mode .klbq-char-card {
+    background: rgba(30, 41, 59, 0.85);
+}
+
+/* 暗色模式阵营专属辉光 */
+.client-js.wiki-dark-mode .klbq-char-card[data-param1="欧泊"] {
+    border-color: rgba(114, 151, 247, 0.35);
+}
+.client-js.wiki-dark-mode .klbq-char-card[data-param1="欧泊"] .klbq-char-card__imagebox {
+    background: linear-gradient(180deg, rgba(75, 119, 220, 0.2) 0%, rgba(15, 23, 42, 0) 100%);
+}
+
+.client-js.wiki-dark-mode .klbq-char-card[data-param1="剪刀手"] {
+    border-color: rgba(248, 113, 113, 0.35);
+}
+.client-js.wiki-dark-mode .klbq-char-card[data-param1="剪刀手"] .klbq-char-card__imagebox {
+    background: linear-gradient(180deg, rgba(188, 59, 71, 0.22) 0%, rgba(15, 23, 42, 0) 100%);
+}
+
+.client-js.wiki-dark-mode .klbq-char-card[data-param1="乌尔比诺"] {
+    border-color: rgba(250, 204, 21, 0.35);
+}
+.client-js.wiki-dark-mode .klbq-char-card[data-param1="乌尔比诺"] .klbq-char-card__imagebox {
+    background: linear-gradient(180deg, rgba(222, 182, 57, 0.2) 0%, rgba(15, 23, 42, 0) 100%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .client-js.wiki-dark-mode .klbq-char-card[data-param1="欧泊"]:hover {
+        border-color: #7297f7;
+        box-shadow: 0 0 15px rgba(114, 151, 247, 0.4);
+    }
+    .client-js.wiki-dark-mode .klbq-char-card[data-param1="剪刀手"]:hover {
+        border-color: #f87171;
+        box-shadow: 0 0 15px rgba(248, 113, 113, 0.4);
+    }
+    .client-js.wiki-dark-mode .klbq-char-card[data-param1="乌尔比诺"]:hover {
+        border-color: #facc15;
+        box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
+    }
+}
+
+.client-js.wiki-dark-mode .klbq-char-card__name {
+    color: var(--wiki-dark-text, #f1f5f9);
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.2), transparent);
+    border-bottom-color: rgba(14, 165, 233, 0.4);
+}
+
+.client-js.wiki-dark-mode .klbq-char-card__label { color: #94a3b8; }
+.client-js.wiki-dark-mode .klbq-char-card__value { color: var(--wiki-dark-accent, #38bdf8); }
+
+.client-js.wiki-dark-mode .klbq-char-card__traits {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(14, 165, 233, 0.2);
+}
+
+.client-js.wiki-dark-mode .klbq-char-card__badge--role,
+.client-js.wiki-dark-mode .klbq-char-card__badge--trait {
+    background: rgba(56, 189, 248, 0.15);
+    color: #7dd3fc;
+    border-color: rgba(56, 189, 248, 0.4);
+}
+/*</pre>*/</bstyle>}}

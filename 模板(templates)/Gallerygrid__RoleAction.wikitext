@@ -1,0 +1,90 @@
+<includeonly><div class="gallerygrid-item">
+<div class="gallerygrid-imagebox" style="height:150px">[[{{{filename|}}}|{{{width|}}}|link=]]</div>
+<div class="gallerygrid-captionbox">
+<div class="gallerygrid-player-decoration">{{{1}}}</div><small>{{{2}}}</small><br />
+'''获得方式：'''
+{{{3}}}
+</div>
+</div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
+{{#if:{{#varexists:player-decoration-CSS}} || {{#vardefine:player-decoration-CSS | 1 }}<bstyle>/*<pre>*/
+@media (min-width: 320px) {
+  .gallerygrid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+@media (min-width: 768px) {
+  .gallerygrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+.gallerygrid-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.gallerygrid-imagebox {
+	margin-bottom: 0.5rem;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 12px 12px 0 0;
+}
+.gallerygrid-imagebox img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit:var(--gallerygrid-fit);
+    transition: transform 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallerygrid-item:hover .gallerygrid-imagebox img {
+      transform: scale(1.05);
+  }
+}
+.player-decoration {
+	justify-content: center;
+}
+.gallerygrid-captionbox {
+    margin-bottom: 0.8rem;
+    padding: 0 8px;
+}
+.gallerygrid-player-decoration {
+	text-align: center;
+    margin-bottom: 0.5rem;
+}
+.gallerygrid-player-decoration .badge {
+	color: #fff;
+	vertical-align: baseline;
+	font-size: larger;
+	font-weight: bolder;
+    white-space: normal;
+    border-radius: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.gallerygrid-player-decoration .badge[data-quality="8"],
+.gallerygrid-player-decoration .badge[data-quality="6"] {
+	background: var(--item-quality-Secret);
+}
+.gallerygrid-player-decoration .badge[data-quality="5"] {
+	background: var(--item-quality-Legendary);
+}
+.gallerygrid-player-decoration .badge[data-quality="4"] {
+	background: var(--item-quality-Perfect);
+}
+.gallerygrid-player-decoration .badge[data-quality="3"] {
+	background: var(--item-quality-Superior);
+}
+.gallerygrid-player-decoration .badge[data-quality="2"] {
+	background: var(--item-quality-Exquisite);
+}
+.gallerygrid-player-decoration .badge[data-quality="1"] {
+	background: var(--item-quality-Initial);
+    color: #64748b;
+    text-shadow: none;
+}
+/*</pre>*/</bstyle>}}

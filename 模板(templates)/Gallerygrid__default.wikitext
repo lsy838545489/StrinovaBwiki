@@ -1,0 +1,37 @@
+<includeonly><div class="gallerygrid-item">
+<div class="gallerygrid-imagebox" style="height:{{{height|120px}}}">[[{{{filename|}}}|{{{width|240px}}}|link={{{link|{{{filename|}}}}}}]]</div>
+<div class="gallerygrid-captionbox">
+{{{text|}}}
+</div>
+</div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
+{{#if:{{#varexists:gallerygrid-default-css}} || {{#vardefine:gallerygrid-default-css | 1 }}<bstyle>/*<pre>*/
+.gallerygrid-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%
+}
+.gallerygrid-imagebox {
+    margin-bottom: 0.5rem;
+}
+.gallerygrid-imagebox img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit:var(--gallerygrid-fit);
+}
+@media (min-width: 320px) {
+  .gallerygrid {
+    grid-template-columns: repeat(auto-fit, 160px);
+  }
+}
+@media (min-width: 768px) {
+  .gallerygrid {
+    grid-template-columns: repeat(auto-fit, 180px);
+  }
+}
+@media (min-width: 1200px) {
+  .gallerygrid {
+    grid-template-columns: repeat(auto-fit, 200px);
+  }
+}
+/*</pre>*/</bstyle>}}

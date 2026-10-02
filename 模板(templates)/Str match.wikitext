@@ -1,0 +1,29 @@
+<includeonly>{{{{{|safesubst:}}}#invoke:String|match|s={{{str|}}}|pattern={{{{{|safesubst:}}}unwiki|{{{ptn|}}}}}|match={{{match|}}}|plain=false|nomatch={{{nomatch|}}}}}</includeonly><noinclude>
+{{协议
+|来自=萌娘百科
+|来自URL=zh.moegirl.org.cn
+|页面=Template:Str match
+|页面URL=zh.moegirl.org.cn/_?curid=286182
+|协议=BY-NC-SA
+}}
+{{Lua|String|Unwiki}}
+== 简介 ==
+
+这个模板将对正则表达式的查询结果进行分捕获组的输出，若未定义捕获组，则输出整个匹配的字符串。
+
+若正则未匹配到结果，则输出空。
+
+;这个模板使用的是Lua的正则表达式。。
+
+== 用法 ==
+<pre>
+{{str match|str= <!-- 要查询的字符串 -->|ptn= <!-- 正则表达式，支持以<nowiki>标签包裹的格式传入 -->
+|match= 捕获组编号，默认为1|nomatch=未匹配到时输出的内容，默认为空}}
+</pre>
+
+== 示例 ==
+
+<pre>{{str match|str=123|ptn=%d(%d)%d}}</pre>
+
+'''输出：'''{{str match|str=123|ptn=%d(%d)%d}}
+</noinclude>

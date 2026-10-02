@@ -1,0 +1,163 @@
+<includeonly><includeonly>{{#set:
+|公告发布时间={{#invoke:TimeNormalizer|format_time|{{{时间|}}}}}
+|公告B站发布链接={{{b站|}}}
+|公告官网发布链接={{{官网|}}}
+}}<div class="klbq-notice-header">
+<div class="klbq-notice-header__icon">[[文件:表情_60000031.png|48px|alt=公告]]</div>
+<div class="klbq-notice-header__content">
+<div class="klbq-notice-header__title"><span class="klbq-notice-header__tag">{{{类型|官方公告}}}</span><span class="klbq-notice-header__time">发布于 {{{时间}}}</span></div>
+<div class="klbq-notice-header__links"><span class="klbq-notice-header__label">发布渠道：</span><!--
+-->{{#if:{{{b站|}}}|{{a|href={{{b站|}}}|content=B站公告|class=klbq-notice-header__link klbq-notice-header__link--bilibili}}}}<!--
+-->{{#if:{{{官网|}}}|{{a|href={{{官网|}}}|content=官网发布地址|class=klbq-notice-header__link klbq-notice-header__link--official}}}}</div>
+</div>
+</div>{{#if:{{{nocat|}}}||[[分类:公告资讯]]}}</includeonly><noinclude>[[分类:模板]]</noinclude>
+<bstyle>/*<pre>*/
+.klbq-notice-header { /* --- 战术公告页顶情报面板 Block --- */
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    margin: 12px 0 20px 0;
+    background: rgba(244, 250, 255, 0.85);
+    border: 1px solid rgba(147, 197, 253, 0.4);
+    border-left: 5px solid #00acc1;
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08);
+    transition: all 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .klbq-notice-header:hover {
+      border-color: rgba(147, 197, 253, 0.8);
+      box-shadow: 0 6px 20px rgba(0, 172, 193, 0.15);
+  }
+}
+.klbq-notice-header__icon { /* --- 左侧图标区 --- */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(147, 197, 253, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.klbq-notice-header__icon img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+.klbq-notice-header__content { /* --- 右侧内容区 --- */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+}
+.klbq-notice-header__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.klbq-notice-header__tag {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00acc1 0%, #3b82f6 100%);
+    padding: 2px 10px;
+    border-radius: 6px 2px 6px 2px;
+    box-shadow: 0 2px 6px rgba(0, 172, 193, 0.25);
+}
+.klbq-notice-header__time {
+    font-size: 0.875rem;
+    color: #475569;
+    font-weight: 600;
+    font-family: Consolas, monospace;
+}
+.klbq-notice-header__links { /* --- 链接与按钮组 --- */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 0.825rem;
+}
+.klbq-notice-header__label {
+    color: #64748b;
+    font-weight: 500;
+}
+
+.klbq-notice-header__link::after,
+.klbq-notice-header__link::before {
+    display: none !important;
+    content: "" !important;
+}
+
+
+.klbq-notice-header__link--bilibili,
+.klbq-notice-header__link--bilibili:visited { /* B站外链按钮 */
+    color: #02b0da !important;
+    background: rgba(2, 176, 218, 0.1);
+    border: 1px solid rgba(2, 176, 218, 0.3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .klbq-notice-header__link--bilibili:hover {
+      color: #ffffff !important;
+      background: #02b0da;
+      box-shadow: 0 2px 8px rgba(2, 176, 218, 0.3);
+  }
+}
+.klbq-notice-header__link--official,
+.klbq-notice-header__link--official:visited { /* 官网外链按钮 */
+    color: #ff6b2f !important;
+    background: rgba(255, 107, 47, 0.1);
+    border: 1px solid rgba(255, 107, 47, 0.3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .klbq-notice-header__link--official a:hover {
+      color: #ffffff !important;
+      background: #ff6b2f;
+      box-shadow: 0 2px 8px rgba(255, 107, 47, 0.3);
+  }
+}
+
+/* --- 移动端适配 --- */
+@media screen and (max-width: 768px) {
+    .klbq-notice-header {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+    .klbq-notice-header__icon {
+        width: 42px;
+        height: 42px;
+    }
+    .klbq-notice-header__icon img {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* --- 暗色模式适配 (Dark Mode) --- */
+.client-js.wiki-dark-mode .klbq-notice-header {
+    background: rgba(15, 23, 42, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+    border-left-color: #38bdf8;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+.client-js.wiki-dark-mode .klbq-notice-header__icon {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.client-js.wiki-dark-mode .klbq-notice-header__time {
+    color: #94a3b8;
+}
+.client-js.wiki-dark-mode .klbq-notice-header__label {
+    color: #94a3b8;
+}
+/*</pre>*/</bstyle>

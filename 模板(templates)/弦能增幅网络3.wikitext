@@ -1,0 +1,295 @@
+<includeonly><div class="row growth3">
+<div class="col-sm-6">
+{{#invoke:弦能增幅网络3|main|mode={{{模式|爆破模式}}}|name={{{角色|{{PAGENAME}}}}}|groupName=主动技能|{{{模式|爆破模式}}}主动技能Group1Change={{{主动技能组1属性变化|}}}|{{{模式|爆破模式}}}主动技能Group2Change={{{主动技能组2属性变化|}}}}}
+
+
+{{#invoke:弦能增幅网络3|main|mode={{{模式|爆破模式}}}|name={{{角色|{{PAGENAME}}}}}|groupName=被动技能|{{{模式|爆破模式}}}被动技能Group1Change={{{被动技能组1属性变化|}}}|{{{模式|爆破模式}}}被动技能Group2Change={{{被动技能组2属性变化|}}}}}
+</div>
+<div class="col-sm-6">
+{{#invoke:弦能增幅网络3|main|mode={{{模式|爆破模式}}}|name={{{角色|{{PAGENAME}}}}}|groupName=护甲|{{{模式|爆破模式}}}护甲Group1Change={{{护甲组1属性变化|}}}|{{{模式|爆破模式}}}护甲Group2Change={{{护甲组2属性变化|}}}}}
+
+
+{{#invoke:弦能增幅网络3|main|mode={{{模式|爆破模式}}}|name={{{角色|{{PAGENAME}}}}}|groupName=弦化|{{{模式|爆破模式}}}弦化Group1Change={{{弦化组1属性变化|}}}|{{{模式|爆破模式}}}弦化Group2Change={{{弦化组2属性变化|}}}}}
+</div>
+<div class="col-sm-12" style="padding-right: 0;padding-left: 0;">
+{{#invoke:弦能增幅网络3|arousal|name={{{角色|{{PAGENAME}}}}}}}
+</div>
+<div class="col-sm-12">
+<div class="growth-stats-panel">
+<!-- 可用武器池展示区 -->
+<div class="growth-stats-panel__title growth-stats-panel__title--weapon"><span>WEAPON</span><em>可用武器</em></div>
+<div class="growth-weapon-pool">
+{{#ask:[[分类:主武器]][[使用者::{{{中文名|{{ROOTPAGENAME}}}}}]]
+|?使用者
+|?类型
+|format=template
+|named args=yes
+|template=弦能增幅网络3/可用武器池
+|link=none
+}}
+</div>
+<!-- 属性网格区 -->
+<div class="growth-stats-panel__title"><span>SUPERSTRING STATS</span><em>超弦体数值</em></div>
+<div class="growth-stats-grid">
+<div class="growth-stats-item"><span class="growth-stats-item__label">生命值</span><span class="growth-stats-item__value">{{{生命值|130}}}</span><span class="growth-stats-item__sub">(移动端: {{{生命值移动端|120}}})</span></div>
+
+<div class="growth-stats-item"><span class="growth-stats-item__label">护甲值</span><span class="growth-stats-item__value">{{{护甲值|100}}}</span><span class="growth-stats-item__sub">(移动端: {{{护甲值移动端|45}}})</span></div>
+
+<div class="growth-stats-item"><span class="growth-stats-item__label">护甲每次回复</span><span class="growth-stats-item__value">{{{护甲每次回复|1}}}</span><span class="growth-stats-item__sub">(移动端: {{{护甲每次回复移动端|2}}})</span></div>
+
+<div class="growth-stats-item"><span class="growth-stats-item__label">生命每次回复</span><span class="growth-stats-item__value">{{{生命每次回复|0}}}</span></div>
+
+<div class="growth-stats-item"><span class="growth-stats-item__label">移动速度</span><span class="growth-stats-item__value">{{{移动速度|}}}</span></div>
+
+<div class="growth-stats-item"><span class="growth-stats-item__label">弦化移速</span><span class="growth-stats-item__value">{{{弦化移速|66}}}</span></div>
+
+<div class="growth-stats-item growth-stats-item--full"><span class="growth-stats-item__label">弦化减伤比例</span><span class="growth-stats-item__value">{{{弦化减伤比例|33%}}}</span><span class="growth-stats-item__sub">(移动端: {{{弦化减伤比例移动端|50%}}})</span></div>
+</div>
+</div>
+
+</div></div></includeonly><noinclude>{{Lua|弦能增幅网络3|ACandy}}</noinclude>
+{{#if:{{#varexists:growth3-CSS}} || {{#vardefine:growth3-CSS | 1 }}<bstyle>/*<pre>*/
+.growth3 {
+    margin-bottom: 1em;
+}
+.growth3 .upgrade-group {
+    max-width: 320px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.growth3 .upgrade-top {
+    height: 50px;
+    width: 100%;
+    display: flex;
+}
+.growth3 .upgrade-icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    z-index: 1;
+}
+.growth3 .upgrade-icon1 img {
+    width: 50px;
+    height: 50px;
+    border-style: solid;
+    border-width: 3px;
+    background-color: rgba(30, 41, 59, 0.85);
+    border-color: rgba(132, 159, 248, 0.9);
+    border-radius: 10px; 
+    box-shadow: 0 2px 8px rgba(132, 159, 248, 0.3);
+}
+.growth3 .upgrade-icon2 {
+    border: solid 2px rgba(251, 146, 60, 0.9);
+    border-radius: 50%;
+    background-color: rgba(30, 41, 59, 0.85);
+    box-shadow: 0 2px 8px rgba(251, 146, 60, 0.3);
+}
+.growth3 .upgrade-icon2 img {
+    width: 40px;
+    height: 40px;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+.growth3 .upgrade-icon3 {
+    width: 55px !important;
+    background-color: rgba(148, 163, 184, 0.6);
+    clip-path: polygon(10% 0%,90% 0%,100% 19%,63% 100%,37% 100%,0% 19%);
+    display:inline-block;
+}
+.growth3 .upgrade-icon3 .upgrade-icon-inner {
+    width:52px;
+    height:48px;
+    margin-left:1px;
+    margin-top:1px;
+    background-color: rgba(30, 41, 59, 0.85);
+    clip-path: polygon(11% 1%,92% 1%,100% 18%,62% 99%,39% 99%,2% 18%);
+    display:inline-block;
+}
+.growth3 .upgrade-icon3 img {
+    margin-left: 25%;
+    margin-top: 15%;
+    width: 50%;
+    height: 60%;
+}
+.growth3 .upgrade-name {
+    margin-top: 10px;
+    width: 180px;
+    height: 40px;
+    margin-left: -25px;
+    padding-left: 32px;
+	font-size: 20px;
+	line-height: 40px;
+    font-weight: bold;
+    color: #334155; 
+    background: rgba(224, 231, 255, 0.9);
+    border-radius: 0 8px 0 0;
+}
+.growth3 .upgrade-options {
+    width: 100%;
+    max-width: 320px;
+    color: #DCDCDC;
+}
+.growth3 .upgrade-row {
+	display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+.growth3 .upgrade-row-weapon {
+    color: #1e3a8a;
+	background: linear-gradient(90deg, rgba(191, 219, 254, 0.9), rgba(219, 234, 254, 0.85));
+}
+.growth3 .upgrade-row-skill {
+	color: #7c2d12;
+	background: linear-gradient(90deg, rgba(253, 186, 116, 0.9), rgba(254, 215, 170, 0.85));
+}
+.growth3 .upgrade-row-defense {
+	color: #14532d;
+    background: linear-gradient(90deg, rgba(134, 239, 172, 0.9), rgba(167, 243, 208, 0.85));
+}
+.growth3 .upgrade-options .panel-collapse {
+    border-radius: 0 0 5px 5px;
+    color: #f8fafc;
+	background: rgba(30, 41, 59, 0.6);
+	border: 1px solid rgba(132, 159, 248, 0.4);
+	backdrop-filter: blur(4px);
+	box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+	margin-bottom: 2px;
+}
+.growth3 .upgrade-text {
+	display: inline-flex;
+	align-items: center;
+	margin-right: auto;
+    padding-left: 5px;  
+}
+.growth3 .upgrade-cost {
+	display: inline-flex;
+    font-weight: bold;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 8px;
+}
+.growth3 .growth3collapse {
+	margin: 0.1em 1.6em 0.3em 1.6em;
+}
+.growth3 #toggleAllGrowth {
+    padding: 5px;
+    margin: 2px 5px;
+    border: none;
+    border-radius: 5px;
+}
+.growth3 #toggleAllGrowth:focus {
+    outline-color: #ff8c69;
+}
+
+.growth-stats-panel {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 10px;
+  color: #334155;
+}
+.growth-stats-panel__title { /* 标题栏结构 */
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  padding-top: 10px;
+  padding-left: 8px;
+  border-top: 1px dashed rgba(226, 232, 240, 0.85);
+  line-height: 1;
+}
+.growth-stats-panel__title span {
+  color: #ff7132;
+  font-size: 0.8125rem;
+  font-weight: 850;
+  letter-spacing: 0.075rem;
+}
+.growth-stats-panel__title em {
+  color: #64748b;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 700;
+}
+.growth-stats-panel__title--weapon {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.growth-stats-grid { /* 属性网格布局 */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+}
+.growth-stats-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  background: rgba(248, 249, 250, 0.75);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 6px;
+}
+.growth-stats-item--full {
+  grid-column: 1 / -1;
+}
+.growth-stats-item__label {
+  color: #94a3b8;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.growth-stats-item__value {
+  color: #00acc1;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  font-family: "Roboto Mono", "Consolas", monospace;
+  margin-left: auto;
+}
+
+.growth-stats-item__sub {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+/* =========================================================
+   暗色模式适配 (Dark Mode)
+   ========================================================= */
+.client-js.wiki-dark-mode .growth-stats-panel {
+  background: rgba(15, 23, 42, 0.5);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.client-js.wiki-dark-mode .growth-stats-item {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.client-js.wiki-dark-mode .growth-stats-item__value {
+  color: #38bdf8;
+}
+
+.client-js.wiki-dark-mode .klbq-weapon-card-mini {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.client-js.wiki-dark-mode .klbq-weapon-card-mini__head {
+  background: linear-gradient(180deg, rgba(14, 165, 233, 0.12) 0%, rgba(15, 23, 42, 0) 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.client-js.wiki-dark-mode .klbq-weapon-card-mini__name a {
+  color: var(--wiki-dark-text, #f1f5f9);
+}
+
+.client-js.wiki-dark-mode .klbq-weapon-card-mini__type {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+/*</pre>*/</bstyle>}}

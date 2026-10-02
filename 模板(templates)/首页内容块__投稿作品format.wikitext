@@ -1,0 +1,125 @@
+<includeonly><div class="klbq-works-row"><span class="klbq-works-row__tag" data-category="{{{作品题材|}}}">{{{作品题材|}}}</span><span class="klbq-works-row__title">[[{{{1|}}}|<span class="klbq-works-row__text">{{{1|}}}</span>]]</span></div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
+{{#if:{{#varexists:首页投稿作品样式}} || {{#vardefine:首页投稿作品样式 | 1 }}<bstyle>/*<pre>*/
+.klbq-works-row { /* 作品行主容器 */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 6px 8px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-sizing: border-box;
+    border-left: 3px solid transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .klbq-works-row:hover {
+      background: rgba(248, 249, 250, 0.9);
+      border-left-color: #60a5fa; 
+      transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+}
+.klbq-works-row__tag { /* 作品分类标签 */
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    padding: 0 10px;
+    margin-right: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #526398; 
+    border-radius: 8px 2px 8px 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: filter 0.3s, background-color 0.3s;
+}
+/* 依据分类动态变色 */
+.klbq-works-row__tag[data-category="世界观"] { background-color: #b96f3f; }
+.klbq-works-row__tag[data-category="同人文"] { background-color: #4b69b9; }
+.klbq-works-row__tag[data-category="AMV"],
+.klbq-works-row__tag[data-category="MAD"] { background-color: #526398; }
+.klbq-works-row__tag[data-category="混剪"],
+.klbq-works-row__tag[data-category="搞笑"] { background-color: #449bca; }
+.klbq-works-row__tag[data-category="游戏"],
+.klbq-works-row__tag[data-category="手书"] { background-color: #294184; }
+.klbq-works-row__title { /* 作品标题容器 */
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+.klbq-works-row__title a,
+.klbq-works-row__text { /* 作品标题文本及链接样式重置 */
+    color: #475569; 
+    text-decoration: none;
+    transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .klbq-works-row:hover .klbq-works-row__title a,
+  .klbq-works-row:hover .klbq-works-row__text { /* 悬停时的文字颜色高亮 */
+      color: #00acc1;
+  }
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  /* -----------暗色模式----------- */
+  .client-js.wiki-dark-mode .klbq-works-row:hover {
+  	background: rgba(30, 41, 59, 0.6);
+  	border-left-color: var(--wiki-dark-accent-hover);
+  	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+.client-js.wiki-dark-mode .klbq-works-row__title a,
+.client-js.wiki-dark-mode .klbq-works-row .klbq-works-row__text {
+	color: var(--wiki-dark-text-muted);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .client-js.wiki-dark-mode .klbq-works-row:hover .klbq-works-row__title a,
+  .client-js.wiki-dark-mode .klbq-works-row:hover .klbq-works-row__text {
+  	color: var(--wiki-dark-accent-hover);
+  	text-shadow: 0 0 8px rgba(0, 172, 193, 0.3);
+  }
+}
+.client-js.wiki-dark-mode .klbq-works-row__tag {
+	background-color: rgba(82, 99, 152, 0.2);
+	color: #93c5fd;
+	border: 1px solid rgba(82, 99, 152, 0.5);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.client-js.wiki-dark-mode .klbq-works-row__tag[data-category="世界观"] {
+	background-color: rgba(185, 111, 63, 0.2);
+	color: #fdba74;
+	border-color: rgba(185, 111, 63, 0.5);
+}
+.client-js.wiki-dark-mode .klbq-works-row__tag[data-category="同人文"] {
+	background-color: rgba(75, 105, 185, 0.2);
+	color: #93c5fd;
+	border-color: rgba(75, 105, 185, 0.5);
+}
+.client-js.wiki-dark-mode .klbq-works-row__tag[data-category="AMV"],
+.client-js.wiki-dark-mode .klbq-works-row__tag[data-category="MAD"] {
+	background-color: rgba(82, 99, 152, 0.2);
+	color: #a5b4fc;
+	border-color: rgba(82, 99, 152, 0.5);
+}
+.client-js.wiki-dark-mode .klbq-works-row__tag[data-category="混剪"],
+.client-js.wiki-dark-mode .klbq-works-row__tag[data-category="搞笑"] {
+	background-color: rgba(68, 155, 202, 0.2);
+	color: #7dd3fc;
+	border-color: rgba(68, 155, 202, 0.5);
+}
+.client-js.wiki-dark-mode .klbq-works-row__tag[data-category="游戏"],
+.client-js.wiki-dark-mode .klbq-works-row__tag[data-category="手书"] {
+	background-color: rgba(59, 130, 246, 0.2);
+	color: #93c5fd;
+	border-color: rgba(59, 130, 246, 0.4);
+}
+/*</pre>*/</bstyle>}}

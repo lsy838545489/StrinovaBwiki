@@ -1,0 +1,187 @@
+<includeonly><div class="gallerygrid-item klbq-item-card" data-param1="{{{itemType|}}}" data-param2="{{{quality|}}}">
+<div class="klbq-item-card__imagebox">[[文件:{{{file|}}}|120px|link={{{name|}}}]]</div>
+<div class="klbq-item-card__captionbox">
+<div class="klbq-item-card__name">{{{name|}}}</div>
+<div class="klbq-item-card__desc">{{{desc}}}</div>
+</div>
+</div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
+{{#if:{{#varexists:gallerygrid-item-css}} || {{#vardefine:gallerygrid-item-css | 1 }}<bstyle>/*<pre>*/
+.gallerygrid {
+  display: grid;
+  grid-gap:1.5rem 1rem;
+  --gallerygrid-fit:contain;
+}
+@media (min-width: 320px) { /* 响应式网格布局 */
+  .gallerygrid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+@media (min-width: 768px) {
+  .gallerygrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+/* --- 道具卡片 Block 基础样式 --- */
+.klbq-item-card {
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 14px;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: rgba(226, 232, 240, 0.85); /* 默认基础边框 */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* --- 根据 data-param2 (稀有度/品质) 动态改变边框与发光阴影 --- */
+
+/* 5 - 传说 (Legendary) */
+.klbq-item-card[data-param2="5"], .klbq-item-card[data-param2="传说"] {
+    border-color: var(--item-quality-Legendary, #f85555);
+    box-shadow: 0 4px 12px rgba(248, 85, 85, 0.12), 0 0 10px -2px var(--item-quality-Legendary, #f85555);
+}
+
+/* 4 - 完美 (Perfect) */
+.klbq-item-card[data-param2="4"], .klbq-item-card[data-param2="完美"] {
+    border-color: var(--item-quality-Perfect, #ffc555);
+    box-shadow: 0 4px 12px rgba(255, 197, 85, 0.12), 0 0 10px -2px var(--item-quality-Perfect, #ffc555);
+}
+
+/* 3 - 卓越 (Superior) */
+.klbq-item-card[data-param2="3"], .klbq-item-card[data-param2="卓越"] {
+    border-color: var(--item-quality-Superior, #f285ff);
+    box-shadow: 0 4px 12px rgba(242, 133, 255, 0.12), 0 0 10px -2px var(--item-quality-Superior, #f285ff);
+}
+
+/* 2 - 精良 (Exquisite) */
+.klbq-item-card[data-param2="2"], .klbq-item-card[data-param2="精良"] {
+    border-color: var(--item-quality-Exquisite, #60a5fa);
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.12), 0 0 10px -2px var(--item-quality-Exquisite, #60a5fa);
+}
+
+/* 1 & 0 - 普通/初始 (Initial) */
+.klbq-item-card[data-param2="1"], .klbq-item-card[data-param2="0"], .klbq-item-card[data-param2="普通"] {
+    border-color: var(--item-quality-Initial, #94a3b8);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* --- 悬浮 (Hover) 状态下增强发光与浮动 --- */
+@media (hover: hover) and (pointer: fine) {
+    .klbq-item-card:hover {
+        transform: translateY(-4px);
+        z-index: 2;
+    }
+    
+    .klbq-item-card[data-param2="5"]:hover, .klbq-item-card[data-param2="传说"]:hover {
+        border-color: #ffffff;
+        box-shadow: 0 0 6px #ffffff, 0 0 16px var(--item-quality-Legendary), 0 0 28px 2px var(--item-quality-Legendary);
+    }
+    
+    .klbq-item-card[data-param2="4"]:hover, .klbq-item-card[data-param2="完美"]:hover {
+        border-color: #ffffff;
+        box-shadow: 0 0 6px #ffffff, 0 0 16px var(--item-quality-Perfect), 0 0 28px 2px var(--item-quality-Perfect);
+    }
+    
+    .klbq-item-card[data-param2="3"]:hover, .klbq-item-card[data-param2="卓越"]:hover {
+        border-color: #ffffff;
+        box-shadow: 0 0 6px #ffffff, 0 0 16px var(--item-quality-Superior), 0 0 28px 2px var(--item-quality-Superior);
+    }
+    
+    .klbq-item-card[data-param2="2"]:hover, .klbq-item-card[data-param2="精良"]:hover {
+        border-color: #ffffff;
+        box-shadow: 0 0 6px #ffffff, 0 0 16px var(--item-quality-Exquisite), 0 0 28px 2px var(--item-quality-Exquisite);
+    }
+}
+
+/* --- 内容区域 --- */
+.klbq-item-card__imagebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 8px 8px 8px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(248, 249, 250, 0) 100%);
+    min-height: 110px;
+}
+
+.klbq-item-card__imagebox img {
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.klbq-item-card:hover .klbq-item-card__imagebox img {
+    transform: scale(1.06);
+}
+
+.klbq-item-card__captionbox {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px 12px 12px;
+    flex-grow: 1;
+}
+
+.klbq-item-card__name {
+    color: #334155;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    border-bottom: 1px dashed rgba(160, 207, 255, 0.4);
+}
+
+.klbq-item-card__desc {
+    font-size: 0.8125rem;
+    color: #64748b;
+    line-height: 1.5;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 172, 193, 0.1);
+}
+
+/* --- 暗色模式 (Dark Mode) 增强霓虹发光 --- */
+.client-js.wiki-dark-mode .klbq-item-card {
+    background: rgba(30, 41, 59, 0.85);
+}
+
+.client-js.wiki-dark-mode .klbq-item-card[data-param2="5"],
+.client-js.wiki-dark-mode .klbq-item-card[data-param2="传说"] {
+    box-shadow: inset 0 0 10px rgba(248, 85, 85, 0.2), 0 0 12px -2px var(--item-quality-Legendary);
+}
+
+.client-js.wiki-dark-mode .klbq-item-card[data-param2="4"],
+.client-js.wiki-dark-mode .klbq-item-card[data-param2="完美"] {
+    box-shadow: inset 0 0 10px rgba(255, 197, 85, 0.2), 0 0 12px -2px var(--item-quality-Perfect);
+}
+
+.client-js.wiki-dark-mode .klbq-item-card[data-param2="3"],
+.client-js.wiki-dark-mode .klbq-item-card[data-param2="卓越"] {
+    box-shadow: inset 0 0 10px rgba(242, 133, 255, 0.2), 0 0 12px -2px var(--item-quality-Superior);
+}
+
+.client-js.wiki-dark-mode .klbq-item-card[data-param2="2"],
+.client-js.wiki-dark-mode .klbq-item-card[data-param2="精良"] {
+    box-shadow: inset 0 0 10px rgba(96, 165, 250, 0.2), 0 0 12px -2px var(--item-quality-Exquisite);
+}
+
+.client-js.wiki-dark-mode .klbq-item-card__imagebox {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(15, 23, 42, 0) 100%);
+}
+
+.client-js.wiki-dark-mode .klbq-item-card__name {
+    color: var(--wiki-dark-text, #f1f5f9);
+    border-bottom-color: rgba(14, 165, 233, 0.3);
+}
+
+.client-js.wiki-dark-mode .klbq-item-card__desc {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(14, 165, 233, 0.2);
+    color: #94a3b8;
+}
+/*</pre>*/</bstyle>}}

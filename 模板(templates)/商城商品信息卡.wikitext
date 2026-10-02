@@ -1,0 +1,208 @@
+<includeonly><div class="klbq-store-goods-card {{#ifeq:{{{方向|}}}|纵向| klbq-store-goods-card--vertical}}">
+<!-- 1. 左侧 1:2 竖版宣传立绘区 -->
+<div class="klbq-store-goods-card__coverbox" style="{{#ifeq:{{{方向|}}}|纵向| height: {{{图片大小|300px}}} | width: {{{图片大小|300px}}}}};--cover-pos:{{{图片位置|top center}}};">[[文件:赫尔墨斯_{{{图片|}}}.png|link=]]</div>
+<!-- 2. 右侧 详情与信息区 -->
+<div class="klbq-store-goods-card__content">
+<div class="klbq-store-goods-card__header">
+<div class="klbq-store-goods-card__title">{{{名称|}}}</div>
+</div>
+<!-- 包含道具网格 -->
+<div class="klbq-store-goods-card__items">
+<div class="klbq-store-goods-card__section-label">套装包含内容</div>
+<div class="klbq-store-goods-card__item-list">
+{{{道具列表|}}}
+</div>
+</div>
+<!-- 底部：价格与时间 -->
+<div class="klbq-store-goods-card__meta">
+<div class="klbq-store-goods-card__meta-item"><span class="klbq-store-goods-card__meta-label">售卖价格</span><span class="klbq-store-goods-card__meta-val">
+{{{售卖价格|}}}
+</span></div>
+<div class="klbq-store-goods-card__meta-item"><span class="klbq-store-goods-card__meta-label">售卖时间</span><span class="klbq-store-goods-card__meta-val klbq-mono">
+{{{售卖时间|}}}
+</span></div>
+</div>
+</div>
+</div></includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>{{#if:{{#varexists:klbq-store-goods-card-CSS}} || {{#vardefine:klbq-store-goods-card-CSS | 1 }}<bstyle>/*<pre>*/
+.klbq-store-goods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.klbq-store-goods-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: rgba(248, 249, 250, 0.88);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-height: 280px;
+}
+.klbq-store-goods-card--vertical {
+  flex-direction: column;
+}
+@media (hover: hover) and (pointer: fine) {
+  .klbq-store-goods-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 172, 193, 0.45);
+    box-shadow: 0 8px 24px rgba(0, 172, 193, 0.15);
+  }
+}
+
+.klbq-store-goods-card__coverbox {
+  position: relative;
+  flex-shrink: 0;
+  background: radial-gradient(circle at center, rgba(0, 172, 193, 0.1) 0%, rgba(248, 249, 250, 0.4) 100%);
+  border-right: 1px solid rgba(226, 232, 240, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.klbq-store-goods-card--vertical .klbq-store-goods-card__coverbox {
+  border-right: none;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+.klbq-store-goods-card__coverbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--cover-pos, top center);
+  transition: transform 0.4s ease;
+}
+.klbq-store-goods-card__content {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.klbq-store-goods-card__title {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: #1e293b;
+  line-height: 1.25;
+}
+
+.klbq-store-goods-card__items {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 10px;
+  padding: 10px 12px;
+  flex-grow: 1;
+}
+.klbq-store-goods-card__item-list {
+  min-height: 0;
+  overflow: hidden;
+}
+.klbq-store-goods-card__section-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.05rem;
+  margin-bottom: 6px;
+}
+
+.klbq-store-goods-card__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: auto;
+}
+.klbq-store-goods-card--vertical .klbq-store-goods-card__meta {
+  grid-template-columns: 1fr;
+}
+.klbq-store-goods-card__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 9px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 8px;
+}
+
+.klbq-store-goods-card__meta-label {
+  color: #94a3b8;
+  font-size: 0.625rem;
+  font-weight: 700;
+}
+
+.klbq-store-goods-card__meta-val {
+  color: #00acc1;
+  font-weight: 800;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.klbq-mono {
+  font-family: "Roboto Mono", "Consolas", monospace;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+@media (max-width: 580px) {
+  .klbq-store-item {
+    grid-template-columns: 1fr;
+  }
+
+  .klbq-store-goods-card {
+    flex-direction: column;
+  }
+
+  .klbq-store-goods-card__coverbox {
+	width: 100% !important;
+	height: 50%;
+    border-right: none;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  }
+
+  .klbq-store-goods-card__meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 暗色模式 */
+.client-js.wiki-dark-mode .klbq-store-goods-card {
+  background: rgba(30, 41, 59, 0.88);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.client-js.wiki-dark-mode .klbq-store-goods-card__coverbox {
+  background: radial-gradient(circle at center, rgba(14, 165, 233, 0.12) 0%, rgba(15, 23, 42, 0.5) 100%);
+  border-right-color: rgba(255, 255, 255, 0.08);
+}
+
+.client-js.wiki-dark-mode .klbq-store-goods-card__title {
+  color: var(--wiki-dark-text, #f1f5f9);
+}
+
+.client-js.wiki-dark-mode .klbq-store-goods-card__items,
+.client-js.wiki-dark-mode .klbq-store-goods-card__meta-item {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.client-js.wiki-dark-mode .klbq-store-goods-card__meta-label,
+.client-js.wiki-dark-mode .klbq-mono {
+  color: #94a3b8;
+}
+
+.client-js.wiki-dark-mode .klbq-store-goods-card__meta-val {
+  color: #38bdf8;
+}
+/*</pre>*/</bstyle>}}
