@@ -1,16 +1,21 @@
 import json
 import os
 import re
-import shutil
 from pathlib import Path
 import pandas as pd
 
 # ========== 路径配置（自动定位为当前脚本所在的根目录） ==========
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-Files_DIR = r"Z:\Gitee\CN\PaperMan"
+# 工作区根目录（即 ExportScripts 的上一级），各分支以同级文件夹并列存放
+WIKI_ROOT = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
+# 源数据目录：国服（CN）解包数据，目录结构与本脚本所需一致
+Files_DIR = os.path.join(WIKI_ROOT, "GameSourceDataCN", "PaperMan")
 WEAPON_ROOT = os.path.join(Files_DIR, "CyWeapons")
 CSV_DIR = os.path.join(Files_DIR, "CSV")
 GAME_MODE_CURVE_FILE = os.path.join(Files_DIR, "CyAbilities", "Shared", "CurveTable", "CT_GameModeWeaponAttribute.json")
+# 整理数据目录：与 utils/common.py 的 DATA_ROOT 保持一致，统一落在 GameOrganizeData
+DATA_ROOT = os.path.join(WIKI_ROOT, "GameOrganizeData", "data")
+DATA_OLD_ROOT = os.path.join(WIKI_ROOT, "GameOrganizeData", "data_old")
 # =========================================================
 
 def compare_json_data(old_data, new_data, id_key="ID"):
@@ -77,8 +82,9 @@ def compare_json_data(old_data, new_data, id_key="ID"):
     return new_data if new_data != old_data else None
 
 def save_and_diff_json(file_name, new_data, id_key="ID"):
-    data_dir = os.path.join(BASE_DIR, "data")
-    data_old_dir = os.path.join(BASE_DIR, "data_old")
+    # 输出到 GameOrganizeData/data 与 data_old，与 utils/common.py 的 DATA_ROOT 保持一致
+    data_dir = DATA_ROOT
+    data_old_dir = DATA_OLD_ROOT
 
     os.makedirs(data_dir, exist_ok=True)
     os.makedirs(data_old_dir, exist_ok=True)
@@ -93,7 +99,7 @@ def save_and_diff_json(file_name, new_data, id_key="ID"):
         try:
             with open(json_path, "r", encoding="utf-8") as f:
                 old_data = json.load(f)
-            shutil.move(json_path, old_json_path)
+            os.replace(json_path, old_json_path)
             print(f"[{file_name}] 旧数据已备份至 data_old/{file_name}.json 喵！")
         except Exception as e:
             print(f"[{file_name}] 备份旧 JSON 数据失败: {e} 喵！")
@@ -532,12 +538,13 @@ if not all_data:
 
 all_data.sort(key=lambda x: x.get("ID", 0))
 
-# 1. 导出 CSV 文件至脚本同级根目录
+# 1. 导出 CSV 文件至 GameOrganizeData/data
 df = pd.DataFrame(all_data)
 new_columns = {col: f"{col} ({CHINESE_MAP.get(col, col)})" for col in df.columns}
 df.rename(columns=new_columns, inplace=True)
 
-output_csv = os.path.join(BASE_DIR, "weapons_summary.csv")
+os.makedirs(DATA_ROOT, exist_ok=True)
+output_csv = os.path.join(DATA_ROOT, "weapons_summary.csv")
 df.to_csv(output_csv, index=False, encoding='utf-8-sig')
 print(f"汇总数据已成功导出至 CSV 文件：{output_csv} 喵！")
 
@@ -547,6 +554,6 @@ nested_json_data = build_nested_json_data(all_data, CHINESE_MAP)
 # 3. 保存嵌套 JSON 并自动对比导出精炼差异 JSON
 save_and_diff_json("weapons_summary", nested_json_data, id_key="ID")
 
-# 4. 生成 Mediawiki 模板文本文件至脚本同级根目录
-output_txt = os.path.join(BASE_DIR, "weapons_wiki_template.txt")
+# 4. 生成 Mediawiki 模板文本文件至 GameOrganizeData/data
+output_txt = os.path.join(DATA_ROOT, "weapons_wiki_template.txt")
 generate_mediawiki_templates(nested_json_data, output_txt)

@@ -6,12 +6,13 @@ import mwclient
 import time
 import rookiepy
 import shutil
+import cloudscraper
 from datetime import datetime
 
 # ================= 路径配置 =================
 
-# 1. 获取当前脚本（common.py）所在的绝对路径，即 ExportScripts 目录
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# 1. 本文件位于 utils/ 子目录，需上跳一层才是 ExportScripts 目录
+SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # 2. 项目根目录（即 ExportScripts）
 PROJECT_ROOT = SCRIPT_DIR
@@ -190,22 +191,34 @@ id_to_Quality_name = {
 
 
 def wiki_login():
-    site = mwclient.Site("wiki.biligame.com", path="/klbq/")
-    cookies = rookiepy.firefox(["biligame.com"])
-    sessdata = next((c["value"]
-                    for c in cookies if c["name"] == "SESSDATA"), None)
-    site.login(cookies={"SESSDATA": sessdata})
-    site.force_login = True
+    """使用 rookiepy + cloudscraper 构建带登录态的 mwclient Site 实例"""
+    cookies = rookiepy.firefox(["biligame.com", "bilibili.com"])
 
-    try:
-        userinfo = site.api("query", meta="userinfo", uiprop="rights")
-        if "query" not in userinfo or "userinfo" not in userinfo["query"]:
-            raise Exception("无法获取用户信息，Cookie可能已失效")
-        print(f"登录成功！用户名: {userinfo['query']['userinfo']['name']}")
-    except Exception as e:
-        print("登录验证失败:", str(e))
-        raise
+    scraper = cloudscraper.create_scraper(
+        browser={
+            'browser': 'firefox',
+            'platform': 'windows',
+            'desktop': True
+        }
+    )
 
+    # 注入 Cookie
+    for cookie in cookies:
+        scraper.cookies.set(cookie['name'], cookie['value'])
+
+    # 添加 Bwiki 防火墙防盗链 Header
+    scraper.headers.update({
+        "Referer": "https://wiki.biligame.com/klbq/",
+        "Origin": "https://wiki.biligame.com"
+    })
+
+    # 初始化 mwclient 实例
+    site = mwclient.Site(
+        "wiki.biligame.com",
+        path="/klbq/",
+        clients_useragent=scraper.headers['User-Agent'],
+        pool=scraper
+    )
     return site
 
 

@@ -1,6 +1,6 @@
 # modules_mobile/generate_decal.py
 import os
-from utils.common_mobile import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
+from utils.common_mobile import load_json_file, save_and_diff_data, _save_lua_only, DATA_ROOT
 
 
 def export_decal_data():
@@ -57,7 +57,7 @@ def export_decal_data():
                 added_get_data[Decal_id] = get_mapping[Decal_id]
 
         if added_get_data:
-            data_dir = os.path.join(PROJECT_ROOT, "data_mobile")
+            data_dir = os.path.join(DATA_ROOT, "data_mobile")
             _save_lua_only(data_dir, "Decal_Get_Added", added_get_data)
             print(f"✨ [Decal] 已将 {len(added_get_data)} 条新增数据的获得方式单独输出至 data_mobile/Decal_Get_Added.lua 喵！")
 

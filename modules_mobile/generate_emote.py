@@ -1,6 +1,6 @@
 # modules_mobile/generate_emote.py
 import os
-from utils.common_mobile import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
+from utils.common_mobile import load_json_file, save_and_diff_data, _save_lua_only, DATA_ROOT
 
 
 def export_emote_data():
@@ -105,8 +105,8 @@ def export_emote_data():
                 added_get_data[Emote_id] = get_mapping[Emote_id]
 
         if added_get_data:
-            data_dir = os.path.join(PROJECT_ROOT, "data_mobile")
+            data_dir = os.path.join(DATA_ROOT, "data_mobile")
             _save_lua_only(data_dir, "Emote_Get_Added", added_get_data)
-            print(f"✨ [Badge] 已将 {len(added_get_data)} 条新增数据的获得方式单独输出至 data_mobile/Emote_Get_Added.lua 喵！")
+            print(f"✨ [Emote] 已将 {len(added_get_data)} 条新增数据的获得方式单独输出至 data_mobile/Emote_Get_Added.lua 喵！")
 
     print("表情(Emote)数据处理完成喵！")

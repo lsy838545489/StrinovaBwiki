@@ -1,6 +1,6 @@
 import os
 import re
-from utils.common_mobile import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
+from utils.common_mobile import load_json_file, save_and_diff_data, _save_lua_only, DATA_ROOT
 
 
 def clean_desc(desc_raw: str) -> str:
@@ -23,7 +23,7 @@ def process_added_get_data(added_data, get_mapping, prefix_name):
     }
 
     if added_get_data:
-        data_dir = os.path.join(PROJECT_ROOT, "data_mobile")
+        data_dir = os.path.join(DATA_ROOT, "data_mobile")
         file_name = f"HeadSculpture_{prefix_name}_Get_Added"
         _save_lua_only(data_dir, file_name, added_get_data)
         print(f"✨ [{prefix_name}] 已将 {len(added_get_data)} 条新增数据单独输出至 data_mobile/{file_name}.lua 喵！")

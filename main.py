@@ -29,7 +29,8 @@ import sys
 import os
 
 # 确保能正确引入模块
-PROJECT_ROOT = r"Z:\Gitee\StrinovaBwikiScript"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = SCRIPT_DIR
 sys.path.append(PROJECT_ROOT)
 
 

@@ -1,6 +1,6 @@
 # modules_mobile/generate_vehicle_skin.py
 import os
-from utils.common_mobile import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
+from utils.common_mobile import load_json_file, save_and_diff_data, _save_lua_only, DATA_ROOT
 
 def export_vehicle_skin_data():
     print("开始处理载具外观(VehicleSkin)数据喵...")
@@ -51,7 +51,7 @@ def export_vehicle_skin_data():
                 added_get_data[item_id] = get_mapping[item_id]
 
         if added_get_data:
-            data_dir = os.path.join(PROJECT_ROOT, "data_mobile")
+            data_dir = os.path.join(DATA_ROOT, "data_mobile")
             _save_lua_only(data_dir, "VehicleSkin_Get_Added", added_get_data)
             print(f"✨ [VehicleSkin] 已将 {len(added_get_data)} 条新增数据的获得方式单独输出至 data_mobile/VehicleSkin_Get_Added.lua 喵！")
 
