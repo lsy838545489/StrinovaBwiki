@@ -1,6 +1,6 @@
 # modules/generate_chat_bubbles.py
 import os
-from utils.common import load_json_file, format_lua_table, export_data_file
+from utils.common import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
 
 
 def export_chat_bubbles_data():
@@ -9,7 +9,6 @@ def export_chat_bubbles_data():
         "ID": "id",
         "Name": "name",
         "Quality": "quality",
-        "Get": "get",
         "Desc": "desc",
     }
 
@@ -18,23 +17,24 @@ def export_chat_bubbles_data():
         return
 
     output_data = []
+    get_mapping = {}
     for item in ChatBubbles_data:
         for row in item["Rows"].values():
-            Items_ID = row["Id"]
+            ID = row["Id"]
 
             gain_param2 = row.get("GainParam2", {})
             raw_get_str = gain_param2.get("LocalizedString", "")
             gain_param2_value = [raw_get_str] if raw_get_str else []
+            get_mapping[ID] = gain_param2_value
 
             item_localized_string = (
                 row["Desc"].get("LocalizedString", "").replace("\n", "<br />")
             )
 
             extracted_data = {
-                "ID": Items_ID,
+                "ID": ID,
                 "Name": row["Name"].get("LocalizedString", ""),
                 "Quality": row["Quality"],
-                "Get": gain_param2_value,
                 "Desc": item_localized_string,
             }
 
@@ -44,6 +44,20 @@ def export_chat_bubbles_data():
             }
             output_data.append(custom_data)
 
-    export_data_file("ChatBubbles", output_data, fileType='json')
-    export_data_file("ChatBubbles", format_lua_table(output_data), fileType='lua')
+    # 3. 对比并保存主数据表（全量与增量），获取返回的增量数据列表
+    added_data = save_and_diff_data("ChatBubbles", output_data)
+
+    # 4. 如果有新增数据，提取对应增量 ID 的获得方式单独保存为 ChatBubbles_Get_Added.lua
+    if added_data:
+        added_get_data = {}
+        for item in added_data:
+            ChatBubbles_id = item.get("id")
+            if ChatBubbles_id in get_mapping:
+                added_get_data[ChatBubbles_id] = get_mapping[ChatBubbles_id]
+
+        if added_get_data:
+            data_dir = os.path.join(PROJECT_ROOT, "data")
+            _save_lua_only(data_dir, "ChatBubbles_Get_Added", added_get_data)
+            print(f"✨ [ChatBubbles] 已将 {len(added_get_data)} 条新增数据的获得方式单独输出至 data/ChatBubbles_Get_Added.lua 喵！")
+
     print("聊天气泡(ChatBubbles)数据处理完成喵！")

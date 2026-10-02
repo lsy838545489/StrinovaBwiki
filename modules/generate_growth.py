@@ -8,7 +8,7 @@ from utils.common import (
     load_json_file,
     upload_wiki_data,
     format_lua_table,
-    export_data_file,
+    save_data_file,
     PROJECT_ROOT
 )
 
@@ -116,35 +116,11 @@ def process_growth_data(mode_name, json_filename, page_title):
 
             # 提取与组织数据（利用 get 规避潜在的 KeyError）
             formatted_data = {
-                "Parts1": {
-                    "name": safe_get_nested_data(row, ['PartName', 0, 'LocalizedString']),
-                    "need": row.get('Parts1Need', ''),
-                    "desc": [safe_get_nested_data(row, ['Part1Desc', 0, 'LocalizedString']),
-                            safe_get_nested_data(row, ['Part1Desc', 1, 'LocalizedString'])]
-                },
-                "Parts2": {
-                    "name": safe_get_nested_data(row, ['PartName', 1, 'LocalizedString']),
-                    "need": row.get('Parts2Need', ''),
-                    "desc": [safe_get_nested_data(row, ['Part2Desc', 0, 'LocalizedString']),
-                            safe_get_nested_data(row, ['Part2Desc', 1, 'LocalizedString'])]
-                },
-                "Parts4": {
-                    "name": safe_get_nested_data(row, ['PartName', 2, 'LocalizedString']),
-                    "need": row.get('Parts4Need', ''),
-                    "desc": [safe_get_nested_data(row, ['Part4Desc', 0, 'LocalizedString']),
-                            safe_get_nested_data(row, ['Part4Desc', 1, 'LocalizedString'])]
-                },
-                "Parts5": {
-                    "name": safe_get_nested_data(row, ['PartName', 3, 'LocalizedString']),
-                    "need": row.get('Parts5Need', ''),
-                    "desc": [safe_get_nested_data(row, ['Part5Desc', 0, 'LocalizedString']),
-                            safe_get_nested_data(row, ['Part5Desc', 1, 'LocalizedString'])]
-                },
                 "护甲": {
                     "name": "护甲",
                     "need": row.get('ShieldNeed', ''),
                     "desc": [safe_get_nested_data(row, ['ShieldDesc', 0, 'LocalizedString']),
-                             safe_get_nested_data(row, ['ShieldDesc', 1, 'LocalizedString'])]
+                        safe_get_nested_data(row, ['ShieldDesc', 1, 'LocalizedString'])]
                 },
                 "弦化": {
                     "name": "弦化",
@@ -180,7 +156,7 @@ def process_growth_data(mode_name, json_filename, page_title):
 
     # 2. 借用 common.py 导出数据并自动备份
     file_name = f"Growth_{mode_name}"
-    export_data_file(file_name, lua_content, fileType='lua')
+    save_data_file(file_name, lua_content, fileType='lua')
 
     # 3. 构建本地输出路径以上传到 WIKI
     lua_file_path = os.path.join(PROJECT_ROOT, "data", f"{file_name}.lua")

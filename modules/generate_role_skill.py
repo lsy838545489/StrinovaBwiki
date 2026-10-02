@@ -1,5 +1,5 @@
 # modules/generate_role_skill.py
-from utils.common import id_to_Role_name, load_json_file, export_data_file, format_lua_table, upload_wiki_data
+from utils.common import id_to_Role_name, load_json_file, save_data_file, format_lua_table, upload_wiki_data
 
 def export_role_skill_data():
     print("开始处理角色技能数据...")
@@ -51,6 +51,6 @@ def export_role_skill_data():
 
             output_data[role_name] = custom_data
 
-    export_data_file("RoleSkill", output_data, fileType='json')
-    export_data_file("RoleSkill", format_lua_table(output_data), fileType='lua')
+    save_data_file("RoleSkill", output_data, fileType='json')
+    save_data_file("RoleSkill", format_lua_table(output_data), fileType='lua')
     upload_wiki_data( '模块:角色/SkillData', '.\\data\\RoleSkill.lua' )

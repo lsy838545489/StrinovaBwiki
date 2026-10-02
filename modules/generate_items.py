@@ -1,6 +1,6 @@
 # modules/generate_items.py
 import os
-from utils.common import load_json_file, export_data_file, format_lua_table
+from utils.common import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
 
 
 def export_items_data():
@@ -19,11 +19,12 @@ def export_items_data():
         return
 
     output_data = []
+    get_mapping = {}
 
     exclude_ranges = [
         (30001, 30999),
-        (50001, 55999),
         (60001, 69999),
+        (70001, 79999),
         (80001, 89999),
         (90001, 91000),
         (93000, 93999),
@@ -40,10 +41,15 @@ def export_items_data():
 
     for item in Item_data:
         for row in item['Rows'].values():
-            item_id = row['Id']
+            ID = row['Id']
 
-            if any(lower <= item_id <= upper for (lower, upper) in exclude_ranges) or item_id in exclude_ids:
+            if any(lower <= ID <= upper for (lower, upper) in exclude_ranges) or ID in exclude_ids:
                 continue
+
+            gain_param2 = row.get('GainParam2', {})
+            raw_get_str = gain_param2.get('LocalizedString', '')
+            gain_param2_value = [raw_get_str] if raw_get_str else []
+            get_mapping[ID] = gain_param2_value
 
             asset_path_name = row['IconItem'].get('AssetPathName', '')
             tail_number = asset_path_name.split('_')[-1].split('.')[0]
@@ -52,7 +58,7 @@ def export_items_data():
                 'LocalizedString', '').replace('\n', '<br>')
 
             extracted_data = {
-                "id": item_id,
+                "id": ID,
                 "name": row['Name'].get('LocalizedString', ''),
                 "quality": row['Quality'],
                 "file": f"道具图标_{tail_number}.png",
@@ -77,6 +83,19 @@ def export_items_data():
     output_data.sort(key=_id_key)
     # ======================================================================
 
-    export_data_file('Items', format_lua_table(output_data), fileType='lua')
-    export_data_file('Items', output_data, fileType='json')
+    # 3. 对比并保存主数据表（全量与增量），获取返回的增量数据列表
+    added_data = save_and_diff_data("Item", output_data)
+
+    # 4. 如果有新增数据，提取对应增量 ID 的获得方式单独保存为 Item_Get_Added.lua
+    if added_data:
+        added_get_data = {}
+        for item in added_data:
+            id = item.get("id")
+            if id in get_mapping:
+                added_get_data[id] = get_mapping[id]
+
+        if added_get_data:
+            data_dir = os.path.join(PROJECT_ROOT, "data")
+            _save_lua_only(data_dir, "Item_Get_Added", added_get_data)
+            print(f"✨ [Item] 已将 {len(added_get_data)} 条新增数据单独输出至 data/Item_Get_Added.lua 喵！")
     print("道具(Item)数据处理完成喵！")

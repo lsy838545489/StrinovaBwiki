@@ -1,6 +1,6 @@
 # modules/generate_emote.py
 import os
-from utils.common import load_json_file, format_lua_table, export_data_file
+from utils.common import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
 
 
 def export_emote_data():
@@ -49,7 +49,6 @@ def export_emote_data():
         "Role": "role",
         "Quality": "quality",
         "File": "file",
-        "Get": "get",
         "Desc": "desc"
     }
 
@@ -58,14 +57,18 @@ def export_emote_data():
         return
 
     output_data = []
+    get_mapping = {}
 
     # 处理 Emote_data 中的每一项
     for item in Emote_data:
         for row in item['Rows'].values():
+            ID = row["Id"]
+
             gain_param2 = row.get('GainParam2', {})
             raw_get_str = gain_param2.get(
                 'LocalizedString', '').replace('储备', '未实装')
             gain_param2_value = [raw_get_str] if raw_get_str else []
+            get_mapping[ID] = gain_param2_value
 
             asset_path_name = row['IconItem'].get('AssetPathName', '')
             tail_number = asset_path_name.split('.')[-1].split('_')[-1]
@@ -77,12 +80,11 @@ def export_emote_data():
                 row.get('RoleSkinId', 0), row.get('RoleSkinId', ''))
 
             extracted_data = {
-                "ID": row['Id'],
+                "ID": ID,
                 "Name": row['Name'].get('LocalizedString', ''),
                 "Role": Role_id,
                 "Quality": row['Quality'],
                 "File": f"表情_{tail_number}.png",
-                "Get": gain_param2_value,
                 "Desc": Desc_string
             }
 
@@ -91,6 +93,20 @@ def export_emote_data():
                 custom_keys[key]: value for key, value in extracted_data.items()}
             output_data.append(custom_data)
 
-    export_data_file("Emote", output_data, fileType='json')
-    export_data_file("Emote", format_lua_table(output_data), fileType='lua')
+    # 3. 对比并保存主数据表（全量与增量），获取返回的增量数据列表
+    added_data = save_and_diff_data("Emote", output_data)
+
+    # 4. 如果有新增数据，提取对应增量 ID 的获得方式单独保存为 Emote_Get_Added.lua
+    if added_data:
+        added_get_data = {}
+        for item in added_data:
+            Emote_id = item.get("id")
+            if Emote_id in get_mapping:
+                added_get_data[Emote_id] = get_mapping[Emote_id]
+
+        if added_get_data:
+            data_dir = os.path.join(PROJECT_ROOT, "data")
+            _save_lua_only(data_dir, "Emote_Get_Added", added_get_data)
+            print(f"✨ [Emote] 已将 {len(added_get_data)} 条新增数据的获得方式单独输出至 data/Emote_Get_Added.lua 喵！")
+
     print("表情(Emote)数据处理完成喵！")

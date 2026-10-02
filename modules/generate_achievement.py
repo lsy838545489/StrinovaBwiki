@@ -1,7 +1,7 @@
 # modules/generate_achievement.py
 import os
 # 从 utils 导入
-from utils.common import id_to_Role_name, load_json_file, upload_wiki_data, format_lua_table, export_data_file
+from utils.common import id_to_Role_name, load_json_file, upload_wiki_data, format_lua_table, save_data_file
 
 
 def export_achievement_data():
@@ -101,10 +101,10 @@ def export_achievement_data():
                 output_data_role.append(custom_data)
 
     # 保存成就数据到Lua文件
-    export_data_file("Achievement", output_data, fileType='json')
-    export_data_file("Achievement", format_lua_table(output_data), fileType='lua')
-    export_data_file("RoleAchievement", output_data_role, fileType='json')
-    export_data_file("RoleAchievement", format_lua_table(output_data_role), fileType='lua')
+    save_data_file("Achievement", output_data, fileType='json')
+    save_data_file("Achievement", format_lua_table(output_data), fileType='lua')
+    save_data_file("RoleAchievement", output_data_role, fileType='json')
+    save_data_file("RoleAchievement", format_lua_table(output_data_role), fileType='lua')
 
     upload_wiki_data('模块:成就印迹/AchievementData', '.\\data\\Achievement.lua')
     upload_wiki_data('模块:成就印迹/RoleAchievementData', '.\\data\\RoleAchievement.lua')

@@ -1,7 +1,6 @@
-# modules/generate_lottery.py
 import os
 # 从 utils 模块导入需要的变量和函数
-from utils.common import id_to_Quality_name, id_to_Role_name, id_to_Weapon_name, load_json_file, export_data_file
+from utils.common import id_to_Quality_name, id_to_Role_name, Weapon_en_name_to_cn_name, load_json_file, save_data_file
 
 
 def export_lottery_data():
@@ -32,6 +31,9 @@ def export_lottery_data():
         21029: "沐春灼华",
         21030: "危险游戏",
         21031: "花游舞夜",
+        21032: "百万伏特宝贝",
+        21033: "心之奏鸣",
+        21034: "惑世冥鳞",
     }
 
     weapon_to_role_name = {
@@ -44,6 +46,7 @@ def export_lottery_data():
         "彩绘": "玛德蕾娜",
         "审判官": "信",
         "幻霜": "伊薇特",
+        "审": "梅瑞狄斯",
         "隼": "梅瑞狄斯",
         "北极星": "星绘",
         "谢幕曲": "香奈美",
@@ -57,7 +60,8 @@ def export_lottery_data():
         "绝对执行": "忧雾",
         "校准仪": "蕾欧娜",
         "夜镰": "玛拉",
-        "潮音": "汐"
+        "潮音": "汐",
+        "雨晦": "诺诺"
     }
 
     # 自定义键
@@ -75,20 +79,25 @@ def export_lottery_data():
     Decal_data = load_json_file("Decal")
     IdCard_data = load_json_file("IdCard")
     RoleVoice_data = load_json_file("RoleVoice")
+    RoleAction_data = load_json_file("RoleAction")
     Emote_data = load_json_file("Emote")
 
     # 初始化一个空字典来保存转换后的数据
     output_data = {}
+
+    # 新增：用于收集 Item_ID 出现履历的字典
+    # 结构: { items_id: { "cat": ..., "name": ..., "quality": ..., "lotteries": set(...) } }
+    item_stats_dict = {}
 
     # 构建武器皮肤字典
     WeaponSkin_dict = {}
     for key, value in WeaponSkin_data[0]["Rows"].items():
         try:
             weapon_id = value["BlueprintDir"]
-            if weapon_id not in id_to_Weapon_name:
+            if weapon_id not in Weapon_en_name_to_cn_name:
                 continue
 
-            weapon_name = id_to_Weapon_name[weapon_id]
+            weapon_name = Weapon_en_name_to_cn_name[weapon_id]
             weapon_role = weapon_to_role_name.get(
                 weapon_name, f"非角色专属武器({weapon_name})")
             weapon_skin_name = value["Name"]["LocalizedString"]
@@ -133,9 +142,12 @@ def export_lottery_data():
     IdCard_dict = {}
     for key, value in IdCard_data[0]["Rows"].items():
         try:
+            Icon_name = value.get('IconItem', {}).get('AssetPathName', '')
+            tail_number1_1 = Icon_name.split('/')[-1].split('_')[-2]
+            tail_number1_2 = Icon_name.split('/')[-1].split('_')[-1]
             IdCard_dict[value["Id"]] = {
                 "Name": value["Name"]["LocalizedString"],
-                "File": value.get("File", f"基板_{value['Id']}.png")
+                "File": f"基板_{tail_number1_1}_{tail_number1_2}.png"
             }
         except (KeyError, TypeError):
             continue
@@ -153,6 +165,16 @@ def export_lottery_data():
             RoleVoice_dict[value["RoleVoiceId"]] = {
                 "Role": role_name,
                 "Name": voice_name
+            }
+        except (KeyError, TypeError):
+            continue
+
+    RoleAction_dict = {}
+    for key, value in RoleAction_data[0]["Rows"].items():
+        try:
+            RoleAction_dict[value["RoleActionId"]] = {
+                "Name": value["ActionName"]["LocalizedString"],
+                "File": value.get("File", f"超弦体动作图标_{value['RoleActionId']}.png")
             }
         except (KeyError, TypeError):
             continue
@@ -191,18 +213,26 @@ def export_lottery_data():
                     RoleSkin_info = RoleSkin_dict.get(Items_ID)
                     if not RoleSkin_info:
                         continue
-                    localized_cat = f'{RoleSkin_info["Role"]}·外观'
+                    localized_cat = f'{RoleSkin_info["Role"].replace("奥黛丽·格罗夫", "奥黛丽").replace("米雪儿·李", "米雪儿").replace("加拉蒂亚·利里", "加拉蒂亚")}·外观'
                     localized_name = RoleSkin_info["NameShort"]
                     filetype = f'角色时装图鉴_{Items_ID}.png'
+
+                elif 21101001 <= Items_ID <= 21999999:
+                    RoleAction_info = RoleAction_dict.get(Items_ID)
+                    if not RoleAction_info:
+                        continue
+                    localized_cat = '超弦体动作'
+                    localized_name = RoleAction_info["Name"]
+                    filetype = f'超弦体动作图标_{Items_ID}.png'
 
                 elif 22101001 <= Items_ID <= 22999999:
                     RoleVoice_info = RoleVoice_dict.get(Items_ID)
                     if not RoleVoice_info:
                         continue
-                    localized_cat = f'{RoleVoice_info["Role"]}·语音'
+                    localized_cat = f'{RoleVoice_info["Role"].replace("奥黛丽·格罗夫", "奥黛丽").replace("米雪儿·李", "米雪儿").replace("加拉蒂亚·利里", "加拉蒂亚")}·语音'
                     localized_name = RoleVoice_info["Name"].replace(
                         '。', '').replace('！', '')
-                    filetype = f'图标-{RoleVoice_info["Role"]}语音.png'
+                    filetype = f'道具图标_{Items_ID}.png'
 
                 elif 30000001 <= Items_ID <= 30999999:
                     localized_name = Decal_dict.get(Items_ID)
@@ -237,6 +267,16 @@ def export_lottery_data():
                 else:
                     continue
 
+                # 记录/更新 Item_ID 的统计信息
+                if Items_ID not in item_stats_dict:
+                    item_stats_dict[Items_ID] = {
+                        "cat": localized_cat,
+                        "name": localized_name,
+                        "quality": quality_name,
+                        "lotteries": set()
+                    }
+                item_stats_dict[Items_ID]["lotteries"].add(lottery_name)
+
                 # 构建提取的数据
                 extracted_data = {
                     "cat": localized_cat,
@@ -255,7 +295,7 @@ def export_lottery_data():
 
                 # 构建最终输出数据
                 custom_data = {custom_keys[key]: value for key, value in extracted_data.items()
-                    if key in custom_keys}
+                            if key in custom_keys}
                 if "type" in extracted_data:
                     custom_data["type"] = extracted_data["type"]
 
@@ -287,5 +327,22 @@ def export_lottery_data():
 
         output_data["启程之礼"] = merged_data
 
-    export_data_file('Lottery', output_data, fileType='json')
-    print("意识重构数据处理完成喵！\n")
+    # 保存原本的抽奖聚合文件
+    save_data_file('Lottery', output_data, fileType='json')
+
+    # 格式化导出统计文件（按 Items_ID 排序，并将 set 转换为 list）
+    formatted_stats = {}
+    for item_id in sorted(item_stats_dict.keys()):
+        info = item_stats_dict[item_id]
+        lottery_list = list(info["lotteries"])
+        formatted_stats[str(item_id)] = {
+            "cat": info["cat"],
+            "name": info["name"],
+            "appearance_count": len(lottery_list),
+            "lotteries": lottery_list
+        }
+
+    # 保存统计 JSON 文件
+    save_data_file('LotteryItemStats', formatted_stats, fileType='json')
+
+    print("意识重构数据及物品分布统计处理完成喵！\n")

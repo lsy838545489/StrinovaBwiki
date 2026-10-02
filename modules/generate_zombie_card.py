@@ -1,6 +1,6 @@
 # modules/generate_zombie_card.py
 import re
-from utils.common import id_to_Role_name, load_json_file, format_lua_table, export_data_file
+from utils.common import id_to_Role_name, load_json_file, format_lua_table, save_data_file
 
 def export_zombie_card_data():
     print("开始处理卡牌数据...")
@@ -117,7 +117,6 @@ def export_zombie_card_data():
 
 
     card_data = {}        # 存放常规卡牌
-    hextech_data = {}     # 存放 Hextech 卡牌
     global_data = {}      # 存放 Global (随机事件)
     card_name_map = {}
 
@@ -154,7 +153,7 @@ def export_zombie_card_data():
                 "cardid": card_id,
                 "name": card_name,
                 "quality": rarity_value,
-                "category": category_value if raw_category != "ECyCardCategory::Hextech" else None,
+                "category": category_value,
                 "teamType": TeamType_value,
                 "unlockRoles": unlock_roles,
                 "maxLevel": max_level,
@@ -180,26 +179,19 @@ def export_zombie_card_data():
             # === 核心修改：数据分流 ===
             if raw_category == "ECyCardCategory::Global":
                 global_data[id] = extracted_data
-            elif raw_category == "ECyCardCategory::Hextech":
-                hextech_data[id] = extracted_data
             else:
                 card_data[id] = extracted_data
                 card_name_map[card_name] = ""
 
     # 导出为JSON与LUA文件
     # 1. 导出常规卡牌 (除 Global 和 Hextech 以外)
-    export_data_file('ZombieCard', card_data, fileType='json')
-    export_data_file('ZombieCard', format_lua_table(card_data), fileType='lua')
-    export_data_file('ZombieCard_NameList', format_lua_table(card_name_map), fileType='lua')
+    save_data_file('ZombieCard', card_data, fileType='json')
+    save_data_file('ZombieCard', format_lua_table(card_data), fileType='lua')
+    save_data_file('ZombieCard_NameList', format_lua_table(card_name_map), fileType='lua')
 
     # 2. 导出 Global (随机事件) 专属卡牌文件
     if global_data:
-        export_data_file('ZombieCard_Global', global_data, fileType='json')
-        export_data_file('ZombieCard_Global', format_lua_table(global_data), fileType='lua')
-
-    # 3. 导出 Hextech 专属卡牌文件
-    if hextech_data:
-        export_data_file('ZombieCard_Hextech', hextech_data, fileType='json')
-        export_data_file('ZombieCard_Hextech', format_lua_table(hextech_data), fileType='lua')
+        save_data_file('ZombieCard_Global', global_data, fileType='json')
+        save_data_file('ZombieCard_Global', format_lua_table(global_data), fileType='lua')
 
     print("卡牌数据处理并分拆导出完成！")
