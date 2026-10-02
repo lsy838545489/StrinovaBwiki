@@ -31,22 +31,45 @@
 
 ```
 StrinovaBwiki/                 ← 工作区根目录（本身不是 git 仓库，无需 git init）
-├── main/                      ← main                      分支
-├── ExportScripts/             ← ExportScripts             分支
-├── GameOrganizeData/          ← GameOrganizeData          分支
-├── GameSourceDataCN/          ← GameSourceData/CN         分支
-├── GameSourceDataCN_TYF/      ← GameSourceData/CN_TYF     分支
-├── GameSourceDataInternational/ ← GameSourceData/International 分支
-└── GameSourceDataMobile/      ← GameSourceData/Mobile     分支
+├── main/                      ← 仓库本体（唯一的 .git 对象库），检出 main 分支
+├── ExportScripts/             ← ExportScripts             分支（worktree）
+├── GameOrganizeData/          ← GameOrganizeData          分支（worktree）
+├── GameSourceDataCN/          ← GameSourceData/CN         分支（worktree）
+├── GameSourceDataCN_TYF/      ← GameSourceData/CN_TYF     分支（worktree）
+├── GameSourceDataInternational/ ← GameSourceData/International 分支（worktree）
+└── GameSourceDataMobile/      ← GameSourceData/Mobile     分支（worktree）
 ```
 
-一次性拉取全部 7 个分支（PowerShell，在空目录中执行）：
+### ⚠️ 本工作区使用 git worktree 共享对象库
+
+**7 个文件夹并不是 7 个独立克隆**，而是「1 个仓库 + 6 个工作树」：
+
+- **`main/` 是仓库本体**，只有它含真正的 `.git` 目录（对象库、refs、远端配置都在这里）
+- 其余 6 个目录的 `.git` 是**一个文本文件**，内容形如 `gitdir: .../main/.git/worktrees/<目录名>`，指向本体中的元数据
+- 因此 7 个目录**共用同一份对象库**。此前 7 个独立克隆各存一份约 400 MB 的历史，实测对象冗余率达 79%；改为 worktree 后合计只保留一份，省下约 1.6 GB
+
+#### 三条操作规则（重要）
+
+1. **不要删除或替换这 6 个目录里的 `.git` 文件**，否则该目录不再是仓库。需要移除某个工作树时，用 `git -C main worktree remove <目录>`。
+2. **不要直接删除工作树目录**，会残留孤儿元数据。万一手工删了，用 `git -C main worktree prune` 清理。
+3. **同一个分支不能同时在两个目录检出**（git 会拒绝）。本工作区是「一目录一分支」，天然满足。另外 `git gc` / `git repack` 现在作用于**整个共用对象库**，7 个目录会同时受影响。
+
+查看当前工作树列表：
+
+```bash
+git -C main worktree list
+```
+
+### 从零搭出这套结构
 
 ```powershell
 $url = 'https://github.com/lsy838545489/StrinovaBwiki.git'
-# 分支名 -> 文件夹名，规则见上表
-$branches = [ordered]@{
-  'main'                          = 'main'
+
+# 1) 先克隆仓库本体（单分支即可，其余分支的对象在下一步 fetch）
+git clone -b main --single-branch $url main
+
+# 2) 分支名 -> 文件夹名，规则见上表
+$worktrees = [ordered]@{
   'ExportScripts'                 = 'ExportScripts'
   'GameOrganizeData'              = 'GameOrganizeData'
   'GameSourceData/CN'             = 'GameSourceDataCN'
@@ -54,12 +77,17 @@ $branches = [ordered]@{
   'GameSourceData/International'  = 'GameSourceDataInternational'
   'GameSourceData/Mobile'         = 'GameSourceDataMobile'
 }
-foreach ($kv in $branches.GetEnumerator()) {
-  git clone -b $kv.Key --single-branch $url $kv.Value
+foreach ($kv in $worktrees.GetEnumerator()) {
+  git -C main fetch origin "$($kv.Key):$($kv.Key)"
+  git -C main worktree add (Join-Path (Get-Location) $kv.Value) $kv.Key
 }
 ```
 
-> `--single-branch` 很重要：本仓库各数据分支体量很大且历史互相包含，按单分支克隆可以显著减少下载量。
+> **为什么要用 worktree**：本仓库 4 个数据分支各自的历史都接近 400 MB，且彼此高度重叠。独立克隆会让每份历史在磁盘上重复；worktree 让 7 个目录共享同一个对象库，下载与磁盘占用都只保留一份。
+>
+> 注意 `fetch <refspec>` 建出的本地分支**没有 upstream 跟踪**，工作树可以正常读写，但推送时需要显式指定远端与分支，例如 `git -C <目录> push origin <分支>:<分支>`；想省事可以补一次 `git -C <目录> branch --set-upstream-to=origin/<分支> <分支>`。
+>
+> 如果你只想要某一个分支的数据，也可以单独 `git clone -b <分支> --single-branch <url> <文件夹名>`。脚本只依赖「同级目录 + 上表的文件夹名」，不关心它是不是 worktree。
 
 ## 🔄 数据流转与工作流
 
