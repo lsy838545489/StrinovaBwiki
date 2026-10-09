@@ -2,8 +2,9 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "CD_E_Aika_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Aika/Mobile/E/CD_E_Aika",
     "SuperStruct": {
       "ObjectName": "Class'GameplayEffect'",
       "ObjectPath": "/Script/GameplayAbilities"
@@ -17,14 +18,15 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "CD_E_Aika_C'Default__CD_E_Aika_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/Aika/Mobile/E/CD_E_Aika.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Aika/Mobile/E/CD_E_Aika.1"
     }
   },
   {
     "Type": "CD_E_Aika_C",
     "Name": "Default__CD_E_Aika_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/Aika/Mobile/E/CD_E_Aika.CD_E_Aika_C'",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Aika/Mobile/E/CD_E_Aika.CD_E_Aika_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Aika/Mobile/E/CD_E_Aika",
     "Properties": {
       "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
       "DurationMagnitude": {
@@ -35,7 +37,7 @@
           "Curve": {
             "CurveTable": {
               "ObjectName": "ModeCurveTable'CT_GameMode'",
-              "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
             },
             "RowName": "CD.E.Aika"
           }
@@ -60,7 +62,7 @@
       "RoutineExpirationEffectClasses": [
         {
           "ObjectName": "BlueprintGeneratedClass'GE_AddEPoints_C'",
-          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GE/GE_AddEPoints"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GE/GE_AddEPoints.0"
         }
       ],
       "InheritableGameplayEffectTags": {
@@ -77,6 +79,16 @@
         ],
         "Added": [
           "CD.Ability.SkillE.MoBai"
+        ]
+      },
+      "ApplicationTagRequirements": {
+        "IgnoreTags": [
+          "State.Player.NoEquip.SkillE"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Player.NoEquip.SkillE"
         ]
       },
       "StackingType": "EGameplayEffectStackingType::AggregateByTarget",

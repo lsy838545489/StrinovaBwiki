@@ -2,8 +2,9 @@
   {
     "Type": "DataTable",
     "Name": "DT_UIGameModeTypeShow_Common",
-    "Class": "UScriptClass'DataTable'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'DataTable'",
+    "Package": "PM/Content/PaperMan/CSV/DT_UIGameModeTypeShow_Common",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'PMUIGameModeTypeShowTableRow'",
@@ -55,7 +56,8 @@
           "EPMGameModeType::Zombie",
           "EPMGameModeType::UGC",
           "EPMGameModeType::ZombieGuide",
-          "EPMGameModeType::EPMGameModeType_MAX"
+          "EPMGameModeType::GunGame",
+          "EPMGameModeType::WaterPolo"
         ],
         "ShowGameStateTypes": [
           "EGStateType::Warmup",
@@ -67,7 +69,8 @@
           "EGStateType::Guide",
           "EGStateType::FightThird",
           "EGStateType::FightForth",
-          "EGStateType::FightFifth"
+          "EGStateType::FightFifth",
+          "EGStateType::Interaction"
         ],
         "HideGameStateTypes": [
           "EGStateType::GameEnd",
@@ -85,7 +88,8 @@
         "HideModeTypes": [
           "EPMGameModeType::NoviceGuide",
           "EPMGameModeType::Practice",
-          "EPMGameModeType::BombGuide"
+          "EPMGameModeType::BombGuide",
+          "EPMGameModeType::WaterPolo"
         ],
         "ShowGameStateTypes": [],
         "HideGameStateTypes": [],
@@ -112,7 +116,8 @@
           "EGStateType::FightSecond",
           "EGStateType::FightThird",
           "EGStateType::FightForth",
-          "EGStateType::FightFifth"
+          "EGStateType::FightFifth",
+          "EGStateType::Interaction"
         ],
         "HideGameStateTypes": [],
         "ShowCharacterStateTypes": [],
@@ -129,6 +134,7 @@
           "EPMGameModeType::BombPass",
           "EPMGameModeType::Zombie",
           "EPMGameModeType::ZombieGuide",
+          "EPMGameModeType::ExtremeKnifeFight",
           "EPMGameModeType::EPMGameModeType_MAX"
         ],
         "ShowGameStateTypes": [],
@@ -209,7 +215,9 @@
           "Name": "None"
         },
         "ShowModeTypes": [],
-        "HideModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
         "ShowGameStateTypes": [
           "EGStateType::Warmup",
           "EGStateType::Fight",
@@ -219,7 +227,8 @@
           "EGStateType::FightSecond",
           "EGStateType::FightThird",
           "EGStateType::FightForth",
-          "EGStateType::FightFifth"
+          "EGStateType::FightFifth",
+          "EGStateType::Interaction"
         ],
         "HideGameStateTypes": [],
         "ShowCharacterStateTypes": [],
@@ -399,7 +408,8 @@
         },
         "ShowModeTypes": [
           "EPMGameModeType::Zombie",
-          "EPMGameModeType::ZombieGuide"
+          "EPMGameModeType::ZombieGuide",
+          "EPMGameModeType::EPMGameModeType_MAX"
         ],
         "HideModeTypes": [],
         "ShowGameStateTypes": [
@@ -469,7 +479,7 @@
         "ShowModeTypes": [],
         "HideModeTypes": [
           "EPMGameModeType::EscortGuide",
-          "EPMGameModeType::EPMGameModeType_MAX",
+          "EPMGameModeType::BombGuide2",
           "EPMGameModeType::ZombieGuide"
         ],
         "ShowGameStateTypes": [],
@@ -485,7 +495,7 @@
         "ShowModeTypes": [],
         "HideModeTypes": [
           "EPMGameModeType::EscortGuide",
-          "EPMGameModeType::EPMGameModeType_MAX",
+          "EPMGameModeType::BombGuide2",
           "EPMGameModeType::ZombieGuide"
         ],
         "ShowGameStateTypes": [],
@@ -529,6 +539,90 @@
         "HideCharacterStateTypes": [
           "ECStateType::Death"
         ],
+        "bNeedsHideInReplayMode": false
+      },
+      "CharacterHealth": {
+        "UIPageName": {
+          "Name": "CharacterHealth"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "InventoryPage": {
+        "UIPageName": {
+          "Name": "InventoryPage"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "Cancel": {
+        "UIPageName": {
+          "Name": "Cancel"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "Reload": {
+        "UIPageName": {
+          "Name": "Reload"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "ChangeRole": {
+        "UIPageName": {
+          "Name": "ChangeRole"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "SwitchExpectedWeapon": {
+        "UIPageName": {
+          "Name": "SwitchExpectedWeapon"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
         "bNeedsHideInReplayMode": false
       }
     }

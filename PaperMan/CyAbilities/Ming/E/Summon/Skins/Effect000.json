@@ -2,8 +2,9 @@
   {
     "Type": "CyBaseEffectAsset",
     "Name": "Effect000",
-    "Class": "UScriptClass'CyBaseEffectAsset'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBaseEffectAsset'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Ming/E/Summon/Skins/Effect000",
     "Properties": {
       "ParticleEffectMap": [
         {
@@ -13,7 +14,7 @@
           "Value": {
             "Asset": null,
             "AssetPath": {
-              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Ming/PS_Ming_MainSkill_C_002.PS_Ming_MainSkill_C_002",
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Ming/PS_Ming_SkillC_002.PS_Ming_SkillC_002",
               "SubPathString": ""
             },
             "AssetSelf": null,
@@ -54,7 +55,8 @@
             "bRegardLoop": true,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -105,7 +107,8 @@
             "bRegardLoop": true,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -115,7 +118,7 @@
           "Value": {
             "Asset": null,
             "AssetPath": {
-              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Ming/PS_Ming_MainSkill_C_003.PS_Ming_MainSkill_C_003",
+              "AssetPathName": "/Game/PaperMan/Effects/FX_NE/Role/Ming/PS_Ming_SkillC_003.PS_Ming_SkillC_003",
               "SubPathString": ""
             },
             "AssetSelf": null,
@@ -156,21 +159,23 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         }
       ],
       "AudioEffectMap": [
         {
           "Key": {
-            "TagName": "Resource.Audio.Work"
+            "TagName": "Resource.Audio.Work.A"
           },
           "Value": {
             "Audio": {
-              "ObjectName": "AkAudioEvent'Char_3DMing_ESkill_Explode'",
-              "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMing_ESkill_Explode"
+              "ObjectName": "AkAudioEvent'Char_3DMing_ESkill_PreExplode'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_3DMing_ESkill_PreExplode.0"
             },
-            "bAutoDestroy": false,
+            "bAutoDestroy": true,
+            "OverrideFadeOutTime": 300.0,
             "bStopUseFadeOutAudio": false,
             "FadeOutAudio": null
           }
@@ -182,6 +187,7 @@
           "Value": {
             "Audio": null,
             "bAutoDestroy": false,
+            "OverrideFadeOutTime": -1.0,
             "bStopUseFadeOutAudio": false,
             "FadeOutAudio": null
           }
@@ -193,9 +199,25 @@
           "Value": {
             "Audio": {
               "ObjectName": "AkAudioEvent'Char_3DMing_ESkill_Shine'",
-              "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMing_ESkill_Shine"
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_3DMing_ESkill_Shine.0"
             },
             "bAutoDestroy": false,
+            "OverrideFadeOutTime": -1.0,
+            "bStopUseFadeOutAudio": false,
+            "FadeOutAudio": null
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Resource.Audio.Work.B"
+          },
+          "Value": {
+            "Audio": {
+              "ObjectName": "AkAudioEvent'Char_3DMing_ESkill_Explode'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_3DMing_ESkill_Explode.0"
+            },
+            "bAutoDestroy": true,
+            "OverrideFadeOutTime": 300.0,
             "bStopUseFadeOutAudio": false,
             "FadeOutAudio": null
           }

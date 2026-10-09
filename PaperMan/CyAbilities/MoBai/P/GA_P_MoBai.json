@@ -2,8 +2,9 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "GA_P_MoBai_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/MoBai/P/GA_P_MoBai",
     "SuperStruct": {
       "ObjectName": "Class'CyBaseAbility'",
       "ObjectPath": "/Script/PMGame"
@@ -17,15 +18,22 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "GA_P_MoBai_C'Default__GA_P_MoBai_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/P/GA_P_MoBai.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/GA_P_MoBai.1"
     }
   },
   {
     "Type": "GA_P_MoBai_C",
     "Name": "Default__GA_P_MoBai_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/MoBai/P/GA_P_MoBai.GA_P_MoBai_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/MoBai/P/GA_P_MoBai.GA_P_MoBai_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/MoBai/P/GA_P_MoBai",
     "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GiveEffects_P_MoBai_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/BP_GiveEffects_P_MoBai.0"
+        }
+      ],
       "TriggerEvents": [
         {
           "Key": {
@@ -35,11 +43,11 @@
             "CheckAtoms": [
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_TCheckIsCharacter_Instigator_C'",
-                "ObjectPath": "/Game/PaperMan/CyAbilities/Atom/TCheckAtom/BP_TCheckIsCharacter_Instigator"
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/TCheckAtom/BP_TCheckIsCharacter_Instigator.0"
               },
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_TCheckDamageCauseValue_C'",
-                "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/P/BP_TCheckDamageCauseValue"
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/BP_TCheckDamageCauseValue.0"
               }
             ],
             "TagRequirements": {
@@ -58,24 +66,169 @@
             "AtomsForInstance": [
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddEffects_P_MoBai_C'",
-                "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/P/BP_TriggerAddEffects_P_MoBai"
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/BP_TriggerAddEffects_P_MoBai.0"
               },
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddEffects_ArousalOne_C'",
-                "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/ArousalOne/BP_TriggerAddEffects_ArousalOne"
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/ArousalOne/BP_TriggerAddEffects_ArousalOne.0"
               },
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_TriggerDataCollection_Activate_P_MoBai_C'",
-                "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/P/BP_TriggerDataCollection_Activate_P_MoBai"
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/BP_TriggerDataCollection_Activate_P_MoBai.0"
               }
             ],
             "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Dodge.SuccessfulDodgeTag"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_TriggerIngameVoice_P_MoBai_C'",
-                "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/P/BP_TriggerIngameVoice_P_MoBai"
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddEffects_SucceesfulDodge_P_MoBai_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/BP_TriggerAddEffects_SucceesfulDodge_P_MoBai.0"
               }
             ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.AfterTakeDamage.PlayerWeapon.Primary"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddEffects_SucceesfulDodge_P_MoBai_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/BP_TriggerAddEffects_SucceesfulDodge_P_MoBai.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.AfterTakeDamage.PlayerWeapon.Secondary"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddEffects_SucceesfulDodge_P_MoBai_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/BP_TriggerAddEffects_SucceesfulDodge_P_MoBai.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.AfterTakeDamage.PlayerWeapon.Throw"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddEffects_SucceesfulDodge_P_MoBai_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/BP_TriggerAddEffects_SucceesfulDodge_P_MoBai.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.AfterTakeDamage.PlayerWeapon.Melee"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TriggerAddEffects_SucceesfulDodge_P_MoBai_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/P/BP_TriggerAddEffects_SucceesfulDodge_P_MoBai.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
           }
         }

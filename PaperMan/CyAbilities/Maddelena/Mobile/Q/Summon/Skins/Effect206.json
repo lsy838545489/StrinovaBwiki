@@ -2,8 +2,9 @@
   {
     "Type": "CyBaseEffectAsset",
     "Name": "Effect206",
-    "Class": "UScriptClass'CyBaseEffectAsset'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBaseEffectAsset'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Maddelena/Mobile/Q/Summon/Skins/Effect206",
     "Properties": {
       "ParticleEffectMap": [
         {
@@ -54,7 +55,8 @@
             "bRegardLoop": true,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -105,7 +107,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -156,7 +159,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         }
       ],
@@ -168,9 +172,10 @@
           "Value": {
             "Audio": {
               "ObjectName": "AkAudioEvent'Char_3DMaddelena_ASkill2_In_YKLS'",
-              "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMaddelena_ASkill2_In_YKLS"
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_3DMaddelena_ASkill2_In_YKLS.0"
             },
             "bAutoDestroy": true,
+            "OverrideFadeOutTime": -1.0,
             "bStopUseFadeOutAudio": false,
             "FadeOutAudio": null
           }
@@ -182,9 +187,10 @@
           "Value": {
             "Audio": {
               "ObjectName": "AkAudioEvent'Char_3DMaddelena_ASkill2_Out_YKLS'",
-              "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMaddelena_ASkill2_Out_YKLS"
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_3DMaddelena_ASkill2_Out_YKLS.0"
             },
             "bAutoDestroy": true,
+            "OverrideFadeOutTime": -1.0,
             "bStopUseFadeOutAudio": false,
             "FadeOutAudio": null
           }
@@ -196,9 +202,10 @@
           "Value": {
             "Audio": {
               "ObjectName": "AkAudioEvent'Char_3DMaddelena_ASkill2_Move_YKLS'",
-              "ObjectPath": "/Game/WwiseAssets/AkEvent/Char_3DMaddelena_ASkill2_Move_YKLS"
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_3DMaddelena_ASkill2_Move_YKLS.0"
             },
             "bAutoDestroy": true,
+            "OverrideFadeOutTime": -1.0,
             "bStopUseFadeOutAudio": false,
             "FadeOutAudio": null
           }
@@ -252,6 +259,9 @@
             "EffectKeepTime": 0.0,
             "bMainMaterial": false,
             "Index": 0,
+            "OverlayMaterialSlotIndices": [],
+            "bSyncOutlineMaterialSlots": false,
+            "bUseSceneComponent": false,
             "bChangeMaterial": true,
             "bNeedRestoreMaterial": true,
             "FriendMaterialInterface": {
@@ -265,21 +275,20 @@
             "CurrentKeepTime": 0.0,
             "bChangeMaterialParam": true,
             "bNeedRestoreMaterialParam": true,
-            "bDelayRestoreMaterial": true,
             "MaxParamChangeTime": 0.5,
             "FriendScalarParams": [
               {
                 "ScalarParamName": "FresnelBaseReflectFractionIn",
                 "ValueCurve": {
                   "ObjectName": "CurveFloat'FriendOpacity'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Maddelena/Mobile/ArousalOne/FriendOpacity"
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/Mobile/ArousalOne/FriendOpacity.0"
                 }
               },
               {
                 "ScalarParamName": "Opacity",
                 "ValueCurve": {
                   "ObjectName": "CurveFloat'Transparent'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Maddelena/Mobile/ArousalOne/Transparent"
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/Mobile/ArousalOne/Transparent.0"
                 }
               }
             ],
@@ -289,14 +298,14 @@
                 "ScalarParamName": "FresnelBaseReflectFractionIn",
                 "ValueCurve": {
                   "ObjectName": "CurveFloat'EnemyOpacity'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Maddelena/Mobile/ArousalOne/EnemyOpacity"
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/Mobile/ArousalOne/EnemyOpacity.0"
                 }
               },
               {
                 "ScalarParamName": "Opacity",
                 "ValueCurve": {
                   "ObjectName": "CurveFloat'Transparent'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Maddelena/Mobile/ArousalOne/Transparent"
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/Mobile/ArousalOne/Transparent.0"
                 }
               }
             ],
@@ -305,8 +314,14 @@
             "TransparencyMinDistance": 0.0,
             "TransparencyMaxDistance": 0.0,
             "HideMinDistance": 0.0,
+            "bNoShadowOnTransparent": false,
+            "CastShadowComponent": "None",
+            "Priority": 10,
             "CurrentParamChangeTime": 0.0,
             "bPlaying": false,
+            "bIsPausing": false,
+            "bHideOwner": false,
+            "bSetOwnerTransparency": false,
             "bMaterialChanged": false
           }
         }

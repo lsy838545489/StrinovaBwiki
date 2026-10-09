@@ -2,12 +2,13 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.43"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
       }
     },
     "SuperStruct": {
@@ -15,6 +16,28 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyPlayerPartBigHead",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyPlayerPartBigHead'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PMSummonAnimation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'PMSummonAnimationComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyAIInPoolState",
@@ -56,7 +79,7 @@
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
           "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
-          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
         }
       },
       {
@@ -234,22 +257,23 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "Summon_Q_MoBai_C'Default__Summon_Q_MoBai_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.1"
     }
   },
   {
     "Type": "Summon_Q_MoBai_C",
     "Name": "Default__Summon_Q_MoBai_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.Summon_Q_MoBai_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.Summon_Q_MoBai_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai",
     "Properties": {
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_Q_MoBai_C:ArousalComponent'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.13"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_Q_MoBai_C:PerceptionSystemComponent'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.21"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.22"
       },
       "bEnableAimAssist": true
     }
@@ -257,9 +281,12 @@
   {
     "Type": "AkComponent",
     "Name": "Ak_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'AkComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "RelativeRotation": {
         "Pitch": 0.0,
@@ -269,17 +296,28 @@
     }
   },
   {
-    "Type": "UObject",
+    "Type": "BP_GameStateComponent_Summon_C",
     "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
+    "Template": {
+      "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
+    }
   },
   {
     "Type": "CapsuleComponent",
     "Name": "Capsule_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CapsuleComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "CapsuleHalfHeight": 90.0,
       "AreaClass": {
@@ -358,9 +396,12 @@
   {
     "Type": "CyAbilitySystemComponent",
     "Name": "CyAbilitySystem_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyAbilitySystemComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "DefaultStartingData": [
         {
@@ -370,7 +411,7 @@
           },
           "DefaultStartingTable": {
             "ObjectName": "DataTable'AttributeMetaData'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/AttributeMetaData"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/AttributeMetaData.0"
           },
           "MobileStartingTable": null
         }
@@ -801,9 +842,12 @@
   {
     "Type": "CyAIDeathState",
     "Name": "CyAIDeathState_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyAIDeathState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIDeathState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "HideMeshNames": [
         "SkeletalMeshTarget"
@@ -859,9 +903,12 @@
   {
     "Type": "CyAIInPoolState",
     "Name": "CyAIInPoolState_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyAIInPoolState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIInPoolState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "HideMeshNames": [
         "SkeletalMeshTarget"
@@ -871,9 +918,12 @@
   {
     "Type": "CyAIInterruptState",
     "Name": "CyAIInterruptState_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyAIInterruptState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIInterruptState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "AimAssistConstantTrackingSpeedMultiple": 0.5,
       "DampingRange": {
@@ -893,9 +943,12 @@
   {
     "Type": "CyAILeaveState",
     "Name": "CyAILeaveState_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyAILeaveState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "HideMeshNames": [
         "SkeletalMeshTarget"
@@ -951,9 +1004,12 @@
   {
     "Type": "CyAIMachine",
     "Name": "CyAIMachine_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyAIMachine'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "DefaultStateType": "EAIStateType::Work"
     }
@@ -961,9 +1017,12 @@
   {
     "Type": "CyAIState",
     "Name": "CyAIStateNone_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyAIState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "AimAssistConstantTrackingSpeedMultiple": 0.5,
       "DampingRange": {
@@ -983,9 +1042,12 @@
   {
     "Type": "CyAIWorkState",
     "Name": "CyAIWorkState_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyAIWorkState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "LooseGameplayTags": [
         "Buff.Strong.Immune"
@@ -1011,30 +1073,57 @@
   {
     "Type": "CyArousalComponent",
     "Name": "ArousalComponent",
-    "Outer": "Default__Summon_Q_MoBai_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyArousalComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Summon_Q_MoBai_C'Default__Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.1"
+    }
   },
   {
     "Type": "CyAttributeComponent",
     "Name": "CyAttribute_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyAttributeComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    }
   },
   {
     "Type": "CyLifeComponent",
     "Name": "CyLife_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyLifeComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    }
+  },
+  {
+    "Type": "CyPlayerPartBigHead",
+    "Name": "CyPlayerPartBigHead_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPlayerPartBigHead'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
+    "Properties": {
+      "bUseInstigatorSkinID": true,
+      "bUseInstigatorScale": true,
+      "bUseVisibleCount": false
+    }
   },
   {
     "Type": "CyRetainComponent",
     "Name": "CyRetain_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyRetainComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "DefinitionTagContainer": [
         "Event.Summon.Spawn.MoBai.Q"
@@ -1053,19 +1142,22 @@
   {
     "Type": "CySceneMapSummonMaskComponent",
     "Name": "CySceneMapSummonMask_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CySceneMapSummonMaskComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "SceneMapItemName": "SceneMap_CopyCharacterItem"
+    "Class": "UScriptClass'CySceneMapSummonMaskComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
     }
   },
   {
     "Type": "CySkinComponent",
     "Name": "CySkin_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CySkinComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "bEnableTeamType": true
     }
@@ -1073,9 +1165,12 @@
   {
     "Type": "CySummonLightAIComponent",
     "Name": "CySummonLightAI_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CySummonLightAIComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySummonLightAIComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "AliveMask": "ELifeMask::Armor"
     }
@@ -1083,37 +1178,55 @@
   {
     "Type": "CyTargetCopyCharacterComponent",
     "Name": "CyTargetCopyCharacter_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'CyTargetCopyCharacterComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyTargetCopyCharacterComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
-      "CharacterPose": {
-        "ObjectName": "AnimSequence'AS_Char_Super90_N_Ready_Motion_NoAdditive'",
-        "ObjectPath": "/Game/PaperMan/SkinAssets/Characters/MoBai/S001/Animations/Weapons/Super90/AS_Char_Super90_N_Ready_Motion_NoAdditive"
-      },
       "WeaponSlotType": "EWeaponSlotTypes::WeaponSlot_Primary"
     }
   },
   {
     "Type": "PMAIPerceptionStimuliSourceComponent",
     "Name": "PerceptionSystemComponent",
-    "Outer": "Default__Summon_Q_MoBai_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Summon_Q_MoBai_C'Default__Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.1"
+    }
+  },
+  {
+    "Type": "PMSummonAnimationComponent",
+    "Name": "PMSummonAnimation_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMSummonAnimationComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    }
   },
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SceneComponent'",
@@ -1121,7 +1234,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_Q_MoBai_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.24"
       },
       "VariableGuid": "9EF99C32-4782B2D4-F20F37BD-74E3C9ED",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1130,9 +1243,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_1",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CapsuleComponent'",
@@ -1140,16 +1256,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CapsuleComponent'Summon_Q_MoBai_C:Capsule_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.4"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.4"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.34"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.36"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.41"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.43"
         }
       ],
       "VariableGuid": "525C3CF0-4BEF3903-C83DB38D-7DB674C0",
@@ -1159,9 +1275,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_2",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAbilitySystemComponent'",
@@ -1169,7 +1288,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAbilitySystemComponent'Summon_Q_MoBai_C:CyAbilitySystem_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.5"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.5"
       },
       "VariableGuid": "CC195CCD-48495150-0A516E8F-A876C6BA",
       "InternalVariableName": "CyAbilitySystem"
@@ -1178,9 +1297,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_21",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAttributeComponent'",
@@ -1188,7 +1310,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAttributeComponent'Summon_Q_MoBai_C:CyAttribute_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.14"
       },
       "VariableGuid": "1960706D-4BC44A65-FFEFFE92-6A2FEA22",
       "InternalVariableName": "CyAttribute"
@@ -1197,9 +1319,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_22",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyRetainComponent'",
@@ -1207,7 +1332,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_Q_MoBai_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.17"
       },
       "VariableGuid": "B84648B5-46AF20C8-17AA2CB1-ECE02A5C",
       "InternalVariableName": "CyRetain"
@@ -1216,9 +1341,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_23",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyLifeComponent'",
@@ -1226,7 +1354,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyLifeComponent'Summon_Q_MoBai_C:CyLife_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.15"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.15"
       },
       "VariableGuid": "B0B21BB0-44DFD0AC-066342A3-CBF1433C",
       "InternalVariableName": "CyLife"
@@ -1235,9 +1363,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_25",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySkinComponent'",
@@ -1245,7 +1376,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_Q_MoBai_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.19"
       },
       "VariableGuid": "B46D53CA-4B26D828-C13BED85-C0C4980F",
       "InternalVariableName": "CySkin"
@@ -1254,9 +1385,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_26",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySummonLightAIComponent'",
@@ -1264,7 +1398,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySummonLightAIComponent'Summon_Q_MoBai_C:CySummonLightAI_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.19"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.20"
       },
       "VariableGuid": "21EE67BC-4DD369AE-761022AB-CABC4054",
       "InternalVariableName": "CySummonLightAI"
@@ -1273,9 +1407,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_27",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIMachine'",
@@ -1283,7 +1420,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIMachine'Summon_Q_MoBai_C:CyAIMachine_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.10"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.10"
       },
       "VariableGuid": "B4E9F866-4EE8FD21-2D1F7280-85C913EA",
       "InternalVariableName": "CyAIMachine"
@@ -1292,9 +1429,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_28",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIState'",
@@ -1302,7 +1442,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIState'Summon_Q_MoBai_C:CyAIStateNone_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.11"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.11"
       },
       "VariableGuid": "C5A0188A-4D6D66CF-15067986-E4624C1F",
       "InternalVariableName": "CyAIStateNone"
@@ -1311,9 +1451,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_29",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIInterruptState'",
@@ -1321,7 +1464,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIInterruptState'Summon_Q_MoBai_C:CyAIInterruptState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.8"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.8"
       },
       "VariableGuid": "7B97BD35-4D9426BA-C75BE7AE-E709487D",
       "InternalVariableName": "CyAIInterruptState"
@@ -1330,9 +1473,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_3",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SkeletalMeshComponent'",
@@ -1340,7 +1486,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Summon_Q_MoBai_C:MainSkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.44"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.48"
       },
       "VariableGuid": "B687D839-41B454B3-155BA8AE-A87AB067",
       "InternalVariableName": "MainSkeletalMesh"
@@ -1349,9 +1495,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_30",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIWorkState'",
@@ -1359,7 +1508,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_Q_MoBai_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.12"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.12"
       },
       "VariableGuid": "34287003-4C274FCF-DF64F7A0-80C08E60",
       "InternalVariableName": "CyAIWorkState"
@@ -1368,9 +1517,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_31",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAILeaveState'",
@@ -1378,7 +1530,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAILeaveState'Summon_Q_MoBai_C:CyAILeaveState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.9"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.9"
       },
       "VariableGuid": "A245FC6A-4A5D209D-04111CA6-C3E6F153",
       "InternalVariableName": "CyAILeaveState"
@@ -1387,9 +1539,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_32",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIDeathState'",
@@ -1397,7 +1552,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIDeathState'Summon_Q_MoBai_C:CyAIDeathState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.6"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.6"
       },
       "VariableGuid": "98C8F4CC-4DE52904-786B38B9-3E23550F",
       "InternalVariableName": "CyAIDeathState"
@@ -1406,17 +1561,20 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_33",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
-        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
       },
       "ComponentTemplate": {
         "ObjectName": "BP_GameStateComponent_Summon_C'Summon_Q_MoBai_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.3"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.3"
       },
       "VariableGuid": "FBDBCAA3-4B446736-DAEB6581-741E165C",
       "InternalVariableName": "BP_GameStateComponent_Summon"
@@ -1425,9 +1583,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_34",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySceneMapSummonMaskComponent'",
@@ -1435,7 +1596,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySceneMapSummonMaskComponent'Summon_Q_MoBai_C:CySceneMapSummonMask_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.18"
       },
       "VariableGuid": "4FF1372E-42DCA806-FE3944AC-52168BFB",
       "InternalVariableName": "CySceneMapSummonMask"
@@ -1444,9 +1605,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_35",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyTargetCopyCharacterComponent'",
@@ -1454,7 +1618,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyTargetCopyCharacterComponent'Summon_Q_MoBai_C:CyTargetCopyCharacter_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.20"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.21"
       },
       "VariableGuid": "065BAC08-4E0FBA17-69F84B91-E046AD1C",
       "InternalVariableName": "CyTargetCopyCharacter"
@@ -1463,9 +1627,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_4",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'AkComponent'",
@@ -1473,7 +1640,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent'Summon_Q_MoBai_C:Ak_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.2"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.2"
       },
       "VariableGuid": "3B8A6FCB-43628696-1AF61B87-87D39BB0",
       "InternalVariableName": "Ak"
@@ -1482,9 +1649,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_5",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIInPoolState'",
@@ -1492,179 +1662,245 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIInPoolState'Summon_Q_MoBai_C:CyAIInPoolState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.7"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.7"
       },
       "VariableGuid": "BF11FD11-4192E5F6-B0247B81-C4B7AD27",
       "InternalVariableName": "CyAIInPoolState"
     }
   },
   {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'PMSummonAnimationComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PMSummonAnimationComponent'Summon_Q_MoBai_C:PMSummonAnimation_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.23"
+      },
+      "VariableGuid": "C8EFC9A6-4A9C71EF-96CCC4B1-E6399155",
+      "InternalVariableName": "PMSummonAnimation"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_Q_MoBai_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.47"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyPlayerPartBigHead'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyPlayerPartBigHead'Summon_Q_MoBai_C:CyPlayerPartBigHead_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.16"
+      },
+      "VariableGuid": "75700392-42F01A72-2C0D50A1-E46021D5",
+      "InternalVariableName": "CyPlayerPartBigHead"
+    }
+  },
+  {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'SimpleConstructionScript'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.24"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.25"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_21'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.26"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.28"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_22'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_23'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_25'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.31"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_26'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.30"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.32"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_27'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.33"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_28'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.32"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.34"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_29'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.33"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.35"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_30'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.35"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.37"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_31'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.36"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.38"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_32'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.37"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.39"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_33'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.38"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.40"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_34'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.39"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.41"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_35'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.40"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.42"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.42"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.46"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.24"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.25"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.34"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.36"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.41"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.43"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_21'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.26"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.28"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_22'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_23'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_25'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.31"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_26'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.30"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.32"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_27'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.33"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_28'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.32"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.34"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_29'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.33"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.35"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_30'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.35"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.37"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_31'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.36"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.38"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_32'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.37"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.39"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_33'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.38"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.40"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_34'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.39"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.41"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_35'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.40"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.42"
         },
         {
           "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.42"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.46"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_Q_MoBai_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.25"
       }
     }
   },
   {
     "Type": "SkeletalMeshComponent",
     "Name": "MainSkeletalMesh_GEN_VARIABLE",
-    "Outer": "Summon_Q_MoBai_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_Q_MoBai_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/ArousalThree/Summon/Summon_Q_MoBai.0"
+    },
     "Properties": {
       "ClothingSimulationFactory": {
         "ObjectName": "Class'ClothingSimulationFactoryNv'",

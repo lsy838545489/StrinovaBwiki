@@ -2,12 +2,13 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.36"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
       }
     },
     "SuperStruct": {
@@ -17,24 +18,24 @@
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
-        "Name": "CyAIEntryState",
+        "Name": "CyAISecondWorkState",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
-          "ObjectName": "Class'CyAIEntryState'",
+          "ObjectName": "Class'CyAIWorkState'",
           "ObjectPath": "/Script/PMGame"
         }
       },
       {
         "Type": "ObjectProperty",
-        "Name": "WindField",
+        "Name": "CyLife",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
-          "ObjectName": "Class'StaticMeshComponent'",
-          "ObjectPath": "/Script/Engine"
+          "ObjectName": "Class'CyLifeComponent'",
+          "ObjectPath": "/Script/PMGame"
         }
       },
       {
@@ -45,18 +46,7 @@
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
           "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
-          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CyForceMove",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
-        "PropertyClass": {
-          "ObjectName": "Class'CyForceMoveComponent'",
-          "ObjectPath": "/Script/PMGame"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
         }
       },
       {
@@ -212,47 +202,79 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "Summon_E_Kanami_C'Default__Summon_E_Kanami_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.1"
     }
   },
   {
     "Type": "Summon_E_Kanami_C",
     "Name": "Default__Summon_E_Kanami_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.Summon_E_Kanami_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.Summon_E_Kanami_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami",
     "Properties": {
+      "CenterLocationOffset": {
+        "X": 10.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_E_Kanami_C:ArousalComponent'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.11"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.11"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_E_Kanami_C:PerceptionSystemComponent'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.17"
       },
-      "bCanBeDamaged": false,
       "bReplicates": true
     }
   },
   {
     "Type": "AkComponent",
     "Name": "Ak_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'AkComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    }
   },
   {
-    "Type": "UObject",
+    "Type": "BP_GameStateComponent_Summon_C",
     "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
+    "Template": {
+      "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
+    }
   },
   {
     "Type": "CyAbilitySystemComponent",
     "Name": "CyAbilitySystem_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyAbilitySystemComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
     "Properties": {
+      "DefaultStartingData": [
+        {
+          "Attributes": {
+            "ObjectName": "Class'CyBaseAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "DefaultStartingTable": {
+            "ObjectName": "DataTable'AttributeMetaData'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/AttributeMetaData.0"
+          },
+          "MobileStartingTable": null
+        }
+      ],
       "ReplicatedPredictionKeyMap": {
         "PredictionKeys": [
           {
@@ -679,10 +701,16 @@
   {
     "Type": "CyAIDeathState",
     "Name": "CyAIDeathState_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyAIDeathState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIDeathState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
     "Properties": {
+      "HideMeshNames": [
+        "SkeletalMesh"
+      ],
       "AssetEvents": [
         {
           "PositionStart": 0.0,
@@ -702,7 +730,8 @@
               "ResourceClassify": "ECyGCResourceClassify::Effect",
               "MeshName": "None",
               "AssetTagContainer": [
-                "Resource.Audio.Leave.A"
+                "Resource.Particle.Death.A",
+                "Resource.Audio.Death.A"
               ],
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
@@ -725,70 +754,98 @@
           "AssetTagContainers": [
             {
               "AttachComponentType": "EAttachComponentType::None",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "ResourceClassify": "ECyGCResourceClassify::UI",
               "MeshName": "None",
               "AssetTagContainer": [
-                "Resource.Particle.Work.C"
+                "Resource.UI.Feedback.Death"
               ],
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
-              "bAllowLoop": true
+              "bAllowLoop": false
             }
           ]
         }
-      ],
-      "TotalDuration": {
-        "Value": 0.5
-      }
-    }
-  },
-  {
-    "Type": "CyAIEntryState",
-    "Name": "CyAIEntryState_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyAIEntryState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "AssetEvents": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::None",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "None",
-              "AssetTagContainer": [
-                "Resource.Particle.Work.A"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": true
-            }
-          ]
-        }
-      ],
-      "TotalDuration": {
-        "Value": 0.2
-      }
+      ]
     }
   },
   {
     "Type": "CyAILeaveState",
     "Name": "CyAILeaveState_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyAILeaveState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
     "Properties": {
+      "HideMeshNames": [
+        "SkeletalMesh"
+      ]
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
+    "Properties": {
+      "DefaultStateType": "EAIStateType::Work"
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAINoneState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAISecondWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
+    "Properties": {
+      "StateType": "EAIStateType::SecondWork",
+      "HideMeshNames": [
+        "SkeletalMesh"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Leave_E_Kanami_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_SearchTargets_Leave_E_Kanami.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SearchTargets_Enemy_Zombie_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SearchTargets_Enemy_Zombie.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
       "AssetEvents": [
         {
           "PositionStart": 0.0,
@@ -808,6 +865,7 @@
               "ResourceClassify": "ECyGCResourceClassify::Effect",
               "MeshName": "None",
               "AssetTagContainer": [
+                "Resource.Particle.Leave.A",
                 "Resource.Audio.Leave.A"
               ],
               "AssetTagStopContainer": [],
@@ -815,96 +873,40 @@
               "bAllowLoop": false
             }
           ]
-        },
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::None",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "None",
-              "AssetTagContainer": [
-                "Resource.Particle.Work.C"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": true
-            }
-          ]
         }
       ],
       "TotalDuration": {
-        "Value": 0.5
+        "Value": 2.0
       }
     }
   },
   {
-    "Type": "CyAIMachine",
-    "Name": "CyAIMachine_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyAIMachine'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "InitStateQueue": [
-        "EAIStateType::Entry",
-        "EAIStateType::Work"
-      ]
-    }
-  },
-  {
-    "Type": "CyAIState",
-    "Name": "CyAINoneState_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyAIState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
-  },
-  {
     "Type": "CyAIWorkState",
     "Name": "CyAIWorkState_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyAIWorkState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
     "Properties": {
       "Events": [
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_ForceMoveUpVector_C'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_ForceMoveUpVector"
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Work_E_Kanami_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_SearchTargets_Work_E_Kanami.0"
           },
-          "SubAtoms": []
-        },
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Vertigo_C'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_SearchTargets_Vertigo"
-          },
-          "SubAtoms": []
-        },
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_SpeedFactor_C'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_SearchTargets_SpeedFactor"
-          },
-          "SubAtoms": []
+          "SubAtoms": [
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSA_SummonGotoLeave_E_Kanami_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SSA_SummonGotoLeave_E_Kanami.0"
+            }
+          ],
+          "EventActions": []
         }
       ],
       "AssetEvents": [
@@ -926,33 +928,9 @@
               "ResourceClassify": "ECyGCResourceClassify::Effect",
               "MeshName": "None",
               "AssetTagContainer": [
-                "Resource.Particle.Work.B"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": true
-            }
-          ]
-        },
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::None",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "None",
-              "AssetTagContainer": [
-                "Resource.Audio.Work.A"
+                "Resource.Particle.Work.A",
+                "Resource.Audio.Work.A",
+                "Resource.Material.A"
               ],
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
@@ -962,7 +940,7 @@
         }
       ],
       "TotalDuration": {
-        "Value": 5.0
+        "Value": 9999.0
       },
       "GameStateDurationAttribute": {
         "AttributeName": "GrenadeWindFieldDuration",
@@ -981,33 +959,35 @@
   {
     "Type": "CyArousalComponent",
     "Name": "ArousalComponent",
-    "Outer": "Default__Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyArousalComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyArousalComponent'",
+    "Outer": {
+      "ObjectName": "Summon_E_Kanami_C'Default__Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.1"
+    },
     "Properties": {
       "bReplicates": false
     }
   },
   {
-    "Type": "CyForceMoveComponent",
-    "Name": "CyForceMove_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyForceMoveComponent'",
+    "Type": "CyLifeComponent",
+    "Name": "CyLife_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "bForceFly": true,
-      "Priority": 10,
-      "CustomForce": 500000.0,
-      "CustomAttenuation": 50000.0,
-      "AttractSpeed": -500.0
+    "Class": "UScriptClass'CyLifeComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
     }
   },
   {
     "Type": "CyRetainComponent",
     "Name": "CyRetain_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CyRetainComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
     "Properties": {
       "bRegisterUnVisibleActor": true,
       "DefinitionTagContainer": [
@@ -1027,29 +1007,36 @@
   {
     "Type": "CySearchTargetsComponent",
     "Name": "CySearchTargets_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CySearchTargetsComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "Detectors": [
-        null
-      ],
-      "PermissionMask": 10
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
     }
   },
   {
     "Type": "CySkinComponent",
     "Name": "CySkin_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CySkinComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
+    "Properties": {
+      "bEnableOcclusion": true,
+      "bEnableTeamType": true
+    }
   },
   {
     "Type": "CySummonLightAIComponent",
     "Name": "CySummonLightAI_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'CySummonLightAIComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySummonLightAIComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
     "Properties": {
       "AliveMask": "ELifeMask::Armor"
     }
@@ -1057,9 +1044,12 @@
   {
     "Type": "PMAIPerceptionStimuliSourceComponent",
     "Name": "PerceptionSystemComponent",
-    "Outer": "Default__Summon_E_Kanami_C",
-    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "Summon_E_Kanami_C'Default__Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.1"
+    },
     "Properties": {
       "StimuliSourceID": 31372
     }
@@ -1067,16 +1057,22 @@
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SceneComponent'",
@@ -1084,20 +1080,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_E_Kanami_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.18"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.21"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.22"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.21"
         }
       ],
       "VariableGuid": "0937EAD0-4128776C-C95EE181-0FBA36E9",
@@ -1107,17 +1099,20 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_1",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
-        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
       },
       "ComponentTemplate": {
         "ObjectName": "BP_GameStateComponent_Summon_C'Summon_E_Kanami_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.3"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.3"
       },
       "VariableGuid": "D483DC91-4F9BEC87-CDA3E685-2D5383FA",
       "InternalVariableName": "BP_GameStateComponent_Summon"
@@ -1126,9 +1121,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_11",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'AkComponent'",
@@ -1136,7 +1134,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent'Summon_E_Kanami_C:Ak_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.2"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.2"
       },
       "VariableGuid": "1C1F65AC-4D841ED5-9A06DA8A-AEA03A00",
       "InternalVariableName": "Ak"
@@ -1145,47 +1143,34 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_2",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "Class'StaticMeshComponent'",
-        "ObjectPath": "/Script/Engine"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "StaticMeshComponent'Summon_E_Kanami_C:WindField_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.38"
-      },
-      "VariableGuid": "35D9AF34-4E859916-FCD9779C-B45631ED",
-      "InternalVariableName": "WindField"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_3",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
-    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class'CyAIEntryState'",
+        "ObjectName": "Class'CyLifeComponent'",
         "ObjectPath": "/Script/PMGame"
       },
       "ComponentTemplate": {
-        "ObjectName": "CyAIEntryState'Summon_E_Kanami_C:CyAIEntryState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.6"
+        "ObjectName": "CyLifeComponent'Summon_E_Kanami_C:CyLife_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.12"
       },
-      "VariableGuid": "32BFB56A-44970A95-357BA5AC-30E3267E",
-      "InternalVariableName": "CyAIEntryState"
+      "VariableGuid": "7C4CEA9C-42086227-D2628C9F-AC4C9E0A",
+      "InternalVariableName": "CyLife"
     }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_32",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySkinComponent'",
@@ -1193,7 +1178,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_E_Kanami_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.15"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.15"
       },
       "VariableGuid": "280AE9AF-4F188A03-74582D98-85056556",
       "InternalVariableName": "CySkin"
@@ -1202,9 +1187,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_33",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyRetainComponent'",
@@ -1212,7 +1200,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_E_Kanami_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.13"
       },
       "VariableGuid": "1944123D-4C26395E-BED5E0AA-7E0159CA",
       "InternalVariableName": "CyRetain"
@@ -1221,9 +1209,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_34",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAbilitySystemComponent'",
@@ -1231,7 +1222,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAbilitySystemComponent'Summon_E_Kanami_C:CyAbilitySystem_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.4"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.4"
       },
       "VariableGuid": "F27ADE09-4270F61B-1F7BD4AD-F6D188CA",
       "InternalVariableName": "CyAbilitySystem"
@@ -1240,9 +1231,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_35",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySummonLightAIComponent'",
@@ -1250,7 +1244,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySummonLightAIComponent'Summon_E_Kanami_C:CySummonLightAI_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.16"
       },
       "VariableGuid": "8AFC5FC5-4B80EC56-53A9B5A5-70255AFC",
       "InternalVariableName": "CySummonLightAI"
@@ -1259,9 +1253,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_36",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIMachine'",
@@ -1269,7 +1266,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIMachine'Summon_E_Kanami_C:CyAIMachine_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.8"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.7"
       },
       "VariableGuid": "0C12439A-467FD418-6DD5C5BC-7784774C",
       "InternalVariableName": "CyAIMachine"
@@ -1278,9 +1275,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_37",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIWorkState'",
@@ -1288,7 +1288,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_E_Kanami_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.10"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.10"
       },
       "VariableGuid": "BE5D9E42-4910BFF4-2BA951B2-8F97C5BE",
       "InternalVariableName": "CyAIWorkState"
@@ -1297,9 +1297,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_38",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAILeaveState'",
@@ -1307,7 +1310,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAILeaveState'Summon_E_Kanami_C:CyAILeaveState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.7"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.6"
       },
       "VariableGuid": "E151D2F4-4459600F-75DEC497-68E3C923",
       "InternalVariableName": "CyAILeaveState"
@@ -1316,9 +1319,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_39",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIDeathState'",
@@ -1326,7 +1332,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIDeathState'Summon_E_Kanami_C:CyAIDeathState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.5"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.5"
       },
       "VariableGuid": "ED456F47-47752EEB-6D606CBF-E905D05C",
       "InternalVariableName": "CyAIDeathState"
@@ -1334,10 +1340,35 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_40",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
+    "Name": "SCS_Node_4",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'Summon_E_Kanami_C:CyAISecondWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.9"
+      },
+      "VariableGuid": "71862212-45D3A356-4BA2F2AE-910BE628",
+      "InternalVariableName": "CyAISecondWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_40",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIState'",
@@ -1345,7 +1376,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIState'Summon_E_Kanami_C:CyAINoneState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.9"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.8"
       },
       "VariableGuid": "429B7FE6-47AFCDAA-93AB50BE-3A0BFFC6",
       "InternalVariableName": "CyAINoneState"
@@ -1354,9 +1385,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_41",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySearchTargetsComponent'",
@@ -1364,7 +1398,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Summon_E_Kanami_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.14"
       },
       "VariableGuid": "40FA9C86-4F80EC3C-FBA3248D-8DB9DA50",
       "InternalVariableName": "CySearchTargets"
@@ -1372,29 +1406,13 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_42",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
-    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class'CyForceMoveComponent'",
-        "ObjectPath": "/Script/PMGame"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "CyForceMoveComponent'Summon_E_Kanami_C:CyForceMove_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.12"
-      },
-      "VariableGuid": "355F8D4E-465B57AC-475D28A2-79885B9F",
-      "InternalVariableName": "CyForceMove"
-    }
-  },
-  {
-    "Type": "SCS_Node",
     "Name": "SCS_Node_5",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SkeletalMeshComponent'",
@@ -1402,7 +1420,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Summon_E_Kanami_C:SkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.37"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.36"
       },
       "VariableGuid": "7824DC0F-46EB80BA-06B57DA6-0E579342",
       "InternalVariableName": "SkeletalMesh"
@@ -1411,159 +1429,161 @@
   {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'SimpleConstructionScript'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
     "Properties": {
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_32'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.24"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.23"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_33'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.25"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.24"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_34'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.26"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.25"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_35'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_36'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_37'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.28"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_38'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.30"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_39'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_40'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.32"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.32"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_41'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.33"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_42'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.33"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.20"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.20"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.23"
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.22"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.31"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.21"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.21"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_32'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.24"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.23"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_33'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.25"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.24"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_34'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.26"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.25"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_35'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_36'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_37'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.28"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_38'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.30"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_39'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_40'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.32"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.32"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_41'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.33"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_42'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.33"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.20"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.20"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.22"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.22"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.23"
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.31"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
       }
     }
   },
   {
     "Type": "SkeletalMeshComponent",
     "Name": "SkeletalMesh_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
     "Properties": {
       "ClothingSimulationFactory": {
         "ObjectName": "Class'ClothingSimulationFactoryNv'",
         "ObjectPath": "/Script/ClothingSystemRuntimeNv"
       },
       "BodyInstance": {
-        "ObjectType": "ECC_GameTraceChannel4",
+        "ObjectType": "ECC_GameTraceChannel9",
         "CollisionEnabled": "ECollisionEnabled::QueryOnly",
-        "CollisionProfileName": "SummonMeshCollosion",
+        "CollisionProfileName": "SummonDestructableNoVisibleNoCollision",
         "CollisionResponses": {
           "ResponseArray": [
             {
@@ -1621,106 +1641,20 @@
           ]
         }
       },
+      "RelativeRotation": {
+        "Pitch": -90.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      },
       "RelativeScale3D": {
-        "X": 4.0,
-        "Y": 4.0,
-        "Z": 4.0
+        "X": 3.0,
+        "Y": 3.0,
+        "Z": 3.0
       },
       "ComponentTagSet": [
         "WorkingMesh",
         "OcclusionMesh"
       ]
-    }
-  },
-  {
-    "Type": "StaticMeshComponent",
-    "Name": "WindField_GEN_VARIABLE",
-    "Outer": "Summon_E_Kanami_C",
-    "Class": "UScriptClass'StaticMeshComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "StaticMesh": {
-        "ObjectName": "StaticMesh'Cylinder'",
-        "ObjectPath": "/Engine/BasicShapes/Cylinder"
-      },
-      "OverrideMaterials": [
-        null
-      ],
-      "BodyInstance": {
-        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
-        "CollisionProfileName": "WindMachine",
-        "CollisionResponses": {
-          "ResponseArray": [
-            {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Weapon",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Projectile",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Pickup",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Mesh",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Mark",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Summon",
-              "Response": "ECR_Ignore"
-            }
-          ]
-        }
-      },
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 300.0
-      },
-      "RelativeScale3D": {
-        "X": 8.0,
-        "Y": 8.0,
-        "Z": 6.5
-      },
-      "bVisible": false
     }
   }
 ]

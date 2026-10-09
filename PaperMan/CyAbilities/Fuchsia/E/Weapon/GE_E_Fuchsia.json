@@ -2,8 +2,9 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "GE_E_Fuchsia_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Fuchsia/E/Weapon/GE_E_Fuchsia",
     "SuperStruct": {
       "ObjectName": "Class'CyGameplayEffect'",
       "ObjectPath": "/Script/PMGame"
@@ -17,14 +18,15 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "GE_E_Fuchsia_C'Default__GE_E_Fuchsia_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/Fuchsia/E/Weapon/GE_E_Fuchsia.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/E/Weapon/GE_E_Fuchsia.1"
     }
   },
   {
     "Type": "GE_E_Fuchsia_C",
     "Name": "Default__GE_E_Fuchsia_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/Fuchsia/E/Weapon/GE_E_Fuchsia.GE_E_Fuchsia_C'",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Fuchsia/E/Weapon/GE_E_Fuchsia.GE_E_Fuchsia_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Fuchsia/E/Weapon/GE_E_Fuchsia",
     "Properties": {
       "ResponderType": "EResponderType::Instigator",
       "InstigatorAddedEventTag": {
@@ -39,7 +41,7 @@
           "Curve": {
             "CurveTable": {
               "ObjectName": "ModeCurveTable'CT_GameMode'",
-              "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
             },
             "RowName": "Duration.E.Fuchsia"
           }
@@ -84,15 +86,363 @@
           "ModifierMagnitude": {
             "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
             "ScalableFloatMagnitude": {
-              "Value": 0.2,
+              "Value": 1.0,
               "bEnableMobile": true,
               "MobileValue": 1.0,
               "Curve": {
                 "CurveTable": {
                   "ObjectName": "ModeCurveTable'CT_GameMode'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
                 },
-                "RowName": "Attribute.SpeedFactor.Set.E.Fuchsia"
+                "RowName": "Attribute.SpeedFactor.E.Fuchsia"
+              }
+            },
+            "AttributeBasedMagnitude": {
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "BackingAttribute": {
+                "AttributeToCapture": {
+                  "AttributeName": "",
+                  "Attribute": {
+                    "Path": [],
+                    "ResolvedOwner": null
+                  },
+                  "AttributeOwner": null
+                },
+                "AttributeSource": "EGameplayEffectAttributeCaptureSource::Source",
+                "bSnapshot": false
+              },
+              "AttributeCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              },
+              "AttributeCalculationType": "EAttributeBasedFloatCalculationType::AttributeMagnitude",
+              "FinalChannel": "EGameplayModEvaluationChannel::Channel0",
+              "SourceTagFilter": [],
+              "TargetTagFilter": []
+            },
+            "CustomMagnitude": {
+              "CalculationClassMagnitude": null,
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "FinalLookupCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SetByCallerMagnitude": {
+              "DataName": "None",
+              "DataTag": {
+                "TagName": "None"
+              }
+            }
+          },
+          "EvaluationChannelSettings": {
+            "Channel": "EGameplayModEvaluationChannel::Channel0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TargetTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Attribute": {
+            "AttributeName": "SpeedResistance",
+            "Attribute": {
+              "Path": [
+                "SpeedResistance"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class'CyCharacterAttributeSet'",
+                "ObjectPath": "/Script/PMGame"
+              }
+            },
+            "AttributeOwner": {
+              "ObjectName": "Class'CyCharacterAttributeSet'",
+              "ObjectPath": "/Script/PMGame"
+            }
+          },
+          "GameStateScaleAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "ModifierOp": "EGameplayModOp::Additive",
+          "Magnitude": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ModifierMagnitude": {
+            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
+            "ScalableFloatMagnitude": {
+              "Value": 0.5,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "AttributeBasedMagnitude": {
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "BackingAttribute": {
+                "AttributeToCapture": {
+                  "AttributeName": "",
+                  "Attribute": {
+                    "Path": [],
+                    "ResolvedOwner": null
+                  },
+                  "AttributeOwner": null
+                },
+                "AttributeSource": "EGameplayEffectAttributeCaptureSource::Source",
+                "bSnapshot": false
+              },
+              "AttributeCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              },
+              "AttributeCalculationType": "EAttributeBasedFloatCalculationType::AttributeMagnitude",
+              "FinalChannel": "EGameplayModEvaluationChannel::Channel0",
+              "SourceTagFilter": [],
+              "TargetTagFilter": []
+            },
+            "CustomMagnitude": {
+              "CalculationClassMagnitude": null,
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "FinalLookupCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SetByCallerMagnitude": {
+              "DataName": "None",
+              "DataTag": {
+                "TagName": "None"
+              }
+            }
+          },
+          "EvaluationChannelSettings": {
+            "Channel": "EGameplayModEvaluationChannel::Channel0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TargetTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Attribute": {
+            "AttributeName": "ForceMoveAffectFactor",
+            "Attribute": {
+              "Path": [
+                "ForceMoveAffectFactor"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class'CyCharacterAttributeSet'",
+                "ObjectPath": "/Script/PMGame"
+              }
+            },
+            "AttributeOwner": {
+              "ObjectName": "Class'CyCharacterAttributeSet'",
+              "ObjectPath": "/Script/PMGame"
+            }
+          },
+          "GameStateScaleAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "ModifierOp": "EGameplayModOp::Multiplicitive",
+          "Magnitude": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ModifierMagnitude": {
+            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
+            "ScalableFloatMagnitude": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
               }
             },
             "AttributeBasedMagnitude": {
@@ -224,6 +574,12 @@
           }
         }
       ],
+      "RoutineExpirationEffectClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_E_AddHealth_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/E/Weapon/GE_E_AddHealth.0"
+        }
+      ],
       "GameplayCues": [
         {
           "MagnitudeAttribute": {
@@ -265,7 +621,9 @@
           "State.Game.RemoveBuff",
           "State.Health.Injured"
         ]
-      }
+      },
+      "StackingType": "EGameplayEffectStackingType::AggregateByTarget",
+      "StackLimitCount": 1
     }
   }
 ]

@@ -2,12 +2,13 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.45"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
       }
     },
     "SuperStruct": {
@@ -15,6 +16,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyCard",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyCardComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyGStateMonitorKnockBackEvent",
@@ -179,14 +191,15 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
-      "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
     }
   },
   {
     "Type": "BP_GameState_Zombie_C",
     "Name": "Default__BP_GameState_Zombie_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.BP_GameState_Zombie_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.BP_GameState_Zombie_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie",
     "Properties": {
       "bInitGiveGrenade": false,
       "bUseGrenade": false,
@@ -194,79 +207,87 @@
       "bAllowCustomGiveSkillAbility": false,
       "ModeType": "EPMGameModeType::Zombie",
       "ModeCurveType": "EModeCurveType::Zombie",
+      "CustomModeCurveType": "EModeCurveType::Zombie",
       "Machine": {
         "ObjectName": "CyGMachine'Default__BP_GameState_Zombie_C:Machine'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.8"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.9"
       },
       "CachedComponents": [
         {
           "Key": "CyGStateRoleSelect",
           "Value": {
             "ObjectName": "CyGStateRoleSelect'Default__BP_GameState_Zombie_C:CyGStateRoleSelect'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.26"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.28"
           }
         },
         {
           "Key": "CyGStateRoleReselect",
           "Value": {
             "ObjectName": "CyGStateRoleReselect'Default__BP_GameState_Zombie_C:CyGStateRoleReselect'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.25"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.27"
           }
         },
         {
           "Key": "CyGStateRoleLoad",
           "Value": {
             "ObjectName": "CyGStateRoleLoad'Default__BP_GameState_Zombie_C:CyGStateRoleLoad'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.24"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.26"
           }
         },
         {
           "Key": "CyGStateReStart",
           "Value": {
             "ObjectName": "CyGStateReStart'Default__BP_GameState_Zombie_C:CyGStateReStart'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.23"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.25"
           }
         },
         {
           "Key": "CyGStateFight",
           "Value": {
             "ObjectName": "CyGStateFight'Default__BP_GameState_Zombie_C:CyGStateFight'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.15"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.16"
           }
         },
         {
           "Key": "CyGStateFightEnd",
           "Value": {
             "ObjectName": "CyGStateFightEnd'Default__BP_GameState_Zombie_C:CyGStateFightEnd'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.16"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.17"
+          }
+        },
+        {
+          "Key": "CyGStateInteraction",
+          "Value": {
+            "ObjectName": "CyGStateInteraction'Default__BP_GameState_Zombie_C:CyGStateInteraction'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.20"
           }
         },
         {
           "Key": "CyGStateGameEnd",
           "Value": {
             "ObjectName": "CyGStateGameEnd'Default__BP_GameState_Zombie_C:CyGStateGameEnd'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.17"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.18"
           }
         },
         {
           "Key": "CyGStateGameOver",
           "Value": {
             "ObjectName": "CyGStateGameOver'Default__BP_GameState_Zombie_C:CyGStateGameOver'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.18"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.19"
           }
         },
         {
           "Key": "CyGStateNone",
           "Value": {
             "ObjectName": "CyGStateNone'Default__BP_GameState_Zombie_C:CyGStateNone'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.21"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.23"
           }
         },
         {
           "Key": "CyGSMonitorMuteInGameSound",
           "Value": {
             "ObjectName": "CyGSMonitorMuteInGameSound'Default__BP_GameState_Zombie_C:CyGSMonitorMuteInGameSound'",
-            "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.9"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.10"
           }
         },
         {
@@ -282,7 +303,7 @@
           "Curve": {
             "CurveTable": {
               "ObjectName": "ModeCurveTable'CT_GameMode_Gameplay'",
-              "ObjectPath": "/Game/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_Gameplay"
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_Gameplay.0"
             },
             "RowName": "HalfMaxRound"
           }
@@ -290,15 +311,14 @@
       },
       "AbilitySystem": {
         "ObjectName": "CyAbilitySystemComponent'Default__BP_GameState_Zombie_C:AbilitySystemComponent'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.2"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.2"
       },
       "TeamManagerComponent": {
         "ObjectName": "CyTeamManagerComponent'Default__BP_GameState_Zombie_C:TeamManagerComponent'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.29"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.31"
       },
       "bEnableTeamOcclusion": false,
       "bGrowthEnabled": true,
-      "bGrowthChangeRoleInheritLevelEnabled": true,
       "GrowthEnabledState": {
         "AllowedStates": [
           "EGStateType::Prepare"
@@ -313,7 +333,7 @@
           {
             "EffectClass": {
               "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Instant_HumanNormal_C'",
-              "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_HumanNormal"
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_HumanNormal.0"
             },
             "SourceTags": {
               "RequireTagType": "ERequireTagType::AND",
@@ -328,7 +348,7 @@
           {
             "EffectClass": {
               "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Infinite_HumanNormal_C'",
-              "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_HumanNormal"
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_HumanNormal.0"
             },
             "SourceTags": {
               "RequireTagType": "ERequireTagType::AND",
@@ -350,7 +370,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Instant_ZombieNormal_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_ZombieNormal"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_ZombieNormal.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -365,7 +385,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Infinite_ZombieNormal_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_ZombieNormal"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_ZombieNormal.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -380,7 +400,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_LessInjured_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LessInjured_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LessInjured_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -397,7 +417,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_HigherJump_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_HigherJump_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_HigherJump_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -414,7 +434,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_LowerCoolDown_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LowerCoolDown_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LowerCoolDown_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -431,7 +451,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_HealthRecover_NotBeingAttacked_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_HealthRecover_NotBeingAttacked"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_HealthRecover_NotBeingAttacked.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -446,7 +466,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_DisableForceFly_C'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GE/GE_DisableForceFly"
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GE/GE_DisableForceFly.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -461,7 +481,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_FullArmorAndHealth_Instant_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -476,7 +496,37 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Infinite_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_Zombie.0"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              },
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_ArmorRecover_BeingAttacked_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_ArmorRecover_BeingAttacked.0"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              },
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_BlockPickupKatana_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_BlockPickupKatana.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -498,7 +548,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Instant_ZombieMaster_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_ZombieMaster"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_ZombieMaster.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -513,7 +563,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Infinite_ZombieMaster_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_ZombieMaster"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_ZombieMaster.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -528,7 +578,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_LessInjured_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LessInjured_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LessInjured_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -545,7 +595,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_HigherJump_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_HigherJump_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_HigherJump_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -562,7 +612,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_LowerCoolDown_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LowerCoolDown_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LowerCoolDown_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -579,7 +629,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_HealthRecover_NotBeingAttacked_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_HealthRecover_NotBeingAttacked"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_HealthRecover_NotBeingAttacked.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -594,7 +644,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_DisableForceFly_C'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GE/GE_DisableForceFly"
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GE/GE_DisableForceFly.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -609,7 +659,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_FullArmorAndHealth_Instant_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -624,7 +674,37 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Infinite_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_Zombie.0"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              },
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_ArmorRecover_BeingAttacked_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_ArmorRecover_BeingAttacked.0"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              },
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_BlockPickupKatana_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_BlockPickupKatana.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -646,7 +726,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Instant_ZombieUltimate_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_ZombieUltimate"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_ZombieUltimate.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -661,7 +741,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Infinite_ZombieUltimate_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_ZombieUltimate"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_ZombieUltimate.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -676,7 +756,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_LessInjured_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LessInjured_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LessInjured_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -693,7 +773,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_HigherJump_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_HigherJump_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_HigherJump_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -710,7 +790,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_LowerCoolDown_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LowerCoolDown_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Zombie/GE_RandomBuff_Infinite_LowerCoolDown_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -727,7 +807,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_HealthRecover_NotBeingAttacked_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_HealthRecover_NotBeingAttacked"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_HealthRecover_NotBeingAttacked.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -742,7 +822,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_DisableForceFly_C'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/GE/GE_DisableForceFly"
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GE/GE_DisableForceFly.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -757,7 +837,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_FullArmorAndHealth_Instant_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -772,7 +852,37 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Infinite_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_Zombie.0"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              },
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_ArmorRecover_BeingAttacked_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_ArmorRecover_BeingAttacked.0"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              },
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_BlockPickupKatana_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_BlockPickupKatana.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -794,7 +904,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Instant_HumanNormal_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_HumanNormal"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_HumanNormal.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -809,7 +919,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Infinite_HumanNormal_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_HumanNormal"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_HumanNormal.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -838,7 +948,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_FastReloading_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_FastReloading_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_FastReloading_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -855,7 +965,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_SoloBuff_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_SoloBuff_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_SoloBuff_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -872,7 +982,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_ClosedBuff_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_ClosedBuff_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_ClosedBuff_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -889,7 +999,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_AllHeadShot_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_AllHeadShot_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_AllHeadShot_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -906,7 +1016,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_FullArmorAndHealth_Instant_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -929,6 +1039,21 @@
                   "IgnoreTags": []
                 },
                 "RemoveType": "EEffectRemoveType::Infinite"
+              },
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_BlockPickupKatana_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_BlockPickupKatana.0"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
               }
             ]
           }
@@ -938,10 +1063,7 @@
           "Value": {
             "Elements": [
               {
-                "EffectClass": {
-                  "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Instant_HumanHero_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Instant_HumanHero"
-                },
+                "EffectClass": null,
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
                   "bInverse": false,
@@ -955,7 +1077,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_InitAttributes_Infinite_HumanHero_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_HumanHero"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAttributes_Infinite_HumanHero.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -970,7 +1092,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_HeroBuff_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_HeroBuff_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_HeroBuff_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -987,7 +1109,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_SoloBuff_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_SoloBuff_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_SoloBuff_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -1004,7 +1126,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_ClosedBuff_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_ClosedBuff_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_ClosedBuff_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -1021,7 +1143,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_RandomBuff_Infinite_AllHeadShot_Zombie_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_AllHeadShot_Zombie"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/RandomBuffs/Human/GE_RandomBuff_Infinite_AllHeadShot_Zombie.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -1038,7 +1160,7 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_FullArmorAndHealth_Instant_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_FullArmorAndHealth_Instant.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -1053,7 +1175,22 @@
               {
                 "EffectClass": {
                   "ObjectName": "BlueprintGeneratedClass'GE_HumanHeroEffect_Infinite_C'",
-                  "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_HumanHeroEffect_Infinite"
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_HumanHeroEffect_Infinite.0"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::Infinite"
+              },
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_AddMeleeWeaponAttributeSet_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/SpecialKatana/GE_AddMeleeWeaponAttributeSet.0"
                 },
                 "SourceTags": {
                   "RequireTagType": "ERequireTagType::AND",
@@ -1069,31 +1206,58 @@
           }
         }
       ],
-      "DefaultInitAbilityAttributeEffects": {
-        "Elements": [
-          {
-            "EffectClass": {
-              "ObjectName": "BlueprintGeneratedClass'GE_InitAbilityAttributes_Zombie_C'",
-              "ObjectPath": "/Game/PaperMan/Core/GameModes/Attributes/GE_InitAbilityAttributes_Zombie"
-            },
-            "SourceTags": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "RemoveType": "EEffectRemoveType::None"
+      "RoleInitBaseAttributeIndexMap": [
+        {
+          "Key": "301",
+          "Value": 1
+        },
+        {
+          "Key": "302",
+          "Value": 2
+        },
+        {
+          "Key": "305",
+          "Value": 3
+        },
+        {
+          "Key": "304",
+          "Value": 4
+        },
+        {
+          "Key": "306",
+          "Value": 5
+        }
+      ],
+      "RoleInitAbilityAttributeEffects": [
+        {
+          "Key": "HumanHero",
+          "Value": {
+            "Elements": [
+              {
+                "EffectClass": {
+                  "ObjectName": "BlueprintGeneratedClass'GE_InitAbility_Instant_HumanHero_C'",
+                  "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/GE_InitAbility_Instant_HumanHero.0"
+                },
+                "SourceTags": {
+                  "RequireTagType": "ERequireTagType::AND",
+                  "bInverse": false,
+                  "RequireAnyTags": [],
+                  "IgnoreAllTags": [],
+                  "RequireTags": [],
+                  "IgnoreTags": []
+                },
+                "RemoveType": "EEffectRemoveType::None"
+              }
+            ]
           }
-        ]
-      },
+        }
+      ],
       "bDefaultMultiRole": true,
       "bMultiRole": true,
       "DefaultCustomGameMask": 4294957057,
-      "DefaultCustomPlayerMask": 4294952571,
+      "DefaultCustomPlayerMask": 4294919803,
       "DefaultCustomGameMask_Mobile": 4294957057,
-      "DefaultCustomPlayerMask_Mobile": 4294952571,
+      "DefaultCustomPlayerMask_Mobile": 4294919803,
       "SpecificGameRuleInfo": {
         "SpecificGameTagRule": [
           {
@@ -1103,54 +1267,6 @@
         ]
       },
       "SpecificPlayerRuleInfo": [
-        {
-          "TeamId": 255,
-          "RoleId": 301,
-          "SpecificPlayerTagRule": [
-            {
-              "Key": "ECyCustomPlayerTagType::UseSecondary",
-              "Value": 0
-            }
-          ],
-          "SpecificPlayerAttributeRule": [],
-          "SpecificPlayerSettingRule": []
-        },
-        {
-          "TeamId": 255,
-          "RoleId": 302,
-          "SpecificPlayerTagRule": [
-            {
-              "Key": "ECyCustomPlayerTagType::UseSecondary",
-              "Value": 0
-            }
-          ],
-          "SpecificPlayerAttributeRule": [],
-          "SpecificPlayerSettingRule": []
-        },
-        {
-          "TeamId": 255,
-          "RoleId": 304,
-          "SpecificPlayerTagRule": [
-            {
-              "Key": "ECyCustomPlayerTagType::UseSecondary",
-              "Value": 0
-            }
-          ],
-          "SpecificPlayerAttributeRule": [],
-          "SpecificPlayerSettingRule": []
-        },
-        {
-          "TeamId": 255,
-          "RoleId": 305,
-          "SpecificPlayerTagRule": [
-            {
-              "Key": "ECyCustomPlayerTagType::UseSecondary",
-              "Value": 0
-            }
-          ],
-          "SpecificPlayerAttributeRule": [],
-          "SpecificPlayerSettingRule": []
-        },
         {
           "TeamId": 0,
           "RoleId": 0,
@@ -1165,7 +1281,15 @@
             },
             {
               "Key": "ECyCustomPlayerTagType::UseXSkill",
-              "Value": 1
+              "Value": 0
+            },
+            {
+              "Key": "ECyCustomPlayerTagType::UseSecondary",
+              "Value": 0
+            },
+            {
+              "Key": "ECyCustomPlayerTagType::UseMelee",
+              "Value": 0
             }
           ],
           "SpecificPlayerAttributeRule": [],
@@ -1198,21 +1322,24 @@
       },
       "GeneralDataControlComponent": {
         "ObjectName": "CyEventDataControlComponent'Default__BP_GameState_Zombie_C:GeneralDataControlComponent'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.5"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.6"
       },
       "bStatGameRoundData": true,
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__BP_GameState_Zombie_C:DataSystemComponent'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.4"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.5"
       }
     }
   },
   {
     "Type": "CyAbilitySystemComponent",
     "Name": "AbilitySystemComponent",
-    "Outer": "Default__BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyAbilitySystemComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    },
     "Properties": {
       "ReplicatedPredictionKeyMap": {
         "PredictionKeys": [
@@ -1638,11 +1765,34 @@
     }
   },
   {
+    "Type": "CyCardComponent",
+    "Name": "CyCard_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyCardComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
+    "Properties": {
+      "CardDataAsset": {
+        "ObjectName": "CyCardDataAsset'DA_CardAsset'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/DA_CardAsset.0"
+      },
+      "RuleDataAsset": {
+        "ObjectName": "CyCardRuleDataAsset'DA_RoguelikeRule_Zombie'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/DA_RoguelikeRule_Zombie.0"
+      }
+    }
+  },
+  {
     "Type": "CyCustomModeGameComponent",
     "Name": "CyCustomModeGame_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyCustomModeGameComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyCustomModeGameComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "AttributeSetClass": [
         {
@@ -1659,23 +1809,32 @@
   {
     "Type": "CyDataSystemComponent",
     "Name": "DataSystemComponent",
-    "Outer": "Default__BP_GameState_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyDataSystemComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    }
   },
   {
     "Type": "CyEventDataControlComponent",
     "Name": "GeneralDataControlComponent",
-    "Outer": "Default__BP_GameState_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyEventDataControlComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    }
   },
   {
     "Type": "CyEventListenTargetComponent",
     "Name": "CyEventListenTarget_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyEventListenTargetComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventListenTargetComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "bListenOwnerASC": true
     }
@@ -1683,9 +1842,12 @@
   {
     "Type": "CyGameStateDataComponent_Zombie",
     "Name": "CyGameStateDataComponent_Zombie_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGameStateDataComponent_Zombie'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGameStateDataComponent_Zombie'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "GSHumanNormalLevelComponentName": "HumanNormalLevelComponent",
       "HumanNormalLevelDataControlComponentName": "HumanNormalLevelDataControlComponent",
@@ -1792,6 +1954,10 @@
         {
           "Key": "15",
           "Value": 3
+        },
+        {
+          "Key": "20",
+          "Value": 4
         }
       ],
       "StageTwoEventTag": {
@@ -1812,30 +1978,39 @@
       },
       "PickupManagerClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_PickupManager_C'",
-        "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Pickups/BP_PickupManager"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Pickups/BP_PickupManager.0"
       }
     }
   },
   {
     "Type": "CyGMachine",
     "Name": "Machine",
-    "Outer": "Default__BP_GameState_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGMachine'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    }
   },
   {
     "Type": "CyGSMonitorMuteInGameSound",
     "Name": "CyGSMonitorMuteInGameSound",
-    "Outer": "Default__BP_GameState_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGSMonitorMuteInGameSound'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    }
   },
   {
     "Type": "CyGSMonitorWaveTimer",
     "Name": "CyGSMonitorFightStageTwo_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "WaveTimeLeftEventTag": {
         "TagName": "Event.MonitorWaveTimer.Five"
@@ -1859,9 +2034,12 @@
   {
     "Type": "CyGSMonitorWaveTimer",
     "Name": "CyGSMonitorPrepZombieTips_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "WaveTimeLeftEventTag": {
         "TagName": "Event.MonitorWaveTimer.Four"
@@ -1885,9 +2063,12 @@
   {
     "Type": "CyGSMonitorWaveTimer",
     "Name": "CyGSMonitorSpawnHumanCardBox_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "WaveTimeLeftEventTag": {
         "TagName": "Event.MonitorWaveTimer.One"
@@ -1911,9 +2092,12 @@
   {
     "Type": "CyGSMonitorWaveTimer",
     "Name": "CyGSMonitorSpawnZombieCardBox_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "WaveTimeLeftEventTag": {
         "TagName": "Event.MonitorWaveTimer.Two"
@@ -1937,9 +2121,12 @@
   {
     "Type": "CyGSMonitorWaveTimer",
     "Name": "CyGSMonitorSpawnZombieUltimateSupplies_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorWaveTimer'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "WaveTimeLeftEventTag": {
         "TagName": "Event.MonitorWaveTimer.Three"
@@ -1963,9 +2150,12 @@
   {
     "Type": "CyGStateFight",
     "Name": "CyGStateFight",
-    "Outer": "Default__BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGStateFight'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateFight'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    },
     "Properties": {
       "TimePromptInGameVoiceTags": [
         {
@@ -1983,123 +2173,147 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_UpdateDelayRespawnTimeStamp_ZombieOnly_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateDelayRespawnTimeStamp_ZombieOnly_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateDelayRespawnTimeStamp_ZombieOnly_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_SelectZombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_SelectZombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_SelectZombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAGE_SetHeroUnlocked_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_SAGE_SetHeroUnlocked_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_SAGE_SetHeroUnlocked_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_Shared_GSSA_MulticastTeamAliveNumChange_DefendTeamDeathOnly_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_Shared_GSSA_MulticastTeamAliveNumChange_DefendTeamDeathOnly"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_Shared_GSSA_MulticastTeamAliveNumChange_DefendTeamDeathOnly.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAGE_TeamAliveNumChangedInGameVoice_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_SAGE_TeamAliveNumChangedInGameVoice_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_SAGE_TeamAliveNumChangedInGameVoice_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_TickAddZombieExp_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_TickAddZombieExp_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_TickAddZombieExp_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_TickAddHumanWeaponExp_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_TickAddHumanWeaponExp_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_TickAddHumanWeaponExp_Zombie.0"
           },
           "SubAtoms": [
             null
-          ]
+          ],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_TickAddHumanAbilityExp_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_TickAddHumanAbilityExp_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_TickAddHumanAbilityExp_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_DamageAddXPoint_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_DamageAddXPoint_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_DamageAddXPoint_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_IntervalTimeAddXPoint_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_IntervalTimeAddXPoint_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_IntervalTimeAddXPoint_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_SetExpFactor_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_SetExpFactor_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_SetExpFactor_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_UpdateSurvivalTime_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateSurvivalTime"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateSurvivalTime.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2107,48 +2321,59 @@
   {
     "Type": "CyGStateFightEnd",
     "Name": "CyGStateFightEnd",
-    "Outer": "Default__BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGStateFightEnd'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateFightEnd'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    },
     "Properties": {
       "bIgnoreInput": false,
       "TotalDuration": {
-        "Value": 5.0
+        "Value": 8.0
       },
       "Events": [
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": null,
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 1.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": null,
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_CalcPlayerSurvival_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_CalcPlayerSurvival_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_CalcPlayerSurvival_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 1.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_StateAtom_RemoveBuff_RoundEnd_C'",
             "ObjectPath": "/Game/PaperMan/Core/StateAtoms/BP_StateAtom_RemoveBuff_RoundEnd"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2156,20 +2381,37 @@
   {
     "Type": "CyGStateGameEnd",
     "Name": "CyGStateGameEnd",
-    "Outer": "Default__BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGStateGameEnd'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateGameEnd'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    },
     "Properties": {
       "Events": [
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_CalcPlayerSurvival_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_CalcPlayerSurvival_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_CalcPlayerSurvival_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_EndPerformance_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_GSSA_EndPerformance.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2177,16 +2419,48 @@
   {
     "Type": "CyGStateGameOver",
     "Name": "CyGStateGameOver",
-    "Outer": "Default__BP_GameState_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGStateGameOver'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_EvaluateRoleTitle_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_GSSA_EvaluateRoleTitle.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyGStateInteraction",
+    "Name": "CyGStateInteraction",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateInteraction'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    }
   },
   {
     "Type": "CyGStateMonitor",
     "Name": "CyGStateMonitorKnockBackEvent_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGStateMonitor'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "MonitorStateTypes": [
         "EGStateType::Fight",
@@ -2200,11 +2474,13 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_KnockBack_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_KnockBack_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_KnockBack_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2212,9 +2488,12 @@
   {
     "Type": "CyGStateMonitor",
     "Name": "CyGStateMonitorPrepareToFightEnd_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGStateMonitor'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "MonitorStateTypes": [
         "EGStateType::Prepare",
@@ -2229,71 +2508,85 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_AfterDamageApplyEffects_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_AfterDamageApplyEffects_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_AfterDamageApplyEffects_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_Shared_GSSA_TickDelayRespawn_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_Shared_GSSA_TickDelayRespawn"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_Shared_GSSA_TickDelayRespawn.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_UpdateFogParamsByEvent_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateFogParamsByEvent_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateFogParamsByEvent_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_AddRainEffect_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_AddRainEffect_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_AddRainEffect_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_CheckInBuilding_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_CheckInBuilding_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_CheckInBuilding_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_AddEffectOnLocalView_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_AddEffectOnLocalView_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_AddEffectOnLocalView_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_PlayBGM_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PlayBGM_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PlayBGM_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2301,16 +2594,22 @@
   {
     "Type": "CyGStateNone",
     "Name": "CyGStateNone",
-    "Outer": "Default__BP_GameState_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGStateNone'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    }
   },
   {
     "Type": "CyGStatePrepare",
     "Name": "CyGStatePrepare_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGStatePrepare'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStatePrepare'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "TimePromptInGameVoiceTags": [
         {
@@ -2326,21 +2625,34 @@
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": true,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_Shared_GSSA_UpdateDelayRespawnTimeStamp_ZeroDelayTime_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_Shared_GSSA_UpdateDelayRespawnTimeStamp_ZeroDelayTime"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Shared/StateAtom/BP_Shared_GSSA_UpdateDelayRespawnTimeStamp_ZeroDelayTime.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_PlayerStateAddOrRemove_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PlayerStateAddOrRemove_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PlayerStateAddOrRemove_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": null,
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2348,20 +2660,25 @@
   {
     "Type": "CyGStateReStart",
     "Name": "CyGStateReStart",
-    "Outer": "Default__BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGStateReStart'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateReStart'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    },
     "Properties": {
       "Events": [
         {
           "PositionStart": 1.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_PrepSelectZombies_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PrepSelectZombies"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PrepSelectZombies.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2369,20 +2686,25 @@
   {
     "Type": "CyGStateRoleLoad",
     "Name": "CyGStateRoleLoad",
-    "Outer": "Default__BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGStateRoleLoad'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateRoleLoad'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    },
     "Properties": {
       "Events": [
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_PrepSelectZombies_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PrepSelectZombies"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_PrepSelectZombies.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2390,34 +2712,44 @@
   {
     "Type": "CyGStateRoleReselect",
     "Name": "CyGStateRoleReselect",
-    "Outer": "Default__BP_GameState_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyGStateRoleReselect'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    }
   },
   {
     "Type": "CyGStateRoleSelect",
     "Name": "CyGStateRoleSelect",
-    "Outer": "Default__BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyGStateRoleSelect'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateRoleSelect'",
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    },
     "Properties": {
       "Events": [
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": null,
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_GSSA_UpdateFogParams_SelectRole_Zombie_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateFogParams_SelectRole_Zombie"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_GSSA_UpdateFogParams_SelectRole_Zombie.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2425,90 +2757,109 @@
   {
     "Type": "CyInGameDataTrack",
     "Name": "CyInGameDataTrack_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyInGameDataTrack'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyInGameDataTrack'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "Events": [
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "Class'CyDataTrackAtomZombieMatchData'",
             "ObjectPath": "/Script/PMGame"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "Class'CyDataTrackAtmZombieRoundData'",
             "ObjectPath": "/Script/PMGame"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "Class'CyDataTrackAtomZombieMatchPlayerData'",
             "ObjectPath": "/Script/PMGame"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "Class'CyDataTrackAtomZombieAntiCheat'",
             "ObjectPath": "/Script/PMGame"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SA_RoleKillDataTrack_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/DataTack/BP_SA_RoleKillDataTrack"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/DataTack/BP_SA_RoleKillDataTrack.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "Class'CyDataTrackAtomSecAntiDataFlow'",
             "ObjectPath": "/Script/PMGame"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "Class'CyDataTrackAtomUsingFlowPlayerData'",
             "ObjectPath": "/Script/PMGame"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         },
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SA_DataTrackAtomZombieRoundResidentData_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_SA_DataTrackAtomZombieRoundResidentData"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/StateAtom/BP_SA_DataTrackAtomZombieRoundResidentData.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ]
     }
@@ -2516,9 +2867,12 @@
   {
     "Type": "CyLevelComponent",
     "Name": "CyHumanNormalLevel_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'CyLevelComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyLevelComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "LevelChangedEventTag": {
         "TagName": "Event.Level.LevelChanged.Player.HumanNormal"
@@ -2534,23 +2888,32 @@
   {
     "Type": "CyTeamManagerComponent",
     "Name": "TeamManagerComponent",
-    "Outer": "Default__BP_GameState_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyTeamManagerComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BP_GameState_Zombie_C'Default__BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.1"
+    }
   },
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
-    "Outer": "BP_GameState_Zombie_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SceneComponent'",
@@ -2558,7 +2921,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_GameState_Zombie_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.30"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.32"
       },
       "VariableGuid": "81D39623-40B53CF1-BE9056B6-3F3F21D3",
       "InternalVariableName": "DefaultSceneRoot"
@@ -2567,9 +2930,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_1",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGStatePrepare'",
@@ -2577,7 +2943,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGStatePrepare'BP_GameState_Zombie_C:CyGStatePrepare_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.22"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.24"
       },
       "VariableGuid": "FD6AE990-4D678B10-43C38A9E-4FAAADD9",
       "InternalVariableName": "CyGStatePrepare"
@@ -2586,9 +2952,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_10",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGSMonitorWaveTimer'",
@@ -2596,7 +2965,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGSMonitorWaveTimer'BP_GameState_Zombie_C:CyGSMonitorPrepZombieTips_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.11"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.12"
       },
       "VariableGuid": "F3D2989E-4251C0A5-97B6ECB8-1828006C",
       "InternalVariableName": "CyGSMonitorPrepZombieTips"
@@ -2605,9 +2974,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_11",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyInGameDataTrack'",
@@ -2615,7 +2987,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyInGameDataTrack'BP_GameState_Zombie_C:CyInGameDataTrack_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.27"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.29"
       },
       "VariableGuid": "BC6C2F9B-4FE5E5D2-93A20880-03A1E46D",
       "InternalVariableName": "CyInGameDataTrack"
@@ -2624,9 +2996,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_12",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGSMonitorWaveTimer'",
@@ -2634,7 +3009,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGSMonitorWaveTimer'BP_GameState_Zombie_C:CyGSMonitorFightStageTwo_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.10"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.11"
       },
       "VariableGuid": "901C383A-4E990A98-DCFF1982-3F4913C6",
       "InternalVariableName": "CyGSMonitorFightStageTwo"
@@ -2642,10 +3017,35 @@
   },
   {
     "Type": "SCS_Node",
-    "Name": "SCS_Node_14",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
+    "Name": "SCS_Node_13",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyCardComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyCardComponent'BP_GameState_Zombie_C:CyCard_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.3"
+      },
+      "VariableGuid": "00D4677D-44AE7EDD-6EDD6B8A-97532956",
+      "InternalVariableName": "CyCard"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGStateMonitor'",
@@ -2653,7 +3053,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGStateMonitor'BP_GameState_Zombie_C:CyGStateMonitorKnockBackEvent_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.19"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.21"
       },
       "VariableGuid": "CCCDCE2A-4E95248A-B0E9A28B-C0FB673D",
       "InternalVariableName": "CyGStateMonitorKnockBackEvent"
@@ -2662,9 +3062,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_2",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGStateMonitor'",
@@ -2672,7 +3075,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGStateMonitor'BP_GameState_Zombie_C:CyGStateMonitorPrepareToFightEnd_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.20"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.22"
       },
       "VariableGuid": "41532582-43539227-2A7E79AE-EDE91550",
       "InternalVariableName": "CyGStateMonitorPrepareToFightEnd"
@@ -2681,9 +3084,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_3",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGSMonitorWaveTimer'",
@@ -2691,7 +3097,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGSMonitorWaveTimer'BP_GameState_Zombie_C:CyGSMonitorSpawnHumanCardBox_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.12"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.13"
       },
       "VariableGuid": "54F6E048-4C0D9B40-29699588-BA2DEF92",
       "InternalVariableName": "CyGSMonitorSpawnHumanCardBox"
@@ -2700,9 +3106,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_4",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGSMonitorWaveTimer'",
@@ -2710,7 +3119,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGSMonitorWaveTimer'BP_GameState_Zombie_C:CyGSMonitorSpawnZombieUltimateSupplies_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.14"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.15"
       },
       "VariableGuid": "19CA4233-49A997D0-57905FA9-762135A7",
       "InternalVariableName": "CyGSMonitorSpawnZombieUltimateSupplies"
@@ -2719,9 +3128,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_5",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyLevelComponent'",
@@ -2729,7 +3141,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyLevelComponent'BP_GameState_Zombie_C:CyHumanNormalLevel_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.28"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.30"
       },
       "VariableGuid": "CC548244-43964D3C-90C6D8B9-D977CE41",
       "InternalVariableName": "CyHumanNormalLevel"
@@ -2738,9 +3150,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_6",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGameStateDataComponent_Zombie'",
@@ -2748,7 +3163,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGameStateDataComponent_Zombie'BP_GameState_Zombie_C:CyGameStateDataComponent_Zombie_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.7"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.8"
       },
       "VariableGuid": "2DD7F2BC-4EB055C3-977963B3-DAEBC745",
       "InternalVariableName": "CyGameStateDataComponent_Zombie"
@@ -2757,9 +3172,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_7",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyEventListenTargetComponent'",
@@ -2767,7 +3185,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyEventListenTargetComponent'BP_GameState_Zombie_C:CyEventListenTarget_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.6"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.7"
       },
       "VariableGuid": "A2B4EDF4-4052B399-C32B90AF-85A0B6F4",
       "InternalVariableName": "CyEventListenTarget"
@@ -2776,9 +3194,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_8",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyCustomModeGameComponent'",
@@ -2786,7 +3207,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyCustomModeGameComponent'BP_GameState_Zombie_C:CyCustomModeGame_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.3"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.4"
       },
       "VariableGuid": "4B6C1F71-4DEB47EC-D6D53B80-9496F64C",
       "InternalVariableName": "CyCustomModeGame"
@@ -2795,9 +3216,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_9",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_Zombie_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.48"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyGSMonitorWaveTimer'",
@@ -2805,7 +3229,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyGSMonitorWaveTimer'BP_GameState_Zombie_C:CyGSMonitorSpawnZombieCardBox_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.13"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.14"
       },
       "VariableGuid": "0E155A85-46D8BD5F-184ADEA4-E62E8D37",
       "InternalVariableName": "CyGSMonitorSpawnZombieCardBox"
@@ -2814,129 +3238,140 @@
   {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
-    "Outer": "BP_GameState_Zombie_C",
-    "Class": "UScriptClass'SimpleConstructionScript'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_Zombie_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.0"
+    },
     "Properties": {
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.31"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.33"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.32"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.34"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.37"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.40"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.38"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.41"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.39"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.42"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.40"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.43"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.41"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.44"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.42"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.45"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.43"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.46"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.44"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.47"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.33"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.35"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.35"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.37"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.34"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.36"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.36"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.38"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.31"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.33"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.32"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.34"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.37"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.40"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.38"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.41"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.39"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.42"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.40"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.43"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.41"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.44"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.42"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.45"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.43"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.46"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.44"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.47"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.33"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.35"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.35"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.37"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.34"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.36"
         },
         {
           "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.36"
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.38"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_GameState_Zombie_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.31"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/BP_GameState_Zombie.33"
       }
     }
   }

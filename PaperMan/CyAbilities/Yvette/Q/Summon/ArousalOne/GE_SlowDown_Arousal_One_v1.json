@@ -2,8 +2,9 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "GE_SlowDown_Arousal_One_v1_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalOne/GE_SlowDown_Arousal_One_v1",
     "SuperStruct": {
       "ObjectName": "Class'CyGameplayEffect'",
       "ObjectPath": "/Script/PMGame"
@@ -17,18 +18,19 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "GE_SlowDown_Arousal_One_v1_C'Default__GE_SlowDown_Arousal_One_v1_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalOne/GE_SlowDown_Arousal_One_v1.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalOne/GE_SlowDown_Arousal_One_v1.1"
     }
   },
   {
     "Type": "GE_SlowDown_Arousal_One_v1_C",
     "Name": "Default__GE_SlowDown_Arousal_One_v1_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalOne/GE_SlowDown_Arousal_One_v1.GE_SlowDown_Arousal_One_v1_C'",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalOne/GE_SlowDown_Arousal_One_v1.GE_SlowDown_Arousal_One_v1_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalOne/GE_SlowDown_Arousal_One_v1",
     "Properties": {
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_DamageType_Q_Yvette_C'",
-        "ObjectPath": "/Game/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/BP_DamageType_Q_Yvette"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/ArousalTwo/Weapon/BP_DamageType_Q_Yvette.0"
       },
       "BuffType": "ECyBuffType::Weak",
       "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
@@ -37,7 +39,14 @@
       "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
       "DurationMagnitude": {
         "ScalableFloatMagnitude": {
-          "Value": 1.0
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+            },
+            "RowName": "Duration.SpeedFactor.ArousalOne.Yvette"
+          }
         }
       },
       "Modifiers": [
@@ -85,6 +94,175 @@
               "Curve": {
                 "CurveTable": null,
                 "RowName": "None"
+              }
+            },
+            "AttributeBasedMagnitude": {
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "BackingAttribute": {
+                "AttributeToCapture": {
+                  "AttributeName": "",
+                  "Attribute": {
+                    "Path": [],
+                    "ResolvedOwner": null
+                  },
+                  "AttributeOwner": null
+                },
+                "AttributeSource": "EGameplayEffectAttributeCaptureSource::Source",
+                "bSnapshot": false
+              },
+              "AttributeCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              },
+              "AttributeCalculationType": "EAttributeBasedFloatCalculationType::AttributeMagnitude",
+              "FinalChannel": "EGameplayModEvaluationChannel::Channel0",
+              "SourceTagFilter": [],
+              "TargetTagFilter": []
+            },
+            "CustomMagnitude": {
+              "CalculationClassMagnitude": null,
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "FinalLookupCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SetByCallerMagnitude": {
+              "DataName": "None",
+              "DataTag": {
+                "TagName": "None"
+              }
+            }
+          },
+          "EvaluationChannelSettings": {
+            "Channel": "EGameplayModEvaluationChannel::Channel0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TargetTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Attribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "GameStateScaleAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "ModifierOp": "EGameplayModOp::Additive",
+          "Magnitude": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ModifierMagnitude": {
+            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
+            "ScalableFloatMagnitude": {
+              "Value": -0.5,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameMode'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+                },
+                "RowName": "Attribute.FallingSpeedFactor.Reduce.ArousalOne.Yvette"
               }
             },
             "AttributeBasedMagnitude": {

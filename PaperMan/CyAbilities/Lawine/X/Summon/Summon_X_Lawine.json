@@ -2,12 +2,13 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
       }
     },
     "SuperStruct": {
@@ -15,6 +16,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyAIStateNone",
@@ -83,17 +95,6 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CyStealthPath",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
-        "PropertyClass": {
-          "ObjectName": "Class'CyStealthPathComponent'",
-          "ObjectPath": "/Script/PMGame"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
         "Name": "CySearchTargets",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
@@ -144,7 +145,7 @@
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
           "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
-          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
         }
       },
       {
@@ -201,22 +202,23 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "Summon_X_Lawine_C'Default__Summon_X_Lawine_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.1"
     }
   },
   {
     "Type": "Summon_X_Lawine_C",
     "Name": "Default__Summon_X_Lawine_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.Summon_X_Lawine_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.Summon_X_Lawine_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine",
     "Properties": {
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_X_Lawine_C:ArousalComponent'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.9"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.10"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_X_Lawine_C:PerceptionSystemComponent'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.17"
       },
       "bReplicates": true
     }
@@ -224,22 +226,36 @@
   {
     "Type": "AkComponent",
     "Name": "Ak_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'AkComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    }
   },
   {
-    "Type": "UObject",
+    "Type": "BP_GameStateComponent_Summon_C",
     "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
+    "Template": {
+      "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
+    }
   },
   {
     "Type": "CyAbilitySystemComponent",
     "Name": "CyAbilitySystem_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CyAbilitySystemComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "ReplicatedPredictionKeyMap": {
         "PredictionKeys": [
@@ -667,39 +683,22 @@
   {
     "Type": "CyAIEntryState",
     "Name": "CyAIEntryState_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CyAIEntryState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "Events": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BPSA_SearchEnemy_C'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Lawine/X/Summon/BPSA_SearchEnemy"
-          },
-          "SubAtoms": []
-        }
-      ],
-      "TotalDuration": {
-        "Curve": {
-          "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_GameMode'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
-          },
-          "RowName": "Duration.Work.Summon.X.Lawine"
-        }
-      }
+    "Class": "UScriptClass'CyAIEntryState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
     }
   },
   {
     "Type": "CyAILeaveState",
     "Name": "CyAILeaveState_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CyAILeaveState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "TotalDuration": {
         "Value": 0.01
@@ -709,40 +708,116 @@
   {
     "Type": "CyAIMachine",
     "Name": "CyAIMachine_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CyAIMachine'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "InitStateQueue": [
+        "EAIStateType::Work",
         "EAIStateType::Leave",
         "EAIStateType::None"
       ],
       "UseTimeState": [
         "EAIStateType::Entry",
-        "EAIStateType::Leave"
+        "EAIStateType::Leave",
+        "EAIStateType::Work"
       ]
     }
   },
   {
     "Type": "CyAIState",
     "Name": "CyAIStateNone_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyAIState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BPSA_SearchEnemy_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/BPSA_SearchEnemy.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BPSA_SearchSelf_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/BPSA_SearchSelf.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BPSA_SearchSelf_InRange_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/BPSA_SearchSelf_InRange.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "LooseGameplayTags": [
+        "State.Summon.Work"
+      ],
+      "TotalDuration": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Duration.Work.Summon.X.Lawine"
+        }
+      }
+    }
   },
   {
     "Type": "CyArousalComponent",
     "Name": "ArousalComponent",
-    "Outer": "Default__Summon_X_Lawine_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyArousalComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Summon_X_Lawine_C'Default__Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.1"
+    }
   },
   {
     "Type": "CyEdgeSoundAttenuationComponent",
     "Name": "CyEdgeSoundAttenuation_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CyEdgeSoundAttenuationComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEdgeSoundAttenuationComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "BoxAxisSize": {
         "XAxis": {
@@ -763,17 +838,19 @@
   {
     "Type": "CyRetainComponent",
     "Name": "CyRetain_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CyRetainComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "bRegisterUnVisibleActor": true,
       "DefinitionTagContainer": [
-        "Event.Summon.Spawn.Lawine.X",
         "ActorTag.Summon.X.Lawine"
       ],
       "OwnerActorTag": {
-        "TagName": "Event.Summon.Spawn.Lawine.X"
+        "TagName": "ActorTag.Summon.X.Lawine"
       },
       "SpawnEventTag": {
         "TagName": "Event.Summon.Spawn.Lawine.X"
@@ -786,9 +863,12 @@
   {
     "Type": "CySceneMapTwoPointLineComponent",
     "Name": "CySceneMapTwoPointLine_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CySceneMapTwoPointLineComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySceneMapTwoPointLineComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "TwoLinePointData": [
         {
@@ -801,7 +881,8 @@
             "X": 5000.0,
             "Y": 0.0,
             "Z": 0.0
-          }
+          },
+          "LineType": 0
         }
       ],
       "ConfigRadius": 250.0,
@@ -812,14 +893,17 @@
   {
     "Type": "CySearchTargetsComponent",
     "Name": "CySearchTargets_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CySearchTargetsComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "Detectors": [
         {
           "ObjectName": "BlueprintGeneratedClass'Detector_X_Lawine_C'",
-          "ObjectPath": "/Game/PaperMan/CyAbilities/Lawine/X/Summon/Detector_X_Lawine"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Detector_X_Lawine.0"
         }
       ]
     }
@@ -827,9 +911,12 @@
   {
     "Type": "CySkinComponent",
     "Name": "CySkin_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CySkinComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "BeginAssetTagContainers": [
         {
@@ -858,66 +945,24 @@
     }
   },
   {
-    "Type": "CyStealthPathComponent",
-    "Name": "CyStealthPath_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'CyStealthPathComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Properties": {
-      "TargetEffectsOnDetected": [
-        {
-          "Key": "ECyWorldActorMask::SelfPlayer",
-          "Value": {
-            "Elements": [
-              {
-                "EffectClass": {
-                  "ObjectName": "BlueprintGeneratedClass'GE_Stealth_C'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Lawine/X/Summon/GE_Stealth"
-                },
-                "SourceTags": {
-                  "RequireTagType": "ERequireTagType::AND",
-                  "bInverse": false,
-                  "RequireAnyTags": [],
-                  "IgnoreAllTags": [],
-                  "RequireTags": [],
-                  "IgnoreTags": []
-                },
-                "RemoveType": "EEffectRemoveType::Infinite"
-              },
-              {
-                "EffectClass": {
-                  "ObjectName": "BlueprintGeneratedClass'GE_ArmorRecover_C'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Lawine/X/Summon/GE_ArmorRecover"
-                },
-                "SourceTags": {
-                  "RequireTagType": "ERequireTagType::AND",
-                  "bInverse": false,
-                  "RequireAnyTags": [],
-                  "IgnoreAllTags": [],
-                  "RequireTags": [],
-                  "IgnoreTags": []
-                },
-                "RemoveType": "EEffectRemoveType::Infinite"
-              }
-            ]
-          }
-        }
-      ]
-    }
-  },
-  {
     "Type": "CyTargetActorsComponent",
     "Name": "CyTargetActors_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyTargetActorsComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    }
   },
   {
     "Type": "PMAIPerceptionStimuliSourceComponent",
     "Name": "PerceptionSystemComponent",
-    "Outer": "Default__Summon_X_Lawine_C",
-    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "Summon_X_Lawine_C'Default__Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.1"
+    },
     "Properties": {
       "StimuliSourceID": 31282
     }
@@ -925,16 +970,22 @@
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SceneComponent'",
@@ -942,16 +993,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_X_Lawine_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.18"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_19'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.26"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.34"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.34"
         }
       ],
       "VariableGuid": "C9A41400-41FF7A71-6D889695-1956FFBD",
@@ -961,9 +1012,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_1",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySceneMapTwoPointLineComponent'",
@@ -971,7 +1025,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySceneMapTwoPointLineComponent'Summon_X_Lawine_C:CySceneMapTwoPointLine_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.12"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.13"
       },
       "VariableGuid": "9BCAB916-4357D758-F7C8D28D-EA3A330B",
       "InternalVariableName": "CySceneMapTwoPointLine"
@@ -980,9 +1034,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_10",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAILeaveState'",
@@ -990,7 +1047,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAILeaveState'Summon_X_Lawine_C:CyAILeaveState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.6"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.6"
       },
       "VariableGuid": "93796CB2-4077981F-2F2DD39D-76E64374",
       "InternalVariableName": "CyAILeaveState"
@@ -999,9 +1056,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_11",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIEntryState'",
@@ -1009,7 +1069,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIEntryState'Summon_X_Lawine_C:CyAIEntryState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.5"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.5"
       },
       "VariableGuid": "44639CAD-42B83074-2E52A8B6-95292D25",
       "InternalVariableName": "CyAIEntryState"
@@ -1018,9 +1078,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_12",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyTargetActorsComponent'",
@@ -1028,7 +1091,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyTargetActorsComponent'Summon_X_Lawine_C:CyTargetActors_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.16"
       },
       "VariableGuid": "BF69F642-4B0FB9DA-3211E8AC-A5CB04CA",
       "InternalVariableName": "CyTargetActors"
@@ -1037,9 +1100,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_13",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIState'",
@@ -1047,7 +1113,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIState'Summon_X_Lawine_C:CyAIStateNone_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.8"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.8"
       },
       "VariableGuid": "D74FACFF-4F627E08-0ADCABAD-DDCC910C",
       "InternalVariableName": "CyAIStateNone"
@@ -1056,17 +1122,20 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_14",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
-        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
       },
       "ComponentTemplate": {
         "ObjectName": "BP_GameStateComponent_Summon_C'Summon_X_Lawine_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.3"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.3"
       },
       "VariableGuid": "7375A589-47C911ED-83B360B7-3C26FEC0",
       "InternalVariableName": "BP_GameStateComponent_Summon"
@@ -1075,9 +1144,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_19",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SkeletalMeshComponent'",
@@ -1085,7 +1157,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Summon_X_Lawine_C:MainSkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.36"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.36"
       },
       "VariableGuid": "1395495B-431AC80F-E03D05BB-EE146AF9",
       "InternalVariableName": "MainSkeletalMesh"
@@ -1094,9 +1166,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_2",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyEdgeSoundAttenuationComponent'",
@@ -1104,7 +1179,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyEdgeSoundAttenuationComponent'Summon_X_Lawine_C:CyEdgeSoundAttenuation_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.10"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.11"
       },
       "VariableGuid": "4E36B4CE-4DD977DD-56F4C3A8-A7A16C7D",
       "InternalVariableName": "CyEdgeSoundAttenuation"
@@ -1113,9 +1188,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_3",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIMachine'",
@@ -1123,7 +1201,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIMachine'Summon_X_Lawine_C:CyAIMachine_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.7"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.7"
       },
       "VariableGuid": "6155AA3E-47D50479-5C90C98D-79FBA8A1",
       "InternalVariableName": "CyAIMachine"
@@ -1132,9 +1210,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_4",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAbilitySystemComponent'",
@@ -1142,7 +1223,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAbilitySystemComponent'Summon_X_Lawine_C:CyAbilitySystem_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.4"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.4"
       },
       "VariableGuid": "679671E3-40BD5BB4-9448AFB1-635A95AB",
       "InternalVariableName": "CyAbilitySystem"
@@ -1151,9 +1232,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_5",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySearchTargetsComponent'",
@@ -1161,7 +1245,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Summon_X_Lawine_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.14"
       },
       "VariableGuid": "DF0F9381-47408F2B-C394958E-8B6DE0ED",
       "InternalVariableName": "CySearchTargets"
@@ -1170,9 +1254,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_6",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySkinComponent'",
@@ -1180,7 +1267,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_X_Lawine_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.15"
       },
       "VariableGuid": "2DD20106-45352420-1AB3F09C-EA2DD57A",
       "InternalVariableName": "CySkin"
@@ -1189,9 +1276,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_7",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyRetainComponent'",
@@ -1199,7 +1289,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_X_Lawine_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.11"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.12"
       },
       "VariableGuid": "8F5517B8-4B758C18-297FF48B-8E2DCA21",
       "InternalVariableName": "CyRetain"
@@ -1208,28 +1298,34 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_8",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "Class'CyStealthPathComponent'",
+        "ObjectName": "Class'CyAIWorkState'",
         "ObjectPath": "/Script/PMGame"
       },
       "ComponentTemplate": {
-        "ObjectName": "CyStealthPathComponent'Summon_X_Lawine_C:CyStealthPath_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.15"
+        "ObjectName": "CyAIWorkState'Summon_X_Lawine_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.9"
       },
-      "VariableGuid": "569264C9-44E6BA16-BD8E79A2-C9FAB790",
-      "InternalVariableName": "CyStealthPath"
+      "VariableGuid": "8F09F3BD-4AE874DE-E11144B2-F6390ECE",
+      "InternalVariableName": "CyAIWorkState"
     }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_9",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Lawine_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.35"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'AkComponent'",
@@ -1237,7 +1333,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent'Summon_X_Lawine_C:Ak_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.2"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.2"
       },
       "VariableGuid": "D5F02989-4D310444-437E1FBE-95AF32EB",
       "InternalVariableName": "Ak"
@@ -1246,146 +1342,152 @@
   {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'SimpleConstructionScript'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.19"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.19"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.31"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.32"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.32"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.25"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.25"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.20"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.20"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.30"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.33"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.28"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.22"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.22"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.23"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.23"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.21"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.21"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.24"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.24"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.33"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.19"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.19"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.31"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.32"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.32"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.25"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.25"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_19'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.26"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.20"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.20"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.30"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.33"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.34"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.34"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.28"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.22"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.22"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.23"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.23"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.21"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.21"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.24"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.24"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.33"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_X_Lawine_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.19"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.19"
       }
     }
   },
   {
     "Type": "SkeletalMeshComponent",
     "Name": "MainSkeletalMesh_GEN_VARIABLE",
-    "Outer": "Summon_X_Lawine_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Lawine_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/Summon_X_Lawine.0"
+    },
     "Properties": {
       "ClothingSimulationFactory": {
         "ObjectName": "Class'ClothingSimulationFactoryNv'",

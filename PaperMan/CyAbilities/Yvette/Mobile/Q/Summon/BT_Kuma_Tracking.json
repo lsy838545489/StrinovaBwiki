@@ -2,12 +2,13 @@
   {
     "Type": "BehaviorTree",
     "Name": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BehaviorTree'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking",
     "Properties": {
       "RootNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       },
       "BlackboardAsset": {
         "ObjectName": "BlackboardData'ALS_BB_AICharacter'",
@@ -18,21 +19,24 @@
   {
     "Type": "BTComposite_Selector",
     "Name": "BTComposite_Selector_1",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTComposite_Selector'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "Children": [
         {
           "ChildComposite": {
             "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_5'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.6"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.6"
           },
           "ChildTask": null,
           "Decorators": [
             {
               "ObjectName": "CyBTDecorator_CheckAlive'BT_Kuma_Tracking:CyBTDecorator_CheckAlive_3'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.16"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.16"
             }
           ],
           "DecoratorOps": []
@@ -40,17 +44,17 @@
         {
           "ChildComposite": {
             "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_3'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.2"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.2"
           },
           "ChildTask": null,
           "Decorators": [
             {
               "ObjectName": "CyBTDecorator_CheckActorTagsWithAbort'BT_Kuma_Tracking:CyBTDecorator_CheckActorTagsWithAbort_3'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.15"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.15"
             },
             {
               "ObjectName": "BTDecorator_CheckGameplayTagsOnActor'BT_Kuma_Tracking:BTDecorator_CheckGameplayTagsOnActor_2'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.10"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.10"
             }
           ],
           "DecoratorOps": []
@@ -58,13 +62,13 @@
         {
           "ChildComposite": {
             "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_3'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.5"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.5"
           },
           "ChildTask": null,
           "Decorators": [
             {
               "ObjectName": "CyBTDecorator_LessLifeSpan'BT_Kuma_Tracking:CyBTDecorator_LessLifeSpan_0'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.17"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.17"
             }
           ],
           "DecoratorOps": []
@@ -72,25 +76,25 @@
         {
           "ChildComposite": {
             "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_2'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.4"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.4"
           },
           "ChildTask": null,
           "Decorators": [
             {
               "ObjectName": "CyBTDecorator_CheckActorTagsWithAbort'BT_Kuma_Tracking:CyBTDecorator_CheckActorTagsWithAbort_2'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.14"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.14"
             },
             {
               "ObjectName": "CyBTDecorator_CheckActorTagsWithAbort'BT_Kuma_Tracking:CyBTDecorator_CheckActorTagsWithAbort_1'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.13"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.13"
             },
             {
               "ObjectName": "BTDecorator_CheckGameplayTagsOnActor'BT_Kuma_Tracking:BTDecorator_CheckGameplayTagsOnActor_1'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.9"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.9"
             },
             {
               "ObjectName": "BTDecorator_CheckGameplayTagsOnActor'BT_Kuma_Tracking:BTDecorator_CheckGameplayTagsOnActor_3'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.11"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.11"
             }
           ],
           "DecoratorOps": []
@@ -98,28 +102,31 @@
       ],
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       }
     }
   },
   {
     "Type": "BTComposite_Selector",
     "Name": "BTComposite_Selector_3",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTComposite_Selector'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "Children": [
         {
           "ChildComposite": {
             "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_0'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.3"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.3"
           },
           "ChildTask": null,
           "Decorators": [
             {
               "ObjectName": "BTDecorator_Blackboard'BT_Kuma_Tracking:BTDecorator_Blackboard_2'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.8"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.8"
             }
           ],
           "DecoratorOps": []
@@ -128,32 +135,35 @@
       "Services": [
         {
           "ObjectName": "CyBTService_DetectTarget'BT_Kuma_Tracking:CyBTService_DetectTarget_2'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.19"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.19"
         }
       ],
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "BTComposite_Sequence",
     "Name": "BTComposite_Sequence_0",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTComposite_Sequence'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "Children": [
         {
           "ChildComposite": null,
           "ChildTask": {
             "ObjectName": "BTTask_RotateToFaceBBEntry'BT_Kuma_Tracking:BTTask_RotateToFaceBBEntry_0'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.12"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.12"
           },
           "Decorators": [],
           "DecoratorOps": []
@@ -162,7 +172,7 @@
           "ChildComposite": null,
           "ChildTask": {
             "ObjectName": "CyBTTask_SendEvent'BT_Kuma_Tracking:CyBTTask_SendEvent_0'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.22"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.22"
           },
           "Decorators": [],
           "DecoratorOps": []
@@ -170,32 +180,35 @@
       ],
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_3'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.2"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.2"
       }
     }
   },
   {
     "Type": "BTComposite_Sequence",
     "Name": "BTComposite_Sequence_2",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTComposite_Sequence'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "Children": [
         {
           "ChildComposite": null,
           "ChildTask": {
             "ObjectName": "CyBTTask_SendEvent'BT_Kuma_Tracking:CyBTTask_SendEvent_2'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.23"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.23"
           },
           "Decorators": [
             {
               "ObjectName": "BTDecorator_Blackboard'BT_Kuma_Tracking:BTDecorator_Blackboard_1'",
-              "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.7"
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.7"
             }
           ],
           "DecoratorOps": []
@@ -204,32 +217,35 @@
       "Services": [
         {
           "ObjectName": "CyBTService_DetectTarget'BT_Kuma_Tracking:CyBTService_DetectTarget_1'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.18"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.18"
         }
       ],
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "BTComposite_Sequence",
     "Name": "BTComposite_Sequence_3",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTComposite_Sequence'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "Children": [
         {
           "ChildComposite": null,
           "ChildTask": {
             "ObjectName": "CyBTTask_GotoState'BT_Kuma_Tracking:CyBTTask_GotoState_6'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.21"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.21"
           },
           "Decorators": [],
           "DecoratorOps": []
@@ -237,27 +253,30 @@
       ],
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "BTComposite_Sequence",
     "Name": "BTComposite_Sequence_5",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTComposite_Sequence'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "Children": [
         {
           "ChildComposite": null,
           "ChildTask": {
             "ObjectName": "CyBTTask_GotoState'BT_Kuma_Tracking:CyBTTask_GotoState_2'",
-            "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.20"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.20"
           },
           "Decorators": [],
           "DecoratorOps": []
@@ -265,20 +284,23 @@
       ],
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "BTDecorator_Blackboard",
     "Name": "BTDecorator_Blackboard_1",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTDecorator_Blackboard'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "CachedDescription": "TargetActor is Is Set",
       "BlackboardKey": {
@@ -286,20 +308,23 @@
       },
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_2'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.4"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.4"
       }
     }
   },
   {
     "Type": "BTDecorator_Blackboard",
     "Name": "BTDecorator_Blackboard_2",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTDecorator_Blackboard'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "CachedDescription": "TargetActor is Is Set",
       "BlackboardKey": {
@@ -308,20 +333,23 @@
       "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_3'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.2"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.2"
       }
     }
   },
   {
     "Type": "BTDecorator_CheckGameplayTagsOnActor",
     "Name": "BTDecorator_CheckGameplayTagsOnActor_1",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTDecorator_CheckGameplayTagsOnActor'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTDecorator_CheckGameplayTagsOnActor'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "ActorToCheck": {},
       "GameplayTags": [
@@ -333,20 +361,23 @@
       "bInverseCondition": true,
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "BTDecorator_CheckGameplayTagsOnActor",
     "Name": "BTDecorator_CheckGameplayTagsOnActor_2",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTDecorator_CheckGameplayTagsOnActor'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTDecorator_CheckGameplayTagsOnActor'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "ActorToCheck": {},
       "GameplayTags": [
@@ -357,20 +388,23 @@
       "bInverseCondition": true,
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "BTDecorator_CheckGameplayTagsOnActor",
     "Name": "BTDecorator_CheckGameplayTagsOnActor_3",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTDecorator_CheckGameplayTagsOnActor'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTDecorator_CheckGameplayTagsOnActor'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "ActorToCheck": {},
       "GameplayTags": [
@@ -380,40 +414,46 @@
       "bInverseCondition": true,
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "BTTask_RotateToFaceBBEntry",
     "Name": "BTTask_RotateToFaceBBEntry_0",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'BTTask_RotateToFaceBBEntry'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTTask_RotateToFaceBBEntry'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "BlackboardKey": {
         "SelectedKeyName": "TargetActor"
       },
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.3"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.3"
       }
     }
   },
   {
     "Type": "CyBTDecorator_CheckActorTagsWithAbort",
     "Name": "CyBTDecorator_CheckActorTagsWithAbort_1",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTDecorator_CheckActorTagsWithAbort'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTDecorator_CheckActorTagsWithAbort'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "ActorToCheck": {},
       "TagsToMatch": "EGameplayContainerMatchType::All",
@@ -424,20 +464,23 @@
       "CachedDescription": "Has all tags in set: (GameplayTags=((TagName=\"State.Weapon.Attack\"),(TagName=\"State.Summon.Work\")))",
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "CyBTDecorator_CheckActorTagsWithAbort",
     "Name": "CyBTDecorator_CheckActorTagsWithAbort_2",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTDecorator_CheckActorTagsWithAbort'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTDecorator_CheckActorTagsWithAbort'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "ActorToCheck": {},
       "GameplayTags": [
@@ -448,20 +491,23 @@
       "bInverseCondition": true,
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "CyBTDecorator_CheckActorTagsWithAbort",
     "Name": "CyBTDecorator_CheckActorTagsWithAbort_3",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTDecorator_CheckActorTagsWithAbort'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTDecorator_CheckActorTagsWithAbort'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "ActorToCheck": {},
       "TagsToMatch": "EGameplayContainerMatchType::All",
@@ -472,20 +518,23 @@
       "CachedDescription": "Has all tags in set: (GameplayTags=((TagName=\"State.Weapon.Attack\"),(TagName=\"State.Arousal.Three\")))",
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "CyBTDecorator_CheckAlive",
     "Name": "CyBTDecorator_CheckAlive_3",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTDecorator_CheckAlive'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTDecorator_CheckAlive'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "AliveMask": "ELifeMask::Armor",
       "BlackboardKey": {
@@ -495,20 +544,23 @@
       "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "CyBTDecorator_LessLifeSpan",
     "Name": "CyBTDecorator_LessLifeSpan_0",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTDecorator_LessLifeSpan'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTDecorator_LessLifeSpan'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "LimitLifeSpan": 1.0,
       "BlackboardKey": {
@@ -517,26 +569,29 @@
       "FlowAbortMode": "EBTFlowAbortMode::LowerPriority",
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_1'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.1"
       }
     }
   },
   {
     "Type": "CyBTService_DetectTarget",
     "Name": "CyBTService_DetectTarget_1",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTService_DetectTarget'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTService_DetectTarget'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "DetectorGroup": {
         "Detectors": [
           {
             "ObjectName": "BlueprintGeneratedClass'DetectorRadialHV_Alerting_C'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/DetectorRadialHV_Alerting"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/DetectorRadialHV_Alerting.0"
           }
         ],
         "DetectorMaxCount": 1,
@@ -549,26 +604,29 @@
       "RandomDeviation": 0.0,
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_2'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.4"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.4"
       }
     }
   },
   {
     "Type": "CyBTService_DetectTarget",
     "Name": "CyBTService_DetectTarget_2",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTService_DetectTarget'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTService_DetectTarget'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "DetectorGroup": {
         "Detectors": [
           {
             "ObjectName": "BlueprintGeneratedClass'DetectorRadialHV_Tracking_C'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/ArousalThree/DetectorRadialHV_Tracking"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/ArousalThree/DetectorRadialHV_Tracking.0"
           }
         ],
         "DetectorMaxCount": 1,
@@ -581,60 +639,69 @@
       "RandomDeviation": 0.0,
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Selector'BT_Kuma_Tracking:BTComposite_Selector_3'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.2"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.2"
       }
     }
   },
   {
     "Type": "CyBTTask_GotoState",
     "Name": "CyBTTask_GotoState_2",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTTask_GotoState'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "TargetStateType": "EAIStateType::Death",
       "bImmediate": true,
       "NodeName": "Goto Death",
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_5'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.6"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.6"
       }
     }
   },
   {
     "Type": "CyBTTask_GotoState",
     "Name": "CyBTTask_GotoState_6",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTTask_GotoState'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "TargetStateType": "EAIStateType::Leave",
       "bImmediate": true,
       "NodeName": "Goto Leave",
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_3'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.5"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.5"
       }
     }
   },
   {
     "Type": "CyBTTask_SendEvent",
     "Name": "CyBTTask_SendEvent_0",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTTask_SendEvent'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_SendEvent'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "EventTag": {
         "TagName": "Event.Action.UsePrimary"
@@ -644,20 +711,23 @@
       },
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.3"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.3"
       }
     }
   },
   {
     "Type": "CyBTTask_SendEvent",
     "Name": "CyBTTask_SendEvent_2",
-    "Outer": "BT_Kuma_Tracking",
-    "Class": "UScriptClass'CyBTTask_SendEvent'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_SendEvent'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+    },
     "Properties": {
       "EventTag": {
         "TagName": "Event.Action.UseSecondary"
@@ -667,11 +737,11 @@
       },
       "TreeAsset": {
         "ObjectName": "BehaviorTree'BT_Kuma_Tracking'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.0"
       },
       "ParentNode": {
         "ObjectName": "BTComposite_Sequence'BT_Kuma_Tracking:BTComposite_Sequence_2'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.4"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/Q/Summon/BT_Kuma_Tracking.4"
       }
     }
   }

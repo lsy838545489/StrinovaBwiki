@@ -2,8 +2,9 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "GE_Stealth_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/GE_Stealth",
     "SuperStruct": {
       "ObjectName": "Class'CyGameplayEffect'",
       "ObjectPath": "/Script/PMGame"
@@ -17,14 +18,15 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "GE_Stealth_C'Default__GE_Stealth_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/Lawine/X/Summon/GE_Stealth.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/GE_Stealth.1"
     }
   },
   {
     "Type": "GE_Stealth_C",
     "Name": "Default__GE_Stealth_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/Lawine/X/Summon/GE_Stealth.GE_Stealth_C'",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/GE_Stealth.GE_Stealth_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Lawine/X/Summon/GE_Stealth",
     "Properties": {
       "DurationPolicy": "EGameplayEffectDurationType::Infinite",
       "Modifiers": [
@@ -67,12 +69,12 @@
             "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
             "ScalableFloatMagnitude": {
               "Value": 1.0,
-              "bEnableMobile": true,
-              "MobileValue": 1.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
               "Curve": {
                 "CurveTable": {
                   "ObjectName": "ModeCurveTable'CT_GameMode'",
-                  "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
                 },
                 "RowName": "Attribute.SpeedFactor.Add.X.Lawine"
               }
@@ -226,26 +228,33 @@
       "InheritableGameplayEffectTags": {
         "CombinedTags": [
           "BuffIcon.Strong.Stealth",
+          "Buff.Stealth.X.Lawine",
           "Buff.Stealth"
         ],
         "Added": [
           "BuffIcon.Strong.Stealth",
+          "Buff.Stealth.X.Lawine",
           "Buff.Stealth"
         ]
       },
       "InheritableOwnedTagsContainer": {
         "CombinedTags": [
-          "State.Player.DisableSwitchWeapon",
-          "Buff.Stealth.X.Lawine"
+          "Buff.Stealth.X.Lawine",
+          "Buff.Stealth",
+          "State.Player.Stealth"
         ],
         "Added": [
-          "State.Player.DisableSwitchWeapon",
-          "Buff.Stealth.X.Lawine"
+          "Buff.Stealth.X.Lawine",
+          "Buff.Stealth",
+          "State.Player.Stealth"
         ]
       },
       "OngoingTagRequirements": {
         "RequireAnyTags": [
           "State.Health.Alive"
+        ],
+        "IgnoreTags": [
+          "Buff.Lawine.X.StealthCD"
         ]
       },
       "RemovalTagRequirements": {

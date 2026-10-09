@@ -2,12 +2,13 @@
   {
     "Type": "CameraAnim",
     "Name": "CameraAnim_Jump",
-    "Class": "UScriptClass'CameraAnim'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CameraAnim'",
+    "Package": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump",
     "Properties": {
       "CameraInterpGroup": {
         "ObjectName": "InterpGroupCamera'CameraAnim_Jump:InterpGroupCamera_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump.1"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump.1"
       },
       "AnimLength": 0.5974746,
       "BoundingBox": {
@@ -23,25 +24,28 @@
         },
         "IsValid": 1
       },
-      "BaseFOV": 100.0,
+      "BaseFOV": 105.0,
       "BasePostProcessBlendWeight": 1.0
     }
   },
   {
     "Type": "InterpGroupCamera",
     "Name": "InterpGroupCamera_0",
-    "Outer": "CameraAnim_Jump",
-    "Class": "UScriptClass'InterpGroupCamera'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'InterpGroupCamera'",
+    "Outer": {
+      "ObjectName": "CameraAnim'CameraAnim_Jump'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump.0"
+    },
     "Properties": {
       "InterpTracks": [
         {
-          "ObjectName": "InterpTrackMove'CameraAnim_Jump:InterpGroupCamera_0.InterpTrackMove_0'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump.3"
+          "ObjectName": "InterpTrackFloatProp'CameraAnim_Jump:InterpGroupCamera_0.InterpTrackFloatProp_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump.2"
         },
         {
-          "ObjectName": "InterpTrackFloatProp'CameraAnim_Jump:InterpGroupCamera_0.InterpTrackFloatProp_0'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump.2"
+          "ObjectName": "InterpTrackMove'CameraAnim_Jump:InterpGroupCamera_0.InterpTrackMove_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump.3"
         }
       ],
       "GroupName": "NewCameraAnim"
@@ -50,9 +54,12 @@
   {
     "Type": "InterpTrackFloatProp",
     "Name": "InterpTrackFloatProp_0",
-    "Outer": "InterpGroupCamera_0",
-    "Class": "UScriptClass'InterpTrackFloatProp'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'InterpTrackFloatProp'",
+    "Outer": {
+      "ObjectName": "InterpGroupCamera'CameraAnim_Jump:InterpGroupCamera_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump.1"
+    },
     "Properties": {
       "PropertyName": "CameraComponent.FieldOfView",
       "FloatTrack": {
@@ -67,12 +74,12 @@
           {
             "InVal": 0.09871024,
             "OutVal": 100.0,
-            "ArriveTangent": 46.55347,
-            "LeaveTangent": 46.55347,
+            "ArriveTangent": 43.24131,
+            "LeaveTangent": 43.24131,
             "InterpMode": "CIM_CurveAutoClamped"
           },
           {
-            "InVal": 0.3537767,
+            "InVal": 0.38,
             "OutVal": 105.0,
             "ArriveTangent": 0.0,
             "LeaveTangent": 0.0,
@@ -92,19 +99,22 @@
   },
   {
     "Type": "InterpTrackMove",
-    "Name": "InterpTrackMove_0",
-    "Outer": "InterpGroupCamera_0",
-    "Class": "UScriptClass'InterpTrackMove'",
+    "Name": "InterpTrackMove_3",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'InterpTrackMove'",
+    "Outer": {
+      "ObjectName": "InterpGroupCamera'CameraAnim_Jump:InterpGroupCamera_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Mobile/Q/Weapon/CameraAnim_Jump.1"
+    },
     "Properties": {
       "PosTrack": {
         "Points": [
           {
             "InVal": 0.0,
             "OutVal": {
-              "X": -788.13904,
-              "Y": 196.57138,
-              "Z": 239.59625
+              "X": -661.34106,
+              "Y": -1450.7374,
+              "Z": 152.93033
             },
             "ArriveTangent": {
               "X": 0.0,
@@ -125,9 +135,9 @@
           {
             "InVal": 0.0,
             "OutVal": {
-              "X": 4.467458E-07,
-              "Y": -17.147783,
-              "Z": -35.508404
+              "X": 5.337877E-08,
+              "Y": 1.4847943,
+              "Z": -54.691917
             },
             "ArriveTangent": {
               "X": 0.0,

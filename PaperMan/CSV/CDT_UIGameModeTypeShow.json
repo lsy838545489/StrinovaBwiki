@@ -2,17 +2,18 @@
   {
     "Type": "CompositeDataTable",
     "Name": "CDT_UIGameModeTypeShow",
-    "Class": "UScriptClass'CompositeDataTable'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CompositeDataTable'",
+    "Package": "PM/Content/PaperMan/CSV/CDT_UIGameModeTypeShow",
     "Properties": {
       "ParentTables": [
         {
           "ObjectName": "DataTable'DT_UIGameModeTypeShow_Common'",
-          "ObjectPath": "/Game/PaperMan/CSV/DT_UIGameModeTypeShow_Common"
+          "ObjectPath": "PM/Content/PaperMan/CSV/DT_UIGameModeTypeShow_Common.0"
         },
         {
           "ObjectName": "DataTable'DT_UIGameModeTypeShow_MobileExtend'",
-          "ObjectPath": "/Game/PaperMan/CSV/Mobile/DT_UIGameModeTypeShow_MobileExtend"
+          "ObjectPath": "PM/Content/PaperMan/CSV/Mobile/DT_UIGameModeTypeShow_MobileExtend.0"
         }
       ],
       "RowStruct": {
@@ -65,7 +66,8 @@
           "EPMGameModeType::Zombie",
           "EPMGameModeType::UGC",
           "EPMGameModeType::ZombieGuide",
-          "EPMGameModeType::EPMGameModeType_MAX"
+          "EPMGameModeType::GunGame",
+          "EPMGameModeType::WaterPolo"
         ],
         "ShowGameStateTypes": [
           "EGStateType::Warmup",
@@ -77,7 +79,8 @@
           "EGStateType::Guide",
           "EGStateType::FightThird",
           "EGStateType::FightForth",
-          "EGStateType::FightFifth"
+          "EGStateType::FightFifth",
+          "EGStateType::Interaction"
         ],
         "HideGameStateTypes": [
           "EGStateType::GameEnd",
@@ -95,7 +98,8 @@
         "HideModeTypes": [
           "EPMGameModeType::NoviceGuide",
           "EPMGameModeType::Practice",
-          "EPMGameModeType::BombGuide"
+          "EPMGameModeType::BombGuide",
+          "EPMGameModeType::WaterPolo"
         ],
         "ShowGameStateTypes": [],
         "HideGameStateTypes": [],
@@ -122,7 +126,8 @@
           "EGStateType::FightSecond",
           "EGStateType::FightThird",
           "EGStateType::FightForth",
-          "EGStateType::FightFifth"
+          "EGStateType::FightFifth",
+          "EGStateType::Interaction"
         ],
         "HideGameStateTypes": [],
         "ShowCharacterStateTypes": [],
@@ -139,6 +144,7 @@
           "EPMGameModeType::BombPass",
           "EPMGameModeType::Zombie",
           "EPMGameModeType::ZombieGuide",
+          "EPMGameModeType::ExtremeKnifeFight",
           "EPMGameModeType::EPMGameModeType_MAX"
         ],
         "ShowGameStateTypes": [],
@@ -219,7 +225,9 @@
           "Name": "None"
         },
         "ShowModeTypes": [],
-        "HideModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
         "ShowGameStateTypes": [
           "EGStateType::Warmup",
           "EGStateType::Fight",
@@ -229,7 +237,8 @@
           "EGStateType::FightSecond",
           "EGStateType::FightThird",
           "EGStateType::FightForth",
-          "EGStateType::FightFifth"
+          "EGStateType::FightFifth",
+          "EGStateType::Interaction"
         ],
         "HideGameStateTypes": [],
         "ShowCharacterStateTypes": [],
@@ -409,7 +418,8 @@
         },
         "ShowModeTypes": [
           "EPMGameModeType::Zombie",
-          "EPMGameModeType::ZombieGuide"
+          "EPMGameModeType::ZombieGuide",
+          "EPMGameModeType::EPMGameModeType_MAX"
         ],
         "HideModeTypes": [],
         "ShowGameStateTypes": [
@@ -479,7 +489,7 @@
         "ShowModeTypes": [],
         "HideModeTypes": [
           "EPMGameModeType::EscortGuide",
-          "EPMGameModeType::EPMGameModeType_MAX",
+          "EPMGameModeType::BombGuide2",
           "EPMGameModeType::ZombieGuide"
         ],
         "ShowGameStateTypes": [],
@@ -495,7 +505,7 @@
         "ShowModeTypes": [],
         "HideModeTypes": [
           "EPMGameModeType::EscortGuide",
-          "EPMGameModeType::EPMGameModeType_MAX",
+          "EPMGameModeType::BombGuide2",
           "EPMGameModeType::ZombieGuide"
         ],
         "ShowGameStateTypes": [],
@@ -539,6 +549,90 @@
         "HideCharacterStateTypes": [
           "ECStateType::Death"
         ],
+        "bNeedsHideInReplayMode": false
+      },
+      "CharacterHealth": {
+        "UIPageName": {
+          "Name": "CharacterHealth"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "InventoryPage": {
+        "UIPageName": {
+          "Name": "InventoryPage"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "Cancel": {
+        "UIPageName": {
+          "Name": "Cancel"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "Reload": {
+        "UIPageName": {
+          "Name": "Reload"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "ChangeRole": {
+        "UIPageName": {
+          "Name": "ChangeRole"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
+        "bNeedsHideInReplayMode": false
+      },
+      "SwitchExpectedWeapon": {
+        "UIPageName": {
+          "Name": "SwitchExpectedWeapon"
+        },
+        "ShowModeTypes": [],
+        "HideModeTypes": [
+          "EPMGameModeType::WaterPolo"
+        ],
+        "ShowGameStateTypes": [],
+        "HideGameStateTypes": [],
+        "ShowCharacterStateTypes": [],
+        "HideCharacterStateTypes": [],
         "bNeedsHideInReplayMode": false
       }
     }

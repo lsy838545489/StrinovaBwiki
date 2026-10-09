@@ -2,8 +2,9 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_Activator_AddWaitAfterADS_P_Nobunaga_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Nobunaga/Mobile/P/BP_Activator_AddWaitAfterADS_P_Nobunaga",
     "SuperStruct": {
       "ObjectName": "Class'CyGAActivateEffects'",
       "ObjectPath": "/Script/PMGame"
@@ -17,20 +18,21 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_Activator_AddWaitAfterADS_P_Nobunaga_C'Default__BP_Activator_AddWaitAfterADS_P_Nobunaga_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/Mobile/P/BP_Activator_AddWaitAfterADS_P_Nobunaga.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/Mobile/P/BP_Activator_AddWaitAfterADS_P_Nobunaga.1"
     }
   },
   {
     "Type": "BP_Activator_AddWaitAfterADS_P_Nobunaga_C",
     "Name": "Default__BP_Activator_AddWaitAfterADS_P_Nobunaga_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/Nobunaga/Mobile/P/BP_Activator_AddWaitAfterADS_P_Nobunaga.BP_Activator_AddWaitAfterADS_P_Nobunaga_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nobunaga/Mobile/P/BP_Activator_AddWaitAfterADS_P_Nobunaga.BP_Activator_AddWaitAfterADS_P_Nobunaga_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Nobunaga/Mobile/P/BP_Activator_AddWaitAfterADS_P_Nobunaga",
     "Properties": {
       "OnActiveEffects": [
         {
           "EffectClass": {
             "ObjectName": "BlueprintGeneratedClass'GE_P_Nobunaga_Wait_C'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Nobunaga/Mobile/P/GE_P_Nobunaga_Wait"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/Mobile/P/GE_P_Nobunaga_Wait.0"
           },
           "SourceTags": {
             "RequireTagType": "ERequireTagType::AND",
@@ -41,6 +43,38 @@
             "IgnoreTags": []
           },
           "RemoveType": "EEffectRemoveType::All"
+        },
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_P_Charging_Nobunaga_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/Mobile/P/GE_P_Charging_Nobunaga.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite"
+        }
+      ],
+      "OnEndEffects": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_P_RemoveCharging_Nobunaga_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/Mobile/P/GE_P_RemoveCharging_Nobunaga.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::None"
         }
       ]
     }

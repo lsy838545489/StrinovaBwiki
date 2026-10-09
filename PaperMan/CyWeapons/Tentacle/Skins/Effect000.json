@@ -2,8 +2,9 @@
   {
     "Type": "CyWeaponEffectAsset",
     "Name": "Effect000",
-    "Class": "UScriptClass'CyWeaponEffectAsset'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponEffectAsset'",
+    "Package": "PM/Content/PaperMan/CyWeapons/Tentacle/Skins/Effect000",
     "Properties": {
       "DecalConfig": {
         "DefaultDecalSet": {
@@ -37,6 +38,18 @@
               },
               "DecalSizeMax": 6.0,
               "bRandomRotation": false,
+              "bUseCustomRotation": false,
+              "CustomRotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bUseRotationOffset": false,
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
               "DecalList": [
                 {
                   "AssetPathName": "/Game/PaperMan/Effects/Zombie/Material/M_Talon_DoubleStabbing.M_Talon_DoubleStabbing",
@@ -58,26 +71,83 @@
           "SubPathString": ""
         }
       },
-      "AkAttackBeginEvents": [
+      "AkOptionalAttackBeginEvents": [
         {
           "Key": "EFAttackType::MeleeFirst",
           "Value": {
-            "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
-            "ObjectPath": "/Game/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack"
+            "Default": {
+              "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            },
+            "OptionalDefaults": [
+              {
+                "MatchWeaponSkinUpgradedType": "EWeaponSkinUpgradedType::Max",
+                "Asset": {
+                  "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha1_XSkill_Light_Attack'",
+                  "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_CrystalloidAlpha1_XSkill_Light_Attack.0"
+                },
+                "RequireTagType": "ERequireTagType::AND",
+                "bInverse": false,
+                "RequireAnyTags": [
+                  "Buff.Strong.X.CrystalloidAlpha"
+                ],
+                "IgnoreAllTags": [],
+                "RequireTags": [],
+                "IgnoreTags": []
+              }
+            ]
           }
         },
         {
           "Key": "EFAttackType::MeleeSecond",
           "Value": {
-            "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
-            "ObjectPath": "/Game/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack"
+            "Default": {
+              "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Light_Attack'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Light_Attack.0"
+            },
+            "OptionalDefaults": [
+              {
+                "MatchWeaponSkinUpgradedType": "EWeaponSkinUpgradedType::Max",
+                "Asset": {
+                  "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha1_XSkill_Light_Attack'",
+                  "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_CrystalloidAlpha1_XSkill_Light_Attack.0"
+                },
+                "RequireTagType": "ERequireTagType::AND",
+                "bInverse": false,
+                "RequireAnyTags": [
+                  "Buff.Strong.X.CrystalloidAlpha"
+                ],
+                "IgnoreAllTags": [],
+                "RequireTags": [],
+                "IgnoreTags": []
+              }
+            ]
           }
         },
         {
           "Key": "EFAttackType::Smite",
           "Value": {
-            "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Heavy_Attack'",
-            "ObjectPath": "/Game/WwiseAssets/AkEvent/CrystalloidAlpha1_Heavy_Attack"
+            "Default": {
+              "ObjectName": "AkAudioEvent'CrystalloidAlpha1_Heavy_Attack'",
+              "ObjectPath": "PM/Content/WwiseAssets/AkEvent/CrystalloidAlpha1_Heavy_Attack.0"
+            },
+            "OptionalDefaults": [
+              {
+                "MatchWeaponSkinUpgradedType": "EWeaponSkinUpgradedType::Max",
+                "Asset": {
+                  "ObjectName": "AkAudioEvent'Char_CrystalloidAlpha1_XSkill_Heavy_Attack'",
+                  "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Char_CrystalloidAlpha1_XSkill_Heavy_Attack.0"
+                },
+                "RequireTagType": "ERequireTagType::AND",
+                "bInverse": false,
+                "RequireAnyTags": [
+                  "Buff.Strong.X.CrystalloidAlpha"
+                ],
+                "IgnoreAllTags": [],
+                "RequireTags": [],
+                "IgnoreTags": []
+              }
+            ]
           }
         }
       ],
@@ -130,7 +200,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -181,7 +252,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -232,7 +304,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -283,7 +356,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         },
         {
@@ -334,7 +408,8 @@
             "bRegardLoop": false,
             "bCanSectionClip": false,
             "bCommonParticle": false,
-            "bCastShadow": false
+            "bCastShadow": false,
+            "bAllowPlayOnPart": true
           }
         }
       ],

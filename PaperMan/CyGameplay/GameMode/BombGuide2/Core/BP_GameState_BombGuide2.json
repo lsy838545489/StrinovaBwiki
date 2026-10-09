@@ -1,0 +1,946 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GameState_BombGuide2_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_GameState_BombGuide2_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.27"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_GameState_BombGuide2_C:InheritableComponentHandler'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.24"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PMGameState_BombMatch_C'",
+      "ObjectPath": "/Game/PaperMan/Core/GameModes/BombMatch/BP_PMGameState_BombMatch"
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_NotPlaceable | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "BP_GameState_BombGuide2_C",
+    "Name": "Default__BP_GameState_BombGuide2_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.BP_GameState_BombGuide2_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2",
+    "Properties": {
+      "ModeType": "EPMGameModeType::BombGuide2",
+      "Machine": {
+        "ObjectName": "CyGMachine'Default__BP_GameState_BombGuide2_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.5"
+      },
+      "CachedComponents": [
+        {
+          "Key": "CyGStateRoleSelect",
+          "Value": {
+            "ObjectName": "CyGStateRoleSelect'Default__BP_GameState_BombGuide2_C:CyGStateRoleSelect'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.22"
+          }
+        },
+        {
+          "Key": "CyGStateRoleReselect",
+          "Value": {
+            "ObjectName": "CyGStateRoleReselect'Default__BP_GameState_BombGuide2_C:CyGStateRoleReselect'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.20"
+          }
+        },
+        {
+          "Key": "CyGStateRoleLoad",
+          "Value": {
+            "ObjectName": "CyGStateRoleLoad'Default__BP_GameState_BombGuide2_C:CyGStateRoleLoad'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.19"
+          }
+        },
+        {
+          "Key": "CyGStateReStart",
+          "Value": {
+            "ObjectName": "CyGStateReStart'Default__BP_GameState_BombGuide2_C:CyGStateReStart'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.18"
+          }
+        },
+        {
+          "Key": "CyGStateFight",
+          "Value": {
+            "ObjectName": "CyGStateFight'Default__BP_GameState_BombGuide2_C:CyGStateFight'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.10"
+          }
+        },
+        {
+          "Key": "CyGStateFightEnd",
+          "Value": {
+            "ObjectName": "CyGStateFightEnd'Default__BP_GameState_BombGuide2_C:CyGStateFightEnd'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.11"
+          }
+        },
+        {
+          "Key": "CyGStateInteraction",
+          "Value": {
+            "ObjectName": "CyGStateInteraction'Default__BP_GameState_BombGuide2_C:CyGStateInteraction'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.15"
+          }
+        },
+        {
+          "Key": "CyGStateGameEnd",
+          "Value": {
+            "ObjectName": "CyGStateGameEnd'Default__BP_GameState_BombGuide2_C:CyGStateGameEnd'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.13"
+          }
+        },
+        {
+          "Key": "CyGStateGameOver",
+          "Value": {
+            "ObjectName": "CyGStateGameOver'Default__BP_GameState_BombGuide2_C:CyGStateGameOver'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.14"
+          }
+        },
+        {
+          "Key": "CyGStateNone",
+          "Value": {
+            "ObjectName": "CyGStateNone'Default__BP_GameState_BombGuide2_C:CyGStateNone'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.16"
+          }
+        },
+        {
+          "Key": "CyGSMonitorMuteInGameSound",
+          "Value": {
+            "ObjectName": "CyGSMonitorMuteInGameSound'Default__BP_GameState_BombGuide2_C:CyGSMonitorMuteInGameSound'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.6"
+          }
+        },
+        {
+          "Key": "CyGStatePrepare",
+          "Value": {
+            "ObjectName": "CyGStatePrepare'Default__BP_GameState_BombGuide2_C:CyGStatePrepare'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.17"
+          }
+        },
+        {
+          "Key": "CyGStateFightPlaced",
+          "Value": {
+            "ObjectName": "CyGStateFightPlaced'Default__BP_GameState_BombGuide2_C:CyGStateFightPlaced'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.12"
+          }
+        },
+        {
+          "Key": "CyGStateRoleReset",
+          "Value": {
+            "ObjectName": "CyGStateRoleReset'Default__BP_GameState_BombGuide2_C:CyGStateRoleReset'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.21"
+          }
+        },
+        {
+          "Key": "TeamASurrender",
+          "Value": {
+            "ObjectName": "CyGSMonitorSurrender'Default__BP_GameState_BombGuide2_C:TeamASurrender'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.7"
+          }
+        },
+        {
+          "Key": "TeamBSurrender",
+          "Value": {
+            "ObjectName": "CyGSMonitorSurrender'Default__BP_GameState_BombGuide2_C:TeamBSurrender'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.8"
+          }
+        },
+        {
+          "Key": "CyGSMonitorTieVote",
+          "Value": {
+            "ObjectName": "CyGSMonitorTieVote'Default__BP_GameState_BombGuide2_C:CyGSMonitorTieVote'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.9"
+          }
+        }
+      ],
+      "GameRoundConfig": {
+        "WinExceedRoundScalableFloat": {
+          "Value": 3.0,
+          "bEnableMobile": false,
+          "Curve": {
+            "CurveTable": null,
+            "RowName": "None"
+          }
+        },
+        "HalfMaxRoundScalableFloat": {
+          "Value": 2.0,
+          "bEnableMobile": false,
+          "Curve": {
+            "CurveTable": null,
+            "RowName": "None"
+          }
+        },
+        "AdditionHalfCountScalableFloat": {
+          "bEnableMobile": false,
+          "Curve": {
+            "CurveTable": null,
+            "RowName": "None"
+          }
+        },
+        "AdditionMaxCountScalableFloat": {
+          "Value": 0.0,
+          "bEnableMobile": false,
+          "Curve": {
+            "CurveTable": null,
+            "RowName": "None"
+          }
+        },
+        "FirstRoundXPointScalableFloat": {
+          "Value": 2.0,
+          "bEnableMobile": false,
+          "Curve": {
+            "CurveTable": null,
+            "RowName": "None"
+          }
+        },
+        "SecondFirstRoundXPointScalableFloat": {
+          "Value": 2.0,
+          "bEnableMobile": false,
+          "Curve": {
+            "CurveTable": null,
+            "RowName": "None"
+          }
+        },
+        "ExtraRoundXPointScalableFloat": {
+          "Value": 2.0,
+          "bEnableMobile": false,
+          "Curve": {
+            "CurveTable": null,
+            "RowName": "None"
+          }
+        }
+      },
+      "AbilitySystem": {
+        "ObjectName": "CyAbilitySystemComponent'Default__BP_GameState_BombGuide2_C:AbilitySystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.2"
+      },
+      "TeamManagerComponent": {
+        "ObjectName": "CyTeamManagerComponent'Default__BP_GameState_BombGuide2_C:TeamManagerComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.23"
+      },
+      "GeneralDataControlComponent": {
+        "ObjectName": "CyEventDataControlComponent'Default__BP_GameState_BombGuide2_C:GeneralDataControlComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.4"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__BP_GameState_BombGuide2_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.3"
+      }
+    }
+  },
+  {
+    "Type": "CyAbilitySystemComponent",
+    "Name": "AbilitySystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    },
+    "Properties": {
+      "ReplicatedPredictionKeyMap": {
+        "PredictionKeys": [
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "Object": null,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": -1,
+            "ReplicationKey": -1,
+            "MostRecentArrayReplicationKey": -1
+          }
+        ],
+        "ArrayReplicationKey": 64
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyEventDataControlComponent",
+    "Name": "GeneralDataControlComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventDataControlComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGMachine'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGSMonitorMuteInGameSound",
+    "Name": "CyGSMonitorMuteInGameSound",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorMuteInGameSound'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGSMonitorSurrender",
+    "Name": "TeamASurrender",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorSurrender'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGSMonitorSurrender",
+    "Name": "TeamBSurrender",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorSurrender'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGSMonitorTieVote",
+    "Name": "CyGSMonitorTieVote",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGSMonitorTieVote'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateFight",
+    "Name": "CyGStateFight",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateFight'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateFightEnd",
+    "Name": "CyGStateFightEnd",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateFightEnd'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateFightPlaced",
+    "Name": "CyGStateFightPlaced",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateFightPlaced'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateGameEnd",
+    "Name": "CyGStateGameEnd",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateGameEnd'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateGameOver",
+    "Name": "CyGStateGameOver",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateGameOver'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateInteraction",
+    "Name": "CyGStateInteraction",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateInteraction'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateNone",
+    "Name": "CyGStateNone",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateNone'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStatePrepare",
+    "Name": "CyGStatePrepare",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStatePrepare'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateReStart",
+    "Name": "CyGStateReStart",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateReStart'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateRoleLoad",
+    "Name": "CyGStateRoleLoad",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateRoleLoad'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    },
+    "Properties": {
+      "bFixedUseSelectRoleLoading": true
+    }
+  },
+  {
+    "Type": "CyGStateRoleReselect",
+    "Name": "CyGStateRoleReselect",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateRoleReselect'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateRoleReset",
+    "Name": "CyGStateRoleReset",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateRoleReset'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyGStateRoleSelect",
+    "Name": "CyGStateRoleSelect",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyGStateRoleSelect'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "CyTeamManagerComponent",
+    "Name": "TeamManagerComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyTeamManagerComponent'",
+    "Outer": {
+      "ObjectName": "BP_GameState_BombGuide2_C'Default__BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.1"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.0"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_GameState_BombGuide2_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_GameState_BombGuide2_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.25"
+      },
+      "VariableGuid": "846A421D-457F3A42-DE3D76BE-2084594E",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_GameState_BombGuide2_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.0"
+    },
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_GameState_BombGuide2_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/BombGuide2/Core/BP_GameState_BombGuide2.26"
+      }
+    }
+  }
+]

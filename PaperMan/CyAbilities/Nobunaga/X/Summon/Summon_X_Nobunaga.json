@@ -2,12 +2,13 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
       }
     },
     "SuperStruct": {
@@ -45,7 +46,7 @@
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
           "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
-          "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
         }
       },
       {
@@ -267,18 +268,24 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "Summon_X_Nobunaga_C'Default__Summon_X_Nobunaga_C'",
-      "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.1"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.1"
     }
   },
   {
     "Type": "Summon_X_Nobunaga_C",
     "Name": "Default__Summon_X_Nobunaga_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.Summon_X_Nobunaga_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.Summon_X_Nobunaga_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga",
     "Properties": {
+      "CenterLocationOffset": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 10.0
+      },
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_X_Nobunaga_C:ArousalComponent'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.16"
       },
       "CustomDestroyDamageTypes": [
         {
@@ -292,7 +299,18 @@
       ],
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_X_Nobunaga_C:PerceptionSystemComponent'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.23"
+      },
+      "CenterOffset": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 10.0
+      },
+      "ActorHitBoxType": "ECyActorHitBoxType::Cylinder",
+      "HitBoxInfo": {
+        "MaxRadius": 20.0,
+        "TopFaraway": 25.0,
+        "DownFaraway": 1.0
       },
       "bReplicates": true
     }
@@ -300,21 +318,35 @@
   {
     "Type": "AkComponent",
     "Name": "Ak_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'AkComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
-  },
-  {
-    "Type": "UObject",
-    "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
-  },
-  {
-    "Type": "UObject",
-    "Name": "BP_SummonHeadComponent_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    }
+  },
+  {
+    "Type": "BP_GameStateComponent_Summon_C",
+    "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
+    "Template": {
+      "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
+    }
+  },
+  {
+    "Type": "BP_SummonHeadComponent_C",
+    "Name": "BP_SummonHeadComponent_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "RelativeLocation": {
         "X": 0.0,
@@ -326,9 +358,12 @@
   {
     "Type": "CapsuleComponent",
     "Name": "Capsule_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CapsuleComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "CapsuleHalfHeight": 30.0,
       "CapsuleRadius": 20.0,
@@ -378,9 +413,12 @@
   {
     "Type": "CyAbilitySystemComponent",
     "Name": "CyAbilitySystem_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyAbilitySystemComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAbilitySystemComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "DefaultStartingData": [
         {
@@ -390,7 +428,7 @@
           },
           "DefaultStartingTable": {
             "ObjectName": "DataTable'AttributeMetaData'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Nobunaga/X/Summon/AttributeMetaData"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/AttributeMetaData.0"
           },
           "MobileStartingTable": null
         }
@@ -821,9 +859,12 @@
   {
     "Type": "CyAIAnimationState",
     "Name": "CyAIAnimationStateEntry_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyAIAnimationState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIAnimationState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "StateType": "EAIStateType::Entry"
     }
@@ -831,9 +872,12 @@
   {
     "Type": "CyAIAnimationState",
     "Name": "CyAIAnimationStateWait_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyAIAnimationState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIAnimationState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "StateType": "EAIStateType::Wait",
       "TotalDuration": {
@@ -844,9 +888,12 @@
   {
     "Type": "CyAIDeathState",
     "Name": "CyAIDeathState_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyAIDeathState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIDeathState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "HideMeshNames": [
         "SkeletalMesh"
@@ -885,9 +932,12 @@
   {
     "Type": "CyAILeaveState",
     "Name": "CyAILeaveState_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyAILeaveState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "bDisableCollision": false,
       "AssetEvents": [
@@ -923,9 +973,12 @@
   {
     "Type": "CyAIMachine",
     "Name": "CyAIMachine_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyAIMachine'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "UseTimeState": [
         "EAIStateType::Work",
@@ -941,9 +994,12 @@
   {
     "Type": "CyAIState",
     "Name": "CyAIStateInterrupt_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyAIState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "StateType": "EAIStateType::Interrupt"
     }
@@ -951,16 +1007,22 @@
   {
     "Type": "CyAIState",
     "Name": "CyAIStateNone_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyAIState'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    }
   },
   {
     "Type": "CyAIStateMonitor",
     "Name": "CyAIStateMonitor_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyAIStateMonitor'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "MonitorStateTypes": [
         "EAIStateType::Wait",
@@ -985,20 +1047,25 @@
   {
     "Type": "CyAIWorkState",
     "Name": "CyAIWorkState_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyAIWorkState'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "Events": [
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
+          "bNoSkipped": false,
           "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SAtom_SpawnActor_X_Nobunaga_C'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Nobunaga/X/Summon/BP_SAtom_SpawnActor_X_Nobunaga"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/BP_SAtom_SpawnActor_X_Nobunaga.0"
           },
-          "SubAtoms": []
+          "SubAtoms": [],
+          "EventActions": []
         }
       ],
       "AssetEvents": [
@@ -1037,23 +1104,32 @@
   {
     "Type": "CyArousalComponent",
     "Name": "ArousalComponent",
-    "Outer": "Default__Summon_X_Nobunaga_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyArousalComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "Summon_X_Nobunaga_C'Default__Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.1"
+    }
   },
   {
     "Type": "CyLifeComponent",
     "Name": "CyLife_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyLifeComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    }
   },
   {
     "Type": "CyRetainComponent",
     "Name": "CyRetain_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CyRetainComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "DefinitionTagContainer": [
         "Summon.UI",
@@ -1073,9 +1149,12 @@
   {
     "Type": "CySceneMapSummonMaskComponent",
     "Name": "CySceneMapSummonMask_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CySceneMapSummonMaskComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySceneMapSummonMaskComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "bTraceForward": true,
       "VisionSwitch": {
@@ -1094,9 +1173,12 @@
   {
     "Type": "CySearchTargetsComponent",
     "Name": "CySearchTargets_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CySearchTargetsComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "Radius": 3000.0
     }
@@ -1104,9 +1186,12 @@
   {
     "Type": "CySkinComponent",
     "Name": "CySkin_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CySkinComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "bEnableOcclusion": true,
       "bEnableTeamType": true
@@ -1115,9 +1200,12 @@
   {
     "Type": "CySummonLightAIComponent",
     "Name": "CySummonLightAI_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'CySummonLightAIComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySummonLightAIComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "AliveMask": "ELifeMask::Armor",
       "MaxWorkTimes": {
@@ -1125,7 +1213,7 @@
         "Curve": {
           "CurveTable": {
             "ObjectName": "ModeCurveTable'CT_GameMode'",
-            "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode"
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
           },
           "RowName": "Attribute.MaxScanTimes.Set.X.Nobunaga"
         }
@@ -1135,9 +1223,12 @@
   {
     "Type": "PMAIPerceptionStimuliSourceComponent",
     "Name": "PerceptionSystemComponent",
-    "Outer": "Default__Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "Summon_X_Nobunaga_C'Default__Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.1"
+    },
     "Properties": {
       "StimuliSourceID": 21082
     }
@@ -1145,16 +1236,22 @@
   {
     "Type": "SceneComponent",
     "Name": "DefaultSceneRoot_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SceneComponent'",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    }
   },
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_0",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SceneComponent'",
@@ -1162,20 +1259,20 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_X_Nobunaga_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.24"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.26"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_18'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.34"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.34"
         }
       ],
       "VariableGuid": "BBBE7FC9-4B1772FA-FE0EB398-C8C1F626",
@@ -1185,9 +1282,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_1",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'SkeletalMeshComponent'",
@@ -1195,12 +1295,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Summon_X_Nobunaga_C:SkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.48"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.48"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_22'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.38"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.38"
         }
       ],
       "VariableGuid": "3C75647D-461B877A-32E69982-61A92CFC",
@@ -1210,9 +1310,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_10",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySummonLightAIComponent'",
@@ -1220,7 +1323,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySummonLightAIComponent'Summon_X_Nobunaga_C:CySummonLightAI_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.22"
       },
       "VariableGuid": "74261631-446859F2-628B1680-2744CA9C",
       "InternalVariableName": "CySummonLightAI"
@@ -1229,9 +1332,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_11",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIStateMonitor'",
@@ -1239,7 +1345,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIStateMonitor'Summon_X_Nobunaga_C:CyAIStateMonitor_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.14"
       },
       "VariableGuid": "01E03264-4D9AAF3D-478B3FAC-6784E7EF",
       "InternalVariableName": "CyAIStateMonitor"
@@ -1248,9 +1354,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_12",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CapsuleComponent'",
@@ -1258,7 +1367,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CapsuleComponent'Summon_X_Nobunaga_C:Capsule_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.5"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.5"
       },
       "VariableGuid": "B3A9BFD4-4971D58D-335773A7-4D4E73A1",
       "InternalVariableName": "Capsule"
@@ -1267,9 +1376,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_13",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyLifeComponent'",
@@ -1277,7 +1389,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyLifeComponent'Summon_X_Nobunaga_C:CyLife_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.17"
       },
       "VariableGuid": "7073EA84-4625B3CE-D05B748E-997B2284",
       "InternalVariableName": "CyLife"
@@ -1286,9 +1398,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_14",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIState'",
@@ -1296,7 +1411,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIState'Summon_X_Nobunaga_C:CyAIStateInterrupt_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.12"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.12"
       },
       "VariableGuid": "F073434A-4F687BF4-23AE51B9-41078013",
       "InternalVariableName": "CyAIStateInterrupt"
@@ -1305,9 +1420,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_15",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIState'",
@@ -1315,7 +1433,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIState'Summon_X_Nobunaga_C:CyAIStateNone_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.13"
       },
       "VariableGuid": "38D2D550-4768618C-4D3B23BF-B0D5CA5E",
       "InternalVariableName": "CyAIStateNone"
@@ -1324,9 +1442,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_16",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIAnimationState'",
@@ -1334,7 +1455,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIAnimationState'Summon_X_Nobunaga_C:CyAIAnimationStateWait_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.8"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.8"
       },
       "VariableGuid": "41987AA7-4C552924-9C496EB2-636A3814",
       "InternalVariableName": "CyAIAnimationStateWait"
@@ -1343,9 +1464,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_18",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'AkComponent'",
@@ -1353,7 +1477,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "AkComponent'Summon_X_Nobunaga_C:Ak_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.2"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.2"
       },
       "VariableGuid": "DD78B331-4A1E5681-019C0DBE-DBCF76A1",
       "InternalVariableName": "Ak"
@@ -1362,9 +1486,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_2",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySkinComponent'",
@@ -1372,7 +1499,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_X_Nobunaga_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.21"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.21"
       },
       "VariableGuid": "A3AD3AF2-484B0706-038A7AAE-475116CB",
       "InternalVariableName": "CySkin"
@@ -1381,9 +1508,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_20",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySearchTargetsComponent'",
@@ -1391,7 +1521,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Summon_X_Nobunaga_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.20"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.20"
       },
       "VariableGuid": "62559D35-45F269D3-E8DA1398-82031065",
       "InternalVariableName": "CySearchTargets"
@@ -1400,17 +1530,20 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_21",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
-        "ObjectPath": "/Game/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
       },
       "ComponentTemplate": {
         "ObjectName": "BP_GameStateComponent_Summon_C'Summon_X_Nobunaga_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.3"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.3"
       },
       "VariableGuid": "3862A0DB-4AFE370A-66DC7586-6B0583AD",
       "InternalVariableName": "BP_GameStateComponent_Summon"
@@ -1419,9 +1552,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_22",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "BlueprintGeneratedClass'BP_SummonHeadComponent_C'",
@@ -1429,7 +1565,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BP_SummonHeadComponent_C'Summon_X_Nobunaga_C:BP_SummonHeadComponent_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.4"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.4"
       },
       "VariableGuid": "5FFEE987-4A6A4E0C-678E2DA5-9C9A3B69",
       "InternalVariableName": "BP_SummonHeadComponent"
@@ -1438,9 +1574,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_23",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CySceneMapSummonMaskComponent'",
@@ -1448,7 +1587,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySceneMapSummonMaskComponent'Summon_X_Nobunaga_C:CySceneMapSummonMask_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.19"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.19"
       },
       "VariableGuid": "CEE3EF85-41DDCA32-276798BC-32107E25",
       "InternalVariableName": "CySceneMapSummonMask"
@@ -1457,9 +1596,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_3",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAbilitySystemComponent'",
@@ -1467,7 +1609,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAbilitySystemComponent'Summon_X_Nobunaga_C:CyAbilitySystem_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.6"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.6"
       },
       "VariableGuid": "22FAB952-439D0E94-65B994B3-EA0B8F4F",
       "InternalVariableName": "CyAbilitySystem"
@@ -1476,9 +1618,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_4",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyRetainComponent'",
@@ -1486,7 +1631,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_X_Nobunaga_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.18"
       },
       "VariableGuid": "1E6A0B22-4BB1A52F-D9CEC6AB-0365DB4C",
       "InternalVariableName": "CyRetain"
@@ -1495,9 +1640,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_5",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIMachine'",
@@ -1505,7 +1653,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIMachine'Summon_X_Nobunaga_C:CyAIMachine_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.11"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.11"
       },
       "VariableGuid": "D09B115A-41BC08E6-7E8E9695-A8473930",
       "InternalVariableName": "CyAIMachine"
@@ -1514,9 +1662,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_6",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIAnimationState'",
@@ -1524,7 +1675,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIAnimationState'Summon_X_Nobunaga_C:CyAIAnimationStateEntry_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.7"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.7"
       },
       "VariableGuid": "DE18D903-4344203F-8A12DF91-B80EC820",
       "InternalVariableName": "CyAIAnimationStateEntry"
@@ -1533,9 +1684,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_7",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIWorkState'",
@@ -1543,7 +1697,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_X_Nobunaga_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.15"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.15"
       },
       "VariableGuid": "973E81DC-467CD0D4-618F2A9A-BACAE904",
       "InternalVariableName": "CyAIWorkState"
@@ -1552,9 +1706,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_8",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAILeaveState'",
@@ -1562,7 +1719,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAILeaveState'Summon_X_Nobunaga_C:CyAILeaveState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.10"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.10"
       },
       "VariableGuid": "A04C4492-4E194D20-0CD861BB-82E3A616",
       "InternalVariableName": "CyAILeaveState"
@@ -1571,9 +1728,12 @@
   {
     "Type": "SCS_Node",
     "Name": "SCS_Node_9",
-    "Outer": "SimpleConstructionScript_0",
-    "Class": "UScriptClass'SCS_Node'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nobunaga_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.47"
+    },
     "Properties": {
       "ComponentClass": {
         "ObjectName": "Class'CyAIDeathState'",
@@ -1581,7 +1741,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIDeathState'Summon_X_Nobunaga_C:CyAIDeathState_GEN_VARIABLE'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.9"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.9"
       },
       "VariableGuid": "89DBF0D5-4F485C86-A7252EBF-CB310A7B",
       "InternalVariableName": "CyAIDeathState"
@@ -1590,186 +1750,192 @@
   {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'SimpleConstructionScript'",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.25"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.25"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.35"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.35"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.40"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.40"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.41"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.41"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.42"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.42"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.43"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.43"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.44"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.44"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.45"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.45"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.46"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.46"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.30"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.31"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.32"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.32"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_16'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.33"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.33"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.28"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_20'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.36"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.36"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_21'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.37"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.37"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_23'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.39"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.39"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.25"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.25"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.26"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.26"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.35"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.35"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.40"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.40"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.41"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.41"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.42"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.42"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.43"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.43"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.44"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.44"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.45"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.45"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.46"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.46"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.27"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.27"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.29"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.29"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.30"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.30"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.31"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.31"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.32"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.32"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_16'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.33"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.33"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_18'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.34"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.34"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.28"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_20'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.36"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.36"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_21'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.37"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.37"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_22'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.38"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.38"
         },
         {
           "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_23'",
-          "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.39"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.39"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_X_Nobunaga_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.25"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.25"
       }
     }
   },
   {
     "Type": "SkeletalMeshComponent",
     "Name": "SkeletalMesh_GEN_VARIABLE",
-    "Outer": "Summon_X_Nobunaga_C",
-    "Class": "UScriptClass'SkeletalMeshComponent'",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/X/Summon/Summon_X_Nobunaga.0"
+    },
     "Properties": {
       "ClothingSimulationFactory": {
         "ObjectName": "Class'ClothingSimulationFactoryNv'",

@@ -2,10 +2,11 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_GPA_AddEffects_10331009_C",
-    "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/BP_GPA_AddEffects_10331009",
     "SuperStruct": {
-      "ObjectName": "Class'CyGPAction_AddEffects'",
+      "ObjectName": "Class'CyGPAction_AddEffectsForMaxAttribute'",
       "ObjectPath": "/Script/PMGame"
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
@@ -17,20 +18,37 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_GPA_AddEffects_10331009_C'Default__BP_GPA_AddEffects_10331009_C'",
-      "ObjectPath": "Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/BP_GPA_AddEffects_10331009.1"
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/BP_GPA_AddEffects_10331009.1"
     }
   },
   {
     "Type": "BP_GPA_AddEffects_10331009_C",
     "Name": "Default__BP_GPA_AddEffects_10331009_C",
-    "Class": "BlueprintGeneratedClass'Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/BP_GPA_AddEffects_10331009.BP_GPA_AddEffects_10331009_C'",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/BP_GPA_AddEffects_10331009.BP_GPA_AddEffects_10331009_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/BP_GPA_AddEffects_10331009",
     "Properties": {
-      "Effects": [
+      "MonitorAttribute": {
+        "AttributeName": "ArmorMax",
+        "Attribute": {
+          "Path": [
+            "ArmorMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyBaseAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyBaseAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "RelevantInstantEffects": [
         {
           "EffectClass": {
-            "ObjectName": "BlueprintGeneratedClass'GE_ArmorMax_10331009_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/GE_ArmorMax_10331009"
+            "ObjectName": "BlueprintGeneratedClass'GE_Armor_10331009_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/GE_Armor_10331009.0"
           },
           "SourceTags": {
             "RequireTagType": "ERequireTagType::AND",
@@ -41,11 +59,16 @@
             "IgnoreTags": []
           },
           "RemoveType": "EEffectRemoveType::Infinite"
-        },
+        }
+      ],
+      "SetByCallerTag": {
+        "TagName": "Event.Card"
+      },
+      "Effects": [
         {
           "EffectClass": {
-            "ObjectName": "BlueprintGeneratedClass'GE_Armor_10331009_C'",
-            "ObjectPath": "/Game/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/GE_Armor_10331009"
+            "ObjectName": "BlueprintGeneratedClass'GE_ArmorMax_10331009_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331009/GE_ArmorMax_10331009.0"
           },
           "SourceTags": {
             "RequireTagType": "ERequireTagType::AND",
@@ -55,7 +78,7 @@
             "RequireTags": [],
             "IgnoreTags": []
           },
-          "RemoveType": "EEffectRemoveType::None"
+          "RemoveType": "EEffectRemoveType::Infinite"
         }
       ]
     }
