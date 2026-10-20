@@ -1,83 +1,41 @@
 return {
-	[20132113] = {
-		get = { "限时商城" },
-		BabloCrystals = "",
-		Basestrings = "",
-		remark = "",
-	},
-	[20112116] = {
-		get = {},
-		BabloCrystals = 1280,
-		Basestrings = 1280,
-		remark = "",
-	},
-	[20112117] = {
-		get = {},
-		BabloCrystals = 1280,
-		Basestrings = 1280,
-		remark = "",
-	},
-	[20124114] = {
-		get = { "特别行动" },
-		BabloCrystals = "",
-		Basestrings = "",
-		remark = "",
-	},
-	[20133115] = {
+	[20108112] = {
 		get = { "意识重构" },
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",
 	},
-	[20146115] = {
-		get = { "特别行动" },
-		BabloCrystals = "",
-		Basestrings = "",
-		remark = "",
-	},
-	[20109112] = {
-		get = { "限时商城" },
-		BabloCrystals = "",
-		Basestrings = "",
-		remark = "",
-	},
-	[20131115] = {
-		get = { "星轨共振" },
-		BabloCrystals = "",
-		Basestrings = "",
-		remark = "",
-	},
-	[20115211] = {
+	[20119211] = {
 		get = { "意识重构" },
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",
 	},
-	[20115212] = {
+	[20119212] = {
 		get = {},
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",
 	},
-	[20115213] = {
+	[20119213] = {
 		get = {},
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",
 	},
-	[20115214] = {
+	[20119214] = {
 		get = {},
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",
 	},
-	[20115215] = {
+	[20119215] = {
 		get = {},
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",
 	},
-	[20120112] = {
+	[20121110] = {
 		get = { "意识重构" },
 		BabloCrystals = "",
 		Basestrings = "",
