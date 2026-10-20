@@ -26,13 +26,13 @@
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
-        "Name": "FlyingNavDynamicObstacle",
+        "Name": "BoxHitCollision",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
-          "ObjectName": "Class'FlyingNavDynamicObstacleComponent'",
-          "ObjectPath": "/Script/FlyingNavSystem"
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
         }
       },
       {
@@ -127,13 +127,39 @@
     "Properties": {
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__BP_Summon_DestructibleStoneGate_C:ArousalComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.7"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.8"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_DestructibleStoneGate_C:PerceptionSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.13"
       },
+      "ActorHitBoxType": "ECyActorHitBoxType::Box",
+      "HitBoxInfo": {
+        "ShapeComponentName": "BoxHitCollision",
+        "bUseShapeComponent": true
+      },
       "RemoteRole": "ROLE_SimulatedProxy"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "BoxHitCollision_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BoxComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_DestructibleStoneGate_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.0"
+    },
+    "Properties": {
+      "BoxExtent": {
+        "X": 20.0,
+        "Y": 160.0,
+        "Z": 160.0
+      },
+      "AreaClass": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      }
     }
   },
   {
@@ -582,7 +608,7 @@
             "MostRecentArrayReplicationKey": -1
           }
         ],
-        "ArrayReplicationKey": 160
+        "ArrayReplicationKey": 224
       }
     }
   },
@@ -845,9 +871,13 @@
       "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.0"
     },
     "Properties": {
-      "bRegisterPlayerActor": false,
-      "bRegisterTeamActor": false,
-      "bRegisterNeutralActor": true
+      "ActorGroupInstance": {
+        "ActorGroupChannel": {
+          "ViewBlockResponse": "ECyActorBlockViewResponse::ECyABVR_BuildBlockView",
+          "bOverrideResponse": true,
+          "OverrideTeamResponse": "ECyGroupResponse::ECyGR_TakeDamage"
+        }
+      }
     }
   },
   {
@@ -867,23 +897,6 @@
       "UseWorkStates": [
         "EAIStateType::Work"
       ]
-    }
-  },
-  {
-    "Type": "FlyingNavDynamicObstacleComponent",
-    "Name": "FlyingNavDynamicObstacle_GEN_VARIABLE",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'FlyingNavDynamicObstacleComponent'",
-    "Outer": {
-      "ObjectName": "BlueprintGeneratedClass'BP_Summon_DestructibleStoneGate_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.0"
-    },
-    "Properties": {
-      "BoxExtent": {
-        "X": 20.0,
-        "Y": 160.0,
-        "Z": 160.0
-      }
     }
   },
   {
@@ -926,7 +939,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CyAIDeathState'BP_Summon_DestructibleStoneGate_C:CyAIDeathState_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.3"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.4"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -948,7 +961,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CyAIEntryState'BP_Summon_DestructibleStoneGate_C:CyAIEntryState_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.4"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.5"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -970,7 +983,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CyLifeComponent'BP_Summon_DestructibleStoneGate_C:CyLife_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.8"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.9"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -992,7 +1005,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CySummonLightAIComponent'BP_Summon_DestructibleStoneGate_C:CySummonLightAI_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.10"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.11"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1014,7 +1027,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CyAbilitySystemComponent'BP_Summon_DestructibleStoneGate_C:CyAbilitySystem_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.2"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.3"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1036,7 +1049,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "CyAIStateMonitor'BP_Summon_DestructibleStoneGate_C:CyAIStateMonitor_Alive_GEN_VARIABLE'",
-            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.6"
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.7"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1119,7 +1132,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'BP_Summon_DestructibleStoneGate_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.9"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.10"
       },
       "VariableGuid": "2E4D1398-413A2C57-3D4CFBAC-3BCCB1EC",
       "InternalVariableName": "CyRetain"
@@ -1189,7 +1202,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIState'BP_Summon_DestructibleStoneGate_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.5"
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.6"
       },
       "VariableGuid": "E2E448D0-4A04E24A-7087F0A2-E0F835B0",
       "InternalVariableName": "CyAIWorkState"
@@ -1206,17 +1219,17 @@
     },
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "Class'FlyingNavDynamicObstacleComponent'",
-        "ObjectPath": "/Script/FlyingNavSystem"
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
       },
       "ComponentTemplate": {
-        "ObjectName": "FlyingNavDynamicObstacleComponent'BP_Summon_DestructibleStoneGate_C:FlyingNavDynamicObstacle_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.11"
+        "ObjectName": "BoxComponent'BP_Summon_DestructibleStoneGate_C:BoxHitCollision_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/GameObjects/DestructibleDoor/BP_Summon_DestructibleStoneGate.2"
       },
       "ParentComponentOrVariableName": "DefaultSceneRoot",
       "ParentComponentOwnerClassName": "Summon_DestructibleActor_C",
-      "VariableGuid": "51839D48-456D77F4-E29863AE-53A24F38",
-      "InternalVariableName": "FlyingNavDynamicObstacle"
+      "VariableGuid": "F4B2F0B6-45CC66E4-DCF828AC-F7DF3F45",
+      "InternalVariableName": "BoxHitCollision"
     }
   },
   {

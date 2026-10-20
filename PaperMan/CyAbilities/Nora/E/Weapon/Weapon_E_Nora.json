@@ -8,7 +8,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon_E_Nora_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.35"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.37"
       }
     },
     "SuperStruct": {
@@ -16,6 +16,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchLocation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchLocationComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyWeaponProjectClearLifeSpan",
@@ -83,11 +94,11 @@
       "WeaponName": "ECyWeaponName::CustomType254",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon_E_Nora_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.28"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.29"
       },
       "MeshComponent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_E_Nora_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.27"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.28"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon_E_Nora_C:Machine'",
@@ -95,7 +106,7 @@
       },
       "AttackComponent": {
         "ObjectName": "CyThrowComponent'Default__Weapon_E_Nora_C:AttackComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.24"
       },
       "EffectComponent": {
         "ObjectName": "CyEffectComponent'Default__Weapon_E_Nora_C:EffectComponent'",
@@ -218,14 +229,14 @@
       ],
       "WeaponDataCollectionComponent": {
         "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_E_Nora_C:WeaponDataCollectionComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.25"
       },
       "ShowProjectilePathPosition": {
         "Value": 0.0
       },
       "SkinComponent": {
         "ObjectName": "CyWeaponSkinComponent'Default__Weapon_E_Nora_C:SkinComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.27"
       },
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__Weapon_E_Nora_C:DataSystemComponent'",
@@ -233,7 +244,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon_E_Nora_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.28"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.29"
       }
     }
   },
@@ -610,6 +621,20 @@
         "State.Player.DisableKeep2D.Fly",
         "State.Player.DisableKeep2D.Side"
       ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_StartSearchLocation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_StartSearchLocation.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
       "AssetEvents": [
         {
           "PositionStart": 0.0,
@@ -688,20 +713,14 @@
       ],
       "Events": [
         {
-          "PositionStart": 0.2,
+          "PositionStart": 0.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": null,
-          "SubAtoms": [],
-          "EventActions": []
-        },
-        {
-          "PositionStart": 1.0,
-          "PositionEnd": 1.1,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": null,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_StopSearchLocation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_StopSearchLocation.0"
+          },
           "SubAtoms": [],
           "EventActions": []
         }
@@ -761,6 +780,20 @@
     },
     "Properties": {
       "bAcceptAttackInput": true,
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_StopSearchLocation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_StopSearchLocation.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
       "BeginEventTags": [
         {
           "TagName": "Event.Action.KeepFly"
@@ -824,6 +857,30 @@
       "MaxSimTime": 5.0,
       "TraceChannel": "ECC_Pawn",
       "bHideProjectilePathOnMagazineEmpty": true
+    }
+  },
+  {
+    "Type": "CySearchLocationComponent",
+    "Name": "CySearchLocation_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchLocationComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_E_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.0"
+    },
+    "Properties": {
+      "Detectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_DetectorSource_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/DetectorLocation/BP_DetectorSource.0"
+        }
+      ],
+      "PreviewActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'Preview_E_Nora_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Preview/Preview_E_Nora.0"
+      },
+      "SourceType": "EDetectorSourceType::ActorInstigatorWithCameraRotation",
+      "PermissionMask": 40
     }
   },
   {
@@ -902,7 +959,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__Weapon_E_Nora_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.28"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.29"
       },
       "ComponentTagSet": [
         "WorkingMesh"
@@ -936,7 +993,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon_E_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.35"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.37"
     },
     "Properties": {
       "ComponentClass": {
@@ -945,7 +1002,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon_E_Nora_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.29"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.30"
       },
       "VariableGuid": "19358DC6-4F2F37B0-F8530BA2-1DBF5D45",
       "InternalVariableName": "DefaultSceneRoot"
@@ -958,7 +1015,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon_E_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.35"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.37"
     },
     "Properties": {
       "ComponentClass": {
@@ -980,7 +1037,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon_E_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.35"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.37"
     },
     "Properties": {
       "ComponentClass": {
@@ -1002,7 +1059,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon_E_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.35"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.37"
     },
     "Properties": {
       "ComponentClass": {
@@ -1011,7 +1068,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Weapon_E_Nora_C:Effect_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.36"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.38"
       },
       "ParentComponentOrVariableName": "Root",
       "bIsParentComponentNative": true,
@@ -1026,7 +1083,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon_E_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.35"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.37"
     },
     "Properties": {
       "ComponentClass": {
@@ -1035,10 +1092,32 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyWeaponProjectClearLifeSpanComponent'Weapon_E_Nora_C:CyWeaponProjectClearLifeSpan_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.25"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.26"
       },
       "VariableGuid": "EF3D01BC-48D5F62B-1CD8CBA1-1FAC0C00",
       "InternalVariableName": "CyWeaponProjectClearLifeSpan"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_E_Nora_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.37"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchLocationComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchLocationComponent'Weapon_E_Nora_C:CySearchLocation_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.23"
+      },
+      "VariableGuid": "2CD3414F-40111FBF-96D88A8E-8E55F279",
+      "InternalVariableName": "CySearchLocation"
     }
   },
   {
@@ -1054,42 +1133,50 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.31"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.32"
         },
         {
-          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.33"
         },
         {
-          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.34"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.35"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.36"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.31"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.32"
         },
         {
-          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.33"
         },
         {
-          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.34"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.35"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.36"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon_E_Nora_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.30"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.31"
       }
     }
   },

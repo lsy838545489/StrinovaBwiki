@@ -8,7 +8,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
       }
     },
     "SuperStruct": {
@@ -16,6 +16,39 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_SummonHeadComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_SummonHeadComponent_C'",
+          "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_SummonHeadComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAISecondWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILifeStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "PMSummonAnimation",
@@ -91,17 +124,6 @@
         "PropertyClass": {
           "ObjectName": "Class'CySceneMapSummonMaskComponent'",
           "ObjectPath": "/Script/PMGame"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "BP_SummonHeadComponent",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
-        "PropertyClass": {
-          "ObjectName": "BlueprintGeneratedClass'BP_SummonHeadComponent_C'",
-          "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_SummonHeadComponent.0"
         }
       },
       {
@@ -362,7 +384,7 @@
       },
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__BP_Summon_Q_Audery_Two_C:ArousalComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.20"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.22"
       },
       "CustomDestroyDamageTypes": [
         {
@@ -376,7 +398,7 @@
       ],
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_Q_Audery_Two_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.27"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.29"
       },
       "CenterOffset": {
         "X": 0.0,
@@ -459,10 +481,13 @@
       "ObjectPath": "PM/Content/PaperMan/UI/BP/PC/InGame/Overhead/BP_SummonHeadComponent.1"
     },
     "Properties": {
+      "WidgetClassUIName": {
+        "Group": "UIName"
+      },
       "RelativeLocation": {
         "X": 0.0,
         "Y": 0.0,
-        "Z": 120.0
+        "Z": 0.0
       }
     }
   },
@@ -1005,11 +1030,24 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.0"
     },
     "Properties": {
-      "bDestroyOnEnd": false,
       "HideMeshNames": [
         "MainMesh",
         "GunMesh",
         "ShieldMesh"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ApplyCD_Arousal2_Audery_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/StateAtoms/BP_SA_ApplyCD_Arousal2_Audery.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
       ],
       "AssetEvents": [
         {
@@ -1090,6 +1128,36 @@
   },
   {
     "Type": "CyAIStateMonitor",
+    "Name": "CyAILifeStateMonitor_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Q_Audery_Two_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::Entry",
+        "EAIStateType::Work",
+        "EAIStateType::Wait",
+        "EAIStateType::Suspend",
+        "EAIStateType::Interrupt"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": null,
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
     "Name": "CyAIStateMonitor_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyAIStateMonitor'",
@@ -1132,6 +1200,7 @@
         "EAIStateType::Entry",
         "EAIStateType::Work",
         "EAIStateType::Wait",
+        "EAIStateType::SecondWork",
         "EAIStateType::Suspend"
       ],
       "Events": [
@@ -1152,6 +1221,24 @@
   },
   {
     "Type": "CyAIWorkState",
+    "Name": "CyAISecondWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Q_Audery_Two_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.0"
+    },
+    "Properties": {
+      "bPlayRateMatchDuration": false,
+      "bEnableAnimationOnDS": true,
+      "StateType": "EAIStateType::SecondWork",
+      "TotalDuration": {
+        "Value": 999999.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
     "Name": "CyAISuspendState_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyAIWorkState'",
@@ -1160,6 +1247,9 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.0"
     },
     "Properties": {
+      "TerminatorStates": [
+        "EAIStateType::Work"
+      ],
       "StateType": "EAIStateType::Suspend",
       "TotalDuration": {
         "Value": 99999.0
@@ -1226,11 +1316,20 @@
     },
     "Properties": {
       "DefinitionTagContainer": [
-        "Summon.UI",
         "ActorTag.Summon.ArousalTwo.Audrey"
       ],
       "OwnerActorTag": {
-        "TagName": "Summon.UI"
+        "TagName": "ActorTag.Summon.ArousalTwo.Audrey"
+      },
+      "LimitDistance": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.SummonRange.Set.Q.Audrey"
+        }
       },
       "DestroyEventTag": {
         "TagName": "Event.Summon.Destroy.Audrey.Arousal.Two"
@@ -1334,7 +1433,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1343,20 +1442,16 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_Summon_Q_Audery_Two_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.29"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.31"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.31"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_25'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.46"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.33"
         },
         {
           "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_29'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.50"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.54"
         }
       ],
       "VariableGuid": "898F2C67-48FA67E2-54DDE482-82F57143",
@@ -1370,7 +1465,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1379,12 +1474,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'BP_Summon_Q_Audery_Two_C:MainMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.61"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.65"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.53"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.57"
         }
       ],
       "VariableGuid": "4B7A44A4-4B5B0664-4A9E6380-1AECCB0C",
@@ -1398,7 +1493,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1420,7 +1515,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1429,7 +1524,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchGroupComponent'BP_Summon_Q_Audery_Two_C:CySearchGroup_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.26"
       },
       "VariableGuid": "3C2112EE-4947822C-C733BBBD-24CCB919",
       "InternalVariableName": "CySearchGroup"
@@ -1442,7 +1537,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1451,7 +1546,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'BP_Summon_Q_Audery_Two_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.19"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.21"
       },
       "VariableGuid": "C0022E70-449F00DC-20D9FFA4-E36D649E",
       "InternalVariableName": "CyAIWorkState"
@@ -1464,7 +1559,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1473,7 +1568,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'BP_Summon_Q_Audery_Two_C:CyAISuspendState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.20"
       },
       "VariableGuid": "C7541696-47BE5D4E-F438C9A8-F733F6CF",
       "InternalVariableName": "CyAISuspendState"
@@ -1486,7 +1581,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1508,7 +1603,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1530,7 +1625,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1552,7 +1647,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1561,7 +1656,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyTargetActorsComponent'BP_Summon_Q_Audery_Two_C:CyTargetActors_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.28"
       },
       "VariableGuid": "39D26D59-416B0E74-19B60699-1F1DE894",
       "InternalVariableName": "CyTargetActors"
@@ -1574,7 +1669,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1596,7 +1691,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1605,7 +1700,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIStateMonitor'BP_Summon_Q_Audery_Two_C:CyAIStateMonitor_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.17"
       },
       "VariableGuid": "977E9392-467902A1-2FAFC3AE-D9D40224",
       "InternalVariableName": "CyAIStateMonitor"
@@ -1618,7 +1713,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1627,7 +1722,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'BP_Summon_Q_Audery_Two_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.25"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.27"
       },
       "VariableGuid": "6C788416-46BD8109-70723483-082E787B",
       "InternalVariableName": "CySkin"
@@ -1640,7 +1735,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1662,7 +1757,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1671,7 +1766,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIStateMonitor'BP_Summon_Q_Audery_Two_C:CyAIStateMonitorInstigatorAddTag_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.18"
       },
       "VariableGuid": "B181BAFA-42C93EAA-AEE608AD-1E856C82",
       "InternalVariableName": "CyAIStateMonitorInstigatorAddTag"
@@ -1684,7 +1779,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1693,10 +1788,54 @@
       },
       "ComponentTemplate": {
         "ObjectName": "PMSummonAnimationComponent'BP_Summon_Q_Audery_Two_C:PMSummonAnimation_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.28"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.30"
       },
       "VariableGuid": "390BF186-40370C36-A490B69F-E2D3D633",
       "InternalVariableName": "PMSummonAnimation"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_23",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_Q_Audery_Two_C:CyAILifeStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.16"
+      },
+      "VariableGuid": "258167C6-46400081-F96B01A9-94AEA6F9",
+      "InternalVariableName": "CyAILifeStateMonitor"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_24",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'BP_Summon_Q_Audery_Two_C:CyAISecondWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.19"
+      },
+      "VariableGuid": "C38B2DE0-4B7FBC84-D44BE1A3-3AD6B007",
+      "InternalVariableName": "CyAISecondWorkState"
     }
   },
   {
@@ -1706,7 +1845,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1728,7 +1867,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1750,7 +1889,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1759,7 +1898,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySceneMapSummonMaskComponent'BP_Summon_Q_Audery_Two_C:CySceneMapSummonMask_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.25"
       },
       "VariableGuid": "5C7EC25A-46315F91-D048EE8B-408DA784",
       "InternalVariableName": "CySceneMapSummonMask"
@@ -1772,7 +1911,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1794,7 +1933,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1816,7 +1955,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1838,7 +1977,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1847,7 +1986,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'BP_Summon_Q_Audery_Two_C:ShieldMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.62"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.66"
       },
       "AttachToName": "ShieldAttachSocket",
       "VariableGuid": "B79079BE-4DD2A32A-6175C5A2-EEB162D8",
@@ -1861,7 +2000,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1870,13 +2009,17 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'BP_Summon_Q_Audery_Two_C:GunMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.60"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.64"
       },
       "AttachToName": "WeapAttachSocket",
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_30'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.52"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.50"
         }
       ],
       "VariableGuid": "718FDFE4-49C9B23A-9A837DA4-4B3D32C1",
@@ -1890,7 +2033,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1912,7 +2055,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1921,7 +2064,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'BP_Summon_Q_Audery_Two_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.24"
       },
       "VariableGuid": "3D3BA515-42BF837A-50D1C690-F8A7C508",
       "InternalVariableName": "CyRetain"
@@ -1934,7 +2077,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1956,7 +2099,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -1965,7 +2108,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyLifeComponent'BP_Summon_Q_Audery_Two_C:CyLife_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.21"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.23"
       },
       "VariableGuid": "B5D99F30-4437AA75-31EBEEA6-66EA41B4",
       "InternalVariableName": "CyLife"
@@ -1978,7 +2121,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.63"
     },
     "Properties": {
       "ComponentClass": {
@@ -2006,222 +2149,238 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.30"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.42"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.51"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.54"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.55"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.58"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_10'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.32"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.36"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.37"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_16'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.38"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.56"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.57"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.34"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.35"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.33"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_17'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.39"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_18'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.40"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_19'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.41"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_20'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.43"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_27'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.48"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_26'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.47"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_28'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.49"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.44"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.34"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_20'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_27'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.52"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_26'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_28'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.48"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.49"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.30"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.31"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.42"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.53"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.51"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.54"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.55"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.58"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_10'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.32"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_14'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.36"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_15'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.37"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_16'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.38"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.56"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_8'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.57"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_12'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.34"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_13'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.35"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.33"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_17'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.39"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_18'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.40"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_19'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.41"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_20'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.43"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_25'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.46"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_27'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.48"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_26'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.47"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_28'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.49"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_29'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.50"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.44"
         },
         {
-          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_30'",
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.34"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.39"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_27'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.52"
         },
         {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_26'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_28'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_29'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_30'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.56"
+        },
+        {
           "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_22'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.45"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.48"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.49"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.50"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_Summon_Q_Audery_Two_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.30"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Summon_Q_Audery_Two.32"
       }
     }
   },
