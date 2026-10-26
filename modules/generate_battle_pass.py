@@ -1,5 +1,5 @@
 import os
-from utils.common import load_json_file, Weapon_en_name_to_cn_name, PROJECT_ROOT
+from utils.common import load_json_file, Weapon_en_name_to_cn_name, DATA_ROOT
 
 
 def _parse_prize_item(prize, bp_id, is_free, dicts):
@@ -85,7 +85,7 @@ def export_battle_pass_task_data():
     lines.append("|}")
 
     # 保存文件到 data 目录
-    data_dir = os.path.join(PROJECT_ROOT, "data")
+    data_dir = os.path.join(DATA_ROOT, "data")
     os.makedirs(data_dir, exist_ok=True)
     output_path = os.path.join(data_dir, "赛季通行证挑战任务.txt")
 
@@ -155,7 +155,7 @@ def export_battle_pass_data(target_season=18):
                     output.append(_parse_prize_item(prize, bp_id, is_free=False, dicts=dicts))
 
         # 4. 保存战令奖励数据
-        data_dir = os.path.join(PROJECT_ROOT, "data")
+        data_dir = os.path.join(DATA_ROOT, "data")
         os.makedirs(data_dir, exist_ok=True)
         output_file_path = os.path.join(data_dir, "赛季通行证奖励.txt")
 
@@ -169,4 +169,6 @@ def export_battle_pass_data(target_season=18):
     # 5. 同时调用处理赛季挑战任务
     export_battle_pass_task_data()
 
-export_battle_pass_data()
+
+if __name__ == "__main__":
+    export_battle_pass_data()

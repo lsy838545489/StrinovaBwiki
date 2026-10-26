@@ -1,7 +1,7 @@
 # modules/generate_zombie_talent.py
 import re
 from pathlib import Path
-from utils.common import load_json_file, PROJECT_ROOT
+from utils.common import load_json_file, DATA_ROOT
 
 def export_zombie_talent_data():
     print("开始处理天赋数据...")
@@ -125,7 +125,7 @@ def export_zombie_talent_data():
     wiki_content = '\n'.join(wiki_lines)
 
     # 保存为 txt 文件
-    data_dir = Path(PROJECT_ROOT) / "data"
+    data_dir = Path(DATA_ROOT) / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
 
     output_path = data_dir / "zombie_talent_wiki_table.txt"

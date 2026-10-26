@@ -1,6 +1,6 @@
 # modules/generate_items.py
 import os
-from utils.common import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
+from utils.common import load_json_file, save_and_diff_data, _save_lua_only, DATA_ROOT
 
 
 def export_items_data():
@@ -95,7 +95,7 @@ def export_items_data():
                 added_get_data[id] = get_mapping[id]
 
         if added_get_data:
-            data_dir = os.path.join(PROJECT_ROOT, "data")
+            data_dir = os.path.join(DATA_ROOT, "data")
             _save_lua_only(data_dir, "Item_Get_Added", added_get_data)
             print(f"✨ [Item] 已将 {len(added_get_data)} 条新增数据单独输出至 data/Item_Get_Added.lua 喵！")
     print("道具(Item)数据处理完成喵！")

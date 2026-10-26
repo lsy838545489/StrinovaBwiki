@@ -1,5 +1,5 @@
 import os
-from utils.common import load_json_file, PROJECT_ROOT
+from utils.common import load_json_file, DATA_ROOT
 
 
 def export_activity_task_data(data_dir: str, activity_id: int = 10229):
@@ -115,7 +115,7 @@ def export_activity_data(activity_id: int = 10229):
     :param task_activity_id: 传递给任务导出的 ActivityId
     """
     print("====== 开始处理活动相关数据 ======")
-    data_dir = os.path.join(PROJECT_ROOT, "data")
+    data_dir = os.path.join(DATA_ROOT, "data")
     os.makedirs(data_dir, exist_ok=True)
 
     # 传递可配置的 activity_id 参数
@@ -127,4 +127,4 @@ def export_activity_data(activity_id: int = 10229):
 
 if __name__ == "__main__":
     # 支持单独运行测试（例如传入新的活动 ID）
-    export_activity_data(activity_id=10236)
+    export_activity_data(activity_id=10245)

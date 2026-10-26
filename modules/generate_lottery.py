@@ -34,6 +34,7 @@ def export_lottery_data():
         21032: "百万伏特宝贝",
         21033: "心之奏鸣",
         21034: "惑世冥鳞",
+        21035: "蜜蕾烛谣",
     }
 
     weapon_to_role_name = {

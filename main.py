@@ -25,6 +25,8 @@ from modules.generate_zombie_talent import export_zombie_talent_data
 from modules.generate_garage_kits import export_garage_kits_data
 from modules.generate_profile_card import export_profile_card_data
 from modules.generate_battle_pass import export_battle_pass_data
+from modules.generate_balance_data import export_balance_data
+from modules.generate_role_skill_value import export_role_skill_value_data
 import sys
 import os
 
@@ -59,7 +61,9 @@ def main_menu():
         "21": export_zombie_talent_data,
         "22": export_garage_kits_data,
         "23": export_profile_card_data,
-        "24": export_battle_pass_data
+        "24": export_battle_pass_data,
+        "25": export_balance_data,
+        "26": export_role_skill_value_data
     }
     while True:
         print("\n" + "=" * 40)
@@ -89,6 +93,8 @@ def main_menu():
         print("22. 生成休息室手办数据 (GarageKits)")
         print("23. 生成个性名片数据 (ProfileCard)")
         print("24. 生成赛季通行证奖励数据 (BattlePass)")
+        print("25. 生成角色平衡数据 (BalanceData)")
+        print("26. 生成角色技能数值 (RoleSkillValue)")
 
         print("0. 退出程序")
         print("=" * 40)

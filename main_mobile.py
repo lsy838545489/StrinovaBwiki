@@ -1,5 +1,6 @@
 # main_mobile.py
 from modules_mobile.generate_items import export_items_data
+from modules_mobile.generate_currency import export_currency_data
 from modules_mobile.generate_chat_bubbles import export_chat_bubbles_data
 from modules_mobile.generate_emote import export_emote_data
 from modules_mobile.generate_decal import export_decal_data
@@ -28,11 +29,11 @@ def main_menu():
         "3": export_decal_data,
         "4": export_emote_data,
         "5": export_items_data,
-        "6": export_vehicle_skin_data,
-        "7": export_hud_skin_data,
-        "8": export_head_sculpture_data,
-        "9": export_favorability_data,
-        "10": export_role_proficiency_data,
+        "6": export_currency_data,
+        "7": export_vehicle_skin_data,
+        "8": export_hud_skin_data,
+        "9": export_head_sculpture_data,
+        "10": export_favorability_data,
         "11": export_escort2_card_data,
         "12": export_talent_data,
         "13": export_zombie_card_data,
@@ -46,14 +47,15 @@ def main_menu():
         print("3. 生成喷漆数据 (Decal)")
         print("4. 生成表情数据 (Emote)")
         print("5. 生成道具数据 (Items)")
-        print("6. 生成载具外观数据 (VehicleSkin)")
-        print("7. 生成按键外观数据 (HudSkin)")
-        print("8. 生成头像和头像框数据 (HeadSculpture)")
-        print("9. 生成角色礼物好感度数据 (Favorability)")
-        print("10. 生成角色熟练度任务数据 (RoleProficiencyTask)")
-        print("11. 生成极限推进卡牌数据 (Escort2Card)")
-        print("12. 生成天赋数据 (Talent)")
-        print("13. 生成晶源感染卡牌数据 (ZombieCard)")
+        print("6. 生成常规货币数据 (Currency)")
+        print("7. 生成载具外观数据 (VehicleSkin)")
+        print("8. 生成按键外观数据 (HudSkin)")
+        print("9. 生成头像和头像框数据 (HeadSculpture)")
+        print("10. 生成角色礼物好感度数据 (Favorability)")
+        print("11. 生成角色熟练度任务数据 (RoleProficiencyTask)")
+        print("12. 生成极限推进卡牌数据 (Escort2Card)")
+        print("13. 生成天赋数据 (Talent)")
+        print("14. 生成晶源感染卡牌数据 (ZombieCard)")
 
         print("0. 退出程序")
         print("=" * 40)

@@ -1,6 +1,6 @@
 # modules/generate_login_fx.py
 import os
-from utils.common import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
+from utils.common import load_json_file, save_and_diff_data, _save_lua_only, DATA_ROOT
 
 
 def export_login_fx_data():
@@ -53,7 +53,7 @@ def export_login_fx_data():
                 added_get_data[id] = get_mapping[id]
 
         if added_get_data:
-            data_dir = os.path.join(PROJECT_ROOT, "data")
+            data_dir = os.path.join(DATA_ROOT, "data")
             _save_lua_only(data_dir, "LoginFX_Get_Added", added_get_data)
             print(f"✨ [LoginFX] 已将 {len(added_get_data)} 条新增数据单独输出至 data/LoginFX_Get_Added.lua 喵！")
     print("登录特效（Login FX）数据处理完成喵！")

@@ -1,6 +1,6 @@
 # modules/generate_change_bg.py
 import os
-from utils.common import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
+from utils.common import load_json_file, save_and_diff_data, _save_lua_only, DATA_ROOT
 
 
 def export_change_background_data():
@@ -58,7 +58,7 @@ def export_change_background_data():
                 added_get_data[ChangeBg_id] = get_mapping[ChangeBg_id]
 
         if added_get_data:
-            data_dir = os.path.join(PROJECT_ROOT, "data")
+            data_dir = os.path.join(DATA_ROOT, "data")
             _save_lua_only(data_dir, "ChangeBg_Get_Added", added_get_data)
             print(f"✨ [ChangeBg] 已将 {len(added_get_data)} 条新增数据的获得方式单独输出至 data/ChangeBg_Get_Added.lua 喵！")
     print("房间背景(ChangeBackground)数据处理完成喵！")

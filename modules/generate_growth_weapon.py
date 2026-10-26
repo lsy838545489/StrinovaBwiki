@@ -9,7 +9,7 @@ from utils.common import (
     upload_wiki_data,
     format_lua_table,
     save_data_file,
-    PROJECT_ROOT
+    DATA_ROOT
 )
 
 def safe_get_nested_data(data, path, default=""):
@@ -77,7 +77,7 @@ def process_growth_data(mode_name, json_filename, page_title):
     save_data_file(file_name, lua_content, fileType='lua')
 
     # 3. 构建本地输出路径以上传到 WIKI
-    lua_file_path = os.path.join(PROJECT_ROOT, "data", f"{file_name}.lua")
+    lua_file_path = os.path.join(DATA_ROOT, "data", f"{file_name}.lua")
     upload_wiki_data(page_title, lua_file_path)
 
 

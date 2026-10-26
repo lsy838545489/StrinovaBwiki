@@ -1,6 +1,6 @@
 # modules/generate_mascot_head.py
 import os
-from utils.common import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
+from utils.common import load_json_file, save_and_diff_data, _save_lua_only, DATA_ROOT
 
 
 def export_mascot_head_data():
@@ -56,7 +56,7 @@ def export_mascot_head_data():
                 added_get_data[id] = get_mapping[id]
 
         if added_get_data:
-            data_dir = os.path.join(PROJECT_ROOT, "data")
+            data_dir = os.path.join(DATA_ROOT, "data")
             _save_lua_only(data_dir, "MascotHead_Get_Added", added_get_data)
             print(f"✨ [MascotHead] 已将 {len(added_get_data)} 条新增数据单独输出至 data/MascotHead_Get_Added.lua 喵！")
     print("头套（MascotHead）数据处理完成喵！")

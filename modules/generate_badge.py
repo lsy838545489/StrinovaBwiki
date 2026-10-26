@@ -1,6 +1,6 @@
 # modules/generate_badge.py
 import os
-from utils.common import load_json_file, save_and_diff_data, _save_lua_only, PROJECT_ROOT
+from utils.common import load_json_file, save_and_diff_data, _save_lua_only, DATA_ROOT
 
 
 def export_badge_data():
@@ -59,7 +59,7 @@ def export_badge_data():
                 added_get_data[Badge_id] = get_mapping[Badge_id]
 
         if added_get_data:
-            data_dir = os.path.join(PROJECT_ROOT, "data")
+            data_dir = os.path.join(DATA_ROOT, "data")
             _save_lua_only(data_dir, "Badge_Get_Added", added_get_data)
             print(f"✨ [Badge] 已将 {len(added_get_data)} 条新增数据的获得方式单独输出至 data/Badge_Get_Added.lua 喵！")
 

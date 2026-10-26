@@ -3,7 +3,7 @@ import os
 
 # 从 utils 模块导入需要的变量和函数
 from utils.common import (
-    PROJECT_ROOT,
+    DATA_ROOT,
     _save_lua_only,
     id_to_Role_name,
     load_json_file,
@@ -145,7 +145,7 @@ def export_role_skin_data():
                             }
 
             if added_get_data:
-                data_dir = os.path.join(PROJECT_ROOT, "data")
+                data_dir = os.path.join(DATA_ROOT, "data")
                 _save_lua_only(data_dir, "RoleSkin_Get_Added", added_get_data)
                 print(
                     f"✨ 已成功导出 {len(added_get_data)} 条新增数据！"
