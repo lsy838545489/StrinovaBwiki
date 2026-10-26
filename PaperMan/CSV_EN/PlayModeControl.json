@@ -2,8 +2,8 @@
   {
     "Type": "DataTable",
     "Name": "PlayModeControl",
-    "Class": "UScriptClass'DataTable'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'DataTable'",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'CyPlayModeControlTableRow'",
@@ -330,7 +330,7 @@
           "Namespace": "PlayModeControl_I18N",
           "Key": "11_ModeInfo",
           "SourceString": "20人分为两方进行对抗\n\n获胜条件：\n超弦体方：一直存活到比赛结束。\n晶源体方：在比赛结束前，击败所有的超弦体。\n\n特殊机制：\n1.该模式启用了“卡牌”增益机制\n2.超弦体开局默认解锁被动技能\n3.超弦体血量归零时会异化为晶源体",
-          "LocalizedString": "20 players split into two teams\n\nVictory Conditions:\nSuperstring Agents: Survive until the match ends.\nCrystallines: Defeat all Superstring Agents before time runs out.\n\nSpecial Mechanics:\n1. Card buff mechanism is enabled.\n2. Superstrings start with passive skills unlocked.\n3. Crystallines killed by Ninjatos cannot be revived."
+          "LocalizedString": "20 players split into two teams\n\nVictory Conditions:\nSuperstrings: Survive until the match ends.\nCrystallines: Defeat all Superstrings before time runs out.\n\nSpecial Features:\n1. Card buff mechanism is enabled.\n2. Superstrings start with passive skills unlocked.\n3. Crystallines killed by Ninjatos cannot be revived."
         },
         "IconBigmode2": {
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_10.T_Dynamic_BigMode2_10",
@@ -354,17 +354,17 @@
       "12": {
         "PlayMode": 12,
         "RefereeWatchMax": 0,
-        "MatchOpen": 0,
+        "MatchOpen": 1,
         "RankOpen": 0,
-        "ContestOpen": 0,
+        "ContestOpen": 1,
         "TimeLimit": 0,
         "MatchSort": 0,
         "ContestSort": 11,
         "ModeInfo": {
           "Namespace": "PlayModeControl",
           "Key": "12_ModeInfo",
-          "SourceString": "3队晶矿抢攻",
-          "LocalizedString": "3-Team Crystal Scramble"
+          "SourceString": "获胜条件：\n1.巴布洛晶矿最先达到指定目标的队伍获胜。\n2.若时间耗尽时，没有队伍达成指定的晶矿储存量，则获取晶矿数量最多的队伍获胜。",
+          "LocalizedString": "Victory Conditions:\n1. The first team to reach the required crystal amount wins.\n2. If time runs out and no team has reached the target crystal amount, the team with the most crystals wins."
         },
         "IconBigmode2": {
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_12.T_Dynamic_BigMode2_12",
@@ -382,7 +382,7 @@
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/PlayerProfileMode/T_Dynamic_PlayerProfileMode_4.T_Dynamic_PlayerProfileMode_4",
           "SubPathString": ""
         },
-        "MapId": 771,
+        "MapId": 1201,
         "ModeLabel": 3
       },
       "14": {
@@ -636,7 +636,7 @@
           "Namespace": "PlayModeControl",
           "Key": "30_ModeInfo",
           "SourceString": "3V3V3V3V3枪王乱斗\n\n获胜条件：\n1.在规定时间内将武器序列升级完成\n2.在比赛结束时队伍排名处于前二",
-          "LocalizedString": "5-Team 3v3 Gunslinger Showdown\n\nVictory Conditions:\n1. Complete the weapon sequence upgrade within the time limit.\n2. Finish in the top two teams at the end of the match."
+          "LocalizedString": "5 Teams of 3 – Gunslinger Showdown\n\nVictory Conditions:\n1. Complete the weapon sequence upgrade within the time limit.\n2. Finish in the top two teams at the end of the match."
         },
         "IconBigmode2": {
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_9.T_Dynamic_BigMode2_9",
@@ -656,6 +656,74 @@
         },
         "MapId": 3000,
         "ModeLabel": 2
+      },
+      "35": {
+        "PlayMode": 35,
+        "RefereeWatchMax": 0,
+        "MatchOpen": 1,
+        "RankOpen": 0,
+        "ContestOpen": 0,
+        "TimeLimit": 0,
+        "MatchSort": 0,
+        "ContestSort": 31,
+        "ModeInfo": {
+          "Namespace": "PlayModeControl",
+          "Key": "35_ModeInfo",
+          "SourceString": "分为两方进行对抗\n\n获胜条件：\n超弦体方：逃离到最终检查点，并且正常撤离；\n晶源体方：击败所有的超弦体或比超弦体先一步到达检查点\n\n特殊机制：\n该模式启用了“卡牌”增益机制；\n晶源体通过普攻只能感染一个超弦体。",
+          "LocalizedString": "Players are split into two opposing teams\n\nVictory Conditions\nSuperstrings: Escape to the final checkpoint and successfully extract.\nCrystallines: Defeat all Superstrings, or reach the checkpoint before the Superstrings do.\n\nSpecial Features:\n1. This mode enables the Card buff system.\n2. Crystallines can only infect one Superstring per basic attack."
+        },
+        "IconBigmode2": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_10.T_Dynamic_BigMode2_10",
+          "SubPathString": ""
+        },
+        "IconRoomMode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/T_Dynamic_Mode_5.T_Dynamic_Mode_5",
+          "SubPathString": ""
+        },
+        "IconRoomBigMode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode/T_Dynamic_BigMode_5.T_Dynamic_BigMode_5",
+          "SubPathString": ""
+        },
+        "IconRoomBig2Mode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/PlayerProfileMode/T_Dynamic_PlayerProfileMode_10.T_Dynamic_PlayerProfileMode_10",
+          "SubPathString": ""
+        },
+        "MapId": 11001,
+        "ModeLabel": 3
+      },
+      "39": {
+        "PlayMode": 39,
+        "RefereeWatchMax": 0,
+        "MatchOpen": 0,
+        "RankOpen": 0,
+        "ContestOpen": 1,
+        "TimeLimit": 0,
+        "MatchSort": 0,
+        "ContestSort": 39,
+        "ModeInfo": {
+          "Namespace": "PlayModeControl",
+          "Key": "39_ModeInfo",
+          "SourceString": "3V3V3V3V3团队跑酷\n\n获胜条件：\n在规定时间内最先到达终点的队伍胜利。\n",
+          "LocalizedString": "5 Teams of 3 – Team Parkour\n\nVictory Conditions:\nBe the first team to reach the finish within the time limit."
+        },
+        "IconBigmode2": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_9.T_Dynamic_BigMode2_9",
+          "SubPathString": ""
+        },
+        "IconRoomMode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/T_Dynamic_Mode_5.T_Dynamic_Mode_5",
+          "SubPathString": ""
+        },
+        "IconRoomBigMode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode/T_Dynamic_BigMode_5.T_Dynamic_BigMode_5",
+          "SubPathString": ""
+        },
+        "IconRoomBig2Mode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/PlayerProfileMode/T_Dynamic_PlayerProfileMode_10.T_Dynamic_PlayerProfileMode_10",
+          "SubPathString": ""
+        },
+        "MapId": 11001,
+        "ModeLabel": 3
       }
     }
   }

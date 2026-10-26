@@ -2,8 +2,8 @@
   {
     "Type": "DataTable",
     "Name": "PlayModeControl",
-    "Class": "UScriptClass'DataTable'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'DataTable'",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'CyPlayModeControlTableRow'",
@@ -262,7 +262,7 @@
           "Namespace": "PlayModeControl",
           "Key": "9_ModeInfo",
           "SourceString": "7V7攻守对阵\n\n获胜条件：\n1.存矿数量率先达到指定目标的阵营获胜\n2.在比赛结束时，存矿数量更多的阵营获胜",
-          "LocalizedString": "7対7目標防衛\n\n勝利条件：\n1.先に鉱石が規定数に達した側が勝利となる。\n2.マッチが終了した場合、鉱石の多い方が勝利となる。"
+          "LocalizedString": "7v7 攻防戦\n\n勝利条件：\n1.先に目標の鉱石数達に到達したチームが勝利。\n2.マッチ終了時点で倉庫に保管された鉱石が多いチームが勝利。"
         },
         "IconBigmode2": {
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_9.T_Dynamic_BigMode2_9",
@@ -330,7 +330,7 @@
           "Namespace": "PlayModeControl_I18N",
           "Key": "11_ModeInfo",
           "SourceString": "20人分为两方进行对抗\n\n获胜条件：\n超弦体方：一直存活到比赛结束。\n晶源体方：在比赛结束前，击败所有的超弦体。\n\n特殊机制：\n1.该模式启用了“卡牌”增益机制\n2.超弦体开局默认解锁被动技能\n3.超弦体血量归零时会异化为晶源体",
-          "LocalizedString": "20人バトル（2陣営対抗）\n勝利条件：\n•\t超弦体陣営：試合終了時に1人以上の超弦体が生存している\n•\t晶原体陣営：試合終了前にすべての超弦体を倒す（感染させる）\n特殊ルール：\n1.\tこのモードでは「カード」によるバフが適用されます。\n2.\t試合開始時に超弦体のパッシブスキルは解放済みです。\n3.超弦体のHPが0になると、晶原体に変異します。\n"
+          "LocalizedString": "20人バトル（2陣営対抗）\n勝利条件：\n•\t超弦体陣営：試合終了時に1人以上の超弦体が生存している\n•\t晶原体陣営：試合終了前にすべての超弦体を倒す（感染させる）\n特殊ルール：\n1.このモードでは「カード」強化システムが有効になります。\n2.\t試合開始時に超弦体のパッシブスキルは解放済みです。\n3.超弦体のHPが0になると、晶原体に変異します。\n"
         },
         "IconBigmode2": {
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_10.T_Dynamic_BigMode2_10",
@@ -354,17 +354,17 @@
       "12": {
         "PlayMode": 12,
         "RefereeWatchMax": 0,
-        "MatchOpen": 0,
+        "MatchOpen": 1,
         "RankOpen": 0,
-        "ContestOpen": 0,
+        "ContestOpen": 1,
         "TimeLimit": 0,
         "MatchSort": 0,
         "ContestSort": 11,
         "ModeInfo": {
           "Namespace": "PlayModeControl",
           "Key": "12_ModeInfo",
-          "SourceString": "3队晶矿抢攻",
-          "LocalizedString": "3チームマイニング"
+          "SourceString": "获胜条件：\n1.巴布洛晶矿最先达到指定目标的队伍获胜。\n2.若时间耗尽时，没有队伍达成指定的晶矿储存量，则获取晶矿数量最多的队伍获胜。",
+          "LocalizedString": "勝利条件：\n1.パブロクリスタルを規定量まで最初に集めたチームが勝利となります。\n2. 制限時間終了時点で、いずれのチームも規定量に達していない場合は、より多くのパブロクリスタルを獲得したチームが勝利となります。"
         },
         "IconBigmode2": {
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_12.T_Dynamic_BigMode2_12",
@@ -382,7 +382,7 @@
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/PlayerProfileMode/T_Dynamic_PlayerProfileMode_4.T_Dynamic_PlayerProfileMode_4",
           "SubPathString": ""
         },
-        "MapId": 771,
+        "MapId": 1201,
         "ModeLabel": 3
       },
       "14": {
@@ -534,7 +534,7 @@
           "Namespace": "PlayModeControl",
           "Key": "25_ModeInfo",
           "SourceString": "5V5弦区争夺\n\n获胜条件：通过独占目标点获得得分，先达到获胜得分上限的一方获胜\n",
-          "LocalizedString": "5V5 コンクエスト\n\n勝利条件：拠点を独占してポイントを獲得し、先に勝利ポイント上限に到達したチームが勝利\n"
+          "LocalizedString": "5V5 コンクエスト\n\n勝利条件：拠点を独占してポイントを獲得し、先に勝利ポイント上限に到達したチームが勝利"
         },
         "IconBigmode2": {
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_9.T_Dynamic_BigMode2_9",
@@ -656,6 +656,74 @@
         },
         "MapId": 3000,
         "ModeLabel": 2
+      },
+      "35": {
+        "PlayMode": 35,
+        "RefereeWatchMax": 0,
+        "MatchOpen": 1,
+        "RankOpen": 0,
+        "ContestOpen": 0,
+        "TimeLimit": 0,
+        "MatchSort": 0,
+        "ContestSort": 31,
+        "ModeInfo": {
+          "Namespace": "PlayModeControl",
+          "Key": "35_ModeInfo",
+          "SourceString": "分为两方进行对抗\n\n获胜条件：\n超弦体方：逃离到最终检查点，并且正常撤离；\n晶源体方：击败所有的超弦体或比超弦体先一步到达检查点\n\n特殊机制：\n该模式启用了“卡牌”增益机制；\n晶源体通过普攻只能感染一个超弦体。",
+          "LocalizedString": "2陣営対抗\n\n勝利条件\n・超弦体陣営：最終チェックポイントに到達し、脱出する\n・晶原体陣営：すべての超弦体を撃破する、または超弦体より先にチェックポイントへ到達する\n\n特殊ルール：\n1.このモードでは「カード」強化システムが有効になります。\n2.晶原体の通常攻撃による感染は、1回につき超弦体1体までに制限されます。"
+        },
+        "IconBigmode2": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_10.T_Dynamic_BigMode2_10",
+          "SubPathString": ""
+        },
+        "IconRoomMode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/T_Dynamic_Mode_5.T_Dynamic_Mode_5",
+          "SubPathString": ""
+        },
+        "IconRoomBigMode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode/T_Dynamic_BigMode_5.T_Dynamic_BigMode_5",
+          "SubPathString": ""
+        },
+        "IconRoomBig2Mode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/PlayerProfileMode/T_Dynamic_PlayerProfileMode_10.T_Dynamic_PlayerProfileMode_10",
+          "SubPathString": ""
+        },
+        "MapId": 11001,
+        "ModeLabel": 3
+      },
+      "39": {
+        "PlayMode": 39,
+        "RefereeWatchMax": 0,
+        "MatchOpen": 0,
+        "RankOpen": 0,
+        "ContestOpen": 1,
+        "TimeLimit": 0,
+        "MatchSort": 0,
+        "ContestSort": 39,
+        "ModeInfo": {
+          "Namespace": "PlayModeControl",
+          "Key": "39_ModeInfo",
+          "SourceString": "3V3V3V3V3团队跑酷\n\n获胜条件：\n在规定时间内最先到达终点的队伍胜利。\n",
+          "LocalizedString": "3V3V3V3V3 チームパルクール\n\n【勝利条件】：\n制限時間内に、いち早くゴール地点へ到達したチームの勝利となります。"
+        },
+        "IconBigmode2": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode2/T_Dynamic_BigMode2_9.T_Dynamic_BigMode2_9",
+          "SubPathString": ""
+        },
+        "IconRoomMode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/T_Dynamic_Mode_5.T_Dynamic_Mode_5",
+          "SubPathString": ""
+        },
+        "IconRoomBigMode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/BigMode/T_Dynamic_BigMode_5.T_Dynamic_BigMode_5",
+          "SubPathString": ""
+        },
+        "IconRoomBig2Mode": {
+          "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Mode/PlayerProfileMode/T_Dynamic_PlayerProfileMode_10.T_Dynamic_PlayerProfileMode_10",
+          "SubPathString": ""
+        },
+        "MapId": 11001,
+        "ModeLabel": 3
       }
     }
   }

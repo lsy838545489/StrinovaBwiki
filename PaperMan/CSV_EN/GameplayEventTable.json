@@ -2,8 +2,8 @@
   {
     "Type": "DataTable",
     "Name": "GameplayEventTable",
-    "Class": "UScriptClass'DataTable'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'DataTable'",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'GameplayTagTableRow'",
@@ -226,6 +226,10 @@
       "Event.Action.OpenPage": {
         "Tag": "Event.Action.OpenPage",
         "DevComment": "打开界面"
+      },
+      "Event.Action.StartUseWeapon": {
+        "Tag": "Event.Action.StartUseWeapon",
+        "DevComment": "开始使用武器"
       },
       "Event.State.Armor.Cleared": {
         "Tag": "Event.State.Armor.Cleared",
@@ -478,6 +482,14 @@
       "Event.Summon.Destroy.Aika.X.Enhanced.Projectile": {
         "Tag": "Event.Summon.Destroy.Aika.X.Enhanced.Projectile",
         "DevComment": "艾卡红怒增强版大招技能子弹销毁"
+      },
+      "Event.Summon.Spawn.Aika.Enhanced.E": {
+        "Tag": "Event.Summon.Spawn.Aika.Enhanced.E",
+        "DevComment": "艾卡红怒增强版E技能召唤物出生"
+      },
+      "Event.Summon.Destroy.Aika.Enhanced.E": {
+        "Tag": "Event.Summon.Destroy.Aika.Enhanced.E",
+        "DevComment": "艾卡红怒增强版E技能召唤物销毁"
       },
       "Event.Summon.Spawn.Aika.Enhanced.Q": {
         "Tag": "Event.Summon.Spawn.Aika.Enhanced.Q",
@@ -1186,6 +1198,10 @@
       "Event.ConsumePlayerSkill.X": {
         "Tag": "Event.ConsumePlayerSkill.X",
         "DevComment": "消耗技能X"
+      },
+      "Event.ConsumeSummonSkill.Q": {
+        "Tag": "Event.ConsumeSummonSkill.Q",
+        "DevComment": "召唤物消耗技能Q"
       },
       "Event.MagazineEmptySlot.Primary": {
         "Tag": "Event.MagazineEmptySlot.Primary",
@@ -3527,6 +3543,10 @@
         "Tag": "Event.BombPass.TransmitBomb.BeSeized",
         "DevComment": "炸弹人模式-传递炸弹-炸弹被抢夺"
       },
+      "Event.Parkour.SuccessFinish": {
+        "Tag": "Event.Parkour.SuccessFinish",
+        "DevComment": "跑酷抵达终点"
+      },
       "Event.Weapon.RecordBool.Reiichi.Q": {
         "Tag": "Event.Weapon.RecordBool.Reiichi.Q",
         "DevComment": "令Q技能切换墙"
@@ -4662,6 +4682,150 @@
       "Event.Summon.Destroy.Sickle.Projectile": {
         "Tag": "Event.Summon.Destroy.Sickle.Projectile",
         "DevComment": "镰刀投掷物销毁"
+      },
+      "Event.CheckPoint.OverlapBegin": {
+        "Tag": "Event.CheckPoint.OverlapBegin",
+        "DevComment": "检查点OverlapBegin"
+      },
+      "Event.CheckPoint.OverlapEnd": {
+        "Tag": "Event.CheckPoint.OverlapEnd",
+        "DevComment": "检查点OverlapEnd"
+      },
+      "Event.Gameplay.GameStageChange": {
+        "Tag": "Event.Gameplay.GameStageChange",
+        "DevComment": "玩法的游戏阶段变化"
+      },
+      "Event.Gameplay.AttackTeamChanged": {
+        "Tag": "Event.Gameplay.AttackTeamChanged",
+        "DevComment": "攻方队伍变化"
+      },
+      "Event.Summon.Spawn.Lilith.X.Projectile": {
+        "Tag": "Event.Summon.Spawn.Lilith.X.Projectile",
+        "DevComment": "莉莉丝X技能子弹出生"
+      },
+      "Event.Summon.Destroy.Lilith.X": {
+        "Tag": "Event.Summon.Destroy.Lilith.X",
+        "DevComment": "莉莉丝X技能召唤物销毁"
+      },
+      "Event.DeathProtect.Card": {
+        "Tag": "Event.DeathProtect.Card",
+        "DevComment": "卡牌死亡保护事件"
+      },
+      "Event.Summon.Spawn.20251045": {
+        "Tag": "Event.Summon.Spawn.20251045",
+        "DevComment": "20251045卡牌召唤物出生"
+      },
+      "Event.DeathProtect.Card.20251051": {
+        "Tag": "Event.DeathProtect.Card.20251051",
+        "DevComment": "20251051卡牌死亡保护事件"
+      },
+      "Event.Death.PlayerCard": {
+        "Tag": "Event.Death.PlayerCard",
+        "DevComment": "卡牌击杀死亡"
+      },
+      "Event.Kill.PlayerCard": {
+        "Tag": "Event.Kill.PlayerCard",
+        "DevComment": "卡牌击杀"
+      },
+      "Event.BeforeCauseDamage.PlayerCard": {
+        "Tag": "Event.BeforeCauseDamage.PlayerCard",
+        "DevComment": "卡牌造成伤害前"
+      },
+      "Event.AfterCauseDamage.PlayerCard": {
+        "Tag": "Event.AfterCauseDamage.PlayerCard",
+        "DevComment": "卡牌造成伤害后"
+      },
+      "Event.BeforeTakeDamage.PlayerCard": {
+        "Tag": "Event.BeforeTakeDamage.PlayerCard",
+        "DevComment": "受到卡牌造成伤害前"
+      },
+      "Event.AfterTakeDamage.PlayerCard": {
+        "Tag": "Event.AfterTakeDamage.PlayerCard",
+        "DevComment": "受到卡牌造成伤害后"
+      },
+      "Event.TakeDamageSummon.PlayerCard": {
+        "Tag": "Event.TakeDamageSummon.PlayerCard",
+        "DevComment": "召唤物受到卡牌伤害"
+      },
+      "Event.CauseInjured.PlayerCard": {
+        "Tag": "Event.CauseInjured.PlayerCard",
+        "DevComment": "卡牌造成重伤倒地"
+      },
+      "Event.TakeInjured.PlayerCard": {
+        "Tag": "Event.TakeInjured.PlayerCard",
+        "DevComment": "受到卡牌造成重伤倒地"
+      },
+      "Event.Mine.SpawnPoint.Explored": {
+        "Tag": "Event.Mine.SpawnPoint.Explored",
+        "DevComment": "矿机爆矿事件"
+      },
+      "Event.Summon.TakeDamage.Cielle.Q": {
+        "Tag": "Event.Summon.TakeDamage.Cielle.Q",
+        "DevComment": "汐Q召唤物收到伤害时"
+      },
+      "Event.Summon.ClearArmor.Cielle.Q": {
+        "Tag": "Event.Summon.ClearArmor.Cielle.Q",
+        "DevComment": "汐Q召唤物护甲清空时"
+      },
+      "Event.Skill.Cielle.Q.OnForceMoveDashHit": {
+        "Tag": "Event.Skill.Cielle.Q.OnForceMoveDashHit",
+        "DevComment": "汐Q及被动冲刺给力检测命中时"
+      },
+      "Event.Summon.Cielle.QPDashHit.LeaveEvent": {
+        "Tag": "Event.Summon.Cielle.QPDashHit.LeaveEvent",
+        "DevComment": "汐QPDashHit召唤物离开事件开始"
+      },
+      "Event.Summon.Cielle.Q.FiftWork.Begin": {
+        "Tag": "Event.Summon.Cielle.Q.FiftWork.Begin",
+        "DevComment": ""
+      },
+      "Event.Weapon.ThirdWork.Start": {
+        "Tag": "Event.Weapon.ThirdWork.Start",
+        "DevComment": ""
+      },
+      "Event.Weapon.ThirdWork.End": {
+        "Tag": "Event.Weapon.ThirdWork.End",
+        "DevComment": ""
+      },
+      "Event.Weapon.Work.End.Cielle.Q": {
+        "Tag": "Event.Weapon.Work.End.Cielle.Q",
+        "DevComment": ""
+      },
+      "Event.Weapon.SecWork.Start.Cielle.Q": {
+        "Tag": "Event.Weapon.SecWork.Start.Cielle.Q",
+        "DevComment": ""
+      },
+      "Event.Weapon.FifthWork.Start.Cielle.Q": {
+        "Tag": "Event.Weapon.FifthWork.Start.Cielle.Q",
+        "DevComment": ""
+      },
+      "Event.Weapon.ThirdWork.End.Cielle.Q": {
+        "Tag": "Event.Weapon.ThirdWork.End.Cielle.Q",
+        "DevComment": ""
+      },
+      "Event.Action.ForceSwitchToExpectedWeapon": {
+        "Tag": "Event.Action.ForceSwitchToExpectedWeapon",
+        "DevComment": ""
+      },
+      "Event.GameState.TimeLeftChange": {
+        "Tag": "Event.GameState.TimeLeftChange",
+        "DevComment": "游戏状态-状态倒计时变化"
+      },
+      "Event.PlayerState.TimeLeftChange": {
+        "Tag": "Event.PlayerState.TimeLeftChange",
+        "DevComment": "玩家状态-状态倒计时变化"
+      },
+      "Event.AIState.TimeLeftChange": {
+        "Tag": "Event.AIState.TimeLeftChange",
+        "DevComment": "AI状态-状态倒计时变化"
+      },
+      "Event.KillByDeathMark": {
+        "Tag": "Event.KillByDeathMark",
+        "DevComment": "死亡标记击杀事件"
+      },
+      "Event.Summon.Bomb.Remove": {
+        "Tag": "Event.Summon.Bomb.Remove",
+        "DevComment": "炸弹移除"
       }
     }
   }

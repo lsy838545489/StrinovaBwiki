@@ -2,8 +2,8 @@
   {
     "Type": "DataTable",
     "Name": "Growth_Team",
-    "Class": "UScriptClass'DataTable'",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'DataTable'",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'CyGrowthTableRow'",
@@ -1327,7 +1327,7 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_146_Q_1",
               "SourceString": "[主动技能]守护星芒的冷却时间减少<GrowthMB_DescY>{0}</>秒\r\n[技能效果说明-守护星芒]选择一名队友投掷流星弦能，增加临时护甲，之后流星弦能再返回自己身上，也增加临时护甲",
-              "LocalizedString": "[Active] Reduce Guardian Star's cooldown by <GrowthMB_DescY>{0}</>s.\n[Skill Effect - Guardian Star] Boost a teammate's armor temporarily, then receive the same armor boost."
+              "LocalizedString": "[Active] Reduce Guardian Star's cooldown by <GrowthMB_DescY>{0}</>s.\n[Skill Effect - Guardian Star] Grants Temporary Armor on a selected teammate and yourself."
             },
             "Arguments": [
               {
@@ -1341,7 +1341,7 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_146_Q_2",
               "SourceString": "[主动技能]守护星芒的上限增加至<GrowthMB_DescY>{0}</>个\r\n[技能效果说明-守护星芒]选择一名队友投掷流星弦能，增加临时护甲，之后流星弦能再返回自己身上，也增加临时护甲",
-              "LocalizedString": "[Active] Increase Guardian Star cap to <GrowthMB_DescY>{0}</>.\n[Skill Effect - Guardian Star] Boost a teammate's armor temporarily, then receive the same armor boost."
+              "LocalizedString": "[Active] Increase Guardian Star cap to <GrowthMB_DescY>{0}</>.\n[Skill Effect - Guardian Star] Grants Temporary Armor on a selected teammate and yourself."
             },
             "Arguments": [
               {
@@ -2373,7 +2373,7 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_112_Q_1",
               "SourceString": "[主动技能]残息追踪的冷却时间减少<GrowthMB_DescY>{0}</>秒\r\n[技能效果说明-残息追踪]探测周围敌人，满血敌人被短暂透视，非满血敌人则被持续透视，仅自己可见。感应到敌人时提升移速",
-              "LocalizedString": "[Active] Reduce Apex Predator's cooldown by <GrowthMB_DescY>{0}</>s.\n[Skill Effect - Apex Predator] Briefly expose nearby full HP enemies; non-full HP enemies are exposed for the skill's duration, visible only to you. Increases movement speed when enemies are exposed."
+              "LocalizedString": "[Active] Reduce Apex Predator's cooldown by <GrowthMB_DescY>{0}</>s.\n[Skill Effect - Apex Predator] Briefly expose nearby full HP enemies; non-full HP enemies are exposed for the skill's duration, visible only to you. Increases Movement Speed when enemies are exposed."
             },
             "Arguments": [
               {
@@ -2387,7 +2387,7 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_112_Q_2",
               "SourceString": "[主动技能]残息追踪的持续时间增加<GrowthMB_DescY>{0}</>秒\r\n[技能效果说明-残息追踪]探测周围敌人，满血敌人被短暂透视，非满血敌人则被持续透视，仅自己可见。感应到敌人时提升移速",
-              "LocalizedString": "[Active] Extend Apex Predator's duration by <GrowthMB_DescY>{0}</>s.\n[Skill Effect - Apex Predator] Briefly expose nearby full HP enemies; non-full HP enemies are exposed for the skill's duration, visible only to you. Increases movement speed when enemies are exposed."
+              "LocalizedString": "[Active] Extend Apex Predator's duration by <GrowthMB_DescY>{0}</>s.\n[Skill Effect - Apex Predator] Briefly expose nearby full HP enemies; non-full HP enemies are exposed for the skill's duration, visible only to you. Increases Movement Speed when enemies are exposed."
             },
             "Arguments": [
               {
@@ -3802,9 +3802,9 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ScatterControlImprovements",
-            "SourceString": "散射控制提升",
-            "LocalizedString": "+ Spread Control"
+            "Key": "DoubleTrigger",
+            "SourceString": "双发扳机",
+            "LocalizedString": "Dual Trigger"
           },
           {
             "CultureInvariantString": null
@@ -4115,6 +4115,7 @@
           ""
         ],
         "Part1Level11": [
+          "ReloadSpeed|*0.1",
           "Scattering|*0.25"
         ],
         "Part2Level01": [
@@ -4387,8 +4388,8 @@
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
             "Key": "HandlingSpeedIncreased",
-            "SourceString": "操控速度提升",
-            "LocalizedString": "+ Handling Speed"
+            "SourceString": "开镜与切枪速度提升",
+            "LocalizedString": "+ ADS Speed and Weapon Switch"
           },
           {
             "CultureInvariantString": null
@@ -4621,7 +4622,7 @@
           "ShootSpeed|50|1200",
           "AimSpeed|45|100",
           "Scattering|59|100",
-          "GunRecoil|62|100",
+          "GunRecoil|66|100",
           "MagazineCapacity|0.75|100",
           "ReloadSpeed|18|50",
           "PullBoltSpeed|0|100",
@@ -4655,7 +4656,7 @@
           "Scattering|*0.25"
         ],
         "Part5Level11": [
-          "GunRecoil|*0.3"
+          "GunRecoil|*0.25"
         ],
         "PartName": [
           {
@@ -5345,11 +5346,9 @@
         ],
         "PassiveSingleSelect": true,
         "PassiveMax1": [
-          1,
           1
         ],
         "PassiveNeed": [
-          250,
           250
         ],
         "ShieldSingleSelect": true,
@@ -5407,9 +5406,9 @@
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "BaseDamageIncreased",
-            "SourceString": "基础伤害提升",
-            "LocalizedString": "+ Base Damage"
+            "Key": "FullyAutomaticShootingMode",
+            "SourceString": "全自动射击模式",
+            "LocalizedString": "Full Auto Mode"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -5494,9 +5493,9 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "HeadshotDamageIncreased",
-            "SourceString": "爆头伤害提升",
-            "LocalizedString": "+ Headshot Damage"
+            "Key": "ScatterControlImprovementsWhenADS",
+            "SourceString": "开镜后弹丸收束",
+            "LocalizedString": "Reduced Spread while ADS"
           },
           {
             "CultureInvariantString": null
@@ -5576,22 +5575,8 @@
             },
             "Arguments": [
               {
-                "Type": 3,
-                "Value": 0.5
-              }
-            ]
-          },
-          {
-            "SourceFmt": {
-              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-              "Key": "ReduceTriggerDamage_WithNumParam",
-              "SourceString": "触发效果所需伤害量减少{0}",
-              "LocalizedString": "-{0} DMG Required to Trigger"
-            },
-            "Arguments": [
-              {
                 "Type": 0,
-                "Value": 10
+                "Value": 1
               }
             ]
           }
@@ -5612,7 +5597,7 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_110_P_1",
               "SourceString": "[被动技能]嘻哈嘣彩的负面效果持续时间增加<GrowthMB_DescY>{0}</>秒\r\n[技能效果说明-嘻哈嘣彩]主武器命中敌人造成至少50点伤害时，可使其禁止弦化",
-              "LocalizedString": "[Passive] Increase Dance Shackle's effect duration by <GrowthMB_DescY>{0}</>s.\n[Skill Effect - Dance Shackle] Primary weapon hits dealing 50+ DMG cause string-block."
+              "LocalizedString": "[Passive] Increase Dance Shackle's effect duration by <GrowthMB_DescY>{0}</>s.\n[Skill Effect - Dance Shackle] String-Blocks target when dealing at least 50 DMG with primary weapon."
             },
             "Arguments": [
               {
@@ -5707,13 +5692,13 @@
         "DefaultProperty1": [
           "ShootSpeed|15|1200",
           "AimSpeed|42|100",
-          "Scattering|10|100",
+          "Scattering|11|100",
           "GunRecoil|59|100",
           "MagazineCapacity|0|100",
           "ReloadSpeed|16|50",
           "PullBoltSpeed|0|100",
           "MoveSpeed|57|100",
-          "Change2DHurt|67|100"
+          "Change2DHurt|75|100"
         ],
         "DefaultProperty3": [
           "MagnificationRate|1.25",
@@ -5739,7 +5724,7 @@
           "ReloadSpeed|*0.4"
         ],
         "Part5Level01": [
-          "Scattering|*0.2"
+          "Scattering|*0.15"
         ],
         "Part5Level11": [
           ""
@@ -5933,15 +5918,15 @@
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "BaseDamageIncreased",
-            "SourceString": "基础伤害提升",
-            "LocalizedString": "+ Base Damage"
+            "Key": "IncreasedCameraOpeningSpeed",
+            "SourceString": "开镜速度提升",
+            "LocalizedString": "+ ADS Speed"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ScatterControlImprovements",
-            "SourceString": "散射控制提升",
-            "LocalizedString": "+ Spread Control"
+            "Key": "BaseRateOfFireIncreased",
+            "SourceString": "基础射速提升",
+            "LocalizedString": "+ Base Rate of Fire"
           },
           {
             "CultureInvariantString": null
@@ -6014,15 +5999,15 @@
         "Part5Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "SwitchHighSpeedMagnification",
-            "SourceString": "切换快速高倍瞄具",
-            "LocalizedString": "Quick Zoom Scope"
+            "Key": "ScatterControlImprovements",
+            "SourceString": "散射控制提升",
+            "LocalizedString": "+ Spread Control"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "ImprovedRecoilControl",
-            "SourceString": "后坐控制提升",
-            "LocalizedString": "+ Recoil Handling"
+            "Key": "MultipleShootingModes",
+            "SourceString": "多重射击模式",
+            "LocalizedString": "Spread Shot Mode"
           },
           {
             "CultureInvariantString": null
@@ -6249,10 +6234,10 @@
           "ReducedEmissions|0.99"
         ],
         "Part1Level01": [
-          ""
+          "AimSpeed|*0.3"
         ],
         "Part1Level11": [
-          "Scattering|*0.25"
+          ""
         ],
         "Part2Level01": [
           ""
@@ -6267,11 +6252,10 @@
           "ReloadSpeed|*0.4"
         ],
         "Part5Level01": [
-          "AimSpeed|*0.2",
-          "MagnificationRate|1.5"
+          "Scattering|*0.25"
         ],
         "Part5Level11": [
-          "GunRecoil|*0.3"
+          "Scattering|*0.25"
         ],
         "PartName": [
           {
@@ -7726,7 +7710,7 @@
               "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
               "Key": "Details_115_P_1",
               "SourceString": "[被动技能]周生复始的触发效果所需伤害量减少<GrowthMB_DescY>{0}%</>\r\n[技能效果说明-周生复始]累计受到少量伤害时会减少主动技能的冷却时间；累计受到大量伤害时会获得回合临时绝招点数",
-              "LocalizedString": "[Passive] Reduce DMG needed to trigger Retribution by <GrowthMB_DescY>{0}%</>.\n[Skill Effect - Retribution] Taking minor DMG reduces active skill CD; taking major DMG grants temporary ultimate points for the round."
+              "LocalizedString": "[Passive] Reduce DMG needed to trigger Regenesis by <GrowthMB_DescY>{0}%</>.\n[Skill Effect - Regenesis] Taking minor DMG reduces active skill CD; taking major DMG grants temporary ultimate points for the round."
             },
             "Arguments": [
               {
@@ -8047,9 +8031,9 @@
         "Part1Desc": [
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "BaseDamageIncreased",
-            "SourceString": "基础伤害提升",
-            "LocalizedString": "+ Base Damage"
+            "Key": "DoubleTrigger",
+            "SourceString": "双发扳机",
+            "LocalizedString": "Dual Trigger"
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
@@ -8134,9 +8118,9 @@
           },
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
-            "Key": "HeadshotDamageIncreased",
-            "SourceString": "爆头伤害提升",
-            "LocalizedString": "+ Headshot Damage"
+            "Key": "ScatterControlImprovementsWhenADS",
+            "SourceString": "开镜后弹丸收束",
+            "LocalizedString": "Reduced Spread while ADS"
           },
           {
             "CultureInvariantString": null
@@ -8349,7 +8333,7 @@
         "DefaultProperty1": [
           "ShootSpeed|30|1200",
           "AimSpeed|42|100",
-          "Scattering|9|100",
+          "Scattering|10|100",
           "GunRecoil|50|100",
           "MagazineCapacity|0|100",
           "ReloadSpeed|21|50",
@@ -8363,7 +8347,7 @@
           "ReducedEmissions|0.5"
         ],
         "Part1Level01": [
-          ""
+          "ReloadSpeed|*0.1"
         ],
         "Part1Level11": [
           ""
@@ -8381,7 +8365,7 @@
           "ReloadSpeed|*0.4"
         ],
         "Part5Level01": [
-          "Scattering|*0.2"
+          "Scattering|*0.15"
         ],
         "Part5Level11": [
           ""
@@ -10297,8 +10281,8 @@
           {
             "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
             "Key": "HandlingSpeedIncreased",
-            "SourceString": "操控速度提升",
-            "LocalizedString": "+ Handling Speed"
+            "SourceString": "开镜与切枪速度提升",
+            "LocalizedString": "+ ADS Speed and Weapon Switch"
           },
           {
             "CultureInvariantString": null
@@ -11637,6 +11621,463 @@
           10,
           30,
           50
+        ]
+      },
+      "130": {
+        "RoleId": 130,
+        "Parts1SingleSelect": true,
+        "Parts1Max1": [
+          1,
+          1
+        ],
+        "Parts1Need": [
+          150,
+          150
+        ],
+        "Parts2SingleSelect": true,
+        "Parts2Max1": [
+          1,
+          1
+        ],
+        "Parts2Need": [
+          150,
+          150
+        ],
+        "Parts4SingleSelect": true,
+        "Parts4Max1": [
+          1,
+          1
+        ],
+        "Parts4Need": [
+          150,
+          150
+        ],
+        "Parts5SingleSelect": true,
+        "Parts5Max1": [
+          1,
+          1
+        ],
+        "Parts5Need": [
+          150,
+          150
+        ],
+        "QSingleSelect": true,
+        "QMax1": [
+          1,
+          1
+        ],
+        "QNeed": [
+          250,
+          250
+        ],
+        "PassiveSingleSelect": true,
+        "PassiveMax1": [
+          1
+        ],
+        "PassiveNeed": [
+          250
+        ],
+        "ShieldSingleSelect": true,
+        "ShieldMax1": [
+          1,
+          1
+        ],
+        "ShieldNeed": [
+          250,
+          250
+        ],
+        "SurviveSingleSelect": true,
+        "SurviveMax1": [
+          1,
+          1
+        ],
+        "SurviveNeed": [
+          250,
+          250
+        ],
+        "DowngradeCost": 0.1,
+        "RecommendUpgrade": [
+          4,
+          8,
+          6
+        ],
+        "Arousal1ActivateNeed": [
+          1,
+          0,
+          1
+        ],
+        "Arousal2ActivateNeed": [
+          1,
+          1,
+          2
+        ],
+        "Arousal3ActivateNeed": [
+          1,
+          2,
+          1
+        ],
+        "ArousalActivateNeed": [
+          0,
+          0,
+          0
+        ],
+        "ArousalDeactivateCost": 0.1,
+        "WeaponChange": [
+          0
+        ],
+        "EBuyNeed": [
+          0
+        ],
+        "WeaponSellCost": 0.5,
+        "Part1Desc": [
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "HandlingSpeedIncreased",
+            "SourceString": "开镜与切枪速度提升",
+            "LocalizedString": "+ ADS Speed and Weapon Switch"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "BaseRateOfFireIncreased",
+            "SourceString": "基础射速提升",
+            "LocalizedString": "+ Base Rate of Fire"
+          },
+          {
+            "CultureInvariantString": null
+          }
+        ],
+        "Part1Icon": [
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200008.T_Dynamic_GrowthIcon_200008",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200009.T_Dynamic_GrowthIcon_200009",
+            "SubPathString": ""
+          }
+        ],
+        "Part2Desc": [
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "MaximumRunningSpeedIncreased",
+            "SourceString": "移动速度提升",
+            "LocalizedString": "+ Sprint Speed"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "StringDamageIncreased",
+            "SourceString": "弦化伤害提升",
+            "LocalizedString": "+ Stringified Damage"
+          },
+          {
+            "CultureInvariantString": null
+          }
+        ],
+        "Part2Icon": [
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200016.T_Dynamic_GrowthIcon_200016",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200010.T_Dynamic_GrowthIcon_200010",
+            "SubPathString": ""
+          }
+        ],
+        "Part4Desc": [
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "IncreasedNumberOfBullets",
+            "SourceString": "载弹数量提升",
+            "LocalizedString": "+ Magazine Capacity"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "ReloadSpeedIncreased",
+            "SourceString": "换弹速度提升",
+            "LocalizedString": "+ Reload Speed"
+          },
+          {
+            "CultureInvariantString": null
+          }
+        ],
+        "Part4Icon": [
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200012.T_Dynamic_GrowthIcon_200012",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200013.T_Dynamic_GrowthIcon_200013",
+            "SubPathString": ""
+          }
+        ],
+        "Part5Desc": [
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "ScatterControlImprovements",
+            "SourceString": "散射控制提升",
+            "LocalizedString": "+ Spread Control"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "SingleBulletShootingMode",
+            "SourceString": "独头弹模式",
+            "LocalizedString": "Single-Shot Mode"
+          },
+          {
+            "CultureInvariantString": null
+          }
+        ],
+        "Part5Icon": [
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200017.T_Dynamic_GrowthIcon_200017",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200015.T_Dynamic_GrowthIcon_200015",
+            "SubPathString": ""
+          }
+        ],
+        "QDesc": [
+          {
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "ShieldChargeSpeedIncrease_WithNumParam",
+              "SourceString": "护盾充能速度加快{0}%",
+              "LocalizedString": "Shield Recharge Rate +{0}%"
+            },
+            "Arguments": [
+              {
+                "Type": 0,
+                "Value": 20
+              }
+            ]
+          },
+          {
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "ShieldAddArmor_WithNumParam",
+              "SourceString": "护盾转化护甲比例提升{0}%",
+              "LocalizedString": "Shield to Armor Conversion +{0}%"
+            },
+            "Arguments": [
+              {
+                "Type": 0,
+                "Value": 50
+              }
+            ]
+          }
+        ],
+        "QIcon": [],
+        "QDescDetails": [],
+        "PassiveDesc": [
+          {
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "ReloadReducedBySeconds_WithNumParam",
+              "SourceString": "装填时间减少{0}秒",
+              "LocalizedString": "Reload Time -{0}s"
+            },
+            "Arguments": [
+              {
+                "Type": 3,
+                "Value": 0.8
+              }
+            ]
+          }
+        ],
+        "PassiveIcon": [],
+        "PassiveDescDetails": [],
+        "ShieldDesc": [
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "QuickReturnOfLightArmor",
+            "SourceString": "快回轻型护甲",
+            "LocalizedString": "Light Regen Armor"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "HeavyArmor",
+            "SourceString": "重型护甲",
+            "LocalizedString": "Heavy Armor"
+          }
+        ],
+        "ShieldIcon": [],
+        "SurviveDesc": [
+          {
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "StringAcceleration_WithNumParam",
+              "SourceString": "弦化状态移速增加{0}%",
+              "LocalizedString": "Stringified Movement SPD +{0}%"
+            },
+            "Arguments": [
+              {
+                "Type": 0,
+                "Value": 15
+              }
+            ]
+          },
+          {
+            "SourceFmt": {
+              "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+              "Key": "SetStringReductionCoefficientValue_WithNumParam",
+              "SourceString": "弦化减伤系数提至{0}%",
+              "LocalizedString": "{0}% Stringified DMG Reduction"
+            },
+            "Arguments": [
+              {
+                "Type": 0,
+                "Value": 46
+              }
+            ]
+          }
+        ],
+        "SurviveIcon": [
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200006.T_Dynamic_GrowthIcon_200006",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200007.T_Dynamic_GrowthIcon_200007",
+            "SubPathString": ""
+          }
+        ],
+        "Awakening1Icon": [
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200001.T_Dynamic_GrowthIcon_200001",
+            "SubPathString": ""
+          }
+        ],
+        "Awakening2Icon": [
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200002.T_Dynamic_GrowthIcon_200002",
+            "SubPathString": ""
+          }
+        ],
+        "Awakening3Icon": [
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_200003.T_Dynamic_GrowthIcon_200003",
+            "SubPathString": ""
+          }
+        ],
+        "DefaultProperty1": [
+          "ShootSpeed|10|1200",
+          "AimSpeed|42|100",
+          "Scattering|10|100",
+          "GunRecoil|65|100",
+          "MagazineCapacity|0|100",
+          "ReloadSpeed|18|50",
+          "PullBoltSpeed|0|100",
+          "MoveSpeed|57|100",
+          "Change2DHurt|75|100"
+        ],
+        "DefaultProperty3": [
+          "MagnificationRate|1.25",
+          "MovementSpeedChange|2.25",
+          "ReducedEmissions|0.99"
+        ],
+        "Part1Level01": [
+          "AimSpeed|*0.3"
+        ],
+        "Part1Level11": [
+          ""
+        ],
+        "Part2Level01": [
+          "MoveSpeed|*0.08"
+        ],
+        "Part2Level11": [
+          "Change2DHurt|*0.2"
+        ],
+        "Part4Level01": [
+          ""
+        ],
+        "Part4Level11": [
+          "ReloadSpeed|*0.4"
+        ],
+        "Part5Level01": [
+          "Scattering|*0.15"
+        ],
+        "Part5Level11": [
+          ""
+        ],
+        "PartName": [
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "Part_Core",
+            "SourceString": "核心",
+            "LocalizedString": "Core"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "Part_Output",
+            "SourceString": "输出",
+            "LocalizedString": "Firing"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "Part_KeepFight",
+            "SourceString": "续航",
+            "LocalizedString": "Capacity"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "Part_Accurate",
+            "SourceString": "精准",
+            "LocalizedString": "Accuracy"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "Part_Armor",
+            "SourceString": "护甲",
+            "LocalizedString": "Armor"
+          },
+          {
+            "TableId": "/Game/PaperMan/CyTable/StringTable/ST_GrowthDefine.ST_GrowthDefine",
+            "Key": "Part_String",
+            "SourceString": "弦化",
+            "LocalizedString": "Stringification"
+          }
+        ],
+        "PartIcon": [
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_100004.T_Dynamic_GrowthIcon_100004",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_100005.T_Dynamic_GrowthIcon_100005",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_100003.T_Dynamic_GrowthIcon_100003",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_100009.T_Dynamic_GrowthIcon_100009",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_100002.T_Dynamic_GrowthIcon_100002",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_100012.T_Dynamic_GrowthIcon_100012",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_{6}.T_Dynamic_GrowthIcon_{6}",
+            "SubPathString": ""
+          },
+          {
+            "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/GrowthIcon/T_Dynamic_GrowthIcon_{7}.T_Dynamic_GrowthIcon_{7}",
+            "SubPathString": ""
+          }
+        ],
+        "AttackSpeedWeight": 720,
+        "AttackSpeedMax": 1200,
+        "ShowAttackRange": [
+          10,
+          20,
+          30
         ]
       }
     }
