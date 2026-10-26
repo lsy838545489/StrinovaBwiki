@@ -305,9 +305,9 @@ if __name__ == "__main__":
     # -------------------------------------------------------------
     # 模式 A: 首次使用/定期同步：拉取线上全站模板与模块到本地
     # -------------------------------------------------------------
-    manager.pull_all_templates_and_modules(include_templates=True, include_modules=True)
+    # manager.pull_all_templates_and_modules(include_templates=True, include_modules=True)
 
     # -------------------------------------------------------------
     # 模式 B: 本地编辑完成后：自动检索修改过的文件并智能推送回 Wiki
     # -------------------------------------------------------------
-    # manager.push_all_changed(summary="Vibe Coding 增量更新模板与 Lua 模块喵")
+    manager.push_all_changed(summary="Bot：批量更新模板与Lua模块喵")

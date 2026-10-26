@@ -1,0 +1,390 @@
+<includeonly><script>
+/* ==========================================================================
+   Widget:BalanceFilter —— 平衡数据「卡片筛选」交互
+   - 30 张角色卡固定不动，筛选只切换卡片内的数值
+   - 数据来自 MediaWiki:平衡数据-<模式>-<赛季>.json（紧凑分片，按需加载 + 浏览器缓存）
+   - 排序用 CSS order 重排，不隐藏、不重建 DOM
+   ========================================================================== */
+(function () {
+    if (window.__klbqBalanceFilterLoaded) { return; }
+    window.__klbqBalanceFilterLoaded = true;
+
+    // 不用 window.RLQ / $(function(){})：实测两者在本站都可能不触发
+    // （widget 脚本在内容区执行，可靠的做法是等 window load，并在 DOM 就绪时直接启动）
+    function boot() {
+        if (typeof window.jQuery === 'undefined') {
+            console.error('[BalanceFilter] jQuery 未加载，无法初始化');
+            return;
+        }
+        var $ = window.jQuery;
+        var root = document.getElementById('klbq-balance-root');
+        if (!root) {
+            console.warn('[BalanceFilter] 未找到 #klbq-balance-root，跳过初始化');
+            return;
+        }
+        console.log('[BalanceFilter] 初始化开始');
+        var grid = root.querySelector('.klbq-balance-grid');
+        var cards = [].slice.call(grid.querySelectorAll('.klbq-balance-card'));
+        var statusEl = root.querySelector('.klbq-balance-status');
+        // API 地址解析（按可靠性降序）：
+        //  1) data-api（若将来服务端能提供绝对地址）
+        //  2) wgScriptPath + /api.php
+        //  3) location.pathname 里 /index.php 或条目路径的前缀 —— 兜底
+        // 注意：不能在模块里读 wgScriptPath，Scribunto 的 Lua 没有 mw.config。
+        var apiPath = root.getAttribute('data-api-path') || '/api.php';
+        var apiBase = root.getAttribute('data-api') || '';
+        if (!apiBase) {
+            var sp = (window.mw && mw.config && mw.config.get('wgScriptPath')) || '';
+            if (!sp) {
+                var m = location.pathname.match(/^(.*?)\/(index\.php|[^\/]+)$/);
+                sp = (m && m[1]) || '';
+            }
+            apiBase = sp + apiPath;
+        }
+        console.log('[BalanceFilter] apiBase =', apiBase);
+
+        // 分片定位信息由服务端给出，JS 不猜：
+        //   data-shard-current = 当前分片页标题
+        //   data-mode-suffix   = "模式:页后缀;..."，换赛季时用后缀 + 赛季拼分片名
+        // （不用 JSON 存这些：MediaWiki 会把属性值里的 { } 转义成 &#123;，解析必然失败）
+        var modeSuffix = {};
+        (root.getAttribute('data-mode-suffix') || '').split(';').forEach(function (pair) {
+            if (!pair) { return; }
+            var kv = pair.split(':');
+            if (kv.length === 2) { modeSuffix[kv[0]] = kv[1]; }
+        });
+
+        function shardTitleOf(mode, season) {
+            // 当前分片标题服务端已算好；其余赛季按同一命名规则拼
+            var suffix = modeSuffix[mode];
+            var prefix = root.getAttribute('data-shard-prefix');
+            if (!suffix || !prefix) { return ''; }
+            return prefix + '-' + suffix + '-' + season + '.json';
+        }
+        var currentShardTitle = root.getAttribute('data-shard-current') || '';
+
+        var METRICS = ['winRate', 'selectRate', 'kd', 'damageAve', 'score'];
+        var PCT = { winRate: true, selectRate: true };
+
+        // 状态：初始值由服务端写在 data-* 上，JS 挂掉时页面依旧正确
+        var state = {
+            season: root.getAttribute('data-season'),
+            mode: root.getAttribute('data-mode'),
+            map: root.getAttribute('data-map'),
+            rank: root.getAttribute('data-rank'),
+            side: root.getAttribute('data-side') || 's1',   // s1=防守方（默认） s2=进攻方
+            sort: '',
+            desc: true
+        };
+        var meta = null;      // 当前分片的 meta
+        var heroes = null;    // 当前分片的 heroes
+        var shards = {};      // 模式 -> 已加载分片
+        var loading = false;
+
+        function setStatus(text) {
+            if (statusEl) { statusEl.textContent = text || ''; }
+        }
+
+        // ---------- 数据加载 ----------
+        // 分片粒度 = 模式 × 赛季：单文件约 85–125 KiB，避免一次性拉几 MB。
+        var FB = '.klbq-balance-fbtn';
+        var SB = '.klbq-balance-sortbtn';
+
+        function shardKey(mode, season) { return mode + '|' + season; }
+
+        function fetchShard(mode, season) {
+            var cacheKey = shardKey(mode, season);
+            if (shards[cacheKey]) { return $.Deferred().resolve(shards[cacheKey]).promise(); }
+            var title = shardTitleOf(mode, season);
+            if (!title) {
+                console.warn('[BalanceFilter] 服务端未提供分片标题，mode=', mode, 'season=', season);
+                return $.Deferred().reject().promise();
+            }
+            // 不能用 action=raw：实测对 JSON 内容模型的页面它返回的是页面视图（HTML），
+            // JSON.parse 会拿到 "<link rel=...>" 而失败。改用 api.php 取修订内容。
+            var url = apiBase + '?action=query&format=json&formatversion=2'
+                + '&prop=revisions&rvslots=main&rvprop=content'
+                + '&titles=' + encodeURIComponent(title) + '&cb=' + Date.now();
+            setStatus('数据加载中…');
+            console.log('[BalanceFilter] 请求分片:', title);
+            return $.ajax({ url: url, dataType: 'json', cache: false })
+                .then(function (resp) {
+                    var page = (((resp.query || {}).pages) || [])[0] || {};
+                    if (page.missing) { throw new Error('分片页面不存在: ' + title); }
+                    var text = (((page.revisions || [])[0] || {}).slots || {}).main.content;
+                    if (typeof text !== 'string') {
+                        throw new Error('分片内容为空: ' + title);
+                    }
+                    var data = JSON.parse(text);   // 第二层：分片自身是 JSON 文本
+                    console.log('[BalanceFilter] 分片加载成功:', title,
+                        'heroes=', Object.keys(data.heroes || {}).length);
+                    shards[cacheKey] = data;
+                    return data;
+                }, function (jqXHR, textStatus, err) {
+                    console.error('[BalanceFilter] 分片请求失败:', title, textStatus, err,
+                        jqXHR && jqXHR.status);
+                    throw err;
+                });
+        }
+
+        // 加载「当前模式 × 当前赛季」的分片并刷新数值
+        function loadCurrent() {
+            return fetchShard(state.mode, state.season).then(function (data) {
+                meta = data.meta;
+                heroes = data.heroes;
+                apply();
+            });
+        }
+
+        // ---------- 数值格式化 ----------
+        function fmt(metric, value) {
+            if (value === undefined || value === null || value === '' || value === 0) { return null; }
+            var n = Number(value);
+            if (isNaN(n)) { return null; }
+            return PCT[metric] ? n.toFixed(2) : String(n);
+        }
+
+        function keyOf() {
+            return state.season + '|' + state.map + '|' + state.rank;
+        }
+
+        // 分片结构：heroes[角色id][地图][段位] = {s1:[...], s2:[...]}
+        // 直接嵌套，不需要任何「键 -> 下标」换算（那层间接实测在浏览器里取空过）。
+        // 兼容旧的「键 -> 下标」结构：命中不到时退回老路径。
+        function sliceOf(heroId) {
+            var entry = heroes && heroes[heroId];
+            if (!entry) { return null; }
+
+            var byMap = entry[state.map];
+            if (byMap) {
+                var byRank = byMap[state.rank];
+                if (byRank) { return byRank; }
+            }
+            // 旧结构兜底
+            if (entry.v) {
+                var idx = sliceIndexOf(keyOf());
+                if (idx >= 0 && entry.v[String(idx)]) { return entry.v[String(idx)]; }
+            }
+            return null;
+        }
+
+        // 旧结构（meta.keys 为 键->下标 字典）的兼容取下标
+        function sliceIndexOf(key) {
+            var kk = meta && meta.keys;
+            if (!kk || Object.prototype.toString.call(kk) === '[object Array]') { return -1; }
+            return kk[key] === undefined ? -1 : kk[key];
+        }
+
+        // @param el     目标 <b>（.s1 或 .s2）
+        // @param value   该阵营该指标的原始值
+        // @param max     当前阵营下该指标的全局最大值（用于标绿）
+        // @param active  当前显示的阵营（只有 active 那一侧参与标绿）
+        // @param own     这个元素属于哪一侧
+        function renderSide(el, metric, value, max, active, own) {
+            if (!el) { return null; }
+            var text = fmt(metric, value);
+            if (text === null) {
+                el.textContent = '--';
+                el.className = own + ' klbq-none';
+                return null;
+            }
+            el.textContent = text + (PCT[metric] ? '%' : '');
+            // 用容差而不是全等：分片 JSON 里的值往返后不一定与 max 逐位相等
+            var isMax = (own === active) && max !== null && Math.abs(Number(value) - max) < 1e-6;
+            el.className = own + (isMax ? ' klbq-max' : '');
+            return Number(value);
+        }
+
+        // ---------- 应用当前筛选 ----------
+        function apply() {
+            if (!heroes) { return; }
+            var heroIds = meta.heroes;
+            var side = state.side;                 // 只渲染当前阵营
+            var mi = {};                           // 指标名 -> 数组下标
+            METRICS.forEach(function (m, i) { mi[m] = i; });
+
+            // 根元素上的 data-side 由 CSS 用来显隐 s1/s2
+            root.setAttribute('data-side', side);
+
+            // 一次性诊断：确认查找键与分片实际键是否对得上
+            if (!apply._logged) {
+                apply._logged = true;
+                var probeIds = heroIds.slice(0, 3);
+                var hits = probeIds.filter(function (h) { return sliceOf(h); }).length;
+                console.log('[BalanceFilter] 诊断'
+                    + ' | 当前筛选=' + state.season + '/' + state.mode + '/'
+                    + state.map + '/' + state.rank + '/' + side
+                    + ' | 分片 meta=' + meta.season + '/' + meta.mode
+                    + ' | 前 3 个角色命中=' + hits + '/3'
+                    + ' | 首角色样例=' + JSON.stringify(sliceOf(heroIds[0])));
+            }
+
+            // 只对当前阵营算最大值（绿色高亮）
+            var maxv = {};
+            METRICS.forEach(function (m, idx) {
+                maxv[m] = null;
+                heroIds.forEach(function (hid) {
+                    var e = sliceOf(hid);
+                    if (!e) { return; }
+                    var arr = e[side];
+                    if (!arr) { return; }
+                    var n = Number(arr[idx]);
+                    if (!isNaN(n) && n > 0 && (maxv[m] === null || n > maxv[m])) { maxv[m] = n; }
+                });
+            });
+
+            var missing = 0;
+            cards.forEach(function (card) {
+                var hid = card.getAttribute('data-hero');
+                var slice = sliceOf(hid);
+                // 只有「当前阵营」没有数据才算缺数据
+                var has = !!(slice && slice[side]);
+                card.classList.toggle('klbq-empty', !has);
+                if (!has) { missing++; }
+
+                METRICS.forEach(function (m, idx) {
+                    var wrap = card.querySelector('[data-metric="' + m + '"]');
+                    if (!wrap) { return; }
+                    // 两边的元素都更新，由 CSS 决定显示哪一个（切换阵营时无需重算 DOM 结构）
+                    renderSide(wrap.querySelector('.s1'), m, slice ? (slice.s1 ? slice.s1[idx] : null) : null, maxv[m], side, 's1');
+                    renderSide(wrap.querySelector('.s2'), m, slice ? (slice.s2 ? slice.s2[idx] : null) : null, maxv[m], side, 's2');
+                });
+            });
+
+            setStatus(missing ? ('（' + missing + ' 个角色在该阵营下无数据）') : '');
+            applySort();
+        }
+
+        // ---------- 排序（CSS order 重排） ----------
+        // 只按「当前阵营」的数值排序（卡片此时也只显示该阵营）
+        function cardValue(card) {
+            var wrap = card.querySelector('[data-metric="' + state.sort + '"]');
+            if (!wrap) { return null; }
+            var el = wrap.querySelector('.' + state.side);
+            var t = el ? parseFloat(el.textContent) : NaN;
+            return isNaN(t) ? null : t;
+        }
+
+        function applySort() {
+            if (!state.sort) {
+                cards.forEach(function (c) { c.style.order = ''; c.style.transform = ''; });
+                return;
+            }
+
+            // 记录排序前每张卡的屏幕位置（用于 FLIP 动画）
+            var before = cards.map(function (c) {
+                var r = c.getBoundingClientRect();
+                return { card: c, x: r.left, y: r.top };
+            });
+
+            var order = cards.map(function (card) {
+                return { card: card, v: cardValue(card) };
+            }).sort(function (a, b) {
+                // 无数据的永远沉底
+                if (a.v === null && b.v === null) { return 0; }
+                if (a.v === null) { return 1; }
+                if (b.v === null) { return -1; }
+                return state.desc ? b.v - a.v : a.v - b.v;
+            });
+            order.forEach(function (item, i) { item.card.style.order = i; });
+
+            // 布局已按新 order 生效后，把卡片「瞬移」回旧位置再动画到新位置。
+            // order 的 transition 在多数浏览器里不触发，所以必须用 transform 做 FLIP。
+            before.forEach(function (b) {
+                var r = b.card.getBoundingClientRect();
+                var dx = b.x - r.left;
+                var dy = b.y - r.top;
+                if (dx || dy) {
+                    b.card.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+                    void b.card.offsetWidth;   // 强制 reflow，让上面的 transform 先落地
+                    b.card.style.transform = '';
+                }
+            });
+        }
+
+        function syncSortButtons() {
+            [].slice.call(root.querySelectorAll(SB)).forEach(function (btn) {
+                var on = btn.getAttribute('data-key') === state.sort;
+                btn.classList.toggle('klbq-on', on);
+                var arrow = btn.querySelector('.klbq-arrow');
+                if (arrow) { arrow.textContent = on ? (state.desc ? '▼' : '▲') : ''; }
+            });
+        }
+
+        // ---------- 事件绑定 ----------
+        [].slice.call(root.querySelectorAll(FB)).forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var dim = btn.getAttribute('data-dim');
+                var val = btn.getAttribute('data-val');
+                if (!dim || state[dim] === val) { return; }
+
+                var prevMode = state.mode;
+                var prevSeason = state.season;
+                state[dim] = val;
+
+                // 同维度按钮高亮
+                [].slice.call(root.querySelectorAll(FB + '[data-dim="' + dim + '"]'))
+                    .forEach(function (b) {
+                        b.classList.toggle('selected', b.getAttribute('data-val') === val);
+                    });
+
+                if ((dim === 'mode' && val !== prevMode)
+                    || (dim === 'season' && val !== prevSeason)) {
+                    // 分片粒度是「模式 × 赛季」，任一变化都要换分片
+                    loadCurrent();
+                } else {
+                    apply();
+                }
+            });
+        });
+
+        [].slice.call(root.querySelectorAll(SB)).forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var key = btn.getAttribute('data-key');
+                if (state.sort === key) {
+                    if (state.desc) { state.desc = false; }
+                    else { state.sort = ''; state.desc = true; }   // 三态：降 → 升 → 取消
+                } else {
+                    state.sort = key;
+                    state.desc = true;
+                }
+                syncSortButtons();
+                applySort();
+            });
+        });
+
+        // ---------- 启动 ----------
+        loadCurrent().then(function () {
+            syncSortButtons();
+        }).fail(function () {
+            setStatus('数据加载失败，请刷新重试');
+        });
+    }
+
+    // 不用 window.RLQ / $(function(){})：实测两者在本站都可能不触发。
+    // 也不用「readyState 判断 + 立即执行」：widget 脚本在内容区执行，
+    // 此时后面的卡片 DOM 还没解析出来，getElementById 会拿到 null（实测踩过）。
+    // 可靠做法：轮询等待目标元素出现。
+    // 同时必须等 jQuery：boot() 内用 $.ajax 取分片，元素先于 jQuery 出现时直接 boot 会报错。
+    var tries = 0;
+    var timer = setInterval(function () {
+        tries += 1;
+        var el = document.getElementById('klbq-balance-root');
+        if (el && typeof window.jQuery !== 'undefined') {
+            clearInterval(timer);
+            boot();
+        } else if (tries > 100) {   // 约 10s 仍未就绪则放弃
+            clearInterval(timer);
+            console.warn('[BalanceFilter] 等待 #klbq-balance-root 或 jQuery 超时，放弃初始化');
+        }
+    }, 100);
+})();
+</script>
+<style>
+/* 主体样式在 模板:平衡数据/卡片 内，这里只补排序过渡。
+   用 transform 而不是 order：order 的过渡在多数浏览器里不生效（实测踩过）。 */
+.klbq-balance-grid > .gallerygrid-item {
+    transition: transform .25s ease;
+    will-change: transform;
+}
+</style></includeonly>

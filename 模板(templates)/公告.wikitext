@@ -11,7 +11,7 @@
 -->{{#if:{{{官网|}}}|{{a|href={{{官网|}}}|content=官网发布地址|class=klbq-notice-header__link klbq-notice-header__link--official}}}}</div>
 </div>
 </div>{{#if:{{{nocat|}}}||[[分类:公告资讯]]}}</includeonly><noinclude>[[分类:模板]]</noinclude>
-<bstyle>/*<pre>*/
+{{#tag:bstyle|/*<pre>*/
 .klbq-notice-header { /* --- 战术公告页顶情报面板 Block --- */
     display: flex;
     align-items: center;
@@ -29,10 +29,22 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .klbq-notice-header:hover {
-      border-color: rgba(147, 197, 253, 0.8);
-      box-shadow: 0 6px 20px rgba(0, 172, 193, 0.15);
-  }
+    .klbq-notice-header:hover {
+        border-color: rgba(147, 197, 253, 0.8);
+        box-shadow: 0 6px 20px rgba(0, 172, 193, 0.15);
+    }
+
+    .klbq-notice-header__link--bilibili:hover {
+        color: #ffffff !important;
+        background: #02b0da;
+        box-shadow: 0 2px 8px rgba(2, 176, 218, 0.3);
+    }
+
+    .klbq-notice-header__link--official a:hover {
+        color: #ffffff !important;
+        background: #ff6b2f;
+        box-shadow: 0 2px 8px rgba(255, 107, 47, 0.3);
+    }
 }
 .klbq-notice-header__icon { /* --- 左侧图标区 --- */
     flex-shrink: 0;
@@ -104,27 +116,11 @@
     background: rgba(2, 176, 218, 0.1);
     border: 1px solid rgba(2, 176, 218, 0.3);
 }
-
-@media (hover: hover) and (pointer: fine) {
-  .klbq-notice-header__link--bilibili:hover {
-      color: #ffffff !important;
-      background: #02b0da;
-      box-shadow: 0 2px 8px rgba(2, 176, 218, 0.3);
-  }
-}
 .klbq-notice-header__link--official,
 .klbq-notice-header__link--official:visited { /* 官网外链按钮 */
     color: #ff6b2f !important;
     background: rgba(255, 107, 47, 0.1);
     border: 1px solid rgba(255, 107, 47, 0.3);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .klbq-notice-header__link--official a:hover {
-      color: #ffffff !important;
-      background: #ff6b2f;
-      box-shadow: 0 2px 8px rgba(255, 107, 47, 0.3);
-  }
 }
 
 /* --- 移动端适配 --- */
@@ -160,4 +156,4 @@
 .client-js.wiki-dark-mode .klbq-notice-header__label {
     color: #94a3b8;
 }
-/*</pre>*/</bstyle>
+/*</pre>*/ }}

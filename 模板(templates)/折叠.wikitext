@@ -2,7 +2,7 @@
 <div class="panel-heading"><span class="clearfix show panel-title" data-toggle="collapse" data-parent="#mc_accordion-{{{ID|1}}}" data-target="#mc_collapse-{{{ID|1}}}"><span class="panel-title pull-left">
 <span>{{{1|}}}</span></span><span class="pull-right"><span class="badge">展开/折叠</span></span></span></div>
 <div id="mc_collapse-{{{ID|1}}}" class="panel-collapse collapse {{#if: {{{折叠|}}}||in}}"><div class="panel-body">{{{2|}}}</div></div></div></includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>
-{{#if:{{#varexists:bootstrap-collapse-CSS}} || {{#vardefine:bootstrap-collapse-CSS | 1 }}<bstyle>/*<pre>*/
+{{#if:{{#varexists:bootstrap-collapse-CSS}} || {{#vardefine:bootstrap-collapse-CSS | 1 }}{{#tag:bstyle|/*<pre>*/
 .bootstrap-collapse.panel { /* 面板外层容器 */
     padding: 0;
     margin: 15px 0;
@@ -16,9 +16,39 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .bootstrap-collapse.panel:hover {
-      box-shadow: 0 4px 12px rgba(96, 165, 250, 0.15);
-  }
+    .bootstrap-collapse.panel:hover {
+        box-shadow: 0 4px 12px rgba(96, 165, 250, 0.15);
+    }
+
+    .bootstrap-collapse.panel .panel-heading:hover {
+        background: linear-gradient(to right, rgba(224, 242, 254, 0.8), rgba(240, 248, 255, 0.5));
+    }
+
+    .bootstrap-collapse.panel .panel-heading:hover .pull-right .badge { /* 悬浮时的徽章效果 */
+        background: #60a5fa;
+        color: #fff;
+        border-color: #60a5fa;
+        box-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
+    }
+
+    .client-js.wiki-dark-mode .bootstrap-collapse.panel:hover {
+        box-shadow: var(--wiki-dark-shadow-hover);
+    }
+
+    .client-js.wiki-dark-mode .bootstrap-collapse .panel-heading:hover {
+        background: linear-gradient(
+            to right,
+            rgba(30, 58, 138, 0.4),
+            rgba(15, 23, 42, 0.8)
+        );
+    }
+
+    .client-js.wiki-dark-mode .bootstrap-collapse .panel-heading:hover .pull-right .badge {
+        background-color: var(--wiki-dark-accent-hover);
+        color: #ffffff;
+        border-color: var(--wiki-dark-accent-hover);
+        box-shadow: 0 0 10px rgba(0, 172, 193, 0.4);
+    }
 }
 .bootstrap-collapse.panel .panel-heading { /* 标题栏区域 */
     background: linear-gradient(to right, rgba(240, 248, 255, 0.6), rgba(255, 255, 255, 0.3));
@@ -26,12 +56,6 @@
     padding: 12px 18px;
     cursor: pointer;
     transition: background 0.3s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .bootstrap-collapse.panel .panel-heading:hover {
-      background: linear-gradient(to right, rgba(224, 242, 254, 0.8), rgba(240, 248, 255, 0.5));
-  }
 }
 .bootstrap-collapse.panel .panel-title.pull-left span { /* 标题文字 */
     font-weight: 700;
@@ -49,15 +73,6 @@
     font-size: 12px;
     transition: all 0.3s ease;
 }
-
-@media (hover: hover) and (pointer: fine) {
-  .bootstrap-collapse.panel .panel-heading:hover .pull-right .badge { /* 悬浮时的徽章效果 */
-      background: #60a5fa;
-      color: #fff;
-      border-color: #60a5fa;
-      box-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
-  }
-}
 .bootstrap-collapse.panel .panel-body.panel-collapse.collapse,
 .bootstrap-collapse.panel .panel-body.panel-collapse.collapse.in { /* 展开的内容主体 */
     background-color: transparent;
@@ -71,51 +86,26 @@
 
 /* --- 暗色模式 --- */
 .client-js.wiki-dark-mode .bootstrap-collapse.panel {
-	background: rgba(30, 41, 59, 0.85);
-	border-color: var(--wiki-dark-border);
-	box-shadow: var(--wiki-dark-shadow);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .client-js.wiki-dark-mode .bootstrap-collapse.panel:hover {
-  	box-shadow: var(--wiki-dark-shadow-hover);
-  }
+    background: rgba(30, 41, 59, 0.85);
+    border-color: var(--wiki-dark-border);
+    box-shadow: var(--wiki-dark-shadow);
 }
 .client-js.wiki-dark-mode .bootstrap-collapse .panel-heading {
-	background: linear-gradient(
-		to right,
-		rgba(15, 23, 42, 0.8),
-		rgba(30, 41, 59, 0.6)
-	);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .client-js.wiki-dark-mode .bootstrap-collapse .panel-heading:hover {
-  	background: linear-gradient(
-  		to right,
-  		rgba(30, 58, 138, 0.4),
-  		rgba(15, 23, 42, 0.8)
-  	);
-  }
+    background: linear-gradient(
+        to right,
+        rgba(15, 23, 42, 0.8),
+        rgba(30, 41, 59, 0.6)
+    );
 }
 .client-js.wiki-dark-mode .bootstrap-collapse .panel-title.pull-left span {
-	color: var(--wiki-dark-text);
+    color: var(--wiki-dark-text);
 }
 .client-js.wiki-dark-mode .bootstrap-collapse .pull-right .badge {
-	color: var(--wiki-dark-accent);
-	border-color: var(--wiki-dark-border);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .client-js.wiki-dark-mode .bootstrap-collapse .panel-heading:hover .pull-right .badge {
-  	background-color: var(--wiki-dark-accent-hover);
-  	color: #ffffff;
-  	border-color: var(--wiki-dark-accent-hover);
-  	box-shadow: 0 0 10px rgba(0, 172, 193, 0.4);
-  }
+    color: var(--wiki-dark-accent);
+    border-color: var(--wiki-dark-border);
 }
 .client-js.wiki-dark-mode .bootstrap-collapse .panel-collapse .panel-body {
-	border-top: 1px dashed rgba(96, 165, 250, 0.4);
-	color: var(--wiki-dark-text);
+    border-top: 1px dashed rgba(96, 165, 250, 0.4);
+    color: var(--wiki-dark-text);
 }
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}

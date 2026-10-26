@@ -20,7 +20,7 @@
 </div>
 </div>
 </div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
-{{#if:{{#varexists:klbq-main-weapon-card-CSS}} || {{#vardefine:klbq-main-weapon-card-CSS | 1 }}<bstyle>/*<pre>*/
+{{#if:{{#varexists:klbq-main-weapon-card-CSS}} || {{#vardefine:klbq-main-weapon-card-CSS | 1 }}{{#tag:bstyle|/*<pre>*/
 .gallerygrid { /* 容器基础排版 */
     display: grid;
     grid-gap: 1.5rem 1rem;
@@ -29,10 +29,10 @@
     padding: 10px;
 }
 @media (min-width: 320px) {
-  .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
+    .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
 }
 @media (min-width: 768px) {
-  .gallerygrid { grid-template-columns: repeat(auto-fit, 260px); }
+    .gallerygrid { grid-template-columns: repeat(auto-fit, 260px); }
 }
 .gallerygrid-item { /* 子项高度撑满 */
     display: flex;
@@ -61,6 +61,15 @@
         box-shadow: 0 8px 20px rgba(0, 172, 193, 0.18);
         border-color: rgba(0, 172, 193, 0.5);
         z-index: 2;
+    }
+
+    .klbq-main-weapon-card:hover .klbq-main-weapon-card__imagebox img {
+        transform: scale(1.05);
+    }
+
+    .client-js.wiki-dark-mode .klbq-main-weapon-card:hover {
+        box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+        border-color: rgba(14, 165, 233, 0.6);
     }
 }
 
@@ -108,12 +117,6 @@
     transition: transform 0.3s ease;
 }
 
-
-@media (hover: hover) and (pointer: fine) {
-  .klbq-main-weapon-card:hover .klbq-main-weapon-card__imagebox img {
-      transform: scale(1.05);
-  }
-}
 
 /* --- 内容信息区 --- */
 .klbq-main-weapon-card__captionbox {
@@ -176,13 +179,6 @@
 }
 
 
-@media (hover: hover) and (pointer: fine) {
-  .client-js.wiki-dark-mode .klbq-main-weapon-card:hover {
-      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
-      border-color: rgba(14, 165, 233, 0.6);
-  }
-}
-
 .client-js.wiki-dark-mode .klbq-main-weapon-card__badges {
     background: linear-gradient(180deg, rgba(14, 165, 233, 0.18) 0%, rgba(14, 165, 233, 0.03) 100%);
     border-bottom-color: rgba(14, 165, 233, 0.25);
@@ -217,4 +213,4 @@
 
 .client-js.wiki-dark-mode .klbq-main-weapon-card__label { color: #94a3b8; }
 .client-js.wiki-dark-mode .klbq-main-weapon-card__value { color: var(--wiki-dark-accent, #38bdf8); }
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}

@@ -9,7 +9,7 @@
 <div class="klbq-event-card__desc">{{{活动简介|}}}</div>
 </div>
 </div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
-{{#if:{{#varexists:klbq-event-card-css}} || {{#vardefine:klbq-event-card-css | 1 }}<bstyle>/*<pre>*/
+{{#if:{{#varexists:klbq-event-card-css}} || {{#vardefine:klbq-event-card-css | 1 }}{{#tag:bstyle|/*<pre>*/
 /* --- 活动汇总外层网格容器 --- */
 .klbq-event-summary {
     display: grid;
@@ -45,6 +45,11 @@
         transform: translateY(-4px);
         box-shadow: 0 8px 24px rgba(0, 172, 193, 0.18);
         border-color: rgba(0, 172, 193, 0.5);
+    }
+
+    .client-js.wiki-dark-mode .klbq-event-card:hover {
+        box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+        border-color: rgba(14, 165, 233, 0.6);
     }
 }
 
@@ -120,13 +125,6 @@
 }
 
 
-@media (hover: hover) and (pointer: fine) {
-  .client-js.wiki-dark-mode .klbq-event-card:hover {
-      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
-      border-color: rgba(14, 165, 233, 0.6);
-  }
-}
-
 .client-js.wiki-dark-mode .klbq-event-card__title {
     color: var(--wiki-dark-text, #f1f5f9);
     background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.25), transparent);
@@ -142,4 +140,4 @@
 .client-js.wiki-dark-mode .klbq-event-card__label { color: #94a3b8; }
 .client-js.wiki-dark-mode .klbq-event-card__value { color: var(--wiki-dark-accent, #38bdf8); }
 .client-js.wiki-dark-mode .klbq-event-card__desc { color: var(--wiki-dark-text, #f1f5f9); }
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}

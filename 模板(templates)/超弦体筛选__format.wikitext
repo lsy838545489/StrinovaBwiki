@@ -14,7 +14,7 @@
 }}|, |@|<span class="klbq-char-card__badge klbq-char-card__badge--weapon">[[@]]</span>| }}</span></div>
 <div class="klbq-char-card__traits"><span class="klbq-char-card__label">超弦体特性：</span><div class="klbq-char-card__trait-list">{{#arraymap:{{{超弦体特性|}}}|、|@|<span class="klbq-char-card__badge klbq-char-card__badge--trait">@</span>| }}</div></div>
 </div>
-</div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>{{#if:{{#varexists:klbq-char-card-CSS}} || {{#vardefine:klbq-char-card-CSS | 1 }}<bstyle>/*<pre>*/
+</div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>{{#if:{{#varexists:klbq-char-card-CSS}} || {{#vardefine:klbq-char-card-CSS | 1 }}{{#tag:bstyle|/*<pre>*/
 .gallerygrid { /* 容器基础排版 */
     display: grid;
     grid-gap: 1.5rem 1rem;
@@ -23,10 +23,10 @@
     padding: 10px;
 }
 @media (min-width: 320px) {
-  .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
+    .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
 }
 @media (min-width: 768px) {
-  .gallerygrid { grid-template-columns: repeat(auto-fit, 260px); }
+    .gallerygrid { grid-template-columns: repeat(auto-fit, 260px); }
 }
 .gallerygrid-item { /* 子项高度撑满 */
     display: flex;
@@ -139,6 +139,19 @@
         opacity: 1;
         animation: klbq-card-scan 1.2s ease-out;
     }
+
+    .client-js.wiki-dark-mode .klbq-char-card[data-param1="欧泊"]:hover {
+        border-color: #7297f7;
+        box-shadow: 0 0 15px rgba(114, 151, 247, 0.4);
+    }
+    .client-js.wiki-dark-mode .klbq-char-card[data-param1="剪刀手"]:hover {
+        border-color: #f87171;
+        box-shadow: 0 0 15px rgba(248, 113, 113, 0.4);
+    }
+    .client-js.wiki-dark-mode .klbq-char-card[data-param1="乌尔比诺"]:hover {
+        border-color: #facc15;
+        box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
+    }
 }
 
 @keyframes klbq-card-scan {
@@ -190,8 +203,8 @@
 }
 
 .klbq-char-card__badge {
-	display: inline-flex;
-	align-items: center;
+    display: inline-flex;
+    align-items: center;
     font-size: 0.75rem;
     font-weight: 700;
     padding: 2px 8px;
@@ -313,21 +326,6 @@
     background: linear-gradient(180deg, rgba(222, 182, 57, 0.2) 0%, rgba(15, 23, 42, 0) 100%);
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .client-js.wiki-dark-mode .klbq-char-card[data-param1="欧泊"]:hover {
-        border-color: #7297f7;
-        box-shadow: 0 0 15px rgba(114, 151, 247, 0.4);
-    }
-    .client-js.wiki-dark-mode .klbq-char-card[data-param1="剪刀手"]:hover {
-        border-color: #f87171;
-        box-shadow: 0 0 15px rgba(248, 113, 113, 0.4);
-    }
-    .client-js.wiki-dark-mode .klbq-char-card[data-param1="乌尔比诺"]:hover {
-        border-color: #facc15;
-        box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
-    }
-}
-
 .client-js.wiki-dark-mode .klbq-char-card__name {
     color: var(--wiki-dark-text, #f1f5f9);
     background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.2), transparent);
@@ -348,4 +346,4 @@
     color: #7dd3fc;
     border-color: rgba(56, 189, 248, 0.4);
 }
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}

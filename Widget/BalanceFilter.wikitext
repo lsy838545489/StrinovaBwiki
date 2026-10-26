@@ -1,0 +1,1283 @@
+<includeonly><script>
+/* ==========================================================================
+   Widget:BalanceFilter —— 平衡数据「卡片筛选」交互
+   - 30 张角色卡固定不动，筛选只切换卡片内的数值
+   - 数据来自 MediaWiki:平衡数据-<模式>-<赛季>.json（紧凑分片，按需加载 + 浏览器缓存）
+   - 排序用 CSS order 重排，不隐藏、不重建 DOM
+   - 赛季对比：同时加载两个赛季的分片，卡片显示「对比赛季的数值 + 相对基准的差值」
+   - 视图切换：卡片 / 表格。表格整张由本 widget 生成，卡片 DOM 一行不动
+     （切到表格只是 display:none 掉 .klbq-balance-grid，JS 挂了页面照旧是卡片）
+
+   对比模式的实现约束（改代码前务必先读）：
+   * 对比行、A/B 角标、差值元素**全部由本 widget 注入**，模块与卡片模板不参与，
+     所以服务端渲染的结果在实验对比功能时不受影响（JS 挂了就是没有对比，页面照常）。
+   * 卡片模板里 <b class="s1|s2"> 的 display 由模板 CSS 用
+     `#klbq-balance-root[data-side=...] .klbq-balance-card__value b.s1 { display:inline }`
+     控制，selector 带 ID、优先级很高。**不要给这个 <b> 设 display**，否则会同时显示两侧。
+     这里只在它内部套一个 inline-flex 的 .klbq-vd 做「值 + 差值」两行。
+   ========================================================================== */
+(function () {
+    if (window.__klbqBalanceFilterLoaded) { return; }
+    window.__klbqBalanceFilterLoaded = true;
+
+    // 不用 window.RLQ / $(function(){})：实测两者在本站都可能不触发
+    // （widget 脚本在内容区执行，可靠的做法是等 window load，并在 DOM 就绪时直接启动）
+    function boot() {
+        if (typeof window.jQuery === 'undefined') {
+            console.error('[BalanceFilter] jQuery 未加载，无法初始化');
+            return;
+        }
+        var $ = window.jQuery;
+        var root = document.getElementById('klbq-balance-root');
+        if (!root) {
+            console.warn('[BalanceFilter] 未找到 #klbq-balance-root，跳过初始化');
+            return;
+        }
+        console.log('[BalanceFilter] 初始化开始');
+        var grid = root.querySelector('.klbq-balance-grid');
+        if (!grid) {
+            console.warn('[BalanceFilter] 未找到 .klbq-balance-grid，跳过初始化');
+            return;
+        }
+        var cards = [].slice.call(grid.querySelectorAll('.klbq-balance-card'));
+        var statusEl = root.querySelector('.klbq-balance-status');
+        // API 地址解析（按可靠性降序）：
+        //  1) data-api（若将来服务端能提供绝对地址）
+        //  2) wgScriptPath + /api.php
+        //  3) location.pathname 里 /index.php 或条目路径的前缀 —— 兜底
+        // 注意：不能在模块里读 wgScriptPath，Scribunto 的 Lua 没有 mw.config。
+        var apiPath = root.getAttribute('data-api-path') || '/api.php';
+        var apiBase = root.getAttribute('data-api') || '';
+        if (!apiBase) {
+            var sp = (window.mw && mw.config && mw.config.get('wgScriptPath')) || '';
+            if (!sp) {
+                var m = location.pathname.match(/^(.*?)\/(index\.php|[^\/]+)$/);
+                sp = (m && m[1]) || '';
+            }
+            apiBase = sp + apiPath;
+        }
+        console.log('[BalanceFilter] apiBase =', apiBase);
+
+        // 分片定位信息由服务端给出，JS 不猜：
+        //   data-shard-current = 当前分片页标题
+        //   data-mode-suffix   = "模式:页后缀;..."，换赛季时用后缀 + 赛季拼分片名
+        // （不用 JSON 存这些：MediaWiki 会把属性值里的 { } 转义成 &#123;，解析必然失败）
+        var modeSuffix = {};
+        (root.getAttribute('data-mode-suffix') || '').split(';').forEach(function (pair) {
+            if (!pair) { return; }
+            var kv = pair.split(':');
+            if (kv.length === 2) { modeSuffix[kv[0]] = kv[1]; }
+        });
+
+        function shardTitleOf(mode, season) {
+            // 当前分片标题服务端已算好；其余赛季按同一命名规则拼
+            var suffix = modeSuffix[mode];
+            var prefix = root.getAttribute('data-shard-prefix');
+            if (!suffix || !prefix) { return ''; }
+            return prefix + '-' + suffix + '-' + season + '.json';
+        }
+
+        var METRICS = ['winRate', 'selectRate', 'kd', 'damageAve', 'score'];
+        var PCT = { winRate: true, selectRate: true };
+
+        // ---------- 视图（卡片 / 表格） ----------
+        // 表格是纯前端生成的第二视图：卡片 DOM 保持服务端渲染的样子不动，
+        // 切表格只是隐藏 .klbq-balance-grid + 生成一张 <table>，JS 挂了页面照旧是卡片。
+        var VIEW_KEY = 'klbq-balance-view';
+        var VIEWS = [{ key: 'card', name: '卡片' }, { key: 'table', name: '表格' }];
+
+        function readView() {
+            // 记住上次选择；localStorage 在隐私模式会抛异常，直接退回卡片
+            try {
+                return window.localStorage.getItem(VIEW_KEY) === 'table' ? 'table' : 'card';
+            } catch (e) { return 'card'; }
+        }
+        function saveView(v) {
+            try { window.localStorage.setItem(VIEW_KEY, v); } catch (e) { /* 忽略 */ }
+        }
+
+        // 表格里的「角色 / 职业 / 头像」直接取自卡片（卡片是服务端渲染的，不另存一份数据）。
+        // 列标题也用卡片上的中文标签，避免 JS 里再维护一套中英对照。
+        var heroInfo = {};
+        // 兜底文案：卡片模板改了也不会让表头露出英文 key（下面会用卡片上的真实标签覆盖）
+        var METRIC_LABEL = {
+            winRate: '胜率', selectRate: '选取率', kd: 'K/D', damageAve: '回合均伤', score: '表现分'
+        };
+        cards.forEach(function (card, i) {
+            var hid = card.getAttribute('data-hero');
+            var nameEl = card.querySelector('.klbq-balance-card__name');
+            var roleEl = card.querySelector('.klbq-balance-card__role');
+            var img = card.querySelector('.klbq-balance-card__imagebox img');
+            var link = nameEl ? nameEl.querySelector('a') : null;
+            var src = img ? (img.currentSrc || img.getAttribute('src') || '') : '';
+            // 优先用模板直接给的 data-name / data-role（服务端已知），
+            // 读不到再退回翻卡片内部 DOM —— 这样模板改结构时表格不会静默退化成角色码
+            heroInfo[hid] = {
+                name: card.getAttribute('data-name') || (nameEl ? (nameEl.textContent || '').trim() : hid),
+                role: card.getAttribute('data-role') || (roleEl ? (roleEl.textContent || '').trim() : ''),
+                href: link ? (link.getAttribute('href') || '') : '',
+                img: /^(data:|$)/i.test(src) ? '' : src   // 懒加载占位/空图就别塞 <img>
+            };
+            if (i === 0) {
+                // 注意：卡片模板里 <label>胜率</label> 与 <span data-metric="winRate"> 是**兄弟**节点，
+                // 所以要从 .klbq-balance-card__stat 这一层取（写成 [data-metric] 的后代会取空，实测踩过）
+                [].slice.call(card.querySelectorAll('.klbq-balance-card__stat')).forEach(function (st) {
+                    var lab = st.querySelector('.klbq-balance-card__label');
+                    var val = st.querySelector('[data-metric]');
+                    if (!lab || !val) { return; }
+                    METRIC_LABEL[val.getAttribute('data-metric')] = (lab.textContent || '').trim();
+                });
+            }
+        });
+
+        // 角色集合以「服务端渲染的卡片」为准，而不是分片里的 meta.heroes。
+        // 卡片是页面的一部分，分片里那份只是同一批数据的副本：真出现不一致时
+        // （比如新英雄只在后期赛季有数据），跟着卡片走才不会「有行没卡 / 有卡没行」。
+        function heroIdList() {
+            var ids = cards.map(function (c) { return c.getAttribute('data-hero'); })
+                .filter(function (h) { return !!h; });
+            if (ids.length) { return ids; }
+            var sh = shardOf(state && state.season);      // 卡片缺失时的兜底
+            return ((sh && sh.meta) || {}).heroes || [];
+        }
+
+        // 状态：初始值由服务端写在 data-* 上，JS 挂掉时页面依旧正确
+        // season  = 基准赛季（A，始终存在）
+        // season2 = 对比赛季（B）；cmpOn 为 true 且 season2 非空时才真正进入对比
+        var state = {
+            season: root.getAttribute('data-season'),
+            season2: null,
+            cmpOn: false,
+            mode: root.getAttribute('data-mode'),
+            map: root.getAttribute('data-map'),
+            rank: root.getAttribute('data-rank'),
+            side: root.getAttribute('data-side') || 's1',
+            sort: '',
+            desc: true,
+            view: readView()
+        };
+        var shards = {};      // "模式|赛季" -> 已加载分片（唯一的真源，避免异步竞态）
+        var cmpUI = null;     // 对比行的 DOM 句柄
+        var cmpError = '';    // 对比相关的错误文案（会被 updateCompareUI 保留，不被覆盖）
+
+        function setStatus(text) {
+            if (statusEl) { statusEl.textContent = text || ''; }
+        }
+
+        // ---------- 数据加载 ----------
+        // 分片粒度 = 模式 × 赛季：单文件约 85–125 KiB（线上被 MediaWiki 重新格式化后约 520 KiB），
+        // 所以只在需要时加载当前赛季；进入对比才再去拿第二个赛季。
+        var FB = '.klbq-balance-fbtn';
+        var SB = '.klbq-balance-sortbtn';
+
+        function shardKey(mode, season) { return mode + '|' + season; }
+
+        function fetchShard(mode, season) {
+            var cacheKey = shardKey(mode, season);
+            if (shards[cacheKey]) { return $.Deferred().resolve(shards[cacheKey]).promise(); }
+            var title = shardTitleOf(mode, season);
+            if (!title) {
+                console.warn('[BalanceFilter] 服务端未提供分片标题，mode=', mode, 'season=', season);
+                return $.Deferred().reject().promise();
+            }
+            // 不能用 action=raw：实测对 JSON 内容模型的页面它返回的是页面视图（HTML），
+            // JSON.parse 会拿到 "<link rel=...>" 而失败。改用 api.php 取修订内容。
+            var url = apiBase + '?action=query&format=json&formatversion=2'
+                + '&prop=revisions&rvslots=main&rvprop=content'
+                + '&titles=' + encodeURIComponent(title) + '&cb=' + Date.now();
+            setStatus('数据加载中…');
+            console.log('[BalanceFilter] 请求分片:', title);
+            return $.ajax({ url: url, dataType: 'json', cache: false })
+                .then(function (resp) {
+                    var page = (((resp.query || {}).pages) || [])[0] || {};
+                    if (page.missing) { throw new Error('分片页面不存在: ' + title); }
+                    var text = (((page.revisions || [])[0] || {}).slots || {}).main.content;
+                    if (typeof text !== 'string') {
+                        throw new Error('分片内容为空: ' + title);
+                    }
+                    var data = JSON.parse(text);   // 第二层：分片自身是 JSON 文本
+                    console.log('[BalanceFilter] 分片加载成功:', title,
+                        'heroes=', Object.keys(data.heroes || {}).length);
+                    shards[cacheKey] = data;
+                    return data;
+                }, function (jqXHR, textStatus, err) {
+                    console.error('[BalanceFilter] 分片请求失败:', title, textStatus, err,
+                        jqXHR && jqXHR.status);
+                    throw err;
+                });
+        }
+
+        // 分片一律从 shards 缓存按「模式|赛季」取，不另存 shardA/shardB 变量：
+        // 否则快速连点赛季时，先发的请求后到会把旧数据盖到新状态上（实测竞态）。
+        function shardOf(season) {
+            return season ? shards[shardKey(state.mode, season)] : null;
+        }
+
+        function isCompare() {
+            return !!(state.cmpOn && state.season2 && shardOf(state.season2));
+        }
+
+        // 保证「基准赛季（+ 对比赛季）」的分片都已就绪
+        function ensureData() {
+            var p = fetchShard(state.mode, state.season);
+            if (!state.cmpOn || !state.season2) { return p; }
+            var q = fetchShard(state.mode, state.season2).then(null, function (err) {
+                // 对比分片拿不到就退回单赛季模式，别把整页卡在错误态
+                console.warn('[BalanceFilter] 对比赛季分片加载失败，已退出对比', state.season2, err);
+                state.season2 = null;
+                // 错误文案存进 cmpError：直接写 info 会被随后的 updateCompareUI 覆盖（实测踩过）
+                cmpError = '对比赛季分片加载失败，请换一个赛季';
+                updateCompareUI(true);
+            });
+            return $.when(p, q);
+        }
+
+        // 重新取数并刷新整个视图
+        function refresh() {
+            setStatus('数据加载中…');
+            return ensureData().then(function () {
+                apply();
+            }, function (err) {
+                console.error('[BalanceFilter] refresh 失败', err);
+                setStatus('数据加载失败，请刷新重试');
+            });
+        }
+
+        // ---------- 数值格式化 ----------
+        function fmt(metric, value) {
+            if (value === undefined || value === null || value === '' || value === 0) { return null; }
+            var n = Number(value);
+            if (isNaN(n)) { return null; }
+            return PCT[metric] ? n.toFixed(2) : String(n);
+        }
+
+        function fmtDelta(metric, delta) {
+            var ad = Math.abs(delta);
+            var body = PCT[metric]
+                ? ad.toFixed(2)
+                : (ad >= 100 ? ad.toFixed(0) : (ad >= 10 ? ad.toFixed(1) : ad.toFixed(2)));
+            if (delta > 0) { return '▲+' + body; }
+            if (delta < 0) { return '▼-' + body; }
+            return '±0';
+        }
+
+        // 分片结构：heroes[角色id][地图][段位] = {s1:[...], s2:[...]}
+        // 直接嵌套，不需要任何「键 -> 下标」换算（那层间接实测在浏览器里取空过）。
+        // 兼容旧的「键 -> 下标」结构：命中不到时退回老路径。
+        function keyOfShard(shard) {
+            var s = (shard && shard.meta && shard.meta.season) || state.season;
+            return s + '|' + state.map + '|' + state.rank;
+        }
+
+        function sliceFrom(shard, heroId) {
+            if (!shard) { return null; }
+            var entry = shard.heroes && shard.heroes[heroId];
+            if (!entry) { return null; }
+
+            var byMap = entry[state.map];
+            if (byMap) {
+                var byRank = byMap[state.rank];
+                if (byRank) { return byRank; }
+            }
+            // 旧结构兜底
+            if (entry.v) {
+                var kk = shard.meta && shard.meta.keys;
+                if (kk && Object.prototype.toString.call(kk) !== '[object Array]') {
+                    var idx = kk[keyOfShard(shard)];
+                    if (idx !== undefined && idx >= 0 && entry.v[String(idx)]) {
+                        return entry.v[String(idx)];
+                    }
+                }
+            }
+            return null;
+        }
+
+        // 取一对（基准 / 对比）单元格的数值。卡片视图与表格视图共用，
+        // 保证两种呈现永远取同一份数据、不会有「卡片对表格不对」的分叉。
+        function metricPair(heroId, sideKey, idx) {
+            var A = sliceFrom(shardOf(state.season), heroId);
+            var B = isCompare() ? sliceFrom(shardOf(state.season2), heroId) : null;
+            var a = (A && A[sideKey]) ? Number(A[sideKey][idx]) : NaN;
+            var b = (B && B[sideKey]) ? Number(B[sideKey][idx]) : NaN;
+            return { a: a, b: b };
+        }
+
+        // 角色在当前筛选条件下「有没有可显示的数据」——卡片与表格共用这一条判定，
+        // 所以两种视图不会出现「卡片隐藏了表格还在」的分叉。
+        // 判定依据是指标的实际数值，不是分片里有没有这个阵营的数组：分片里有数组但全为 null
+        // 时（该角色没在该段位/模式出场过）会渲染成一整行 --，那同样算无数据。
+        // 对比模式下基准侧有值也保留，因为卡片会同时显示基准行。
+        function hasDataOf(hid) {
+            for (var i = 0; i < METRICS.length; i++) {
+                var p = metricPair(hid, state.side, i);
+                // 用 fmtText 而不是 isFinite 判定：Number(null) === 0 且 isFinite(0) 为真，
+                // 拿 isFinite 判会把「数组存在、值为 null」错当成有数据。
+                // fmtText 把 null / 0 / NaN 都当不可显示，和单元格里显示 "--" 是同一把尺子。
+                if (fmtText(METRICS[i], p.a) !== null) { return true; }
+                if (fmtText(METRICS[i], p.b) !== null) { return true; }
+            }
+            return false;
+        }
+
+        // 当前阵营下每列的极值（绿色高亮用）：
+        // 普通模式 = 数值最大（0 不参与，沿用原行为）；对比模式 = 涨幅最大（负数也比）
+        function computeMaxv(heroIds, side) {
+            var cmp = isCompare();
+            var maxv = {};
+            METRICS.forEach(function (m, idx) {
+                maxv[m] = null;
+                heroIds.forEach(function (hid) {
+                    var p = metricPair(hid, side, idx);
+                    var mag;
+                    if (cmp) {
+                        mag = (isFinite(p.a) && isFinite(p.b)) ? (p.b - p.a) : NaN;
+                    } else {
+                        mag = isFinite(p.a) ? p.a : NaN;
+                        if (!(mag > 0)) { return; }
+                    }
+                    if (!isFinite(mag)) { return; }
+                    if (maxv[m] === null || mag > maxv[m]) { maxv[m] = mag; }
+                });
+            });
+            return maxv;
+        }
+
+        // ---------- 单元格渲染（值 + 可选差值） ----------
+        // 卡片模板的 <b class="s1|s2"> 不能改 display（见文件头说明），
+        // 所以在它内部再套一层 .klbq-vd（inline-flex 竖排）。
+        function wrapInner(el) {
+            if (!el || el.__vd) { return el; }
+            var vd = document.createElement('span');
+            vd.className = 'klbq-vd';
+            // 三块：基准数值（仅对比模式显示，灰色小字）／主数值／差值
+            // 主数值与差值放在同一行 .klbq-line 里，所以整格始终只有两行，卡片高度不变。
+            var vA = document.createElement('span');
+            vA.className = 'klbq-v klbq-vA';
+            var line = document.createElement('span');
+            line.className = 'klbq-line';
+            var vB = document.createElement('span');
+            vB.className = 'klbq-v klbq-vB';
+            vB.textContent = el.textContent;      // 保留服务端填的首屏数值
+            var d = document.createElement('span');
+            d.className = 'klbq-d';
+            line.appendChild(vB);
+            line.appendChild(d);
+            vd.appendChild(vA);
+            vd.appendChild(line);
+            el.textContent = '';
+            el.appendChild(vd);
+            el.__vd = vd;
+            el.__vA = vA;
+            el.__vB = vB;
+            el.__d = d;
+            return el;
+        }
+
+        function fmtText(metric, value) {
+            var t = fmt(metric, value);
+            return t === null ? null : t + (PCT[metric] ? '%' : '');
+        }
+
+        // @param o.base     基准赛季数值（对比模式才用；非对比模式传 null）
+        // @param o.main     主数值：非对比=当前赛季；对比=对比赛季
+        // @param o.delta    相对基准的差值；任一侧无数据时为 null
+        // @param o.showBase 是否显示基准行（对比模式）
+        // @param o.isMax    是否是当前列的极值（普通模式比数值，对比模式比差值）
+        function renderCell(el, o) {
+            if (!el) { return null; }
+            wrapInner(el);
+
+            // 基准行：只在对比模式下出现，颜色固定灰（不受 klbq-max / klbq-none 影响）
+            if (o.showBase) {
+                var bt = fmtText(o.metric, o.base);
+                el.__vA.textContent = bt === null ? '--' : bt;
+                el.__vA.title = '基准赛季';
+            } else {
+                el.__vA.textContent = '';
+                el.__vA.title = '';
+            }
+
+            var text = fmtText(o.metric, o.main);
+            if (text === null) {
+                el.__vB.textContent = '--';
+                el.className = o.own + ' klbq-none';
+                el.__d.textContent = '';
+                el.__d.className = 'klbq-d';
+                return null;
+            }
+            el.__vB.textContent = text;
+            el.__vB.title = o.showBase ? '对比赛季' : '';
+            el.className = o.own + ((o.own === o.active && o.isMax) ? ' klbq-max' : '');
+
+            var delta = o.delta;
+            if (delta === null || delta === undefined || isNaN(delta)) {
+                el.__d.textContent = '';
+                el.__d.className = 'klbq-d';
+            } else {
+                el.__d.textContent = fmtDelta(o.metric, delta);
+                el.__d.className = 'klbq-d ' + (delta > 0 ? 'up' : (delta < 0 ? 'down' : 'flat'));
+            }
+            return Number(o.main);
+        }
+
+        // ---------- 应用当前筛选 ----------
+        function apply() {
+            var shA = shardOf(state.season);
+            if (!shA) { return; }
+            var metaA = shA.meta || {};
+            var heroIds = heroIdList();
+            var side = state.side;                 // 只渲染当前阵营
+            var cmp = isCompare();
+            var mi = {};                           // 指标名 -> 数组下标
+            METRICS.forEach(function (m, i) { mi[m] = i; });
+
+            // 根元素上的 data-side 由模板 CSS 用来显隐 s1/s2
+            root.setAttribute('data-side', side);
+            root.setAttribute('data-compare', cmp ? '1' : '0');
+
+            // 一次性诊断：确认查找键与分片实际键是否对得上
+            if (!apply._logged) {
+                apply._logged = true;
+                var probeIds = heroIds.slice(0, 3);
+                var hits = probeIds.filter(function (h) { return sliceFrom(shA, h); }).length;
+                console.log('[BalanceFilter] 诊断'
+                    + ' | 当前筛选=' + state.season + '/' + state.mode + '/'
+                    + state.map + '/' + state.rank + '/' + side
+                    + ' | 分片 meta=' + metaA.season + '/' + metaA.mode
+                    + ' | 前 3 个角色命中=' + hits + '/3'
+                    + ' | 首角色样例=' + JSON.stringify(sliceFrom(shA, heroIds[0])));
+            }
+
+            // 取一对（基准 / 对比）单元格的数值：与表格视图共用 metricPair
+            var pairOf = metricPair;
+
+            // 只对当前阵营算极值（绿色高亮）——与表格视图共用 computeMaxv
+            var maxv = computeMaxv(heroIds, side);
+
+            var missing = 0;
+            var visible = 0;
+            cards.forEach(function (card) {
+                var hid = card.getAttribute('data-hero');
+                // 无数据的角色直接隐藏（klbq-hide），不再只是降透明度：
+                // 卡片和表格行都藏起来，视图里剩下的都是当前条件下真有数值的角色
+                var has = hasDataOf(hid);
+                card.classList.toggle('klbq-empty', !has);
+                card.classList.toggle('klbq-hide', !has);
+                if (!has) { missing++; } else { visible++; }
+
+                METRICS.forEach(function (m, idx) {
+                    var wrap = card.querySelector('[data-metric="' + m + '"]');
+                    if (!wrap) { return; }
+                    // 两边的元素都更新，由模板 CSS 决定显示哪一个（切换阵营时无需重算 DOM 结构）
+                    ['s1', 's2'].forEach(function (own) {
+                        var p = pairOf(hid, own, idx);
+                        var hasA = isFinite(p.a);
+                        var hasB = isFinite(p.b);
+                        // 对比模式：上行基准、下行对比；非对比模式：只显示当前赛季
+                        var base = cmp ? (hasA ? p.a : null) : null;
+                        var main = cmp ? (hasB ? p.b : null) : (hasA ? p.a : null);
+                        var delta = (cmp && hasA && hasB) ? (p.b - p.a) : null;
+                        var mag = cmp ? delta : main;
+                        renderCell(wrap.querySelector('.' + own), {
+                            metric: m,
+                            base: base,
+                            main: main,
+                            delta: delta,
+                            showBase: cmp,
+                            isMax: (own === side && maxv[m] !== null
+                                && mag !== null && mag !== undefined
+                                && Math.abs(mag - maxv[m]) < 1e-9),
+                            active: side,
+                            own: own
+                        });
+                    });
+                });
+            });
+
+            var msg = '';
+            root.setAttribute('data-empty', visible ? '0' : '1');
+            if (missing) {
+                msg += '（' + missing + ' 个角色在当前筛选条件下无数据，已隐藏）';
+            }
+            setStatus(msg);
+            if (cmpUI) { updateCompareUI(true); }
+            applySort();
+        }
+
+        // ---------- 排序（CSS order 重排） ----------
+        // 只按「当前阵营」排序。对比模式按**差值**排（涨得最多的在前），
+        // 这样「排序」按钮在对比语境下直接回答「谁涨得最多」。
+        // 表格视图复用同一个 sortValueOf / cmpByValue，两种呈现的排序结果必然一致。
+        function sortValueOf(hid) {
+            var idx = METRICS.indexOf(state.sort);
+            if (idx < 0) { return null; }
+            var A = sliceFrom(shardOf(state.season), hid);
+            var B = isCompare() ? sliceFrom(shardOf(state.season2), hid) : null;
+            var a = (A && A[state.side]) ? Number(A[state.side][idx]) : NaN;
+            if (state.cmpOn && state.season2) {
+                var b = (B && B[state.side]) ? Number(B[state.side][idx]) : NaN;
+                return (isFinite(a) && isFinite(b)) ? (b - a) : null;
+            }
+            return isFinite(a) ? a : null;
+        }
+
+        function cardValue(card) { return sortValueOf(card.getAttribute('data-hero')); }
+
+        // 卡片与表格共用的比较器：无数据的永远沉底
+        function cmpByValue(a, b) {
+            if (a.v === null && b.v === null) { return 0; }
+            if (a.v === null) { return 1; }
+            if (b.v === null) { return -1; }
+            return state.desc ? b.v - a.v : a.v - b.v;
+        }
+
+        function applySort() {
+            // 表格视图：卡片是 display:none，FLIP 量不到位置，直接重建表格
+            if (state.view === 'table') { renderTable(); return; }
+
+            if (!state.sort) {
+                cards.forEach(function (c) { c.style.order = ''; c.style.transform = ''; });
+                return;
+            }
+
+            // 记录排序前每张卡的屏幕位置（用于 FLIP 动画）
+            var before = cards.map(function (c) {
+                var r = c.getBoundingClientRect();
+                return { card: c, x: r.left, y: r.top };
+            });
+
+            var order = cards.map(function (card) {
+                return { card: card, v: cardValue(card) };
+            }).sort(cmpByValue);
+            order.forEach(function (item, i) { item.card.style.order = i; });
+
+            // 布局已按新 order 生效后，把卡片「瞬移」回旧位置再动画到新位置。
+            // order 的 transition 在多数浏览器里不触发，所以必须用 transform 做 FLIP。
+            before.forEach(function (b) {
+                var r = b.card.getBoundingClientRect();
+                var dx = b.x - r.left;
+                var dy = b.y - r.top;
+                if (dx || dy) {
+                    b.card.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+                    void b.card.offsetWidth;   // 强制 reflow，让上面的 transform 先落地
+                    b.card.style.transform = '';
+                }
+            });
+        }
+
+        function syncSortButtons() {
+            [].slice.call(root.querySelectorAll(SB)).forEach(function (btn) {
+                var on = btn.getAttribute('data-key') === state.sort;
+                btn.classList.toggle('klbq-on', on);
+                var arrow = btn.querySelector('.klbq-arrow');
+                if (arrow) { arrow.textContent = on ? (state.desc ? '▼' : '▲') : ''; }
+            });
+        }
+
+        // 排序按钮与表头点击共用（三态：降 → 升 → 取消）
+        function toggleSort(key) {
+            if (state.sort === key) {
+                if (state.desc) { state.desc = false; }
+                else { state.sort = ''; state.desc = true; }
+            } else {
+                state.sort = key;
+                state.desc = true;
+            }
+            syncSortButtons();
+            applySort();
+        }
+
+        // ---------- 表格视图 ----------
+        // 只换呈现，不引新数据：所有数值都走 metricPair / computeMaxv / fmtText / fmtDelta，
+        // 和卡片视图是同一套，所以两种视图不可能对不上。
+        var tableWrap = null;
+        var viewUI = null;
+
+        function ensureTableWrap() {
+            if (tableWrap) { return tableWrap; }
+            tableWrap = document.createElement('div');
+            tableWrap.className = 'klbq-bt-wrap';
+            // 放在卡片网格**后面**而不是里面：表格是流式布局，不能被 grid 的 flex 规则影响
+            grid.parentNode.insertBefore(tableWrap, grid.nextSibling);
+            return tableWrap;
+        }
+
+        // 单个指标格：
+        //   普通模式 → 只显示当前赛季数值
+        //   对比模式 → 「基准 → 对比」+ 差值尾标（与卡片的上/下两行是同一份数据）
+        function buildTableCell(hid, sideKey, m, idx, cmp, maxMag) {
+            var td = document.createElement('td');
+            td.className = 'klbq-bt-num';
+            td.setAttribute('data-metric', m);
+
+            var p = metricPair(hid, sideKey, idx);
+            var hasA = isFinite(p.a);
+            var hasB = isFinite(p.b);
+            var main = cmp ? (hasB ? p.b : null) : (hasA ? p.a : null);
+            var text = fmtText(m, main);
+            if (text === null) {
+                td.className += ' klbq-bt-none';
+                td.textContent = '--';
+                return td;
+            }
+
+            // 对比模式才显示「基准 →」；基准侧无数据（0 也算无数据）就整段略过，
+            // 否则会出现一个孤零零的箭头
+            var baseText = cmp ? fmtText(m, p.a) : null;
+            if (baseText !== null) {
+                var bEl = document.createElement('span');
+                bEl.className = 'klbq-bt-a';
+                bEl.textContent = baseText;
+                var arr = document.createElement('span');
+                arr.className = 'klbq-bt-arr';
+                arr.textContent = '→';
+                td.appendChild(bEl);
+                td.appendChild(arr);
+            }
+
+            var v = document.createElement('span');
+            v.className = 'klbq-bt-v';
+            var mag = cmp ? ((hasA && hasB) ? (p.b - p.a) : null) : main;
+            if (maxMag !== null && mag !== null && Math.abs(mag - maxMag) < 1e-9) {
+                v.className += ' klbq-bt-max';
+            }
+            v.textContent = text;
+            td.appendChild(v);
+
+            if (cmp && hasA && hasB) {
+                var delta = p.b - p.a;
+                var d = document.createElement('span');
+                d.className = 'klbq-bt-d ' + (delta > 0 ? 'up' : (delta < 0 ? 'down' : 'flat'));
+                d.textContent = fmtDelta(m, delta);
+                td.appendChild(d);
+            }
+            return td;
+        }
+
+        function renderTable() {
+            var shA = shardOf(state.season);
+            if (!shA) { return; }
+            var heroIds = heroIdList();
+            var cmp = isCompare();
+            var side = state.side;
+            var maxv = computeMaxv(heroIds, side);
+            var wrap = ensureTableWrap();
+
+            var table = document.createElement('table');
+            table.className = 'klbq-bt' + (cmp ? ' klbq-bt--cmp' : '');
+
+            // ---- 表头：指标列可点，与「排序」按钮共用 toggleSort ----
+            var thead = document.createElement('thead');
+            var htr = document.createElement('tr');
+            function headCell(text, cls) {
+                var th = document.createElement('th');
+                th.className = cls;
+                th.textContent = text;
+                return th;
+            }
+            htr.appendChild(headCell('角色', 'klbq-bt-hero'));
+            htr.appendChild(headCell('职业', 'klbq-bt-role'));
+            METRICS.forEach(function (m) {
+                var label = METRIC_LABEL[m] || m;
+                var th = headCell(label, 'klbq-bt-num');
+                th.setAttribute('data-key', m);
+                th.title = '按' + label + '排序';
+                if (state.sort === m) {
+                    th.classList.add('klbq-on');
+                    var arrow = document.createElement('span');
+                    arrow.className = 'klbq-bt-arrow';
+                    arrow.textContent = state.desc ? '▼' : '▲';
+                    th.appendChild(arrow);
+                }
+                th.addEventListener('click', function () { toggleSort(m); });
+                htr.appendChild(th);
+            });
+            thead.appendChild(htr);
+            table.appendChild(thead);
+
+            // ---- 行：无数据的角色不生成行（与卡片隐藏同一判定）；排序规则与卡片一致 ----
+            var rows = [];
+            heroIds.forEach(function (hid) {
+                if (!hasDataOf(hid)) { return; }
+                rows.push({ hid: hid, v: state.sort ? sortValueOf(hid) : null });
+            });
+            if (state.sort) { rows.sort(cmpByValue); }
+
+            var tbody = document.createElement('tbody');
+            rows.forEach(function (item) {
+                var hid = item.hid;
+                var info = heroInfo[hid] || { name: hid, role: '', href: '', img: '' };
+
+                var tr = document.createElement('tr');
+                tr.setAttribute('data-hero', hid);        // 便于调试与 harness 断言
+
+                // 角色（头像 + 链接，全部抄卡片上的，不另存）
+                var tdName = document.createElement('td');
+                tdName.className = 'klbq-bt-hero';
+                var box = document.createElement('span');
+                box.className = 'klbq-bt-herobox';
+                if (info.img) {
+                    var av = document.createElement('img');
+                    av.className = 'klbq-bt-ava';
+                    av.src = info.img;
+                    av.alt = '';
+                    box.appendChild(av);
+                }
+                var nm = document.createElement(info.href ? 'a' : 'span');
+                nm.className = 'klbq-bt-name';
+                if (info.href) { nm.href = info.href; }
+                nm.textContent = info.name;
+                box.appendChild(nm);
+                tdName.appendChild(box);
+                tr.appendChild(tdName);
+
+                var tdRole = document.createElement('td');
+                tdRole.className = 'klbq-bt-role';
+                tdRole.textContent = info.role || '--';
+                tr.appendChild(tdRole);
+
+                METRICS.forEach(function (m, idx) {
+                    tr.appendChild(buildTableCell(hid, side, m, idx, cmp, maxv[m]));
+                });
+                tbody.appendChild(tr);
+            });
+
+            // 全部角色都被筛掉时，表体给一句话，别只剩一个表头
+            if (!rows.length) {
+                var trN = document.createElement('tr');
+                trN.className = 'klbq-bt-norow';
+                var tdN = document.createElement('td');
+                tdN.colSpan = 2 + METRICS.length;
+                tdN.textContent = '当前筛选条件下没有数据';
+                trN.appendChild(tdN);
+                tbody.appendChild(trN);
+            }
+            table.appendChild(tbody);
+
+            while (wrap.firstChild) { wrap.removeChild(wrap.firstChild); }
+            wrap.appendChild(table);
+        }
+
+        function buildViewRow() {
+            var sortBtn = root.querySelector(SB);
+            var sortRow = sortBtn && sortBtn.closest ? sortBtn.closest('.gallery-filter__row') : null;
+            var panel = root.querySelector('.klbq-balance-panel');
+            if (!sortRow || !panel) { return null; }
+
+            var row = document.createElement('div');
+            row.className = 'gallery-filter__row klbq-bt-viewrow';
+
+            var label = document.createElement('div');
+            label.className = 'gallery-filter__label';
+            label.textContent = '视图';
+
+            var ul = document.createElement('ul');
+            ul.className = 'gallery-filter__options';
+
+            var btns = {};
+            VIEWS.forEach(function (v) {
+                var li = document.createElement('li');
+                li.className = 'btn btn-default klbq-balance-fbtn klbq-bt-vbtn';
+                li.setAttribute('data-view', v.key);
+                li.textContent = v.name;
+                li.addEventListener('click', function () { setView(v.key); });
+                ul.appendChild(li);
+                btns[v.key] = li;
+            });
+
+            row.appendChild(label);
+            row.appendChild(ul);
+            // 紧跟「排序」行：排序对两种视图都有效，视图切换放在它旁边最自然
+            sortRow.parentNode.insertBefore(row, sortRow.nextSibling);
+            return { row: row, btns: btns };
+        }
+
+        function syncViewButtons() {
+            if (!viewUI) { return; }
+            Object.keys(viewUI.btns).forEach(function (k) {
+                viewUI.btns[k].classList.toggle('selected', k === state.view);
+            });
+        }
+
+        function setView(v) {
+            if (v !== 'card' && v !== 'table') { return; }
+            if (v === state.view) { return; }
+            state.view = v;
+            saveView(v);
+            root.setAttribute('data-view', v);
+            syncViewButtons();
+            // 卡片按 order 排序、表格整表重建，切回来时统一重跑一次 apply 最省心
+            apply();
+        }
+
+        // ---------- 赛季对比 ----------
+        function seasonButtons() {
+            return [].slice.call(root.querySelectorAll(FB + '[data-dim="season"]'));
+        }
+
+        function seasonLabel(code) {
+            var b = root.querySelector(FB + '[data-dim="season"][data-val="' + code + '"]');
+            if (!b) { return code; }
+            // 按钮里可能已经塞了 <sup>A/B>，只取第一个文本节点
+            var t = b.firstChild ? String(b.firstChild.textContent || '') : b.textContent;
+            t = t.trim();
+            return t || code;
+        }
+
+        // 默认挑一个相邻赛季，省得用户还要再点一次
+        function neighborSeason() {
+            var codes = seasonButtons().map(function (b) { return b.getAttribute('data-val'); });
+            var i = codes.indexOf(state.season);
+            if (i > 0) { return codes[i - 1]; }
+            if (codes.length > 1) { return codes[1]; }
+            return null;
+        }
+
+        // 给赛季按钮打 A / B 角标
+        function refreshSeasonMarks() {
+            seasonButtons().forEach(function (b) {
+                var code = b.getAttribute('data-val');
+                var isA = code === state.season;
+                var isB = !!state.season2 && code === state.season2;
+                b.classList.toggle('selected', isA);
+                b.classList.toggle('klbq-cmpsel', isB);
+                var sup = b.querySelector('.klbq-ab');
+                var want = '';
+                if (state.cmpOn) {
+                    if (isA) { want = 'A'; }
+                    else if (isB) { want = 'B'; }
+                }
+                if (!want) {
+                    if (sup) { sup.parentNode.removeChild(sup); }
+                    return;
+                }
+                if (!sup) {
+                    sup = document.createElement('sup');
+                    sup.className = 'klbq-ab';
+                    b.appendChild(sup);
+                }
+                sup.textContent = want;
+            });
+        }
+
+        // refreshMarksOnly=true 时只更新 UI 文案，不重复打角标（apply 里已经打过）
+        function updateCompareUI(refreshMarksOnly) {
+            if (!cmpUI) { return; }
+            cmpUI.toggle.textContent = state.cmpOn ? '关闭对比' : '开启赛季对比';
+            cmpUI.toggle.classList.toggle('selected', state.cmpOn);
+            var show = !!(state.cmpOn && state.season2);
+            cmpUI.swap.style.display = show ? '' : 'none';
+            cmpUI.clear.style.display = show ? '' : 'none';
+            // 错误文案优先级最高：否则「分片加载失败」会被下面的正常文案立刻覆盖（实测踩过）
+            if (cmpError) {
+                cmpUI.info.textContent = cmpError;
+                cmpUI.info.classList.add('klbq-warn');
+            } else if (!state.cmpOn) {
+                cmpUI.info.textContent = '';
+                cmpUI.info.classList.remove('klbq-warn');
+            } else if (!state.season2) {
+                cmpUI.info.textContent = '再点一个赛季作为对比';
+                cmpUI.info.classList.add('klbq-warn');
+            } else {
+                // 图例随视图变：卡片是上下两行，表格是「基准 → 对比 + 差值尾标」
+                cmpUI.info.textContent = seasonLabel(state.season) + ' → ' + seasonLabel(state.season2)
+                    + (state.view === 'table'
+                        ? '　基准 → 对比 · 尾标为差值'
+                        : '　上行 基准 · 下行 对比');
+                cmpUI.info.title = '点其他赛季替换对比；点当前对比赛季取消对比';
+                cmpUI.info.classList.remove('klbq-warn');
+            }
+            if (!refreshMarksOnly) { refreshSeasonMarks(); }
+        }
+
+        function buildCompareRow() {
+            var seasonBtn = root.querySelector(FB + '[data-dim="season"]');
+            var seasonRow = seasonBtn && seasonBtn.closest
+                ? seasonBtn.closest('.gallery-filter__row') : null;
+            var panel = root.querySelector('.klbq-balance-panel');
+            if (!seasonRow || !panel) { return null; }
+
+            var row = document.createElement('div');
+            row.className = 'gallery-filter__row klbq-cmprow';
+
+            var label = document.createElement('div');
+            label.className = 'gallery-filter__label';
+            label.textContent = '对比';
+
+            var ul = document.createElement('ul');
+            ul.className = 'gallery-filter__options';
+
+            function mkBtn(act, text) {
+                var li = document.createElement('li');
+                li.className = 'btn btn-default klbq-balance-fbtn klbq-balance-cmpbtn';
+                li.setAttribute('data-act', act);
+                li.textContent = text;
+                ul.appendChild(li);
+                return li;
+            }
+            var toggle = mkBtn('toggle', '开启赛季对比');
+            var swap = mkBtn('swap', '⇄ 交换');
+            var clear = mkBtn('clear', '× 清除');
+            swap.style.display = 'none';
+            clear.style.display = 'none';
+
+            var info = document.createElement('span');
+            info.className = 'klbq-balance-cmpinfo';
+
+            row.appendChild(label);
+            row.appendChild(ul);
+            row.appendChild(info);
+            // 紧跟在「赛季」行下面（不额外插分隔线，让两行在视觉上归为一组）
+            seasonRow.parentNode.insertBefore(row, seasonRow.nextSibling);
+
+            return { row: row, toggle: toggle, swap: swap, clear: clear, info: info };
+        }
+
+        function setCompareSeason(code) {
+            if (!code) { return; }
+            if (code === state.season) {
+                setStatus('对比赛季不能与基准赛季相同');
+                return;
+            }
+            state.season2 = code;
+            state.cmpOn = true;
+            cmpError = '';
+            updateCompareUI();
+            refresh();
+        }
+
+        function clearCompareSeason() {
+            state.season2 = null;
+            cmpError = '';
+            updateCompareUI();
+            refresh();
+        }
+
+        function toggleCompare() {
+            cmpError = '';
+            if (state.cmpOn) {
+                state.cmpOn = false;
+                state.season2 = null;
+                updateCompareUI();
+                refresh();
+                return;
+            }
+            var pick = neighborSeason();
+            if (!pick) {
+                setStatus('只有一个赛季可选，无法对比');
+                return;
+            }
+            state.cmpOn = true;
+            state.season2 = pick;
+            updateCompareUI();
+            refresh();
+        }
+
+        function swapSeasons() {
+            if (!state.cmpOn || !state.season2) { return; }
+            cmpError = '';
+            var t = state.season;
+            state.season = state.season2;
+            state.season2 = t;
+            updateCompareUI();
+            refresh();          // 两个分片都已在缓存里，不会再发请求
+        }
+
+        // ---------- 事件绑定 ----------
+        [].slice.call(root.querySelectorAll(FB)).forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var dim = btn.getAttribute('data-dim');
+                var val = btn.getAttribute('data-val');
+                if (!dim) { return; }          // 对比行的按钮走自己的处理器
+                if (!val) { return; }
+
+                // 赛季行在对比模式下承担「选 B / 取消 B」的语义
+                if (dim === 'season' && state.cmpOn) {
+                    if (val === state.season) { return; }        // 点基准：无操作
+                    if (val === state.season2) {                 // 点当前对比项：取消
+                        state.season2 = null;
+                        cmpError = '';
+                        updateCompareUI();
+                        refresh();
+                        return;
+                    }
+                    setCompareSeason(val);
+                    return;
+                }
+
+                if (!dim || state[dim] === val) { return; }
+
+                var prevMode = state.mode;
+                var prevSeason = state.season;
+                state[dim] = val;
+
+                // 同维度按钮高亮
+                [].slice.call(root.querySelectorAll(FB + '[data-dim="' + dim + '"]'))
+                    .forEach(function (b) {
+                        b.classList.toggle('selected', b.getAttribute('data-val') === val);
+                    });
+
+                if ((dim === 'mode' && val !== prevMode)
+                    || (dim === 'season' && val !== prevSeason)) {
+                    // 分片粒度是「模式 × 赛季」，任一变化都要换分片
+                    // 换模式时对比赛季也要重新取（新模式下同样是一个独立分片）
+                    refresh();
+                } else {
+                    apply();
+                }
+            });
+        });
+
+        [].slice.call(root.querySelectorAll(SB)).forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                toggleSort(btn.getAttribute('data-key'));
+            });
+        });
+
+        // ---------- 启动 ----------
+        cmpUI = buildCompareRow();
+        if (cmpUI) {
+            cmpUI.toggle.addEventListener('click', toggleCompare);
+            cmpUI.swap.addEventListener('click', swapSeasons);
+            cmpUI.clear.addEventListener('click', clearCompareSeason);
+        }
+        // 视图行必须在建表前注入：CSS 用 #klbq-balance-root[data-view] 控制显隐
+        root.setAttribute('data-view', state.view);
+        viewUI = buildViewRow();
+        syncViewButtons();
+        updateCompareUI(true);
+        refresh().then(function () {
+            syncSortButtons();
+        });
+    }
+
+    // 不用 window.RLQ / $(function(){})：实测两者在本站都可能不触发。
+    // 也不用「readyState 判断 + 立即执行」：widget 脚本在内容区执行，
+    // 此时后面的卡片 DOM 还没解析出来，getElementById 会拿到 null（实测踩过）。
+    // 可靠做法：轮询等待目标元素出现。
+    // 同时必须等 jQuery：boot() 内用 $.ajax 取分片，元素先于 jQuery 出现时直接 boot 会报错。
+    var tries = 0;
+    var timer = setInterval(function () {
+        tries += 1;
+        var el = document.getElementById('klbq-balance-root');
+        if (el && typeof window.jQuery !== 'undefined') {
+            clearInterval(timer);
+            boot();
+        } else if (tries > 100) {   // 约 10s 仍未就绪则放弃
+            clearInterval(timer);
+            console.warn('[BalanceFilter] 等待 #klbq-balance-root 或 jQuery 超时，放弃初始化');
+        }
+    }, 100);
+})();
+</script>
+<style>
+/* 主体样式在 模板:Gallerygrid/BalanceCard 内，这里只补排序过渡与对比模式新增的元素。 */
+.klbq-balance-grid > .gallerygrid-item {
+    transition: transform .25s ease;
+    will-change: transform;
+}
+
+/* ===== 赛季对比：上行基准 + 下行（对比值 · 差值） =====
+   注意：不要给 .klbq-balance-card__value b 设 display ——
+   模板 CSS 用 `#klbq-balance-root[data-side=...] ... b.s1/.s2 { display:inline }`
+   控制阵营显隐，selector 带 ID，一旦覆盖会同时显示两侧。这里只动它内部的 span。 */
+.klbq-balance-card__value .klbq-vd {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.15;
+    vertical-align: middle;
+}
+/* 基准行：灰色小字。颜色写死在 span 上，这样 klbq-max / klbq-none 只影响主数值 */
+.klbq-balance-card__value .klbq-vA {
+    font-size: .82em;
+    font-weight: 400;
+    color: #94a3b8;
+    white-space: nowrap;
+}
+.klbq-balance-card__value .klbq-vA:empty { display: none; }
+/* 主数值与差值同一行 */
+.klbq-balance-card__value .klbq-line {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+.klbq-balance-card__value .klbq-vB { white-space: nowrap; }
+.klbq-balance-card__value .klbq-d {
+    font-size: .72em;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: -.2px;
+}
+.klbq-balance-card__value .klbq-d:empty { display: none; }
+.klbq-balance-card__value .klbq-d.up { color: #2AA52F; }
+.klbq-balance-card__value .klbq-d.down { color: #d9534f; }
+.klbq-balance-card__value .klbq-d.flat { color: #94a3b8; }
+
+/* 赛季按钮上的 A / B 角标（用行内 sup，避免绝对定位被按钮裁切） */
+.klbq-balance-fbtn .klbq-ab {
+    margin-left: 3px;
+    font-size: .7em;
+    font-weight: 700;
+    vertical-align: super;
+    line-height: 0;
+}
+.klbq-balance-fbtn .klbq-ab { color: #2AA52F; }
+.klbq-balance-fbtn.selected .klbq-ab { color: #fff; }
+.klbq-balance-fbtn.klbq-cmpsel { border-color: #e8890c; color: #c26c00; }
+.klbq-balance-fbtn.klbq-cmpsel .klbq-ab { color: #e8890c; }
+
+/* 对比行 */
+.klbq-balance-cmprow { align-items: center; }
+.klbq-balance-cmpbtn { color: #c26c00; }
+.klbq-balance-cmpbtn:hover { background: #fff7ed; color: #e8890c; border-color: #f5c98a; }
+.klbq-balance-cmpbtn.selected { background: #e8890c; color: #fff; border-color: #e8890c; }
+.klbq-balance-cmpinfo {
+    font-size: 12px;
+    color: #b45309;
+    align-self: center;
+}
+.klbq-balance-cmpinfo.klbq-warn { color: #b91c1c; }
+
+/* ===== 无数据的角色 =====
+   卡片与表格行共用 hasDataOf() 这一条判定，都直接隐藏，不再只是降透明度：
+   切到某个没出场过的段位/模式时，这些角色不该继续占着位置。 */
+#klbq-balance-root .klbq-balance-card.klbq-hide { display: none; }
+/* 全被隐藏时给一句话（grid 是 flex，伪元素撑满一行，表格视图下随 grid 一起隐藏） */
+#klbq-balance-root[data-empty="1"] .klbq-balance-grid::after {
+    content: "当前筛选条件下没有数据";
+    flex: 1 0 100%;
+    padding: 34px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* ===== 表格视图 =====
+   切到表格只是把卡片网格藏起来（卡片 DOM 一行不动），表格整张由 JS 生成。 */
+.klbq-bt-wrap {
+    display: none;
+    margin: 0 0 6px;
+    overflow-x: auto;           /* 窄屏横向滚动，不挤压列宽 */
+    -webkit-overflow-scrolling: touch;
+}
+#klbq-balance-root[data-view="table"] .klbq-balance-grid { display: none; }
+#klbq-balance-root[data-view="table"] .klbq-bt-wrap { display: block; }
+
+.klbq-bt {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    font-size: 1rem;             /* 表格正文统一 1rem，和站点正文同号 */
+    font-variant-numeric: tabular-nums;
+    background: rgba(248, 249, 250, 0.9);
+    border: 1px solid rgba(160, 207, 255, .35);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.klbq-bt--cmp { min-width: 820px; }   /* 对比模式每格多两个片段，给足宽度 */
+
+.klbq-bt thead th {
+    padding: 10px 12px;
+    font-size: 1.125rem;             /* 表头比正文（1rem）再大一档，层次更清楚 */
+    font-weight: 700;
+    color: #64748b;
+    white-space: nowrap;
+    text-align: left;
+    background: linear-gradient(90deg, rgba(160,207,255,.22), rgba(160,207,255,.14));
+    border-bottom: 1.5px solid rgba(160, 207, 255, .55);
+}
+.klbq-bt thead th.klbq-bt-num {
+    text-align: right;
+    cursor: pointer;
+    user-select: none;
+    transition: color .15s, background .15s;
+}
+.klbq-bt thead th.klbq-bt-num:hover { color: #409eff; background: rgba(64, 158, 255, .12); }
+.klbq-bt thead th.klbq-bt-num.klbq-on { color: #409eff; }
+.klbq-bt thead th .klbq-bt-arrow { margin-left: 3px; font-size: .8em; }
+
+.klbq-bt tbody td {
+    padding: 6px 12px;
+    text-align: right;
+    white-space: nowrap;
+    color: #334155;
+    border-bottom: 1px solid rgba(226, 232, 240, .8);
+}
+.klbq-bt tbody tr:last-child td { border-bottom: 0; }
+/* 斑马纹：24 行靠横线容易串行，淡背景更稳；hover 规则放在后面，特异性相同则后者生效 */
+.klbq-bt tbody tr:nth-child(even) td { background: rgba(160, 207, 255, .09); }
+.klbq-bt tbody tr:hover td { background: rgba(64, 158, 255, .06); }
+.klbq-bt tbody tr.klbq-bt-norow td {
+    padding: 34px 12px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+.klbq-bt td.klbq-bt-hero,
+.klbq-bt td.klbq-bt-role { text-align: left; }
+/* td 不能设成 flex（会破坏表格布局），所以用内层 span 做头像 + 名字 */
+.klbq-bt-herobox { display: flex; align-items: center; gap: 5px; }   /* 头像与名字贴近 */
+.klbq-bt-ava {
+    width: 38px;
+    height: 38px;
+    /* 站点全局给 img 设了 margin:auto（左右各 ~73px），会把头像顶到单元格中间、
+       和名字拉开一大截。这里必须显式清零。 */
+    margin: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 auto;
+    background: rgba(160, 207, 255, .2);
+}
+.klbq-bt .klbq-bt-name { font-weight: 600; color: #334155; text-decoration: none; }
+a.klbq-bt-name:hover { color: #409eff; text-decoration: underline; }
+.klbq-bt td.klbq-bt-role { color: #64748b; }
+
+.klbq-bt-v { font-weight: 700; color: #00acc1; }
+.klbq-bt-v.klbq-bt-max { color: #2AA52F; }
+.klbq-bt-none { color: #b0b7c3; font-weight: 400; }
+.klbq-bt-a { color: #94a3b8; font-size: .85em; }
+.klbq-bt-arr { color: #cbd5e1; font-size: .85em; margin: 0 3px; }
+.klbq-bt-d { font-size: .75em; font-weight: 700; margin-left: 4px; }
+.klbq-bt-d.up { color: #2AA52F; }
+.klbq-bt-d.down { color: #d9534f; }
+.klbq-bt-d.flat { color: #94a3b8; }
+
+/* 对比模式每格是「基准 → 对比 差值」三段，1rem 主值下很容易把表撑出容器：
+   基准与差值再缩一档、列内边距收窄，保证 1280 宽也放得下（窄了就整表横向滚）。 */
+.klbq-bt--cmp thead th,
+.klbq-bt--cmp tbody td { padding-left: 8px; padding-right: 8px; }
+.klbq-bt--cmp .klbq-bt-a { font-size: .78em; }
+.klbq-bt--cmp .klbq-bt-arr { margin: 0 2px; }
+.klbq-bt--cmp .klbq-bt-d { font-size: .7em; margin-left: 3px; }
+
+/* 暗色模式 */
+.client-js.wiki-dark-mode .klbq-balance-card__value .klbq-vA { color: #64748b; }
+.client-js.wiki-dark-mode .klbq-balance-fbtn.klbq-cmpsel { border-color: #f59e0b; color: #fbbf24; }
+.client-js.wiki-dark-mode .klbq-balance-cmpbtn { color: #fbbf24; }
+.client-js.wiki-dark-mode .klbq-balance-cmpinfo { color: #fbbf24; }
+.client-js.wiki-dark-mode .klbq-balance-cmpinfo.klbq-warn { color: #f87171; }
+
+/* 表格视图（暗色） */
+.client-js.wiki-dark-mode .klbq-bt { background: rgba(30, 41, 59, .85); border-color: rgba(14, 165, 233, .25); }
+.client-js.wiki-dark-mode .klbq-bt thead th {
+    color: #94a3b8;
+    background: linear-gradient(90deg, rgba(56,189,248,.16), rgba(56,189,248,.08));
+    border-bottom-color: rgba(56, 189, 248, .35);
+}
+.client-js.wiki-dark-mode .klbq-bt thead th.klbq-bt-num:hover { color: #7dd3fc; background: rgba(56,189,248,.14); }
+.client-js.wiki-dark-mode .klbq-bt thead th.klbq-bt-num.klbq-on { color: #7dd3fc; }
+.client-js.wiki-dark-mode .klbq-bt tbody td { color: #cbd5e1; border-bottom-color: rgba(148, 163, 184, .2); }
+.client-js.wiki-dark-mode .klbq-bt tbody tr:nth-child(even) td { background: rgba(56, 189, 248, .07); }
+.client-js.wiki-dark-mode .klbq-bt tbody tr:hover td { background: rgba(56, 189, 248, .1); }
+.client-js.wiki-dark-mode .klbq-bt .klbq-bt-name { color: #e2e8f0; }
+.client-js.wiki-dark-mode .klbq-bt td.klbq-bt-role { color: #94a3b8; }
+.client-js.wiki-dark-mode .klbq-bt-v { color: #38bdf8; }
+.client-js.wiki-dark-mode .klbq-bt-v.klbq-bt-max { color: #4ade80; }
+.client-js.wiki-dark-mode .klbq-bt-a { color: #64748b; }
+.client-js.wiki-dark-mode .klbq-bt-arr { color: #475569; }
+.client-js.wiki-dark-mode .klbq-bt-d.up { color: #4ade80; }
+.client-js.wiki-dark-mode .klbq-bt-d.down { color: #f87171; }
+.client-js.wiki-dark-mode .klbq-bt tbody tr.klbq-bt-norow td { color: #64748b; }
+.client-js.wiki-dark-mode #klbq-balance-root[data-empty="1"] .klbq-balance-grid::after { color: #64748b; }
+</style></includeonly>

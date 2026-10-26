@@ -15,7 +15,7 @@
 |#default=<span class="playmode-btn" data-mode="1">[[战斗模式/{{#var:value}}|{{#var:value}}]]</span>
 }}
 }}</includeonly>
-{{#if:{{#varexists:playmode-btn-CSS}} || {{#vardefine:playmode-btn-CSS | 1 }}<bstyle>/*<pre>*/
+{{#if:{{#varexists:playmode-btn-CSS}} || {{#vardefine:playmode-btn-CSS | 1 }}{{#tag:bstyle|/*<pre>*/
 /* --- 1. 按钮大容器 (Span) --- */
 .playmode-btn {
     display: inline-block;
@@ -61,7 +61,7 @@
     top: 50%;
     left: 10px; /* 控制图标离左边缘的距离 */
     transform: translateY(-50%);
-    
+
     /* 调整图标显示尺寸，使其更像列表图标 */
     width: 60px; 
     height: 60px;
@@ -86,7 +86,7 @@
 
     /* 右侧 padding 留出空间，左侧 padding 避开图标 */
     padding: 15px 25px 15px 80px; 
-    
+
     color: #556a8e !important;
     font-size: 18px;
     font-weight: 800;
@@ -99,19 +99,25 @@
 
 
 @media (hover: hover) and (pointer: fine) {
-  /* --- 交互效果 --- */
-  .playmode-btn:hover {
-      border-color: #a0cfff;
-      background-color: #f9fbff;
-  }
+    /* --- 交互效果 --- */
+    .playmode-btn:hover {
+        border-color: #a0cfff;
+        background-color: #f9fbff;
+    }
+
+    .playmode-btn:hover a {
+        color: #409eff !important;
+    }
+
+    /* 选中态下图标变白且稍微放大 */
+    .playmode-btn:hover a.selflink::before {
+        filter: none; 
+        opacity: 0.3;
+        left: 15px; /* 选中时图标往右错开一点点 */
+        transform: translateY(-50%) scale(1.1);
+    }
 }
 
-
-@media (hover: hover) and (pointer: fine) {
-  .playmode-btn:hover a {
-      color: #409eff !important;
-  }
-}
 
 /* 选中状态 (Selflink) */
 .playmode-btn a.selflink {
@@ -120,14 +126,4 @@
     color: #ffffff !important;
 }
 
-
-@media (hover: hover) and (pointer: fine) {
-  /* 选中态下图标变白且稍微放大 */
-  .playmode-btn:hover a.selflink::before {
-      filter: none; 
-      opacity: 0.3;
-      left: 15px; /* 选中时图标往右错开一点点 */
-      transform: translateY(-50%) scale(1.1);
-  }
-}
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}

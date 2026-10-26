@@ -8,7 +8,7 @@
 -->{{#if:{{{公告官网发布链接|}}}|{{a|href={{{公告官网发布链接}}}|content=官网公告|class=klbq-notice-item__link klbq-notice-item__link--official}}}}
 </div>
 </div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
-{{#if:{{#varexists:klbq-notice-item-CSS}} || {{#vardefine:klbq-notice-item-CSS | 1 }}<bstyle>/*<pre>*/
+{{#if:{{#varexists:klbq-notice-item-CSS}} || {{#vardefine:klbq-notice-item-CSS | 1 }}{{#tag:bstyle|/*<pre>*/
 .klbq-notice-list { /* --- 公告列表外层容器 --- */
     display: flex;
     flex-direction: column;
@@ -31,13 +31,52 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .klbq-notice-item:hover {
-      background: rgba(255, 255, 255, 0.95);
-      border-color: rgba(147, 197, 253, 0.8);
-      border-left-color: #00acc1;
-      transform: translateX(4px);
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.12);
-  }
+    .klbq-notice-item:hover {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(147, 197, 253, 0.8);
+        border-left-color: #00acc1;
+        transform: translateX(4px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.12);
+    }
+
+    .klbq-notice-item:hover .klbq-notice-item__title a {
+        color: #00acc1;
+    }
+
+    .klbq-notice-item__link,
+    .klbq-notice-item__link:link,
+    .klbq-notice-item__link:visited,
+    .klbq-notice-item__link:hover,
+    .klbq-notice-item__link:active,
+    .klbq-notice-item__link.external,
+    .klbq-notice-item__link.external:hover {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 12px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+    }
+
+    .klbq-notice-item__link--bilibili:hover {
+        color: #fff !important;;
+        background: #02b0da;
+        box-shadow: 0 2px 8px rgba(2, 176, 218, 0.3);
+    }
+
+    .klbq-notice-item__link--official:hover {
+        color: #fff !important;;
+        background: #ff6b2f;
+        box-shadow: 0 2px 8px rgba(255, 107, 47, 0.3);
+    }
+
+    .client-js.wiki-dark-mode .klbq-notice-item:hover {
+        background: rgba(30, 41, 59, 0.95);
+        border-color: rgba(14, 165, 233, 0.5);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
 }
 .klbq-notice-item__main { /* --- 主信息区（标题与时间） --- */
     display: flex;
@@ -58,12 +97,6 @@
     text-decoration: none;
     transition: color 0.2s ease;
 }
-
-@media (hover: hover) and (pointer: fine) {
-  .klbq-notice-item:hover .klbq-notice-item__title a {
-      color: #00acc1;
-  }
-}
 .klbq-notice-item__time {
     font-size: 0.825rem;
     color: #64748b;
@@ -76,52 +109,17 @@
     gap: 8px;
     flex-shrink: 0;
 }
-
-@media (hover: hover) and (pointer: fine) {
-  .klbq-notice-item__link,
-  .klbq-notice-item__link:link,
-  .klbq-notice-item__link:visited,
-  .klbq-notice-item__link:hover,
-  .klbq-notice-item__link:active,
-  .klbq-notice-item__link.external,
-  .klbq-notice-item__link.external:hover {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px 12px;
-      font-size: 0.75rem;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-  }
-}
 .klbq-notice-item__link--bilibili,
 .klbq-notice-item__link--bilibili:visited { /* B站蓝色胶囊按钮 */
     color: #02b0da !important;
     background: rgba(2, 176, 218, 0.1);
     border: 1px solid rgba(2, 176, 218, 0.3);
 }
-
-@media (hover: hover) and (pointer: fine) {
-  .klbq-notice-item__link--bilibili:hover {
-      color: #fff !important;;
-      background: #02b0da;
-      box-shadow: 0 2px 8px rgba(2, 176, 218, 0.3);
-  }
-}
 .klbq-notice-item__link--official,
 .klbq-notice-item__link--official:visited { /* 官网胶囊按钮 */
     color: #ff6b2f !important;
     background: rgba(255, 107, 47, 0.1);
     border: 1px solid rgba(255, 107, 47, 0.3);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .klbq-notice-item__link--official:hover {
-      color: #fff !important;;
-      background: #ff6b2f;
-      box-shadow: 0 2px 8px rgba(255, 107, 47, 0.3);
-  }
 }
 @media screen and (max-width: 768px) { /* --- 移动端自适应 --- */
     .klbq-notice-item {
@@ -154,18 +152,10 @@
     border-color: rgba(255, 255, 255, 0.1);
     border-left-color: var(--wiki-dark-accent, #38bdf8);
 }
-
-@media (hover: hover) and (pointer: fine) {
-  .client-js.wiki-dark-mode .klbq-notice-item:hover {
-      background: rgba(30, 41, 59, 0.95);
-      border-color: rgba(14, 165, 233, 0.5);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  }
-}
 .client-js.wiki-dark-mode .klbq-notice-item__title a {
     color: var(--wiki-dark-text, #f1f5f9);
 }
 .client-js.wiki-dark-mode .klbq-notice-item__time {
     color: #94a3b8;
 }
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}

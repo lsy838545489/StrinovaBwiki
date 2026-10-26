@@ -220,7 +220,7 @@ end
 
 p["功能道具"] = function (itemName, size, imgSize, roleName, count)
     local data = mw.loadData("模块:功能道具/Data")
-    local mobileData = mw.loadData("模块:功能道具/MobileData")
+    local mobileData = mw.loadData("模块:功能道具/DataMobile")
 
     local targetItem = find_item_in_data(data, itemName) or find_item_in_data(mobileData, itemName)
 

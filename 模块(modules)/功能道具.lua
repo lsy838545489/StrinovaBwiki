@@ -139,4 +139,30 @@ p["道具筛选"] = function (frame)
 end
 
 
+p["道具筛选移动端"] = function (frame)
+    local data = mw.loadData("模块:功能道具/DataMobile")
+    local result = {}
+    
+    for _, item in pairs(data) do
+        local itemType = p.items_type(item.id) or ""
+        
+        -- 直接展开画廊卡片模板，将参数传入
+        local cardHtml = frame:expandTemplate{
+            title = "Gallerygrid/Items",
+            args = {
+                itemType = itemType,
+                quality = item.quality,
+                file = item.file,
+                name = item.name,
+                desc = item.desc or ""
+            }
+        }
+        table.insert(result, cardHtml)
+    end
+    
+    -- 外层包裹 gallerygrid 网格容器
+    return '<div class="gallerygrid">' .. table.concat(result) .. '</div>'
+end
+
+
 return p

@@ -9,16 +9,16 @@
 </div>
 </div>
 </div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
-{{#if:{{#varexists:player-decoration-CSS}} || {{#vardefine:player-decoration-CSS | 1 }}<bstyle>/*<pre>*/
+{{#if:{{#varexists:player-decoration-CSS}} || {{#vardefine:player-decoration-CSS | 1 }}{{#tag:bstyle|/*<pre>*/
 @media (min-width: 320px) {
-  .gallerygrid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  }
+    .gallerygrid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
 }
 @media (min-width: 768px) {
-  .gallerygrid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+    .gallerygrid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 }
 
 /* --- 卡片主框体 --- */
@@ -48,9 +48,19 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .gallerygrid-item:hover .gallerygrid-imagebox img {
-      transform: scale(1.05);
-  }
+    .gallerygrid-item:hover .gallerygrid-imagebox img {
+        transform: scale(1.05);
+    }
+
+    .mw-parser-output .klbq-decoration-card__obtain-value ul > li:hover {
+        background: rgba(0, 172, 193, 0.15);
+        border-color: rgba(0, 172, 193, 0.4);
+    }
+
+    .client-js.wiki-dark-mode .klbq-decoration-card__obtain-value ul > li:hover {
+        background: rgba(56, 189, 248, 0.25) !important;
+        border-color: rgba(56, 189, 248, 0.5) !important;
+    }
 }
 
 /* --- 底部内容面板 --- */
@@ -136,21 +146,14 @@
     background-color: #00acc1;
     border-radius: 1px;
     flex-shrink: 0;
-	vertical-align: middle;
-	margin-left: 0;
-	margin-right: 0;
-	position: relative;
-	top: 0;
-	box-shadow: unset;
+    vertical-align: middle;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    top: 0;
+    box-shadow: unset;
 }
 
-
-@media (hover: hover) and (pointer: fine) {
-  .mw-parser-output .klbq-decoration-card__obtain-value ul > li:hover {
-      background: rgba(0, 172, 193, 0.15);
-      border-color: rgba(0, 172, 193, 0.4);
-  }
-}
 
 /* --- 稀有度 Badge 基础与品质映射 --- */
 .gallerygrid-player-decoration .badge {
@@ -205,11 +208,4 @@
     background-color: #38bdf8 !important;
     box-shadow: 0 0 4px rgba(56, 189, 248, 0.6) !important;
 }
-
-@media (hover: hover) and (pointer: fine) {
-  .client-js.wiki-dark-mode .klbq-decoration-card__obtain-value ul > li:hover {
-      background: rgba(56, 189, 248, 0.25) !important;
-      border-color: rgba(56, 189, 248, 0.5) !important;
-  }
-}
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}

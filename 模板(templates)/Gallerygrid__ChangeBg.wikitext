@@ -8,19 +8,19 @@
 <div class="roomgrid__player-decoration">{{{1}}}</div>
 <small class="roomgrid__desc">{{{2}}}</small><br /><br />'''获得方式：'''
 {{{3}}}</div></div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
-{{#if:{{#varexists:roomgrid-css}} || {{#vardefine:roomgrid-css | 1 }}<bstyle>/*<pre>*/
+{{#if:{{#varexists:roomgrid-css}} || {{#vardefine:roomgrid-css | 1 }}{{#tag:bstyle|/*<pre>*/
 @media (min-width: 320px) { /* 响应式网格布局 */
-  .roomgrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
-  }
+    .roomgrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
+    }
 }
 @media (min-width: 768px) {
-  .roomgrid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-  }
+    .roomgrid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+    }
 }
 .roomgrid { /* 主体卡片样式 */
     display: flex;
@@ -35,11 +35,20 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .roomgrid:hover {
-      transform: translateY(-4px);
-      border-color: rgba(147, 197, 253, 0.6);
-      box-shadow: 0 8px 24px rgba(96, 165, 250, 0.15);
-  }
+    .roomgrid:hover {
+        transform: translateY(-4px);
+        border-color: rgba(147, 197, 253, 0.6);
+        box-shadow: 0 8px 24px rgba(96, 165, 250, 0.15);
+    }
+
+    .roomgrid:hover .roomgrid__image-bg img {
+        transform: scale(1.05);
+    }
+
+    .client-js.wiki-dark-mode .roomgrid:hover {
+        border-color: var(--wiki-dark-accent-hover);
+        box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+    }
 }
 .roomgrid__image-bg { /* 主背景展示区 (固定 16:9 比例) */
     width: 100%;
@@ -55,12 +64,6 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .roomgrid:hover .roomgrid__image-bg img {
-      transform: scale(1.05);
-  }
 }
 .roomgrid__ui-group { /* UI部件展示组 */
     display: flex;
@@ -115,10 +118,10 @@
     margin-bottom: 12px;
 }
 .roomgrid__player-decoration .badge {
-	color: var(--wiki-text);
-	vertical-align: baseline;
-	font-size: larger;
-	font-weight: bolder;
+    color: var(--wiki-text);
+    vertical-align: baseline;
+    font-size: larger;
+    font-weight: bolder;
     white-space: normal;
     border-radius: 20px;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
@@ -126,23 +129,23 @@
 }
 .roomgrid__player-decoration .badge[data-quality="8"],
 .roomgrid__player-decoration .badge[data-quality="6"] {
-	background: var(--item-quality-Secret);
+    background: var(--item-quality-Secret);
     color: rgb(248, 249, 250);
 }
 .roomgrid__player-decoration .badge[data-quality="5"] {
-	background: var(--item-quality-Legendary);
+    background: var(--item-quality-Legendary);
     color: rgb(248, 249, 250);
 }
 .roomgrid__player-decoration .badge[data-quality="4"] {
-	background: var(--item-quality-Perfect);
+    background: var(--item-quality-Perfect);
     color: rgb(248, 249, 250);
 }
 .roomgrid__player-decoration .badge[data-quality="3"] {
-	background: var(--item-quality-Superior);
+    background: var(--item-quality-Superior);
     color: rgb(248, 249, 250);
 }
 .roomgrid__player-decoration .badge[data-quality="2"] {
-	background: var(--item-quality-Exquisite);
+    background: var(--item-quality-Exquisite);
     color: rgb(248, 249, 250);
 }
 
@@ -150,12 +153,6 @@
 .client-js.wiki-dark-mode .roomgrid {
     background: rgba(30, 41, 59, 0.6);
     border-color: var(--wiki-dark-border);
-}
-@media (hover: hover) and (pointer: fine) {
-    .client-js.wiki-dark-mode .roomgrid:hover {
-        border-color: var(--wiki-dark-accent-hover);
-        box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
-    }
 }
 .client-js.wiki-dark-mode .roomgrid__image-bg {
     background: rgba(15, 23, 42, 0.5);
@@ -202,4 +199,4 @@
     border-color: #475569 !important;
     text-shadow: none;
 }
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}

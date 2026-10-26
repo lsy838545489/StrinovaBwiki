@@ -8,16 +8,16 @@
 <div class="zombie-card__date"><span class="zombie-card__label">上线日期：</span><span class="zombie-card__value">{{{10|}}}</span></div>
 </div>
 </div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
-{{#if:{{#varexists:gallery-grid-CSS}} || {{#vardefine:gallery-grid-CSS | 1 }}<bstyle>/*<pre>*/
+{{#if:{{#varexists:gallery-grid-CSS}} || {{#vardefine:gallery-grid-CSS | 1 }}{{#tag:bstyle|/*<pre>*/
 .gallerygrid { /* 容器基础排版 */
     justify-content: center;
     padding: 10px;
 }
 @media (min-width: 320px) {
-  .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
+    .gallerygrid { grid-template-columns: repeat(auto-fit, 280px); }
 }
 @media (min-width: 768px) {
-  .gallerygrid { grid-template-columns: repeat(auto-fit, 260px); }
+    .gallerygrid { grid-template-columns: repeat(auto-fit, 260px); }
 }
 .gallerygrid-item { /* 子项高度撑满 */
     display: flex;
@@ -63,6 +63,10 @@
         border-color: #fff;
         box-shadow: 0 0 5px #fff, 0 0 15px var(--item-quality-Exquisite), 0 0 30px 2px var(--item-quality-Exquisite);
     }
+
+    .client-js.wiki-dark-mode .zombie-card[data-param1="4"]:hover { border-color: #ffffff; box-shadow: 0 0 5px #ffffff, 0 0 15px var(--item-quality-Perfect), 0 0 30px 4px var(--item-quality-Perfect); }
+    .client-js.wiki-dark-mode .zombie-card[data-param1="3"]:hover { border-color: #ffffff; box-shadow: 0 0 5px #ffffff, 0 0 15px var(--item-quality-Superior), 0 0 30px 4px var(--item-quality-Superior); }
+    .client-js.wiki-dark-mode .zombie-card[data-param1="2"]:hover { border-color: #ffffff; box-shadow: 0 0 5px #ffffff, 0 0 15px var(--item-quality-Exquisite), 0 0 30px 4px var(--item-quality-Exquisite); }
 }
 
 .zombie-card__imagebox { /* Elements: Image Box & Badges */
@@ -190,12 +194,6 @@
 .client-js.wiki-dark-mode .zombie-card[data-param1="3"] { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 16px -2px var(--item-quality-Superior); }
 .client-js.wiki-dark-mode .zombie-card[data-param1="2"] { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 16px -2px var(--item-quality-Exquisite); }
 
-@media (hover: hover) and (pointer: fine) {
-    .client-js.wiki-dark-mode .zombie-card[data-param1="4"]:hover { border-color: #ffffff; box-shadow: 0 0 5px #ffffff, 0 0 15px var(--item-quality-Perfect), 0 0 30px 4px var(--item-quality-Perfect); }
-    .client-js.wiki-dark-mode .zombie-card[data-param1="3"]:hover { border-color: #ffffff; box-shadow: 0 0 5px #ffffff, 0 0 15px var(--item-quality-Superior), 0 0 30px 4px var(--item-quality-Superior); }
-    .client-js.wiki-dark-mode .zombie-card[data-param1="2"]:hover { border-color: #ffffff; box-shadow: 0 0 5px #ffffff, 0 0 15px var(--item-quality-Exquisite), 0 0 30px 4px var(--item-quality-Exquisite); }
-}
-
 .client-js.wiki-dark-mode .zombie-card__badge--faction { background: rgba(14, 165, 233, 0.15); color: #38bdf8; border-color: rgba(14, 165, 233, 0.4); }
 .client-js.wiki-dark-mode .zombie-card[data-param3="晶源体"] .zombie-card__badge--faction { background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.4); }
 .client-js.wiki-dark-mode .zombie-card[data-param3="超弦体"] .zombie-card__badge--faction { background: rgba(168, 85, 247, 0.15); color: #c084fc; border-color: rgba(168, 85, 247, 0.4); }
@@ -231,4 +229,4 @@
     color: var(--wiki-dark-text);
     text-shadow: none;
 }
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}

@@ -3,34 +3,34 @@
   --><div class="{{{iclass|}}}" style="{{{istyle|}}}">{{{img|[[File:{{{1}}}|{{{size|{{#var:nvcSize|60px}}}}}|link={{{2|}}}]]}}}</div><!--
   -->{{{text|{{#if:{{{2|}}}|[[{{{2|}}}{{#if:{{{3|}}}|{{!}}{{{3}}}}}]]|{{{3|}}}}}}}}<!--
 --></div><!--
---></includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>{{#if:{{#varexists:nav-chara-css}} || {{#vardefine:nav-chara-css | 1 }}<bstyle>/*<pre>*/
+--></includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>{{#if:{{#varexists:nav-chara-css}}||{{#vardefine:nav-chara-css|1}}{{#css:
 .nav-chara {
-	display: flex;
-	flex-wrap: wrap;
-	text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
 }
 .nav-chara > div {
-	display: inline-flex;
-	flex-direction: column;
-	align-items: center;
-	width: 90px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
 }
 .nav-chara > div > div:first-child {
-	display: inline-block;
-	overflow: hidden;
-	vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
 }
 .nav-chara.pic-circle > div > div:first-child {
-	border-radius: 50%;
+    border-radius: 50%;
 }
 .nav-chara.pic-w100 > div {
-	width: 100px;
+    width: 100px;
 }
 .nav-chara.pic-w110 > div {
-	width: 110px;
+    width: 110px;
 }
 .nav-chara.pic-w120 > div {
-	width: 120px;
+    width: 120px;
 }
 .game-story-box {
     margin: 15px;
@@ -50,11 +50,15 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .game-story-box:hover {
-      transform: translateY(-4px);
-      border-color: rgba(147, 197, 253, 0.7);
-      box-shadow: 0 8px 24px rgba(96, 165, 250, 0.25);
-  }
+    .game-story-box:hover {
+        transform: translateY(-4px);
+        border-color: rgba(147, 197, 253, 0.7);
+        box-shadow: 0 8px 24px rgba(96, 165, 250, 0.25);
+    }
+
+    .game-story-box:hover a {
+        color: #3b82f6; 
+    }
 }
 .game-story-box a {
     text-decoration: none;
@@ -62,10 +66,4 @@
     transition: color 0.3s ease;
     display: inline-block;
 }
-
-@media (hover: hover) and (pointer: fine) {
-  .game-story-box:hover a {
-      color: #3b82f6; 
-  }
-}
-/*</pre>*/</bstyle>}}
+}}}}

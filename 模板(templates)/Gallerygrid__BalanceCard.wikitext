@@ -1,0 +1,150 @@
+<includeonly><div class="gallerygrid-item klbq-balance-card" data-hero="{{{角色码|}}}" data-name="{{{角色|}}}" data-role="{{{职业|}}}">
+<div class="klbq-balance-card__imagebox">[[文件:{{{角色|}}}头像.png|110px|link={{{角色|}}}]]</div>
+<div class="klbq-balance-card__name">[[{{{角色|}}}]]</div>
+{{#if:{{{职业|}}}|<div class="klbq-balance-card__role">{{{职业|}}}</div>|}}
+<div class="klbq-balance-card__stats">
+<div class="klbq-balance-card__stat"><span class="klbq-balance-card__label">胜率</span><span class="klbq-balance-card__value" data-metric="winRate"><b class="s1">{{{防守胜率|--}}}</b><b class="s2">{{{进攻胜率|--}}}</b></span></div>
+<div class="klbq-balance-card__stat"><span class="klbq-balance-card__label">选取率</span><span class="klbq-balance-card__value" data-metric="selectRate"><b class="s1">{{{防守选取率|--}}}</b><b class="s2">{{{进攻选取率|--}}}</b></span></div>
+<div class="klbq-balance-card__stat"><span class="klbq-balance-card__label">K/D</span><span class="klbq-balance-card__value" data-metric="kd"><b class="s1">{{{防守KD|--}}}</b><b class="s2">{{{进攻KD|--}}}</b></span></div>
+<div class="klbq-balance-card__stat"><span class="klbq-balance-card__label">回合均伤</span><span class="klbq-balance-card__value" data-metric="damageAve"><b class="s1">{{{防守均伤|--}}}</b><b class="s2">{{{进攻均伤|--}}}</b></span></div>
+<div class="klbq-balance-card__stat"><span class="klbq-balance-card__label">表现分</span><span class="klbq-balance-card__value" data-metric="score"><b class="s1">{{{防守表现分|--}}}</b><b class="s2">{{{进攻表现分|--}}}</b></span></div>
+</div>
+</div></includeonly><noinclude>[[分类:模板]]</noinclude>
+{{#invoke:CSSOnly|render_style|1=
+.klbq-balance-card {
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 14px;
+    border: 1.5px solid rgba(226, 232, 240, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .3s, box-shadow .3s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+@media (hover: hover) and (pointer: fine) {
+    .klbq-balance-card:hover {
+        transform: translateY(-4px);
+        z-index: 2;
+        border-color: #FF6B2F;
+        box-shadow: 0 8px 20px rgba(255, 107, 47, 0.18);
+    }
+}
+.klbq-balance-card__imagebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 2px 0;
+    background: linear-gradient(180deg, rgba(160,207,255,.15) 0%, rgba(248,249,250,0) 100%);
+}
+.klbq-balance-card__imagebox img { object-fit: contain; object-position: center; }
+.klbq-balance-card__name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.15rem;
+    color: #334155;
+    padding: 4px 0;
+    background: linear-gradient(90deg, transparent, rgba(160,207,255,.2), transparent);
+    border-bottom: 1px dashed rgba(160,207,255,.5);
+}
+.klbq-balance-card__role {
+    text-align: center;
+    font-size: .75rem;
+    color: #64748b;
+    padding: 3px 0 6px 0;
+}
+.klbq-balance-card__stats {
+    padding: 4px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex-grow: 1;
+}
+.klbq-balance-card__stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .85rem;
+    padding: 2px 4px;
+    border-bottom: 1px dotted rgba(160,207,255,.25);
+}
+.klbq-balance-card__stat:last-child { border-bottom: 0; }
+.klbq-balance-card__label { color: #64748b; font-size: 12px; }
+.klbq-balance-card__value {
+    color: #00acc1;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    transition: color .15s linear;
+}
+/* ===== 阵营（防守 / 进攻）切换：同一张卡只显示当前阵营的数值 ===== */
+#klbq-balance-root .klbq-balance-card__value b { display: none; }
+#klbq-balance-root[data-side="s1"] .klbq-balance-card__value b.s1 { display: inline; }
+#klbq-balance-root[data-side="s2"] .klbq-balance-card__value b.s2 { display: inline; }
+/* 该列最高值（由 widget 加 class，避免内联样式难维护） */
+.klbq-balance-card__value .klbq-max { color: #2AA52F; }
+.klbq-balance-card__value .klbq-none { color: #b0b7c3; font-weight: 400; }
+/* 缺数据的卡片由 Widget:BalanceFilter 直接加 .klbq-hide（display:none）隐藏，
+   不再做半透明降级，所以这里原来的 .klbq-empty 规则已删除。 */
+/* 筛选/排序面板 */
+.klbq-balance-panel { margin-bottom: 18px; }
+.klbq-balance-sortrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+/* 筛选按钮（独立类名，避免与全站 cardSelectOption 的筛选脚本抢卡片） */
+.klbq-balance-fbtn {
+    cursor: pointer;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: .875rem;
+    line-height: 20px;
+    user-select: none;
+    border: 2px solid #e1e8f0;
+    color: #556a8e;
+    transition: all .2s ease;
+    background: transparent;
+}
+.klbq-balance-fbtn:hover { background: #f0f7ff; color: #409eff; border-color: #a0cfff; transform: translateY(-2px); }
+.klbq-balance-fbtn.selected { background: #409eff; color: #fff; border-color: #409eff; transform: translateY(0); }
+.klbq-balance-sortbtn {
+    cursor: pointer;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: .875rem;
+    line-height: 20px;
+    user-select: none;
+    border: 2px solid #e1e8f0;
+    color: #556a8e;
+    transition: all .2s ease;
+    background: transparent;
+}
+.klbq-balance-sortbtn:hover { background: #f0f7ff; color: #409eff; border-color: #a0cfff; transform: translateY(-2px); }
+.klbq-balance-sortbtn.klbq-on { background: #409eff; color: #fff; border-color: #409eff; transform: translateY(0); }
+.klbq-balance-sortbtn .klbq-arrow { margin-left: 4px; font-size: .75em; }
+.klbq-balance-status { font-size: 12px; color: #94a3b8; margin-left: 6px; }
+.klbq-balance-def { font-size: 12px; color: #94a3b8; }
+/* 卡片网格：排序依赖 flex order，必须显式 flex */
+.klbq-balance-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 1rem;
+    justify-content: center;
+    padding: 10px;
+}
+.klbq-balance-grid > .gallerygrid-item { flex: 0 0 260px; max-width: 260px; }
+@media screen and (max-width: 640px) {
+    .klbq-balance-grid > .gallerygrid-item { flex: 0 0 46%; max-width: 46%; }
+    .klbq-balance-card__name { font-size: 1rem; }
+}
+/* 暗色模式 */
+.client-js.wiki-dark-mode .klbq-balance-card { background: rgba(30,41,59,.85); }
+.client-js.wiki-dark-mode .klbq-balance-card__name { color: #f1f5f9; }
+.client-js.wiki-dark-mode .klbq-balance-card__label { color: #94a3b8; }
+.client-js.wiki-dark-mode .klbq-balance-card__value { color: #38bdf8; }
+.client-js.wiki-dark-mode .klbq-balance-panel { color: #cbd5e1; }
+.client-js.wiki-dark-mode .klbq-balance-fbtn { border-color: rgba(148,163,184,.4); color: #cbd5e1; }
+.client-js.wiki-dark-mode .klbq-balance-fbtn:hover { background: rgba(64,158,255,.15); color: #7dd3fc; }
+.client-js.wiki-dark-mode .klbq-balance-fbtn.selected { background: #409eff; color: #fff; border-color: #409eff; }
+.client-js.wiki-dark-mode .klbq-balance-sortbtn { border-color: rgba(148,163,184,.4); color: #cbd5e1; }
+.client-js.wiki-dark-mode .klbq-balance-sortbtn.klbq-on { background: #409eff; color: #fff; border-color: #409eff; }
+}}

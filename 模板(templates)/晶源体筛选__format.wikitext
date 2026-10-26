@@ -6,7 +6,7 @@
 {{#if:{{{晶源体特性|}}}|<div class="klbq-crystal-card__traits"><span class="klbq-crystal-card__label">晶源体特性：</span><div class="klbq-crystal-card__trait-list">{{#arraymap:{{{晶源体特性|}}}|、|@|<span class="klbq-crystal-card__trait">@</span>| }}</div></div>}}
 </div>
 </div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
-{{#if:{{#varexists:klbq-crystal-card-CSS}} || {{#vardefine:klbq-crystal-card-CSS | 1 }}<bstyle>/*<pre>*/
+{{#if:{{#varexists:klbq-crystal-card-CSS}} || {{#vardefine:klbq-crystal-card-CSS | 1 }}{{#tag:bstyle|/*<pre>*/
 /* --- 晶源体卡片 Block --- */
 .klbq-crystal-card {
     background: rgba(248, 249, 250, 0.9);
@@ -68,6 +68,11 @@
     .klbq-crystal-card:hover::after {
         opacity: 1;
         animation: klbq-card-scan 1.2s ease-out;
+    }
+
+    .client-js.wiki-dark-mode .klbq-crystal-card:hover {
+        box-shadow: 0 8px 24px rgba(239, 68, 68, 0.25);
+        border-color: rgba(239, 68, 68, 0.6);
     }
 }
 @keyframes klbq-card-scan {
@@ -192,13 +197,6 @@
 }
 
 
-@media (hover: hover) and (pointer: fine) {
-  .client-js.wiki-dark-mode .klbq-crystal-card:hover {
-      box-shadow: 0 8px 24px rgba(239, 68, 68, 0.25);
-      border-color: rgba(239, 68, 68, 0.6);
-  }
-}
-
 .client-js.wiki-dark-mode .klbq-crystal-card__imagebox {
     background: linear-gradient(180deg, rgba(239, 68, 68, 0.12) 0%, rgba(15, 23, 42, 0) 100%);
 }
@@ -223,4 +221,4 @@
 
 .client-js.wiki-dark-mode .klbq-crystal-card__label { color: #94a3b8; }
 .client-js.wiki-dark-mode .klbq-crystal-card__value { color: var(--wiki-dark-text, #f1f5f9); }
-/*</pre>*/</bstyle>}}
+/*</pre>*/ }}}}
