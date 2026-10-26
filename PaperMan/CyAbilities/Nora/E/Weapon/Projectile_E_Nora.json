@@ -11,7 +11,7 @@
       }
     },
     "SuperStruct": {
-      "ObjectName": "Class'CyProjectileBase'",
+      "ObjectName": "Class'CyProjectileBlastBome'",
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
@@ -130,7 +130,7 @@
   {
     "Type": "Projectile_E_Nora_C",
     "Name": "Default__Projectile_E_Nora_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Projectile_E_Nora.Projectile_E_Nora_C'",
     "Properties": {
       "IgnoreEnemy": true,
@@ -151,6 +151,13 @@
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Projectile_E_Nora.2"
       },
       "ExplodeType": "EExplodeType::OnLifeOver",
+      "ActuatorConfig": {
+        "ActorClass": {
+          "ObjectName": "BlueprintGeneratedClass'Summon_E_Nora_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Summon/Summon_E_Nora.0"
+        },
+        "bUseActorLocation": true
+      },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile_E_Nora_C:PerceptionSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Projectile_E_Nora.15"
@@ -231,18 +238,9 @@
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": null,
-          "SubAtoms": [],
-          "EventActions": []
-        },
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "bNoSkipped": false,
           "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_SpawnActor_E_Nora_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Atom/BP_SA_SpawnActor_E_Nora.0"
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_StopSelfMovement_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/StateAtoms/BP_SA_StopSelfMovement.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -348,7 +346,6 @@
       "InitialSpeed": 3000.0,
       "MaxSpeed": 3000.0,
       "ProjectileGravityScale": 0.0,
-      "Friction": 0.8,
       "OnProjectileBounce": {
         "InvocationList": [
           {

@@ -23,12 +23,9 @@
   {
     "Type": "GE_Q_Projectile_Nora_C",
     "Name": "Default__GE_Q_Projectile_Nora_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Projectile/Atom/GE_Q_Projectile_Nora.GE_Q_Projectile_Nora_C'",
     "Properties": {
-      "TargetRemovedEventTag": {
-        "TagName": "Event.Action.KeepAimOrADS"
-      },
       "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
       "DurationMagnitude": {
         "ScalableFloatMagnitude": {
@@ -45,10 +42,10 @@
       "Modifiers": [
         {
           "Attribute": {
-            "AttributeName": "ExtraAttackSpeedFactor",
+            "AttributeName": "WeaponSpreadAccuracyAdditiveValue",
             "Attribute": {
               "Path": [
-                "ExtraAttackSpeedFactor"
+                "WeaponSpreadAccuracyAdditiveValue"
               ],
               "ResolvedOwner": {
                 "ObjectName": "Class'CyCharacterAttributeSet'",
@@ -81,15 +78,186 @@
           "ModifierMagnitude": {
             "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
             "ScalableFloatMagnitude": {
-              "Value": 1.0,
+              "Value": 10000.0,
               "bEnableMobile": false,
               "MobileValue": 0.0,
               "Curve": {
-                "CurveTable": {
-                  "ObjectName": "ModeCurveTable'CT_GameMode'",
-                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "AttributeBasedMagnitude": {
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "BackingAttribute": {
+                "AttributeToCapture": {
+                  "AttributeName": "",
+                  "Attribute": {
+                    "Path": [],
+                    "ResolvedOwner": null
+                  },
+                  "AttributeOwner": null
                 },
-                "RowName": "Attribute.AttackSpeedFactor.Reduce.Q.Nora"
+                "AttributeSource": "EGameplayEffectAttributeCaptureSource::Source",
+                "bSnapshot": false
+              },
+              "AttributeCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              },
+              "AttributeCalculationType": "EAttributeBasedFloatCalculationType::AttributeMagnitude",
+              "FinalChannel": "EGameplayModEvaluationChannel::Channel0",
+              "SourceTagFilter": [],
+              "TargetTagFilter": []
+            },
+            "CustomMagnitude": {
+              "CalculationClassMagnitude": null,
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "FinalLookupCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SetByCallerMagnitude": {
+              "DataName": "None",
+              "DataTag": {
+                "TagName": "None"
+              }
+            }
+          },
+          "EvaluationChannelSettings": {
+            "Channel": "EGameplayModEvaluationChannel::Channel0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TargetTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Attribute": {
+            "AttributeName": "WeaponSpreadAccuracyFactor",
+            "Attribute": {
+              "Path": [
+                "WeaponSpreadAccuracyFactor"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class'CyCharacterAttributeSet'",
+                "ObjectPath": "/Script/PMGame"
+              }
+            },
+            "AttributeOwner": {
+              "ObjectName": "Class'CyCharacterAttributeSet'",
+              "ObjectPath": "/Script/PMGame"
+            }
+          },
+          "GameStateScaleAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "ModifierOp": "EGameplayModOp::Override",
+          "Magnitude": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ModifierMagnitude": {
+            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
+            "ScalableFloatMagnitude": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
               }
             },
             "AttributeBasedMagnitude": {
@@ -234,32 +402,31 @@
           "MinLevel": 0.0,
           "MaxLevel": 0.0,
           "GameplayCueTags": [
-            "GC.Shared.Vertigo"
+            "GC.Nobunaga.P"
           ]
         }
       ],
       "InheritableGameplayEffectTags": {
         "CombinedTags": [
-          "BuffIcon.Weak.Vertigo",
-          "Buff.Weak.Vertigo",
-          "BuffIcon.Weak.AttackSpeed"
+          "BuffIcon.Weak.HideSight",
+          "Buff.Weak.HideSight"
         ],
         "Added": [
-          "BuffIcon.Weak.Vertigo",
-          "Buff.Weak.Vertigo",
-          "BuffIcon.Weak.AttackSpeed"
+          "BuffIcon.Weak.HideSight",
+          "Buff.Weak.HideSight"
         ]
       },
       "InheritableOwnedTagsContainer": {
         "CombinedTags": [
-          "Buff.Weak.Vertigo",
-          "State.Player.DisableInputAim.ADS",
-          "State.Player.DisableKeepAim.ADS"
+          "Buff.Weak.HideSight"
         ],
         "Added": [
-          "Buff.Weak.Vertigo",
-          "State.Player.DisableInputAim.ADS",
-          "State.Player.DisableKeepAim.ADS"
+          "Buff.Weak.HideSight"
+        ]
+      },
+      "OngoingTagRequirements": {
+        "RequireTags": [
+          "State.Weapon.Hold.AimOrADS"
         ]
       },
       "ApplicationTagRequirements": {

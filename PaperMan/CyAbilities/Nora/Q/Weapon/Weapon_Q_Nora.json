@@ -280,6 +280,9 @@
     "Outer": {
       "ObjectName": "Weapon_Q_Nora_C'Default__Weapon_Q_Nora_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Weapon/Weapon_Q_Nora.1"
+    },
+    "Properties": {
+      "bAcceptAttackInput": true
     }
   },
   {
@@ -325,6 +328,14 @@
               "bAllowLoop": false
             }
           ]
+        }
+      ],
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Action.StopSide"
+        },
+        {
+          "TagName": "Event.Action.StopFly"
         }
       ],
       "bEnabled": true
@@ -374,6 +385,14 @@
               "bAllowLoop": false
             }
           ]
+        }
+      ],
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Action.StopSide"
+        },
+        {
+          "TagName": "Event.Action.StopFly"
         }
       ]
     }
@@ -434,7 +453,7 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Weapon/Weapon_Q_Nora.1"
     },
     "Properties": {
-      "AllowedGait": "ECyGait::Run"
+      "bEnabled": false
     }
   },
   {
@@ -532,6 +551,13 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Weapon/Weapon_Q_Nora.1"
     },
     "Properties": {
+      "SupportUseIDSet": [
+        "EUseID::ReleaseToActivate"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableKeep2D.Fly",
+        "State.Player.DisableKeep2D.Side"
+      ],
       "AllowedGait": "ECyGait::Run",
       "AssetEvents": [
         {
@@ -739,6 +765,7 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Weapon/Weapon_Q_Nora.1"
     },
     "Properties": {
+      "bAcceptAttackInput": true,
       "BeginEventTags": [
         {
           "TagName": "Event.Action.KeepFly"

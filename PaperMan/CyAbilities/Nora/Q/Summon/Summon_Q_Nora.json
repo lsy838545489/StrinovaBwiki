@@ -490,6 +490,7 @@
           "ObjectPath": "/Script/PMGame"
         }
       ],
+      "bAlwaysDestroyWhenEnterDangerousZone": false,
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_Q_Nora_C:PerceptionSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Summon_Q_Nora.39"
@@ -1177,10 +1178,7 @@
             }
           ]
         }
-      ],
-      "TotalDuration": {
-        "Value": 5.0
-      }
+      ]
     }
   },
   {
@@ -1274,10 +1272,7 @@
             }
           ]
         }
-      ],
-      "TotalDuration": {
-        "Value": 5.0
-      }
+      ]
     }
   },
   {
@@ -1332,7 +1327,10 @@
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": null,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_StopSelfMovement_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/StateAtoms/BP_SA_StopSelfMovement.0"
+          },
           "SubAtoms": [],
           "EventActions": []
         }
@@ -1384,7 +1382,10 @@
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": null,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_PlayLockParticle_Q_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Atom/BP_SA_PlayLockParticle_Q_Nora.0"
+          },
           "SubAtoms": [],
           "EventActions": []
         }
@@ -1609,7 +1610,7 @@
       "StateType": "EAIStateType::SecondWork",
       "Events": [
         {
-          "PositionStart": 0.0,
+          "PositionStart": 1.0,
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
@@ -1624,6 +1625,33 @@
       "AssetEvents": [
         {
           "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.B",
+                "Resource.Audio.SecondWork.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        },
+        {
+          "PositionStart": 1.0,
           "PositionEnd": 1.0,
           "RequireTags": {
             "RequireTagType": "ERequireTagType::AND",
@@ -1732,6 +1760,30 @@
           },
           "SubAtoms": [],
           "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_OwnerLifeSpanGotoAIState_Q_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Atom/BP_SA_OwnerLifeSpanGotoAIState_Q_Nora.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SetOwnerNoSee_Q_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Atom/BP_SA_SetOwnerNoSee_Q_Nora.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
         }
       ],
       "AssetEvents": [
@@ -1789,35 +1841,6 @@
           },
           "SubAtoms": [],
           "EventActions": []
-        }
-      ],
-      "AssetEvents": [
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::None",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "None",
-              "AssetTagContainer": [
-                "Resource.Particle.Work.B",
-                "Resource.Audio.SecondWork.A"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": false
-            }
-          ]
         }
       ],
       "TotalDuration": {
@@ -1978,6 +2001,39 @@
           "X": 270.0,
           "Y": 30.0,
           "Z": 0.0
+        }
+      ],
+      "bEnableVisionTraceIgnoreActor": true,
+      "VisionTraceIgnoreActorTags": [
+        "Event.Summon.Spawn.SmokeGrenade",
+        "ActorTag.Summon.X.Meredith.Sand",
+        "Event.Summon.Spawn.Meredith.E",
+        "ActorTag.Summon.Q.Reiichi"
+      ],
+      "VisionTraceIgnoreActorClasses": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Summon_SmokeGrenade_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/GrenadeSmoke/Summon/BP_Summon_SmokeGrenade.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Summon_X_Meredith_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Meredith/X/Summon/BP_Summon_X_Meredith.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Summon_E_Meredith_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Meredith/E/Summon/BP_Summon_E_Meredith.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'Summon_E_Flavia_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Flavia/E/Summon/Summon_E_Flavia.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Summon_Q_Reiichi_H_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Reiichi/Q/SummonH/BP_Summon_Q_Reiichi_H.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Summon_Q_Reiichi_V_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Reiichi/Q/SummonV/BP_Summon_Q_Reiichi_V.2"
         }
       ]
     }
@@ -3235,6 +3291,10 @@
             {
               "Channel": "Summon",
               "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BulletRadius",
+              "Response": "ECR_Block"
             }
           ]
         }

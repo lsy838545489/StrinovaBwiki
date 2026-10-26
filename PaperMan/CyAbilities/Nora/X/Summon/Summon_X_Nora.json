@@ -7,7 +7,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
       }
     },
     "SuperStruct": {
@@ -15,6 +15,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateMonitorWarning",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "Ak",
@@ -284,24 +295,25 @@
   {
     "Type": "Summon_X_Nora_C",
     "Name": "Default__Summon_X_Nora_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.Summon_X_Nora_C'",
     "Properties": {
+      "bCanTriggerPassiveControlOverlap": true,
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_X_Nora_C:ArousalComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.18"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_X_Nora_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.28"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.29"
       },
       "Mesh": {
         "ObjectName": "SkeletalMeshComponent'Default__Summon_X_Nora_C:CharacterMesh0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.55"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.57"
       },
       "CharacterMovement": {
         "ObjectName": "CySummonsMovementComponent'Default__Summon_X_Nora_C:CharMoveComp'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.26"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.27"
       },
       "CapsuleComponent": {
         "ObjectName": "CapsuleComponent'Default__Summon_X_Nora_C:CollisionCylinder'",
@@ -312,7 +324,7 @@
         "ObjectName": "BlueprintGeneratedClass'AIController_X_Nora_C'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/AI/AIController_X_Nora.0"
       },
-      "InitialLifeSpan": 20.0,
+      "InitialLifeSpan": 15.0,
       "RootComponent": {
         "ObjectName": "CapsuleComponent'Default__Summon_X_Nora_C:CollisionCylinder'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.5"
@@ -369,34 +381,14 @@
     "Properties": {
       "CapsuleHalfHeight": 60.0,
       "CapsuleRadius": 17.0,
+      "bGenerateOverlapEvents": true,
       "BodyInstance": {
-        "ObjectType": "ECC_WorldDynamic",
         "CollisionEnabled": "ECollisionEnabled::QueryOnly",
-        "CollisionProfileName": "OnlyQueryBlockWorldObject",
+        "CollisionProfileName": "CharatcterCapsule",
         "CollisionResponses": {
           "ResponseArray": [
             {
-              "Channel": "Pawn",
-              "Response": "ECR_Ignore"
-            },
-            {
               "Channel": "Visibility",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Destructible",
               "Response": "ECR_Ignore"
             },
             {
@@ -409,19 +401,19 @@
             },
             {
               "Channel": "Pickup",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Mesh",
-              "Response": "ECR_Ignore"
+              "Response": "ECR_Overlap"
             },
             {
               "Channel": "Mark",
               "Response": "ECR_Ignore"
             },
             {
-              "Channel": "Summon",
-              "Response": "ECR_Ignore"
+              "Channel": "Interaction",
+              "Response": "ECR_Overlap"
             }
           ]
         }
@@ -945,6 +937,20 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.0"
     },
     "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.1,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_AddEffects_Warning_X_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/Warning/BP_GSSA_AddEffects_Warning_X_Nora.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
       "AssetEvents": [
         {
           "PositionStart": 0.0,
@@ -1031,11 +1037,35 @@
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": null,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchAllEnemySummon_X_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SA_SearchAllEnemySummon_X_Nora.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Blind_ViewTarget_X_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SA_SearchTargets_Blind_ViewTarget_X_Nora.0"
+          },
           "SubAtoms": [
-            null,
-            null,
-            null
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSAtom_PlayEffect_BlindSphere_X_Nora_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SSAtom_PlayEffect_BlindSphere_X_Nora.0"
+            },
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSAtom_ScaleBlindSphere_X_Nora_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SSAtom_ScaleBlindSphere_X_Nora.0"
+            },
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSAtom_SetViewRadius_X_Nora_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SSAtom_SetViewRadius_X_Nora.0"
+            }
           ],
           "EventActions": []
         },
@@ -1044,7 +1074,10 @@
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": null,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Blind_NotViewTarget_X_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SA_SearchTargets_Blind_NotViewTarget_X_Nora.0"
+          },
           "SubAtoms": [
             {
               "ObjectName": "BlueprintGeneratedClass'BP_SSA_PlayBlindEffect_X_Nora_C'",
@@ -1058,7 +1091,10 @@
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": null,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Blind_NotViewTarget_ViewCanNotSee_X_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SA_SearchTargets_Blind_NotViewTarget_ViewCanNotSee_X_Nora.0"
+          },
           "SubAtoms": [
             {
               "ObjectName": "BlueprintGeneratedClass'BP_SSA_PlayBlindEffect_CanNotSee_X_Nora_C'",
@@ -1278,6 +1314,36 @@
     }
   },
   {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIStateMonitorWarning_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_X_Nora_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::Work",
+        "EAIStateType::SecondWork"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_GSSA_AddEffects_Warning_X_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/Warning/BP_GSSA_AddEffects_Warning_X_Nora.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
     "Type": "CyAIWorkState",
     "Name": "CyAISecondWorkState_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
@@ -1295,8 +1361,8 @@
           "bEndWithState": false,
           "bNoSkipped": false,
           "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_DisableCollision_X_Nora_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SA_DisableCollision_X_Nora.0"
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SetCollisionResponse_X_Nora_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SA_SetCollisionResponse_X_Nora.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -1758,7 +1824,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1767,7 +1833,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_X_Nora_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.29"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.30"
       },
       "VariableGuid": "F752E256-459A4829-DA63EF8D-6D0B1436",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1780,7 +1846,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1789,7 +1855,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_X_Nora_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.25"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.26"
       },
       "VariableGuid": "7AF578F7-43C9659A-978872AA-C6C972D3",
       "InternalVariableName": "CySkin"
@@ -1802,7 +1868,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1811,7 +1877,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_X_Nora_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.20"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.21"
       },
       "VariableGuid": "50DEDCC0-4E56BC63-174C5E9A-39EFF6B2",
       "InternalVariableName": "CyRetain"
@@ -1824,7 +1890,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1833,7 +1899,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyLifeComponent'Summon_X_Nora_C:CyLife_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.19"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.20"
       },
       "VariableGuid": "343D1B72-43659BD5-19BB9796-5E618963",
       "InternalVariableName": "CyLife"
@@ -1846,7 +1912,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1855,7 +1921,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAttributeComponent'Summon_X_Nora_C:CyAttribute_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.19"
       },
       "VariableGuid": "1EF936AB-44B3733F-F65B2EB0-17004884",
       "InternalVariableName": "CyAttribute"
@@ -1868,7 +1934,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1890,7 +1956,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1912,7 +1978,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1934,7 +2000,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1943,7 +2009,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_X_Nora_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.17"
       },
       "VariableGuid": "3D00F497-46BF66E5-0B101C94-10656769",
       "InternalVariableName": "CyAIWorkState"
@@ -1956,7 +2022,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1965,7 +2031,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_X_Nora_C:CyAISecondWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.15"
       },
       "VariableGuid": "ACC061C2-4B69DEAA-B284C680-EB913FDE",
       "InternalVariableName": "CyAISecondWorkState"
@@ -1978,7 +2044,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -1987,7 +2053,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_X_Nora_C:CyAIThirdWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.15"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.16"
       },
       "VariableGuid": "751BF4DA-4A2889F7-B1BAB98D-FA5CC09D",
       "InternalVariableName": "CyAIThirdWorkState"
@@ -2000,7 +2066,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2022,7 +2088,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2044,7 +2110,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2066,7 +2132,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2088,7 +2154,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2097,7 +2163,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Summon_X_Nora_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.24"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.25"
       },
       "VariableGuid": "931F0EE8-4605857D-35D603A8-C82CE375",
       "InternalVariableName": "CySearchTargets"
@@ -2110,7 +2176,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2119,7 +2185,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyTargetActorsComponent'Summon_X_Nora_C:CyTargetActors_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.27"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.28"
       },
       "VariableGuid": "C2FC606B-4069EAAD-9A0F8481-47201D7E",
       "InternalVariableName": "CyTargetActors"
@@ -2132,7 +2198,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2141,7 +2207,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchGroupComponent'Summon_X_Nora_C:CySearchGroup_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.22"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.23"
       },
       "VariableGuid": "CEDF518E-471D714B-5EDDC7AE-D21189C9",
       "InternalVariableName": "CySearchGroup"
@@ -2154,7 +2220,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2163,7 +2229,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchLocationComponent'Summon_X_Nora_C:CySearchLocation_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.23"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.24"
       },
       "VariableGuid": "942CBB05-482FB696-E17E6185-B983A7F2",
       "InternalVariableName": "CySearchLocation"
@@ -2176,7 +2242,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2198,7 +2264,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2220,7 +2286,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2242,7 +2308,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2251,7 +2317,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySceneMapSummonMaskComponent'Summon_X_Nora_C:CySceneMapNoraXItem_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.21"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.22"
       },
       "VariableGuid": "BA0C42F9-40D43C43-4A8929B1-430906FC",
       "InternalVariableName": "CySceneMapNoraXItem"
@@ -2264,7 +2330,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
     },
     "Properties": {
       "ComponentClass": {
@@ -2282,6 +2348,28 @@
     }
   },
   {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_X_Nora_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.56"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'Summon_X_Nora_C:CyAIStateMonitorWarning_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.14"
+      },
+      "VariableGuid": "CBE8DCE5-4B67880F-D2CC7DA0-E5017E43",
+      "InternalVariableName": "CyAIStateMonitorWarning"
+    }
+  },
+  {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
@@ -2294,194 +2382,202 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.31"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.32"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.33"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_32'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.34"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_33'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_32'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.35"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_33'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.36"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_34'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.37"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_36'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_35'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.38"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_37'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_36'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.39"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_38'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_37'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.40"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_39'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_38'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.41"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_40'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.43"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_41'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.44"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_42'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.45"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_43'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.46"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_44'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.47"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_45'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.48"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_46'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.49"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_47'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.50"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.51"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_39'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.42"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_40'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_41'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_42'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.46"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_43'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.47"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_44'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.48"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_45'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.49"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_46'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.50"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_47'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.51"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_5'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.52"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.43"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_6'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.53"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.55"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.31"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.32"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.33"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_32'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_3'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.34"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_33'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_32'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.35"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_33'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.36"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_34'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.37"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_36'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_35'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.38"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_37'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_36'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.39"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_38'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_37'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.40"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_39'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_38'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.41"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_40'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.43"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_41'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.44"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_42'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.45"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_43'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.46"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_44'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.47"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_45'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.48"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_46'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.49"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_47'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.50"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.51"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_39'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.42"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_40'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_41'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_42'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.46"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_43'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.47"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_44'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.48"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_45'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.49"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_46'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.50"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_47'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.51"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_5'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.52"
         },
         {
-          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.43"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_6'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.53"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.54"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.55"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_X_Nora_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.30"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Summon_X_Nora.31"
       }
     }
   },
@@ -2552,6 +2648,10 @@
             {
               "Channel": "Summon",
               "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "BulletRadius",
+              "Response": "ECR_Block"
             }
           ]
         }

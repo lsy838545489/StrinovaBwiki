@@ -1,0 +1,112 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_100032_XRay_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGameplayEffect'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_100032_XRay_C'Default__GE_100032_XRay_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100032/GA/Summon/GE_100032_XRay.1"
+    }
+  },
+  {
+    "Type": "GE_100032_XRay_C",
+    "Name": "Default__GE_100032_XRay_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100032/GA/Summon/GE_100032_XRay.GE_100032_XRay_C'",
+    "Properties": {
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_100032_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeHextechCards/Zombie/100032/GA/Summon/BP_DamageType_100032.0"
+      },
+      "ResponderType": "EResponderType::EffectCauserInstigator",
+      "TargetAddedEventTag": {
+        "TagName": "Event.BePerspectiveSlot.SKillP"
+      },
+      "InstigatorAddedEventTag": {
+        "TagName": "Event.PerspectiveSlot.SKillP"
+      },
+      "BuffType": "ECyBuffType::Weak",
+      "BuffExpectedOrigin": "ECyBuffExpectedOriginType::Source",
+      "bStatSkillHit": true,
+      "bStatSkillAssist": true,
+      "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
+      "DurationMagnitude": {
+        "ScalableFloatMagnitude": {
+          "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+            },
+            "RowName": "Duration.Buff.XRay.P.Reiichi"
+          }
+        }
+      },
+      "GameplayCues": [
+        {
+          "MagnitudeAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "MinLevel": 0.0,
+          "MaxLevel": 0.0,
+          "GameplayCueTags": [
+            "GC.Card.XRay.Instigator.100032"
+          ]
+        }
+      ],
+      "InheritableGameplayEffectTags": {
+        "CombinedTags": [
+          "BuffIcon.Weak.XRay",
+          "Buff.Weak.XRay.P.Reiichi"
+        ],
+        "Added": [
+          "BuffIcon.Weak.XRay",
+          "Buff.Weak.XRay.P.Reiichi"
+        ]
+      },
+      "InheritableOwnedTagsContainer": {
+        "CombinedTags": [
+          "Buff.Weak.XRay.P.Reiichi"
+        ],
+        "Added": [
+          "Buff.Weak.XRay.P.Reiichi"
+        ]
+      },
+      "ApplicationTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Death",
+          "Buff.Stealth",
+          "Buff.Strong.Immune"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Health.Death",
+          "Buff.Stealth",
+          "Buff.Strong.Immune",
+          "State.Immunity.Weak",
+          "State.Game.RemoveBuff"
+        ]
+      }
+    }
+  }
+]

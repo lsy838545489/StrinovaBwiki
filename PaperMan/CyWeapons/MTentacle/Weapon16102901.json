@@ -7,13 +7,59 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon16102901_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.28"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.48"
       }
     },
     "SuperStruct": {
-      "ObjectName": "Class'CyWeaponMelee'",
+      "ObjectName": "Class'CyWeaponRifle'",
       "ObjectPath": "/Script/PMGame"
     },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAmmoUpdateMaterial",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAmmoUpdateMaterialComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StateEndReload",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFEndReloadState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StateSecondStartReload",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFSecondStartReloadState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StateStartReload",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFStartReloadState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
     "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
@@ -32,179 +78,298 @@
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.Weapon16102901_C'",
     "Properties": {
-      "AttackSocketsMap": [
-        {
-          "Key": "EFAttackType::MeleeFirst",
-          "Value": {
-            "AttackSockets": [
-              "dress_ffm_l_10",
-              "dress_ffm_l_11",
-              "dress_ffm_l_12"
-            ]
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::NoMove",
+            "Value": {
+              "Value": 230.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 330.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 450.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
           }
-        },
-        {
-          "Key": "EFAttackType::MeleeSecond",
-          "Value": {
-            "AttackSockets": [
-              "dress_ffm_r_10",
-              "dress_ffm_r_11",
-              "dress_ffm_r_12"
-            ]
-          }
-        },
-        {
-          "Key": "EFAttackType::Smite",
-          "Value": {
-            "AttackSockets": [
-              "dress_ffm_l_10",
-              "dress_ffm_l_11",
-              "dress_ffm_l_12",
-              "dress_ffm_r_10",
-              "dress_ffm_r_11",
-              "dress_ffm_r_12"
-            ]
-          }
-        }
-      ],
-      "AttackSocketSphereRadius": 70.0,
-      "bSupportsAutoAttack": true,
-      "bUseSupportLeanWall": true,
-      "bSupport2DState": false,
-      "WeaponName": "ECyWeaponName::CustomType250",
-      "WeaponType": "ECyWeaponType::Fist",
+        ]
+      },
+      "WeaponName": "ECyWeaponName::CustomType227",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon16102901_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.25"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.41"
       },
       "MeshComponent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon16102901_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.24"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.38"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon16102901_C:Machine'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.11"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.22"
       },
       "AttackComponent": {
-        "ObjectName": "CyMeleeComponent'Default__Weapon16102901_C:AttackComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.19"
+        "ObjectName": "CyFireComponent'Default__Weapon16102901_C:AttackComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.21"
       },
       "EffectComponent": {
         "ObjectName": "CyEffectComponent'Default__Weapon16102901_C:EffectComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.3"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.4"
       },
       "PredictPathComponent": {
         "ObjectName": "CyPredictPathComponent'Default__Weapon16102901_C:PredictPathComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.21"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.35"
       },
       "CachedComponents": [
         {
           "Key": "SwitcherAttack",
           "Value": {
-            "ObjectName": "CyFMeleeSwitcher'Default__Weapon16102901_C:SwitcherAttack'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.14"
+            "ObjectName": "CyFFireSwitcher'Default__Weapon16102901_C:SwitcherAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.13"
           }
         },
         {
           "Key": "SwitcherHold",
           "Value": {
             "ObjectName": "CyFHoldSwitcher'Default__Weapon16102901_C:SwitcherHold'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.7"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.17"
           }
         },
         {
           "Key": "StateEntry",
           "Value": {
             "ObjectName": "CyFEntryState'Default__Weapon16102901_C:StateEntry'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.5"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.7"
           }
         },
         {
           "Key": "StateEquip",
           "Value": {
             "ObjectName": "CyFEquipState'Default__Weapon16102901_C:StateEquip'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.6"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.9"
           }
         },
         {
           "Key": "StateInterrupt",
           "Value": {
             "ObjectName": "CyFInterruptState'Default__Weapon16102901_C:StateInterrupt'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.10"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.20"
           }
         },
         {
           "Key": "StateUnEquipped",
           "Value": {
             "ObjectName": "CyFUnEquippedState'Default__Weapon16102901_C:StateUnEquipped'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.18"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.26"
+          }
+        },
+        {
+          "Key": "StateReload",
+          "Value": {
+            "ObjectName": "CyFReloadState'Default__Weapon16102901_C:StateReload'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.23"
           }
         },
         {
           "Key": "StateAttack",
           "Value": {
-            "ObjectName": "CyFMeleeState'Default__Weapon16102901_C:StateAttack'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.12"
+            "ObjectName": "CyFFireState'Default__Weapon16102901_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.10"
           }
         },
         {
           "Key": "AttackSwitchInterrupt",
           "Value": {
             "ObjectName": "CyFAttackSwitchInterrupt'Default__Weapon16102901_C:AttackSwitchInterrupt'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.4"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.5"
           }
         },
         {
           "Key": "PartPendant",
           "Value": {
             "ObjectName": "CyPartPendant'Default__Weapon16102901_C:PartPendant'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.20"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.30"
           }
         },
         {
-          "Key": "MeleeSwitchDash",
+          "Key": "StateEquipAndReload",
           "Value": {
-            "ObjectName": "CyFMeleeSwitchDash'Default__Weapon16102901_C:MeleeSwitchDash'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.13"
+            "ObjectName": "CyFEquipReloadState'Default__Weapon16102901_C:StateEquipAndReload'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.8"
           }
         },
         {
-          "Key": "MeleeSwitchFirst",
+          "Key": "AttackSwitchSingle",
           "Value": {
-            "ObjectName": "CyFMeleeSwitchFirst'Default__Weapon16102901_C:MeleeSwitchFirst'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.15"
+            "ObjectName": "CyFFireSwitchSingle'Default__Weapon16102901_C:AttackSwitchSingle'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.14"
           }
         },
         {
-          "Key": "MeleeSwitchSecond",
+          "Key": "AttackSwitchBurst",
           "Value": {
-            "ObjectName": "CyFMeleeSwitchSecond'Default__Weapon16102901_C:MeleeSwitchSecond'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.16"
+            "ObjectName": "CyFFireSwitchBurst'Default__Weapon16102901_C:AttackSwitchBurst'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.12"
           }
         },
         {
-          "Key": "SmiteSwitch",
+          "Key": "AttackSwitchAuto",
           "Value": {
-            "ObjectName": "CyFSmiteSwitch'Default__Weapon16102901_C:SmiteSwitch'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.17"
+            "ObjectName": "CyFFireSwitchAuto'Default__Weapon16102901_C:AttackSwitchAuto'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.11"
           }
         },
         {
           "Key": "HoldSwitchRelaxed",
           "Value": {
             "ObjectName": "CyFHoldSwitchRelaxed'Default__Weapon16102901_C:HoldSwitchRelaxed'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.8"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.18"
           }
         },
         {
           "Key": "HoldSwitchWaist",
           "Value": {
             "ObjectName": "CyFHoldSwitchWaist'Default__Weapon16102901_C:HoldSwitchWaist'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.9"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.19"
           }
         },
         {
-          "Key": "MeleeReadySwitch",
+          "Key": "HoldSwitchAiming",
+          "Value": {
+            "ObjectName": "CyFHoldSwitchAiming'Default__Weapon16102901_C:HoldSwitchAiming'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.16"
+          }
+        },
+        {
+          "Key": "HoldSwitchADS",
+          "Value": {
+            "ObjectName": "CyFHoldSwitchADS'Default__Weapon16102901_C:HoldSwitchADS'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.15"
+          }
+        },
+        {
+          "Key": "PartGrip",
+          "Value": {
+            "ObjectName": "CyPartGrip'Default__Weapon16102901_C:PartGrip'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.27"
+          }
+        },
+        {
+          "Key": "PartMagazine",
+          "Value": {
+            "ObjectName": "CyPartMagazine'Default__Weapon16102901_C:PartMagazine'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.28"
+          }
+        },
+        {
+          "Key": "PartMuzzle",
+          "Value": {
+            "ObjectName": "CyPartMuzzle'Default__Weapon16102901_C:PartMuzzle'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.29"
+          }
+        },
+        {
+          "Key": "PartStock",
+          "Value": {
+            "ObjectName": "CyPartStock'Default__Weapon16102901_C:PartStock'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.34"
+          }
+        },
+        {
+          "Key": "PartSight",
+          "Value": {
+            "ObjectName": "CyPartSight'Default__Weapon16102901_C:PartSight'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.31"
+          }
+        },
+        {
+          "Key": "MeshPartSight",
+          "Value": {
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon16102901_C:MeshPartSight'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.39"
+          }
+        },
+        {
+          "Key": "PartSightLens",
+          "Value": {
+            "ObjectName": "CyPartSightLens'Default__Weapon16102901_C:PartSightLens'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.33"
+          }
+        },
+        {
+          "Key": "MeshPartSightLens",
+          "Value": {
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon16102901_C:MeshPartSightLens'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.40"
+          }
+        },
+        {
+          "Key": "PartSightFocus",
+          "Value": {
+            "ObjectName": "CyPartSightFocus'Default__Weapon16102901_C:PartSightFocus'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.32"
+          }
+        },
+        {
+          "Key": "MeshPartSightFocus",
+          "Value": {
+            "ObjectName": "StaticMeshComponent'Default__Weapon16102901_C:MeshPartSightFocus'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.49"
+          }
+        },
+        {
+          "Key": "AttackSwitchCharge",
+          "Value": null
+        },
+        {
+          "Key": "MeshPartPendant",
+          "Value": null
+        },
+        {
+          "Key": "PartPendantSecond",
+          "Value": null
+        },
+        {
+          "Key": "MeshPartPendantSecond",
+          "Value": null
+        },
+        {
+          "Key": "PartPendantThird",
+          "Value": null
+        },
+        {
+          "Key": "MeshPartPendantThird",
+          "Value": null
+        },
+        {
+          "Key": "PartPendantForth",
+          "Value": null
+        },
+        {
+          "Key": "MeshPartPendantForth",
           "Value": null
         },
         {
@@ -214,72 +379,36 @@
         {
           "Key": "StateEndReload",
           "Value": null
-        },
-        {
-          "Key": "StateReload",
-          "Value": null
-        },
-        {
-          "Key": "StateEquipAndReload",
-          "Value": null
-        },
-        {
-          "Key": "AttackSwitchSingle",
-          "Value": null
-        },
-        {
-          "Key": "AttackSwitchBurst",
-          "Value": null
-        },
-        {
-          "Key": "AttackSwitchAuto",
-          "Value": null
-        },
-        {
-          "Key": "HoldSwitchAiming",
-          "Value": null
-        },
-        {
-          "Key": "PartGrip",
-          "Value": null
-        },
-        {
-          "Key": "PartMagazine",
-          "Value": null
-        },
-        {
-          "Key": "PartMuzzle",
-          "Value": null
-        },
-        {
-          "Key": "PartSight",
-          "Value": null
-        },
-        {
-          "Key": "PartStock",
-          "Value": null
         }
       ],
       "WeaponDataCollectionComponent": {
         "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon16102901_C:WeaponDataCollectionComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.22"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.36"
       },
-      "bSwitchedInterruptFly": false,
-      "bSwitchedInterruptWall": false,
-      "bAutoFireWithUI_Mobile": true,
+      "UIFireType": "ECyWeaponUIFireTypes::AutoGun",
       "ID": 16102901,
       "SkinComponent": {
         "ObjectName": "CyWeaponSkinComponent'Default__Weapon16102901_C:SkinComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.23"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.37"
       },
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__Weapon16102901_C:DataSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.2"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.3"
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon16102901_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.25"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.41"
       }
+    }
+  },
+  {
+    "Type": "CyAmmoUpdateMaterialComponent",
+    "Name": "CyAmmoUpdateMaterial_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAmmoUpdateMaterialComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.0"
     }
   },
   {
@@ -300,6 +429,45 @@
     "Outer": {
       "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "AkEventAttackStart": {
+        "ObjectName": "AkAudioEvent'Weap_AkM_OneShot'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Weap_AkM_OneShot.0"
+      },
+      "AkEventAttackContinuous": {
+        "ObjectName": "AkAudioEvent'Weap_AKM_LoopShot'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Weap_AKM_LoopShot.0"
+      },
+      "AkEventAttackLastBullet": {
+        "ObjectName": "AkAudioEvent'Weap_AKM_LastShot'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Weap_AKM_LastShot.0"
+      },
+      "AkEventAttackEmpty": {
+        "ObjectName": "AkAudioEvent'Wpn_Common_NoAmmo'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Common_NoAmmo.0"
+      },
+      "AkEventWhiz": {
+        "ObjectName": "AkAudioEvent'Wpn_Bullet_Whiz'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.0"
+      },
+      "AkEventShellCase": {
+        "ObjectName": "AkAudioEvent'Bullet_ShellDrop_AssaultRifle'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Bullet_ShellDrop_AssaultRifle.0"
+      },
+      "AkRtpcAmmoLeftProportion": {
+        "ObjectName": "AkRtpc'NumberOfBullets'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkRTPC/NumberOfBullets.0"
+      },
+      "AkRtpcAttackIndex": {
+        "ObjectName": "AkRtpc'Bullets'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkRTPC/Bullets.0"
+      },
+      "AkRtpcAttackTriggerRateShotDuration": {
+        "ObjectName": "AkRtpc'Weapons_Loopshot_Duration'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkRTPC/Weapons_Loopshot_Duration.0"
+      },
+      "DefaultTriggerRateShotDuration": 0.1008
     }
   },
   {
@@ -313,10 +481,38 @@
     }
   },
   {
+    "Type": "CyFEndReloadState",
+    "Name": "StateEndReload_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEndReloadState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.0"
+    },
+    "Properties": {
+      "TimeAkLoad": 0.25,
+      "TimeLoad": 0.8,
+      "TotalDuration": {
+        "Value": 0.9
+      },
+      "AllowedGait": "ECyGait::Walk"
+    }
+  },
+  {
     "Type": "CyFEntryState",
     "Name": "StateEntry",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyFEntryState'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    }
+  },
+  {
+    "Type": "CyFEquipReloadState",
+    "Name": "StateEquipAndReload",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipReloadState'",
     "Outer": {
       "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
@@ -330,10 +526,126 @@
     "Outer": {
       "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    }
+  },
+  {
+    "Type": "CyFFireState",
+    "Name": "StateAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireState'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "bFireInterruptReload": true
+    }
+  },
+  {
+    "Type": "CyFFireSwitchAuto",
+    "Name": "AttackSwitchAuto",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireSwitchAuto'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "bSetCharacterAnimLengthToDuration": false,
+      "bForceStopAnimationNextNull": false,
+      "TotalDuration": {
+        "Value": 0.2
+      },
+      "AllowedGait": "ECyGait::Walk"
+    }
+  },
+  {
+    "Type": "CyFFireSwitchBurst",
+    "Name": "AttackSwitchBurst",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireSwitchBurst'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
     },
     "Properties": {
       "TotalDuration": {
-        "Value": 0.0
+        "Value": 0.104
+      },
+      "AllowedGait": "ECyGait::Walk"
+    }
+  },
+  {
+    "Type": "CyFFireSwitcher",
+    "Name": "SwitcherAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireSwitcher'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    }
+  },
+  {
+    "Type": "CyFFireSwitchSingle",
+    "Name": "AttackSwitchSingle",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireSwitchSingle'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.104
+      },
+      "AllowedGait": "ECyGait::Walk"
+    }
+  },
+  {
+    "Type": "CyFHoldSwitchADS",
+    "Name": "HoldSwitchADS",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFHoldSwitchADS'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "AnimationBegin": {
+        "Duration": 1.0
+      },
+      "CameraOffsetInterpSpeed": 50.0,
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadADS'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/SpreadADS.0"
+      },
+      "SpreadScale": {
+        "Value": 0.2
+      },
+      "SpreadScaleTimeRate": {
+        "Value": 0.25
+      },
+      "BeginAnimationDurationRate": {
+        "Value": 0.31
+      }
+    }
+  },
+  {
+    "Type": "CyFHoldSwitchAiming",
+    "Name": "HoldSwitchAiming",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFHoldSwitchAiming'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadAiming'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/SpreadAiming.0"
+      },
+      "SpreadScaleTimeRate": {
+        "Value": 0.6
       }
     }
   },
@@ -345,6 +657,11 @@
     "Outer": {
       "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "MobileForbiddenHoldTypes": [
+        "EFHoldType::Aiming"
+      ]
     }
   },
   {
@@ -355,6 +672,15 @@
     "Outer": {
       "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadWaist'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/SpreadWaist.0"
+      },
+      "SpreadScaleTimeRate": {
+        "Value": 0.1
+      }
     }
   },
   {
@@ -365,6 +691,18 @@
     "Outer": {
       "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadWaist'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/SpreadWaist.0"
+      },
+      "SpreadScale": {
+        "Value": 0.5
+      },
+      "SpreadScaleTimeRate": {
+        "Value": 0.1
+      }
     }
   },
   {
@@ -378,421 +716,143 @@
     }
   },
   {
-    "Type": "CyFMachine",
-    "Name": "Machine",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyFMachine'",
-    "Outer": {
-      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
-    }
-  },
-  {
-    "Type": "CyFMeleeState",
-    "Name": "StateAttack",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyFMeleeState'",
-    "Outer": {
-      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
-    },
-    "Properties": {
-      "SupportUseIDSet": [
-        "EUseID::Secondary"
-      ]
-    }
-  },
-  {
-    "Type": "CyFMeleeSwitchDash",
-    "Name": "MeleeSwitchDash",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyFMeleeSwitchDash'",
-    "Outer": {
-      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
-    }
-  },
-  {
-    "Type": "CyFMeleeSwitcher",
-    "Name": "SwitcherAttack",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyFMeleeSwitcher'",
-    "Outer": {
-      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
-    }
-  },
-  {
-    "Type": "CyFMeleeSwitchFirst",
-    "Name": "MeleeSwitchFirst",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyFMeleeSwitchFirst'",
-    "Outer": {
-      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
-    },
-    "Properties": {
-      "TimeAllowCombo": {
-        "Value": 0.25,
-        "MobileValue": 0.25
-      },
-      "TimeAllowEnd": {
-        "Value": 0.5,
-        "MobileValue": 0.5
-      },
-      "AttackPlane": {
-        "PlaneOffset": {
-          "Value": 10.0,
-          "MobileValue": 45.0
-        },
-        "CenterZOffset": {
-          "Value": -20.0,
-          "MobileValue": 56.0
-        }
-      },
-      "bSupport2DState": false,
-      "bStopAnimationOnEnd": true,
-      "TimeOnTagDeactivated": 0.48,
-      "BlockAbilitiesWithTag": [
-        "GA.Action.Wall",
-        "GA.Arousal"
-      ],
-      "LooseGameplayTags": [
-        "State.Player.DisableInteract",
-        "State.Player.DisableSwitchWeapon",
-        "State.Weapon.MeleeAttacking",
-        "State.Player.DisableInput2D.Fly",
-        "State.Player.DisableInput2D.Side",
-        "State.Player.DisableKeep2D.Fly",
-        "State.Player.DisableKeep2D.Side"
-      ],
-      "TotalDuration": {
-        "Value": 1.37
-      },
-      "AssetEvents": [
-        {
-          "PositionStart": 0.15,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::Owner",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "MeshFor3PP",
-              "AssetTagContainer": [
-                "Resource.Particle.AnimNotify.A"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": false
-            }
-          ]
-        }
-      ],
-      "TimeEndEventTags": [
-        {
-          "TagName": "Event.Action.KeepSide"
-        },
-        {
-          "TagName": "Event.Action.KeepFly"
-        }
-      ]
-    }
-  },
-  {
-    "Type": "CyFMeleeSwitchSecond",
-    "Name": "MeleeSwitchSecond",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyFMeleeSwitchSecond'",
-    "Outer": {
-      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
-    },
-    "Properties": {
-      "TimeAllowCombo": {
-        "Value": 0.157,
-        "MobileValue": 0.157
-      },
-      "TimeAllowEnd": {
-        "Value": 0.45,
-        "MobileValue": 0.45
-      },
-      "AttackPlane": {
-        "PlaneOffset": {
-          "Value": 170.0,
-          "MobileValue": 135.0
-        },
-        "CenterZOffset": {
-          "Value": -20.0
-        },
-        "CenterFOffset": {
-          "Value": 10.0
-        }
-      },
-      "bSupport2DState": false,
-      "bStopAnimationOnEnd": true,
-      "TimeOnTagDeactivated": 0.45,
-      "BlockAbilitiesWithTag": [
-        "GA.Action.Wall",
-        "GA.Arousal"
-      ],
-      "LooseGameplayTags": [
-        "State.Player.DisableInteract",
-        "State.Player.DisableSwitchWeapon",
-        "State.Weapon.MeleeAttacking",
-        "State.Player.DisableInput2D.Fly",
-        "State.Player.DisableInput2D.Side",
-        "State.Player.DisableKeep2D.Fly",
-        "State.Player.DisableKeep2D.Side"
-      ],
-      "TotalDuration": {
-        "Value": 1.37
-      },
-      "AssetEvents": [
-        {
-          "PositionStart": 0.15,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::Owner",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "MeshFor3PP",
-              "AssetTagContainer": [
-                "Resource.Particle.AnimNotify.B"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": false
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "CyFSmiteSwitch",
-    "Name": "SmiteSwitch",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyFSmiteSwitch'",
-    "Outer": {
-      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
-    },
-    "Properties": {
-      "TimeAllowCombo": {
-        "Value": 0.123,
-        "MobileValue": 0.123
-      },
-      "TimeAllowEnd": {
-        "Value": 0.576,
-        "MobileValue": 0.576
-      },
-      "AttackPlane": {
-        "CenterZOffset": {
-          "Value": 24.0,
-          "MobileValue": 24.0
-        }
-      },
-      "TriggerAttackPosition": {
-        "Value": 0.4,
-        "MobileValue": 0.4
-      },
-      "bSupport2DState": false,
-      "bStopAnimationOnEnd": true,
-      "TimeOnTagDeactivated": 0.8,
-      "BlockAbilitiesWithTag": [
-        "GA.Action.Wall",
-        "GA.Arousal"
-      ],
-      "LooseGameplayTags": [
-        "State.Player.DisableInteract",
-        "State.Player.DisableSwitchWeapon",
-        "State.Weapon.MeleeAttacking",
-        "State.Player.DisableInput2D.Fly",
-        "State.Player.DisableInput2D.Side",
-        "State.Player.DisableKeep2D.Fly",
-        "State.Player.DisableKeep2D.Side"
-      ],
-      "bUseTimeStamp": true,
-      "TotalDuration": {
-        "Value": 1.64
-      },
-      "AssetEvents": [
-        {
-          "PositionStart": 0.25,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::Owner",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "MeshFor3PP",
-              "AssetTagContainer": [
-                "Resource.Particle.AnimNotify.C"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": false
-            },
-            {
-              "AttachComponentType": "EAttachComponentType::Owner",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "MeshFor3PP",
-              "AssetTagContainer": [
-                "Resource.Particle.AnimNotify.D"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": false
-            }
-          ]
-        },
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "RequireTags": {
-            "RequireTagType": "ERequireTagType::AND",
-            "bInverse": false,
-            "RequireAnyTags": [],
-            "IgnoreAllTags": [],
-            "RequireTags": [],
-            "IgnoreTags": []
-          },
-          "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": [
-            {
-              "AttachComponentType": "EAttachComponentType::Owner",
-              "ResourceClassify": "ECyGCResourceClassify::Effect",
-              "MeshName": "MeshFor3PP",
-              "AssetTagContainer": [
-                "Resource.Particle.AnimNotify.E"
-              ],
-              "AssetTagStopContainer": [],
-              "DefaultAssetKey": 0,
-              "bAllowLoop": false
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "CyFUnEquippedState",
-    "Name": "StateUnEquipped",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyFUnEquippedState'",
-    "Outer": {
-      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
-    }
-  },
-  {
-    "Type": "CyMeleeComponent",
+    "Type": "CyFireComponent",
     "Name": "AttackComponent",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyMeleeComponent'",
+    "Class": "UScriptClass'CyFireComponent'",
     "Outer": {
       "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
     },
     "Properties": {
-      "MeleeAttackDamage": [
-        {
-          "Key": "EFAttackType::MeleeFirst",
-          "Value": {
-            "Value": 300.0,
-            "bEnableMobile": false,
-            "MobileValue": 300.0,
-            "Curve": {
-              "CurveTable": null,
-              "RowName": "None"
-            }
-          }
+      "RecoilProcessor": {
+        "RecoveryTime": {
+          "Value": 1.75
         },
-        {
-          "Key": "EFAttackType::MeleeSecond",
-          "Value": {
-            "Value": 300.0,
-            "bEnableMobile": false,
-            "MobileValue": 300.0,
-            "Curve": {
-              "CurveTable": null,
-              "RowName": "None"
-            }
-          }
+        "RecoveryPeak": {
+          "Value": 0.5
         },
-        {
-          "Key": "EFAttackType::Smite",
-          "Value": {
-            "Value": 600.0,
-            "bEnableMobile": false,
-            "MobileValue": 600.0,
-            "Curve": {
-              "CurveTable": null,
-              "RowName": "None"
-            }
-          }
+        "PitchRecoilLower": {
+          "Value": 0.21
+        },
+        "PitchRecoilHigher": {
+          "Value": 0.24
+        },
+        "PitchRecoilModifier": {
+          "Value": 0.08
+        },
+        "PitchRecoilModifierLimit": {
+          "Value": 0.48
+        },
+        "PitchRecoilScale": {
+          "Value": 0.65
+        },
+        "PitchRecoilUpperLimit": {
+          "Value": 2.55
+        },
+        "HRecoilDisableMask": 320890432,
+        "HRecoilDirectionType": "ERecoilDirectionType::UseMask",
+        "HRecoilDirectionMask": 201365505,
+        "YawRecoilLower": {
+          "Value": 0.04
+        },
+        "YawRecoilHigher": {
+          "Value": 0.06
+        },
+        "YawRecoilModifier": {
+          "Value": 0.03
+        },
+        "YawRecoilModifierLimit": {
+          "Value": 0.12
+        },
+        "YawRecoilSteeringProbabilityBase": {
+          "Value": 0.0
+        },
+        "YawRecoilSteeringModifier": {
+          "Value": 0.0
         }
-      ],
-      "HalfTraceAngle": {
-        "Value": 50.0,
-        "MobileValue": 55.0
       },
-      "HalfAttackThickness": {
-        "Value": 90.0
-      },
-      "OnlyAttackOnePlayer": {
-        "Value": 1.0,
-        "Curve": {
-          "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_GameMode_InitAttribute'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode_InitAttribute.0"
+      "SpreadProcessor": {
+        "SpreadMin": {
+          "Value": 0.3
+        },
+        "SpreadMax": {
+          "Value": 3.0
+        },
+        "SpreadModifierBase": {
+          "Value": 0.33
+        },
+        "SpreadModifierInc": {
+          "Value": 0.15
+        },
+        "SpreadModifierMax": {
+          "Value": 0.33
+        },
+        "SpreadDecSpeedFiring": {
+          "Value": 2.0
+        },
+        "SpreadIncSpeed": {
+          "Value": 4.0
+        },
+        "SpreadIncSpeedFiring": {
+          "Value": 6.0
+        },
+        "SpreadScale": {
+          "Walk": {
+            "Value": 1.2
           },
-          "RowName": "ZombieSmite"
+          "Run": {
+            "Value": 1.2
+          },
+          "InAir": {
+            "Value": 1.2
+          }
         }
       },
-      "bUseHitEffectRotation": false,
+      "CrossHairProcessor": {
+        "MinOffset": 0.4
+      },
+      "AttenuationProcessor": {
+        "DistanceProtectedStart": {
+          "Value": 0.0
+        },
+        "FactorEffective": {
+          "Value": 0.23
+        },
+        "DiscreteSpacing": {
+          "Value": 500.0
+        },
+        "FactorMaximal": {
+          "Value": 0.0
+        }
+      },
+      "ScratchLengthModifier": {
+        "ObjectName": "CurveFloat'0-1CurveBase'",
+        "ObjectPath": "PM/Content/PaperMan/SkinAssets/Characters/Lawine/S206/Mesh3D/PhyhysicsCurve/0-1CurveBase.0"
+      },
       "DamageType": {
-        "ObjectName": "BlueprintGeneratedClass'BP_Tentacle_DamageType_C'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/Tentacle/BP_Tentacle_DamageType.0"
+        "ObjectName": "BlueprintGeneratedClass'BP_MTentacle_DamageType_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/BP_MTentacle_DamageType.0"
       },
       "AttackRange": {
-        "Value": 350.0,
-        "MobileValue": 350.0
+        "Value": 100000.0,
+        "MobileValue": 100000.0
       },
-      "AimAssistMap": null,
+      "CloseAttackRange": 1000.0,
+      "AttackDamage": {
+        "Value": 30.0
+      },
+      "DamageScaleFor2D": {
+        "Value": 0.65
+      },
+      "AutoFireType": "ECyWeaponAutoFireTypes::LMG",
       "BodyDamageFactor": [
         {
-          "Key": "EWFBaseHumanBodyPartsType::Head",
+          "Key": "EWFBaseHumanBodyPartsType::None",
           "Value": {
             "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 1.0,
+            "MobileValue": 0.0,
             "Curve": {
               "CurveTable": null,
               "RowName": "None"
@@ -804,7 +864,7 @@
           "Value": {
             "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 1.0,
+            "MobileValue": 0.0,
             "Curve": {
               "CurveTable": null,
               "RowName": "None"
@@ -948,7 +1008,7 @@
           "Value": {
             "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 1.0,
+            "MobileValue": 0.0,
             "Curve": {
               "CurveTable": null,
               "RowName": "None"
@@ -960,7 +1020,7 @@
           "Value": {
             "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 1.0,
+            "MobileValue": 0.0,
             "Curve": {
               "CurveTable": null,
               "RowName": "None"
@@ -972,7 +1032,7 @@
           "Value": {
             "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 1.0,
+            "MobileValue": 0.0,
             "Curve": {
               "CurveTable": null,
               "RowName": "None"
@@ -984,7 +1044,7 @@
           "Value": {
             "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 1.0,
+            "MobileValue": 0.0,
             "Curve": {
               "CurveTable": null,
               "RowName": "None"
@@ -996,7 +1056,7 @@
           "Value": {
             "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 1.0,
+            "MobileValue": 0.0,
             "Curve": {
               "CurveTable": null,
               "RowName": "None"
@@ -1008,7 +1068,7 @@
           "Value": {
             "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 1.0,
+            "MobileValue": 0.0,
             "Curve": {
               "CurveTable": null,
               "RowName": "None"
@@ -1020,7 +1080,7 @@
           "Value": {
             "Value": 1.0,
             "bEnableMobile": false,
-            "MobileValue": 1.0,
+            "MobileValue": 0.0,
             "Curve": {
               "CurveTable": null,
               "RowName": "None"
@@ -1031,10 +1091,592 @@
     }
   },
   {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFMachine'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    }
+  },
+  {
+    "Type": "CyFReloadState",
+    "Name": "StateReload",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFReloadState'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "TimeLoadClip": 0.63,
+      "TotalDuration": {
+        "Value": 0.5
+      },
+      "AllowedGait": "ECyGait::Walk"
+    }
+  },
+  {
+    "Type": "CyFSecondStartReloadState",
+    "Name": "StateSecondStartReload_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFSecondStartReloadState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.0"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.19
+      },
+      "AllowedGait": "ECyGait::Walk"
+    }
+  },
+  {
+    "Type": "CyFStartReloadState",
+    "Name": "StateStartReload_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFStartReloadState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.0"
+    },
+    "Properties": {
+      "TimeUnLoad": 0.38,
+      "TotalDuration": {
+        "Value": 0.48
+      },
+      "AllowedGait": "ECyGait::Walk"
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    }
+  },
+  {
+    "Type": "CyPartGrip",
+    "Name": "PartGrip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartGrip'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    }
+  },
+  {
+    "Type": "CyPartMagazine",
+    "Name": "PartMagazine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartMagazine'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "AmmoMax": {
+        "Value": 9999.0,
+        "MobileValue": 210.0
+      },
+      "GSAmmoCapacityFactor": {
+        "AttributeName": "MagazineCapacityFactor",
+        "Attribute": {
+          "Path": [
+            "MagazineCapacityFactor"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "GameStateNoReloadTags": {
+        "RequireAnyTags": [
+          "Switch.Weapon.NoReload.On",
+          "Switch.Weapon.NoReload.Primary"
+        ]
+      },
+      "GameStateInfinityAmmoTags": {
+        "RequireAnyTags": [
+          "Switch.Weapon.InfinityAmmo.On",
+          "Switch.Weapon.InfinityAmmo.Primary"
+        ]
+      },
+      "AmmoPerReload": {
+        "Value": 30.0
+      },
+      "ReloadType": "EReloadType::OnEndReload"
+    }
+  },
+  {
+    "Type": "CyPartMuzzle",
+    "Name": "PartMuzzle",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartMuzzle'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "MuzzleSmokeMinAttackCount": 4,
+      "MuzzleSmokeAttackInterval": 0.2
+    }
+  },
+  {
     "Type": "CyPartPendant",
     "Name": "PartPendant",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyPartPendant'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    }
+  },
+  {
+    "Type": "CyPartSight",
+    "Name": "PartSight",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartSight'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "ScopeType": "EScopeType::Scope1x25",
+      "CameraParams": [
+        {
+          "Key": "EFHoldType::ADS",
+          "Value": {
+            "FOV": {
+              "Value": 68.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "FirstViewFOV": {
+              "Value": 68.0,
+              "bEnableMobile": true,
+              "MobileValue": 68.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "FOVLagSpeed": {
+              "Value": 14.0,
+              "bEnableMobile": false,
+              "MobileValue": 14.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SocketName": "VB RHS_ADS",
+            "RotationParam": {
+              "bDoRotationLag": false,
+              "LagSpeed": 10.0,
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "RotationMask": 1
+            },
+            "TargetArmLength": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "TargetArmLengthLagSpeed": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "OffsetLagSpeed": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "ArmOriginOffsetWhenHit": 25.0,
+            "ScopeSwitchParam": [
+              {
+                "Value": 0.0,
+                "bEnableMobile": true,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              {
+                "Value": 0.0,
+                "bEnableMobile": true,
+                "MobileValue": 2.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              }
+            ],
+            "bEnableUseMobileSocketOffset": false,
+            "SocketOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "SocketOffset_Mobile": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "bEnableUseMobileTargetOffset": false,
+            "TargetOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "TargetOffset_Mobile": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            }
+          }
+        },
+        {
+          "Key": "EFHoldType::Aiming",
+          "Value": {
+            "FOV": {
+              "Value": 85.0,
+              "bEnableMobile": false,
+              "MobileValue": 85.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "FirstViewFOV": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "FOVLagSpeed": {
+              "Value": 20.0,
+              "bEnableMobile": false,
+              "MobileValue": 20.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SocketName": "None",
+            "RotationParam": {
+              "bDoRotationLag": false,
+              "LagSpeed": 10.0,
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "RotationMask": 1
+            },
+            "TargetArmLength": {
+              "Value": 100.0,
+              "bEnableMobile": false,
+              "MobileValue": 100.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "TargetArmLengthLagSpeed": {
+              "Value": 20.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "OffsetLagSpeed": {
+              "Value": 20.0,
+              "bEnableMobile": false,
+              "MobileValue": 20.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "ArmOriginOffsetWhenHit": 25.0,
+            "ScopeSwitchParam": [],
+            "bEnableUseMobileSocketOffset": false,
+            "SocketOffset": {
+              "X": 0.0,
+              "Y": 35.0,
+              "Z": 0.0
+            },
+            "SocketOffset_Mobile": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "bEnableUseMobileTargetOffset": false,
+            "TargetOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 157.0
+            },
+            "TargetOffset_Mobile": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            }
+          }
+        },
+        {
+          "Key": "EFHoldType::ADSUpgrade",
+          "Value": {
+            "FOV": {
+              "Value": 43.0,
+              "bEnableMobile": false,
+              "MobileValue": 43.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "FirstViewFOV": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "FOVLagSpeed": {
+              "Value": 14.0,
+              "bEnableMobile": false,
+              "MobileValue": 14.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SocketName": "VB RHS_ADS",
+            "RotationParam": {
+              "bDoRotationLag": false,
+              "LagSpeed": 10.0,
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "RotationMask": 1
+            },
+            "TargetArmLength": {
+              "Value": 8.0,
+              "bEnableMobile": false,
+              "MobileValue": 8.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "TargetArmLengthLagSpeed": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "OffsetLagSpeed": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "ArmOriginOffsetWhenHit": 25.0,
+            "ScopeSwitchParam": [],
+            "bEnableUseMobileSocketOffset": false,
+            "SocketOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "SocketOffset_Mobile": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "bEnableUseMobileTargetOffset": false,
+            "TargetOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "TargetOffset_Mobile": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            }
+          }
+        },
+        {
+          "Key": "EFHoldType::AimingInFalling",
+          "Value": {
+            "FOV": {
+              "Value": 85.0,
+              "bEnableMobile": false,
+              "MobileValue": 85.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "FirstViewFOV": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "FOVLagSpeed": {
+              "Value": 5.0,
+              "bEnableMobile": false,
+              "MobileValue": 5.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SocketName": "Bip001-Spine2",
+            "RotationParam": {
+              "bDoRotationLag": false,
+              "LagSpeed": 10.0,
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "RotationMask": 1
+            },
+            "TargetArmLength": {
+              "Value": 100.0,
+              "bEnableMobile": false,
+              "MobileValue": 100.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "TargetArmLengthLagSpeed": {
+              "Value": 20.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "OffsetLagSpeed": {
+              "Value": 20.0,
+              "bEnableMobile": false,
+              "MobileValue": 20.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "ArmOriginOffsetWhenHit": 25.0,
+            "ScopeSwitchParam": [],
+            "bEnableUseMobileSocketOffset": false,
+            "SocketOffset": {
+              "X": 0.0,
+              "Y": 35.0,
+              "Z": 0.0
+            },
+            "SocketOffset_Mobile": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "bEnableUseMobileTargetOffset": false,
+            "TargetOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 30.0
+            },
+            "TargetOffset_Mobile": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyPartSightFocus",
+    "Name": "PartSightFocus",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartSightFocus'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    }
+  },
+  {
+    "Type": "CyPartSightLens",
+    "Name": "PartSightLens",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartSightLens'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    }
+  },
+  {
+    "Type": "CyPartStock",
+    "Name": "PartStock",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartStock'",
     "Outer": {
       "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
@@ -1082,7 +1724,39 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__Weapon16102901_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.25"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.41"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSight",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon16102901_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.38"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSightLens",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon16102901_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.38"
       }
     }
   },
@@ -1113,7 +1787,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon16102901_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.28"
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.48"
     },
     "Properties": {
       "ComponentClass": {
@@ -1122,10 +1796,98 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon16102901_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.26"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.42"
       },
-      "VariableGuid": "ECA8EE01-421DE0F2-E31A3B9A-CE68E773",
+      "VariableGuid": "4F0F338D-4F417910-83112F99-74373FE3",
       "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon16102901_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.48"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFStartReloadState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFStartReloadState'Weapon16102901_C:StateStartReload_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.25"
+      },
+      "VariableGuid": "F45C408F-44B499B2-8FE69FB1-95E95E00",
+      "InternalVariableName": "StateStartReload"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon16102901_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.48"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFSecondStartReloadState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFSecondStartReloadState'Weapon16102901_C:StateSecondStartReload_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.24"
+      },
+      "VariableGuid": "AB22AB69-4CECD3FF-50BCA6B1-7D4E66EE",
+      "InternalVariableName": "StateSecondStartReload"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon16102901_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.48"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFEndReloadState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFEndReloadState'Weapon16102901_C:StateEndReload_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.6"
+      },
+      "VariableGuid": "31E25B97-4D56E830-1FC89DB5-1CF380D3",
+      "InternalVariableName": "StateEndReload"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon16102901_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.48"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAmmoUpdateMaterialComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAmmoUpdateMaterialComponent'Weapon16102901_C:CyAmmoUpdateMaterial_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.2"
+      },
+      "VariableGuid": "F2D67F52-475E0B08-D92468A7-340AABD3",
+      "InternalVariableName": "CyAmmoUpdateMaterial"
     }
   },
   {
@@ -1138,9 +1900,61 @@
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.0"
     },
     "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon16102901_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon16102901_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon16102901_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.46"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon16102901_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.47"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon16102901_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon16102901_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.45"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon16102901_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.46"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon16102901_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.47"
+        }
+      ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon16102901_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.27"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.43"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "MeshPartSightFocus",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon16102901_C'Default__Weapon16102901_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon16102901_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/MTentacle/Weapon16102901.38"
       }
     }
   }

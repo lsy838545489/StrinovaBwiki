@@ -23,7 +23,7 @@
   {
     "Type": "GA_E_Nora_C",
     "Name": "Default__GA_E_Nora_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nora/E/GA_E_Nora.GA_E_Nora_C'",
     "Properties": {
       "GiverAtoms": [
@@ -52,8 +52,12 @@
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Activate/BP_Activator_SwitchWeapon_E_Nora.0"
         },
         {
-          "ObjectName": "BlueprintGeneratedClass'BP_Activator_SummonGotoState_E_Nora_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Activate/BP_Activator_SummonGotoState_E_Nora.0"
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_StartUseWeapon_E_Nora_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Activate/BP_Activator_StartUseWeapon_E_Nora.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_Weapon_E_Nora_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Activate/BP_Activator_Weapon_E_Nora.0"
         },
         {
           "ObjectName": "BlueprintGeneratedClass'BP_Activator_UIEvent_E_Nora_C'",
@@ -177,6 +181,9 @@
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/E/Weapon/Weapon_E_Nora.0"
       },
       "SlotType": "EWeaponSlotTypes::WeaponSlot_E",
+      "CancelAbilitiesPreActivateWithTag": [
+        "GA.Action.Wall"
+      ],
       "MagnitudeRemainPoints": {
         "Value": 1.0
       },
@@ -246,7 +253,8 @@
       },
       "ActivationOwnedTags": [
         "State.Player.DisableKeep2D.Fly",
-        "State.Player.DisableKeep2D.Side"
+        "State.Player.DisableKeep2D.Side",
+        "GA.Ability.SkillE.Nora"
       ],
       "ActivationBlockedTags": [
         "Buff.Weak.Silence",

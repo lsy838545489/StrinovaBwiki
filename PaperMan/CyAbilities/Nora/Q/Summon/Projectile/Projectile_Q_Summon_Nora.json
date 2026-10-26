@@ -231,6 +231,18 @@
           "bEndWithState": false,
           "bNoSkipped": false,
           "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemyPlayer_Q_Nora_Zombie_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Projectile/Atom/BP_SA_SearchEnemyPlayer_Q_Nora_Zombie.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
             "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemySummon_Q_Nora_C'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/Q/Summon/Projectile/Atom/BP_SA_SearchEnemySummon_Q_Nora.0"
           },
@@ -254,7 +266,10 @@
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": null,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_StopSelfMovement_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/StateAtoms/BP_SA_StopSelfMovement.0"
+          },
           "SubAtoms": [],
           "EventActions": []
         }
@@ -755,9 +770,13 @@
       "SphereRadius": 10.0,
       "BodyInstance": {
         "CollisionEnabled": "ECollisionEnabled::QueryOnly",
-        "CollisionProfileName": "ProjectileIgnoreSummon",
+        "CollisionProfileName": "ProjectileIgnorePawnAndSummon",
         "CollisionResponses": {
           "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
             {
               "Channel": "Camera",
               "Response": "ECR_Ignore"
@@ -784,6 +803,10 @@
             },
             {
               "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
               "Response": "ECR_Ignore"
             },
             {

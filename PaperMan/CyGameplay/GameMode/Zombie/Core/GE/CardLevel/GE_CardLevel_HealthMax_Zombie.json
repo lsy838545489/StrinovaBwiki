@@ -23,7 +23,7 @@
   {
     "Type": "GE_CardLevel_HealthMax_Zombie_C",
     "Name": "Default__GE_CardLevel_HealthMax_Zombie_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Zombie/Core/GE/CardLevel/GE_CardLevel_HealthMax_Zombie.GE_CardLevel_HealthMax_Zombie_C'",
     "Properties": {
       "DurationPolicy": "EGameplayEffectDurationType::Infinite",
@@ -203,9 +203,9 @@
           }
         }
       ],
-      "RemovalTagRequirements": {
-        "RequireAnyTags": [
-          "State.Game.End"
+      "OngoingTagRequirements": {
+        "RequireTags": [
+          "State.Player.Role.Zombie"
         ]
       },
       "StackingType": "EGameplayEffectStackingType::AggregateByTarget"

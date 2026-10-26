@@ -76,10 +76,6 @@
         {
           "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon.0"
-        },
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_Activater_PlayVoiceSkillX_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/VoicePlayInGame/BP_Activater_PlayVoiceSkillX.0"
         }
       ],
       "IgnoreCostTags": {
@@ -413,6 +409,16 @@
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Weapon/Weapon_X_Nora.0"
       },
       "SlotType": "EWeaponSlotTypes::WeaponSlot_UltimateAbility",
+      "MagnitudeRemainPoints": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.XPoints.Set.X.Nora"
+        }
+      },
       "MagnitudeMaxPoints": {
         "Value": 1.0,
         "Curve": {
@@ -468,6 +474,10 @@
       "UpdateLevelEventTags": [
         "Event.Ability.UpdateLevel.X"
       ],
+      "AbilityStatConfig": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbilityStatConfig_Nora_X_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/StatConfig/BP_AbilityStatConfig_Nora_X.0"
+      },
       "AbilityTags": [
         "GA.Ability.SkillX.Nora"
       ],
@@ -483,6 +493,9 @@
           "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
           "TriggerType": "EGameplayAbilityTriggerType::Cancel"
         }
+      ],
+      "BlockAbilitiesWithTag": [
+        "GA.Interaction"
       ],
       "ActivationOwnedTags": [
         "State.Player.DisableKeep2D.Fly",
