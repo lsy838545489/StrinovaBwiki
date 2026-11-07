@@ -4,6 +4,7 @@
     "Name": "Summon_X_Flavia_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Flavia/X/Summon/Summon_X_Flavia",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_X_Flavia_C:SimpleConstructionScript_0'",
@@ -187,6 +188,7 @@
     "Name": "Default__Summon_X_Flavia_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Flavia/X/Summon/Summon_X_Flavia.Summon_X_Flavia_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Flavia/X/Summon/Summon_X_Flavia",
     "Properties": {
       "OwnerAbilityTag": {
         "TagName": "GA.Ability.SkillX.Flavia"
@@ -494,10 +496,6 @@
         {
           "ObjectName": "BlueprintGeneratedClass'BP_PMFallingDamageType_C'",
           "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Abilities/Character/DamageType/BP_PMFallingDamageType.0"
-        },
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_PMDangerAreaDamageType_C'",
-          "ObjectPath": "PM/Content/PaperMan/Core/GameModes/Abilities/Character/DamageType/BP_PMDangerAreaDamageType.0"
         }
       ],
       "EffectsAfterDeathProtected": [
@@ -529,7 +527,15 @@
       "DeathProtectTag": {
         "TagName": "Event.Protector.OnDeathProtected"
       },
-      "bLimitDeathProtect": false,
+      "LimitDeathProtectCount": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.MaxRevives.X.Flavia"
+        }
+      },
       "bIsUIAccessAllowed": false
     }
   },

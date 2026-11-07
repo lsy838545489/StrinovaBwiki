@@ -17,6 +17,39 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       }
     ],
+    "ScriptBytecode": [
+      {
+        "Token": "EX_ComputedJump",
+        "StatementIndex": 0,
+        "CodeOffsetExpression": {
+          "Token": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'GA_Q_Audery_C:ExecuteUbergraph_GA_Q_Audery'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/GA_Q_Audery.0"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "EntryPoint",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Token": "EX_Return",
+        "StatementIndex": 10,
+        "Expression": {
+          "Token": "EX_Nothing"
+        }
+      },
+      {
+        "Token": "EX_EndOfScript",
+        "StatementIndex": 12
+      }
+    ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
   },
   {
@@ -24,6 +57,7 @@
     "Name": "GA_Q_Audery_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Audery/Q/GA_Q_Audery",
     "Properties": {
       "UberGraphFunction": {
         "ObjectName": "Function'GA_Q_Audery_C:ExecuteUbergraph_GA_Q_Audery'",
@@ -76,6 +110,7 @@
     "Name": "Default__GA_Q_Audery_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Audery/Q/GA_Q_Audery.GA_Q_Audery_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Audery/Q/GA_Q_Audery",
     "Properties": {
       "UberGraphFrame": {},
       "bCheckWeaponActive": false,
@@ -88,7 +123,8 @@
         {
           "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_Q_Audery_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/BP_GAGiveWeapon_Q_Audery.0"
-        }
+        },
+        null
       ],
       "CheckAtoms": [
         {
@@ -100,16 +136,8 @@
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckAllowRelieveSlide.0"
         },
         {
-          "ObjectName": "BlueprintGeneratedClass'BP_CheckSummonDistance_ArousalTwo_Audery_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_CheckSummonDistance_ArousalTwo_Audery.0"
-        },
-        {
           "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowBigMap_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckAllowBigMap.0"
-        },
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_CheckCanCustom_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckCanCustom.0"
         },
         {
           "ObjectName": "BlueprintGeneratedClass'BP_CheckClickInterval_Q_Audery_C'",
@@ -118,6 +146,10 @@
         {
           "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckCanCustom_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CheckAtoms/BP_CheckCanCustom.0"
         }
       ],
       "ActivatorAtoms": [
@@ -128,10 +160,6 @@
         {
           "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay.0"
-        },
-        {
-          "ObjectName": "BlueprintGeneratedClass'BP_GADestorySummons_QTwo_Audery_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_GADestorySummons_QTwo_Audery.0"
         },
         {
           "ObjectName": "BlueprintGeneratedClass'BP_SwitchWeapon_Q_Audery_C'",
@@ -163,6 +191,10 @@
       },
       "LongPressEvents": [
         {
+          "ObjectName": "BlueprintGeneratedClass'BP_Trigger_DestorySummon_Audery_ArousalTwo_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_Trigger_DestorySummon_Audery_ArousalTwo.0"
+        },
+        {
           "ObjectName": "BlueprintGeneratedClass'BP_SpawnSummon_Q_Audery_ArousalTwo_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalTwo/BP_SpawnSummon_Q_Audery_ArousalTwo.0"
         },
@@ -183,41 +215,6 @@
         ]
       },
       "TriggerEvents": [
-        {
-          "Key": {
-            "TagName": "Event.Consume.Primary"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'TriggerAddEffects_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/TriggerAddEffects.0"
-              }
-            ],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'TriggerAddEffects_Q_Audery_ArousalThree_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalThree/TriggerAddEffects_Q_Audery_ArousalThree.0"
-              }
-            ],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
-        },
         {
           "Key": {
             "TagName": "Event.Action.WeaponSwitched"
@@ -249,36 +246,6 @@
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/BP_GAAtomTriggerStartCustom_Q.0"
               }
             ],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
-        },
-        {
-          "Key": {
-            "TagName": "Event.Summon.Destroy.Q.Audrey"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCD_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCD.0"
-              }
-            ],
-            "LocallyAtomsForActive": [],
             "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
           }
@@ -367,12 +334,37 @@
               }
             ],
             "AtomsForNoActive": [],
-            "AtomsForInstance": [
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.AlwaysForceMoved.Character"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
               {
-                "ObjectName": "BlueprintGeneratedClass'TriggerAddEffects_Q_Audery_ArousalThree_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/ArousalThree/TriggerAddEffects_Q_Audery_ArousalThree.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility.0"
               }
             ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
             "LocallyAtomsForActive": [],
             "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
@@ -522,7 +514,7 @@
       "bUseDefaultEnergyEnd": false,
       "WeaponClass": {
         "ObjectName": "BlueprintGeneratedClass'Weapon_Q_Audery_C'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/Weapon/Weapon_Q_Audery.0"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/Weapon/Weapon_Q_Audery.2"
       },
       "SlotType": "EWeaponSlotTypes::WeaponSlot_Ability",
       "AttributeRemainEnery": {
@@ -553,7 +545,6 @@
         "ObjectName": "BlueprintGeneratedClass'BP_AbilityStatConfig_Audery_Q_C'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/Q/StatConfig/BP_AbilityStatConfig_Audery_Q.0"
       },
-      "bGamePadInputOverride": true,
       "SkillActivatedOnGamePadInputReleasedConditionAtoms": [
         {
           "ObjectName": "BlueprintGeneratedClass'BP_CheckWeaponIsNotCustom_C'",

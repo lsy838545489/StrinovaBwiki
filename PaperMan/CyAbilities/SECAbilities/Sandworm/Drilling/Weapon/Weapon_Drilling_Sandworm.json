@@ -1,0 +1,1100 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Weapon_Drilling_Sandworm_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyWeaponCustom'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchLocation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchLocationComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyForceMove",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyForceMoveComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFFinishState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFFinishState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFThirdWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFThirdWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFSecondWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFSecondWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "Weapon_Drilling_Sandworm_C",
+    "Name": "Default__Weapon_Drilling_Sandworm_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.Weapon_Drilling_Sandworm_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm",
+    "Properties": {
+      "EquipStates": {
+        "StateTypes": [
+          "EFStateType::Equip",
+          "EFStateType::Work"
+        ]
+      },
+      "UnEquipStates": {
+        "StateTypes": [
+          "EFStateType::UnEquip",
+          "EFStateType::UnEquipped"
+        ]
+      },
+      "StartUseStates": [
+        {
+          "Key": "EUseID::Secondary",
+          "Value": {
+            "StateTypes": [
+              "EFStateType::SecondWork",
+              "EFStateType::ThirdWork",
+              "EFStateType::Finish"
+            ]
+          }
+        }
+      ],
+      "DesiredRotationMode": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeInAir": "EALSRotationMode::LookingDirection",
+      "DesiredRotationModeSprinting": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeAfterEquip": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeCombatReady": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeRelaxed": "EALSRotationMode::VelocityDirection",
+      "AttachSocketOverride": "Bip001-R-Head",
+      "WeaponName": "ECyWeaponName::CustomType218",
+      "bOnlyPlayAnimOnMainAnimInstance": true,
+      "RootScene": {
+        "ObjectName": "SceneComponent'Default__Weapon_Drilling_Sandworm_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.25"
+      },
+      "MeshComponent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Drilling_Sandworm_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.24"
+      },
+      "Machine": {
+        "ObjectName": "CyFMachine'Default__Weapon_Drilling_Sandworm_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.10"
+      },
+      "EffectComponent": {
+        "ObjectName": "CyEffectComponent'Default__Weapon_Drilling_Sandworm_C:EffectComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.3"
+      },
+      "PredictPathComponent": {
+        "ObjectName": "CyPredictPathComponent'Default__Weapon_Drilling_Sandworm_C:PredictPathComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.19"
+      },
+      "CachedComponents": [
+        {
+          "Key": "StateEntry",
+          "Value": {
+            "ObjectName": "CyFEntryState'Default__Weapon_Drilling_Sandworm_C:StateEntry'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.6"
+          }
+        },
+        {
+          "Key": "StateEquip",
+          "Value": {
+            "ObjectName": "CyFEquipState'Default__Weapon_Drilling_Sandworm_C:StateEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.7"
+          }
+        },
+        {
+          "Key": "StateInterrupt",
+          "Value": {
+            "ObjectName": "CyFInterruptState'Default__Weapon_Drilling_Sandworm_C:StateInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.9"
+          }
+        },
+        {
+          "Key": "StateUnEquipped",
+          "Value": {
+            "ObjectName": "CyFUnEquippedState'Default__Weapon_Drilling_Sandworm_C:StateUnEquipped'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.15"
+          }
+        },
+        {
+          "Key": "StateAttack",
+          "Value": {
+            "ObjectName": "CyFAttackState'Default__Weapon_Drilling_Sandworm_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.5"
+          }
+        },
+        {
+          "Key": "PartPendant",
+          "Value": {
+            "ObjectName": "CyPartPendant'Default__Weapon_Drilling_Sandworm_C:PartPendant'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.18"
+          }
+        },
+        {
+          "Key": "StateUnEquip",
+          "Value": {
+            "ObjectName": "CyFUnEquipState'Default__Weapon_Drilling_Sandworm_C:StateUnEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.16"
+          }
+        },
+        {
+          "Key": "SwitcherAttack",
+          "Value": null
+        },
+        {
+          "Key": "SwitcherHold",
+          "Value": null
+        },
+        {
+          "Key": "StateReload",
+          "Value": null
+        },
+        {
+          "Key": "AttackSwitchInterrupt",
+          "Value": null
+        },
+        {
+          "Key": "StateEquipAndReload",
+          "Value": null
+        },
+        {
+          "Key": "ThrowSwitchBegin",
+          "Value": null
+        },
+        {
+          "Key": "ThrowSwitchEnd",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchRelaxed",
+          "Value": null
+        },
+        {
+          "Key": "PartMagazine",
+          "Value": null
+        },
+        {
+          "Key": "PartSight",
+          "Value": null
+        },
+        {
+          "Key": "StateStartReload",
+          "Value": null
+        },
+        {
+          "Key": "StateEndReload",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchWaist",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchAiming",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchADS",
+          "Value": null
+        },
+        {
+          "Key": "ThrowSwitchHigh",
+          "Value": null
+        }
+      ],
+      "WeaponDataCollectionComponent": {
+        "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_Drilling_Sandworm_C:WeaponDataCollectionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.22"
+      },
+      "ShowProjectilePathPosition": {
+        "bEnableMobile": true,
+        "MobileValue": 0.0
+      },
+      "EventActionComponent": {
+        "ObjectName": "CyEventActionComponent'Default__Weapon_Drilling_Sandworm_C:EventActionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.4"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Weapon_Drilling_Sandworm_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.23"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Weapon_Drilling_Sandworm_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.2"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Drilling_Sandworm_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.25"
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyEffectComponent",
+    "Name": "EffectComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEffectComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyEventActionComponent",
+    "Name": "EventActionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventActionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyFAttackState",
+    "Name": "StateAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFAttackState'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyFEntryState",
+    "Name": "StateEntry",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEntryState'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyFEquipState",
+    "Name": "StateEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    },
+    "Properties": {
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon"
+      ],
+      "TotalDuration": {
+        "Value": 2.0
+      },
+      "AssetEvents": [
+        {
+          "PositionStart": 0.64,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFFinishState",
+    "Name": "CyFFinishState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFinishState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    }
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFMachine'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyForceMoveComponent",
+    "Name": "CyForceMove_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyForceMoveComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    },
+    "Properties": {
+      "bForceFly": true,
+      "Priority": 10,
+      "CustomForce": 500000.0,
+      "CustomAttenuation": 50000.0,
+      "AttractSpeed": {
+        "Value": -500.0
+      },
+      "DamageTypeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_Drilling_SECSandworm_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/BP_DamageType_Drilling_SECSandworm.0"
+      }
+    }
+  },
+  {
+    "Type": "CyFSecondWorkState",
+    "Name": "CyFSecondWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFSecondWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    },
+    "Properties": {
+      "bForceStopAnimationNextNull": false,
+      "TotalDuration": {
+        "Value": 2.0
+      },
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_HideMesh_Drilling_SECSandworm_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/BP_SA_HideMesh_Drilling_SECSandworm.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.1,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "CharacterMesh0",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFStateMonitor",
+    "Name": "CyFStateMonitor_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAtom_NotAcceptClientPosition_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Atom_WeaponState/BP_SAtom_NotAcceptClientPosition.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": null,
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_DisableCollision_Drilling_SECSandworm_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/BP_SA_DisableCollision_Drilling_SECSandworm.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_DisableMove_Drilling_SECSandworm_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/BP_SA_DisableMove_Drilling_SECSandworm.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_DisableLandTransition_Drilling_SECSandworm_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/BP_SA_DisableLandTransition_Drilling_SECSandworm.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFThirdWorkState",
+    "Name": "CyFThirdWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFThirdWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    },
+    "Properties": {
+      "bForceStopAnimationNextNull": false,
+      "TotalDuration": {
+        "Value": 2.0
+      },
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.2,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemies_Drilling_SECSandworm_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/BP_SA_SearchEnemies_Drilling_SECSandworm.0"
+          },
+          "SubAtoms": [
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSA_AddForceFly_Drilling_SECSandworm_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/BP_SSA_AddForceFly_Drilling_SECSandworm.0"
+            }
+          ],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.SecondWork.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyFUnEquipState",
+    "Name": "StateUnEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyFWorkState",
+    "Name": "CyFWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    },
+    "Properties": {
+      "bForceStopAnimationOnEnd": true,
+      "bAnimationBlendOut": false,
+      "TotalDuration": {
+        "Value": 4.0
+      },
+      "Events": [
+        {
+          "PositionStart": 0.01,
+          "PositionEnd": 1.0,
+          "bEndWithState": true,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_HideMesh_Drilling_SECSandworm_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/BP_SA_HideMesh_Drilling_SECSandworm.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyPartPendant",
+    "Name": "PartPendant",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartPendant'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyPredictPathComponent",
+    "Name": "PredictPathComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPredictPathComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    },
+    "Properties": {
+      "bEnabled": true
+    }
+  },
+  {
+    "Type": "CySearchLocationComponent",
+    "Name": "CySearchLocation_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchLocationComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    },
+    "Properties": {
+      "bSearchLocation": false,
+      "bAllowSetLocation": true,
+      "InitializeRadius": 3000.0,
+      "LocationType": "ELocationInitializeType::TargetOffset"
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    }
+  },
+  {
+    "Type": "CyWeaponDataCollectionComponent",
+    "Name": "WeaponDataCollectionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Drilling_Sandworm_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.25"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Drilling_Sandworm_C'Default__Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Weapon_Drilling_Sandworm_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.26"
+      },
+      "VariableGuid": "B1A7C4CE-40A7AEF4-99A2429B-F3677D7D",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFThirdWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFThirdWorkState'Weapon_Drilling_Sandworm_C:CyFThirdWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.14"
+      },
+      "VariableGuid": "CB841ACC-4D364985-1FC7DB88-574286B5",
+      "InternalVariableName": "CyFThirdWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_18",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFFinishState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFFinishState'Weapon_Drilling_Sandworm_C:CyFFinishState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.8"
+      },
+      "VariableGuid": "A6A7C4D3-4DBF46DC-2DC864A4-24F96FDA",
+      "InternalVariableName": "CyFFinishState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_19",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyForceMoveComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyForceMoveComponent'Weapon_Drilling_Sandworm_C:CyForceMove_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.11"
+      },
+      "VariableGuid": "37552A0E-4810C224-AB49D28A-BE13B512",
+      "InternalVariableName": "CyForceMove"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_20",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'Weapon_Drilling_Sandworm_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.21"
+      },
+      "VariableGuid": "1E4636A6-4625DB70-35EDA2AA-DB52BAC5",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_21",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchLocationComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchLocationComponent'Weapon_Drilling_Sandworm_C:CySearchLocation_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.20"
+      },
+      "VariableGuid": "45B1A737-4DE574C1-024F22B2-D9E95972",
+      "InternalVariableName": "CySearchLocation"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_22",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFStateMonitor'Weapon_Drilling_Sandworm_C:CyFStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.13"
+      },
+      "VariableGuid": "465363A7-4894583B-DA4FE682-C3162AC5",
+      "InternalVariableName": "CyFStateMonitor"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFWorkState'Weapon_Drilling_Sandworm_C:CyFWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.17"
+      },
+      "VariableGuid": "C1C7F1CF-46A24161-275702B9-69A315A7",
+      "InternalVariableName": "CyFWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.36"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFSecondWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFSecondWorkState'Weapon_Drilling_Sandworm_C:CyFSecondWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.12"
+      },
+      "VariableGuid": "CF4EA65C-4FE6E663-24DB9782-AFE80205",
+      "InternalVariableName": "CyFSecondWorkState"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Drilling_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.34"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.35"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.32"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.33"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.34"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.35"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.32"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.33"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Weapon_Drilling_Sandworm_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/Drilling/Weapon/Weapon_Drilling_Sandworm.27"
+      }
+    }
+  }
+]

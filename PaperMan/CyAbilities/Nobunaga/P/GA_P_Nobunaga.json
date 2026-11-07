@@ -4,6 +4,7 @@
     "Name": "GA_P_Nobunaga_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Nobunaga/P/GA_P_Nobunaga",
     "SuperStruct": {
       "ObjectName": "Class'CyBaseAbility'",
       "ObjectPath": "/Script/PMGame"
@@ -25,6 +26,7 @@
     "Name": "Default__GA_P_Nobunaga_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nobunaga/P/GA_P_Nobunaga.GA_P_Nobunaga_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Nobunaga/P/GA_P_Nobunaga",
     "Properties": {
       "GiverAtoms": [
         {
@@ -49,10 +51,15 @@
       "TriggerEvents": [
         {
           "Key": {
-            "TagName": "Event.CauseDamage.PlayerWeapon.Primary"
+            "TagName": "Event.CauseDamage.PlayerWeapon"
           },
           "Value": {
-            "CheckAtoms": [],
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TC_DamageWeaponType_P_Nobunaga_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/P/BP_TC_DamageWeaponType_P_Nobunaga.0"
+              }
+            ],
             "TagRequirements": {
               "RequireTagType": "ERequireTagType::AND",
               "bInverse": false,
@@ -68,7 +75,9 @@
             "BothAtomsForActive": [],
             "BothAtomsForNoActive": [],
             "BothAtomsForInstance": [],
-            "AtomsForActive": [
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_ApplyEffectsToEnemy_P_Nobunaga_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/P/BP_ApplyEffectsToEnemy_P_Nobunaga.0"
@@ -76,6 +85,34 @@
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_ApplyEffectsToEnemy_P_Nobunaga_Zombie_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/P/BP_ApplyEffectsToEnemy_P_Nobunaga_Zombie.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Consume.Primary"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_AddWaitAfterAttack_P_Nobunaga_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/P/BP_AddWaitAfterAttack_P_Nobunaga.0"
               }
             ],
             "AtomsForNoActive": [],
@@ -87,7 +124,7 @@
         },
         {
           "Key": {
-            "TagName": "Event.Consume.Primary"
+            "TagName": "Event.Consume.Secondary"
           },
           "Value": {
             "CheckAtoms": [],
@@ -135,6 +172,9 @@
           "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagPresent",
           "TriggerType": "EGameplayAbilityTriggerType::Default"
         }
+      ],
+      "ActivationOwnedTags": [
+        "GA.Passive.Nobunaga"
       ]
     }
   }

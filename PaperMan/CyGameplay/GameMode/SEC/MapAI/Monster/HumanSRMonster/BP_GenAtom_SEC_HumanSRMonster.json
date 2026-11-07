@@ -1,0 +1,135 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GenAtom_SEC_HumanSRMonster_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/HumanSRMonster/BP_GenAtom_SEC_HumanSRMonster",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGenCharacterAtom'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GenAtom_SEC_HumanSRMonster_C'Default__BP_GenAtom_SEC_HumanSRMonster_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/HumanSRMonster/BP_GenAtom_SEC_HumanSRMonster.1"
+    }
+  },
+  {
+    "Type": "BP_GenAtom_SEC_HumanSRMonster_C",
+    "Name": "Default__BP_GenAtom_SEC_HumanSRMonster_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/HumanSRMonster/BP_GenAtom_SEC_HumanSRMonster.BP_GenAtom_SEC_HumanSRMonster_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/HumanSRMonster/BP_GenAtom_SEC_HumanSRMonster",
+    "Properties": {
+      "ControllerTemplate": {
+        "ObjectName": "BlueprintGeneratedClass'BP_MonsterController_SEC_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.0"
+      },
+      "RoleRestartConfig": {
+        "bEnable": true,
+        "RoleRestartTag": "MeleeAttack_Monster_Lv1",
+        "RoleRestartLevel": 0
+      },
+      "InitLifeConfig": {
+        "bEnable": true,
+        "bAllowRespawn": true,
+        "RespawnDelay": 5.0
+      },
+      "InitAbilitySystemConfig": {
+        "bEnable": true,
+        "GameplayEffects": {
+          "Arr": [
+            {
+              "EffectClass": {
+                "ObjectName": "BlueprintGeneratedClass'GE_InitAttribute_Monster_HumanSRMonster_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/HumanSRMonster/GE_InitAttribute_Monster_HumanSRMonster.0"
+              }
+            },
+            {
+              "EffectClass": {
+                "ObjectName": "BlueprintGeneratedClass'GE_FullArmorAndHealth_Instant_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/GE_FullArmorAndHealth_Instant.0"
+              }
+            },
+            {
+              "EffectClass": {
+                "ObjectName": "BlueprintGeneratedClass'GE_InitAttribute_Infinite_SEC_Monster_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/GE_InitAttribute_Infinite_SEC_Monster.0"
+              }
+            }
+          ]
+        }
+      },
+      "InitMovementConfig": {
+        "bEnable": true
+      },
+      "InitAIConfig": {
+        "bEnable": true,
+        "bEnableAttack": true,
+        "DefaultBehaviorTree": {
+          "ObjectName": "BehaviorTree'PMBehaviorTree_SEC_GroundIdleMonster'",
+          "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/PMBehaviorTree_SEC_GroundIdleMonster.0"
+        },
+        "MonsterAIConfig": {
+          "ObjectName": "PMMapMonsterAIConfig'PMMapMonsterAIConfig_HumanSRMonster'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/HumanSRMonster/PMMapMonsterAIConfig_HumanSRMonster.0"
+        },
+        "MonsterThreatConfig": {
+          "ObjectName": "PMMonsterThreatConfig'PMMonsterThreatConfig_HumanSRMonster'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/HumanSRMonster/PMMonsterThreatConfig_HumanSRMonster.0"
+        },
+        "DynamicSubtreeMap": [
+          {
+            "Key": {
+              "TagName": "State.MapAI.Idle"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBehaviorTree_SEC_HumanMonster_SR_Idle'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/Monster/HumanMonster/IdlePatrolling/PMBehaviorTree_SEC_HumanMonster_SR_Idle.0"
+            }
+          },
+          {
+            "Key": {
+              "TagName": "State.MapAI.Patrolling"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBehaviorTree_SEC_HumanMonster_SR_Idle'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/Monster/HumanMonster/IdlePatrolling/PMBehaviorTree_SEC_HumanMonster_SR_Idle.0"
+            }
+          },
+          {
+            "Key": {
+              "TagName": "State.MapAI.Combat"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBehaviorTree_SEC_HumanMonster_SR_Combat'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/Monster/HumanMonster/PMBehaviorTree_SEC_HumanMonster_SR_Combat.0"
+            }
+          },
+          {
+            "Key": {
+              "TagName": "State.MapAI.Chasing"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBehaviorTree_SEC_Chasing_EnterCombatDirectly'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/BaseGroundMonster/PMBehaviorTree_SEC_Chasing_EnterCombatDirectly.0"
+            }
+          }
+        ]
+      },
+      "InitRoleConfig": {
+        "bEnable": true,
+        "RoleID": 713,
+        "RoleName": "霰弹怪",
+        "TeamID": 240
+      }
+    }
+  }
+]

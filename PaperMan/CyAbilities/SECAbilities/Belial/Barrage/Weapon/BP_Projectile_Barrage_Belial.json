@@ -1,0 +1,694 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Projectile_Barrage_Belial_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.23"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyProjectileBase'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_GameStateComponent_Summon",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateNone",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILeaveState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAILeaveState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyRetain",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRetainComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+    }
+  },
+  {
+    "Type": "BP_Projectile_Barrage_Belial_C",
+    "Name": "Default__BP_Projectile_Barrage_Belial_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.BP_Projectile_Barrage_Belial_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial",
+    "Properties": {
+      "IgnoreEnemy": true,
+      "RootScene": {
+        "ObjectName": "SphereComponent'Default__BP_Projectile_Barrage_Belial_C:RootComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.25"
+      },
+      "MeshComponent": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_Projectile_Barrage_Belial_C:MeshComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.24"
+      },
+      "MovementComponent": {
+        "ObjectName": "CyProjectileFlyDropMovementComponent'Default__BP_Projectile_Barrage_Belial_C:MovementComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.9"
+      },
+      "bEnableHitTarget": false,
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Projectile_Barrage_Belial_C:PerceptionSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.13"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__BP_Projectile_Barrage_Belial_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.12"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__BP_Projectile_Barrage_Belial_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.8"
+      },
+      "RootComponent": {
+        "ObjectName": "SphereComponent'Default__BP_Projectile_Barrage_Belial_C:RootComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.25"
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "AkComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SphereComponent'Default__BP_Projectile_Barrage_Belial_C:RootComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.25"
+      }
+    }
+  },
+  {
+    "Type": "BP_GameStateComponent_Summon_C",
+    "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.0"
+    },
+    "Template": {
+      "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
+    }
+  },
+  {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.0"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.0"
+    },
+    "Properties": {
+      "DefaultStateType": "EAIStateType::Work",
+      "InitStateQueue": [
+        "EAIStateType::Leave",
+        "EAIStateType::None"
+      ]
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIStateNone_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.0"
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.0"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Barrage_Belial_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_SA_SearchTargets_Barrage_Belial.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 2.0
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+    }
+  },
+  {
+    "Type": "CyProjectileFlyDropMovementComponent",
+    "Name": "MovementComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyProjectileFlyDropMovementComponent'",
+    "Outer": {
+      "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+    },
+    "Properties": {
+      "OnProjectileThrough": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+            },
+            "FunctionName": "OnThrough"
+          }
+        ]
+      },
+      "InitialSpeed": 2000.0,
+      "MaxSpeed": 2000.0,
+      "bRotationFollowsVelocity": false,
+      "ProjectileGravityScale": 0.0,
+      "OnProjectileBounce": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+            },
+            "FunctionName": "OnBounce"
+          }
+        ]
+      },
+      "OnProjectileStop": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+            },
+            "FunctionName": "OnStop"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CyRetainComponent",
+    "Name": "CyRetain_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.0"
+    },
+    "Properties": {
+      "DefinitionTagContainer": [
+        "ActorTag.Projectile.PVEZombie.WhipPrison"
+      ],
+      "OwnerActorTag": {
+        "TagName": "ActorTag.Projectile.PVEZombie.WhipPrison"
+      }
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.0"
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Outer": {
+      "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.23"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Projectile_Barrage_Belial_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.14"
+      },
+      "VariableGuid": "050CFC38-401C0280-5EFC39A4-FF10460C",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.23"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRetainComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRetainComponent'BP_Projectile_Barrage_Belial_C:CyRetain_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.10"
+      },
+      "VariableGuid": "D366BBB2-42D5305F-7E5728B9-6FB0748F",
+      "InternalVariableName": "CyRetain"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.23"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'BP_Projectile_Barrage_Belial_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.5"
+      },
+      "VariableGuid": "67C135CD-4EB81FCE-378DD79C-FD0FB591",
+      "InternalVariableName": "CyAIMachine"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.23"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'BP_Projectile_Barrage_Belial_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.7"
+      },
+      "VariableGuid": "137148CE-4C375ACA-CC55E789-2197BB59",
+      "InternalVariableName": "CyAIWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.23"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAILeaveState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAILeaveState'BP_Projectile_Barrage_Belial_C:CyAILeaveState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.4"
+      },
+      "VariableGuid": "1851EB76-4EDDD92A-B5162086-C0C85263",
+      "InternalVariableName": "CyAILeaveState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.23"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Projectile_Barrage_Belial_C:CyAIStateNone_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.6"
+      },
+      "VariableGuid": "D74151FE-455DEF9B-ECBA0C9D-54B3F5C9",
+      "InternalVariableName": "CyAIStateNone"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.23"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'BP_Projectile_Barrage_Belial_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.11"
+      },
+      "VariableGuid": "78879BA7-4066CB2B-B4F85EB6-E841C398",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.23"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_GameStateComponent_Summon_C'BP_Projectile_Barrage_Belial_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.3"
+      },
+      "VariableGuid": "6CD9843B-41664BF2-80859A8B-18BC78F5",
+      "InternalVariableName": "BP_GameStateComponent_Summon"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.22"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.22"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Projectile_Barrage_Belial_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.15"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "MeshComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SphereComponent'Default__BP_Projectile_Barrage_Belial_C:RootComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.25"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "RootComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SphereComponent'",
+    "Outer": {
+      "ObjectName": "BP_Projectile_Barrage_Belial_C'Default__BP_Projectile_Barrage_Belial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/Barrage/Weapon/BP_Projectile_Barrage_Belial.1"
+    },
+    "Properties": {
+      "BodyInstance": {
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "ProjectileBolckStaticAndDynamic",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

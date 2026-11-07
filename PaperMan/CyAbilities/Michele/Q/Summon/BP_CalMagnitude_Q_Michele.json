@@ -1,0 +1,135 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_CalMagnitude_Q_Michele_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Michele/Q/Summon/BP_CalMagnitude_Q_Michele",
+    "SuperStruct": {
+      "ObjectName": "Class'CyCalculationMagnitudeByTag'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_CalMagnitude_Q_Michele_C'Default__BP_CalMagnitude_Q_Michele_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Michele/Q/Summon/BP_CalMagnitude_Q_Michele.1"
+    }
+  },
+  {
+    "Type": "BP_CalMagnitude_Q_Michele_C",
+    "Name": "Default__BP_CalMagnitude_Q_Michele_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Michele/Q/Summon/BP_CalMagnitude_Q_Michele.BP_CalMagnitude_Q_Michele_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Michele/Q/Summon/BP_CalMagnitude_Q_Michele",
+    "Properties": {
+      "BaseMagnitude": {
+        "Value": 1.0,
+        "bEnableMobile": true,
+        "MobileValue": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.Damage.Set.Q.Michele"
+        }
+      },
+      "RequireMagnitudes": [
+        {
+          "Operation": "ECyRequireMagnitudeOp::Override",
+          "Magnitude": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameMode'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+              },
+              "RowName": "Attribute.MonsterDamage.Set.Q.Michele"
+            }
+          },
+          "GrowthSlotType": "EGrowthSlotType::None",
+          "GrowthIndex": 0,
+          "TargetTagsRequire": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [
+              "ActorTag.Monster"
+            ],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "SourceTagsRequire": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "SourceCharacterTagsRequire": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          }
+        },
+        {
+          "Operation": "ECyRequireMagnitudeOp::Multiply",
+          "Magnitude": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_SCGiftLevelAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_SCGiftLevelAttribute.0"
+              },
+              "RowName": "SCGift.MicheleQMultiplier.4133004"
+            }
+          },
+          "GrowthSlotType": "EGrowthSlotType::SCGiftScaleLevel",
+          "GrowthIndex": 4133004,
+          "TargetTagsRequire": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [
+              "ActorTag.Monster"
+            ],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "SourceTagsRequire": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "SourceCharacterTagsRequire": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [
+              "Buff.SC.Card.X.Michele"
+            ],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          }
+        }
+      ]
+    }
+  }
+]

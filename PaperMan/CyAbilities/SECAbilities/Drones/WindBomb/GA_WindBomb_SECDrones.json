@@ -1,0 +1,129 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_WindBomb_SECDrones_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Drones/WindBomb/GA_WindBomb_SECDrones",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_WindBomb_SECDrones_C'Default__GA_WindBomb_SECDrones_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Drones/WindBomb/GA_WindBomb_SECDrones.1"
+    }
+  },
+  {
+    "Type": "GA_WindBomb_SECDrones_C",
+    "Name": "Default__GA_WindBomb_SECDrones_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Drones/WindBomb/GA_WindBomb_SECDrones.GA_WindBomb_SECDrones_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Drones/WindBomb/GA_WindBomb_SECDrones",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GADestroyWeaponOnRemove_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GADestroyWeaponOnRemove.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorTryGiveThenSwitchWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorTryGiveThenSwitchWeapon.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToOther_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToOther.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Summon.Spawn.Skill2.Drone"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_WindBomb_SECDrones_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Drones/WindBomb/Weapon/Weapon_WindBomb_SECDrones.0"
+      },
+      "SlotType": "EWeaponSlotTypes::CustomType251",
+      "CommitCDMask": 0,
+      "CommitCostMask": 0,
+      "AbilityTags": [
+        "GA.Ability.Skill2.Drones"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Ability.Skill2.Drones"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill"
+      ]
+    }
+  }
+]

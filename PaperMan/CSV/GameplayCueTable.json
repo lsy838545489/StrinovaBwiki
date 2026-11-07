@@ -4,6 +4,7 @@
     "Name": "GameplayCueTable",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'DataTable'",
+    "Package": "PM/Content/PaperMan/CSV/GameplayCueTable",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'GameplayTagTableRow'",
@@ -66,6 +67,10 @@
       "GC.Stealth": {
         "Tag": "GC.Stealth",
         "DevComment": "隐身"
+      },
+      "GC.Lilith.Q.Shadow": {
+        "Tag": "GC.Lilith.Q.Shadow",
+        "DevComment": "莉莉丝Q隐身影子"
       },
       "GC.SpeedSlow": {
         "Tag": "GC.SpeedSlow",
@@ -723,9 +728,157 @@
         "Tag": "GC.Fragrans.DamageFactor",
         "DevComment": "珐格兰丝免伤效果"
       },
+      "GC.Card.Firewall": {
+        "Tag": "GC.Card.Firewall",
+        "DevComment": "行走路径"
+      },
+      "GC.Card.ElectricArea": {
+        "Tag": "GC.Card.ElectricArea",
+        "DevComment": "落雷电场区域"
+      },
+      "GC.Card.ElectricArea.LightningStrike.FixedDamage.Small": {
+        "Tag": "GC.Card.ElectricArea.LightningStrike.FixedDamage.Small",
+        "DevComment": "电场区域落雷特效"
+      },
+      "GC.Card.LightningStrike.FixedDamage.Small": {
+        "Tag": "GC.Card.LightningStrike.FixedDamage.Small",
+        "DevComment": "卡牌落雷-固伤"
+      },
+      "GC.Card.LightningStrike.FixedDamage.Middle": {
+        "Tag": "GC.Card.LightningStrike.FixedDamage.Middle",
+        "DevComment": "卡牌落雷-固伤"
+      },
+      "GC.Card.LightningStrike.FixedDamage.Large": {
+        "Tag": "GC.Card.LightningStrike.FixedDamage.Large",
+        "DevComment": "卡牌落雷-固伤"
+      },
+      "GC.Card.LightningStrike.FixedDamage.ExtraLarge": {
+        "Tag": "GC.Card.LightningStrike.FixedDamage.ExtraLarge",
+        "DevComment": "卡牌落雷-固伤"
+      },
+      "GC.Card.LightningStrike.MoveCast.Small": {
+        "Tag": "GC.Card.LightningStrike.MoveCast.Small",
+        "DevComment": "卡牌落雷-移动释放"
+      },
+      "GC.Card.LightningStrike.MoveCast.Middle": {
+        "Tag": "GC.Card.LightningStrike.MoveCast.Middle",
+        "DevComment": "卡牌落雷-移动释放"
+      },
+      "GC.Card.LightningStrike.MoveCast.Large": {
+        "Tag": "GC.Card.LightningStrike.MoveCast.Large",
+        "DevComment": "卡牌落雷-移动释放"
+      },
+      "GC.Card.LightningStrike.MoveCast.ExtraLarge": {
+        "Tag": "GC.Card.LightningStrike.MoveCast.ExtraLarge",
+        "DevComment": "卡牌落雷-移动释放"
+      },
+      "GC.Card.Explosion.Hit.Small": {
+        "Tag": "GC.Card.Explosion.Hit.Small",
+        "DevComment": "卡牌爆炸-命中触发"
+      },
+      "GC.Card.Explosion.Hit.Middle": {
+        "Tag": "GC.Card.Explosion.Hit.Middle",
+        "DevComment": "卡牌爆炸-命中触发"
+      },
+      "GC.Card.Explosion.Hit.Large": {
+        "Tag": "GC.Card.Explosion.Hit.Large",
+        "DevComment": "卡牌爆炸-命中触发"
+      },
+      "GC.Card.Explosion.Hit.ExtraLarge": {
+        "Tag": "GC.Card.Explosion.Hit.ExtraLarge",
+        "DevComment": "卡牌爆炸-命中触发"
+      },
+      "GC.Card.Explosion.CriticalDamage.Small": {
+        "Tag": "GC.Card.Explosion.CriticalDamage.Small",
+        "DevComment": "卡牌爆炸-生命百分比触发"
+      },
+      "GC.Card.Explosion.CriticalDamage.Middle": {
+        "Tag": "GC.Card.Explosion.CriticalDamage.Middle",
+        "DevComment": "卡牌爆炸-生命百分比触发"
+      },
+      "GC.Card.Explosion.CriticalDamage.Large": {
+        "Tag": "GC.Card.Explosion.CriticalDamage.Large",
+        "DevComment": "卡牌爆炸-生命百分比触发"
+      },
+      "GC.Card.Explosion.CriticalDamage.ExtraLarge": {
+        "Tag": "GC.Card.Explosion.CriticalDamage.ExtraLarge",
+        "DevComment": "卡牌爆炸-生命百分比触发"
+      },
+      "GC.Card.Explosion.Kill.Small": {
+        "Tag": "GC.Card.Explosion.Kill.Small",
+        "DevComment": "卡牌爆炸-击杀触发"
+      },
+      "GC.Card.Explosion.Kill.Middle": {
+        "Tag": "GC.Card.Explosion.Kill.Middle",
+        "DevComment": "卡牌爆炸-击杀触发"
+      },
+      "GC.Card.Explosion.Kill.Large": {
+        "Tag": "GC.Card.Explosion.Kill.Large",
+        "DevComment": "卡牌爆炸-击杀触发"
+      },
+      "GC.Card.Explosion.Kill.ExtraLarge": {
+        "Tag": "GC.Card.Explosion.Kill.ExtraLarge",
+        "DevComment": "卡牌爆炸-击杀触发"
+      },
+      "GC.Card.Shockwave.TakeDamage.Small": {
+        "Tag": "GC.Card.Shockwave.TakeDamage.Small",
+        "DevComment": "卡牌震荡波-受击"
+      },
+      "GC.Card.Shockwave.TakeDamage.Middle": {
+        "Tag": "GC.Card.Shockwave.TakeDamage.Middle",
+        "DevComment": "卡牌震荡波-受击"
+      },
+      "GC.Card.Shockwave.TakeDamage.Large": {
+        "Tag": "GC.Card.Shockwave.TakeDamage.Large",
+        "DevComment": "卡牌震荡波-受击"
+      },
+      "GC.Card.Shockwave.TakeDamage.ExtraLarge": {
+        "Tag": "GC.Card.Shockwave.TakeDamage.ExtraLarge",
+        "DevComment": "卡牌震荡波-受击"
+      },
+      "GC.Card.Shockwave.Periodic.Small": {
+        "Tag": "GC.Card.Shockwave.Periodic.Small",
+        "DevComment": "卡牌震荡波-周期"
+      },
+      "GC.Card.Shockwave.Periodic.Middle": {
+        "Tag": "GC.Card.Shockwave.Periodic.Middle",
+        "DevComment": "卡牌震荡波-周期"
+      },
+      "GC.Card.Shockwave.Periodic.Large": {
+        "Tag": "GC.Card.Shockwave.Periodic.Large",
+        "DevComment": "卡牌震荡波-周期"
+      },
+      "GC.Card.Shockwave.Periodic.ExtraLarge": {
+        "Tag": "GC.Card.Shockwave.Periodic.ExtraLarge",
+        "DevComment": "卡牌震荡波-周期"
+      },
       "GC.Kanami.E": {
         "Tag": "GC.Kanami.E",
         "DevComment": "香奈美C技能GC"
+      },
+      "GC.PVEZombie.Treat.Q": {
+        "Tag": "GC.PVEZombie.Treat.Q",
+        "DevComment": ""
+      },
+      "GC.Boss.StageOne.PVEZombie": {
+        "Tag": "GC.Boss.StageOne.PVEZombie",
+        "DevComment": "Boss阶段1"
+      },
+      "GC.Boss.StageTwo.PVEZombie": {
+        "Tag": "GC.Boss.StageTwo.PVEZombie",
+        "DevComment": "Boss阶段2"
+      },
+      "GC.Boss.StageThree.PVEZombie": {
+        "Tag": "GC.Boss.StageThree.PVEZombie",
+        "DevComment": "Boss阶段3"
+      },
+      "GC.Boss.StageFour.PVEZombie": {
+        "Tag": "GC.Boss.StageFour.PVEZombie",
+        "DevComment": "Boss阶段4"
+      },
+      "GC.Boss.StageFive.PVEZombie": {
+        "Tag": "GC.Boss.StageFive.PVEZombie",
+        "DevComment": "Boss阶段5"
       },
       "GC.CrystalloidBeta1.Q.Instant": {
         "Tag": "GC.CrystalloidBeta1.Q.Instant",
@@ -799,6 +952,10 @@
         "Tag": "GC.Galatea.NotMet",
         "DevComment": "加拉蒂亚传送空间不足"
       },
+      "GC.Galatea.ArousalTwo.Stealth": {
+        "Tag": "GC.Galatea.ArousalTwo.Stealth",
+        "DevComment": "加拉蒂亚觉醒2隐身"
+      },
       "GC.Galatea.X.Stealth": {
         "Tag": "GC.Galatea.X.Stealth",
         "DevComment": "加拉蒂亚X隐身"
@@ -806,6 +963,14 @@
       "GC.ZombieChase.Win": {
         "Tag": "GC.ZombieChase.Win",
         "DevComment": "生化追击逃离点"
+      },
+      "GC.SC.Medical.BeTreated": {
+        "Tag": "GC.SC.Medical.BeTreated",
+        "DevComment": "搜打撤被消耗品治疗"
+      },
+      "GC.SC.Medical.BeTreated.Duration": {
+        "Tag": "GC.SC.Medical.BeTreated.Duration",
+        "DevComment": "搜打撤消耗品持续生效"
       },
       "GC.Parkour.Win": {
         "Tag": "GC.Parkour.Win",
@@ -818,6 +983,10 @@
       "GC.Nora.X.Mark": {
         "Tag": "GC.Nora.X.Mark",
         "DevComment": "诺诺大招标记"
+      },
+      "GC.Attachment.4083204": {
+        "Tag": "GC.Attachment.4083204",
+        "DevComment": "龙息弹灼烧特效"
       },
       "GC.Nora.Q.Warning": {
         "Tag": "GC.Nora.Q.Warning",
@@ -843,13 +1012,97 @@
         "Tag": "GC.Lawine.ArousalThree.Mark.C",
         "DevComment": "拉薇觉醒3扫描预警3"
       },
+      "GC.XRay.InstigatorNoTipsEnemy": {
+        "Tag": "GC.XRay.InstigatorNoTipsEnemy",
+        "DevComment": "仅施法者可见的透视但敌人无提示版本"
+      },
       "GC.Card.XRay.Instigator.100032": {
         "Tag": "GC.Card.XRay.Instigator.100032",
         "DevComment": "天赋100032透视"
       },
-      "GC.XRay.InstigatorNoTipsEnemy": {
-        "Tag": "GC.XRay.InstigatorNoTipsEnemy",
-        "DevComment": "仅施法者可见的透视但敌人无提示版本"
+      "GC.CameraShake.Trample.BoxingCrab": {
+        "Tag": "GC.CameraShake.Trample.BoxingCrab",
+        "DevComment": "搜打撤拳击蟹践踏震动"
+      },
+      "GC.Common.FlySpeedUp": {
+        "Tag": "GC.Common.FlySpeedUp",
+        "DevComment": "通用飘飞加速"
+      },
+      "GC.Mark.Skill3.Meront": {
+        "Tag": "GC.Mark.Skill3.Meront",
+        "DevComment": "分裂体陷阱标记"
+      },
+      "GC.Common.PerfectDodge": {
+        "Tag": "GC.Common.PerfectDodge",
+        "DevComment": "通用完美闪避"
+      },
+      "GC.Lilith.WhipPunish.OnHit": {
+        "Tag": "GC.Lilith.WhipPunish.OnHit",
+        "DevComment": "莉莉丝鞭刑技能受击特效"
+      },
+      "GC.OnHit.Dash.ShadowEft": {
+        "Tag": "GC.OnHit.Dash.ShadowEft",
+        "DevComment": "影蜥冲撞命中特效"
+      },
+      "GC.SC.Weakness": {
+        "Tag": "GC.SC.Weakness",
+        "DevComment": "SC弱点暴露"
+      },
+      "GC.Kanami.Q.Transfer.SC": {
+        "Tag": "GC.Kanami.Q.Transfer.SC",
+        "DevComment": "香奈美专属卡传递伤害"
+      },
+      "GC.MusicWall.Success": {
+        "Tag": "GC.MusicWall.Success",
+        "DevComment": "音乐墙使用成功"
+      },
+      "GC.PhotoBooth.Success": {
+        "Tag": "GC.PhotoBooth.Success",
+        "DevComment": "合影机使用成功"
+      },
+      "GC.Common.FlyUp": {
+        "Tag": "GC.Common.FlyUp",
+        "DevComment": "通用上升表现"
+      },
+      "GC.UIFeedBackTip.A": {
+        "Tag": "GC.UIFeedBackTip.A",
+        "DevComment": "通用UI提示"
+      },
+      "GC.UIFeedBackTip.B": {
+        "Tag": "GC.UIFeedBackTip.B",
+        "DevComment": "通用UI提示"
+      },
+      "GC.UIFeedBackTip.C": {
+        "Tag": "GC.UIFeedBackTip.C",
+        "DevComment": "通用UI提示"
+      },
+      "GC.XRay.LocalEnemyNoTips": {
+        "Tag": "GC.XRay.LocalEnemyNoTips",
+        "DevComment": "玩家敌人可见的透视无提示版本"
+      },
+      "GC.MoveScanned.Being": {
+        "Tag": "GC.MoveScanned.Being",
+        "DevComment": "正在被移动扫描"
+      },
+      "GC.XRay.InstigatorToTargetNoTips": {
+        "Tag": "GC.XRay.InstigatorToTargetNoTips",
+        "DevComment": "将自己无提示的透视给目标"
+      },
+      "GC.Nora.X.DebuffVoice": {
+        "Tag": "GC.Nora.X.DebuffVoice",
+        "DevComment": "诺诺大招Debuff声音"
+      },
+      "GC.CameraShake.Common.A": {
+        "Tag": "GC.CameraShake.Common.A",
+        "DevComment": "通用相机震动"
+      },
+      "GC.CameraShake.Common.B": {
+        "Tag": "GC.CameraShake.Common.B",
+        "DevComment": "通用相机震动"
+      },
+      "GC.CameraShake.Common.C": {
+        "Tag": "GC.CameraShake.Common.C",
+        "DevComment": "通用相机震动"
       },
       "GC.Mara.QRM.InWeekBuff": {
         "Tag": "GC.Mara.QRM.InWeekBuff",
@@ -862,6 +1115,10 @@
       "GC.Mara.XRm.ShowTipsOnSearchOther": {
         "Tag": "GC.Mara.XRm.ShowTipsOnSearchOther",
         "DevComment": "玛拉XRM传导搜到目标时给玛拉挂HUD提示"
+      },
+      "GC.Mara.A3Rm.OnClearCache": {
+        "Tag": "GC.Mara.A3Rm.OnClearCache",
+        "DevComment": "玛拉A3RM清空伤害缓存时播GC特效"
       }
     }
   }

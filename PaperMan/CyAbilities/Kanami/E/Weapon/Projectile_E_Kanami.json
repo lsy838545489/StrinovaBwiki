@@ -4,6 +4,7 @@
     "Name": "Projectile_E_Kanami_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/E/Weapon/Projectile_E_Kanami",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Projectile_E_Kanami_C:SimpleConstructionScript_0'",
@@ -55,6 +56,7 @@
     "Name": "Default__Projectile_E_Kanami_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Kanami/E/Weapon/Projectile_E_Kanami.Projectile_E_Kanami_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/E/Weapon/Projectile_E_Kanami",
     "Properties": {
       "BlastRadius": 0.0,
       "bEnablePhysicalBlock": false,
@@ -71,10 +73,6 @@
         "ObjectName": "CyProjectileFlyDropMovementComponent'Default__Projectile_E_Kanami_C:MovementComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/E/Weapon/Projectile_E_Kanami.5"
       },
-      "AkComponent": {
-        "ObjectName": "AkComponent'Default__Projectile_E_Kanami_C:AkComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/E/Weapon/Projectile_E_Kanami.2"
-      },
       "bEnableExplodeForLifeOver": false,
       "ActuatorConfig": {
         "ActorClass": {
@@ -85,6 +83,11 @@
         "bEnableRotation": true,
         "bAttachToHitActor": true
       },
+      "bPlaySpanExpiredDestroyEffect": true,
+      "SpanExpiredDestroyEffectTags": [
+        "Resource.Particle.Leave.A",
+        "Resource.Audio.Leave.A"
+      ],
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile_E_Kanami_C:PerceptionSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/E/Weapon/Projectile_E_Kanami.8"
@@ -96,6 +99,16 @@
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__Projectile_E_Kanami_C:DataSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/E/Weapon/Projectile_E_Kanami.4"
+      },
+      "InitialLifeSpanScalable": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.SummonDistance.Set.E.Kanami"
+        }
       },
       "InitialLifeSpan": 20.0,
       "RootComponent": {

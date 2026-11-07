@@ -1,0 +1,117 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GAT_ModifyGEDuration_SC_Q_MoBai_01_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/MoBai/Q/SC/BP_GAT_ModifyGEDuration_SC_Q_MoBai_01",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGATriggerModifyGameplayEffectDuration'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GAT_ModifyGEDuration_SC_Q_MoBai_01_C'Default__BP_GAT_ModifyGEDuration_SC_Q_MoBai_01_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Q/SC/BP_GAT_ModifyGEDuration_SC_Q_MoBai_01.1"
+    }
+  },
+  {
+    "Type": "BP_GAT_ModifyGEDuration_SC_Q_MoBai_01_C",
+    "Name": "Default__BP_GAT_ModifyGEDuration_SC_Q_MoBai_01_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/MoBai/Q/SC/BP_GAT_ModifyGEDuration_SC_Q_MoBai_01.BP_GAT_ModifyGEDuration_SC_Q_MoBai_01_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/MoBai/Q/SC/BP_GAT_ModifyGEDuration_SC_Q_MoBai_01",
+    "Properties": {
+      "GameplayEffectTags": [
+        "CD.Ability.SkillQ.MoBai"
+      ],
+      "bUseTWeaponBaseDamageOverrideOpValue01": true,
+      "OpType": "EOpTypeCustom::Multiply",
+      "OpValue02": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.SecCD.Q.Reduce.MoBai"
+        }
+      },
+      "OpType2To3": "EOpTypeCustom::Multiply",
+      "OpValue03": {
+        "Value": 0.5
+      },
+      "OpType3To4": "EOpTypeCustom::Multiply",
+      "OpValue04": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "CurveTable'CT_QualityScalingSkillAttribute_SEC'",
+            "ObjectPath": "PM/Content/PaperMan/CSV/CT_QualityScalingSkillAttribute_SEC.0"
+          },
+          "RowName": "Attribute.CD.Q.WeaponReduce.MoBai"
+        }
+      },
+      "bUseWeaponLevelOnOpValue04": true,
+      "OpType4To5": "EOpTypeCustom::Multiply",
+      "OpValue05": {
+        "Value": 1.0
+      },
+      "bUseWeaponTypeToValueMapOverrideOpValue05": true,
+      "WeaponTypeToValueMap": [
+        {
+          "Key": "ECyWeaponType::AR",
+          "Value": 1.0
+        },
+        {
+          "Key": "ECyWeaponType::SR",
+          "Value": 1.0
+        },
+        {
+          "Key": "ECyWeaponType::SMG",
+          "Value": 1.0
+        },
+        {
+          "Key": "ECyWeaponType::SG",
+          "Value": 1.0
+        },
+        {
+          "Key": "ECyWeaponType::PT",
+          "Value": 1.0
+        },
+        {
+          "Key": "ECyWeaponType::LMG",
+          "Value": 1.0
+        },
+        {
+          "Key": "ECyWeaponType::Ejector",
+          "Value": 1.0
+        },
+        {
+          "Key": "ECyWeaponType::DMR",
+          "Value": 1.0
+        }
+      ],
+      "bUseFinialMinValue": true,
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TCheckIsCharacter_Instigator_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/TCheckAtom/BP_TCheckIsCharacter_Instigator.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAT_MonsterType_IsMonster_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/MoBai/Q/SC/BP_GAT_MonsterType_IsMonster.0"
+        }
+      ],
+      "AllowedModes": [
+        "EPMGameModeType::SEC"
+      ]
+    }
+  }
+]

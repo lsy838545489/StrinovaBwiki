@@ -1,0 +1,1078 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Summon_MinionAttack_Meront_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySummonActor'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyTargetActors",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyTargetActorsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySummonSkeletalMesh",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySummonSkeletalMeshComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_GameStateComponent_Summon",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAINoneState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILeaveState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAILeaveState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIEntryState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIEntryState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Decal",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'DecalComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyRetain",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRetainComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Summon_MinionAttack_Meront_C'Default__BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.1"
+    }
+  },
+  {
+    "Type": "BP_Summon_MinionAttack_Meront_C",
+    "Name": "Default__BP_Summon_MinionAttack_Meront_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.BP_Summon_MinionAttack_Meront_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront",
+    "Properties": {
+      "ArousalComponent": {
+        "ObjectName": "CyArousalComponent'Default__BP_Summon_MinionAttack_Meront_C:ArousalComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.10"
+      },
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_MinionAttack_Meront_C:PerceptionSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.17"
+      },
+      "bReplicates": true
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    }
+  },
+  {
+    "Type": "BP_GameStateComponent_Summon_C",
+    "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    },
+    "Template": {
+      "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
+    }
+  },
+  {
+    "Type": "CyAIEntryState",
+    "Name": "CyAIEntryState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIEntryState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    },
+    "Properties": {
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Entry.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "Value": 0.2
+      }
+    }
+  },
+  {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    },
+    "Properties": {
+      "DefaultStateType": "EAIStateType::None",
+      "InitStateQueue": [
+        "EAIStateType::Entry",
+        "EAIStateType::Work",
+        "EAIStateType::Leave",
+        "EAIStateType::None"
+      ]
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAINoneState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIStateMonitor_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::Entry",
+        "EAIStateType::Work"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_PlayBeam_MinionAttack_Meront_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_SA_PlayBeam_MinionAttack_Meront.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_FaceTarget_MinionAttack_Meront_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_SA_FaceTarget_MinionAttack_Meront.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.3,
+          "PositionEnd": 0.4,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemies_MinionAttack_Meront_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_SA_SearchEnemies_MinionAttack_Meront.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.65,
+          "PositionEnd": 0.75,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemies_MinionAttack_Meront_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_SA_SearchEnemies_MinionAttack_Meront.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.25,
+          "PositionEnd": 0.4,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.6,
+          "PositionEnd": 0.8,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.9,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.B"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "Value": 2.45
+      }
+    }
+  },
+  {
+    "Type": "CyArousalComponent",
+    "Name": "ArousalComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyArousalComponent'",
+    "Outer": {
+      "ObjectName": "BP_Summon_MinionAttack_Meront_C'Default__BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.1"
+    }
+  },
+  {
+    "Type": "CyRetainComponent",
+    "Name": "CyRetain_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    },
+    "Properties": {
+      "DefinitionTagContainer": [
+        "ActorTag.Projectile.PVESkill3.Meront"
+      ],
+      "OwnerActorTag": {
+        "TagName": "ActorTag.Projectile.PVESkill3.Meront"
+      }
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "CySkin_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    }
+  },
+  {
+    "Type": "CySummonSkeletalMeshComponent",
+    "Name": "CySummonSkeletalMesh_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySummonSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    },
+    "Properties": {
+      "CanCharacterStepUpOn": "ECB_No",
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -150.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      },
+      "ComponentTagSet": [
+        "WorkingMesh"
+      ]
+    }
+  },
+  {
+    "Type": "CyTargetActorsComponent",
+    "Name": "CyTargetActors_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyTargetActorsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    }
+  },
+  {
+    "Type": "DecalComponent",
+    "Name": "Decal_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'DecalComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "BP_Summon_MinionAttack_Meront_C'Default__BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.1"
+    },
+    "Properties": {
+      "StimuliSourceID": 23062
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Summon_MinionAttack_Meront_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.18"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_27'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.26"
+        }
+      ],
+      "VariableGuid": "792A727B-4D536648-B18BB495-C3D44A89",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRetainComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRetainComponent'BP_Summon_MinionAttack_Meront_C:CyRetain_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.11"
+      },
+      "VariableGuid": "BA7AB3FD-48C926E1-520CD9A9-E609F290",
+      "InternalVariableName": "CyRetain"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyTargetActorsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyTargetActorsComponent'BP_Summon_MinionAttack_Meront_C:CyTargetActors_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.15"
+      },
+      "VariableGuid": "01B70C1F-4C8C518B-FB0E5D92-C2BAB497",
+      "InternalVariableName": "CyTargetActors"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'BP_Summon_MinionAttack_Meront_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.12"
+      },
+      "VariableGuid": "A618C261-407086F3-E07C839E-46C5C69F",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'BP_Summon_MinionAttack_Meront_C:Ak_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.2"
+      },
+      "VariableGuid": "EA3EEF99-48435740-03FA7092-C524C692",
+      "InternalVariableName": "Ak"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_20",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_MinionAttack_Meront_C:CyAINoneState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.7"
+      },
+      "VariableGuid": "13004D30-483025CA-9DC799A2-91F226BF",
+      "InternalVariableName": "CyAINoneState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_23",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_GameStateComponent_Summon_C'BP_Summon_MinionAttack_Meront_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.3"
+      },
+      "VariableGuid": "95ACB128-491C8D9C-E181E4A4-BC0A7D7B",
+      "InternalVariableName": "BP_GameStateComponent_Summon"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_27",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySummonSkeletalMeshComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySummonSkeletalMeshComponent'BP_Summon_MinionAttack_Meront_C:CySummonSkeletalMesh_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.14"
+      },
+      "VariableGuid": "835BDBEB-40B18063-956E7A91-92556659",
+      "InternalVariableName": "CySummonSkeletalMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIEntryState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIEntryState'BP_Summon_MinionAttack_Meront_C:CyAIEntryState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.4"
+      },
+      "VariableGuid": "0217BA54-49EA4432-D9090B8C-62989A31",
+      "InternalVariableName": "CyAIEntryState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'DecalComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DecalComponent'BP_Summon_MinionAttack_Meront_C:Decal_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.16"
+      },
+      "VariableGuid": "765A629A-4588184C-EDED4996-41281A0A",
+      "InternalVariableName": "Decal"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySkinComponent'BP_Summon_MinionAttack_Meront_C:CySkin_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.13"
+      },
+      "VariableGuid": "75CD9FB3-4FFC44B6-9E7F509E-9A75AF3D",
+      "InternalVariableName": "CySkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'BP_Summon_MinionAttack_Meront_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.9"
+      },
+      "VariableGuid": "B9D1A916-40A62014-EE7FA59F-C35F0330",
+      "InternalVariableName": "CyAIWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAILeaveState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAILeaveState'BP_Summon_MinionAttack_Meront_C:CyAILeaveState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.5"
+      },
+      "VariableGuid": "EA236AF1-42AB3184-B50928A0-C4474FF9",
+      "InternalVariableName": "CyAILeaveState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_MinionAttack_Meront_C:CyAIStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.8"
+      },
+      "VariableGuid": "6588FE3F-489034B1-F5DA70B8-6AD202E6",
+      "InternalVariableName": "CyAIStateMonitor"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'BP_Summon_MinionAttack_Meront_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.6"
+      },
+      "VariableGuid": "3F1E6959-4DFC696A-5A176C84-5A6DFE2F",
+      "InternalVariableName": "CyAIMachine"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_MinionAttack_Meront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.22"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_27'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.22"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Summon_MinionAttack_Meront_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/MinionAttack/Summon/BP_Summon_MinionAttack_Meront.19"
+      }
+    }
+  }
+]

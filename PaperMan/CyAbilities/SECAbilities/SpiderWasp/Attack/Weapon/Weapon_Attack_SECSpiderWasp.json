@@ -1,0 +1,1486 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Weapon_Attack_SECSpiderWasp_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Weapon_Attack_SECSpiderWasp_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.45"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyWeaponRifle'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyTargetActors",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyTargetActorsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "Weapon_Attack_SECSpiderWasp_C",
+    "Name": "Default__Weapon_Attack_SECSpiderWasp_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.Weapon_Attack_SECSpiderWasp_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp",
+    "Properties": {
+      "SpeedConfig": {
+        "Speed3D": [
+          {
+            "Key": "EGroundGait::Walk",
+            "Value": {
+              "Value": 230.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Run",
+            "Value": {
+              "Value": 440.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          },
+          {
+            "Key": "EGroundGait::Sprint",
+            "Value": {
+              "Value": 550.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        ]
+      },
+      "DesiredRotationModeInAir": "EALSRotationMode::LookingDirection",
+      "DesiredRotationModeAfterEquip": "EALSRotationMode::LookingDirection",
+      "DesiredRotationModeCombatReady": "EALSRotationMode::LookingDirection",
+      "AttachSocketOverride": "MuzzleAimSocket",
+      "WeaponName": "ECyWeaponName::CustomType219",
+      "bOnlyPlayAnimOnMainAnimInstance": true,
+      "RootScene": {
+        "ObjectName": "SceneComponent'Default__Weapon_Attack_SECSpiderWasp_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.40"
+      },
+      "MeshComponent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Attack_SECSpiderWasp_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.37"
+      },
+      "Machine": {
+        "ObjectName": "CyFMachine'Default__Weapon_Attack_SECSpiderWasp_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.22"
+      },
+      "AttackComponent": {
+        "ObjectName": "CyFireComponent'Default__Weapon_Attack_SECSpiderWasp_C:AttackComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.21"
+      },
+      "EffectComponent": {
+        "ObjectName": "CyEffectComponent'Default__Weapon_Attack_SECSpiderWasp_C:EffectComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.4"
+      },
+      "PredictPathComponent": {
+        "ObjectName": "CyPredictPathComponent'Default__Weapon_Attack_SECSpiderWasp_C:PredictPathComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.33"
+      },
+      "CachedComponents": [
+        {
+          "Key": "SwitcherAttack",
+          "Value": {
+            "ObjectName": "CyFFireSwitcher'Default__Weapon_Attack_SECSpiderWasp_C:SwitcherAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.13"
+          }
+        },
+        {
+          "Key": "SwitcherHold",
+          "Value": {
+            "ObjectName": "CyFHoldSwitcher'Default__Weapon_Attack_SECSpiderWasp_C:SwitcherHold'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.17"
+          }
+        },
+        {
+          "Key": "StateEntry",
+          "Value": {
+            "ObjectName": "CyFEntryState'Default__Weapon_Attack_SECSpiderWasp_C:StateEntry'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.7"
+          }
+        },
+        {
+          "Key": "StateEquip",
+          "Value": {
+            "ObjectName": "CyFEquipState'Default__Weapon_Attack_SECSpiderWasp_C:StateEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.9"
+          }
+        },
+        {
+          "Key": "StateInterrupt",
+          "Value": {
+            "ObjectName": "CyFInterruptState'Default__Weapon_Attack_SECSpiderWasp_C:StateInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.20"
+          }
+        },
+        {
+          "Key": "StateUnEquipped",
+          "Value": {
+            "ObjectName": "CyFUnEquippedState'Default__Weapon_Attack_SECSpiderWasp_C:StateUnEquipped'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.24"
+          }
+        },
+        {
+          "Key": "StateReload",
+          "Value": {
+            "ObjectName": "CyFReloadState'Default__Weapon_Attack_SECSpiderWasp_C:StateReload'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.23"
+          }
+        },
+        {
+          "Key": "StateAttack",
+          "Value": {
+            "ObjectName": "CyFFireState'Default__Weapon_Attack_SECSpiderWasp_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.10"
+          }
+        },
+        {
+          "Key": "AttackSwitchInterrupt",
+          "Value": {
+            "ObjectName": "CyFAttackSwitchInterrupt'Default__Weapon_Attack_SECSpiderWasp_C:AttackSwitchInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.6"
+          }
+        },
+        {
+          "Key": "PartPendant",
+          "Value": {
+            "ObjectName": "CyPartPendant'Default__Weapon_Attack_SECSpiderWasp_C:PartPendant'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.28"
+          }
+        },
+        {
+          "Key": "StateEquipAndReload",
+          "Value": {
+            "ObjectName": "CyFEquipReloadState'Default__Weapon_Attack_SECSpiderWasp_C:StateEquipAndReload'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.8"
+          }
+        },
+        {
+          "Key": "AttackSwitchSingle",
+          "Value": {
+            "ObjectName": "CyFFireSwitchSingle'Default__Weapon_Attack_SECSpiderWasp_C:AttackSwitchSingle'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.14"
+          }
+        },
+        {
+          "Key": "AttackSwitchBurst",
+          "Value": {
+            "ObjectName": "CyFFireSwitchBurst'Default__Weapon_Attack_SECSpiderWasp_C:AttackSwitchBurst'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.12"
+          }
+        },
+        {
+          "Key": "AttackSwitchAuto",
+          "Value": {
+            "ObjectName": "CyFFireSwitchAuto'Default__Weapon_Attack_SECSpiderWasp_C:AttackSwitchAuto'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.11"
+          }
+        },
+        {
+          "Key": "HoldSwitchRelaxed",
+          "Value": {
+            "ObjectName": "CyFHoldSwitchRelaxed'Default__Weapon_Attack_SECSpiderWasp_C:HoldSwitchRelaxed'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.18"
+          }
+        },
+        {
+          "Key": "HoldSwitchWaist",
+          "Value": {
+            "ObjectName": "CyFHoldSwitchWaist'Default__Weapon_Attack_SECSpiderWasp_C:HoldSwitchWaist'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.19"
+          }
+        },
+        {
+          "Key": "HoldSwitchAiming",
+          "Value": {
+            "ObjectName": "CyFHoldSwitchAiming'Default__Weapon_Attack_SECSpiderWasp_C:HoldSwitchAiming'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.16"
+          }
+        },
+        {
+          "Key": "HoldSwitchADS",
+          "Value": {
+            "ObjectName": "CyFHoldSwitchADS'Default__Weapon_Attack_SECSpiderWasp_C:HoldSwitchADS'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.15"
+          }
+        },
+        {
+          "Key": "PartGrip",
+          "Value": {
+            "ObjectName": "CyPartGrip'Default__Weapon_Attack_SECSpiderWasp_C:PartGrip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.25"
+          }
+        },
+        {
+          "Key": "PartMagazine",
+          "Value": {
+            "ObjectName": "CyPartMagazine'Default__Weapon_Attack_SECSpiderWasp_C:PartMagazine'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.26"
+          }
+        },
+        {
+          "Key": "PartMuzzle",
+          "Value": {
+            "ObjectName": "CyPartMuzzle'Default__Weapon_Attack_SECSpiderWasp_C:PartMuzzle'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.27"
+          }
+        },
+        {
+          "Key": "PartStock",
+          "Value": {
+            "ObjectName": "CyPartStock'Default__Weapon_Attack_SECSpiderWasp_C:PartStock'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.32"
+          }
+        },
+        {
+          "Key": "PartSight",
+          "Value": {
+            "ObjectName": "CyPartSight'Default__Weapon_Attack_SECSpiderWasp_C:PartSight'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.29"
+          }
+        },
+        {
+          "Key": "MeshPartSight",
+          "Value": {
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Attack_SECSpiderWasp_C:MeshPartSight'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.38"
+          }
+        },
+        {
+          "Key": "PartSightLens",
+          "Value": {
+            "ObjectName": "CyPartSightLens'Default__Weapon_Attack_SECSpiderWasp_C:PartSightLens'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.31"
+          }
+        },
+        {
+          "Key": "MeshPartSightLens",
+          "Value": {
+            "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Attack_SECSpiderWasp_C:MeshPartSightLens'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.39"
+          }
+        },
+        {
+          "Key": "PartSightFocus",
+          "Value": {
+            "ObjectName": "CyPartSightFocus'Default__Weapon_Attack_SECSpiderWasp_C:PartSightFocus'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.30"
+          }
+        },
+        {
+          "Key": "MeshPartSightFocus",
+          "Value": {
+            "ObjectName": "StaticMeshComponent'Default__Weapon_Attack_SECSpiderWasp_C:MeshPartSightFocus'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.46"
+          }
+        },
+        {
+          "Key": "AttackSwitchCharge",
+          "Value": null
+        },
+        {
+          "Key": "MeshPartPendant",
+          "Value": null
+        },
+        {
+          "Key": "PartPendantSecond",
+          "Value": null
+        },
+        {
+          "Key": "MeshPartPendantSecond",
+          "Value": null
+        },
+        {
+          "Key": "PartPendantThird",
+          "Value": null
+        },
+        {
+          "Key": "MeshPartPendantThird",
+          "Value": null
+        },
+        {
+          "Key": "PartPendantForth",
+          "Value": null
+        },
+        {
+          "Key": "MeshPartPendantForth",
+          "Value": null
+        },
+        {
+          "Key": "StateStartReload",
+          "Value": null
+        },
+        {
+          "Key": "StateEndReload",
+          "Value": null
+        }
+      ],
+      "WeaponDataCollectionComponent": {
+        "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_Attack_SECSpiderWasp_C:WeaponDataCollectionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.35"
+      },
+      "UISlotType": "EWeaponSlotTypes::WeaponSlot_Primary",
+      "LevelAttributeTable": {
+        "ObjectName": "ModeDataTable'DT_GameMode_GrowthPartAttributeModifier'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/DataTable/DT_GameMode_GrowthPartAttributeModifier.0"
+      },
+      "UIFireType": "ECyWeaponUIFireTypes::AutoGun",
+      "EventActionComponent": {
+        "ObjectName": "CyEventActionComponent'Default__Weapon_Attack_SECSpiderWasp_C:EventActionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.5"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Weapon_Attack_SECSpiderWasp_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.36"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Weapon_Attack_SECSpiderWasp_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.3"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Attack_SECSpiderWasp_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.40"
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.0"
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyEffectComponent",
+    "Name": "EffectComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEffectComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "AkEventWhiz": {
+        "ObjectName": "AkAudioEvent'Wpn_Bullet_Whiz'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Wpn_Bullet_Whiz.0"
+      },
+      "AkEventShellCase": {
+        "ObjectName": "AkAudioEvent'Bullet_ShellDrop_AssaultRifle'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkEvent/Bullet_ShellDrop_AssaultRifle.0"
+      },
+      "AkRtpcAmmoLeftProportion": {
+        "ObjectName": "AkRtpc'NumberOfBullets'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkRTPC/NumberOfBullets.0"
+      },
+      "AkRtpcAttackIndex": {
+        "ObjectName": "AkRtpc'Bullets'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkRTPC/Bullets.0"
+      },
+      "AkRtpcAttackTriggerRateShotDuration": {
+        "ObjectName": "AkRtpc'Weapons_Loopshot_Duration'",
+        "ObjectPath": "PM/Content/WwiseAssets/AkRTPC/Weapons_Loopshot_Duration.0"
+      },
+      "DefaultTriggerRateShotDuration": 0.09
+    }
+  },
+  {
+    "Type": "CyEventActionComponent",
+    "Name": "EventActionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventActionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyFAttackSwitchInterrupt",
+    "Name": "AttackSwitchInterrupt",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFAttackSwitchInterrupt'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyFEntryState",
+    "Name": "StateEntry",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEntryState'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyFEquipReloadState",
+    "Name": "StateEquipAndReload",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipReloadState'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyFEquipState",
+    "Name": "StateEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.6
+      }
+    }
+  },
+  {
+    "Type": "CyFFireState",
+    "Name": "StateAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireState'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_PreWarning_Attack_SpiderWasp_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/BP_SA_PreWarning_Attack_SpiderWasp.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFFireSwitchAuto",
+    "Name": "AttackSwitchAuto",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireSwitchAuto'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "bEnabled": false
+    }
+  },
+  {
+    "Type": "CyFFireSwitchBurst",
+    "Name": "AttackSwitchBurst",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireSwitchBurst'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "BurstCount": 6,
+      "BurstStartTime": {
+        "Value": 0.83
+      },
+      "BurstEndTime": {
+        "Value": 0.76,
+        "MobileValue": 0.1
+      },
+      "bPlayAttackAnimation": false,
+      "AttackerVerifyDistance": 100.0,
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'DamageType_Attack_SECSpiderWasp_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/DamageType_Attack_SECSpiderWasp.0"
+      },
+      "bSetCharacterAnimLengthToDuration": false,
+      "bSetWeaponAnimLengthToDuration": false,
+      "bPlayAnimationOnBegin": true,
+      "bForceStopAnimationNextNull": false,
+      "bStopAnimationOnBegin": true,
+      "bUseTimeStamp": true,
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
+      "EndEventTags": [
+        {
+          "TagName": "Event.Action.KeepSide"
+        },
+        {
+          "TagName": "Event.Action.KeepFly"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFFireSwitcher",
+    "Name": "SwitcherAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireSwitcher'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "DefaultAttackType": "EFAttackType::Burst",
+      "MobileDefaultAttackType": "EFAttackType::Burst"
+    }
+  },
+  {
+    "Type": "CyFFireSwitchSingle",
+    "Name": "AttackSwitchSingle",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFireSwitchSingle'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "bEnabled": false
+    }
+  },
+  {
+    "Type": "CyFHoldSwitchADS",
+    "Name": "HoldSwitchADS",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFHoldSwitchADS'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "bEnabled": false
+    }
+  },
+  {
+    "Type": "CyFHoldSwitchAiming",
+    "Name": "HoldSwitchAiming",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFHoldSwitchAiming'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "bEnabled": false
+    }
+  },
+  {
+    "Type": "CyFHoldSwitcher",
+    "Name": "SwitcherHold",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFHoldSwitcher'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyFHoldSwitchRelaxed",
+    "Name": "HoldSwitchRelaxed",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFHoldSwitchRelaxed'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "ViewPitchMax": 30.0,
+      "ViewPitchMin": -60.0,
+      "SpreadScaleTimeRate": {
+        "Value": 0.1
+      }
+    }
+  },
+  {
+    "Type": "CyFHoldSwitchWaist",
+    "Name": "HoldSwitchWaist",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFHoldSwitchWaist'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "ViewPitchMax": 30.0,
+      "ViewPitchMin": -60.0,
+      "CameraShake": {
+        "ObjectName": "BlueprintGeneratedClass'BP_CameraShake_Attack_SECSpiderWasp_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/BP_CameraShake_Attack_SECSpiderWasp.0"
+      },
+      "TimeSpreadScaleOnCurve": {
+        "ObjectName": "CurveFloat'SpreadWaist'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/SpreadWaist.0"
+      },
+      "SpreadScaleTimeRate": {
+        "Value": 0.1
+      }
+    }
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyFireComponent",
+    "Name": "AttackComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFireComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "AttackSocket": "None",
+      "AimSocket": "None",
+      "RecoilProcessor": {
+        "RecoilTime": {
+          "Value": 0.15
+        },
+        "HorizontalRecoveryMax": {
+          "Value": 4.0
+        },
+        "PitchRecoilLower": {
+          "Value": 6.0
+        },
+        "PitchRecoilHigher": {
+          "Value": 2.64
+        },
+        "PitchRecoilModifier": {
+          "Value": 0.48
+        },
+        "PitchRecoilModifierLimit": {
+          "Value": 2.4
+        },
+        "PitchRecoilUpperLimit": {
+          "Value": 3.0
+        },
+        "HRecoilDisableMask": 251720703,
+        "HRecoilDirectionType": "ERecoilDirectionType::UseMask",
+        "HRecoilDirectionMask": 7,
+        "YawRecoilModifierLimit": {
+          "Value": 0.1
+        },
+        "YawRecoilUpperLimit": {
+          "Value": 144.0
+        }
+      },
+      "SpreadProcessor": {
+        "SpreadMax": {
+          "Value": 2.0
+        },
+        "SpreadModifierBase": {
+          "Value": 0.0
+        },
+        "SpreadModifierInc": {
+          "Value": 0.0
+        },
+        "SpreadModifierMax": {
+          "Value": 0.0
+        },
+        "SpreadDecSpeed": {
+          "Value": 0.0
+        },
+        "SpreadDecSpeedFiring": {
+          "Value": 0.0
+        },
+        "SpreadIncSpeed": {
+          "Value": 0.0
+        },
+        "SpreadIncSpeedFiring": {
+          "Value": 0.0
+        },
+        "LocomotionSpreadIncSpeed": {
+          "Value": 0.0
+        },
+        "LocomotionSpreadDecSpeed": {
+          "Value": 0.0
+        },
+        "SpreadScale": {
+          "Walk": {
+            "Value": 1.0
+          },
+          "Run": {
+            "Value": 1.0
+          },
+          "InAir": {
+            "Value": 1.0
+          }
+        }
+      },
+      "CrossHairProcessor": {
+        "MinOffset": 0.4,
+        "SpreadWeight": 0.8
+      },
+      "AttenuationProcessor": {
+        "DistanceProtectedStart": {
+          "Value": 0.0,
+          "MobileValue": 0.0
+        },
+        "DistanceEffective": {
+          "Value": 3800.0
+        },
+        "FactorMaximal": {
+          "Value": 0.2
+        }
+      },
+      "ScratchLengthModifier": {
+        "ObjectName": "CurveFloat'0-1CurveBase'",
+        "ObjectPath": "PM/Content/PaperMan/SkinAssets/Characters/Lawine/S206/Mesh3D/PhyhysicsCurve/0-1CurveBase.0"
+      },
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'DamageType_Attack_SECSpiderWasp_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/DamageType_Attack_SECSpiderWasp.0"
+      },
+      "AttackRange": 4000.0,
+      "AttackDamage": {
+        "Value": 5.0,
+        "MobileValue": 25.0
+      },
+      "DamageScaleFor2D": {
+        "Value": 0.67
+      },
+      "AttackKeepTime": {
+        "Value": 0.25,
+        "MobileValue": 0.25
+      },
+      "AutoFireType": "ECyWeaponAutoFireTypes::LMG",
+      "BodyDamageFactor": [
+        {
+          "Key": "EWFBaseHumanBodyPartsType::Head",
+          "Value": {
+            "Value": 1.5,
+            "bEnableMobile": false,
+            "MobileValue": 1.5,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::Neck",
+          "Value": {
+            "Value": 1.5,
+            "bEnableMobile": false,
+            "MobileValue": 1.5,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::Chest",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::Stomach",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::Pelvis",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::LeftShoulder",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::LeftUpperArm",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::LeftForeArm",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::LeftHand",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::RightShoulder",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::RightUpperArm",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::RightForeArm",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::RightHand",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::LeftThigh",
+          "Value": {
+            "Value": 0.7,
+            "bEnableMobile": false,
+            "MobileValue": 0.7,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::LeftCalf",
+          "Value": {
+            "Value": 0.7,
+            "bEnableMobile": false,
+            "MobileValue": 0.7,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::LeftFoot",
+          "Value": {
+            "Value": 0.7,
+            "bEnableMobile": false,
+            "MobileValue": 0.7,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::RightThigh",
+          "Value": {
+            "Value": 0.7,
+            "bEnableMobile": false,
+            "MobileValue": 0.7,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::RightCalf",
+          "Value": {
+            "Value": 0.7,
+            "bEnableMobile": false,
+            "MobileValue": 0.7,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::RightFoot",
+          "Value": {
+            "Value": 0.7,
+            "bEnableMobile": false,
+            "MobileValue": 0.7,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Key": "EWFBaseHumanBodyPartsType::Decorate",
+          "Value": {
+            "Value": 0.7,
+            "bEnableMobile": false,
+            "MobileValue": 0.7,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFMachine'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyFReloadState",
+    "Name": "StateReload",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFReloadState'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyPartGrip",
+    "Name": "PartGrip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartGrip'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyPartMagazine",
+    "Name": "PartMagazine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartMagazine'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "AmmoMax": {
+        "Value": 9999.0,
+        "MobileValue": 210.0
+      },
+      "AmmoPerMagazine": {
+        "Value": 9999.0,
+        "MobileValue": 25.0
+      },
+      "GSAmmoCapacityFactor": {
+        "AttributeName": "MagazineCapacityFactor",
+        "Attribute": {
+          "Path": [
+            "MagazineCapacityFactor"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyCustomWeaponAttributeSet'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "GameStateNoReloadTags": {
+        "RequireAnyTags": [
+          "Switch.Weapon.NoReload.On",
+          "Switch.Weapon.NoReload.Primary"
+        ]
+      },
+      "GameStateInfinityAmmoTags": {
+        "RequireAnyTags": [
+          "Switch.Weapon.InfinityAmmo.On",
+          "Switch.Weapon.InfinityAmmo.Primary"
+        ]
+      },
+      "ReloadType": "EReloadType::OnEndReload",
+      "UpdateAmmoWhenGrowthLevelChange": {
+        "bEnableMobile": true,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode_GrowthOption'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode_GrowthOption.0"
+          },
+          "RowName": "UpdateAmmoWhenGrowthLevelChange"
+        }
+      }
+    }
+  },
+  {
+    "Type": "CyPartMuzzle",
+    "Name": "PartMuzzle",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartMuzzle'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "MuzzleSmokeMinAttackCount": 1,
+      "MuzzleSmokeAttackInterval": 0.2
+    }
+  },
+  {
+    "Type": "CyPartPendant",
+    "Name": "PartPendant",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartPendant'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyPartSight",
+    "Name": "PartSight",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartSight'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyPartSightFocus",
+    "Name": "PartSightFocus",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartSightFocus'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyPartSightLens",
+    "Name": "PartSightLens",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartSightLens'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyPartStock",
+    "Name": "PartStock",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartStock'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyPredictPathComponent",
+    "Name": "PredictPathComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPredictPathComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyTargetActorsComponent",
+    "Name": "CyTargetActors_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyTargetActorsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.0"
+    }
+  },
+  {
+    "Type": "CyWeaponDataCollectionComponent",
+    "Name": "WeaponDataCollectionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Attack_SECSpiderWasp_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.40"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSight",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Attack_SECSpiderWasp_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.37"
+      }
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshPartSightLens",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Attack_SECSpiderWasp_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.37"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Attack_SECSpiderWasp_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.45"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Weapon_Attack_SECSpiderWasp_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.41"
+      },
+      "VariableGuid": "E7C2A744-4D2ADCC6-9EF4F782-4FAE1117",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Attack_SECSpiderWasp_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.45"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'Weapon_Attack_SECSpiderWasp_C:Ak_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.2"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "7B75CA58-4E8683C1-FBB06784-6150E041",
+      "InternalVariableName": "Ak"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Attack_SECSpiderWasp_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.45"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyTargetActorsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyTargetActorsComponent'Weapon_Attack_SECSpiderWasp_C:CyTargetActors_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.34"
+      },
+      "VariableGuid": "690F675E-4FA46D6D-B58CCF93-C85E32D8",
+      "InternalVariableName": "CyTargetActors"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Attack_SECSpiderWasp_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Attack_SECSpiderWasp_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.43"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Attack_SECSpiderWasp_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.44"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Attack_SECSpiderWasp_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.43"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Weapon_Attack_SECSpiderWasp_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.42"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "MeshPartSightFocus",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Attack_SECSpiderWasp_C'Default__Weapon_Attack_SECSpiderWasp_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Attack_SECSpiderWasp_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/SpiderWasp/Attack/Weapon/Weapon_Attack_SECSpiderWasp.37"
+      }
+    }
+  }
+]

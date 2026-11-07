@@ -1,0 +1,1533 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Summon_RevivalPawn_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySummonPawn'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "SkeletalMeshTarget",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SkeletalMeshTreatment",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SkeletalMeshRescue",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateNone",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIDeathState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIDeathState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateEntry",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIAnimationState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Camera",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CameraComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SpringArm",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SpringArmComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILeaveState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAILeaveState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateMonitorEntryAndWork",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyTargetUpdateMesh",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyTargetUpdateMeshComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Capsule",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Summon_RevivalPawn_C'Default__BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.1"
+    }
+  },
+  {
+    "Type": "BP_Summon_RevivalPawn_C",
+    "Name": "Default__BP_Summon_RevivalPawn_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.BP_Summon_RevivalPawn_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn",
+    "Properties": {
+      "ArousalComponent": {
+        "ObjectName": "CyArousalComponent'Default__BP_Summon_RevivalPawn_C:ArousalComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.12"
+      },
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_RevivalPawn_C:PerceptionSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.15"
+      },
+      "bEnableAimAssist": true,
+      "AutoPossessAI": "EAutoPossessAI::PlacedInWorldOrSpawned",
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'Summon_AIController_RevivalPawn_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/Summon_AIController_RevivalPawn.0"
+      },
+      "bReplicateMovement": false,
+      "bGenerateOverlapEventsDuringLevelStreaming": false,
+      "SpawnCollisionHandlingMethod": "ESpawnActorCollisionHandlingMethod::AlwaysSpawn",
+      "NetPriority": 1.0
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    }
+  },
+  {
+    "Type": "CameraComponent",
+    "Name": "Camera_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CameraComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Capsule_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "CapsuleHalfHeight": 92.0,
+      "CapsuleRadius": 42.0,
+      "AreaClass": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel9",
+        "CollisionProfileName": "SummonBlockPawn",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 92.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIAnimationState",
+    "Name": "CyAIStateEntry_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIAnimationState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "StateType": "EAIStateType::Entry",
+      "HideMeshNames": [
+        "SkeletalMeshTarget"
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Entry"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "Value": 1.4
+      },
+      "AimAssistConstantTrackingSpeedMultiple": 0.5,
+      "DampingRange": {
+        "X": 40.0,
+        "Y": 100.0
+      },
+      "AimAssistRange": {
+        "X": 110.0,
+        "Y": 110.0
+      },
+      "ExtraInputRange": {
+        "X": 160.0,
+        "Y": 140.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIDeathState",
+    "Name": "CyAIDeathState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIDeathState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "HideMeshNames": [
+        "SkeletalMeshTarget"
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMeshRescue",
+              "AssetTagContainer": [
+                "Resource.Particle.Death"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMeshTreatment",
+              "AssetTagContainer": [
+                "Resource.Particle.Death"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMeshTarget",
+              "AssetTagContainer": [
+                "Resource.Particle.Death"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshComponent",
+              "AssetTagContainer": [
+                "Resource.Audio.Death"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
+      "AimAssistConstantTrackingSpeedMultiple": 0.5,
+      "DampingRange": {
+        "X": 40.0,
+        "Y": 100.0
+      },
+      "AimAssistRange": {
+        "X": 110.0,
+        "Y": 110.0
+      },
+      "ExtraInputRange": {
+        "X": 160.0,
+        "Y": 140.0
+      }
+    }
+  },
+  {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "HideMeshNames": [
+        "SkeletalMeshTarget"
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Leave"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
+      "AimAssistConstantTrackingSpeedMultiple": 0.5,
+      "DampingRange": {
+        "X": 40.0,
+        "Y": 100.0
+      },
+      "AimAssistRange": {
+        "X": 110.0,
+        "Y": 110.0
+      },
+      "ExtraInputRange": {
+        "X": 160.0,
+        "Y": 140.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "UseTimeState": [
+        "EAIStateType::Work"
+      ]
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAIStateNone_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "AimAssistConstantTrackingSpeedMultiple": 0.5,
+      "DampingRange": {
+        "X": 40.0,
+        "Y": 100.0
+      },
+      "AimAssistRange": {
+        "X": 110.0,
+        "Y": 110.0
+      },
+      "ExtraInputRange": {
+        "X": 160.0,
+        "Y": 140.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIStateMonitorEntryAndWork_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::Entry",
+        "EAIStateType::Work"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_Revival_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_SA_Revival.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_UpdateMaterial_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_SA_UpdateMaterial.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::InterruptAndSuccess",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMeshTarget",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.B"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMeshRescue",
+              "AssetTagContainer": [
+                "Resource.Particle.Work"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMeshTreatment",
+              "AssetTagContainer": [
+                "Resource.Particle.Work"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "SkeletalMeshTarget",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Work"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "Value": 3.0
+      },
+      "AimAssistConstantTrackingSpeedMultiple": 0.5,
+      "DampingRange": {
+        "X": 40.0,
+        "Y": 100.0
+      },
+      "AimAssistRange": {
+        "X": 110.0,
+        "Y": 110.0
+      },
+      "ExtraInputRange": {
+        "X": 160.0,
+        "Y": 140.0
+      }
+    }
+  },
+  {
+    "Type": "CyArousalComponent",
+    "Name": "ArousalComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyArousalComponent'",
+    "Outer": {
+      "ObjectName": "BP_Summon_RevivalPawn_C'Default__BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.1"
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "CySkin_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "bEnableOcclusion": true
+    }
+  },
+  {
+    "Type": "CyTargetUpdateMeshComponent",
+    "Name": "CyTargetUpdateMesh_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyTargetUpdateMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "BP_Summon_RevivalPawn_C'Default__BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Summon_RevivalPawn_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.16"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.25"
+        }
+      ],
+      "VariableGuid": "465535FD-4EABD4C7-FE8CF081-91757BD8",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_Summon_RevivalPawn_C:Capsule_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.4"
+      },
+      "VariableGuid": "404ED496-41294932-7A68DDA8-9F1C0EE8",
+      "InternalVariableName": "Capsule"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIAnimationState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIAnimationState'BP_Summon_RevivalPawn_C:CyAIStateEntry_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.5"
+      },
+      "VariableGuid": "03657F61-4AC63832-7DC808AF-01E02ADB",
+      "InternalVariableName": "CyAIStateEntry"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_RevivalPawn_C:CyAIStateNone_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.9"
+      },
+      "VariableGuid": "FBA97330-49506FCB-E077F49F-3ACFBAA5",
+      "InternalVariableName": "CyAIStateNone"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIDeathState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIDeathState'BP_Summon_RevivalPawn_C:CyAIDeathState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.6"
+      },
+      "VariableGuid": "FBB59A99-4DF24EA0-6DD8CF83-579F2367",
+      "InternalVariableName": "CyAIDeathState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'BP_Summon_RevivalPawn_C:Ak_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.2"
+      },
+      "VariableGuid": "1DA1B6F5-42B7F912-97025584-B147FDC2",
+      "InternalVariableName": "Ak"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SkeletalMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkeletalMeshComponent'BP_Summon_RevivalPawn_C:SkeletalMeshRescue_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.35"
+      },
+      "VariableGuid": "16C9782F-4A1BD481-93008F98-BA23C53C",
+      "InternalVariableName": "SkeletalMeshRescue"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_15",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SkeletalMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkeletalMeshComponent'BP_Summon_RevivalPawn_C:SkeletalMeshTreatment_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.37"
+      },
+      "VariableGuid": "4F69E287-4A6ECAA9-7493F993-71985A90",
+      "InternalVariableName": "SkeletalMeshTreatment"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_16",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SkeletalMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkeletalMeshComponent'BP_Summon_RevivalPawn_C:SkeletalMeshTarget_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.36"
+      },
+      "VariableGuid": "BEEA74F2-4FEB89A7-209AB8B7-99B29613",
+      "InternalVariableName": "SkeletalMeshTarget"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyTargetUpdateMeshComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyTargetUpdateMeshComponent'BP_Summon_RevivalPawn_C:CyTargetUpdateMesh_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.14"
+      },
+      "VariableGuid": "469FEEE3-4C065906-766EBBA8-D00BA52E",
+      "InternalVariableName": "CyTargetUpdateMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_RevivalPawn_C:CyAIStateMonitorEntryAndWork_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.10"
+      },
+      "VariableGuid": "9EAC441E-48374DBD-D96CA495-77986ED4",
+      "InternalVariableName": "CyAIStateMonitorEntryAndWork"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySkinComponent'BP_Summon_RevivalPawn_C:CySkin_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.13"
+      },
+      "VariableGuid": "CD799F25-47C4C3E4-A8C02F9A-B0DFE3F3",
+      "InternalVariableName": "CySkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'BP_Summon_RevivalPawn_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.8"
+      },
+      "VariableGuid": "162F0937-4B3C06F3-21577094-9030C9FF",
+      "InternalVariableName": "CyAIMachine"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'BP_Summon_RevivalPawn_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.11"
+      },
+      "VariableGuid": "BEF52F30-4BD671D7-8C93DF98-EB7596CF",
+      "InternalVariableName": "CyAIWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAILeaveState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAILeaveState'BP_Summon_RevivalPawn_C:CyAILeaveState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.7"
+      },
+      "VariableGuid": "7DF34FDC-40D9A19F-71D598BC-06794C55",
+      "InternalVariableName": "CyAILeaveState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SpringArmComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SpringArmComponent'BP_Summon_RevivalPawn_C:SpringArm_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.38"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.33"
+        }
+      ],
+      "VariableGuid": "5F3C10F1-46A95203-2E34FABF-FE407281",
+      "InternalVariableName": "SpringArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.34"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CameraComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CameraComponent'BP_Summon_RevivalPawn_C:Camera_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.3"
+      },
+      "VariableGuid": "CFE060D9-4788F9BD-12C5A696-B0614F3A",
+      "InternalVariableName": "Camera"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.20"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.25"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Summon_RevivalPawn_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.17"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "SkeletalMeshRescue_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ClothingSimulationFactoryNv'",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_Pawn",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "ReviveRobotMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      },
+      "ComponentTagSet": [
+        "OcclusionMesh"
+      ]
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "SkeletalMeshTarget_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ClothingSimulationFactoryNv'",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_Pawn",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "ReviveRobotCharacterMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 179.99997,
+        "Roll": 0.0
+      },
+      "bVisible": false,
+      "ComponentTagSet": [
+        "TargetMesh",
+        "WorkingMesh",
+        "OcclusionMesh",
+        "AimAssistMesh"
+      ]
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "SkeletalMeshTreatment_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ClothingSimulationFactoryNv'",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_Pawn",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "ReviveRobotMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 179.99997,
+        "Roll": 0.0
+      },
+      "ComponentTagSet": [
+        "OcclusionMesh"
+      ]
+    }
+  },
+  {
+    "Type": "SpringArmComponent",
+    "Name": "SpringArm_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SpringArmComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_RevivalPawn_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BP_Summon_RevivalPawn.0"
+    },
+    "Properties": {
+      "TargetArmLength": 400.0,
+      "TargetOffset": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 200.0
+      }
+    }
+  }
+]

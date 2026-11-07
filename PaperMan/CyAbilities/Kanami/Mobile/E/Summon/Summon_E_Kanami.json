@@ -4,10 +4,11 @@
     "Name": "Summon_E_Kanami_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
       }
     },
     "SuperStruct": {
@@ -17,13 +18,24 @@
     "ChildProperties": [
       {
         "Type": "ObjectProperty",
-        "Name": "WindField",
+        "Name": "CyAISecondWorkState",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
         "PropertyClass": {
-          "ObjectName": "Class'StaticMeshComponent'",
-          "ObjectPath": "/Script/Engine"
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyLife",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyLifeComponent'",
+          "ObjectPath": "/Script/PMGame"
         }
       },
       {
@@ -35,17 +47,6 @@
         "PropertyClass": {
           "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CyForceMove",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
-        "PropertyClass": {
-          "ObjectName": "Class'CyForceMoveComponent'",
-          "ObjectPath": "/Script/PMGame"
         }
       },
       {
@@ -209,16 +210,21 @@
     "Name": "Default__Summon_E_Kanami_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.Summon_E_Kanami_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami",
     "Properties": {
+      "CenterLocationOffset": {
+        "X": 10.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_E_Kanami_C:ArousalComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.10"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.11"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_E_Kanami_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.17"
       },
-      "bCanBeDamaged": false,
       "bReplicates": true
     }
   },
@@ -256,6 +262,19 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
     },
     "Properties": {
+      "DefaultStartingData": [
+        {
+          "Attributes": {
+            "ObjectName": "Class'CyBaseAttributeSet'",
+            "ObjectPath": "/Script/PMGame"
+          },
+          "DefaultStartingTable": {
+            "ObjectName": "DataTable'AttributeMetaData'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/AttributeMetaData.0"
+          },
+          "MobileStartingTable": null
+        }
+      ],
       "ReplicatedPredictionKeyMap": {
         "PredictionKeys": [
           {
@@ -263,6 +282,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -276,6 +296,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -289,6 +310,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -302,6 +324,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -315,6 +338,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -328,6 +352,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -341,6 +366,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -354,6 +380,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -367,6 +394,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -380,6 +408,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -393,6 +422,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -406,6 +436,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -419,6 +450,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -432,6 +464,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -445,6 +478,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -458,6 +492,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -471,6 +506,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -484,6 +520,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -497,6 +534,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -510,6 +548,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -523,6 +562,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -536,6 +576,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -549,6 +590,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -562,6 +604,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -575,6 +618,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -588,6 +632,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -601,6 +646,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -614,6 +660,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -627,6 +674,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -640,6 +688,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -653,6 +702,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -666,6 +716,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -684,21 +735,6 @@
     "Name": "CyAIDeathState_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyAIDeathState'",
-    "Outer": {
-      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
-    },
-    "Properties": {
-      "TotalDuration": {
-        "Value": 0.0
-      }
-    }
-  },
-  {
-    "Type": "CyAILeaveState",
-    "Name": "CyAILeaveState_GEN_VARIABLE",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyAILeaveState'",
     "Outer": {
       "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
@@ -726,7 +762,34 @@
               "ResourceClassify": "ECyGCResourceClassify::Effect",
               "MeshName": "None",
               "AssetTagContainer": [
-                "Resource.Audio.Leave.A"
+                "Resource.Particle.Death.A",
+                "Resource.Audio.Death.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::UI",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.UI.Feedback.Death"
               ],
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
@@ -734,10 +797,22 @@
             }
           ]
         }
-      ],
-      "TotalDuration": {
-        "Value": 3.0
-      }
+      ]
+    }
+  },
+  {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
+    "Properties": {
+      "HideMeshNames": [
+        "SkeletalMesh"
+      ]
     }
   },
   {
@@ -765,7 +840,7 @@
   },
   {
     "Type": "CyAIWorkState",
-    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Name": "CyAISecondWorkState_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'CyAIWorkState'",
     "Outer": {
@@ -773,6 +848,10 @@
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
     },
     "Properties": {
+      "StateType": "EAIStateType::SecondWork",
+      "HideMeshNames": [
+        "SkeletalMesh"
+      ],
       "Events": [
         {
           "PositionStart": 0.0,
@@ -780,8 +859,8 @@
           "bEndWithState": false,
           "bNoSkipped": false,
           "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_ForceMoveUpVector_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_ForceMoveUpVector.0"
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Leave_E_Kanami_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_SearchTargets_Leave_E_Kanami.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -792,20 +871,8 @@
           "bEndWithState": false,
           "bNoSkipped": false,
           "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Vertigo_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_SearchTargets_Vertigo.0"
-          },
-          "SubAtoms": [],
-          "EventActions": []
-        },
-        {
-          "PositionStart": 0.0,
-          "PositionEnd": 1.0,
-          "bEndWithState": false,
-          "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_SpeedFactor_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_SearchTargets_SpeedFactor.0"
+            "ObjectName": "BlueprintGeneratedClass'BP_SearchTargets_Enemy_Zombie_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SearchTargets_Enemy_Zombie.0"
           },
           "SubAtoms": [],
           "EventActions": []
@@ -830,14 +897,51 @@
               "ResourceClassify": "ECyGCResourceClassify::Effect",
               "MeshName": "None",
               "AssetTagContainer": [
-                "Resource.Particle.Work.A"
+                "Resource.Particle.Leave.A",
+                "Resource.Audio.Leave.A"
               ],
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
-              "bAllowLoop": true
+              "bAllowLoop": false
             }
           ]
-        },
+        }
+      ],
+      "TotalDuration": {
+        "Value": 2.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargets_Work_E_Kanami_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SA_SearchTargets_Work_E_Kanami.0"
+          },
+          "SubAtoms": [
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSA_SummonGotoLeave_E_Kanami_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Atom/BP_SSA_SummonGotoLeave_E_Kanami.0"
+            }
+          ],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
         {
           "PositionStart": 0.0,
           "PositionEnd": 1.0,
@@ -856,7 +960,9 @@
               "ResourceClassify": "ECyGCResourceClassify::Effect",
               "MeshName": "None",
               "AssetTagContainer": [
-                "Resource.Audio.Work.A"
+                "Resource.Particle.Work.A",
+                "Resource.Audio.Work.A",
+                "Resource.Material.A"
               ],
               "AssetTagStopContainer": [],
               "DefaultAssetKey": 0,
@@ -866,7 +972,7 @@
         }
       ],
       "TotalDuration": {
-        "Value": 5.0
+        "Value": 9999.0
       },
       "GameStateDurationAttribute": {
         "AttributeName": "GrenadeWindFieldDuration",
@@ -896,20 +1002,13 @@
     }
   },
   {
-    "Type": "CyForceMoveComponent",
-    "Name": "CyForceMove_GEN_VARIABLE",
+    "Type": "CyLifeComponent",
+    "Name": "CyLife_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'CyForceMoveComponent'",
+    "Class": "UScriptClass'CyLifeComponent'",
     "Outer": {
       "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
-    },
-    "Properties": {
-      "bForceFly": true,
-      "Priority": 10,
-      "CustomForce": 500000.0,
-      "CustomAttenuation": 50000.0,
-      "AttractSpeed": -500.0
     }
   },
   {
@@ -945,12 +1044,6 @@
     "Outer": {
       "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
-    },
-    "Properties": {
-      "Detectors": [
-        null
-      ],
-      "PermissionMask": 10
     }
   },
   {
@@ -961,6 +1054,10 @@
     "Outer": {
       "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
+    },
+    "Properties": {
+      "bEnableOcclusion": true,
+      "bEnableTeamType": true
     }
   },
   {
@@ -1006,7 +1103,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1015,19 +1112,15 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_E_Kanami_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.17"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.18"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.33"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.20"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.21"
         }
       ],
@@ -1042,7 +1135,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1064,7 +1157,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1086,19 +1179,19 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
-        "ObjectName": "Class'StaticMeshComponent'",
-        "ObjectPath": "/Script/Engine"
+        "ObjectName": "Class'CyLifeComponent'",
+        "ObjectPath": "/Script/PMGame"
       },
       "ComponentTemplate": {
-        "ObjectName": "StaticMeshComponent'Summon_E_Kanami_C:WindField_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.36"
+        "ObjectName": "CyLifeComponent'Summon_E_Kanami_C:CyLife_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.12"
       },
-      "VariableGuid": "35D9AF34-4E859916-FCD9779C-B45631ED",
-      "InternalVariableName": "WindField"
+      "VariableGuid": "7C4CEA9C-42086227-D2628C9F-AC4C9E0A",
+      "InternalVariableName": "CyLife"
     }
   },
   {
@@ -1108,7 +1201,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1117,7 +1210,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_E_Kanami_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.15"
       },
       "VariableGuid": "280AE9AF-4F188A03-74582D98-85056556",
       "InternalVariableName": "CySkin"
@@ -1130,7 +1223,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1139,7 +1232,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_E_Kanami_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.12"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.13"
       },
       "VariableGuid": "1944123D-4C26395E-BED5E0AA-7E0159CA",
       "InternalVariableName": "CyRetain"
@@ -1152,7 +1245,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1174,7 +1267,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1183,7 +1276,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySummonLightAIComponent'Summon_E_Kanami_C:CySummonLightAI_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.15"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.16"
       },
       "VariableGuid": "8AFC5FC5-4B80EC56-53A9B5A5-70255AFC",
       "InternalVariableName": "CySummonLightAI"
@@ -1196,7 +1289,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1218,7 +1311,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1227,7 +1320,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_E_Kanami_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.9"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.10"
       },
       "VariableGuid": "BE5D9E42-4910BFF4-2BA951B2-8F97C5BE",
       "InternalVariableName": "CyAIWorkState"
@@ -1240,7 +1333,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1262,7 +1355,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1279,12 +1372,34 @@
   },
   {
     "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'Summon_E_Kanami_C:CyAISecondWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.9"
+      },
+      "VariableGuid": "71862212-45D3A356-4BA2F2AE-910BE628",
+      "InternalVariableName": "CyAISecondWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
     "Name": "SCS_Node_40",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1306,7 +1421,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1315,32 +1430,10 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Summon_E_Kanami_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.14"
       },
       "VariableGuid": "40FA9C86-4F80EC3C-FBA3248D-8DB9DA50",
       "InternalVariableName": "CySearchTargets"
-    }
-  },
-  {
-    "Type": "SCS_Node",
-    "Name": "SCS_Node_42",
-    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'SCS_Node'",
-    "Outer": {
-      "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
-    },
-    "Properties": {
-      "ComponentClass": {
-        "ObjectName": "Class'CyForceMoveComponent'",
-        "ObjectPath": "/Script/PMGame"
-      },
-      "ComponentTemplate": {
-        "ObjectName": "CyForceMoveComponent'Summon_E_Kanami_C:CyForceMove_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.11"
-      },
-      "VariableGuid": "355F8D4E-465B57AC-475D28A2-79885B9F",
-      "InternalVariableName": "CyForceMove"
     }
   },
   {
@@ -1350,7 +1443,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_E_Kanami_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
     },
     "Properties": {
       "ComponentClass": {
@@ -1359,7 +1452,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Summon_E_Kanami_C:SkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.35"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.36"
       },
       "VariableGuid": "7824DC0F-46EB80BA-06B57DA6-0E579342",
       "InternalVariableName": "SkeletalMesh"
@@ -1378,126 +1471,130 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.18"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
         },
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_32'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.22"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_33'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.23"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_33'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.24"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_34'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.25"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_36'",
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_35'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.26"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_37'",
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_36'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.27"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_38'",
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_37'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.28"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_39'",
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_38'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.29"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_40'",
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_39'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.30"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_41'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.31"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_42'",
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_40'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.32"
         },
         {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_41'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.33"
+        },
+        {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.20"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.22"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.31"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.18"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.33"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_11'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.20"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_32'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.22"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_33'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.23"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_34'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.24"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_35'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.25"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_36'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.26"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_37'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.27"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_38'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.28"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_39'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.29"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_40'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.30"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_41'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.31"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_42'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.32"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
         },
         {
-          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.34"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_11'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.21"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_32'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.23"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_33'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.24"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_34'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_35'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_36'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_37'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_38'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_39'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_40'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.32"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_41'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.33"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.20"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.22"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.31"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_E_Kanami_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.18"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.19"
       }
     }
   },
@@ -1516,9 +1613,9 @@
         "ObjectPath": "/Script/ClothingSystemRuntimeNv"
       },
       "BodyInstance": {
-        "ObjectType": "ECC_GameTraceChannel4",
+        "ObjectType": "ECC_GameTraceChannel9",
         "CollisionEnabled": "ECollisionEnabled::QueryOnly",
-        "CollisionProfileName": "SummonMeshCollosion",
+        "CollisionProfileName": "SummonDestructableNoVisibleNoCollision",
         "CollisionResponses": {
           "ResponseArray": [
             {
@@ -1580,109 +1677,20 @@
           ]
         }
       },
+      "RelativeRotation": {
+        "Pitch": -90.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      },
       "RelativeScale3D": {
-        "X": 4.0,
-        "Y": 4.0,
-        "Z": 4.0
+        "X": 3.0,
+        "Y": 3.0,
+        "Z": 3.0
       },
       "ComponentTagSet": [
         "WorkingMesh",
         "OcclusionMesh"
       ]
-    }
-  },
-  {
-    "Type": "StaticMeshComponent",
-    "Name": "WindField_GEN_VARIABLE",
-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
-    "Class": "UScriptClass'StaticMeshComponent'",
-    "Outer": {
-      "ObjectName": "BlueprintGeneratedClass'Summon_E_Kanami_C'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
-    },
-    "Properties": {
-      "StaticMesh": {
-        "ObjectName": "StaticMesh'Cylinder'",
-        "ObjectPath": "Engine/Content/BasicShapes/Cylinder.2"
-      },
-      "OverrideMaterials": [
-        null
-      ],
-      "BodyInstance": {
-        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
-        "CollisionProfileName": "WindMachine",
-        "CollisionResponses": {
-          "ResponseArray": [
-            {
-              "Channel": "WorldStatic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "WorldDynamic",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Pawn",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Visibility",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Camera",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "PhysicsBody",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Vehicle",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Destructible",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Weapon",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Projectile",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Pickup",
-              "Response": "ECR_Overlap"
-            },
-            {
-              "Channel": "Mesh",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Mark",
-              "Response": "ECR_Ignore"
-            },
-            {
-              "Channel": "Summon",
-              "Response": "ECR_Ignore"
-            }
-          ]
-        }
-      },
-      "RelativeLocation": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 300.0
-      },
-      "RelativeScale3D": {
-        "X": 8.0,
-        "Y": 8.0,
-        "Z": 6.5
-      },
-      "bVisible": false
     }
   }
 ]

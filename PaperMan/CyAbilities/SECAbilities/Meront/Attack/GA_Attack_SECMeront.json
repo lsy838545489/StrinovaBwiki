@@ -1,0 +1,94 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Attack_SECMeront_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/Attack/GA_Attack_SECMeront",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Attack_SECMeront_C'Default__GA_Attack_SECMeront_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/Attack/GA_Attack_SECMeront.1"
+    }
+  },
+  {
+    "Type": "GA_Attack_SECMeront_C",
+    "Name": "Default__GA_Attack_SECMeront_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/Attack/GA_Attack_SECMeront.GA_Attack_SECMeront_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/Attack/GA_Attack_SECMeront",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToOther_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToOther.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_Attack_Meront_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Meront/Attack/Weapon/Weapon_Attack_Meront.0"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Primary",
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCostMask": 6,
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill",
+        "State.Motion.InAir"
+      ]
+    }
+  }
+]

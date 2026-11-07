@@ -1,0 +1,106 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_DefaultEquip_Castling_SC_Galatea_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/SC/BP_DefaultEquip_Castling_SC_Galatea",
+    "SuperStruct": {
+      "ObjectName": "Class'CyInteractAtomSwitchWeapon'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_DefaultEquip_Castling_SC_Galatea_C'Default__BP_DefaultEquip_Castling_SC_Galatea_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/SC/BP_DefaultEquip_Castling_SC_Galatea.1"
+    }
+  },
+  {
+    "Type": "BP_DefaultEquip_Castling_SC_Galatea_C",
+    "Name": "Default__BP_DefaultEquip_Castling_SC_Galatea_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/SC/BP_DefaultEquip_Castling_SC_Galatea.BP_DefaultEquip_Castling_SC_Galatea_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/SC/BP_DefaultEquip_Castling_SC_Galatea",
+    "Properties": {
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_Q1",
+      "bSaveTarget": true,
+      "WorkStateType": "EFStateType::None",
+      "bSwitchBackOnRelease": false,
+      "bCheckPawnSight": false,
+      "LimitedAngle": 30.0,
+      "InteractionAllowedGait": "ECyGait::Sprint",
+      "InteractDisplay": {
+        "TipInfo": {
+          "Namespace": "",
+          "Key": "E7FB476148302E1838B00A96F4D504CA",
+          "SourceString": "按下传送",
+          "LocalizedString": "按下传送"
+        },
+        "TipInfoSTKey": "Interact_DefaultEquip",
+        "InteractType": "EInteractType::GalatiaDouble",
+        "InteractSummonActionType": {
+          "Group": "InteractSummonActionType"
+        },
+        "InteractionItemName": {
+          "Group": "UIName"
+        }
+      },
+      "Filters": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_FilterCreator_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Filter/BP_FilterCreator.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_AllowGameModeFilter_SC_Castling_Galatea_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Galatea/Castling/Summons/SC/BP_AllowGameModeFilter_SC_Castling_Galatea.0"
+        }
+      ],
+      "OwnerTagRequirements": {
+        "RequireAnyTags": [
+          "State.Shape.3D"
+        ],
+        "IgnoreTags": [
+          "State.Summon.Leave",
+          "State.Summon.Death"
+        ]
+      },
+      "TargetTagRequirements": {
+        "IgnoreTags": [
+          "Buff.Weak.ForceFly",
+          "State.Player.DisableSwitchWeapon",
+          "State.Shape.2D.Wall",
+          "GA.Action.Wall",
+          "State.Game.Freeze",
+          "State.Game.Ready",
+          "CD.Castling.Galatea"
+        ]
+      },
+      "InteractMaxDistance": 10000.0,
+      "bEnableOutOfRangeTips": true,
+      "OutOfRangeTipsConfig": {
+        "TipsReason": "EPMFeedbackTipsReason::OnlyTextMode",
+        "TipsStyle": "ECyFeedbackTipsStyle::Style_Player",
+        "DisplayStrategy": "ECyFeedbackTipsDisplayStrategy::Queue",
+        "Desc": {
+          "TableId": "/Game/PaperMan/CyTable/StringTable/ST_Interact.ST_Interact",
+          "Key": "Interact_OverDistance",
+          "SourceString": "超出范围",
+          "LocalizedString": "超出范围"
+        }
+      },
+      "OwnerKeepTagRequirements": {
+        "IgnoreTags": [
+          "State.Summon.Leave",
+          "State.Summon.Death"
+        ]
+      },
+      "KeepInteractMaxDistance": 5000.0
+    }
+  }
+]

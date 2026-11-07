@@ -1,0 +1,142 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Shared_LargeWorldTeleport_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_LargeWorldTeleport/GA_Shared_LargeWorldTeleport",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Shared_LargeWorldTeleport_C'Default__GA_Shared_LargeWorldTeleport_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_LargeWorldTeleport/GA_Shared_LargeWorldTeleport.1"
+    }
+  },
+  {
+    "Type": "GA_Shared_LargeWorldTeleport_C",
+    "Name": "Default__GA_Shared_LargeWorldTeleport_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_LargeWorldTeleport/GA_Shared_LargeWorldTeleport.GA_Shared_LargeWorldTeleport_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_LargeWorldTeleport/GA_Shared_LargeWorldTeleport",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_ApplyEffects_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_LargeWorldTeleport/BP_Activator_ApplyEffects.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.ClientLevelLoad.Complete"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_WeaponGotoState_LoadComplete_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_LargeWorldTeleport/BP_Trigger_WeaponGotoState_LoadComplete.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_SwitchWeapon_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_LargeWorldTeleport/BP_Trigger_EndAbility_SwitchWeapon.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_LargeWorldTeleport_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_LargeWorldTeleport/Weapon/Weapon_LargeWorldTeleport.0"
+      },
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_LargeWorldTeleport",
+      "CancelAbilitiesPreActivateWithTag": [
+        "GA.Action"
+      ],
+      "AbilityTags": [
+        "GA.Ability.LargeWorldTeleport"
+      ],
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerOnly",
+      "BlockAbilitiesWithTag": [
+        "GA.Ability",
+        "GA.Action"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Ability.LargeWorldTeleport",
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableTips",
+        "State.Player.DisableInput2D",
+        "State.Player.DisableKeep2D"
+      ]
+    }
+  }
+]

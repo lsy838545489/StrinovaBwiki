@@ -1,0 +1,851 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Weapon_ChargeSkill_KONG_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.30"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyWeaponCustom'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFSecondWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFSecondWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFFinishState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFFinishState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFStateMonitor_ControlMode",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFStateMonitor_ControlMode'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "Weapon_ChargeSkill_KONG_C",
+    "Name": "Default__Weapon_ChargeSkill_KONG_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.Weapon_ChargeSkill_KONG_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG",
+    "Properties": {
+      "EquipStates": {
+        "StateTypes": [
+          "EFStateType::Equip",
+          "EFStateType::Work",
+          "EFStateType::SecondWork",
+          "EFStateType::Finish"
+        ]
+      },
+      "UnEquipStates": {
+        "StateTypes": [
+          "EFStateType::UnEquip",
+          "EFStateType::UnEquipped"
+        ]
+      },
+      "DesiredRotationMode": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeInAir": "EALSRotationMode::LookingDirection",
+      "DesiredRotationModeSprinting": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeAfterEquip": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeCombatReady": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeRelaxed": "EALSRotationMode::VelocityDirection",
+      "WeaponName": "ECyWeaponName::CustomType218",
+      "bOnlyPlayAnimOnMainAnimInstance": true,
+      "RootScene": {
+        "ObjectName": "SceneComponent'Default__Weapon_ChargeSkill_KONG_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.22"
+      },
+      "MeshComponent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_ChargeSkill_KONG_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.21"
+      },
+      "Machine": {
+        "ObjectName": "CyFMachine'Default__Weapon_ChargeSkill_KONG_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.10"
+      },
+      "EffectComponent": {
+        "ObjectName": "CyEffectComponent'Default__Weapon_ChargeSkill_KONG_C:EffectComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.3"
+      },
+      "PredictPathComponent": {
+        "ObjectName": "CyPredictPathComponent'Default__Weapon_ChargeSkill_KONG_C:PredictPathComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.17"
+      },
+      "CachedComponents": [
+        {
+          "Key": "StateEntry",
+          "Value": {
+            "ObjectName": "CyFEntryState'Default__Weapon_ChargeSkill_KONG_C:StateEntry'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.6"
+          }
+        },
+        {
+          "Key": "StateEquip",
+          "Value": {
+            "ObjectName": "CyFEquipState'Default__Weapon_ChargeSkill_KONG_C:StateEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.7"
+          }
+        },
+        {
+          "Key": "StateInterrupt",
+          "Value": {
+            "ObjectName": "CyFInterruptState'Default__Weapon_ChargeSkill_KONG_C:StateInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.9"
+          }
+        },
+        {
+          "Key": "StateUnEquipped",
+          "Value": {
+            "ObjectName": "CyFUnEquippedState'Default__Weapon_ChargeSkill_KONG_C:StateUnEquipped'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.13"
+          }
+        },
+        {
+          "Key": "StateAttack",
+          "Value": {
+            "ObjectName": "CyFAttackState'Default__Weapon_ChargeSkill_KONG_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.5"
+          }
+        },
+        {
+          "Key": "PartPendant",
+          "Value": {
+            "ObjectName": "CyPartPendant'Default__Weapon_ChargeSkill_KONG_C:PartPendant'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.16"
+          }
+        },
+        {
+          "Key": "StateUnEquip",
+          "Value": {
+            "ObjectName": "CyFUnEquipState'Default__Weapon_ChargeSkill_KONG_C:StateUnEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.14"
+          }
+        },
+        {
+          "Key": "StateWork",
+          "Value": null
+        },
+        {
+          "Key": "StateSecondWork",
+          "Value": null
+        },
+        {
+          "Key": "StateThirdWork",
+          "Value": null
+        },
+        {
+          "Key": "StateFourthWork",
+          "Value": null
+        },
+        {
+          "Key": "StateFinish",
+          "Value": null
+        }
+      ],
+      "WeaponDataCollectionComponent": {
+        "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_ChargeSkill_KONG_C:WeaponDataCollectionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.19"
+      },
+      "EventActionComponent": {
+        "ObjectName": "CyEventActionComponent'Default__Weapon_ChargeSkill_KONG_C:EventActionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.4"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Weapon_ChargeSkill_KONG_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.20"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Weapon_ChargeSkill_KONG_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.2"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__Weapon_ChargeSkill_KONG_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.22"
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyEffectComponent",
+    "Name": "EffectComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEffectComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyEventActionComponent",
+    "Name": "EventActionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventActionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyFAttackState",
+    "Name": "StateAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFAttackState'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyFEntryState",
+    "Name": "StateEntry",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEntryState'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    },
+    "Properties": {
+      "bAcceptAttackInput": true
+    }
+  },
+  {
+    "Type": "CyFEquipState",
+    "Name": "StateEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    },
+    "Properties": {
+      "BlockAbilitiesWithTag": [
+        "GA.Action.Jump"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon"
+      ],
+      "TotalDuration": {
+        "Value": 1.5
+      },
+      "AllowedGait": "ECyGait::NoMove",
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.A",
+                "Resource.Particle.Equip.B"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::Owner",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.C"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFFinishState",
+    "Name": "CyFFinishState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFinishState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.0"
+    }
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFMachine'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyFSecondWorkState",
+    "Name": "CyFSecondWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFSecondWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.0"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.5
+      },
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SAStopMove_ChargeSkill_KONG_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/BP_SAStopMove_ChargeSkill_KONG.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_Atom_SetControlMode_ChargeSkill_KONG_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/BP_Atom_SetControlMode_ChargeSkill_KONG.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargetsEnemy_ChargeSkill_KONG_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/BP_SA_SearchTargetsEnemy_ChargeSkill_KONG.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFStateMonitor_ControlMode",
+    "Name": "CyFStateMonitor_ControlMode_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFStateMonitor_ControlMode'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.0"
+    },
+    "Properties": {
+      "ControlModeEvents": [
+        {
+          "Key": "KongChargeSkill",
+          "Value": {
+            "bExtraForce": true,
+            "bUseImpulse": true,
+            "bVelocityChange": true,
+            "ImpulseMagnitude": 4000.0,
+            "ForceMagnitude": 1.0
+          }
+        }
+      ],
+      "DetectorsDirection": [
+        {
+          "Key": "KongChargeSkill",
+          "Value": {
+            "ObjectName": "BlueprintGeneratedClass'BP_DetectorViewLocation_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/DetectorLocation/BP_DetectorViewLocation.0"
+          }
+        }
+      ],
+      "MaxPitch": 0.0,
+      "MonitorStateTypes": [
+        "EFStateType::Work"
+      ]
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyFUnEquipState",
+    "Name": "StateUnEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyFWorkState",
+    "Name": "CyFWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.0"
+    },
+    "Properties": {
+      "BlockAbilitiesWithTag": [
+        "GA.Action.Jump"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon"
+      ],
+      "TotalDuration": {
+        "Value": 0.8
+      },
+      "AllowedGait": "ECyGait::NoMove",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.9,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ApplyWeaponControlMode_ChargeSkill_KONG_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/BP_SA_ApplyWeaponControlMode_ChargeSkill_KONG.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargetsEnemy_ToStop_ChargeSkill_KONG_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/BP_SA_SearchTargetsEnemy_ToStop_ChargeSkill_KONG.0"
+          },
+          "SubAtoms": [
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSA_WeaponGotoSecondWorkState_ChargeSkill_KONG_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/BP_SSA_WeaponGotoSecondWorkState_ChargeSkill_KONG.0"
+            }
+          ],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.3,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A",
+                "Resource.Particle.Work.B"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyPartPendant",
+    "Name": "PartPendant",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartPendant'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyPredictPathComponent",
+    "Name": "PredictPathComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPredictPathComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    },
+    "Properties": {
+      "MaxSimTime": 20.0,
+      "bEnabled": true
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.0"
+    },
+    "Properties": {
+      "SourceType": "EDetectorSourceType::ActorInstigator"
+    }
+  },
+  {
+    "Type": "CyWeaponDataCollectionComponent",
+    "Name": "WeaponDataCollectionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon_ChargeSkill_KONG_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.22"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_ChargeSkill_KONG_C'Default__Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Weapon_ChargeSkill_KONG_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.23"
+      },
+      "VariableGuid": "19D6BD3D-4DC64DAA-80724585-8147128E",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'Weapon_ChargeSkill_KONG_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.18"
+      },
+      "VariableGuid": "1442CE24-4D435CC5-99B868B8-CFBF826E",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFStateMonitor_ControlMode'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFStateMonitor_ControlMode'Weapon_ChargeSkill_KONG_C:CyFStateMonitor_ControlMode_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.12"
+      },
+      "VariableGuid": "B086D348-4A8159A8-AAD84081-F94394A6",
+      "InternalVariableName": "CyFStateMonitor_ControlMode"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFFinishState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFFinishState'Weapon_ChargeSkill_KONG_C:CyFFinishState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.8"
+      },
+      "VariableGuid": "10D312DD-437AAB7E-54FA97B7-3E393258",
+      "InternalVariableName": "CyFFinishState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFWorkState'Weapon_ChargeSkill_KONG_C:CyFWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.15"
+      },
+      "VariableGuid": "5D894F6F-4D9BEF2E-DAFEFBA7-17DAE8A3",
+      "InternalVariableName": "CyFWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFSecondWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFSecondWorkState'Weapon_ChargeSkill_KONG_C:CyFSecondWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.11"
+      },
+      "VariableGuid": "DAE4EED9-4E95C584-E49E2EB1-427E9D45",
+      "InternalVariableName": "CyFSecondWorkState"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.29"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.29"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Weapon_ChargeSkill_KONG_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.24"
+      }
+    }
+  }
+]

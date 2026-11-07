@@ -4,6 +4,7 @@
     "Name": "BP_KatanaSickle_DamageType_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyWeapons/KatanaSickle/BP_KatanaSickle_DamageType",
     "SuperStruct": {
       "ObjectName": "Class'PMMeleeDamageType'",
       "ObjectPath": "/Script/PMGame"
@@ -25,6 +26,7 @@
     "Name": "Default__BP_KatanaSickle_DamageType_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/KatanaSickle/BP_KatanaSickle_DamageType.BP_KatanaSickle_DamageType_C'",
+    "Package": "PM/Content/PaperMan/CyWeapons/KatanaSickle/BP_KatanaSickle_DamageType",
     "Properties": {
       "AkGetHurt": {
         "Armor_Headshot": {
@@ -67,8 +69,76 @@
         }
       },
       "UIDamageType": {
-        "Name": "Knife"
+        "Name": "Knife",
+        "Group": "UIDamageType"
       },
+      "KillTexture": {
+        "AssetPathName": "/Game/PaperMan/UI/Atlas/PC/InGame/HUDPC/Frames/SPR_UI_HUDPC_KnockInfo_10.SPR_UI_HUDPC_KnockInfo_10",
+        "SubPathString": ""
+      },
+      "bDamageOverride": true,
+      "OverrideMeleeAttackDamage": [
+        {
+          "Key": "EFAttackType::MeleeFirst",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 45.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.MonsterDamage.MeleeFirst.KatanaSickle1"
+            }
+          }
+        },
+        {
+          "Key": "EFAttackType::MeleeSecond",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 45.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.MonsterDamage.MeleeSecond.KatanaSickle1"
+            }
+          }
+        },
+        {
+          "Key": "EFAttackType::Smite",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 45.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.MonsterDamage.Smite.KatanaSickle1"
+            }
+          }
+        },
+        {
+          "Key": "EFAttackType::MeleeDash",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 45.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.MonsterDamage.MeleeDash.KatanaSickle1"
+            }
+          }
+        }
+      ],
       "WeaponNameTag": {
         "TagName": "Name.Weapon.Secondary.Katana"
       },

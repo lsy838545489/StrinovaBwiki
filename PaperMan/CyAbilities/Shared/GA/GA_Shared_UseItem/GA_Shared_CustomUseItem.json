@@ -1,0 +1,166 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Shared_CustomUseItem_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseItem/GA_Shared_CustomUseItem",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Shared_CustomUseItem_C'Default__GA_Shared_CustomUseItem_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseItem/GA_Shared_CustomUseItem.1"
+    }
+  },
+  {
+    "Type": "GA_Shared_CustomUseItem_C",
+    "Name": "Default__GA_Shared_CustomUseItem_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseItem/GA_Shared_CustomUseItem.GA_Shared_CustomUseItem_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseItem/GA_Shared_CustomUseItem",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_SwitchUseItemWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseItem/BP_Activator_SwitchUseItemWeapon.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToAny_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToAny.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.UseItem"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheck_MedicalSlotItem_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseItem/BP_TCheck_MedicalSlotItem.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_ActivateAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseItem/BP_Trigger_ActivateAbility.0"
+              }
+            ]
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.UseItem.Cancel"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SwitchToExpectedWeapon_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_SwitchToExpectedWeapon.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_UseItemCustom_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseItem/Weapon/Weapon_UseItemCustom.0"
+      },
+      "SlotType": "EWeaponSlotTypes::CustomType232",
+      "AbilityTags": [
+        "GA.Action.UseItem"
+      ],
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'Cost_Shared_ConsumeUseItem_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_UseItem/Cost_Shared_ConsumeUseItem.0"
+      },
+      "ActivationOwnedTags": [
+        "State.Player.DisableInteract",
+        "State.Player.DisableInteractWithDuration"
+      ]
+    }
+  }
+]

@@ -1,0 +1,934 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Weapon_JumpSmash_BoxingCrab_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.32"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyWeaponCustom'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyTargetActors",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyTargetActorsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFFinishState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFFinishState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "Weapon_JumpSmash_BoxingCrab_C",
+    "Name": "Default__Weapon_JumpSmash_BoxingCrab_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.Weapon_JumpSmash_BoxingCrab_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab",
+    "Properties": {
+      "bIgnoreCanAttackCheck": true,
+      "EquipStates": {
+        "StateTypes": [
+          "EFStateType::Equip",
+          "EFStateType::Work",
+          "EFStateType::Finish"
+        ]
+      },
+      "UnEquipStates": {
+        "StateTypes": [
+          "EFStateType::UnEquipped"
+        ]
+      },
+      "DesiredRotationMode": "EALSRotationMode::Waist",
+      "DesiredRotationModeInAir": "EALSRotationMode::Waist",
+      "DesiredRotationModeSprinting": "EALSRotationMode::Waist",
+      "DesiredRotationModeAfterEquip": "EALSRotationMode::Waist",
+      "DesiredRotationModeCombatReady": "EALSRotationMode::Waist",
+      "DesiredRotationModeRelaxed": "EALSRotationMode::Waist",
+      "AttachSocketOverride": "FXHurt",
+      "WeaponName": "ECyWeaponName::CustomType216",
+      "bOnlyPlayAnimOnMainAnimInstance": true,
+      "RootScene": {
+        "ObjectName": "SceneComponent'Default__Weapon_JumpSmash_BoxingCrab_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.23"
+      },
+      "MeshComponent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_JumpSmash_BoxingCrab_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.22"
+      },
+      "Machine": {
+        "ObjectName": "CyFMachine'Default__Weapon_JumpSmash_BoxingCrab_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.10"
+      },
+      "EffectComponent": {
+        "ObjectName": "CyEffectComponent'Default__Weapon_JumpSmash_BoxingCrab_C:EffectComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.3"
+      },
+      "PredictPathComponent": {
+        "ObjectName": "CyPredictPathComponent'Default__Weapon_JumpSmash_BoxingCrab_C:PredictPathComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.16"
+      },
+      "CachedComponents": [
+        {
+          "Key": "StateEntry",
+          "Value": {
+            "ObjectName": "CyFEntryState'Default__Weapon_JumpSmash_BoxingCrab_C:StateEntry'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.6"
+          }
+        },
+        {
+          "Key": "StateEquip",
+          "Value": {
+            "ObjectName": "CyFEquipState'Default__Weapon_JumpSmash_BoxingCrab_C:StateEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.7"
+          }
+        },
+        {
+          "Key": "StateInterrupt",
+          "Value": {
+            "ObjectName": "CyFInterruptState'Default__Weapon_JumpSmash_BoxingCrab_C:StateInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.9"
+          }
+        },
+        {
+          "Key": "StateUnEquipped",
+          "Value": {
+            "ObjectName": "CyFUnEquippedState'Default__Weapon_JumpSmash_BoxingCrab_C:StateUnEquipped'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.12"
+          }
+        },
+        {
+          "Key": "StateAttack",
+          "Value": {
+            "ObjectName": "CyFAttackState'Default__Weapon_JumpSmash_BoxingCrab_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.5"
+          }
+        },
+        {
+          "Key": "PartPendant",
+          "Value": {
+            "ObjectName": "CyPartPendant'Default__Weapon_JumpSmash_BoxingCrab_C:PartPendant'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.15"
+          }
+        },
+        {
+          "Key": "StateUnEquip",
+          "Value": {
+            "ObjectName": "CyFUnEquipState'Default__Weapon_JumpSmash_BoxingCrab_C:StateUnEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.13"
+          }
+        },
+        {
+          "Key": "SwitcherAttack",
+          "Value": null
+        },
+        {
+          "Key": "SwitcherHold",
+          "Value": null
+        },
+        {
+          "Key": "StateReload",
+          "Value": null
+        },
+        {
+          "Key": "AttackSwitchInterrupt",
+          "Value": null
+        },
+        {
+          "Key": "StateEquipAndReload",
+          "Value": null
+        },
+        {
+          "Key": "ThrowSwitchBegin",
+          "Value": null
+        },
+        {
+          "Key": "ThrowSwitchEnd",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchRelaxed",
+          "Value": null
+        },
+        {
+          "Key": "PartMagazine",
+          "Value": null
+        },
+        {
+          "Key": "StateStartReload",
+          "Value": null
+        },
+        {
+          "Key": "StateEndReload",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchWaist",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchAiming",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchADS",
+          "Value": null
+        },
+        {
+          "Key": "ThrowSwitchHigh",
+          "Value": null
+        }
+      ],
+      "WeaponDataCollectionComponent": {
+        "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_JumpSmash_BoxingCrab_C:WeaponDataCollectionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.20"
+      },
+      "UISlotType": "EWeaponSlotTypes::CustomType251",
+      "EventActionComponent": {
+        "ObjectName": "CyEventActionComponent'Default__Weapon_JumpSmash_BoxingCrab_C:EventActionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.4"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Weapon_JumpSmash_BoxingCrab_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.21"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Weapon_JumpSmash_BoxingCrab_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.2"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__Weapon_JumpSmash_BoxingCrab_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.23"
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyEffectComponent",
+    "Name": "EffectComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEffectComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyEventActionComponent",
+    "Name": "EventActionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventActionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyFAttackState",
+    "Name": "StateAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFAttackState'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyFEntryState",
+    "Name": "StateEntry",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEntryState'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyFEquipState",
+    "Name": "StateEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    },
+    "Properties": {
+      "CanInterruptPosition": {
+        "bEnableMobile": true,
+        "MobileValue": 0.3
+      },
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon"
+      ],
+      "TotalDuration": {
+        "Value": 0.6
+      },
+      "AllowedGait": "ECyGait::NoMove",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_CacheTarget_JumpSmash_BoxingCrab_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/BP_SA_CacheTarget_JumpSmash_BoxingCrab.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFFinishState",
+    "Name": "CyFFinishState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFinishState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.0"
+    },
+    "Properties": {
+      "AllowedGait": "ECyGait::NoMove"
+    }
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFMachine'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyFStateMonitor",
+    "Name": "CyFStateMonitor_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EFStateType::Equip",
+        "EFStateType::Work"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_LockRotation_Monster_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/StateAtom/BP_SA_LockRotation_Monster.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyFUnEquipState",
+    "Name": "StateUnEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyFWorkState",
+    "Name": "CyFWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.0"
+    },
+    "Properties": {
+      "BlockAbilitiesWithTag": [
+        "GA.Use.Primary",
+        "GA.Use.Secondary",
+        "GA.Action.Rescue",
+        "GA.Action.RescueSelf"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableInteract"
+      ],
+      "TotalDuration": {
+        "Value": 3.6
+      },
+      "AllowedGait": "ECyGait::NoMove",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_MotionWarping_JumpSmash_BoxingCrab_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/BP_SA_MotionWarping_JumpSmash_BoxingCrab.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.6,
+          "PositionEnd": 0.95,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemies_JumpSmash_BoxingCrab_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/BP_SA_SearchEnemies_JumpSmash_BoxingCrab.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.6,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemies_Shake_JumpSmash_BoxingCrab_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/BP_SA_SearchEnemies_Shake_JumpSmash_BoxingCrab.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.62,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ChangeMoveMode_Fly_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/StateAtom/BP_SA_ChangeMoveMode_Fly.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.5,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "CharacterMesh0",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A",
+                "Resource.Particle.Work.B",
+                "Resource.Audio.Work.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyPartPendant",
+    "Name": "PartPendant",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartPendant'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyPredictPathComponent",
+    "Name": "PredictPathComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPredictPathComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.0"
+    },
+    "Properties": {
+      "Detectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TargetDetector_AITarget_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/TargetDetetcor/BP_TargetDetector_AITarget.0"
+        }
+      ],
+      "SourceType": "EDetectorSourceType::ActorInstigatorWithYawOnly"
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "CySkin_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.0"
+    },
+    "Properties": {
+      "bEnableOcclusion": true
+    }
+  },
+  {
+    "Type": "CyTargetActorsComponent",
+    "Name": "CyTargetActors_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyTargetActorsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.0"
+    }
+  },
+  {
+    "Type": "CyWeaponDataCollectionComponent",
+    "Name": "WeaponDataCollectionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    },
+    "Properties": {
+      "AnimationMode": "EAnimationMode::AnimationSingleNode",
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon_JumpSmash_BoxingCrab_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.23"
+      },
+      "RelativeScale3D": {
+        "X": 0.75,
+        "Y": 0.75,
+        "Z": 0.75
+      },
+      "ComponentTagSet": [
+        "WorkingMesh"
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_JumpSmash_BoxingCrab_C'Default__Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Weapon_JumpSmash_BoxingCrab_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.24"
+      },
+      "VariableGuid": "B1A7C4CE-40A7AEF4-99A2429B-F3677D7D",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFFinishState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFFinishState'Weapon_JumpSmash_BoxingCrab_C:CyFFinishState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.8"
+      },
+      "VariableGuid": "3AE0F5F8-4ECB63A1-A3BB3787-6215E67B",
+      "InternalVariableName": "CyFFinishState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySkinComponent'Weapon_JumpSmash_BoxingCrab_C:CySkin_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.18"
+      },
+      "VariableGuid": "32D73A46-48656D70-1613449B-1E84059A",
+      "InternalVariableName": "CySkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyTargetActorsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyTargetActorsComponent'Weapon_JumpSmash_BoxingCrab_C:CyTargetActors_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.19"
+      },
+      "VariableGuid": "5C2C98F1-493D18D4-9E05A3B9-D80AA27B",
+      "InternalVariableName": "CyTargetActors"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'Weapon_JumpSmash_BoxingCrab_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.17"
+      },
+      "VariableGuid": "EBE7EE93-44A7A7F7-2D54DA80-D7184363",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFStateMonitor'Weapon_JumpSmash_BoxingCrab_C:CyFStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.11"
+      },
+      "VariableGuid": "49FA9C87-40F9C54A-70A0C9AB-CCFD37E7",
+      "InternalVariableName": "CyFStateMonitor"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFWorkState'Weapon_JumpSmash_BoxingCrab_C:CyFWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.14"
+      },
+      "VariableGuid": "3B257EE3-4E47FBC4-056CB794-23DADDC6",
+      "InternalVariableName": "CyFWorkState"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_JumpSmash_BoxingCrab_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.30"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.31"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.30"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Weapon_JumpSmash_BoxingCrab_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/BoxingCrab/JumpSmash/Weapon/Weapon_JumpSmash_BoxingCrab.25"
+      }
+    }
+  }
+]

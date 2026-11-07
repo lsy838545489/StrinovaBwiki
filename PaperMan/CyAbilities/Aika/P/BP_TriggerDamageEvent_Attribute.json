@@ -4,6 +4,7 @@
     "Name": "BP_TriggerDamageEvent_Attribute_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Aika/P/BP_TriggerDamageEvent_Attribute",
     "SuperStruct": {
       "ObjectName": "Class'CyGATriggerDamageEvent_Attribute'",
       "ObjectPath": "/Script/PMGame"
@@ -25,6 +26,7 @@
     "Name": "Default__BP_TriggerDamageEvent_Attribute_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Aika/P/BP_TriggerDamageEvent_Attribute.BP_TriggerDamageEvent_Attribute_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Aika/P/BP_TriggerDamageEvent_Attribute",
     "Properties": {
       "TargetAttribute": {
         "AttributeName": "PEnergy",
@@ -42,9 +44,13 @@
           "ObjectPath": "/Script/PMGame"
         }
       },
+      "UseBaseDamageMonsterTypes": [
+        "ECyMonsterType::NormalMonster",
+        "ECyMonsterType::EliteMonster",
+        "ECyMonsterType::BossMonster"
+      ],
       "TargetFloatMagnitude": {
-        "Value": 0.1,
-        "MobileValue": 1.0,
+        "Value": 1.0,
         "Curve": {
           "CurveTable": {
             "ObjectName": "ModeCurveTable'CT_GameMode'",
@@ -53,9 +59,36 @@
           "RowName": "Attribute.Armor.Multiply.P.Aika"
         }
       },
+      "WeaponTypeFactors": [
+        {
+          "Key": "ECyWeaponType::AR",
+          "Value": 0.8
+        },
+        {
+          "Key": "ECyWeaponType::SR",
+          "Value": 1.2
+        }
+      ],
+      "WeaponLevelFactor": {
+        "Value": 1.0
+      },
+      "OverrideTargetMagnitudeMap": [
+        {
+          "Key": "BlueprintGeneratedClass'PM/Content/PaperMan/Core/Characters/Zombie/BP_Character_SECMonster.BP_Character_SECMonster_C'",
+          "Value": {
+            "Value": 0.5,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
       "bSummonDamageType": true,
       "SummonFloatMagnitude": {
-        "Value": 0.01,
+        "Value": 0.1,
         "Curve": {
           "CurveTable": {
             "ObjectName": "ModeCurveTable'CT_GameMode'",

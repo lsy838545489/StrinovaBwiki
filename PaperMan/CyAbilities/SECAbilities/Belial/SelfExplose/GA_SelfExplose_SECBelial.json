@@ -1,0 +1,128 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_SelfExplose_SECBelial_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/SelfExplose/GA_SelfExplose_SECBelial",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_SelfExplose_SECBelial_C'Default__GA_SelfExplose_SECBelial_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/SelfExplose/GA_SelfExplose_SECBelial.1"
+    }
+  },
+  {
+    "Type": "GA_SelfExplose_SECBelial_C",
+    "Name": "Default__GA_SelfExplose_SECBelial_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/SelfExplose/GA_SelfExplose_SECBelial.GA_SelfExplose_SECBelial_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/SelfExplose/GA_SelfExplose_SECBelial",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GADestroyWeaponOnRemove_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GADestroyWeaponOnRemove.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorTryGiveThenSwitchWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorTryGiveThenSwitchWeapon.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Weapon.Work.Begin"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SpawnSummon_SelfExplose_SECBelial_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/SelfExplose/BP_Trigger_SpawnSummon_SelfExplose_SECBelial.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Weapon.Work.End"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              null
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_SelfExplose_SECBelial_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Belial/SelfExplose/Weapon/Weapon_SelfExplose_SECBelial.0"
+      },
+      "SlotType": "EWeaponSlotTypes::CustomType251",
+      "CommitCDMask": 0,
+      "CommitCostMask": 0,
+      "CommitCostEventTags": [
+        "Event.ConsumePlayerSkill.X"
+      ],
+      "AbilityTags": [
+        "GA.Ability.SkillX.Fissioner1"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Ability.SkillX.Fissioner1"
+      ],
+      "ActivationBlockedTags": [
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill"
+      ]
+    }
+  }
+]

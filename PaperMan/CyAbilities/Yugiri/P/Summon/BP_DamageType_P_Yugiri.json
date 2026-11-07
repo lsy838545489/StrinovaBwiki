@@ -4,6 +4,7 @@
     "Name": "BP_DamageType_P_Yugiri_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yugiri/P/Summon/BP_DamageType_P_Yugiri",
     "SuperStruct": {
       "ObjectName": "Class'PMDamageType'",
       "ObjectPath": "/Script/PMGame"
@@ -25,9 +26,22 @@
     "Name": "Default__BP_DamageType_P_Yugiri_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Yugiri/P/Summon/BP_DamageType_P_Yugiri.BP_DamageType_P_Yugiri_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yugiri/P/Summon/BP_DamageType_P_Yugiri",
     "Properties": {
       "UIDamageType": {
-        "Name": "YugiriP"
+        "Name": "YugiriP",
+        "Group": "UIDamageType"
+      },
+      "bDamageOverride": true,
+      "OverrideAttackDamage": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.MonsterDamage.Duration.P.Yugiri"
+        }
       },
       "WeaponNameTag": {
         "TagName": "Name.Skill.P"

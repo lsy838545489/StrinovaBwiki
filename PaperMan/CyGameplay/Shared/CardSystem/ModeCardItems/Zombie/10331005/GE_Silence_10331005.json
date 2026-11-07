@@ -4,6 +4,7 @@
     "Name": "GE_Silence_10331005_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331005/GE_Silence_10331005",
     "SuperStruct": {
       "ObjectName": "Class'CyGameplayEffect'",
       "ObjectPath": "/Script/PMGame"
@@ -25,11 +26,14 @@
     "Name": "Default__GE_Silence_10331005_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331005/GE_Silence_10331005.GE_Silence_10331005_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/10331005/GE_Silence_10331005",
     "Properties": {
       "DurationPolicy": "EGameplayEffectDurationType::HasDuration",
       "DurationMagnitude": {
         "ScalableFloatMagnitude": {
           "Value": 1.0,
+          "bEnableMobile": true,
+          "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
               "ObjectName": "ModeCurveTable'CT_GameMode_CardLevelAttribute'",
@@ -47,6 +51,11 @@
         "Added": [
           "Buff.Weak.Silence",
           "BuffIcon.Weak.Silence"
+        ]
+      },
+      "RemovalTagRequirements": {
+        "RequireAnyTags": [
+          "State.Player.IgnoreSilence"
         ]
       },
       "StackingType": "EGameplayEffectStackingType::AggregateByTarget",

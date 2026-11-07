@@ -1,0 +1,99 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Trigger_AddRecovery_PerfectDodge_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Recovery/BP_Trigger_AddRecovery_PerfectDodge",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGAAtomTriggerTakeDamageEffects'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Trigger_AddRecovery_PerfectDodge_C'Default__BP_Trigger_AddRecovery_PerfectDodge_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Recovery/BP_Trigger_AddRecovery_PerfectDodge.1"
+    }
+  },
+  {
+    "Type": "BP_Trigger_AddRecovery_PerfectDodge_C",
+    "Name": "Default__BP_Trigger_AddRecovery_PerfectDodge_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Recovery/BP_Trigger_AddRecovery_PerfectDodge.BP_Trigger_AddRecovery_PerfectDodge_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Recovery/BP_Trigger_AddRecovery_PerfectDodge",
+    "Properties": {
+      "AllowedDamageTypes": [
+        "ECyDamageOriginType::Weapon",
+        "ECyDamageOriginType::Skill",
+        "ECyDamageOriginType::Card",
+        "ECyDamageOriginType::None"
+      ],
+      "DamageCallerTag": {
+        "TagName": "Event.TakeDamage"
+      },
+      "ArmorDamageEffects": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_AddRecoveryArmor_PerfectDodge_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Recovery/GE_AddRecoveryArmor_PerfectDodge.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "HealthDamageEffects": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_AddRecoveryHealth_PerfectDodge_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Recovery/GE_AddRecoveryHealth_PerfectDodge.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "RequireTags": {
+        "RequireTags": [
+          "State.Player.PerfectDodge.After"
+        ]
+      }
+    }
+  }
+]

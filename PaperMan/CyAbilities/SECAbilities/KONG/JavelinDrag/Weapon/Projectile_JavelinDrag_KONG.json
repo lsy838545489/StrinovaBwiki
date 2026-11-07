@@ -1,0 +1,870 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Projectile_JavelinDrag_KONG_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyProjectileBlast'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyForceMove",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyForceMoveComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIEntryState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIEntryState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAISecondWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILeaveState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAILeaveState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAINoneState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyRetain",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRetainComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+    }
+  },
+  {
+    "Type": "Projectile_JavelinDrag_KONG_C",
+    "Name": "Default__Projectile_JavelinDrag_KONG_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.Projectile_JavelinDrag_KONG_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG",
+    "Properties": {
+      "BlastRadius": 300.0,
+      "DamageMap": [
+        {
+          "Key": "ETargetType::Enemy",
+          "Value": {
+            "ObjectName": "CurveFloat'DamageCurve'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/DamageCurve.0"
+          }
+        }
+      ],
+      "BlastDamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DamageType_JavelinDrag_KONG_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/BP_DamageType_JavelinDrag_KONG.0"
+      },
+      "bDesignateHitLocation": true,
+      "TimeToHitLocation": 0.3,
+      "RootScene": {
+        "ObjectName": "SphereComponent'Default__Projectile_JavelinDrag_KONG_C:RootComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.29"
+      },
+      "MeshComponent": {
+        "ObjectName": "SkeletalMeshComponent'Default__Projectile_JavelinDrag_KONG_C:MeshComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.28"
+      },
+      "MovementComponent": {
+        "ObjectName": "CyProjectileFlyDropMovementComponent'Default__Projectile_JavelinDrag_KONG_C:MovementComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.11"
+      },
+      "TimeToDestroy": 5.0,
+      "bStopAttachToHitActor": false,
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile_JavelinDrag_KONG_C:PerceptionSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.15"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Projectile_JavelinDrag_KONG_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.14"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Projectile_JavelinDrag_KONG_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.9"
+      },
+      "RootComponent": {
+        "ObjectName": "SphereComponent'Default__Projectile_JavelinDrag_KONG_C:RootComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.29"
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "AkComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SphereComponent'Default__Projectile_JavelinDrag_KONG_C:RootComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.29"
+      }
+    }
+  },
+  {
+    "Type": "CyAIEntryState",
+    "Name": "CyAIEntryState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIEntryState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_GotoWork_JavelinDrag_KONG_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/BP_SA_GotoWork_JavelinDrag_KONG.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 10.0
+      }
+    }
+  },
+  {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": true,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SetTargetSpeed_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaSickleKnifeFight/Projectile/BP_SA_SetTargetSpeed.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": true,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ApplyEffects_Stunned_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaSickleKnifeFight/Projectile/BP_SA_ApplyEffects_Stunned.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshComponent",
+              "AssetTagContainer": [],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "Value": 0.01
+      },
+      "BeginEventTags": [
+        {
+          "TagName": "Event.Summon.Destroy.Sickle.Projectile"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    },
+    "Properties": {
+      "InitStateQueue": [
+        "EAIStateType::Entry",
+        "EAIStateType::Work",
+        "EAIStateType::SecondWork"
+      ]
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAINoneState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAISecondWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    },
+    "Properties": {
+      "StateType": "EAIStateType::SecondWork",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemies_JavelinDrag_KONG_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/BP_SA_SearchEnemies_JavelinDrag_KONG.0"
+          },
+          "SubAtoms": [
+            {
+              "ObjectName": "BlueprintGeneratedClass'BP_SSA_ForceMove_JavelinDrag_KONG_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/BP_SSA_ForceMove_JavelinDrag_KONG.0"
+            }
+          ],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.01,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_MoveToInstigator_JavelinDrag_KONG_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/BP_SA_MoveToInstigator_JavelinDrag_KONG.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "TotalDuration": {
+        "Value": 10.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.5
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+    }
+  },
+  {
+    "Type": "CyForceMoveComponent",
+    "Name": "CyForceMove_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyForceMoveComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    },
+    "Properties": {
+      "MaxSpeed": 99999.0,
+      "MaxZSpeed": 99999.0,
+      "AttractSpeed": {
+        "Value": 9999999.0
+      }
+    }
+  },
+  {
+    "Type": "CyProjectileFlyDropMovementComponent",
+    "Name": "MovementComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyProjectileFlyDropMovementComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+    },
+    "Properties": {
+      "OnProjectileThrough": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+            },
+            "FunctionName": "OnThrough"
+          }
+        ]
+      },
+      "InitialSpeed": 4000.0,
+      "MaxSpeed": 99999.0,
+      "ProjectileGravityScale": 0.0,
+      "OnProjectileBounce": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+            },
+            "FunctionName": "OnBounce"
+          }
+        ]
+      },
+      "OnProjectileStop": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+            },
+            "FunctionName": "OnStop"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CyRetainComponent",
+    "Name": "CyRetain_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+    },
+    "Properties": {
+      "BeginAssetTagContainers": [
+        {
+          "AttachComponentType": "EAttachComponentType::None",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Particle.Mesh.First.3D"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Projectile_JavelinDrag_KONG_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.16"
+      },
+      "VariableGuid": "DA65D272-49941EF3-701525AD-E1C9CA02",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'Projectile_JavelinDrag_KONG_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.13"
+      },
+      "VariableGuid": "9249313B-40A0F339-444538AE-B711337C",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'Projectile_JavelinDrag_KONG_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.8"
+      },
+      "VariableGuid": "81616D68-4B997489-87BDE6B5-FF34F316",
+      "InternalVariableName": "CyAIWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'Projectile_JavelinDrag_KONG_C:CyAISecondWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.7"
+      },
+      "VariableGuid": "6CF64137-4A1FC33F-2FA36086-E39C8A71",
+      "InternalVariableName": "CyAISecondWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIEntryState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIEntryState'Projectile_JavelinDrag_KONG_C:CyAIEntryState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.3"
+      },
+      "VariableGuid": "0D882B06-424CD2D1-82785DBF-6A428405",
+      "InternalVariableName": "CyAIEntryState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyForceMoveComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyForceMoveComponent'Projectile_JavelinDrag_KONG_C:CyForceMove_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.10"
+      },
+      "VariableGuid": "50AD6412-4CF05BFA-0A72B290-26D4EECB",
+      "InternalVariableName": "CyForceMove"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRetainComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRetainComponent'Projectile_JavelinDrag_KONG_C:CyRetain_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.12"
+      },
+      "VariableGuid": "91D6403C-40BC10F0-C532CF93-57E00FA2",
+      "InternalVariableName": "CyRetain"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'Projectile_JavelinDrag_KONG_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.5"
+      },
+      "VariableGuid": "F28218DA-4245A381-01A9E8AB-BCE04714",
+      "InternalVariableName": "CyAIMachine"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'Projectile_JavelinDrag_KONG_C:CyAINoneState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.6"
+      },
+      "VariableGuid": "5506F385-47B39BB5-AE6E8482-981AE1C7",
+      "InternalVariableName": "CyAINoneState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAILeaveState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAILeaveState'Projectile_JavelinDrag_KONG_C:CyAILeaveState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.4"
+      },
+      "VariableGuid": "19149CD4-4BDE8E54-582B6AB1-F6B2FE1E",
+      "InternalVariableName": "CyAILeaveState"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.23"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.24"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.19"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.20"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.21"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.22"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.18"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.23"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.24"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.19"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.20"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.21"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.22"
+        },
+        {
+          "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.18"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Projectile_JavelinDrag_KONG_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.17"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "MeshComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SphereComponent'Default__Projectile_JavelinDrag_KONG_C:RootComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.29"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "RootComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SphereComponent'",
+    "Outer": {
+      "ObjectName": "Projectile_JavelinDrag_KONG_C'Default__Projectile_JavelinDrag_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/JavelinDrag/Weapon/Projectile_JavelinDrag_KONG.1"
+    }
+  }
+]

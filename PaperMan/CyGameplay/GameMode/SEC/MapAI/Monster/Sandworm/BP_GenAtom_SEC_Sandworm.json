@@ -1,0 +1,153 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GenAtom_SEC_Sandworm_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/Sandworm/BP_GenAtom_SEC_Sandworm",
+    "SuperStruct": {
+      "ObjectName": "Class'CyGenCharacterAtom'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GenAtom_SEC_Sandworm_C'Default__BP_GenAtom_SEC_Sandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/Sandworm/BP_GenAtom_SEC_Sandworm.1"
+    }
+  },
+  {
+    "Type": "BP_GenAtom_SEC_Sandworm_C",
+    "Name": "Default__BP_GenAtom_SEC_Sandworm_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/Sandworm/BP_GenAtom_SEC_Sandworm.BP_GenAtom_SEC_Sandworm_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/Sandworm/BP_GenAtom_SEC_Sandworm",
+    "Properties": {
+      "ControllerTemplate": {
+        "ObjectName": "BlueprintGeneratedClass'BP_MonsterController_SEC_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.0"
+      },
+      "RoleRestartConfig": {
+        "bEnable": true,
+        "RoleRestartTag": "MeleeAttack_Monster_Lv1",
+        "RoleRestartLevel": 0
+      },
+      "InitLifeConfig": {
+        "bEnable": true,
+        "bAllowRespawn": true,
+        "RespawnDelay": 5.0
+      },
+      "InitAbilitySystemConfig": {
+        "bEnable": true,
+        "GameplayEffects": {
+          "Arr": [
+            {
+              "EffectClass": {
+                "ObjectName": "BlueprintGeneratedClass'GE_InitAttribute_Monster_Sandworm_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/Sandworm/GE_InitAttribute_Monster_Sandworm.0"
+              }
+            },
+            {
+              "EffectClass": {
+                "ObjectName": "BlueprintGeneratedClass'GE_FullArmorAndHealth_Instant_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/GE_FullArmorAndHealth_Instant.0"
+              }
+            },
+            {
+              "EffectClass": {
+                "ObjectName": "BlueprintGeneratedClass'GE_InitAttribute_Infinite_SEC_Monster_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/GE_InitAttribute_Infinite_SEC_Monster.0"
+              }
+            }
+          ]
+        }
+      },
+      "InitMovementConfig": {
+        "bEnable": true
+      },
+      "InitAIConfig": {
+        "bEnable": true,
+        "bEnableAttack": true,
+        "DefaultBehaviorTree": {
+          "ObjectName": "BehaviorTree'PMBehaviorTree_SEC_GroundIdleMonster'",
+          "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/PMBehaviorTree_SEC_GroundIdleMonster.0"
+        },
+        "MonsterAIConfig": {
+          "ObjectName": "PMMapMonsterAIConfig'PMMapMonsterAIConfig_Sandworm'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/Sandworm/PMMapMonsterAIConfig_Sandworm.0"
+        },
+        "MonsterThreatConfig": {
+          "ObjectName": "PMMonsterThreatConfig'PMMonsterThreatConfig_Sandworm'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/MapAI/Monster/Sandworm/PMMonsterThreatConfig_Sandworm.0"
+        },
+        "DynamicSubtreeMap": [
+          {
+            "Key": {
+              "TagName": "State.MapAI.Idle"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBT_SEC_Sandworm_Idle'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/Monster/Sandworm/PMBT_SEC_Sandworm_Idle.0"
+            }
+          },
+          {
+            "Key": {
+              "TagName": "State.MapAI.Patrolling"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBT_SEC_Sandworm_Idle'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/Monster/Sandworm/PMBT_SEC_Sandworm_Idle.0"
+            }
+          },
+          {
+            "Key": {
+              "TagName": "State.MapAI.Alert"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBT_SEC_Sandworm_Alert'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/Monster/Sandworm/PMBT_SEC_Sandworm_Alert.0"
+            }
+          },
+          {
+            "Key": {
+              "TagName": "State.MapAI.Searching"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBT_SEC_Sandworm_Alert'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/Monster/Sandworm/PMBT_SEC_Sandworm_Alert.0"
+            }
+          },
+          {
+            "Key": {
+              "TagName": "State.MapAI.Combat"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBT_SEC_Sandworm_Combat'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/Monster/Sandworm/PMBT_SEC_Sandworm_Combat.0"
+            }
+          },
+          {
+            "Key": {
+              "TagName": "State.MapAI.Chasing"
+            },
+            "Value": {
+              "ObjectName": "BehaviorTree'PMBehaviorTree_SEC_Chasing_EnterCombatDirectly'",
+              "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/BaseGroundMonster/PMBehaviorTree_SEC_Chasing_EnterCombatDirectly.0"
+            }
+          }
+        ]
+      },
+      "InitRoleConfig": {
+        "bEnable": true,
+        "RoleID": 710,
+        "RoleName": "沙虫",
+        "TeamID": 240
+      }
+    }
+  }
+]

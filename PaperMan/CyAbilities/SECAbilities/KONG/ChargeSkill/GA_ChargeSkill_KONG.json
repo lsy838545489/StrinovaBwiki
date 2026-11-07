@@ -1,0 +1,105 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_ChargeSkill_KONG_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/GA_ChargeSkill_KONG",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_ChargeSkill_KONG_C'Default__GA_ChargeSkill_KONG_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/GA_ChargeSkill_KONG.1"
+    }
+  },
+  {
+    "Type": "GA_ChargeSkill_KONG_C",
+    "Name": "Default__GA_ChargeSkill_KONG_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/GA_ChargeSkill_KONG.GA_ChargeSkill_KONG_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/GA_ChargeSkill_KONG",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon.0"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckClickInterval_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckClickInterval.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToOther_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToOther.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_ChargeSkill_KONG_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/KONG/ChargeSkill/Weapon/Weapon_ChargeSkill_KONG.0"
+      },
+      "SlotType": "EWeaponSlotTypes::CustomType251",
+      "CommitCostMask": 6,
+      "AbilityTags": [
+        "GA.Ability.PVEZombie.ChargeAttack"
+      ],
+      "ActivationOwnedTags": [
+        "GA.Ability.PVEZombie.ChargeAttack"
+      ],
+      "ActivationBlockedTags": [
+        "Buff.Weak.Silence",
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill",
+        "State.Motion.InAir"
+      ]
+    }
+  }
+]

@@ -4,6 +4,7 @@
     "Name": "GA_E_Yvette_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/E/GA_E_Yvette",
     "SuperStruct": {
       "ObjectName": "Class'CyBaseAbility'",
       "ObjectPath": "/Script/PMGame"
@@ -25,6 +26,7 @@
     "Name": "Default__GA_E_Yvette_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Yvette/Mobile/E/GA_E_Yvette.GA_E_Yvette_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/E/GA_E_Yvette",
     "Properties": {
       "SummonActorTag": {
         "TagName": "ActorTag.Summon.E.Yvette.IceCylinder"
@@ -96,7 +98,7 @@
         },
         {
           "Key": {
-            "TagName": "Event.Consume.Skill.E"
+            "TagName": "Event.Summon.Destroy.Yvette.E.Cylinder"
           },
           "Value": {
             "CheckAtoms": [],
@@ -111,76 +113,21 @@
             "BothAtomsForActive": [],
             "BothAtomsForNoActive": [],
             "BothAtomsForInstance": [],
-            "AtomsForActive": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
             "AtomsForNoActive": [],
             "AtomsForInstance": [
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
-              }
-            ],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
-        },
-        {
-          "Key": {
-            "TagName": "Event.Summon.Destroy.Yvette.E"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [
+              },
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCD_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCD.0"
-              },
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
-              }
-            ],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
-        },
-        {
-          "Key": {
-            "TagName": "State.Summon.Work.A"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEPoints_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Mobile/E/BP_Trigger_AddEPoints.0"
               }
             ],
             "LocallyAtomsForActive": [],
@@ -276,7 +223,7 @@
         }
       },
       "RemainPointEndType": "EPointRemainType::None",
-      "CommitCDMask": 0,
+      "CommitCDMask": 32,
       "CommitCostMask": 0,
       "CommitCostEventTags": [
         "Event.ConsumePlayerSkill.E"

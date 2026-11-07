@@ -1,0 +1,787 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_PickupActor_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_PickupActor_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.18"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySCPickupBoxActor'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Sphere",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyInteract",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyInteractComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_Pickup_Movement",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Pickup_Movement_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_Pickup_Movement.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySCPickupActorSkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySCPickupActorSkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StaticMesh",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_PickupActor_C'Default__BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.1"
+    }
+  },
+  {
+    "Type": "BP_PickupActor_C",
+    "Name": "Default__BP_PickupActor_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.BP_PickupActor_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor",
+    "Properties": {
+      "QualityPickupEffectMap": [
+        {
+          "Key": "1",
+          "Value": {
+            "AttachComponentType": "EAttachComponentType::Self",
+            "ResourceClassify": "ECyGCResourceClassify::Effect",
+            "MeshName": "StaticMesh",
+            "AssetTagContainer": [
+              "Resource.Audio.SCPickup.A"
+            ],
+            "AssetTagStopContainer": [],
+            "DefaultAssetKey": 0,
+            "bAllowLoop": false
+          }
+        },
+        {
+          "Key": "2",
+          "Value": {
+            "AttachComponentType": "EAttachComponentType::Self",
+            "ResourceClassify": "ECyGCResourceClassify::Effect",
+            "MeshName": "StaticMesh",
+            "AssetTagContainer": [
+              "Resource.Audio.SCPickup.A"
+            ],
+            "AssetTagStopContainer": [],
+            "DefaultAssetKey": 0,
+            "bAllowLoop": false
+          }
+        },
+        {
+          "Key": "3",
+          "Value": {
+            "AttachComponentType": "EAttachComponentType::Self",
+            "ResourceClassify": "ECyGCResourceClassify::Effect",
+            "MeshName": "StaticMesh",
+            "AssetTagContainer": [
+              "Resource.Audio.SCPickup.A"
+            ],
+            "AssetTagStopContainer": [],
+            "DefaultAssetKey": 0,
+            "bAllowLoop": false
+          }
+        },
+        {
+          "Key": "4",
+          "Value": {
+            "AttachComponentType": "EAttachComponentType::Self",
+            "ResourceClassify": "ECyGCResourceClassify::Effect",
+            "MeshName": "StaticMesh",
+            "AssetTagContainer": [
+              "Resource.Audio.SCPickup.B"
+            ],
+            "AssetTagStopContainer": [],
+            "DefaultAssetKey": 0,
+            "bAllowLoop": false
+          }
+        },
+        {
+          "Key": "5",
+          "Value": {
+            "AttachComponentType": "EAttachComponentType::Self",
+            "ResourceClassify": "ECyGCResourceClassify::Effect",
+            "MeshName": "StaticMesh",
+            "AssetTagContainer": [
+              "Resource.Audio.SCPickup.C"
+            ],
+            "AssetTagStopContainer": [],
+            "DefaultAssetKey": 0,
+            "bAllowLoop": false
+          }
+        },
+        {
+          "Key": "6",
+          "Value": {
+            "AttachComponentType": "EAttachComponentType::Self",
+            "ResourceClassify": "ECyGCResourceClassify::Effect",
+            "MeshName": "StaticMesh",
+            "AssetTagContainer": [
+              "Resource.Audio.SCPickup.C"
+            ],
+            "AssetTagStopContainer": [],
+            "DefaultAssetKey": 0,
+            "bAllowLoop": false
+          }
+        },
+        {
+          "Key": "7",
+          "Value": {
+            "AttachComponentType": "EAttachComponentType::Self",
+            "ResourceClassify": "ECyGCResourceClassify::Effect",
+            "MeshName": "StaticMesh",
+            "AssetTagContainer": [
+              "Resource.Audio.SCPickup.C"
+            ],
+            "AssetTagStopContainer": [],
+            "DefaultAssetKey": 0,
+            "bAllowLoop": false
+          }
+        },
+        {
+          "Key": "8",
+          "Value": {
+            "AttachComponentType": "EAttachComponentType::Self",
+            "ResourceClassify": "ECyGCResourceClassify::Effect",
+            "MeshName": "StaticMesh",
+            "AssetTagContainer": [
+              "Resource.Audio.SCPickup.C"
+            ],
+            "AssetTagStopContainer": [],
+            "DefaultAssetKey": 0,
+            "bAllowLoop": false
+          }
+        }
+      ],
+      "LifeTime": 99999.0,
+      "PickupWayType": "EPickupWayType::Manual",
+      "StimuliSourceComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_PickupActor_C:StimuliSourceComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.9"
+      },
+      "ShapeComponent": {
+        "ObjectName": "BoxComponent'Default__BP_PickupActor_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.4"
+      },
+      "SkinComponent": {
+        "ObjectName": "CySkinComponent'Default__BP_PickupActor_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.8"
+      },
+      "AkComponent": {
+        "ObjectName": "AkComponent'Default__BP_PickupActor_C:AkComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.3"
+      },
+      "NetCullDistanceSquared": 56250000.0,
+      "RootComponent": {
+        "ObjectName": "BoxComponent'Default__BP_PickupActor_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.4"
+      }
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.0"
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "AkComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BP_PickupActor_C'Default__BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "BoxComponent'Default__BP_PickupActor_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.4"
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Root",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BoxComponent'",
+    "Outer": {
+      "ObjectName": "BP_PickupActor_C'Default__BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.1"
+    },
+    "Properties": {
+      "BoxExtent": {
+        "X": 5.0,
+        "Y": 5.0,
+        "Z": 5.0
+      },
+      "BodyInstance": {
+        "CollisionProfileName": "PickupCard",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "BP_Pickup_Movement_C",
+    "Name": "BP_Pickup_Movement_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_Pickup_Movement.BP_Pickup_Movement_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.0"
+    },
+    "Template": {
+      "ObjectName": "BP_Pickup_Movement_C'Default__BP_Pickup_Movement_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_Pickup_Movement.1"
+    }
+  },
+  {
+    "Type": "CyInteractComponent",
+    "Name": "CyInteract_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyInteractComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.0"
+    },
+    "Properties": {
+      "MaxInteractCount": 1,
+      "SearchTargetRange": 120.0,
+      "CheckPawnSightChannel": "ECC_GameTraceChannel17",
+      "InteractAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Pickup_Atom_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_Pickup_Atom.0"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CySCPickupActorSkinComponent",
+    "Name": "CySCPickupActorSkin_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySCPickupActorSkinComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.0"
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BP_PickupActor_C'Default__BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.1"
+    },
+    "Properties": {
+      "bUseFullSkinID": true
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "StimuliSourceComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "BP_PickupActor_C'Default__BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_PickupActor_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.18"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_PickupActor_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.10"
+      },
+      "VariableGuid": "29607334-47644C1D-032C2E8D-EEDD57A4",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_PickupActor_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.18"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_PickupActor_C:StaticMesh_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.20"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "E13E88C2-4E8675EF-94C377B3-A213742E",
+      "InternalVariableName": "StaticMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_PickupActor_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.18"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySCPickupActorSkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySCPickupActorSkinComponent'BP_PickupActor_C:CySCPickupActorSkin_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.7"
+      },
+      "VariableGuid": "13603399-43E59C4D-80149598-1725C086",
+      "InternalVariableName": "CySCPickupActorSkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_PickupActor_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.18"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Pickup_Movement_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_Pickup_Movement.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_Pickup_Movement_C'BP_PickupActor_C:BP_Pickup_Movement_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.5"
+      },
+      "VariableGuid": "B5DE1101-437AB1D9-DE955F98-9D3BC03C",
+      "InternalVariableName": "BP_Pickup_Movement"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_PickupActor_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.18"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyInteractComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyInteractComponent'BP_PickupActor_C:CyInteract_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.6"
+      },
+      "VariableGuid": "789252BF-47CF0E28-84DC78BB-19C31182",
+      "InternalVariableName": "CyInteract"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_PickupActor_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.18"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_PickupActor_C:Sphere_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.19"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "7B7BCF97-4D32B7EE-1B266A87-839E3864",
+      "InternalVariableName": "Sphere"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_PickupActor_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.18"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'BP_PickupActor_C:Ak_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.2"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "F06E163D-4FE7FD10-B368B8B5-66546B3A",
+      "InternalVariableName": "Ak"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.17"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.17"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_PickupActor_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.11"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "Sphere_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SphereComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.0"
+    },
+    "Properties": {
+      "SphereRadius": 150.0,
+      "AreaClass": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel3",
+        "CollisionProfileName": "SECPickupInteraction",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 50.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMesh_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PickupActor_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/PickupActor_SEC/BP_PickupActor.0"
+    },
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Shape_Cube'",
+        "ObjectPath": "PM/Content/PaperMan/Reorganize/StarterContent/Shapes/Shape_Cube.2"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel3",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "CanMarkWeapPickup",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "ComponentTagSet": [
+        "CollisionMesh"
+      ]
+    }
+  }
+]

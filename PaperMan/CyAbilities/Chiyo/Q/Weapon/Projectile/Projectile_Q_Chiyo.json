@@ -4,6 +4,7 @@
     "Name": "Projectile_Q_Chiyo_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Chiyo/Q/Weapon/Projectile/Projectile_Q_Chiyo",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Projectile_Q_Chiyo_C:SimpleConstructionScript_0'",
@@ -99,6 +100,7 @@
     "Name": "Default__Projectile_Q_Chiyo_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Chiyo/Q/Weapon/Projectile/Projectile_Q_Chiyo.Projectile_Q_Chiyo_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Chiyo/Q/Weapon/Projectile/Projectile_Q_Chiyo",
     "Properties": {
       "bShowTrajectory": true,
       "RootScene": {
@@ -113,10 +115,6 @@
         "ObjectName": "CyProjectileFlyDropMovementComponent'Default__Projectile_Q_Chiyo_C:MovementComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Chiyo/Q/Weapon/Projectile/Projectile_Q_Chiyo.8"
       },
-      "AkComponent": {
-        "ObjectName": "AkComponent'Default__Projectile_Q_Chiyo_C:AkComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Chiyo/Q/Weapon/Projectile/Projectile_Q_Chiyo.2"
-      },
       "ActuatorConfig": {
         "ActorClass": {
           "ObjectName": "BlueprintGeneratedClass'BP_Summon_Q_Chiyo_C'",
@@ -126,6 +124,23 @@
         "bEnableRotation": true,
         "bUseActorRotation": true,
         "bAttachToHitActor": true
+      },
+      "bUseLifeOverActuatorConfig": true,
+      "LifeOverActuatorConfig": {
+        "ActorClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Summon_Q_Chiyo_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Chiyo/Q/Summon/BP_Summon_Q_Chiyo.0"
+        },
+        "bUseProjectileLocation": true,
+        "bEnableRotation": true,
+        "bUseActorRotation": true,
+        "bAttachToHitActor": true,
+        "bGotoSpawnedActorStates": true,
+        "SpawnedActorStateTypes": [
+          "EAIStateType::SecondWork",
+          "EAIStateType::Leave",
+          "EAIStateType::None"
+        ]
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile_Q_Chiyo_C:PerceptionSystemComponent'",
@@ -141,11 +156,13 @@
       },
       "GrowthSlotType": "EGrowthSlotType::QSkill",
       "InitialLifeSpanScalable": {
+        "Value": 1.0,
         "Curve": {
           "CurveTable": {
             "ObjectName": "ModeCurveTable'CT_GameMode'",
             "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-          }
+          },
+          "RowName": "Attribute.SummonDistance.Set.Q.Chiyo"
         }
       },
       "InitialLifeSpan": 20.0,

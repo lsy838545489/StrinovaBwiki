@@ -1,0 +1,604 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Weapon_Interaction_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Weapon_Interaction_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.27"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyWeaponInteraction'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFFinishState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFFinishState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFInteractionState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFInteractionState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "Weapon_Interaction_C",
+    "Name": "Default__Weapon_Interaction_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.Weapon_Interaction_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction",
+    "Properties": {
+      "WeaponFinishTag": {
+        "TagName": "Event.Interact.WeaponFinished"
+      },
+      "WeaponName": "ECyWeaponName::CustomType223",
+      "RootScene": {
+        "ObjectName": "SceneComponent'Default__Weapon_Interaction_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.22"
+      },
+      "MeshComponent": {
+        "ObjectName": "WFBaseSkeletalMeshComponent'Default__Weapon_Interaction_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.28"
+      },
+      "Machine": {
+        "ObjectName": "CyFMachine'Default__Weapon_Interaction_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.15"
+      },
+      "AttackComponent": {
+        "ObjectName": "CyAttackComponent'Default__Weapon_Interaction_C:AttackComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.2"
+      },
+      "EffectComponent": {
+        "ObjectName": "CyEffectComponent'Default__Weapon_Interaction_C:EffectComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.4"
+      },
+      "PredictPathComponent": {
+        "ObjectName": "CyPredictPathComponent'Default__Weapon_Interaction_C:PredictPathComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.19"
+      },
+      "CachedComponents": [
+        {
+          "Key": "SwitcherAttack",
+          "Value": {
+            "ObjectName": "CyFAttackSwitcher'Default__Weapon_Interaction_C:SwitcherAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.7"
+          }
+        },
+        {
+          "Key": "SwitcherHold",
+          "Value": {
+            "ObjectName": "CyFHoldSwitcher'Default__Weapon_Interaction_C:SwitcherHold'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.12"
+          }
+        },
+        {
+          "Key": "StateEntry",
+          "Value": {
+            "ObjectName": "CyFEntryState'Default__Weapon_Interaction_C:StateEntry'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.9"
+          }
+        },
+        {
+          "Key": "StateEquip",
+          "Value": {
+            "ObjectName": "CyFEquipState'Default__Weapon_Interaction_C:StateEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.10"
+          }
+        },
+        {
+          "Key": "StateInterrupt",
+          "Value": {
+            "ObjectName": "CyFInterruptState'Default__Weapon_Interaction_C:StateInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.14"
+          }
+        },
+        {
+          "Key": "StateUnEquipped",
+          "Value": {
+            "ObjectName": "CyFUnEquippedState'Default__Weapon_Interaction_C:StateUnEquipped'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.17"
+          }
+        },
+        {
+          "Key": "StateReload",
+          "Value": {
+            "ObjectName": "CyFReloadState'Default__Weapon_Interaction_C:StateReload'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.16"
+          }
+        },
+        {
+          "Key": "StateAttack",
+          "Value": {
+            "ObjectName": "CyFAttackState'Default__Weapon_Interaction_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.6"
+          }
+        },
+        {
+          "Key": "AttackSwitchInterrupt",
+          "Value": {
+            "ObjectName": "CyFAttackSwitchInterrupt'Default__Weapon_Interaction_C:AttackSwitchInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.8"
+          }
+        },
+        {
+          "Key": "PartPendant",
+          "Value": {
+            "ObjectName": "CyPartPendant'Default__Weapon_Interaction_C:PartPendant'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.18"
+          }
+        }
+      ],
+      "WeaponDataCollectionComponent": {
+        "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_Interaction_C:WeaponDataCollectionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.20"
+      },
+      "EventActionComponent": {
+        "ObjectName": "CyEventActionComponent'Default__Weapon_Interaction_C:EventActionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.5"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Weapon_Interaction_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.21"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Weapon_Interaction_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.3"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Interaction_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.22"
+      }
+    }
+  },
+  {
+    "Type": "CyAttackComponent",
+    "Name": "AttackComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAttackComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyEffectComponent",
+    "Name": "EffectComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEffectComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyEventActionComponent",
+    "Name": "EventActionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventActionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyFAttackState",
+    "Name": "StateAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFAttackState'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyFAttackSwitcher",
+    "Name": "SwitcherAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFAttackSwitcher'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyFAttackSwitchInterrupt",
+    "Name": "AttackSwitchInterrupt",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFAttackSwitchInterrupt'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyFEntryState",
+    "Name": "StateEntry",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEntryState'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyFEquipState",
+    "Name": "StateEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.0
+      }
+    }
+  },
+  {
+    "Type": "CyFFinishState",
+    "Name": "CyFFinishState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFinishState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.0"
+    }
+  },
+  {
+    "Type": "CyFHoldSwitcher",
+    "Name": "SwitcherHold",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFHoldSwitcher'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyFInteractionState",
+    "Name": "CyFInteractionState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFInteractionState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.0"
+    },
+    "Properties": {
+      "InteractionStateConfig": [
+        {
+          "Key": "1",
+          "Value": {
+            "TotalDuration": {
+              "Value": 3.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        },
+        {
+          "Key": "2",
+          "Value": {
+            "TotalDuration": {
+              "Value": 5.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        },
+        {
+          "Key": "3",
+          "Value": {
+            "TotalDuration": {
+              "Value": 5.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        },
+        {
+          "Key": "4",
+          "Value": {
+            "TotalDuration": {
+              "Value": 3.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        },
+        {
+          "Key": "5",
+          "Value": {
+            "TotalDuration": {
+              "Value": 5.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            }
+          }
+        }
+      ],
+      "TotalDuration": {
+        "Value": 10.0
+      },
+      "AllowedGait": "ECyGait::NoMove"
+    }
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFMachine'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyFReloadState",
+    "Name": "StateReload",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFReloadState'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyPartPendant",
+    "Name": "PartPendant",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartPendant'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyPredictPathComponent",
+    "Name": "PredictPathComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPredictPathComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyWeaponDataCollectionComponent",
+    "Name": "WeaponDataCollectionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Interaction_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Weapon_Interaction_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.23"
+      },
+      "VariableGuid": "1DD8291D-4EC9AB73-2C4820B9-C1CB16C9",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Interaction_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFInteractionState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFInteractionState'Weapon_Interaction_C:CyFInteractionState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.13"
+      },
+      "VariableGuid": "10104ED9-4A254DC5-0FD1829A-7900D556",
+      "InternalVariableName": "CyFInteractionState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Interaction_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.27"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFFinishState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFFinishState'Weapon_Interaction_C:CyFFinishState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.11"
+      },
+      "VariableGuid": "AEC3A3DC-4C24781A-9DFCCAA1-8DD22EE8",
+      "InternalVariableName": "CyFFinishState"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Interaction_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Interaction_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.26"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Interaction_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Interaction_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.26"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Weapon_Interaction_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.24"
+      }
+    }
+  },
+  {
+    "Type": "WFBaseSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'WFBaseSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Interaction_C'Default__Weapon_Interaction_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.1"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Interaction_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_Shared_Interaction/Weapon/Weapon_Interaction.22"
+      }
+    }
+  }
+]

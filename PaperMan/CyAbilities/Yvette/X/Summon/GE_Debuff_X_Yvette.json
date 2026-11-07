@@ -4,6 +4,7 @@
     "Name": "GE_Debuff_X_Yvette_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yvette/X/Summon/GE_Debuff_X_Yvette",
     "SuperStruct": {
       "ObjectName": "Class'CyGameplayEffect'",
       "ObjectPath": "/Script/PMGame"
@@ -25,6 +26,7 @@
     "Name": "Default__GE_Debuff_X_Yvette_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Yvette/X/Summon/GE_Debuff_X_Yvette.GE_Debuff_X_Yvette_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yvette/X/Summon/GE_Debuff_X_Yvette",
     "Properties": {
       "DamageType": {
         "ObjectName": "BlueprintGeneratedClass'BP_DamageType_X_Yvette_C'",
@@ -784,17 +786,14 @@
             }
           },
           "ModifierMagnitude": {
-            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::ScalableFloat",
+            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::CustomCalculationClass",
             "ScalableFloatMagnitude": {
-              "Value": 1.0,
-              "bEnableMobile": true,
-              "MobileValue": 1.0,
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
               "Curve": {
-                "CurveTable": {
-                  "ObjectName": "ModeCurveTable'CT_GameMode'",
-                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
-                },
-                "RowName": "Attribute.DamageFactor.X.Yvette"
+                "CurveTable": null,
+                "RowName": "None"
               }
             },
             "AttributeBasedMagnitude": {
@@ -847,7 +846,10 @@
               "TargetTagFilter": []
             },
             "CustomMagnitude": {
-              "CalculationClassMagnitude": null,
+              "CalculationClassMagnitude": {
+                "ObjectName": "BlueprintGeneratedClass'BP_CalculationMagnitudeByTag_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/X/Summon/BP_CalculationMagnitudeByTag.0"
+              },
               "Coefficient": {
                 "Value": 1.0,
                 "bEnableMobile": false,

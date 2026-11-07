@@ -4,6 +4,7 @@
     "Name": "BP_AC_MoveDist_20351023_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20351023/BP_AC_MoveDist_20351023",
     "SuperStruct": {
       "ObjectName": "Class'CyGPActionContainer'",
       "ObjectPath": "/Script/PMGame"
@@ -23,8 +24,9 @@
   {
     "Type": "BP_AC_MoveDist_20351023_C",
     "Name": "Default__BP_AC_MoveDist_20351023_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20351023/BP_AC_MoveDist_20351023.BP_AC_MoveDist_20351023_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/ModeCardItems/Zombie/20351023/BP_AC_MoveDist_20351023",
     "Properties": {
       "EventMonitorItems": [
         {
@@ -60,15 +62,21 @@
               },
               "AttributeOwner": null
             },
-            "MagnitudeCalculation": null
+            "MagnitudeCalculation": {
+              "ObjectName": "Class'CyMC_EventMagnitude'",
+              "ObjectPath": "/Script/PMGame"
+            }
           },
           "TotalCount": {
             "Value": 1.0,
-            "bEnableMobile": false,
+            "bEnableMobile": true,
             "MobileValue": 1.0,
             "Curve": {
-              "CurveTable": null,
-              "RowName": "None"
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameMode_CardLevelAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CurveTable/CT_GameMode_CardLevelAttribute.0"
+              },
+              "RowName": "Card.MoveDistance.20351023"
             }
           }
         }

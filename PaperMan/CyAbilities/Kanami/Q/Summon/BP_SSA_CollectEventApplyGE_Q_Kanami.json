@@ -1,0 +1,112 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SSA_CollectEventApplyGE_Q_Kanami_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Summon/BP_SSA_CollectEventApplyGE_Q_Kanami",
+    "SuperStruct": {
+      "ObjectName": "Class'CySSAtomCollectEventValueApplyGE'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SSA_CollectEventApplyGE_Q_Kanami_C'Default__BP_SSA_CollectEventApplyGE_Q_Kanami_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Summon/BP_SSA_CollectEventApplyGE_Q_Kanami.1"
+    }
+  },
+  {
+    "Type": "BP_SSA_CollectEventApplyGE_Q_Kanami_C",
+    "Name": "Default__BP_SSA_CollectEventApplyGE_Q_Kanami_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Kanami/Q/Summon/BP_SSA_CollectEventApplyGE_Q_Kanami.BP_SSA_CollectEventApplyGE_Q_Kanami_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Summon/BP_SSA_CollectEventApplyGE_Q_Kanami",
+    "Properties": {
+      "EventTags": [
+        "Event.TakeDamage.PlayerWeapon",
+        "Event.TakeDamage.PlayerSkill",
+        "Event.TakeDamage.PlayerCard"
+      ],
+      "EventInstigatorFilters": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TFA_SameTeam_Q_Kanami_SC_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Summon/BP_TFA_SameTeam_Q_Kanami_SC.0"
+        }
+      ],
+      "TargetEffectsToApply": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Damage_Q_Kanami_Card_SC_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Summon/GE_Damage_Q_Kanami_Card_SC.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "OwnerEffectsToApply": [
+        {
+          "EffectClass": {
+            "ObjectName": "BlueprintGeneratedClass'GE_Transfer_Q_Kanami_SC_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Q/Summon/GE_Transfer_Q_Kanami_SC.0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "RemoveType": "EEffectRemoveType::Infinite",
+          "StackCount": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        }
+      ],
+      "ModifierSetByCallerTag": {
+        "TagName": "Event.TakeDamage.PlayerWeapon"
+      },
+      "bApplyPeriodically": true,
+      "MaxTargetCount": {
+        "Value": 5.0,
+        "MobileValue": 5.0
+      },
+      "ModifierRatio": {
+        "Value": 0.5,
+        "MobileValue": 0.5
+      },
+      "ModifierMaxValue": {
+        "Value": 1000.0,
+        "MobileValue": 1000.0
+      }
+    }
+  }
+]

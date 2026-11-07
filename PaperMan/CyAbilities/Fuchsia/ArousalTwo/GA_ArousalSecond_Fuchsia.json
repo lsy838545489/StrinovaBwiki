@@ -4,6 +4,7 @@
     "Name": "GA_ArousalSecond_Fuchsia_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/GA_ArousalSecond_Fuchsia",
     "SuperStruct": {
       "ObjectName": "Class'CyBaseAbility'",
       "ObjectPath": "/Script/PMGame"
@@ -25,6 +26,7 @@
     "Name": "Default__GA_ArousalSecond_Fuchsia_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/GA_ArousalSecond_Fuchsia.GA_ArousalSecond_Fuchsia_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/GA_ArousalSecond_Fuchsia",
     "Properties": {
       "CheckAtoms": [
         {
@@ -34,12 +36,12 @@
       ],
       "ActivatorAtoms": [
         {
-          "ObjectName": "BlueprintGeneratedClass'BP_Activator_ChangeState_ArousalSecond_Fuchsia_C'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/BP_Activator_ChangeState_ArousalSecond_Fuchsia.0"
-        },
-        {
           "ObjectName": "BlueprintGeneratedClass'Activater_AddEffects_Arousal2_Fuchsia_C'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/Activater_AddEffects_Arousal2_Fuchsia.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_ChangeState_ArousalSecond_Fuchsia_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/BP_Activator_ChangeState_ArousalSecond_Fuchsia.0"
         }
       ],
       "TriggerEvents": [
@@ -130,8 +132,76 @@
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffect_InjuredHealth_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/BP_Trigger_AddEffect_InjuredHealth.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddGE_AddBeRescuedCount_SC_A2_Fuchsia_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/SC/BP_Trigger_AddGE_AddBeRescuedCount_SC_A2_Fuchsia.0"
               }
             ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.TakeInjured"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_ActivateAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_CharacterAction/BP_Trigger_ActivateAbility.0"
+              }
+            ],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.Action.BeRescued.Success"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [
+                "CD.Ability.ArousalSecond.Fuchsia"
+              ],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "Buff.Weak.Arousal2.Fuchsia"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddGe_InjuredHealth_A2_SC_Fuchsia_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/SC/BP_Trigger_AddGe_InjuredHealth_A2_SC_Fuchsia.0"
+              }
+            ],
+            "AtomsForInstance": [],
             "LocallyAtomsForActive": [],
             "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
@@ -164,6 +234,10 @@
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffect_InjuredHealth_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/BP_Trigger_AddEffect_InjuredHealth.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddGE_AddBeRescuedCount_SC_A2_Fuchsia_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/SC/BP_Trigger_AddGE_AddBeRescuedCount_SC_A2_Fuchsia.0"
               }
             ],
             "LocallyAtomsForActive": [],
@@ -198,8 +272,44 @@
               {
                 "ObjectName": "BlueprintGeneratedClass'BP_Trigger_RemoveEffect_InjuredHealth_C'",
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/BP_Trigger_RemoveEffect_InjuredHealth.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddGE_SubBeRescuedCount_SC_A2_Fuchsia_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/SC/BP_Trigger_AddGE_SubBeRescuedCount_SC_A2_Fuchsia.0"
               }
             ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "CD.Ability.ArousalSecond.Fuchsia"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": [
+                "State.Health.Injured"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddGe_InjuredHealth_A2_SC_Fuchsia_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/SC/BP_Trigger_AddGe_InjuredHealth_A2_SC_Fuchsia.0"
+              }
+            ],
+            "AtomsForInstance": [],
             "LocallyAtomsForActive": [],
             "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
@@ -211,20 +321,14 @@
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/Duration_ArousalSecond_Fuchsia.0"
       },
       "RemainPointEndType": "EPointRemainType::None",
-      "CommitCDMask": 0,
       "AbilityTags": [
         "GA.Arousal.Second.Fuchsia"
       ],
       "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerInitiated",
-      "AbilityTriggers": [
-        {
-          "TriggerTag": {
-            "TagName": "State.Health.Injured"
-          },
-          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
-          "TriggerType": "EGameplayAbilityTriggerType::Active"
-        }
-      ],
+      "CooldownGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'CD_A2_SC_Fuchsia_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Fuchsia/ArousalTwo/SC/CD_A2_SC_Fuchsia.0"
+      },
       "ActivationOwnedTags": [
         "GA.Arousal.Second.Fuchsia"
       ]

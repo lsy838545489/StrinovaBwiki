@@ -1,0 +1,128 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_KnifeBlock_SEC_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/GA_KnifeBlock_SEC",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_KnifeBlock_SEC_C'Default__GA_KnifeBlock_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/GA_KnifeBlock_SEC.1"
+    }
+  },
+  {
+    "Type": "GA_KnifeBlock_SEC_C",
+    "Name": "Default__GA_KnifeBlock_SEC_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/GA_KnifeBlock_SEC.GA_KnifeBlock_SEC_C'",
+    "Package": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/GA_KnifeBlock_SEC",
+    "Properties": {
+      "PredictObjectType": "EPredictObjectType::CurrentWeapon",
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Giver_MeleeWeaponAttribute_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/BP_Giver_MeleeWeaponAttribute.0"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_HasBlockState_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/BP_Check_HasBlockState.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckAllowRelieveSlide_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckAllowRelieveSlide.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckContainer_AllowRelieveWall_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckContainer_AllowRelieveWall.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Check_WeaponAllowBlock_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/BP_Check_WeaponAllowBlock.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_WeaponEmptyToStates_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/BP_Activator_WeaponEmptyToStates.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_ActivatorCommitCD_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_Activator_ActivatorCommitCD.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Weapon.SECMonster.Projectile"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffects_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/BP_Trigger_AddEffects.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_ReboundProjectile_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/BP_Trigger_ReboundProjectile.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_RemoveEffects_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/BP_Trigger_RemoveEffects.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "bStrictPrediction": true,
+      "AbilityTags": [
+        "GA.Knife.Block"
+      ],
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'CD_KnifeBlock_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/KatanaBase/KnifeBlock_SEC/CD_KnifeBlock.0"
+      },
+      "ActivationBlockedTags": [
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Health.Death",
+        "CD.Knife.Block",
+        "GA.Action.Wall",
+        "State.Player.DisableInput.KnifeBlock"
+      ]
+    }
+  }
+]

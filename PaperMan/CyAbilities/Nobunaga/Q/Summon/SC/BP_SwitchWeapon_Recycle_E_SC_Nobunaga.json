@@ -1,0 +1,99 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SwitchWeapon_Recycle_E_SC_Nobunaga_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Nobunaga/Q/Summon/SC/BP_SwitchWeapon_Recycle_E_SC_Nobunaga",
+    "SuperStruct": {
+      "ObjectName": "Class'CyInteractAtomSwitchWeapon'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SwitchWeapon_Recycle_E_SC_Nobunaga_C'Default__BP_SwitchWeapon_Recycle_E_SC_Nobunaga_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/Q/Summon/SC/BP_SwitchWeapon_Recycle_E_SC_Nobunaga.1"
+    }
+  },
+  {
+    "Type": "BP_SwitchWeapon_Recycle_E_SC_Nobunaga_C",
+    "Name": "Default__BP_SwitchWeapon_Recycle_E_SC_Nobunaga_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Nobunaga/Q/Summon/SC/BP_SwitchWeapon_Recycle_E_SC_Nobunaga.BP_SwitchWeapon_Recycle_E_SC_Nobunaga_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Nobunaga/Q/Summon/SC/BP_SwitchWeapon_Recycle_E_SC_Nobunaga",
+    "Properties": {
+      "SlotType": "EWeaponSlotTypes::WeaponSlot_E",
+      "EquipStateID": [
+        "EFStateType::Work",
+        "EFStateType::WorkEnd"
+      ],
+      "bSaveTarget": true,
+      "WorkStateType": "EFStateType::None",
+      "bSwitchBackOnRelease": false,
+      "bChangeStatesAfterSwitch": true,
+      "bCheckPawnSight": false,
+      "InteractionAllowedGait": "ECyGait::Sprint",
+      "InteractDisplay": {
+        "TipInfo": {
+          "Namespace": "",
+          "Key": "B85E3D454F5417531668C98A02BAFD44",
+          "SourceString": "回收",
+          "LocalizedString": "回收"
+        },
+        "TipInfoSTKey": "Interact_Recycle_Q_Nobunaga",
+        "OperationInfo": {
+          "Namespace": "",
+          "Key": "9EAB36BE41C497BA5906BBBFF95A204C",
+          "SourceString": "回收中",
+          "LocalizedString": "回收中"
+        },
+        "OperationInfoSTKey": "Operation_Interact_Recycle_Q_Nobunaga",
+        "TeammateOperationInfo": {
+          "Namespace": "",
+          "Key": "BC54B76E494101958E4150B93314E9C3",
+          "SourceString": "队友回收中",
+          "LocalizedString": "队友回收中"
+        },
+        "TeammateOperationInfoSTKey": "Teammate_Operation_Interact_Recycle_Q_Nobunaga",
+        "InteractType": "EInteractType::Summon"
+      },
+      "Filters": [
+        {
+          "ObjectName": "Class'CyFilterCreator'",
+          "ObjectPath": "/Script/PMGame"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_FilterAllowRelieveWall_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/E/Summon/BP_FilterAllowRelieveWall.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_AllowGameModeFilter_SC_Q_Nobunaga_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nobunaga/Q/Weapon/SC/BP_AllowGameModeFilter_SC_Q_Nobunaga.0"
+        }
+      ],
+      "TargetTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Death",
+          "State.Health.Injured",
+          "State.Player.DisableSwitchWeapon",
+          "Buff.Weak.ForceFly",
+          "Event.Action.ForceFly"
+        ]
+      },
+      "InteractMaxDistance": 5000.0,
+      "bInteractMaxDistanceIgnoreZ": true,
+      "TargetKeepTagRequirements": {
+        "IgnoreTags": [
+          "State.Health.Death",
+          "State.Health.Injured"
+        ]
+      }
+    }
+  }
+]

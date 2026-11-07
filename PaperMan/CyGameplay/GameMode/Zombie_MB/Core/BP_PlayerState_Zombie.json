@@ -4,6 +4,7 @@
     "Name": "BP_PlayerState_Zombie_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie_MB/Core/BP_PlayerState_Zombie",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_PlayerState_Zombie_C:SimpleConstructionScript_0'",
@@ -11,7 +12,7 @@
       }
     },
     "SuperStruct": {
-      "ObjectName": "Class'CySharedPlayerState'",
+      "ObjectName": "Class'PMPlayerState_Zombie'",
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
@@ -297,6 +298,7 @@
     "Name": "Default__BP_PlayerState_Zombie_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/Zombie_MB/Core/BP_PlayerState_Zombie.BP_PlayerState_Zombie_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie_MB/Core/BP_PlayerState_Zombie",
     "Properties": {
       "InitGameTeamId": "ECyGameTeamId::TeamB",
       "CyAIPlayerStateComp": {
@@ -323,6 +325,10 @@
         "ObjectName": "CyGrowthComponent'Default__BP_PlayerState_Zombie_C:GrowthComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie_MB/Core/BP_PlayerState_Zombie.25"
       },
+      "AchievementComponent": {
+        "ObjectName": "CyAchievementComponent'Default__BP_PlayerState_Zombie_C:AchievementComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie_MB/Core/BP_PlayerState_Zombie.6"
+      },
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__BP_PlayerState_Zombie_C:DataSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/Zombie_MB/Core/BP_PlayerState_Zombie.13"
@@ -347,6 +353,17 @@
       "ObjectPath": "PM/Content/PaperMan/Core/GameModes/DataCollection/BP_PlayerStateDataCollection.1"
     },
     "Properties": {
+      "HangUpUnitDruation": 240.0,
+      "OfflineUnitDruation": 240.0,
+      "OfflineNum_Policy_2": 3,
+      "OfflineDruation_Policy_3": 720.0,
+      "SuicideDamageNum_Policy_1": 99999.0,
+      "SuicideNum_Policy_2": 999,
+      "CrossfireDurationAvgPercentage_Policy_1": 0.05,
+      "MMR_Policy_1": 9999,
+      "AvgMMRDelta_Policy_2": 500,
+      "HitRate_Policy_1": 0.0,
+      "TotalDamage_Policy_2": 100.0,
       "CommonPlayerStatDatas": [
         {
           "Key": "SkyTime",
@@ -852,11 +869,7 @@
             "StatsTimerEvent": []
           }
         }
-      ],
-      "CompositeScoreRemindCfg": {
-        "AssetPathName": "/Game/PaperMan/CSV/Mobile/CompositeScoreRemindCfg.CompositeScoreRemindCfg",
-        "SubPathString": ""
-      }
+      ]
     }
   },
   {
@@ -900,6 +913,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -913,6 +927,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -926,6 +941,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -939,6 +955,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -952,6 +969,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -965,6 +983,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -978,6 +997,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -991,6 +1011,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1004,6 +1025,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1017,6 +1039,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1030,6 +1053,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1043,6 +1067,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1056,6 +1081,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1069,6 +1095,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1082,6 +1109,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1095,6 +1123,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1108,6 +1137,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1121,6 +1151,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1134,6 +1165,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1147,6 +1179,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1160,6 +1193,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1173,6 +1207,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1186,6 +1221,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1199,6 +1235,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1212,6 +1249,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1225,6 +1263,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1238,6 +1277,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1251,6 +1291,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1264,6 +1305,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1277,6 +1319,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1290,6 +1333,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1303,6 +1347,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1357,8 +1402,8 @@
     },
     "Properties": {
       "CardDataAsset": {
-        "ObjectName": "CyCardDataAsset'DA_CardAsset'",
-        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/DA_CardAsset.0"
+        "ObjectName": "CyCardDataAsset'DA_CardAsset_Zombie_MB'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/CardSystem/DA_CardAsset_Zombie_MB.0"
       },
       "RuleDataAsset": {
         "ObjectName": "CyCardRuleDataAsset'DA_RoguelikeRule_Zombie'",
@@ -2577,7 +2622,8 @@
             ]
           }
         }
-      ]
+      ],
+      "bIsMBZombie": true
     }
   },
   {

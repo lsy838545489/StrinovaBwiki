@@ -4,6 +4,7 @@
     "Name": "BP_M200_DamageType_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyWeapons/M200/BP_M200_DamageType",
     "SuperStruct": {
       "ObjectName": "Class'PMDamageType'",
       "ObjectPath": "/Script/PMGame"
@@ -25,7 +26,36 @@
     "Name": "Default__BP_M200_DamageType_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/M200/BP_M200_DamageType.BP_M200_DamageType_C'",
+    "Package": "PM/Content/PaperMan/CyWeapons/M200/BP_M200_DamageType",
     "Properties": {
+      "UIDamageType": {
+        "Group": "UIDamageType"
+      },
+      "bDamageOverride": true,
+      "OverrideAttackDamage": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.MonsterDamage.Single.M200A"
+        }
+      },
+      "OverrideChargedAttackDamage": [
+        {
+          "Value": 1.0,
+          "bEnableMobile": false,
+          "MobileValue": 0.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.MonsterDamage.Single.M200A"
+          }
+        }
+      ],
       "DamageOriginType": "ECyDamageOriginType::Weapon",
       "PlayerWeaponType": "ECyPlayerWeaponType::Primary",
       "WeaponType": "ECyWeaponType::SR",

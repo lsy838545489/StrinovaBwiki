@@ -1,0 +1,289 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_PerfectDodge_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/GA_PerfectDodge",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_PerfectDodge_C'Default__GA_PerfectDodge_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/GA_PerfectDodge.1"
+    }
+  },
+  {
+    "Type": "GA_PerfectDodge_C",
+    "Name": "Default__GA_PerfectDodge_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/GA_PerfectDodge.GA_PerfectDodge_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/GA_PerfectDodge",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Giver_Effects_PerfectDodge_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/BP_Giver_Effects_PerfectDodge.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.BeforeTakeDamage"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheckInstigator_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/BP_TCheckInstigator.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [
+                "State.Player.PerfectDodge.Pre"
+              ],
+              "IgnoreTags": [
+                "State.Player.PerfectDodge.After"
+              ]
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffect_PerfectDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/BP_Trigger_AddEffect_PerfectDodge.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddAmmo_PerfectDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/BP_Trigger_AddAmmo_PerfectDodge.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_ReduceQCD_PerfectDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/BP_Trigger_ReduceQCD_PerfectDodge.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CommitCost_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CommitCost.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "Event.TakeDamage"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheckInstigator_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/BP_TCheckInstigator.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddRecovery_PerfectDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Recovery/BP_Trigger_AddRecovery_PerfectDodge.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_RemoveRecovery_PerfectDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Recovery/BP_Trigger_RemoveRecovery_PerfectDodge.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_RemoveComboEffects_PerfectDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Combo/BP_Trigger_RemoveComboEffects_PerfectDodge.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "AddTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Shape.2D.Side"
+          },
+          "Value": {
+            "CheckAtoms": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheck_Points_PerfectDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/BP_TCheck_Points_PerfectDodge.0"
+              }
+            ],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_AddEffect_PreDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/BP_Trigger_AddEffect_PreDodge.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "State.Shape.2D.Side"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_RemoveEffects_PerfectDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/BP_Trigger_RemoveEffects_PerfectDodge.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        },
+        {
+          "Key": {
+            "TagName": "State.Player.PerfectDodge.After"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_Recovery_PerfectDodge_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Recovery/BP_Trigger_Recovery_PerfectDodge.0"
+              }
+            ],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "RequiredAttributeSets": [
+        {
+          "ObjectName": "Class'CyAttributeSet_PerfectDodge'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      ],
+      "MagnitudeRemainPoints": {
+        "Value": 3.0
+      },
+      "MagnitudeMaxPoints": {
+        "Value": 3.0
+      },
+      "AttributeRemainPoints": {
+        "AttributeName": "PerfectDodgePoints",
+        "Attribute": {
+          "Path": [
+            "PerfectDodgePoints"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAttributeSet_PerfectDodge'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAttributeSet_PerfectDodge'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "AttributeMaxPoints": {
+        "AttributeName": "PerfectDodgePointsMax",
+        "Attribute": {
+          "Path": [
+            "PerfectDodgePointsMax"
+          ],
+          "ResolvedOwner": {
+            "ObjectName": "Class'CyAttributeSet_PerfectDodge'",
+            "ObjectPath": "/Script/PMGame"
+          }
+        },
+        "AttributeOwner": {
+          "ObjectName": "Class'CyAttributeSet_PerfectDodge'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCostMask": 0,
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerOnly",
+      "CostGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'Cost_PerfectDodge_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/Cost_PerfectDodge.0"
+      },
+      "CooldownGameplayEffectClass": {
+        "ObjectName": "BlueprintGeneratedClass'CD_PerfectDodge_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_PerfectDodge/CD_PerfectDodge.0"
+      }
+    }
+  }
+]

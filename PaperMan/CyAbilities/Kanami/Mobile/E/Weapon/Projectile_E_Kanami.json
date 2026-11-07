@@ -4,6 +4,7 @@
     "Name": "Projectile_E_Kanami_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Weapon/Projectile_E_Kanami",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Projectile_E_Kanami_C:SimpleConstructionScript_0'",
@@ -55,6 +56,7 @@
     "Name": "Default__Projectile_E_Kanami_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Weapon/Projectile_E_Kanami.Projectile_E_Kanami_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Weapon/Projectile_E_Kanami",
     "Properties": {
       "BlastRadius": 0.0,
       "bEnablePhysicalBlock": false,
@@ -71,11 +73,6 @@
         "ObjectName": "CyProjectileFlyDropMovementComponent'Default__Projectile_E_Kanami_C:MovementComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Weapon/Projectile_E_Kanami.5"
       },
-      "AkComponent": {
-        "ObjectName": "AkComponent'Default__Projectile_E_Kanami_C:AkComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Weapon/Projectile_E_Kanami.2"
-      },
-      "ExplodeType": "EExplodeType::OnLifeOver",
       "bEnableExplodeForLifeOver": false,
       "ActuatorConfig": {
         "ActorClass": {
@@ -83,6 +80,7 @@
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Summon/Summon_E_Kanami.0"
         },
         "bUseActorLocation": true,
+        "bEnableRotation": true,
         "bAttachToHitActor": true
       },
       "PerceptionSystemComponent": {
@@ -97,6 +95,7 @@
         "ObjectName": "CyDataSystemComponent'Default__Projectile_E_Kanami_C:DataSystemComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Weapon/Projectile_E_Kanami.4"
       },
+      "InitialLifeSpan": 20.0,
       "RootComponent": {
         "ObjectName": "SphereComponent'Default__Projectile_E_Kanami_C:RootComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Weapon/Projectile_E_Kanami.15"
@@ -165,7 +164,10 @@
           }
         ]
       },
-      "MaxBounceCount": 3,
+      "StopChannelTypes": [
+        "ECC_GameTraceChannel6"
+      ],
+      "MaxBounceCount": 2,
       "BouncinessScaleMin": 0.25,
       "BouncinessScaleMax": 0.9,
       "BouncinessDistanceMin": 300.0,
@@ -307,7 +309,7 @@
         "ObjectName": "CyRetainComponent'Projectile_E_Kanami_C:CyRetain_GEN_VARIABLE'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Kanami/Mobile/E/Weapon/Projectile_E_Kanami.6"
       },
-      "VariableGuid": "98F2F626-46A92040-BD1C82BE-57D62177",
+      "VariableGuid": "82C81058-486696AF-E91440AA-5BDC9EF3",
       "InternalVariableName": "CyRetain"
     }
   },

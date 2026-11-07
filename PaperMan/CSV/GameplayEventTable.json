@@ -4,6 +4,7 @@
     "Name": "GameplayEventTable",
     "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'DataTable'",
+    "Package": "PM/Content/PaperMan/CSV/GameplayEventTable",
     "Properties": {
       "RowStruct": {
         "ObjectName": "ScriptStruct'GameplayTagTableRow'",
@@ -1119,6 +1120,14 @@
         "Tag": "Event.GameState.GameOver.End",
         "DevComment": "游戏状态-游戏已经结束了"
       },
+      "Event.GameState.FightLevelLoad.Begin": {
+        "Tag": "Event.GameState.FightLevelLoad.Begin",
+        "DevComment": "游戏状态-战斗关卡加载"
+      },
+      "Event.GameState.FightLevelLoad.End": {
+        "Tag": "Event.GameState.FightLevelLoad.End",
+        "DevComment": "游戏状态-战斗关卡加载"
+      },
       "Event.GameState.FinalStage": {
         "Tag": "Event.GameState.FinalStage",
         "DevComment": "决战阶段开始-游戏战斗阶段"
@@ -2227,6 +2236,10 @@
         "Tag": "Event.KillByWeapon.Tool",
         "DevComment": "工具击杀"
       },
+      "Event.KillTarget.Monster": {
+        "Tag": "Event.KillTarget.Monster",
+        "DevComment": "击杀怪物"
+      },
       "Event.Death": {
         "Tag": "Event.Death",
         "DevComment": "死亡"
@@ -2751,6 +2764,22 @@
         "Tag": "Event.GameState.GameOver.Ended",
         "DevComment": "游戏状态-游戏已经结束了状态结束后"
       },
+      "Event.GameState.FightLevelLoad.PreBegin": {
+        "Tag": "Event.GameState.FightLevelLoad.PreBegin",
+        "DevComment": "游戏状态-战斗关卡加载-状态开始前"
+      },
+      "Event.GameState.FightLevelLoad.Begun": {
+        "Tag": "Event.GameState.FightLevelLoad.Begun",
+        "DevComment": "游戏状态-战斗关卡加载-状态开始后"
+      },
+      "Event.GameState.FightLevelLoad.PreEnd": {
+        "Tag": "Event.GameState.FightLevelLoad.PreEnd",
+        "DevComment": "游戏状态-战斗关卡加载-状态结束前"
+      },
+      "Event.GameState.FightLevelLoad.Ended": {
+        "Tag": "Event.GameState.FightLevelLoad.Ended",
+        "DevComment": "游戏状态-战斗关卡加载-状态结束后"
+      },
       "Event.GameZone.StateChange.Enter": {
         "Tag": "Event.GameZone.StateChange.Enter",
         "DevComment": "游戏区域状态变化-例如占点区域状态"
@@ -3179,6 +3208,14 @@
         "Tag": "Event.GameState.RemovePlayerState",
         "DevComment": "PlayerState登出"
       },
+      "Event.GameState.PlayerStateBeAdd": {
+        "Tag": "Event.GameState.PlayerStateBeAdd",
+        "DevComment": "PlayerState被登入"
+      },
+      "Event.GameState.PlayerStateBeRemove": {
+        "Tag": "Event.GameState.PlayerStateBeRemove",
+        "DevComment": "PlayerState被登出"
+      },
       "Event.Summon.Spawn.Michele.E": {
         "Tag": "Event.Summon.Spawn.Michele.E",
         "DevComment": "米雪儿E技能召唤物出生"
@@ -3226,6 +3263,10 @@
       "Event.Summon.Spawn.Nobunaga.E.Projectile": {
         "Tag": "Event.Summon.Spawn.Nobunaga.E.Projectile",
         "DevComment": "信长E技能子弹出生"
+      },
+      "Event.HitActor.Skill": {
+        "Tag": "Event.HitActor.Skill",
+        "DevComment": "技能命中"
       },
       "Event.ChangeRole.HumanDeathToZombie": {
         "Tag": "Event.ChangeRole.HumanDeathToZombie",
@@ -3547,10 +3588,6 @@
         "Tag": "Event.BombPass.TransmitBomb.BeSeized",
         "DevComment": "炸弹人模式-传递炸弹-炸弹被抢夺"
       },
-      "Event.Parkour.SuccessFinish": {
-        "Tag": "Event.Parkour.SuccessFinish",
-        "DevComment": "跑酷抵达终点"
-      },
       "Event.Weapon.RecordBool.Reiichi.Q": {
         "Tag": "Event.Weapon.RecordBool.Reiichi.Q",
         "DevComment": "令Q技能切换墙"
@@ -3630,6 +3667,10 @@
       "Event.HalfEnter.PlayerJoinGame": {
         "Tag": "Event.HalfEnter.PlayerJoinGame",
         "DevComment": "中途加入玩家加入对局"
+      },
+      "Event.Parkour.SuccessFinish": {
+        "Tag": "Event.Parkour.SuccessFinish",
+        "DevComment": "跑酷成功撤离"
       },
       "Event.Score.CompositeScoreRankChange": {
         "Tag": "Event.Score.CompositeScoreRankChange",
@@ -3866,6 +3907,10 @@
       "Event.Weapon.KnifeBlockSickle": {
         "Tag": "Event.Weapon.KnifeBlockSickle",
         "DevComment": "触发格挡镰刀"
+      },
+      "Event.Weapon.SECMonster.Projectile": {
+        "Tag": "Event.Weapon.SECMonster.Projectile",
+        "DevComment": "触发格挡搜打撤怪物飞弹"
       },
       "Event.GameplayEffect.Executed.Michele.X": {
         "Tag": "Event.GameplayEffect.Executed.Michele.X",
@@ -4611,6 +4656,14 @@
         "Tag": "Event.Dodge.SuccessfulDodgeTag",
         "DevComment": "闪避成功时,接受事件的事件Tag"
       },
+      "Event.Summon.Spawn.PVEZombie.TrackingOrb": {
+        "Tag": "Event.Summon.Spawn.PVEZombie.TrackingOrb",
+        "DevComment": "PVE TrackingOrb技能召唤物出生"
+      },
+      "Event.Summon.Death.PVEZombie.CrystalAbsorption": {
+        "Tag": "Event.Summon.Death.PVEZombie.CrystalAbsorption",
+        "DevComment": "PVE 晶源绽放被摧毁"
+      },
       "Event.Summon.Spawn.CrystalloidAlpha.Q.Projectile": {
         "Tag": "Event.Summon.Spawn.CrystalloidAlpha.Q.Projectile",
         "DevComment": "大鬼Q技能召唤物出生"
@@ -4650,6 +4703,34 @@
       "Event.Card.TaskPointChanged.ByTime": {
         "Tag": "Event.Card.TaskPointChanged.ByTime",
         "DevComment": "一定时间卡牌任务点数变化"
+      },
+      "Event.Action.WeaponAttack.PVEZombieGrenade": {
+        "Tag": "Event.Action.WeaponAttack.PVEZombieGrenade",
+        "DevComment": "PVE生化手雷扔出瞬间"
+      },
+      "Event.Summon.Spawn.PVEZombie.TreasureBox": {
+        "Tag": "Event.Summon.Spawn.PVEZombie.TreasureBox",
+        "DevComment": "PVE 宝箱出生"
+      },
+      "Event.Summon.Destroy.PVEZombie.TreasureBox": {
+        "Tag": "Event.Summon.Destroy.PVEZombie.TreasureBox",
+        "DevComment": "PVE 宝箱销毁"
+      },
+      "Event.Summon.BotGenerate.RoundStopGenerate": {
+        "Tag": "Event.Summon.BotGenerate.RoundStopGenerate",
+        "DevComment": "晶源灾变-本回合怪物生成结束"
+      },
+      "Event.Summon.BotGenerate.WaveStartGenerate": {
+        "Tag": "Event.Summon.BotGenerate.WaveStartGenerate",
+        "DevComment": "晶源灾变-本波次怪物生成开始"
+      },
+      "Event.PVEZombie.Base.HealthChange": {
+        "Tag": "Event.PVEZombie.Base.HealthChange",
+        "DevComment": "晶源灾变-基地血量变化"
+      },
+      "Event.Summon.BotGenerate.OnZombieDead": {
+        "Tag": "Event.Summon.BotGenerate.OnZombieDead",
+        "DevComment": "晶源灾变-怪物死亡通知"
       },
       "Event.Bullet.Penetration": {
         "Tag": "Event.Bullet.Penetration",
@@ -4699,6 +4780,14 @@
         "Tag": "Event.Gameplay.GameStageChange",
         "DevComment": "玩法的游戏阶段变化"
       },
+      "Event.SCE.SuccessLeave": {
+        "Tag": "Event.SCE.SuccessLeave",
+        "DevComment": "成功撤离"
+      },
+      "Event.Summon.Spawn.SEC.ItemBox": {
+        "Tag": "Event.Summon.Spawn.SEC.ItemBox",
+        "DevComment": "物资箱生成"
+      },
       "Event.Gameplay.AttackTeamChanged": {
         "Tag": "Event.Gameplay.AttackTeamChanged",
         "DevComment": "攻方队伍变化"
@@ -4710,6 +4799,10 @@
       "Event.Summon.Destroy.Lilith.X": {
         "Tag": "Event.Summon.Destroy.Lilith.X",
         "DevComment": "莉莉丝X技能召唤物销毁"
+      },
+      "Event.Stamina.Empty": {
+        "Tag": "Event.Stamina.Empty",
+        "DevComment": "耐力值空"
       },
       "Event.DeathProtect.Card": {
         "Tag": "Event.DeathProtect.Card",
@@ -4763,6 +4856,62 @@
         "Tag": "Event.Mine.SpawnPoint.Explored",
         "DevComment": "矿机爆矿事件"
       },
+      "Event.Gameplay.MissionCompleted": {
+        "Tag": "Event.Gameplay.MissionCompleted",
+        "DevComment": "目标任务完成"
+      },
+      "Event.EscortPVE.MonsterWave.Start": {
+        "Tag": "Event.EscortPVE.MonsterWave.Start",
+        "DevComment": "推车PVE怪物兽潮开始"
+      },
+      "Event.EscortPVE.MonsterWave.End": {
+        "Tag": "Event.EscortPVE.MonsterWave.End",
+        "DevComment": "推车PVE怪物兽潮结束"
+      },
+      "Event.EscortPVE.Reward.Start": {
+        "Tag": "Event.EscortPVE.Reward.Start",
+        "DevComment": "推车PVE奖励关开始"
+      },
+      "Event.EscortPVE.Reward.End": {
+        "Tag": "Event.EscortPVE.Reward.End",
+        "DevComment": "推车PVE奖励关结束"
+      },
+      "Event.EscortPVE.SearchOil.Start": {
+        "Tag": "Event.EscortPVE.SearchOil.Start",
+        "DevComment": "推车PVE搜油开始"
+      },
+      "Event.EscortPVE.SearchOil.End": {
+        "Tag": "Event.EscortPVE.SearchOil.End",
+        "DevComment": "推车PVE搜油结束"
+      },
+      "Event.EscortPVE.Final.Start": {
+        "Tag": "Event.EscortPVE.Final.Start",
+        "DevComment": "推车PVE最终关开始"
+      },
+      "Event.EscortPVE.Final.End": {
+        "Tag": "Event.EscortPVE.Final.End",
+        "DevComment": "推车PVE最终关结束"
+      },
+      "Event.Summon.Spawn.PVEZombie.Thorns": {
+        "Tag": "Event.Summon.Spawn.PVEZombie.Thorns",
+        "DevComment": "PVE莉莉丝荆棘"
+      },
+      "Event.Summon.Destroy.PVEZombie.Thorns": {
+        "Tag": "Event.Summon.Destroy.PVEZombie.Thorns",
+        "DevComment": "PVE莉莉丝荆棘"
+      },
+      "Event.EscortPVE.PickUpOil": {
+        "Tag": "Event.EscortPVE.PickUpOil",
+        "DevComment": "捡起油"
+      },
+      "Event.EscortPVE.DiscardOil": {
+        "Tag": "Event.EscortPVE.DiscardOil",
+        "DevComment": "丢弃油"
+      },
+      "Event.EscortPVE.MonsterGeneration": {
+        "Tag": "Event.EscortPVE.MonsterGeneration",
+        "DevComment": "推车PVE怪物生成"
+      },
       "Event.Summon.TakeDamage.Cielle.Q": {
         "Tag": "Event.Summon.TakeDamage.Cielle.Q",
         "DevComment": "汐Q召唤物收到伤害时"
@@ -4771,9 +4920,53 @@
         "Tag": "Event.Summon.ClearArmor.Cielle.Q",
         "DevComment": "汐Q召唤物护甲清空时"
       },
+      "Event.Test1": {
+        "Tag": "Event.Test1",
+        "DevComment": ""
+      },
+      "Event.Test2": {
+        "Tag": "Event.Test2",
+        "DevComment": ""
+      },
+      "Event.Test3": {
+        "Tag": "Event.Test3",
+        "DevComment": ""
+      },
+      "Event.Test4": {
+        "Tag": "Event.Test4",
+        "DevComment": ""
+      },
+      "Event.Test5": {
+        "Tag": "Event.Test5",
+        "DevComment": ""
+      },
+      "Event.Test6": {
+        "Tag": "Event.Test6",
+        "DevComment": ""
+      },
+      "Event.Test7": {
+        "Tag": "Event.Test7",
+        "DevComment": ""
+      },
+      "Event.Test8": {
+        "Tag": "Event.Test8",
+        "DevComment": ""
+      },
+      "Event.Test9": {
+        "Tag": "Event.Test9",
+        "DevComment": ""
+      },
+      "Event.Test10": {
+        "Tag": "Event.Test10",
+        "DevComment": ""
+      },
       "Event.Skill.Cielle.Q.OnForceMoveDashHit": {
         "Tag": "Event.Skill.Cielle.Q.OnForceMoveDashHit",
         "DevComment": "汐Q及被动冲刺给力检测命中时"
+      },
+      "Event.Skill.Cielle.Q.OnDamageByDashHit": {
+        "Tag": "Event.Skill.Cielle.Q.OnDamageByDashHit",
+        "DevComment": "汐Q及被动冲刺命中产生伤害效果"
       },
       "Event.Summon.Cielle.QPDashHit.LeaveEvent": {
         "Tag": "Event.Summon.Cielle.QPDashHit.LeaveEvent",
@@ -4783,6 +4976,10 @@
         "Tag": "Event.Summon.Cielle.Q.FiftWork.Begin",
         "DevComment": ""
       },
+      "Event.Projectile.Spawn.Skill2.Sandworm": {
+        "Tag": "Event.Projectile.Spawn.Skill2.Sandworm",
+        "DevComment": "搜打撤沙虫酸液炮生成"
+      },
       "Event.Weapon.ThirdWork.Start": {
         "Tag": "Event.Weapon.ThirdWork.Start",
         "DevComment": ""
@@ -4790,6 +4987,10 @@
       "Event.Weapon.ThirdWork.End": {
         "Tag": "Event.Weapon.ThirdWork.End",
         "DevComment": ""
+      },
+      "Event.Summon.Spawn.Skill2.Drone": {
+        "Tag": "Event.Summon.Spawn.Skill2.Drone",
+        "DevComment": "搜打撤无人机风场生成"
       },
       "Event.Weapon.Work.End.Cielle.Q": {
         "Tag": "Event.Weapon.Work.End.Cielle.Q",
@@ -4811,6 +5012,158 @@
         "Tag": "Event.Action.ForceSwitchToExpectedWeapon",
         "DevComment": ""
       },
+      "Event.Action.InteractiveProps": {
+        "Tag": "Event.Action.InteractiveProps",
+        "DevComment": "使用互动道具"
+      },
+      "Event.Card.RefreshCard": {
+        "Tag": "Event.Card.RefreshCard",
+        "DevComment": "刷新卡牌"
+      },
+      "Event.Summon.Spawn.Flavia.E": {
+        "Tag": "Event.Summon.Spawn.Flavia.Q.Eye",
+        "DevComment": "芙拉薇娅C召唤物生成"
+      },
+      "Event.Summon.Destroy.Flavia.E": {
+        "Tag": "Event.Summon.Destroy.Flavia.E",
+        "DevComment": "芙拉薇娅C召唤物摧毁"
+      },
+      "Event.Summon.Spawn.Fragrans.Q.Work": {
+        "Tag": "Event.Summon.Spawn.Fragrans.Q.Work",
+        "DevComment": "珐格兰丝Q技能召唤物一出生"
+      },
+      "Event.Summon.Spawn.Fragrans.Q.SecondWork": {
+        "Tag": "Event.Summon.Spawn.Fragrans.Q.SecondWork",
+        "DevComment": "珐格兰丝Q技能召唤物二出生"
+      },
+      "Event.GameplayEffect.Executed.Fragrans.P": {
+        "Tag": "Event.GameplayEffect.Executed.Fragrans.P",
+        "DevComment": "珐格兰丝被动效果"
+      },
+      "Event.GameplayEffect.Executed.Fragrans.E": {
+        "Tag": "Event.GameplayEffect.Executed.Fragrans.E",
+        "DevComment": "珐格兰丝E技能效果"
+      },
+      "Event.GameplayEffect.Add.Fragrans.E": {
+        "Tag": "Event.GameplayEffect.Add.Fragrans.E",
+        "DevComment": "珐格兰丝E技能效果"
+      },
+      "Event.GameplayEffect.Executed.Fragrans.X": {
+        "Tag": "Event.GameplayEffect.Executed.Fragrans.X",
+        "DevComment": "珐格兰丝X技能效果"
+      },
+      "Event.GameplayEffect.Executed.Fragrans.Arousal.One": {
+        "Tag": "Event.GameplayEffect.Executed.Fragrans.Arousal.One",
+        "DevComment": "珐格兰丝觉醒1效果"
+      },
+      "Event.Card.10013109": {
+        "Tag": "Event.Card.10013109",
+        "DevComment": "推车卡牌10013109事件"
+      },
+      "Event.Summon.Spawn.Fragrans.E": {
+        "Tag": "Event.Summon.Spawn.Fragrans.E",
+        "DevComment": "珐格兰丝E技能召唤物"
+      },
+      "Event.Summon.Destroy.Yvette.E.Cylinder": {
+        "Tag": "Event.Summon.Destroy.Yvette.E.Cylinder",
+        "DevComment": "伊维特E召唤物冰柱销毁"
+      },
+      "Event.Weapon.RecordBool.KokonaShiki.Q": {
+        "Tag": "Event.Weapon.RecordBool.KokonaShiki.Q",
+        "DevComment": "心夏Q技能切换目标"
+      },
+      "Event.GameplayEffect.AttributeChanged.KokonaShiki.Q.HP": {
+        "Tag": "Event.GameplayEffect.AttributeChanged.KokonaShiki.Q.HP",
+        "DevComment": "心夏回血"
+      },
+      "Event.GameplayEffect.AttributeChanged.KokonaShiki.Q.Armor": {
+        "Tag": "Event.GameplayEffect.AttributeChanged.KokonaShiki.Q.Armor",
+        "DevComment": "心夏回甲"
+      },
+      "Event.GameplayEffect.CorrosionActivate.Yugiri.Q": {
+        "Tag": "Event.GameplayEffect.CorrosionActivate.Yugiri.Q",
+        "DevComment": "忧雾Q技能毒雾激活"
+      },
+      "Event.GameplayEffect.CorrosionActivate.Yugiri.P": {
+        "Tag": "Event.GameplayEffect.CorrosionActivate.Yugiri.P",
+        "DevComment": "忧雾P技能毒雾激活"
+      },
+      "Event.GameplayEffect.Add.Yugiri.X": {
+        "Tag": "Event.GameplayEffect.Add.Yugiri.X",
+        "DevComment": "忧雾X技能腐蚀效果"
+      },
+      "Event.GameplayEffect.Add.Yugiri.P": {
+        "Tag": "Event.GameplayEffect.Add.Yugiri.P",
+        "DevComment": "忧雾P技能腐蚀效果"
+      },
+      "Event.Summon.Spawn.Cielle.A2": {
+        "Tag": "Event.Summon.Spawn.Cielle.A2",
+        "DevComment": "Cielle觉醒2召唤物生成事件"
+      },
+      "Event.Summon.Spawn.Cielle.E": {
+        "Tag": "Event.Summon.Spawn.Cielle.E",
+        "DevComment": "Cielle战术技能召唤物生成事件"
+      },
+      "Event.Summon.Destroy.Cielle.E": {
+        "Tag": "Event.Summon.Destroy.Cielle.E",
+        "DevComment": "Cielle战术技能召唤物销毁事件"
+      },
+      "Event.Summon.TakeDamage.Leona.Q": {
+        "Tag": "Event.Summon.TakeDamage.Leona.Q",
+        "DevComment": "雷欧娜方块受到伤害"
+      },
+      "Event.Summon.HitTarget.Chiyo.Q": {
+        "Tag": "Event.Summon.HitTarget.Chiyo.Q",
+        "DevComment": "千代Qhit"
+      },
+      "Event.GameplayEffect.Executed.Chiyo.Q": {
+        "Tag": "Event.GameplayEffect.Executed.Chiyo.Q",
+        "DevComment": "千代Q技能效果"
+      },
+      "Event.Summon.Spawn.Chiyo.Q.Arrow": {
+        "Tag": "Event.Summon.Spawn.Chiyo.Q.Arrow",
+        "DevComment": "千代Q箭头"
+      },
+      "Event.GameplayEffect.Add.Leona.Armor.P": {
+        "Tag": "Event.GameplayEffect.Add.Leona.Armor.P",
+        "DevComment": "雷欧娜P回甲"
+      },
+      "Event.GameplayEffect.Add.Leona.Armor.ArousalOne": {
+        "Tag": "Event.GameplayEffect.Add.Leona.Armor.ArousalOne",
+        "DevComment": "雷欧娜一觉回甲"
+      },
+      "Event.Summon.Destroy.Chiyo.Q.Arrow": {
+        "Tag": "Event.Summon.Destroy.Chiyo.Q.Arrow",
+        "DevComment": "千代Q箭头销毁"
+      },
+      "Event.Summon.Bomb.Remove": {
+        "Tag": "Event.Summon.Bomb.Remove",
+        "DevComment": "炸弹移除"
+      },
+      "Event.Summon.Destroy.Chiyo.X.Summon": {
+        "Tag": "Event.Summon.Destroy.Chiyo.X.Summon",
+        "DevComment": "千代X召唤物销毁"
+      },
+      "Event.Summon.Destroy.Chiyo.E.Summon": {
+        "Tag": "Event.Summon.Destroy.Chiyo.E.Summon",
+        "DevComment": "千代E召唤物销毁"
+      },
+      "Event.Summon.Spawn.Chiyo.X.Summon": {
+        "Tag": "Event.Summon.Spawn.Chiyo.X.Summon",
+        "DevComment": "千代X召唤物生成"
+      },
+      "Event.Summon.Spawn.Chiyo.E.Summon": {
+        "Tag": "Event.Summon.Spawn.Chiyo.E.Summon",
+        "DevComment": "千代E召唤物生成"
+      },
+      "Event.GameplayEffect.ReloadAmmo.Cielle.P.Primary": {
+        "Tag": "Event.GameplayEffect.ReloadAmmo.Cielle.P.Primary",
+        "DevComment": "汐P被动技能触发自动换弹-主武器"
+      },
+      "Event.GameplayEffect.ReloadAmmo.Cielle.P.Secondary": {
+        "Tag": "Event.GameplayEffect.ReloadAmmo.Cielle.P.Secondary",
+        "DevComment": "汐P被动技能触发自动换弹-副武器"
+      },
       "Event.GameState.TimeLeftChange": {
         "Tag": "Event.GameState.TimeLeftChange",
         "DevComment": "游戏状态-状态倒计时变化"
@@ -4823,13 +5176,13 @@
         "Tag": "Event.AIState.TimeLeftChange",
         "DevComment": "AI状态-状态倒计时变化"
       },
+      "Event.Action.InteractTask.LongPress": {
+        "Tag": "Event.Action.InteractTask.LongPress",
+        "DevComment": "行为-交互任务-长按"
+      },
       "Event.KillByDeathMark": {
         "Tag": "Event.KillByDeathMark",
         "DevComment": "死亡标记击杀事件"
-      },
-      "Event.Summon.Bomb.Remove": {
-        "Tag": "Event.Summon.Bomb.Remove",
-        "DevComment": "炸弹移除"
       },
       "Event.Summon.Spawn.Mara.X": {
         "Tag": "Event.Summon.Spawn.Mara.X",
@@ -4838,6 +5191,26 @@
       "Event.Shift.Begin": {
         "Tag": "Event.Shift.Begin",
         "DevComment": "位置转换开始事件"
+      },
+      "Event.Action.TeamObtainItems": {
+        "Tag": "Event.Action.TeamObtainItems",
+        "DevComment": "行为-队伍获得物品"
+      },
+      "Event.Action.OpenKeyDoor": {
+        "Tag": "Event.Action.OpenKeyDoor",
+        "DevComment": "行为-打开钥匙门"
+      },
+      "Event.ChangeRole.ZombieToHuman": {
+        "Tag": "Event.ChangeRole.ZombieToHuman",
+        "DevComment": "僵尸变为人类"
+      },
+      "Event.ChangeRole.ClickedZombieToHuman": {
+        "Tag": "Event.ChangeRole.ClickedZombieToHuman",
+        "DevComment": "按键僵尸变为人类"
+      },
+      "Event.ChangeRole.ZombieToHumanAfter": {
+        "Tag": "Event.ChangeRole.ZombieToHumanAfter",
+        "DevComment": "僵尸变为人类之后"
       },
       "Event.Card.TaskPointChangedByCharge": {
         "Tag": "Event.Card.TaskPointChangedByCharge",
@@ -4851,6 +5224,10 @@
         "Tag": "Event.Card.StealCard",
         "DevComment": "偷取卡牌事件"
       },
+      "Event.OnDeathAnimEnd.Monster": {
+        "Tag": "Event.OnDeathAnimEnd.Monster",
+        "DevComment": "SC 怪物死亡动画结束"
+      },
       "Event.ChangeRole.ZombieToHuman.200005": {
         "Tag": "Event.ChangeRole.ZombieToHuman.200005",
         "DevComment": "僵尸变为人类-还魂丹"
@@ -4858,10 +5235,6 @@
       "Event.ChangeRole.ZombieToHuman.20351045": {
         "Tag": "Event.ChangeRole.ZombieToHuman.20351045",
         "DevComment": "僵尸变为人类-血清"
-      },
-      "Event.ChangeRole.ClickedZombieToHuman": {
-        "Tag": "Event.ChangeRole.ClickedZombieToHuman",
-        "DevComment": "按键僵尸变为人类"
       },
       "Event.GameState.Interaction.PreBegin": {
         "Tag": "Event.GameState.Interaction.PreBegin",
@@ -4923,6 +5296,14 @@
         "Tag": "Event.Summon.Destroy.Nora.X",
         "DevComment": "诺诺的X召唤物销毁事件"
       },
+      "Event.Summon.Spawn.Nora.Monster.X": {
+        "Tag": "Event.Summon.Spawn.Nora.Monster.X",
+        "DevComment": "诺诺的X召唤物生成事件"
+      },
+      "Event.Summon.Destroy.Nora.Monster.X": {
+        "Tag": "Event.Summon.Destroy.Nora.Monster.X",
+        "DevComment": "诺诺的X召唤物销毁事件"
+      },
       "Event.Summon.Spawn.Nora.E": {
         "Tag": "Event.Summon.Spawn.Nora.E",
         "DevComment": "诺诺的E召唤物生成事件"
@@ -4934,14 +5315,6 @@
       "Event.Summon.Spawn.Nora.X": {
         "Tag": "Event.Summon.Spawn.Nora.X",
         "DevComment": "诺诺的X召唤物生成事件"
-      },
-      "Event.Summon.Spawn.Nora.Monster.X": {
-        "Tag": "Event.Summon.Spawn.Nora.Monster.X",
-        "DevComment": "诺诺的X召唤物生成事件"
-      },
-      "Event.Summon.Destroy.Nora.Monster.X": {
-        "Tag": "Event.Summon.Destroy.Nora.Monster.X",
-        "DevComment": "诺诺的X召唤物销毁事件"
       },
       "Event.Action.Jump.Third": {
         "Tag": "Event.Action.Jump.Third",
@@ -5015,6 +5388,14 @@
         "Tag": "Event.Skill.Cielle.A2.OnLongPressSvrSearchFailed",
         "DevComment": "汐觉醒2蓄满爆炸服务端校验失败发送的事件"
       },
+      "Event.GameplayEffect.Add.Nora.X.Warning": {
+        "Tag": "Event.GameplayEffect.Add.Nora.X.Warning",
+        "DevComment": "诺诺大招召唤物靠近警示效果添加"
+      },
+      "Event.GameplayEffect.Remove.Nora.X.Warning": {
+        "Tag": "Event.GameplayEffect.Remove.Nora.X.Warning",
+        "DevComment": "诺诺大招召唤物靠近警示效果移除"
+      },
       "Event.Skill.Cielle.A2.OnLongPressQ": {
         "Tag": "Event.Skill.Cielle.A2.OnLongPressQ",
         "DevComment": "汐QA2蓄满爆炸瞬间发给施法者的事件"
@@ -5023,13 +5404,109 @@
         "Tag": "Event.Skill.Cielle.A2.OnLongPressX",
         "DevComment": "汐XA2蓄满爆炸瞬间发给施法者的事件"
       },
-      "Event.GameplayEffect.Add.Nora.X.Warning": {
-        "Tag": "Event.GameplayEffect.Add.Nora.X.Warning",
-        "DevComment": "诺诺大招召唤物靠近警示效果添加"
+      "Event.Action.OpenItemBox": {
+        "Tag": "Event.Action.OpenItemBox",
+        "DevComment": "打开物品箱子"
       },
-      "Event.GameplayEffect.Remove.Nora.X.Warning": {
-        "Tag": "Event.GameplayEffect.Remove.Nora.X.Warning",
-        "DevComment": "诺诺大招召唤物靠近警示效果移除"
+      "Event.SCSharedEvent.ClueGate.OpenGate": {
+        "Tag": "Event.SCSharedEvent.ClueGate.OpenGate",
+        "DevComment": "线索开门事件"
+      },
+      "Event.SCSharedEvent.ClueGate.ClueSubmit": {
+        "Tag": "Event.SCSharedEvent.ClueGate.ClueSubmit",
+        "DevComment": "线索进度提交事件"
+      },
+      "Event.SCSharedEvent.ClueGate.GetClue": {
+        "Tag": "Event.SCSharedEvent.ClueGate.GetClue",
+        "DevComment": "获取线索"
+      },
+      "Event.SCSharedQuest.Dribble.Success": {
+        "Tag": "Event.SCSharedQuest.Dribble.Success",
+        "DevComment": "SC共享事件-运球-成功"
+      },
+      "Event.Action.UseItem": {
+        "Tag": "Event.Action.UseItem",
+        "DevComment": "使用消耗品道具"
+      },
+      "Event.Interact.WeaponFinished": {
+        "Tag": "Event.Interact.WeaponFinished",
+        "DevComment": "交互武器动作完成"
+      },
+      "Event.Summon.Death.KokonaShiki.X": {
+        "Tag": "Event.Summon.Death.KokonaShiki.X",
+        "DevComment": "志木心夏X技能召唤物被摧毁"
+      },
+      "Event.ShootingRange.PlayerEnter": {
+        "Tag": "Event.ShootingRange.PlayerEnter",
+        "DevComment": "玩家进入靶场"
+      },
+      "Event.ShootingRange.PlayerLeave": {
+        "Tag": "Event.ShootingRange.PlayerLeave",
+        "DevComment": "玩家离开靶场"
+      },
+      "Event.PlayerOp.LockSelectedRole": {
+        "Tag": "Event.PlayerOp.LockSelectedRole",
+        "DevComment": "玩家操作锁定选择的角色"
+      },
+      "Event.HitWeakness": {
+        "Tag": "Event.HitWeakness",
+        "DevComment": "命中弱点"
+      },
+      "Event.Action.EnterRegion": {
+        "Tag": "Event.Action.EnterRegion",
+        "DevComment": "行为-进入区域"
+      },
+      "Event.WeakXRay": {
+        "Tag": "Event.WeakXRay",
+        "DevComment": "透视命中"
+      },
+      "Event.Action.LeaveRegion": {
+        "Tag": "Event.Action.LeaveRegion",
+        "DevComment": "行为-离开区域"
+      },
+      "Event.Interact.MachineSuccess": {
+        "Tag": "Event.Interact.MachineSuccess",
+        "DevComment": "机关交互成功"
+      },
+      "Event.Summon.Death.KokonaShiki.SC": {
+        "Tag": "Event.Summon.Death.KokonaShiki.SC",
+        "DevComment": "心夏SC召唤物击毁"
+      },
+      "Event.PlayerDeath.KokonaShiki.SC": {
+        "Tag": "Event.PlayerDeath.KokonaShiki.SC",
+        "DevComment": "心夏SC监听队友死亡"
+      },
+      "Event.AlwaysForceMoved.Character": {
+        "Tag": "Event.AlwaysForceMoved.Character",
+        "DevComment": "角色被强制移动(不能忽略)"
+      },
+      "Event.ExposeWeakness.Monster": {
+        "Tag": "Event.ExposeWeakness.Monster",
+        "DevComment": "怪物弱点暴露"
+      },
+      "Event.CardItem.4138014": {
+        "Tag": "Event.CardItem.4138014",
+        "DevComment": "赛季机制词缀-伊薇特易伤事件"
+      },
+      "Event.BeforeKill": {
+        "Tag": "Event.BeforeKill",
+        "DevComment": "击杀前事件"
+      },
+      "Event.CardItem.4138011": {
+        "Tag": "Event.CardItem.4138011",
+        "DevComment": "赛季机制词缀-玛德蕾娜禁止弦化事件"
+      },
+      "Event.CardItem.4138015": {
+        "Tag": "Event.CardItem.4138015",
+        "DevComment": "赛季机制词缀-艾卡技能伤害事件"
+      },
+      "Event.Projectile.Spawn.X.Audery": {
+        "Tag": "Event.Projectile.Spawn.X.Audery",
+        "DevComment": "奥黛丽X子弹生成事件"
+      },
+      "Event.AddEnergy.X.Once": {
+        "Tag": "Event.AddEnergy.X.Once",
+        "DevComment": "添加一次X点数事件"
       },
       "Event.Projectile.OnSearchTarget.Mara.QRm": {
         "Tag": "Event.Projectile.OnSearchTarget.Mara.QRm",
@@ -5071,9 +5548,633 @@
         "Tag": "Event.Skill.Mara.XRm.SendEventOnSearchOther",
         "DevComment": "玛拉XRM传导搜索时若命中,发事件给施法者"
       },
+      "Event.SubGState.Entry.PreBegin": {
+        "Tag": "Event.SubGState.Entry.PreBegin",
+        "DevComment": "子游戏状态-进入状态-开始前"
+      },
+      "Event.SubGState.Entry.Begin": {
+        "Tag": "Event.SubGState.Entry.Begin",
+        "DevComment": "子游戏状态-进入状态-开始"
+      },
+      "Event.SubGState.Entry.Begun": {
+        "Tag": "Event.SubGState.Entry.Begun",
+        "DevComment": "子游戏状态-进入状态-开始后"
+      },
+      "Event.SubGState.Entry.PreEnd": {
+        "Tag": "Event.SubGState.Entry.PreEnd",
+        "DevComment": "子游戏状态-进入状态-结束前"
+      },
+      "Event.SubGState.Entry.End": {
+        "Tag": "Event.SubGState.Entry.End",
+        "DevComment": "子游戏状态-进入状态-结束"
+      },
+      "Event.SubGState.Entry.Ended": {
+        "Tag": "Event.SubGState.Entry.Ended",
+        "DevComment": "子游戏状态-进入状态-结束后"
+      },
+      "Event.SubGState.Work.PreBegin": {
+        "Tag": "Event.SubGState.Work.PreBegin",
+        "DevComment": "子游戏状态-工作状态1-开始前"
+      },
+      "Event.SubGState.Work.Begin": {
+        "Tag": "Event.SubGState.Work.Begin",
+        "DevComment": "子游戏状态-工作状态1-开始"
+      },
+      "Event.SubGState.Work.Begun": {
+        "Tag": "Event.SubGState.Work.Begun",
+        "DevComment": "子游戏状态-工作状态1-开始后"
+      },
+      "Event.SubGState.Work.PreEnd": {
+        "Tag": "Event.SubGState.Work.PreEnd",
+        "DevComment": "子游戏状态-工作状态1-结束前"
+      },
+      "Event.SubGState.Work.End": {
+        "Tag": "Event.SubGState.Work.End",
+        "DevComment": "子游戏状态-工作状态1-结束"
+      },
+      "Event.SubGState.Work.Ended": {
+        "Tag": "Event.SubGState.Work.Ended",
+        "DevComment": "子游戏状态-工作状态1-结束后"
+      },
+      "Event.SubGState.WorkSecond.PreBegin": {
+        "Tag": "Event.SubGState.WorkSecond.PreBegin",
+        "DevComment": "子游戏状态-工作状态2-开始前"
+      },
+      "Event.SubGState.WorkSecond.Begin": {
+        "Tag": "Event.SubGState.WorkSecond.Begin",
+        "DevComment": "子游戏状态-工作状态2-开始"
+      },
+      "Event.SubGState.WorkSecond.Begun": {
+        "Tag": "Event.SubGState.WorkSecond.Begun",
+        "DevComment": "子游戏状态-工作状态2-开始后"
+      },
+      "Event.SubGState.WorkSecond.PreEnd": {
+        "Tag": "Event.SubGState.WorkSecond.PreEnd",
+        "DevComment": "子游戏状态-工作状态2-结束前"
+      },
+      "Event.SubGState.WorkSecond.End": {
+        "Tag": "Event.SubGState.WorkSecond.End",
+        "DevComment": "子游戏状态-工作状态2-结束"
+      },
+      "Event.SubGState.WorkSecond.Ended": {
+        "Tag": "Event.SubGState.WorkSecond.Ended",
+        "DevComment": "子游戏状态-工作状态2-结束后"
+      },
+      "Event.SubGState.WorkThird.PreBegin": {
+        "Tag": "Event.SubGState.WorkThird.PreBegin",
+        "DevComment": "子游戏状态-工作状态3-开始前"
+      },
+      "Event.SubGState.WorkThird.Begin": {
+        "Tag": "Event.SubGState.WorkThird.Begin",
+        "DevComment": "子游戏状态-工作状态3-开始"
+      },
+      "Event.SubGState.WorkThird.Begun": {
+        "Tag": "Event.SubGState.WorkThird.Begun",
+        "DevComment": "子游戏状态-工作状态3-开始后"
+      },
+      "Event.SubGState.WorkThird.PreEnd": {
+        "Tag": "Event.SubGState.WorkThird.PreEnd",
+        "DevComment": "子游戏状态-工作状态3-结束前"
+      },
+      "Event.SubGState.WorkThird.End": {
+        "Tag": "Event.SubGState.WorkThird.End",
+        "DevComment": "子游戏状态-工作状态3-结束"
+      },
+      "Event.SubGState.WorkThird.Ended": {
+        "Tag": "Event.SubGState.WorkThird.Ended",
+        "DevComment": "子游戏状态-工作状态3-结束后"
+      },
+      "Event.SubGState.WorkFourth.PreBegin": {
+        "Tag": "Event.SubGState.WorkFourth.PreBegin",
+        "DevComment": "子游戏状态-工作状态4-开始前"
+      },
+      "Event.SubGState.WorkFourth.Begin": {
+        "Tag": "Event.SubGState.WorkFourth.Begin",
+        "DevComment": "子游戏状态-工作状态4-开始"
+      },
+      "Event.SubGState.WorkFourth.Begun": {
+        "Tag": "Event.SubGState.WorkFourth.Begun",
+        "DevComment": "子游戏状态-工作状态4-开始后"
+      },
+      "Event.SubGState.WorkFourth.PreEnd": {
+        "Tag": "Event.SubGState.WorkFourth.PreEnd",
+        "DevComment": "子游戏状态-工作状态4-结束前"
+      },
+      "Event.SubGState.WorkFourth.End": {
+        "Tag": "Event.SubGState.WorkFourth.End",
+        "DevComment": "子游戏状态-工作状态4-结束"
+      },
+      "Event.SubGState.WorkFourth.Ended": {
+        "Tag": "Event.SubGState.WorkFourth.Ended",
+        "DevComment": "子游戏状态-工作状态4-结束后"
+      },
+      "Event.SubGState.WorkFifth.PreBegin": {
+        "Tag": "Event.SubGState.WorkFifth.PreBegin",
+        "DevComment": "子游戏状态-工作状态5-开始前"
+      },
+      "Event.SubGState.WorkFifth.Begin": {
+        "Tag": "Event.SubGState.WorkFifth.Begin",
+        "DevComment": "子游戏状态-工作状态5-开始"
+      },
+      "Event.SubGState.WorkFifth.Begun": {
+        "Tag": "Event.SubGState.WorkFifth.Begun",
+        "DevComment": "子游戏状态-工作状态5-开始后"
+      },
+      "Event.SubGState.WorkFifth.PreEnd": {
+        "Tag": "Event.SubGState.WorkFifth.PreEnd",
+        "DevComment": "子游戏状态-工作状态5-结束前"
+      },
+      "Event.SubGState.WorkFifth.End": {
+        "Tag": "Event.SubGState.WorkFifth.End",
+        "DevComment": "子游戏状态-工作状态5-结束"
+      },
+      "Event.SubGState.WorkFifth.Ended": {
+        "Tag": "Event.SubGState.WorkFifth.Ended",
+        "DevComment": "子游戏状态-工作状态5-结束后"
+      },
+      "Event.SubGState.Wait.PreBegin": {
+        "Tag": "Event.SubGState.Wait.PreBegin",
+        "DevComment": "子游戏状态-等待状态-开始前"
+      },
+      "Event.SubGState.Wait.Begin": {
+        "Tag": "Event.SubGState.Wait.Begin",
+        "DevComment": "子游戏状态-等待状态-开始"
+      },
+      "Event.SubGState.Wait.Begun": {
+        "Tag": "Event.SubGState.Wait.Begun",
+        "DevComment": "子游戏状态-等待状态-开始后"
+      },
+      "Event.SubGState.Wait.PreEnd": {
+        "Tag": "Event.SubGState.Wait.PreEnd",
+        "DevComment": "子游戏状态-等待状态-结束前"
+      },
+      "Event.SubGState.Wait.End": {
+        "Tag": "Event.SubGState.Wait.End",
+        "DevComment": "子游戏状态-等待状态-结束"
+      },
+      "Event.SubGState.Wait.Ended": {
+        "Tag": "Event.SubGState.Wait.Ended",
+        "DevComment": "子游戏状态-等待状态-结束后"
+      },
+      "Event.SubGState.Leave.PreBegin": {
+        "Tag": "Event.SubGState.Leave.PreBegin",
+        "DevComment": "子游戏状态-离开状态-开始前"
+      },
+      "Event.SubGState.Leave.Begin": {
+        "Tag": "Event.SubGState.Leave.Begin",
+        "DevComment": "子游戏状态-离开状态-开始"
+      },
+      "Event.SubGState.Leave.Begun": {
+        "Tag": "Event.SubGState.Leave.Begun",
+        "DevComment": "子游戏状态-离开状态-开始后"
+      },
+      "Event.SubGState.Leave.PreEnd": {
+        "Tag": "Event.SubGState.Leave.PreEnd",
+        "DevComment": "子游戏状态-离开状态-结束前"
+      },
+      "Event.SubGState.Leave.End": {
+        "Tag": "Event.SubGState.Leave.End",
+        "DevComment": "子游戏状态-离开状态-结束"
+      },
+      "Event.SubGState.Leave.Ended": {
+        "Tag": "Event.SubGState.Leave.Ended",
+        "DevComment": "子游戏状态-离开状态-结束后"
+      },
+      "Event.SubGState.Death.PreBegin": {
+        "Tag": "Event.SubGState.Death.PreBegin",
+        "DevComment": "子游戏状态-死亡状态-开始前"
+      },
+      "Event.SubGState.Death.Begin": {
+        "Tag": "Event.SubGState.Death.Begin",
+        "DevComment": "子游戏状态-死亡状态-开始"
+      },
+      "Event.SubGState.Death.Begun": {
+        "Tag": "Event.SubGState.Death.Begun",
+        "DevComment": "子游戏状态-死亡状态-开始后"
+      },
+      "Event.SubGState.Death.PreEnd": {
+        "Tag": "Event.SubGState.Death.PreEnd",
+        "DevComment": "子游戏状态-死亡状态-结束前"
+      },
+      "Event.SubGState.Death.End": {
+        "Tag": "Event.SubGState.Death.End",
+        "DevComment": "子游戏状态-死亡状态-结束"
+      },
+      "Event.SubGState.Death.Ended": {
+        "Tag": "Event.SubGState.Death.Ended",
+        "DevComment": "子游戏状态-死亡状态-结束后"
+      },
+      "Event.SubGState.End.PreBegin": {
+        "Tag": "Event.SubGState.End.PreBegin",
+        "DevComment": "子游戏状态-结束状态-开始前"
+      },
+      "Event.SubGState.End.Begin": {
+        "Tag": "Event.SubGState.End.Begin",
+        "DevComment": "子游戏状态-结束状态-开始"
+      },
+      "Event.SubGState.End.Begun": {
+        "Tag": "Event.SubGState.End.Begun",
+        "DevComment": "子游戏状态-结束状态-开始后"
+      },
+      "Event.SubGState.End.PreEnd": {
+        "Tag": "Event.SubGState.End.PreEnd",
+        "DevComment": "子游戏状态-结束状态-结束前"
+      },
+      "Event.SubGState.End.End": {
+        "Tag": "Event.SubGState.End.End",
+        "DevComment": "子游戏状态-结束状态-结束"
+      },
+      "Event.SubGState.End.Ended": {
+        "Tag": "Event.SubGState.End.Ended",
+        "DevComment": "子游戏状态-结束状态-结束后"
+      },
+      "Event.SubGState.StateChanged": {
+        "Tag": "Event.SubGState.StateChanged",
+        "DevComment": "子游戏状态-状态变化"
+      },
+      "Event.SubGState.StateTimeEnd": {
+        "Tag": "Event.SubGState.StateTimeEnd",
+        "DevComment": "子游戏状态-状态时间结束"
+      },
+      "Event.SubGState.StateTimeLeftChange": {
+        "Tag": "Event.SubGState.StateTimeLeftChange",
+        "DevComment": "子游戏状态-状态倒计时变化"
+      },
+      "Event.Action.InteractPressed": {
+        "Tag": "Event.Action.InteractPressed",
+        "DevComment": "交互按下"
+      },
+      "Event.Action.InteractReleased": {
+        "Tag": "Event.Action.InteractReleased",
+        "DevComment": "交互释放"
+      },
+      "Event.Portal.TeleportSuccess": {
+        "Tag": "Event.Portal.TeleportSuccess",
+        "DevComment": "传送门传送成功"
+      },
+      "Event.Portal.TeleportFailure": {
+        "Tag": "Event.Portal.TeleportFailure",
+        "DevComment": "传送门传送失败"
+      },
+      "Event.Action.UseItem.Cancel": {
+        "Tag": "Event.Action.UseItem.Cancel",
+        "DevComment": "搜打撤取消使用道具"
+      },
+      "Event.SubGameState.BeginPlay": {
+        "Tag": "Event.SubGameState.BeginPlay",
+        "DevComment": ""
+      },
+      "Event.SubGameState.EndPlay": {
+        "Tag": "Event.SubGameState.EndPlay",
+        "DevComment": ""
+      },
+      "Event.TeamActor.BeginPlay": {
+        "Tag": "Event.TeamActor.BeginPlay",
+        "DevComment": ""
+      },
+      "Event.TeamActor.EndPlay": {
+        "Tag": "Event.TeamActor.EndPlay",
+        "DevComment": ""
+      },
+      "Event.Teleport.TeleportSuccess": {
+        "Tag": "Event.Teleport.TeleportSuccess",
+        "DevComment": "传送成功"
+      },
+      "Event.Teleport.TeleportFailure": {
+        "Tag": "Event.Teleport.TeleportFailure",
+        "DevComment": "传送失败"
+      },
+      "Event.Teleport.BeTeleportSuccess": {
+        "Tag": "Event.Teleport.BeTeleportSuccess",
+        "DevComment": "被传送成功"
+      },
+      "Event.Teleport.BeTeleportFailure": {
+        "Tag": "Event.Teleport.BeTeleportFailure",
+        "DevComment": "被传送失败"
+      },
+      "Event.Action.UseTacticalItemNum": {
+        "Tag": "Event.Action.UseTacticalItemNum",
+        "DevComment": "行为-使用战术道具"
+      },
+      "Event.Action.TakeAwayItemsValue": {
+        "Tag": "Event.Action.TakeAwayItemsValue",
+        "DevComment": "行为-结算时带走物品的价值"
+      },
+      "Event.Action.TakeAwayItems": {
+        "Tag": "Event.Action.TakeAwayItems",
+        "DevComment": "行为-结算时带走物品"
+      },
+      "Event.ExplorePoint.ExploreSuccess": {
+        "Tag": "Event.ExplorePoint.ExploreSuccess",
+        "DevComment": "探索成功"
+      },
+      "Event.ExplorePoint.ExploreFailure": {
+        "Tag": "Event.ExplorePoint.ExploreFailure",
+        "DevComment": "探索失败"
+      },
+      "Event.RetreatCheckPoint.EnterArea": {
+        "Tag": "Event.RetreatCheckPoint.EnterArea",
+        "DevComment": "进入撤离点交互区域"
+      },
+      "Event.RetreatCheckPoint.LeaveArea": {
+        "Tag": "Event.RetreatCheckPoint.LeaveArea",
+        "DevComment": "离开撤离点交互区域"
+      },
+      "Event.Action.Evacuation": {
+        "Tag": "Event.Action.Evacuation",
+        "DevComment": "行为-撤离"
+      },
+      "Event.Action.ObtainItems": {
+        "Tag": "Event.Action.ObtainItems",
+        "DevComment": "行为-获得物品"
+      },
+      "Event.InitRepAttributeSet": {
+        "Tag": "Event.InitRepAttributeSet",
+        "DevComment": "初始化Rep属性集"
+      },
+      "Event.InitRepAttributeSet.Game": {
+        "Tag": "Event.InitRepAttributeSet.Game",
+        "DevComment": "初始化Rep属性集-游戏"
+      },
+      "Event.InitRepAttributeSet.SubGame": {
+        "Tag": "Event.InitRepAttributeSet.SubGame",
+        "DevComment": "初始化Rep属性集-子游戏"
+      },
+      "Event.InitRepAttributeSet.Team": {
+        "Tag": "Event.InitRepAttributeSet.Team",
+        "DevComment": "初始化Rep属性集-队伍"
+      },
+      "Event.InitRepAttributeSet.Player": {
+        "Tag": "Event.InitRepAttributeSet.Player",
+        "DevComment": "初始化Rep属性集-玩家"
+      },
+      "Event.InitRepAttributeSet.Weapon": {
+        "Tag": "Event.InitRepAttributeSet.Weapon",
+        "DevComment": "初始化Rep属性集-武器"
+      },
+      "Event.GameplayQuest.DurationTimeout": {
+        "Tag": "Event.GameplayQuest.DurationTimeout",
+        "DevComment": "GameplayQuest持续时间超时"
+      },
+      "Event.Airdrop.Spawn": {
+        "Tag": "Event.Airdrop.Spawn",
+        "DevComment": "空投-生成一个"
+      },
+      "Event.Airdrop.MoveStateChanged.PhaseFalling": {
+        "Tag": "Event.Airdrop.MoveStateChanged.PhaseFalling",
+        "DevComment": "空投-移动状态变更-阶段下落中"
+      },
+      "Event.Airdrop.MoveStateChanged.FreeFalling": {
+        "Tag": "Event.Airdrop.MoveStateChanged.FreeFalling",
+        "DevComment": "空投-移动状态变更-自由下落中"
+      },
+      "Event.Airdrop.MoveStateChanged.Landed": {
+        "Tag": "Event.Airdrop.MoveStateChanged.Landed",
+        "DevComment": "空投-移动状态变更-已落地停止"
+      },
+      "Event.Airdrop.FallPhaseChanged": {
+        "Tag": "Event.Airdrop.FallPhaseChanged",
+        "DevComment": "空投-下落阶段变更"
+      },
+      "Event.Action.CallAirdrop": {
+        "Tag": "Event.Action.CallAirdrop",
+        "DevComment": "玩家呼叫空投"
+      },
+      "Event.Airdrop.CallSpawn": {
+        "Tag": "Event.Airdrop.CallSpawn",
+        "DevComment": "呼叫生成空投"
+      },
+      "Event.SCSharedEvent_BossBattle.RequestExplore": {
+        "Tag": "Event.SCSharedEvent_BossBattle.RequestExplore",
+        "DevComment": "SC共享事件-Boss战-请求探索"
+      },
+      "Event.SCSharedEvent_BossBattle.ExploreSuccess": {
+        "Tag": "Event.SCSharedEvent_BossBattle.ExploreSuccess",
+        "DevComment": "SC共享事件-Boss战-探索成功"
+      },
+      "Event.SCSharedEvent_BossBattle.ExploreFinish": {
+        "Tag": "Event.SCSharedEvent_BossBattle.ExploreFinish",
+        "DevComment": "SC共享事件-Boss战-探索完成"
+      },
+      "Event.SCSharedEvent_BossBattle.RequestEnter": {
+        "Tag": "Event.SCSharedEvent_BossBattle.RequestEnter",
+        "DevComment": "SC共享事件-Boss战-请求进入"
+      },
+      "Event.SCSharedEvent_BossBattle.PlayerEnter": {
+        "Tag": "Event.SCSharedEvent_BossBattle.PlayerEnter",
+        "DevComment": "SC共享事件-Boss战-玩家进入"
+      },
+      "Event.SCSharedEvent_BossBattle.RequestLeave": {
+        "Tag": "Event.SCSharedEvent_BossBattle.RequestLeave",
+        "DevComment": "SC共享事件-Boss战-请求离开"
+      },
+      "Event.SCSharedEvent_BossBattle.PlayerLeave": {
+        "Tag": "Event.SCSharedEvent_BossBattle.PlayerLeave",
+        "DevComment": "SC共享事件-Boss战-玩家离开"
+      },
+      "Event.SCSharedEvent_BossBattle.PlayerKillBoss": {
+        "Tag": "Event.SCSharedEvent_BossBattle.PlayerKillBoss",
+        "DevComment": "SC共享事件-Boss战-玩家击杀Boss"
+      },
+      "Event.SCSharedEvent_BossBattle.BossSpawn": {
+        "Tag": "Event.SCSharedEvent_BossBattle.BossSpawn",
+        "DevComment": "SC共享事件-Boss战-Boss生成"
+      },
+      "Event.SCSharedEvent_BossBattle.MinionsSpawn": {
+        "Tag": "Event.SCSharedEvent_BossBattle.MinionsSpawn",
+        "DevComment": "SC共享事件-Boss战-小怪生成"
+      },
+      "Event.SCSharedEvent_BossBattle.RewardLootBoxSpawn": {
+        "Tag": "Event.SCSharedEvent_BossBattle.RewardLootBoxSpawn",
+        "DevComment": "SC共享事件-Boss战-奖励箱生成"
+      },
+      "Event.SCSharedEvent_BossBattle.SkipBossEnterAnimVote": {
+        "Tag": "Event.SCSharedEvent_BossBattle.SkipBossEnterAnimVote",
+        "DevComment": "SC共享事件-Boss战-跳过Boss进入动画投票"
+      },
+      "Event.SCSharedEvent_BossBattle.SkipBossEnterAnimVoteComplete": {
+        "Tag": "Event.SCSharedEvent_BossBattle.SkipBossEnterAnimVoteComplete",
+        "DevComment": "SC共享事件-Boss战-跳过Boss进入动画投票完成"
+      },
+      "Event.SCSharedEvent_WorldBoss.BossSpawn": {
+        "Tag": "Event.SCSharedEvent_WorldBoss.BossSpawn",
+        "DevComment": "SC共享事件-世界Boss-Boss生成"
+      },
+      "Event.SCSharedEvent_WorldBoss.MinionsSpawn": {
+        "Tag": "Event.SCSharedEvent_WorldBoss.MinionsSpawn",
+        "DevComment": "SC共享事件-世界Boss-小怪生成"
+      },
+      "Event.SCSharedEvent_MonsterLair.MonsterSpawn": {
+        "Tag": "Event.SCSharedEvent_MonsterLair.MonsterSpawn",
+        "DevComment": "SC共享事件-怪物据点-怪物生成"
+      },
+      "Event.SCSharedEvent_MonsterLair.PlayerEnter": {
+        "Tag": "Event.SCSharedEvent_MonsterLair.PlayerEnter",
+        "DevComment": "SC共享事件-怪物据点-玩家进入据点区域"
+      },
+      "Event.SCSharedEvent_MonsterLair.AllPlayerLeave": {
+        "Tag": "Event.SCSharedEvent_MonsterLair.AllPlayerLeave",
+        "DevComment": "SC共享事件-怪物据点-所有玩家离开据点区域"
+      },
+      "Event.SCSharedEvent_MonsterLair.RequestChallenge": {
+        "Tag": "Event.SCSharedEvent_MonsterLair.RequestChallenge",
+        "DevComment": "SC共享事件-怪物据点-请求挑战"
+      },
+      "Event.SCSharedQuest_Quest.RequestAcceptQuest": {
+        "Tag": "Event.SCSharedQuest_Quest.RequestAcceptQuest",
+        "DevComment": "SC共享任务-任务-请求接取任务"
+      },
+      "Event.SCSharedQuest_Quest.RequestAbandonVote": {
+        "Tag": "Event.SCSharedQuest_Quest.RequestAbandonVote",
+        "DevComment": "SC共享任务-任务-请求投票"
+      },
+      "Event.SCSharedQuest_Quest.RequestStartChallenge": {
+        "Tag": "Event.SCSharedQuest_Quest.RequestStartChallenge",
+        "DevComment": "SC共享任务-任务-请求开启挑战"
+      },
+      "Event.SCSharedQuest_QuestResult.Complete": {
+        "Tag": "Event.SCSharedQuest_QuestResult.Complete",
+        "DevComment": "SC共享任务-任务结果-完成"
+      },
+      "Event.SCSharedQuest_QuestResult.Failed": {
+        "Tag": "Event.SCSharedQuest_QuestResult.Failed",
+        "DevComment": "SC共享任务-任务结果-失败"
+      },
+      "Event.SCSharedQuest_QuestResult.Abandon": {
+        "Tag": "Event.SCSharedQuest_QuestResult.Abandon",
+        "DevComment": "SC共享任务-任务结果-放弃"
+      },
+      "Event.SCSharedQuest_QuestAbandonVote.AgreeAbandon": {
+        "Tag": "Event.SCSharedQuest_QuestAbandonVote.AgreeAbandon",
+        "DevComment": "SC共享任务-任务放弃投票-同意放弃"
+      },
+      "Event.SCSharedQuest_QuestAbandonVote.RefuseAbandon": {
+        "Tag": "Event.SCSharedQuest_QuestAbandonVote.RefuseAbandon",
+        "DevComment": "SC共享任务-任务放弃投票-拒绝放弃"
+      },
+      "Event.SCSharedQuest_QuestAbandonVoteResult.AgreeAbandon": {
+        "Tag": "Event.SCSharedQuest_QuestAbandonVoteResult.AgreeAbandon",
+        "DevComment": "SC共享任务-任务放弃投票结果-同意放弃"
+      },
+      "Event.SCSharedQuest_QuestAbandonVoteResult.RefuseAbandon": {
+        "Tag": "Event.SCSharedQuest_QuestAbandonVoteResult.RefuseAbandon",
+        "DevComment": "SC共享任务-任务放弃投票结果-拒绝放弃"
+      },
+      "Event.SCSharedQuest_QuestAcceptPoint.PlayerEnter": {
+        "Tag": "Event.SCSharedQuest_QuestAcceptPoint.PlayerEnter",
+        "DevComment": "SC共享任务-任务接取点-玩家进入"
+      },
+      "Event.SCSharedQuest_QuestAcceptPoint.PlayerLeave": {
+        "Tag": "Event.SCSharedQuest_QuestAcceptPoint.PlayerLeave",
+        "DevComment": "SC共享任务-任务接取点-玩家离开"
+      },
+      "Event.SCSharedQuest_ClearMonster.QuestMonsterSpawn": {
+        "Tag": "Event.SCSharedQuest_ClearMonster.QuestMonsterSpawn",
+        "DevComment": "SC共享任务-清怪-任务怪生成"
+      },
+      "Event.SCSharedQuest_ClearMonster.QuestMonsterDeath": {
+        "Tag": "Event.SCSharedQuest_ClearMonster.QuestMonsterDeath",
+        "DevComment": "SC共享任务-清怪-任务怪死亡"
+      },
+      "Event.SCSharedQuest_ClearMonster.NormalMonsterSpawn": {
+        "Tag": "Event.SCSharedQuest_ClearMonster.NormalMonsterSpawn",
+        "DevComment": "SC共享任务-清怪-普通怪生成"
+      },
+      "Event.SCSharedQuest_ClearMonster.NormalMonsterDeath": {
+        "Tag": "Event.SCSharedQuest_ClearMonster.NormalMonsterDeath",
+        "DevComment": "SC共享任务-清怪-普通怪死亡"
+      },
+      "Event.SCSharedQuest_GuardPoint.MonsterSpawn": {
+        "Tag": "Event.SCSharedQuest_GuardPoint.MonsterSpawn",
+        "DevComment": "SC共享任务-守点-怪物生成"
+      },
+      "Event.SCSharedQuest_GuardPoint.GuardPointDeath": {
+        "Tag": "Event.SCSharedQuest_GuardPoint.GuardPointDeath",
+        "DevComment": "SC共享任务-守点-守护点死亡"
+      },
+      "Event.SCSharedQuest_GuardPoint.GuardLootBoxSpawn": {
+        "Tag": "Event.SCSharedQuest_GuardPoint.GuardLootBoxSpawn",
+        "DevComment": "SC共享任务-守点-守护箱子生成"
+      },
+      "Event.SCSharedQuest_GuardPoint.GuardLootBoxDeath": {
+        "Tag": "Event.SCSharedQuest_GuardPoint.GuardLootBoxDeath",
+        "DevComment": "SC共享任务-守点-守护箱子死亡"
+      },
+      "Event.LargeWorldTeleport.Default": {
+        "Tag": "Event.LargeWorldTeleport.Default",
+        "DevComment": "大世界传送-默认"
+      },
+      "Event.LargeWorldTeleport.Fight": {
+        "Tag": "Event.LargeWorldTeleport.Fight",
+        "DevComment": "大世界传送-战斗"
+      },
+      "Event.LargeWorldTeleport.SCBossBattleEnter": {
+        "Tag": "Event.LargeWorldTeleport.SCBossBattleEnter",
+        "DevComment": "大世界传送-进入SC Boss战"
+      },
+      "Event.LargeWorldTeleport.SCBossBattleLevel": {
+        "Tag": "Event.LargeWorldTeleport.SCBossBattleLevel",
+        "DevComment": "大世界传送-离开SC Boss战"
+      },
+      "Event.LargeWorldTeleport.Begin": {
+        "Tag": "Event.LargeWorldTeleport.Begin",
+        "DevComment": "大世界传送-开始"
+      },
+      "Event.LargeWorldTeleport.End": {
+        "Tag": "Event.LargeWorldTeleport.End",
+        "DevComment": "大世界传送-结束"
+      },
+      "Event.LargeWorldTeleport.Complete": {
+        "Tag": "Event.LargeWorldTeleport.Complete",
+        "DevComment": "大世界传送-完成"
+      },
+      "Event.LargeWorldTeleport.Timeout": {
+        "Tag": "Event.LargeWorldTeleport.Timeout",
+        "DevComment": "大世界传送-超时"
+      },
+      "Event.ClientLevelLoad.Begin": {
+        "Tag": "Event.ClientLevelLoad.Begin",
+        "DevComment": "客户端关卡加载-开始"
+      },
+      "Event.ClientLevelLoad.End": {
+        "Tag": "Event.ClientLevelLoad.End",
+        "DevComment": "客户端关卡加载-结束"
+      },
+      "Event.ClientLevelLoad.Complete": {
+        "Tag": "Event.ClientLevelLoad.Complete",
+        "DevComment": "客户端关卡加载-完成"
+      },
+      "Event.BeforeDeathAnimEnd.Monster": {
+        "Tag": "Event.BeforeDeathAnimEnd.Monster",
+        "DevComment": "SC 怪物死亡动画结束"
+      },
+      "Event.AfterDeathAnimEnd.Monster": {
+        "Tag": "Event.AfterDeathAnimEnd.Monster",
+        "DevComment": "SC 怪物死亡动画结束"
+      },
+      "Event.SC.BossBattle.Enter": {
+        "Tag": "Event.SC.BossBattle.Enter",
+        "DevComment": "进入传送门Boss副本"
+      },
+      "Event.SC.ItemShow": {
+        "Tag": "Event.SC.ItemShow",
+        "DevComment": "搜打撤物品展示"
+      },
       "Event.Skill.Mara.A3Rm.SendEventOnDamageRefresh": {
         "Tag": "Event.Skill.Mara.A3Rm.SendEventOnDamageRefresh",
         "DevComment": "玛拉A3Rm每次成功激活新的伤害缓存池时发事件"
+      },
+      "Event.Skill.Aika.E.OnDetected": {
+        "Tag": "Event.Skill.Aika.E.OnDetected",
+        "DevComment": "艾卡的E技能检测到敌人"
+      },
+      "Event.Card.200022": {
+        "Tag": "Event.Card.200022",
+        "DevComment": "卡牌200022事件"
+      },
+      "Event.Action.SearchContainer": {
+        "Tag": "Event.Action.SearchContainer",
+        "DevComment": "搜刮容器"
       }
     }
   }

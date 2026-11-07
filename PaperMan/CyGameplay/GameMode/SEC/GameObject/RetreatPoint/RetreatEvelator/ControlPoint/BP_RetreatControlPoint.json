@@ -1,0 +1,502 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_RetreatControlPoint_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_RetreatControlPoint_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.15"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyRetreatControlPoint'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Box",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyInteract",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyInteractComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIEntryState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIEntryState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StaticMesh",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_RetreatControlPoint_C'Default__BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.1"
+    }
+  },
+  {
+    "Type": "BP_RetreatControlPoint_C",
+    "Name": "Default__BP_RetreatControlPoint_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.BP_RetreatControlPoint_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint",
+    "Properties": {
+      "AIMachine": {
+        "ObjectName": "CyAIMachine'Default__BP_RetreatControlPoint_C:CyAIMachine'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.5"
+      },
+      "CollisionComponent": {
+        "ObjectName": "BoxComponent'Default__BP_RetreatControlPoint_C:CollisionComp'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.3"
+      },
+      "TargetAllowStateTypes": [
+        "EAIStateType::Entry"
+      ],
+      "TargetGotoStateTypes": [
+        "EAIStateType::SecondWork",
+        "EAIStateType::ThirdWork",
+        "EAIStateType::FourthWork",
+        "EAIStateType::Entry"
+      ],
+      "bReplicates": true,
+      "NetDormancy": "DORM_Initial",
+      "RootComponent": {
+        "ObjectName": "BoxComponent'Default__BP_RetreatControlPoint_C:CollisionComp'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.3"
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Box_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BoxComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.0"
+    },
+    "Properties": {
+      "BoxExtent": {
+        "X": 40.0,
+        "Y": 240.0,
+        "Z": 128.0
+      },
+      "AreaClass": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "bGenerateOverlapEvents": true,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 120.0
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "CollisionComp",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BoxComponent'",
+    "Outer": {
+      "ObjectName": "BP_RetreatControlPoint_C'Default__BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.1"
+    },
+    "Properties": {
+      "BoxExtent": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIEntryState",
+    "Name": "CyAIEntryState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIEntryState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.0"
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BP_RetreatControlPoint_C'Default__BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.1"
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.0"
+    }
+  },
+  {
+    "Type": "CyInteractComponent",
+    "Name": "CyInteract_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyInteractComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.0"
+    },
+    "Properties": {
+      "GlobalInteractPriority": 1,
+      "InteractPriority": 100,
+      "MaxInteractCount": 1,
+      "InteractAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_IA_OpenRetreat_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/BP_IA_OpenRetreat.0"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_RetreatControlPoint_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.15"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_RetreatControlPoint_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.8"
+      },
+      "VariableGuid": "9930296D-4B460A42-F1B0348D-329295E6",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_RetreatControlPoint_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.15"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_RetreatControlPoint_C:StaticMesh_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.16"
+      },
+      "ParentComponentOrVariableName": "CollisionComp",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "C6EB75FC-45DD338C-A201EF9F-B4E19606",
+      "InternalVariableName": "StaticMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_RetreatControlPoint_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.15"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIEntryState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIEntryState'BP_RetreatControlPoint_C:CyAIEntryState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.4"
+      },
+      "VariableGuid": "1C154535-43189355-9B82279B-ACAF373B",
+      "InternalVariableName": "CyAIEntryState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_RetreatControlPoint_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.15"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'BP_RetreatControlPoint_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.6"
+      },
+      "VariableGuid": "FF65E823-4D107D48-8B2A9FB5-4E96888B",
+      "InternalVariableName": "CyAIWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_RetreatControlPoint_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.15"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyInteractComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyInteractComponent'BP_RetreatControlPoint_C:CyInteract_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.7"
+      },
+      "VariableGuid": "71CE9828-48DE06CC-2B1BF38F-3745B08E",
+      "InternalVariableName": "CyInteract"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_RetreatControlPoint_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.15"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'BP_RetreatControlPoint_C:Box_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.2"
+      },
+      "ParentComponentOrVariableName": "CollisionComp",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "7B8CAABA-4101F966-0491D59A-A093650D",
+      "InternalVariableName": "Box"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.11"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.14"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.11"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.14"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_RetreatControlPoint_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.9"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMesh_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_RetreatControlPoint_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RetreatPoint/RetreatEvelator/ControlPoint/BP_RetreatControlPoint.0"
+    },
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'S_Envi_Akns_Mechanism_01a'",
+        "ObjectPath": "PM/Content/PaperMan/Environment/Meshes/Maps/Envi_Akns/Envi_Akns_Temple/S_Envi_Akns_Mechanism_01a.2"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "bHiddenInGame": true
+    }
+  }
+]

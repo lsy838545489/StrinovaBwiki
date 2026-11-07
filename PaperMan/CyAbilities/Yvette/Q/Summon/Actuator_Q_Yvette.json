@@ -23,6 +23,39 @@
         "ElementSize": 4
       }
     ],
+    "ScriptBytecode": [
+      {
+        "Token": "EX_ComputedJump",
+        "StatementIndex": 0,
+        "CodeOffsetExpression": {
+          "Token": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Actuator_Q_Yvette_C:ExecuteUbergraph_Actuator_Q_Yvette'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/Actuator_Q_Yvette.0"
+            },
+            "Property": {
+              "Type": "IntProperty",
+              "Name": "EntryPoint",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Token": "EX_Return",
+        "StatementIndex": 10,
+        "Expression": {
+          "Token": "EX_Nothing"
+        }
+      },
+      {
+        "Token": "EX_EndOfScript",
+        "StatementIndex": 12
+      }
+    ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
   },
   {
@@ -47,6 +80,66 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       }
     ],
+    "ScriptBytecode": [
+      {
+        "Token": "EX_LetValueOnPersistentFrame",
+        "StatementIndex": 0,
+        "DestinationProperty": {
+          "Owner": {
+            "ObjectName": "Function'Actuator_Q_Yvette_C:ExecuteUbergraph_Actuator_Q_Yvette'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/Actuator_Q_Yvette.0"
+          },
+          "Property": {
+            "Type": "FloatProperty",
+            "Name": "K2Node_Event_DeltaSeconds",
+            "Flags": "RF_Public",
+            "ElementSize": 4
+          }
+        },
+        "AssignmentExpression": {
+          "Token": "EX_LocalVariable",
+          "Variable": {
+            "Owner": {
+              "ObjectName": "Function'Actuator_Q_Yvette_C:ReceiveTick'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/Actuator_Q_Yvette.1"
+            },
+            "Property": {
+              "Type": "FloatProperty",
+              "Name": "DeltaSeconds",
+              "Flags": "RF_Public",
+              "ElementSize": 4,
+              "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+            }
+          }
+        }
+      },
+      {
+        "Token": "EX_LocalFinalFunction",
+        "StatementIndex": 18,
+        "Function": {
+          "ObjectName": "Function'Actuator_Q_Yvette_C:ExecuteUbergraph_Actuator_Q_Yvette'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/Actuator_Q_Yvette.0"
+        },
+        "Parameters": [
+          {
+            "Token": "EX_IntConst",
+            "Value": 10
+          }
+        ],
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/Actuator_Q_Yvette.ExecuteUbergraph_Actuator_Q_Yvette[10]"
+      },
+      {
+        "Token": "EX_Return",
+        "StatementIndex": 33,
+        "Expression": {
+          "Token": "EX_Nothing"
+        }
+      },
+      {
+        "Token": "EX_EndOfScript",
+        "StatementIndex": 35
+      }
+    ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   },
   {
@@ -54,6 +147,7 @@
     "Name": "Actuator_Q_Yvette_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/Actuator_Q_Yvette",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Actuator_Q_Yvette_C:SimpleConstructionScript_0'",
@@ -457,8 +551,9 @@
   {
     "Type": "Actuator_Q_Yvette_C",
     "Name": "Default__Actuator_Q_Yvette_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/Actuator_Q_Yvette.Actuator_Q_Yvette_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/Actuator_Q_Yvette",
     "Properties": {
       "UberGraphFrame": {},
       "PrivyAbilities": [
@@ -694,7 +789,8 @@
         "X": 225.0,
         "Y": 0.0,
         "Z": 0.0
-      }
+      },
+      "bCanEverAffectNavigation": false
     }
   },
   {
@@ -810,6 +906,10 @@
     "Properties": {
       "CapsuleHalfHeight": 100.0,
       "CapsuleRadius": 68.0,
+      "AreaClass": {
+        "ObjectName": "Class'PMNavArea_CrowdSummonObstacle'",
+        "ObjectPath": "/Script/PMGame"
+      },
       "bGenerateOverlapEvents": true,
       "BodyInstance": {
         "CollisionEnabled": "ECollisionEnabled::QueryOnly",
@@ -900,6 +1000,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -913,6 +1014,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -926,6 +1028,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -939,6 +1042,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -952,6 +1056,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -965,6 +1070,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -978,6 +1084,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -991,6 +1098,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1004,6 +1112,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1017,6 +1126,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1030,6 +1140,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1043,6 +1154,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1056,6 +1168,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1069,6 +1182,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1082,6 +1196,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1095,6 +1210,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1108,6 +1224,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1121,6 +1238,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1134,6 +1252,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1147,6 +1266,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1160,6 +1280,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1173,6 +1294,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1186,6 +1308,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1199,6 +1322,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1212,6 +1336,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1225,6 +1350,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1238,6 +1364,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1251,6 +1378,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1264,6 +1392,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1277,6 +1406,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1290,6 +1420,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1303,6 +1434,7 @@
               "PredictiveConnection": null,
               "Current": 0,
               "Base": 0,
+              "Reason": 0,
               "Object": null,
               "bIsStale": false,
               "bIsServerInitiated": false
@@ -1810,6 +1942,9 @@
     "Outer": {
       "ObjectName": "BlueprintGeneratedClass'Actuator_Q_Yvette_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yvette/Q/Summon/Actuator_Q_Yvette.2"
+    },
+    "Properties": {
+      "bEnableShowInteractionWidget": false
     }
   },
   {
@@ -1908,7 +2043,11 @@
       "NormalShowTag": [
         "State.Player.XRayed"
       ],
-      "SceneMapItemName": "SceneMap_ControlSommonBearItem"
+      "SceneMapItemName": "SceneMap_ControlSommonBearItem",
+      "StrategyName": {
+        "Name": "SC_Strategy_SceneMapMask",
+        "Group": "UIMapStrategy"
+      }
     }
   },
   {

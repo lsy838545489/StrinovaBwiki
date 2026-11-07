@@ -1,0 +1,224 @@
+[
+  {
+    "Type": "BehaviorTree",
+    "Name": "BT_RevivalPawn",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BehaviorTree'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn",
+    "Properties": {
+      "RootNode": {
+        "ObjectName": "BTComposite_Selector'BT_RevivalPawn:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.1"
+      },
+      "BlackboardAsset": {
+        "ObjectName": "BlackboardData'BD_MoveToTarget'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/BehaviorTree/BD_MoveToTarget.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Selector",
+    "Name": "BTComposite_Selector_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Selector'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+    },
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_RevivalPawn:CyBTTask_GotoState_6'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.7"
+          },
+          "Decorators": [
+            {
+              "ObjectName": "BTDecorator_Blackboard'BT_RevivalPawn:BTDecorator_Blackboard_0'",
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.3"
+            }
+          ],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": {
+            "ObjectName": "BTComposite_Sequence'BT_RevivalPawn:BTComposite_Sequence_0'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.2"
+          },
+          "ChildTask": null,
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "Services": [
+        {
+          "ObjectName": "CyBTService_UpdateSearchedTarget'BT_RevivalPawn:CyBTService_UpdateSearchedTarget_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.4"
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+      }
+    }
+  },
+  {
+    "Type": "BTComposite_Sequence",
+    "Name": "BTComposite_Sequence_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTComposite_Sequence'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+    },
+    "Properties": {
+      "Children": [
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_RevivalPawn:CyBTTask_GotoState_2'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.6"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        },
+        {
+          "ChildComposite": null,
+          "ChildTask": {
+            "ObjectName": "CyBTTask_GotoState'BT_RevivalPawn:CyBTTask_GotoState_1'",
+            "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.5"
+          },
+          "Decorators": [],
+          "DecoratorOps": []
+        }
+      ],
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RevivalPawn:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.1"
+      }
+    }
+  },
+  {
+    "Type": "BTDecorator_Blackboard",
+    "Name": "BTDecorator_Blackboard_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BTDecorator_Blackboard'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+    },
+    "Properties": {
+      "CachedDescription": "TargetActor is Is Not Set",
+      "OperationType": 1,
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor",
+        "bNoneIsAllowedValue": true
+      },
+      "FlowAbortMode": "EBTFlowAbortMode::Both",
+      "NodeName": "Not SetTarget Condition",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RevivalPawn:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTService_UpdateSearchedTarget",
+    "Name": "CyBTService_UpdateSearchedTarget_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTService_UpdateSearchedTarget'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+    },
+    "Properties": {
+      "BlackboardKey": {
+        "SelectedKeyName": "TargetActor",
+        "bNoneIsAllowedValue": true
+      },
+      "RandomDeviation": 0.0,
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RevivalPawn:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.1"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+    },
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "NodeName": "Goto Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_RevivalPawn:BTComposite_Sequence_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+    },
+    "Properties": {
+      "TargetStateType": "EAIStateType::Work",
+      "NodeName": "Goto Work",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Sequence'BT_RevivalPawn:BTComposite_Sequence_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.2"
+      }
+    }
+  },
+  {
+    "Type": "CyBTTask_GotoState",
+    "Name": "CyBTTask_GotoState_6",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyBTTask_GotoState'",
+    "Outer": {
+      "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+    },
+    "Properties": {
+      "TargetStateType": "EAIStateType::Leave",
+      "TreeAsset": {
+        "ObjectName": "BehaviorTree'BT_RevivalPawn'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.0"
+      },
+      "ParentNode": {
+        "ObjectName": "BTComposite_Selector'BT_RevivalPawn:BTComposite_Selector_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/GameObject/RevivalPoint/RevivalSummon/BT_RevivalPawn.1"
+      }
+    }
+  }
+]

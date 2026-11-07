@@ -1,0 +1,67 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AttackAccumulator_P_Yugiri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yugiri/P/BP_AttackAccumulator_P_Yugiri",
+    "SuperStruct": {
+      "ObjectName": "Class'CyAttackAccumulator'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AttackAccumulator_P_Yugiri_C'Default__BP_AttackAccumulator_P_Yugiri_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Yugiri/P/BP_AttackAccumulator_P_Yugiri.1"
+    }
+  },
+  {
+    "Type": "BP_AttackAccumulator_P_Yugiri_C",
+    "Name": "Default__BP_AttackAccumulator_P_Yugiri_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Yugiri/P/BP_AttackAccumulator_P_Yugiri.BP_AttackAccumulator_P_Yugiri_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Yugiri/P/BP_AttackAccumulator_P_Yugiri",
+    "Properties": {
+      "TargetTriggerCD": {
+        "Value": 1.0
+      },
+      "bUseWeaponSlotTypeMask": true,
+      "WeaponSlotTypeMask": [
+        "EWeaponSlotTypes::WeaponSlot_Primary",
+        "EWeaponSlotTypes::WeaponSlot_Secondary"
+      ],
+      "DamageMask": 2,
+      "DamageCauserTags": {
+        "IgnoreTags": [
+          "CD.Passive.Yugiri"
+        ]
+      },
+      "TriggerEventTag": {
+        "TagName": "Event.Accumulator.Yugiri.P"
+      },
+      "TriggerThreshold": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameMode'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+          },
+          "RowName": "Attribute.DamageTrigger.P.Yugiri"
+        }
+      },
+      "bResetOnRoundStart": true,
+      "InverseTargetFilter": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TFA_IsMonster_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/TargetFilters/BP_TFA_IsMonster.0"
+        }
+      ]
+    }
+  }
+]

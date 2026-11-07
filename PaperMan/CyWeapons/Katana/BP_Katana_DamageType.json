@@ -4,6 +4,7 @@
     "Name": "BP_Katana_DamageType_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyWeapons/Katana/BP_Katana_DamageType",
     "SuperStruct": {
       "ObjectName": "Class'PMMeleeDamageType'",
       "ObjectPath": "/Script/PMGame"
@@ -25,6 +26,7 @@
     "Name": "Default__BP_Katana_DamageType_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/Katana/BP_Katana_DamageType.BP_Katana_DamageType_C'",
+    "Package": "PM/Content/PaperMan/CyWeapons/Katana/BP_Katana_DamageType",
     "Properties": {
       "AkGetHurt": {
         "Armor_Headshot": {
@@ -68,8 +70,72 @@
       },
       "bAkHurtAudioOverrideByCauserEffect": true,
       "UIDamageType": {
-        "Name": "Knife"
+        "Name": "Knife",
+        "Group": "UIDamageType"
       },
+      "bDamageOverride": true,
+      "OverrideMeleeAttackDamage": [
+        {
+          "Key": "EFAttackType::MeleeFirst",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 45.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.MonsterDamage.MeleeFirst.Katana"
+            }
+          }
+        },
+        {
+          "Key": "EFAttackType::MeleeSecond",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 45.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.MonsterDamage.MeleeSecond.Katana"
+            }
+          }
+        },
+        {
+          "Key": "EFAttackType::Smite",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 45.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.MonsterDamage.Smite.Katana"
+            }
+          }
+        },
+        {
+          "Key": "EFAttackType::MeleeDash",
+          "Value": {
+            "Value": 1.0,
+            "bEnableMobile": false,
+            "MobileValue": 45.0,
+            "Curve": {
+              "CurveTable": {
+                "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+              },
+              "RowName": "Attribute.MonsterDamage.MeleeDash.Katana"
+            }
+          }
+        }
+      ],
       "DamageOriginType": "ECyDamageOriginType::Weapon",
       "PlayerWeaponType": "ECyPlayerWeaponType::Melee",
       "WeaponType": "ECyWeaponType::Blade",

@@ -4,10 +4,11 @@
     "Name": "Weapon10603001_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Weapon10603001_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.48"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.51"
       }
     },
     "SuperStruct": {
@@ -15,6 +16,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyPartAccessory",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyPartAccessory'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "CyAmmoUpdateMaterial",
@@ -77,42 +89,52 @@
     "Name": "Default__Weapon10603001_C",
     "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.Weapon10603001_C'",
+    "Package": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001",
     "Properties": {
       "SpeedConfig": {
         "Speed3D": [
           {
             "Key": "EGroundGait::Walk",
             "Value": {
-              "Value": 250.0,
+              "Value": 1.0,
               "bEnableMobile": false,
               "MobileValue": 0.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.MoveSpeed3D.Walk.AA12"
               }
             }
           },
           {
             "Key": "EGroundGait::Run",
             "Value": {
-              "Value": 460.0,
+              "Value": 1.0,
               "bEnableMobile": false,
               "MobileValue": 0.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.MoveSpeed3D.Run.AA12"
               }
             }
           },
           {
             "Key": "EGroundGait::Sprint",
             "Value": {
-              "Value": 570.0,
+              "Value": 1.0,
               "bEnableMobile": false,
               "MobileValue": 0.0,
               "Curve": {
-                "CurveTable": null,
-                "RowName": "None"
+                "CurveTable": {
+                  "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+                  "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+                },
+                "RowName": "Attribute.MoveSpeed3D.Sprint.AA12"
               }
             }
           }
@@ -122,19 +144,19 @@
       "WeaponType": "ECyWeaponType::SG",
       "RootScene": {
         "ObjectName": "SceneComponent'Default__Weapon10603001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.41"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.43"
       },
       "MeshComponent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10603001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.38"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.40"
       },
       "Machine": {
         "ObjectName": "CyFMachine'Default__Weapon10603001_C:Machine'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.22"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.23"
       },
       "AttackComponent": {
         "ObjectName": "CyFireComponent'Default__Weapon10603001_C:AttackComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.21"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.22"
       },
       "EffectComponent": {
         "ObjectName": "CyEffectComponent'Default__Weapon10603001_C:EffectComponent'",
@@ -142,219 +164,227 @@
       },
       "PredictPathComponent": {
         "ObjectName": "CyPredictPathComponent'Default__Weapon10603001_C:PredictPathComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.35"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.37"
       },
       "CachedComponents": [
         {
           "Key": "SwitcherAttack",
           "Value": {
             "ObjectName": "CyFFireSwitcher'Default__Weapon10603001_C:SwitcherAttack'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.13"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.14"
           }
         },
         {
           "Key": "SwitcherHold",
           "Value": {
             "ObjectName": "CyFHoldSwitcher'Default__Weapon10603001_C:SwitcherHold'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.17"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.18"
           }
         },
         {
           "Key": "StateEntry",
           "Value": {
             "ObjectName": "CyFEntryState'Default__Weapon10603001_C:StateEntry'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.7"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.8"
           }
         },
         {
           "Key": "StateEquip",
           "Value": {
             "ObjectName": "CyFEquipState'Default__Weapon10603001_C:StateEquip'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.9"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.10"
           }
         },
         {
           "Key": "StateInterrupt",
           "Value": {
             "ObjectName": "CyFInterruptState'Default__Weapon10603001_C:StateInterrupt'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.20"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.21"
           }
         },
         {
           "Key": "StateUnEquipped",
           "Value": {
             "ObjectName": "CyFUnEquippedState'Default__Weapon10603001_C:StateUnEquipped'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.26"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.27"
           }
         },
         {
           "Key": "StateReload",
           "Value": {
             "ObjectName": "CyFReloadState'Default__Weapon10603001_C:StateReload'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.23"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.24"
           }
         },
         {
           "Key": "StateAttack",
           "Value": {
             "ObjectName": "CyFFireState'Default__Weapon10603001_C:StateAttack'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.10"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.11"
           }
         },
         {
           "Key": "AttackSwitchInterrupt",
           "Value": {
             "ObjectName": "CyFAttackSwitchInterrupt'Default__Weapon10603001_C:AttackSwitchInterrupt'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.5"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.6"
           }
         },
         {
           "Key": "PartPendant",
           "Value": {
             "ObjectName": "CyPartPendant'Default__Weapon10603001_C:PartPendant'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.30"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.32"
           }
         },
         {
           "Key": "StateEquipAndReload",
           "Value": {
             "ObjectName": "CyFEquipReloadState'Default__Weapon10603001_C:StateEquipAndReload'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.8"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.9"
           }
         },
         {
           "Key": "AttackSwitchSingle",
           "Value": {
             "ObjectName": "CyFFireSwitchSingle'Default__Weapon10603001_C:AttackSwitchSingle'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.14"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.15"
           }
         },
         {
           "Key": "AttackSwitchBurst",
           "Value": {
             "ObjectName": "CyFFireSwitchBurst'Default__Weapon10603001_C:AttackSwitchBurst'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.12"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.13"
           }
         },
         {
           "Key": "AttackSwitchAuto",
           "Value": {
             "ObjectName": "CyFFireSwitchAuto'Default__Weapon10603001_C:AttackSwitchAuto'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.11"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.12"
           }
         },
         {
           "Key": "HoldSwitchRelaxed",
           "Value": {
             "ObjectName": "CyFHoldSwitchRelaxed'Default__Weapon10603001_C:HoldSwitchRelaxed'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.18"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.19"
           }
         },
         {
           "Key": "HoldSwitchWaist",
           "Value": {
             "ObjectName": "CyFHoldSwitchWaist'Default__Weapon10603001_C:HoldSwitchWaist'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.19"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.20"
           }
         },
         {
           "Key": "HoldSwitchAiming",
           "Value": {
             "ObjectName": "CyFHoldSwitchAiming'Default__Weapon10603001_C:HoldSwitchAiming'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.16"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.17"
           }
         },
         {
           "Key": "HoldSwitchADS",
           "Value": {
             "ObjectName": "CyFHoldSwitchADS'Default__Weapon10603001_C:HoldSwitchADS'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.15"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.16"
           }
         },
         {
           "Key": "PartGrip",
           "Value": {
             "ObjectName": "CyPartGrip'Default__Weapon10603001_C:PartGrip'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.27"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.29"
           }
         },
         {
           "Key": "PartMagazine",
           "Value": {
             "ObjectName": "CyPartMagazine'Default__Weapon10603001_C:PartMagazine'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.28"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.30"
           }
         },
         {
           "Key": "PartMuzzle",
           "Value": {
             "ObjectName": "CyPartMuzzle'Default__Weapon10603001_C:PartMuzzle'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.29"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.31"
           }
         },
         {
           "Key": "PartStock",
           "Value": {
             "ObjectName": "CyPartStock'Default__Weapon10603001_C:PartStock'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.34"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.36"
           }
         },
         {
           "Key": "PartSight",
           "Value": {
             "ObjectName": "CyPartSight'Default__Weapon10603001_C:PartSight'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.31"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.33"
           }
         },
         {
           "Key": "MeshPartSight",
           "Value": {
             "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10603001_C:MeshPartSight'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.39"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.41"
           }
         },
         {
           "Key": "PartSightLens",
           "Value": {
             "ObjectName": "CyPartSightLens'Default__Weapon10603001_C:PartSightLens'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.33"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.35"
           }
         },
         {
           "Key": "MeshPartSightLens",
           "Value": {
             "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10603001_C:MeshPartSightLens'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.40"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.42"
           }
         },
         {
           "Key": "PartSightFocus",
           "Value": {
             "ObjectName": "CyPartSightFocus'Default__Weapon10603001_C:PartSightFocus'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.32"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.34"
           }
         },
         {
           "Key": "MeshPartSightFocus",
           "Value": {
             "ObjectName": "StaticMeshComponent'Default__Weapon10603001_C:MeshPartSightFocus'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.49"
+            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.52"
           }
+        },
+        {
+          "Key": "AttackSwitchCharge",
+          "Value": null
         }
       ],
       "WeaponDataCollectionComponent": {
         "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon10603001_C:WeaponDataCollectionComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.36"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.38"
       },
       "LevelAttributeTable": {
         "ObjectName": "ModeDataTable'DT_GameMode_GrowthPartAttributeModifier'",
         "ObjectPath": "PM/Content/PaperMan/CyGameplay/Shared/DataTable/DT_GameMode_GrowthPartAttributeModifier.0"
       },
       "UIFireType": "ECyWeaponUIFireTypes::AutoGun",
+      "EventActionComponent": {
+        "ObjectName": "CyEventActionComponent'Default__Weapon10603001_C:EventActionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.5"
+      },
       "ID": 10603001,
       "SkinComponent": {
         "ObjectName": "CyWeaponSkinComponent'Default__Weapon10603001_C:SkinComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.37"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.39"
       },
       "DataSystemComponent": {
         "ObjectName": "CyDataSystemComponent'Default__Weapon10603001_C:DataSystemComponent'",
@@ -362,7 +392,7 @@
       },
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__Weapon10603001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.41"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.43"
       }
     }
   },
@@ -415,6 +445,16 @@
     }
   },
   {
+    "Type": "CyEventActionComponent",
+    "Name": "EventActionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventActionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon10603001_C'Default__Weapon10603001_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.1"
+    }
+  },
+  {
     "Type": "CyFAttackSwitchInterrupt",
     "Name": "AttackSwitchInterrupt",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
@@ -436,11 +476,28 @@
     "Properties": {
       "TimeAkLoad": 0.272,
       "TimeLoad": 0.4,
+      "UseQuickReload": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Enable.UseQuickReload.AA12"
+        }
+      },
       "TerminatorHoldTypeSet": [
         "EFHoldType::Custom"
       ],
       "TotalDuration": {
-        "Value": 0.65
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.ReloadEnd.AA12"
+        }
       }
     }
   },
@@ -474,6 +531,16 @@
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.1"
     },
     "Properties": {
+      "TotalDuration": {
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.Equip.AA12"
+        }
+      },
       "AkEventBegin": {
         "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_3D_Common_Switch.Wpn_3D_Common_Switch",
         "SubPathString": ""
@@ -504,9 +571,16 @@
     },
     "Properties": {
       "TotalDuration": {
-        "Value": 0.1739,
+        "Value": 1.0,
         "bEnableMobile": true,
-        "MobileValue": 0.1714
+        "MobileValue": 0.1714,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.AttackSpeed.Auto.AA12"
+        }
       }
     }
   },
@@ -522,13 +596,27 @@
     "Properties": {
       "BurstCount": 2,
       "BurstEndTime": {
-        "Value": 0.177713
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.EndTime.Burst.AA12"
+        }
       },
       "bFullyAutoMatic": {
         "Value": 1.0
       },
       "TotalDuration": {
-        "Value": 0.085
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.AttackSpeed.Burst.AA12"
+        }
       }
     }
   },
@@ -542,6 +630,34 @@
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.1"
     },
     "Properties": {
+      "bAllowGASwitchAttackType": true,
+      "SwitchAttackTypeInfoMap": [
+        {
+          "Key": "EFAttackType::Auto",
+          "Value": "EFAttackType::Burst"
+        },
+        {
+          "Key": "EFAttackType::Burst",
+          "Value": "EFAttackType::Auto"
+        }
+      ],
+      "DisabledSwitchAttackTypes": [
+        "EFAttackType::Burst"
+      ],
+      "SwitchAttackTypeAudioTagMap": [
+        {
+          "Key": "EFAttackType::Auto",
+          "Value": {
+            "TagName": "Resource.Audio.OnAttackTypeChange.Auto"
+          }
+        },
+        {
+          "Key": "EFAttackType::Burst",
+          "Value": {
+            "TagName": "Resource.Audio.OnAttackTypeChange.Burst"
+          }
+        }
+      ],
       "AttackCount": 8
     }
   },
@@ -577,35 +693,34 @@
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/SpreadAds.0"
       },
       "SpreadScale": {
-        "Value": 0.63,
-        "bEnableMobile": true,
+        "Value": 1.0,
         "MobileValue": 1.0,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
           },
-          "RowName": "SpreadScaleADS"
+          "RowName": "Attribute.Spread.Scale.ADS.AA12"
         }
       },
       "HorizontalRecoilScale": {
         "bEnableMobile": true,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
           },
-          "RowName": "HorizontalRecoilScaleADS"
+          "RowName": "Attribute.Recoil.Scale.AA12"
         }
       },
       "VerticalRecoilScale": {
         "bEnableMobile": true,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
           },
-          "RowName": "VerticalRecoilScaleADS"
+          "RowName": "Attribute.Recoil.Scale.AA12"
         }
       },
       "SpreadScaleTimeRate": {
@@ -655,35 +770,34 @@
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/SpreadAiming.0"
       },
       "SpreadScale": {
-        "Value": 0.85,
-        "bEnableMobile": true,
+        "Value": 1.0,
         "MobileValue": 1.0,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
           },
-          "RowName": "SpreadScaleAiming"
+          "RowName": "Attribute.Spread.Scale.Aiming.AA12"
         }
       },
       "HorizontalRecoilScale": {
         "bEnableMobile": true,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
           },
-          "RowName": "HorizontalRecoilScaleAiming"
+          "RowName": "Attribute.Recoil.Scale.AA12"
         }
       },
       "VerticalRecoilScale": {
         "bEnableMobile": true,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
           },
-          "RowName": "VerticalRecoilScaleAiming"
+          "RowName": "Attribute.Recoil.Scale.AA12"
         }
       },
       "SpreadScaleTimeRate": {
@@ -694,6 +808,9 @@
           },
           "RowName": "Attribute.Duration.Spread.Multiply.Aiming.AA12"
         }
+      },
+      "BeginAnimationDurationRate": {
+        "Value": 0.0
       },
       "AkEventBegin": {
         "AssetPathName": "/Game/WwiseAssets/AkEvent/Wpn_Common_Aim_02.Wpn_Common_Aim_02",
@@ -717,7 +834,11 @@
     "Properties": {
       "MobileForbiddenHoldTypes": [
         "EFHoldType::Aiming"
-      ]
+      ],
+      "bAllowGASwitchAdsLevel": true,
+      "SwitchAdsLevelAudioTag": {
+        "TagName": "Resource.Audio.OnADSLevelChanged.A"
+      }
     }
   },
   {
@@ -733,6 +854,35 @@
       "TimeSpreadScaleOnCurve": {
         "ObjectName": "CurveFloat'SpreadWaist'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/SpreadWaist.0"
+      },
+      "SpreadScale": {
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Spread.Scale.Waist.AA12"
+        }
+      },
+      "HorizontalRecoilScale": {
+        "bEnableMobile": true,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Recoil.Scale.AA12"
+        }
+      },
+      "VerticalRecoilScale": {
+        "bEnableMobile": true,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Recoil.Scale.AA12"
+        }
       },
       "SpreadScaleTimeRate": {
         "Curve": {
@@ -764,33 +914,30 @@
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/SpreadWaist.0"
       },
       "SpreadScale": {
-        "bEnableMobile": true,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
           },
-          "RowName": "SpreadScaleWaist"
+          "RowName": "Attribute.Spread.Scale.Waist.AA12"
         }
       },
       "HorizontalRecoilScale": {
-        "bEnableMobile": true,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
           },
-          "RowName": "HorizontalRecoilScaleWaist"
+          "RowName": "Attribute.Recoil.Scale.AA12"
         }
       },
       "VerticalRecoilScale": {
-        "bEnableMobile": true,
         "Curve": {
           "CurveTable": {
-            "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-            "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
           },
-          "RowName": "VerticalRecoilScaleWaist"
+          "RowName": "Attribute.Recoil.Scale.AA12"
         }
       },
       "SpreadScaleTimeRate": {
@@ -825,239 +972,150 @@
     },
     "Properties": {
       "RecoilRecoveryTime": {
-        "Value": 0.272713
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.Recoil.RecoveryTime.Auto.AA12"
+        }
       },
       "SpreadRecoveryTime": {
-        "Value": 0.35
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.Spread.RecoveryTime.Auto.AA12"
+        }
+      },
+      "BallisticMovement": {
+        "InitSpeed": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.InitSpeed.AA12"
+          }
+        },
+        "Radius": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.Radius.AA12"
+          }
+        },
+        "RadiusCurve": {
+          "ObjectName": "CurveFloat'RadiusCurve_Common_SG'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/SEC_BulletSize/RadiusCurve_Common_SG.0"
+        },
+        "Gravity": {
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.Gravity.AA12"
+          }
+        },
+        "MaxTime": {
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Duration.MaxTime.AA12"
+          }
+        },
+        "DragCoefficient": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+            },
+            "RowName": "Attribute.DragSocket.AA12"
+          }
+        }
       },
       "RecoilProcessor": {
         "RecoilTime": {
           "Value": 0.125,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "RecoilTime"
-          }
+          "MobileValue": 1.0
         },
         "RecoveryTime": {
           "Value": 2.25,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "RecoveryTime"
-          }
+          "MobileValue": 1.0
         },
         "RecoveryPeak": {
           "Value": 0.5,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "RecoveryPeak"
-          }
+          "MobileValue": 1.0
         },
         "HorizontalRecoveryMax": {
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "HorizontalRecoveryMax"
-          }
+          "MobileValue": 1.0
         },
         "PitchRecoilLower": {
           "Value": 1.0,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "PitchRecoilLower"
-          }
+          "MobileValue": 1.0
         },
         "PitchRecoilHigher": {
           "Value": 1.2,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "PitchRecoilHigher"
-          }
+          "MobileValue": 1.0
         },
         "PitchRecoilModifier": {
           "Value": 0.8,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "PitchRecoilModifier"
-          }
+          "MobileValue": 1.0
         },
         "PitchRecoilModifierLimit": {
           "Value": 1.6,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "PitchRecoilModifierLimit"
-          }
+          "MobileValue": 1.0
         },
         "PitchRecoilScale": {
-          "Value": 0.5,
-          "bEnableMobile": true,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "PitchRecoilScale"
-          }
+          "Value": 0.5
         },
         "PitchRecoilUpperLimit": {
-          "Value": 6.0,
-          "bEnableMobile": true,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "PitchRecoilUpperLimit"
-          }
-        },
-        "PitchAimAssistRecoilScale": {
-          "bEnableMobile": true,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "PitchAimAssistRecoilScale"
-          }
+          "Value": 6.0
         },
         "HRecoilDisableMask": 33521695,
         "HRecoilDirectionType": "ERecoilDirectionType::UseMask",
         "HRecoilDirectionMask": 31744,
         "YawRecoilLower": {
           "Value": 0.16,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "YawRecoilLower"
-          }
+          "MobileValue": 1.0
         },
         "YawRecoilHigher": {
           "Value": 0.24,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "YawRecoilHigher"
-          }
+          "MobileValue": 1.0
         },
         "YawRecoilModifier": {
           "Value": 0.08,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "YawRecoilModifier"
-          }
+          "MobileValue": 1.0
         },
         "YawRecoilModifierLimit": {
           "Value": 0.24,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "YawRecoilModifierLimit"
-          }
+          "MobileValue": 1.0
         },
         "YawRecoilUpperLimit": {
           "Value": 12.0,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "YawRecoilUpperLimit"
-          }
+          "MobileValue": 1.0
         },
         "YawRecoilSteeringProbabilityBase": {
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "YawRecoilSteeringProbabilityBase"
-          }
+          "MobileValue": 1.0
         },
         "YawRecoilSteeringModifier": {
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "YawRecoilSteeringModifier"
-          }
-        },
-        "YawAimAssistRecoilScale": {
-          "bEnableMobile": true,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "YawAimAssistRecoilScale"
-          }
+          "MobileValue": 1.0
         }
       },
       "SpreadProcessor": {
         "SpreadMin": {
           "Value": 1.0,
-          "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
@@ -1069,7 +1127,6 @@
         },
         "SpreadMax": {
           "Value": 1.0,
-          "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
@@ -1080,87 +1137,31 @@
           }
         },
         "SpreadModifierBase": {
-          "Value": 0.3,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "SpreadModifierBase"
-          }
+          "Value": 0.0,
+          "MobileValue": 1.0
         },
         "SpreadModifierInc": {
           "Value": 0.0,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "SpreadModifierInc"
-          }
+          "MobileValue": 1.0
         },
         "SpreadModifierMax": {
-          "Value": 0.3,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "SpreadModifierMax"
-          }
+          "Value": 0.0,
+          "MobileValue": 1.0
         },
         "SpreadDecSpeed": {
-          "Value": 8.0,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "SpreadDecSpeed"
-          }
+          "Value": 0.0,
+          "MobileValue": 1.0
         },
         "SpreadDecSpeedFiring": {
           "Value": 0.0,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "SpreadDecSpeedFiring"
-          }
+          "MobileValue": 1.0
         },
         "SpreadIncSpeed": {
-          "Value": 4.0,
-          "bEnableMobile": true,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "SpreadIncSpeed"
-          }
+          "Value": 0.0
         },
         "SpreadIncSpeedFiring": {
           "Value": 0.0,
-          "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "SpreadIncSpeedFiring"
-          }
+          "MobileValue": 1.0
         },
         "LocomotionSpreadIncSpeed": {
           "Value": 1.0,
@@ -1183,56 +1184,18 @@
           }
         },
         "SpreadScale": {
-          "NoMove": {
-            "bEnableMobile": true,
-            "Curve": {
-              "CurveTable": {
-                "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-              },
-              "RowName": "SpreadNoMove"
-            }
-          },
           "Walk": {
             "Value": 1.0,
-            "bEnableMobile": true,
-            "MobileValue": 1.0,
-            "Curve": {
-              "CurveTable": {
-                "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-              },
-              "RowName": "SpreadWalk"
-            }
+            "MobileValue": 1.0
           },
           "Run": {
             "Value": 1.0,
-            "bEnableMobile": true,
-            "MobileValue": 1.0,
-            "Curve": {
-              "CurveTable": {
-                "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-              },
-              "RowName": "SpreadRun"
-            }
+            "MobileValue": 1.0
           },
           "InAir": {
             "Value": 1.0,
-            "bEnableMobile": true,
-            "MobileValue": 1.0,
-            "Curve": {
-              "CurveTable": {
-                "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-                "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-              },
-              "RowName": "SpreadInAir"
-            }
+            "MobileValue": 1.0
           }
-        },
-        "PitchAimAssistSpreadScale": {
-          "Value": 0.0,
-          "MobileValue": 0.0
         },
         "FixedSpreadParams": [
           {
@@ -1300,73 +1263,66 @@
         "DistanceProtectedStart": {
           "Value": 0.0,
           "bEnableMobile": true,
-          "MobileValue": 1.0,
-          "Curve": {
-            "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
-            },
-            "RowName": "DistanceProtectedStart"
-          }
+          "MobileValue": 1.0
         },
         "DistanceProtectedEnd": {
-          "Value": 1000.0,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "DistanceProtectedEnd"
+            "RowName": "Attribute.DistanceProtectedEnd.Auto.AA12"
           }
         },
         "DistanceEffective": {
-          "Value": 2300.0,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "DistanceEffective"
+            "RowName": "Attribute.DistanceEffective.Auto.AA12"
           }
         },
         "FactorEffective": {
-          "Value": 0.5,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "FactorEffective"
+            "RowName": "Attribute.FactorEffective.Auto.AA12"
           }
         },
         "DiscreteSpacing": {
-          "Value": 500.0,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "DiscreteSpacing"
+            "RowName": "Attribute.DistanceSpacing.Auto.AA12"
           }
         },
         "FactorMaximal": {
-          "Value": 0.5,
+          "Value": 1.0,
           "bEnableMobile": true,
           "MobileValue": 1.0,
           "Curve": {
             "CurveTable": {
-              "ObjectName": "ModeCurveTable'CT_ModeWeapon_10603001'",
-              "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/CurveTable/CT_ModeWeapon_10603001.0"
+              "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
             },
-            "RowName": "FactorMaximal"
+            "RowName": "Attribute.FactorMaximal.Auto.AA12"
           }
         }
       },
@@ -1375,21 +1331,39 @@
         "ObjectName": "BlueprintGeneratedClass'BP_AA12_DamageType_C'",
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/BP_AA12_DamageType.0"
       },
-      "AttackRange": {
-        "Value": 100000.0,
-        "MobileValue": 100000.0
-      },
+      "AttackRange": 100000.0,
       "AttackDamage": {
-        "Value": 7.0,
-        "bEnableMobile": true,
-        "MobileValue": 6.0
+        "Value": 1.0,
+        "MobileValue": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.AttackDamage.Auto.AA12"
+        }
       },
       "DamageScaleFor2D": {
-        "Value": 0.67,
-        "bEnableMobile": true,
-        "MobileValue": 0.5
+        "MobileValue": 0.5,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.2DDamage.Auto.AA12"
+        }
       },
-      "AttackKeepTime": 0.5,
+      "AttackKeepTime": {
+        "Value": 1.0,
+        "MobileValue": 0.6,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.AttackKeepTime.Auto.AA12"
+        }
+      },
       "AutoFireType": "ECyWeaponAutoFireTypes::LMG",
       "AimAssistMap": null,
       "BodyDamageFactor": [
@@ -1612,8 +1586,26 @@
       "TerminatorHoldTypeSet": [
         "EFHoldType::Custom"
       ],
+      "CharacterAnimationBlendOutTime": {
+        "Value": 1.0,
+        "MobileValue": 1.5,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Animation.UseQuickReload.AA12"
+        }
+      },
       "TotalDuration": {
-        "Value": 0.75
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.Reload.AA12"
+        }
       }
     }
   },
@@ -1631,7 +1623,14 @@
         "EFHoldType::Custom"
       ],
       "TotalDuration": {
-        "Value": 0.67
+        "Value": 0.67,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.SecondReload.AA12"
+        }
       }
     }
   },
@@ -1650,7 +1649,14 @@
         "EFHoldType::Custom"
       ],
       "TotalDuration": {
-        "Value": 1.1
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Duration.ReloadStart.AA12"
+        }
       }
     }
   },
@@ -1662,6 +1668,16 @@
     "Outer": {
       "ObjectName": "Weapon10603001_C'Default__Weapon10603001_C'",
       "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.1"
+    }
+  },
+  {
+    "Type": "CyPartAccessory",
+    "Name": "CyPartAccessory_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartAccessory'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon10603001_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.0"
     }
   },
   {
@@ -1689,8 +1705,15 @@
         "MobileValue": 147.0
       },
       "AmmoPerMagazine": {
-        "Value": 17.0,
-        "MobileValue": 17.0
+        "Value": 1.0,
+        "MobileValue": 17.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "ModeCurveTable'CT_GameModeWeaponAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameModeWeaponAttribute.0"
+          },
+          "RowName": "Attribute.Ammo.PerMagazine.AA12"
+        }
       },
       "GSAmmoCapacityFactor": {
         "AttributeName": "MagazineCapacityFactor",
@@ -1781,7 +1804,7 @@
                   "ObjectName": "ModeCurveTable'CT_GameMode_Camera_Param'",
                   "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode_Camera_Param.0"
                 },
-                "RowName": "10603001_AA12"
+                "RowName": "Bomb_Scope_1.25"
               }
             },
             "FirstViewFOV": {
@@ -1843,21 +1866,27 @@
             "ArmOriginOffsetWhenHit": 25.0,
             "ScopeSwitchParam": [
               {
-                "Value": 0.0,
+                "Value": 1.0,
                 "bEnableMobile": true,
                 "MobileValue": 1.0,
                 "Curve": {
-                  "CurveTable": null,
-                  "RowName": "None"
+                  "CurveTable": {
+                    "ObjectName": "ModeCurveTable'CT_GameMode_Camera_Param'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode_Camera_Param.0"
+                  },
+                  "RowName": "Scope_1.25"
                 }
               },
               {
-                "Value": 0.0,
+                "Value": 1.0,
                 "bEnableMobile": true,
                 "MobileValue": 2.0,
                 "Curve": {
-                  "CurveTable": null,
-                  "RowName": "None"
+                  "CurveTable": {
+                    "ObjectName": "ModeCurveTable'CT_GameMode_Camera_Param'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode_Camera_Param.0"
+                  },
+                  "RowName": "Scope_1.25"
                 }
               }
             ],
@@ -2248,7 +2277,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__Weapon10603001_C:Root'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.41"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.43"
       }
     }
   },
@@ -2264,7 +2293,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10603001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.38"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.40"
       }
     }
   },
@@ -2280,7 +2309,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10603001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.38"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.40"
       }
     }
   },
@@ -2311,7 +2340,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon10603001_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.48"
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.51"
     },
     "Properties": {
       "ComponentClass": {
@@ -2320,7 +2349,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Weapon10603001_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.42"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.44"
       },
       "VariableGuid": "C2D41B9D-49C89911-28AEFBA1-B1DB5D67",
       "InternalVariableName": "DefaultSceneRoot"
@@ -2333,7 +2362,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon10603001_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.48"
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.51"
     },
     "Properties": {
       "ComponentClass": {
@@ -2342,7 +2371,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyFStartReloadState'Weapon10603001_C:StateStartReload_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.25"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.26"
       },
       "VariableGuid": "3C56D957-4789C4E8-48B7BC9B-F8159C4C",
       "InternalVariableName": "StateStartReload"
@@ -2355,7 +2384,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon10603001_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.48"
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.51"
     },
     "Properties": {
       "ComponentClass": {
@@ -2364,7 +2393,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyFSecondStartReloadState'Weapon10603001_C:StateSecondStartReload_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.24"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.25"
       },
       "VariableGuid": "B31E7C62-42E16CAA-DD5DADB9-98CC157A",
       "InternalVariableName": "StateSecondStartReload"
@@ -2377,7 +2406,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon10603001_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.48"
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.51"
     },
     "Properties": {
       "ComponentClass": {
@@ -2386,7 +2415,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyFEndReloadState'Weapon10603001_C:StateEndReload_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.6"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.7"
       },
       "VariableGuid": "EE8064D8-4EE2B0AA-8ED21896-94FF0584",
       "InternalVariableName": "StateEndReload"
@@ -2399,7 +2428,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Weapon10603001_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.48"
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.51"
     },
     "Properties": {
       "ComponentClass": {
@@ -2415,6 +2444,28 @@
     }
   },
   {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon10603001_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.51"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyPartAccessory'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyPartAccessory'Weapon10603001_C:CyPartAccessory_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.28"
+      },
+      "VariableGuid": "A7DF9790-4255BC75-8CAD549C-E9847B2F",
+      "InternalVariableName": "CyPartAccessory"
+    }
+  },
+  {
     "Type": "SimpleConstructionScript",
     "Name": "SimpleConstructionScript_0",
     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
@@ -2427,42 +2478,50 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.44"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.45"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_3'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.46"
         },
         {
-          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.47"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.48"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.49"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.50"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.44"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.45"
-        },
-        {
-          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_3'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.46"
         },
         {
-          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.47"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.48"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.49"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.50"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Weapon10603001_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.43"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.45"
       }
     }
   },
@@ -2478,7 +2537,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon10603001_C:MeshFor3PP'",
-        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.38"
+        "ObjectPath": "PM/Content/PaperMan/CyWeapons/AA12/Weapon10603001.40"
       }
     }
   }

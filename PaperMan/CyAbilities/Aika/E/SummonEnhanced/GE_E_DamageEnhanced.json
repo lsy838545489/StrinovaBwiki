@@ -4,6 +4,7 @@
     "Name": "GE_E_DamageEnhanced_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Aika/E/SummonEnhanced/GE_E_DamageEnhanced",
     "SuperStruct": {
       "ObjectName": "Class'CyGameplayEffect'",
       "ObjectPath": "/Script/PMGame"
@@ -25,6 +26,7 @@
     "Name": "Default__GE_E_DamageEnhanced_C",
     "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Aika/E/SummonEnhanced/GE_E_DamageEnhanced.GE_E_DamageEnhanced_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Aika/E/SummonEnhanced/GE_E_DamageEnhanced",
     "Properties": {
       "DamageScaleFor2D": 1.35,
       "DamageType": {
@@ -193,6 +195,190 @@
             "RequireAnyTags": [],
             "IgnoreAllTags": [],
             "RequireTags": [],
+            "IgnoreTags": [
+              "ActorTag.Monster"
+            ]
+          },
+          "StackCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "StackCountMax": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          }
+        },
+        {
+          "Attribute": {
+            "AttributeName": "Damage",
+            "Attribute": {
+              "Path": [
+                "Damage"
+              ],
+              "ResolvedOwner": {
+                "ObjectName": "Class'CyBaseAttributeSet'",
+                "ObjectPath": "/Script/PMGame"
+              }
+            },
+            "AttributeOwner": {
+              "ObjectName": "Class'CyBaseAttributeSet'",
+              "ObjectPath": "/Script/PMGame"
+            }
+          },
+          "GameStateScaleAttribute": {
+            "AttributeName": "",
+            "Attribute": {
+              "Path": [],
+              "ResolvedOwner": null
+            },
+            "AttributeOwner": null
+          },
+          "ModifierOp": "EGameplayModOp::Additive",
+          "Magnitude": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "ModifierMagnitude": {
+            "MagnitudeCalculationType": "EGameplayEffectMagnitudeCalculation::CustomCalculationClass",
+            "ScalableFloatMagnitude": {
+              "Value": 0.0,
+              "bEnableMobile": false,
+              "MobileValue": 0.0,
+              "Curve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "AttributeBasedMagnitude": {
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": false,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "BackingAttribute": {
+                "AttributeToCapture": {
+                  "AttributeName": "",
+                  "Attribute": {
+                    "Path": [],
+                    "ResolvedOwner": null
+                  },
+                  "AttributeOwner": null
+                },
+                "AttributeSource": "EGameplayEffectAttributeCaptureSource::Source",
+                "bSnapshot": false
+              },
+              "AttributeCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              },
+              "AttributeCalculationType": "EAttributeBasedFloatCalculationType::AttributeMagnitude",
+              "FinalChannel": "EGameplayModEvaluationChannel::Channel0",
+              "SourceTagFilter": [],
+              "TargetTagFilter": []
+            },
+            "CustomMagnitude": {
+              "CalculationClassMagnitude": {
+                "ObjectName": "BlueprintGeneratedClass'BP_CalMagnitude_E_Aika_MonsterDamage_Enhanced_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Aika/E/SummonEnhanced/BP_CalMagnitude_E_Aika_MonsterDamage_Enhanced.0"
+              },
+              "Coefficient": {
+                "Value": 1.0,
+                "bEnableMobile": true,
+                "MobileValue": 1.0,
+                "Curve": {
+                  "CurveTable": {
+                    "ObjectName": "ModeCurveTable'CT_GameMode'",
+                    "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+                  },
+                  "RowName": "Attribute.MonsterDamage.Set.FullFire.E.AIKA"
+                }
+              },
+              "PreMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "PostMultiplyAdditiveValue": {
+                "Value": 0.0,
+                "bEnableMobile": false,
+                "MobileValue": 0.0,
+                "Curve": {
+                  "CurveTable": null,
+                  "RowName": "None"
+                }
+              },
+              "FinalLookupCurve": {
+                "CurveTable": null,
+                "RowName": "None"
+              }
+            },
+            "SetByCallerMagnitude": {
+              "DataName": "None",
+              "DataTag": {
+                "TagName": "None"
+              }
+            }
+          },
+          "EvaluationChannelSettings": {
+            "Channel": "EGameplayModEvaluationChannel::Channel0"
+          },
+          "SourceTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TargetTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [
+              "ActorTag.Monster"
+            ],
             "IgnoreTags": []
           },
           "StackCoefficient": {

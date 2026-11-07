@@ -1,0 +1,681 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Weapon_Scanning_Crystalloid_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.26"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyWeaponCustom'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFFinishState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFFinishState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "Weapon_Scanning_Crystalloid_C",
+    "Name": "Default__Weapon_Scanning_Crystalloid_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.Weapon_Scanning_Crystalloid_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid",
+    "Properties": {
+      "bEmptyHanded": false,
+      "bIgnoreCanAttackCheck": true,
+      "EquipStates": {
+        "StateTypes": [
+          "EFStateType::Equip",
+          "EFStateType::Work",
+          "EFStateType::Finish"
+        ]
+      },
+      "UnEquipStates": {
+        "StateTypes": [
+          "EFStateType::UnEquip",
+          "EFStateType::UnEquipped"
+        ]
+      },
+      "DesiredRotationMode": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeInAir": "EALSRotationMode::LookingDirection",
+      "DesiredRotationModeSprinting": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeAfterEquip": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeCombatReady": "EALSRotationMode::VelocityDirection",
+      "DesiredRotationModeRelaxed": "EALSRotationMode::VelocityDirection",
+      "WeaponName": "ECyWeaponName::CustomType216",
+      "bOnlyPlayAnimOnMainAnimInstance": true,
+      "RootScene": {
+        "ObjectName": "SceneComponent'Default__Weapon_Scanning_Crystalloid_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.20"
+      },
+      "MeshComponent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Scanning_Crystalloid_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.19"
+      },
+      "Machine": {
+        "ObjectName": "CyFMachine'Default__Weapon_Scanning_Crystalloid_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.10"
+      },
+      "EffectComponent": {
+        "ObjectName": "CyEffectComponent'Default__Weapon_Scanning_Crystalloid_C:EffectComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.3"
+      },
+      "PredictPathComponent": {
+        "ObjectName": "CyPredictPathComponent'Default__Weapon_Scanning_Crystalloid_C:PredictPathComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.15"
+      },
+      "CachedComponents": [
+        {
+          "Key": "StateEntry",
+          "Value": {
+            "ObjectName": "CyFEntryState'Default__Weapon_Scanning_Crystalloid_C:StateEntry'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.6"
+          }
+        },
+        {
+          "Key": "StateEquip",
+          "Value": {
+            "ObjectName": "CyFEquipState'Default__Weapon_Scanning_Crystalloid_C:StateEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.7"
+          }
+        },
+        {
+          "Key": "StateInterrupt",
+          "Value": {
+            "ObjectName": "CyFInterruptState'Default__Weapon_Scanning_Crystalloid_C:StateInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.9"
+          }
+        },
+        {
+          "Key": "StateUnEquipped",
+          "Value": {
+            "ObjectName": "CyFUnEquippedState'Default__Weapon_Scanning_Crystalloid_C:StateUnEquipped'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.11"
+          }
+        },
+        {
+          "Key": "StateAttack",
+          "Value": {
+            "ObjectName": "CyFAttackState'Default__Weapon_Scanning_Crystalloid_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.5"
+          }
+        },
+        {
+          "Key": "PartPendant",
+          "Value": {
+            "ObjectName": "CyPartPendant'Default__Weapon_Scanning_Crystalloid_C:PartPendant'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.14"
+          }
+        },
+        {
+          "Key": "StateUnEquip",
+          "Value": {
+            "ObjectName": "CyFUnEquipState'Default__Weapon_Scanning_Crystalloid_C:StateUnEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.12"
+          }
+        },
+        {
+          "Key": "SwitcherAttack",
+          "Value": null
+        },
+        {
+          "Key": "SwitcherHold",
+          "Value": null
+        },
+        {
+          "Key": "StateReload",
+          "Value": null
+        },
+        {
+          "Key": "AttackSwitchInterrupt",
+          "Value": null
+        },
+        {
+          "Key": "StateEquipAndReload",
+          "Value": null
+        },
+        {
+          "Key": "ThrowSwitchBegin",
+          "Value": null
+        },
+        {
+          "Key": "ThrowSwitchEnd",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchRelaxed",
+          "Value": null
+        },
+        {
+          "Key": "PartMagazine",
+          "Value": null
+        },
+        {
+          "Key": "StateStartReload",
+          "Value": null
+        },
+        {
+          "Key": "StateEndReload",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchWaist",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchAiming",
+          "Value": null
+        },
+        {
+          "Key": "HoldSwitchADS",
+          "Value": null
+        },
+        {
+          "Key": "ThrowSwitchHigh",
+          "Value": null
+        }
+      ],
+      "WeaponDataCollectionComponent": {
+        "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_Scanning_Crystalloid_C:WeaponDataCollectionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.17"
+      },
+      "CustomHoldTypeMap": [
+        {
+          "Key": "EFStateType::Attack",
+          "Value": "EFHoldType::Waist"
+        },
+        {
+          "Key": "EFStateType::Work",
+          "Value": "EFHoldType::Waist"
+        }
+      ],
+      "EventActionComponent": {
+        "ObjectName": "CyEventActionComponent'Default__Weapon_Scanning_Crystalloid_C:EventActionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.4"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Weapon_Scanning_Crystalloid_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.18"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Weapon_Scanning_Crystalloid_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.2"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Scanning_Crystalloid_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.20"
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyEffectComponent",
+    "Name": "EffectComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEffectComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyEventActionComponent",
+    "Name": "EventActionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventActionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyFAttackState",
+    "Name": "StateAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFAttackState'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    },
+    "Properties": {
+      "SupportUseIDSet": [
+        "EUseID::Secondary"
+      ]
+    }
+  },
+  {
+    "Type": "CyFEntryState",
+    "Name": "StateEntry",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEntryState'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyFEquipState",
+    "Name": "StateEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    },
+    "Properties": {
+      "CanInterruptPosition": {
+        "bEnableMobile": true,
+        "MobileValue": 0.3
+      },
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon"
+      ],
+      "TotalDuration": {
+        "Value": 3.0
+      },
+      "AllowedGait": "ECyGait::NoMove",
+      "bUseStatePosition": true,
+      "TimeForWeaponVisible": 1.0,
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_PreScan_Crystalloid_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/BP_SA_PreScan_Crystalloid.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFFinishState",
+    "Name": "CyFFinishState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFinishState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.0"
+    }
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFMachine'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyFUnEquipState",
+    "Name": "StateUnEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyFWorkState",
+    "Name": "CyFWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.0"
+    },
+    "Properties": {
+      "BlockAbilitiesWithTag": [
+        "GA.Use.Primary",
+        "GA.Use.Secondary",
+        "GA.Action.Rescue",
+        "GA.Action.RescueSelf"
+      ],
+      "LooseGameplayTags": [
+        "State.Player.DisableSwitchWeapon",
+        "State.Player.DisableInteract"
+      ],
+      "TotalDuration": {
+        "Value": 4.0
+      },
+      "AllowedGait": "ECyGait::NoMove",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_Scanning_Crystalloid_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/BP_SA_Scanning_Crystalloid.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_Scanned_Crystalloid_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/BP_SA_Scanned_Crystalloid.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyPartPendant",
+    "Name": "PartPendant",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartPendant'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyPredictPathComponent",
+    "Name": "PredictPathComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPredictPathComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.0"
+    }
+  },
+  {
+    "Type": "CyWeaponDataCollectionComponent",
+    "Name": "WeaponDataCollectionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    },
+    "Properties": {
+      "AnimationMode": "EAnimationMode::AnimationSingleNode",
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Scanning_Crystalloid_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.20"
+      },
+      "RelativeScale3D": {
+        "X": 0.75,
+        "Y": 0.75,
+        "Z": 0.75
+      },
+      "ComponentTagSet": [
+        "WorkingMesh"
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Scanning_Crystalloid_C'Default__Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.26"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Weapon_Scanning_Crystalloid_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.21"
+      },
+      "VariableGuid": "B1A7C4CE-40A7AEF4-99A2429B-F3677D7D",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.26"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFFinishState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFFinishState'Weapon_Scanning_Crystalloid_C:CyFFinishState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.8"
+      },
+      "VariableGuid": "4E96EABE-461317A5-D5356998-C357F1EE",
+      "InternalVariableName": "CyFFinishState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.26"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'Weapon_Scanning_Crystalloid_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.16"
+      },
+      "VariableGuid": "092F8B6F-4332425E-90F1069F-35CB7E71",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.26"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFWorkState'Weapon_Scanning_Crystalloid_C:CyFWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.13"
+      },
+      "VariableGuid": "3B257EE3-4E47FBC4-056CB794-23DADDC6",
+      "InternalVariableName": "CyFWorkState"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Scanning_Crystalloid_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.23"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.24"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.23"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.24"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Weapon_Scanning_Crystalloid_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Crystalloid/Scanning/Weapon/Weapon_Scanning_Crystalloid.22"
+      }
+    }
+  }
+]

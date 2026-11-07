@@ -4,6 +4,7 @@
     "Name": "Projectile_E_Audery_C",
     "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Audery/E/Weapon/Projectile_E_Audery",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Projectile_E_Audery_C:SimpleConstructionScript_0'",
@@ -64,8 +65,9 @@
   {
     "Type": "Projectile_E_Audery_C",
     "Name": "Default__Projectile_E_Audery_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Audery/E/Weapon/Projectile_E_Audery.Projectile_E_Audery_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/Audery/E/Weapon/Projectile_E_Audery",
     "Properties": {
       "IgnoreEnemy": true,
       "RootScene": {
@@ -80,10 +82,6 @@
         "ObjectName": "CyProjectileFlyDropMovementComponent'Default__Projectile_E_Audery_C:MovementComponent'",
         "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/E/Weapon/Projectile_E_Audery.6"
       },
-      "AkComponent": {
-        "ObjectName": "AkComponent'Default__Projectile_E_Audery_C:AkComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Audery/E/Weapon/Projectile_E_Audery.2"
-      },
       "bEnableAdsorb": true,
       "ActuatorConfig": {
         "ActorClass": {
@@ -94,7 +92,22 @@
         "bEnableRotation": true,
         "bUseActorRotation": true,
         "bKeepHorizontalRotation": true,
-        "bAttachToHitActor": true
+        "LocationOffset": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 8.0
+        },
+        "bAttachToHitActor": true,
+        "LifeSpanOverride": {
+          "Value": 1.0,
+          "Curve": {
+            "CurveTable": {
+              "ObjectName": "ModeCurveTable'CT_GameMode'",
+              "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/CurveTable/CT_GameMode.0"
+            },
+            "RowName": "Attribute.SummonLifeTime.Set.E.Audrey"
+          }
+        }
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Projectile_E_Audery_C:PerceptionSystemComponent'",

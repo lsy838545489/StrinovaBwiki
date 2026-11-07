@@ -1,0 +1,110 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_Grenade_SC_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/Grenade/GA_Grenade_SC",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_Grenade_SC_C'Default__GA_Grenade_SC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/Grenade/GA_Grenade_SC.1"
+    }
+  },
+  {
+    "Type": "GA_Grenade_SC_C",
+    "Name": "Default__GA_Grenade_SC_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/Grenade/GA_Grenade_SC.GA_Grenade_SC_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/Grenade/GA_Grenade_SC",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GADestroyWeaponOnRemove_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GADestroyWeaponOnRemove.0"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckBlock2D_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckBlock2D.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckForceFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckForceFly.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndFly_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndFly.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivateEndSideWay_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivateEndSideWay.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorTryGiveThenSwitchWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorTryGiveThenSwitchWeapon.0"
+        }
+      ],
+      "TriggerEvents": [
+        {
+          "Key": {
+            "TagName": "Event.Action.WeaponSwitched"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelToOther_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelToOther.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_Grenade_SC_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/Grenade/Weapon_Grenade_SC.0"
+      },
+      "SlotType": "EWeaponSlotTypes::CustomType230",
+      "CommitCDMask": 0,
+      "CommitCostMask": 0,
+      "ActivationBlockedTags": [
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill"
+      ]
+    }
+  }
+]

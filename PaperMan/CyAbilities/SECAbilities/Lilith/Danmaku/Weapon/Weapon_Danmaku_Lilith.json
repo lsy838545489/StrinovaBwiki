@@ -1,0 +1,1024 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Weapon_Danmaku_Lilith_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.32"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CyWeaponBallistic'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyFStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyFStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyTargetActors",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyTargetActorsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "Weapon_Danmaku_Lilith_C",
+    "Name": "Default__Weapon_Danmaku_Lilith_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.Weapon_Danmaku_Lilith_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith",
+    "Properties": {
+      "EquipStates": {
+        "StateTypes": [
+          "EFStateType::Equip",
+          "EFStateType::Finish"
+        ]
+      },
+      "DesiredRotationMode": "EALSRotationMode::None",
+      "DesiredRotationModeInAir": "EALSRotationMode::None",
+      "DesiredRotationModeSprinting": "EALSRotationMode::None",
+      "DesiredRotationModeAfterEquip": "EALSRotationMode::None",
+      "DesiredRotationModeCombatReady": "EALSRotationMode::None",
+      "DesiredRotationModeRelaxed": "EALSRotationMode::None",
+      "WeaponName": "ECyWeaponName::CustomType213",
+      "RootScene": {
+        "ObjectName": "SceneComponent'Default__Weapon_Danmaku_Lilith_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.26"
+      },
+      "MeshComponent": {
+        "ObjectName": "PMWeaponSkeletalMeshComponent'Default__Weapon_Danmaku_Lilith_C:MeshFor3PP'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.25"
+      },
+      "Machine": {
+        "ObjectName": "CyFMachine'Default__Weapon_Danmaku_Lilith_C:Machine'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.12"
+      },
+      "AttackComponent": {
+        "ObjectName": "CyFireComponent'Default__Weapon_Danmaku_Lilith_C:AttackComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.11"
+      },
+      "EffectComponent": {
+        "ObjectName": "CyEffectComponent'Default__Weapon_Danmaku_Lilith_C:EffectComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.3"
+      },
+      "PredictPathComponent": {
+        "ObjectName": "CyPredictPathComponent'Default__Weapon_Danmaku_Lilith_C:PredictPathComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.20"
+      },
+      "CachedComponents": [
+        {
+          "Key": "StateEntry",
+          "Value": {
+            "ObjectName": "CyFEntryState'Default__Weapon_Danmaku_Lilith_C:StateEntry'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.6"
+          }
+        },
+        {
+          "Key": "StateEquip",
+          "Value": {
+            "ObjectName": "CyFEquipState'Default__Weapon_Danmaku_Lilith_C:StateEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.7"
+          }
+        },
+        {
+          "Key": "StateInterrupt",
+          "Value": {
+            "ObjectName": "CyFInterruptState'Default__Weapon_Danmaku_Lilith_C:StateInterrupt'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.10"
+          }
+        },
+        {
+          "Key": "StateUnEquipped",
+          "Value": {
+            "ObjectName": "CyFUnEquippedState'Default__Weapon_Danmaku_Lilith_C:StateUnEquipped'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.16"
+          }
+        },
+        {
+          "Key": "StateAttack",
+          "Value": {
+            "ObjectName": "CyFAttackState'Default__Weapon_Danmaku_Lilith_C:StateAttack'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.5"
+          }
+        },
+        {
+          "Key": "PartPendant",
+          "Value": {
+            "ObjectName": "CyPartPendant'Default__Weapon_Danmaku_Lilith_C:PartPendant'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.19"
+          }
+        },
+        {
+          "Key": "StateWork",
+          "Value": {
+            "ObjectName": "CyFWorkState'Default__Weapon_Danmaku_Lilith_C:StateWork'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.18"
+          }
+        },
+        {
+          "Key": "StateSecondWork",
+          "Value": {
+            "ObjectName": "CyFSecondWorkState'Default__Weapon_Danmaku_Lilith_C:StateSecondWork'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.13"
+          }
+        },
+        {
+          "Key": "StateThirdWork",
+          "Value": {
+            "ObjectName": "CyFThirdWorkState'Default__Weapon_Danmaku_Lilith_C:StateThirdWork'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.15"
+          }
+        },
+        {
+          "Key": "StateFourthWork",
+          "Value": {
+            "ObjectName": "CyFFourthWorkState'Default__Weapon_Danmaku_Lilith_C:StateFourthWork'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.9"
+          }
+        },
+        {
+          "Key": "StateFinish",
+          "Value": {
+            "ObjectName": "CyFFinishState'Default__Weapon_Danmaku_Lilith_C:StateFinish'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.8"
+          }
+        },
+        {
+          "Key": "StateUnEquip",
+          "Value": {
+            "ObjectName": "CyFUnEquipState'Default__Weapon_Danmaku_Lilith_C:StateUnEquip'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.17"
+          }
+        }
+      ],
+      "WeaponDataCollectionComponent": {
+        "ObjectName": "CyWeaponDataCollectionComponent'Default__Weapon_Danmaku_Lilith_C:WeaponDataCollectionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.23"
+      },
+      "EventActionComponent": {
+        "ObjectName": "CyEventActionComponent'Default__Weapon_Danmaku_Lilith_C:EventActionComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.4"
+      },
+      "SkinComponent": {
+        "ObjectName": "CyWeaponSkinComponent'Default__Weapon_Danmaku_Lilith_C:SkinComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.24"
+      },
+      "DataSystemComponent": {
+        "ObjectName": "CyDataSystemComponent'Default__Weapon_Danmaku_Lilith_C:DataSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.2"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Danmaku_Lilith_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.26"
+      }
+    }
+  },
+  {
+    "Type": "CyDataSystemComponent",
+    "Name": "DataSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyDataSystemComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyEffectComponent",
+    "Name": "EffectComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEffectComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyEventActionComponent",
+    "Name": "EventActionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyEventActionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyFAttackState",
+    "Name": "StateAttack",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFAttackState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    },
+    "Properties": {
+      "bNeedConsume": false
+    }
+  },
+  {
+    "Type": "CyFEntryState",
+    "Name": "StateEntry",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEntryState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyFEquipState",
+    "Name": "StateEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 18.0
+      },
+      "AllowedGait": "ECyGait::NoMove",
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_AddCacheTarget_Danmaku_Lilith_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/BP_SA_AddCacheTarget_Danmaku_Lilith.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.1667,
+          "PositionEnd": 0.8333,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_BallisticAttack_Danmaku_Lilith_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/BP_SA_BallisticAttack_Danmaku_Lilith.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.1667,
+          "PositionEnd": 0.8333,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_BallisticAttack1_Danmaku_Lilith_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/BP_SA_BallisticAttack1_Danmaku_Lilith.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.1667,
+          "PositionEnd": 0.8333,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_BallisticAttack2_Danmaku_Lilith_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/BP_SA_BallisticAttack2_Danmaku_Lilith.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.16,
+          "PositionEnd": 0.84,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": null,
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.1667,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            },
+            {
+              "AttachComponentType": "EAttachComponentType::Instigator",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Equip.B"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.1667,
+          "PositionEnd": 0.8333,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshComponent",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A",
+                "Resource.Particle.Work.B",
+                "Resource.Particle.Work.C"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.8333,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "MeshComponent",
+              "AssetTagContainer": [
+                "Resource.Particle.SecondWork.A",
+                "Resource.Particle.SecondWork.B"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFFinishState",
+    "Name": "StateFinish",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFinishState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyFFourthWorkState",
+    "Name": "StateFourthWork",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFFourthWorkState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyFInterruptState",
+    "Name": "StateInterrupt",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFInterruptState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyFireComponent",
+    "Name": "AttackComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFireComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    },
+    "Properties": {
+      "BallisticMovement": {
+        "InitSpeed": {
+          "Value": 500.0
+        },
+        "Radius": {
+          "Value": 65.0
+        },
+        "Gravity": {
+          "Value": -490.0
+        },
+        "MaxTime": {
+          "Value": 5.0
+        },
+        "bEffectUseStartFirePoint": true,
+        "bEnablePenetration": true
+      },
+      "AttenuationProcessor": {},
+      "DamageType": {
+        "ObjectName": "BlueprintGeneratedClass'DamageType_Danmaku_Lilith_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/DamageType_Danmaku_Lilith.0"
+      },
+      "BulletType": "EBulletType::Ballistic",
+      "BallisticMovementOverrides": [
+        {
+          "InitSpeed": {
+            "Value": 1000.0,
+            "bEnableMobile": false,
+            "MobileValue": 30000.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "Radius": {
+            "Value": 65.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.2,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "RadiusCurve": null,
+          "Gravity": {
+            "Value": -490.0,
+            "bEnableMobile": false,
+            "MobileValue": -980.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "MaxTime": {
+            "Value": 5.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "DragCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "bEffectUseStartFirePoint": true,
+          "bEnablePenetration": true
+        },
+        {
+          "InitSpeed": {
+            "Value": 1500.0,
+            "bEnableMobile": false,
+            "MobileValue": 30000.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "Radius": {
+            "Value": 65.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.2,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "RadiusCurve": null,
+          "Gravity": {
+            "Value": -490.0,
+            "bEnableMobile": false,
+            "MobileValue": -980.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "MaxTime": {
+            "Value": 5.0,
+            "bEnableMobile": false,
+            "MobileValue": 1.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "DragCoefficient": {
+            "Value": 0.0,
+            "bEnableMobile": false,
+            "MobileValue": 0.0,
+            "Curve": {
+              "CurveTable": null,
+              "RowName": "None"
+            }
+          },
+          "bEffectUseStartFirePoint": true,
+          "bEnablePenetration": true
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFMachine",
+    "Name": "Machine",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFMachine'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyFSecondWorkState",
+    "Name": "StateSecondWork",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFSecondWorkState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    },
+    "Properties": {
+      "AllowedGait": "ECyGait::NoMove"
+    }
+  },
+  {
+    "Type": "CyFStateMonitor",
+    "Name": "CyFStateMonitor_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EFStateType::Equip",
+        "EFStateType::EquipReload",
+        "EFStateType::Finish"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ChangeMoveMode_Fly_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/StateAtom/BP_SA_ChangeMoveMode_Fly.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_ForceFullAnimTickOnDS_Monster_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/StateAtom/BP_SA_ForceFullAnimTickOnDS_Monster.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_LockRotation_Monster_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Shared/StateAtom/BP_SA_LockRotation_Monster.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyFThirdWorkState",
+    "Name": "StateThirdWork",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFThirdWorkState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyFUnEquippedState",
+    "Name": "StateUnEquipped",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquippedState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyFUnEquipState",
+    "Name": "StateUnEquip",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFUnEquipState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyFWorkState",
+    "Name": "StateWork",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyFWorkState'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyPartPendant",
+    "Name": "PartPendant",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPartPendant'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyPredictPathComponent",
+    "Name": "PredictPathComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyPredictPathComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.0"
+    },
+    "Properties": {
+      "Detectors": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_TargetDetector_AllEnemy_Danmaku_Lilith_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/BP_TargetDetector_AllEnemy_Danmaku_Lilith.0"
+        }
+      ],
+      "DetectorMaxCount": 3
+    }
+  },
+  {
+    "Type": "CyTargetActorsComponent",
+    "Name": "CyTargetActors_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyTargetActorsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.0"
+    }
+  },
+  {
+    "Type": "CyWeaponDataCollectionComponent",
+    "Name": "WeaponDataCollectionComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponDataCollectionComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyWeaponSkinComponent",
+    "Name": "SkinComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyWeaponSkinComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "PMWeaponSkeletalMeshComponent",
+    "Name": "MeshFor3PP",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMWeaponSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    },
+    "Properties": {
+      "BodyInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Weapon",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pickup",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mesh",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Mark",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__Weapon_Danmaku_Lilith_C:Root'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.26"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "Weapon_Danmaku_Lilith_C'Default__Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'Weapon_Danmaku_Lilith_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.27"
+      },
+      "VariableGuid": "1570F1F4-4E5DF5D6-56B063B2-108D3E69",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'Weapon_Danmaku_Lilith_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.21"
+      },
+      "VariableGuid": "E15837F5-4075DCA3-459EC7A9-DF2CE5BE",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyTargetActorsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyTargetActorsComponent'Weapon_Danmaku_Lilith_C:CyTargetActors_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.22"
+      },
+      "VariableGuid": "ACB7BB32-45F63349-436A7685-5F227703",
+      "InternalVariableName": "CyTargetActors"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyFStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyFStateMonitor'Weapon_Danmaku_Lilith_C:CyFStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.14"
+      },
+      "VariableGuid": "639F1BB5-4C3A7049-88CC30A7-882FCB78",
+      "InternalVariableName": "CyFStateMonitor"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Weapon_Danmaku_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.31"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.30"
+        },
+        {
+          "ObjectName": "SCS_Node'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.31"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'Weapon_Danmaku_Lilith_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Danmaku/Weapon/Weapon_Danmaku_Lilith.28"
+      }
+    }
+  }
+]

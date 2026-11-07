@@ -1,0 +1,320 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_MonsterController_SEC_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_MonsterController_SEC_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.15"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'PMAIController'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "PMMonsterThreatEvaluator",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'PMMonsterThreatEvaluatorComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_NotPlaceable | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    }
+  },
+  {
+    "Type": "BP_MonsterController_SEC_C",
+    "Name": "Default__BP_MonsterController_SEC_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.BP_MonsterController_SEC_C'",
+    "Package": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC",
+    "Properties": {
+      "BehaviorComp": {
+        "ObjectName": "BehaviorTreeComponent'Default__BP_MonsterController_SEC_C:BehaviorComp'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.6"
+      },
+      "AIPerceptionComp": {
+        "ObjectName": "AIPerceptionComponent'Default__BP_MonsterController_SEC_C:AIPerceptionComp'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.2"
+      },
+      "BotBehaviorList": [
+        {
+          "ObjectName": "BehaviorTree'PMBehaviorTree_SEC_GroundMonster'",
+          "ObjectPath": "PM/Content/PaperMan/Core/AI/SEC/PMBehaviorTree_SEC_GroundMonster.0"
+        }
+      ],
+      "bInitBehaviorTreeOnPossess": false,
+      "bInitBehaviorTreeOnRestart": true,
+      "OverridePlayerStateClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_PlayerState_SEC_Zombie_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_PlayerState_SEC_Zombie.0"
+      },
+      "bWantsPlayerState": false,
+      "PathFollowingComponent": {
+        "ObjectName": "PMPathFollowingComponent'Default__BP_MonsterController_SEC_C:PathFollowingComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.10"
+      },
+      "BrainComponent": {
+        "ObjectName": "BehaviorTreeComponent'Default__BP_MonsterController_SEC_C:BehaviorComp'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.6"
+      },
+      "ActionsComp": {
+        "ObjectName": "PawnActionsComponent'Default__BP_MonsterController_SEC_C:ActionsComp'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.8"
+      },
+      "Blackboard": {
+        "ObjectName": "BlackboardComponent'Default__BP_MonsterController_SEC_C:BlackBoardComp'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.7"
+      },
+      "TransformComponent": {
+        "ObjectName": "SceneComponent'Default__BP_MonsterController_SEC_C:TransformComponent0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.12"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_MonsterController_SEC_C:TransformComponent0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.12"
+      }
+    }
+  },
+  {
+    "Type": "AIPerceptionComponent",
+    "Name": "AIPerceptionComp",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AIPerceptionComponent'",
+    "Outer": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    },
+    "Properties": {
+      "SensesConfig": [
+        {
+          "ObjectName": "AISenseConfig_Sight'Default__BP_MonsterController_SEC_C:SightConfig'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.5"
+        },
+        {
+          "ObjectName": "AISenseConfig_Hearing'Default__BP_MonsterController_SEC_C:HearingConfig'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.4"
+        },
+        {
+          "ObjectName": "AISenseConfig_Damage'Default__BP_MonsterController_SEC_C:DamageConfig'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.3"
+        }
+      ],
+      "OnPerceptionUpdated": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+              "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+            },
+            "FunctionName": "OnAIPerceptionUpdated"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "AISenseConfig_Damage",
+    "Name": "DamageConfig",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AISenseConfig_Damage'",
+    "Outer": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    },
+    "Properties": {
+      "MaxAge": 0.5,
+      "bStartsEnabled": false
+    }
+  },
+  {
+    "Type": "AISenseConfig_Hearing",
+    "Name": "HearingConfig",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AISenseConfig_Hearing'",
+    "Outer": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    },
+    "Properties": {
+      "HearingRange": 5000.0,
+      "MaxAge": 0.5,
+      "bStartsEnabled": false
+    }
+  },
+  {
+    "Type": "AISenseConfig_Sight",
+    "Name": "SightConfig",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AISenseConfig_Sight'",
+    "Outer": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    },
+    "Properties": {
+      "SightRadius": 10000.0,
+      "LoseSightRadius": 10000.0,
+      "bStartsEnabled": false
+    }
+  },
+  {
+    "Type": "BehaviorTreeComponent",
+    "Name": "BehaviorComp",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BehaviorTreeComponent'",
+    "Outer": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    }
+  },
+  {
+    "Type": "BlackboardComponent",
+    "Name": "BlackBoardComp",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlackboardComponent'",
+    "Outer": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    }
+  },
+  {
+    "Type": "PawnActionsComponent",
+    "Name": "ActionsComp",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PawnActionsComponent'",
+    "Outer": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    }
+  },
+  {
+    "Type": "PMMonsterThreatEvaluatorComponent",
+    "Name": "PMMonsterThreatEvaluator_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMMonsterThreatEvaluatorComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.0"
+    }
+  },
+  {
+    "Type": "PMPathFollowingComponent",
+    "Name": "PathFollowingComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMPathFollowingComponent'",
+    "Outer": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.0"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "TransformComponent0",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BP_MonsterController_SEC_C'Default__BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_MonsterController_SEC_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.15"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_MonsterController_SEC_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.11"
+      },
+      "VariableGuid": "212B241C-494503D3-EE25B6AC-DE61CE10",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_MonsterController_SEC_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.15"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'PMMonsterThreatEvaluatorComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PMMonsterThreatEvaluatorComponent'BP_MonsterController_SEC_C:PMMonsterThreatEvaluator_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.9"
+      },
+      "VariableGuid": "DA0B6536-46BC8F99-07DD0895-2698E9AE",
+      "InternalVariableName": "PMMonsterThreatEvaluator"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_MonsterController_SEC_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_MonsterController_SEC_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.14"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_MonsterController_SEC_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.14"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_MonsterController_SEC_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyGameplay/GameMode/SEC/Core/BP_MonsterController_SEC.13"
+      }
+    }
+  }
+]

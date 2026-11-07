@@ -1,0 +1,910 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Summon_AcidBomb_SECSandworm_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySummonActor'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySceneMapSummonMask",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySceneMapSummonMaskComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Decal",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'DecalComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIDeathState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIDeathState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_GameStateComponent_Summon",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILeaveState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAILeaveState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAINoneState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyRetain",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRetainComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Summon_AcidBomb_SECSandworm_C'Default__BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.1"
+    }
+  },
+  {
+    "Type": "BP_Summon_AcidBomb_SECSandworm_C",
+    "Name": "Default__BP_Summon_AcidBomb_SECSandworm_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.BP_Summon_AcidBomb_SECSandworm_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm",
+    "Properties": {
+      "ArousalComponent": {
+        "ObjectName": "CyArousalComponent'Default__BP_Summon_AcidBomb_SECSandworm_C:ArousalComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.9"
+      },
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_AcidBomb_SECSandworm_C:PerceptionSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.15"
+      },
+      "bReplicates": true
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    }
+  },
+  {
+    "Type": "BP_GameStateComponent_Summon_C",
+    "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    },
+    "Template": {
+      "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
+    },
+    "Properties": {
+      "bClearedOnInstigatorEndPlay": false
+    }
+  },
+  {
+    "Type": "CyAIDeathState",
+    "Name": "CyAIDeathState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIDeathState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    },
+    "Properties": {
+      "AssetEvents": [
+        {
+          "PositionStart": 0.95,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Leave.A",
+                "Resource.Particle.Leave.B"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 0.95,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Death.A",
+                "Resource.Audio.Death.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "Value": 3.0
+      }
+    }
+  },
+  {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "Value": 0.0
+      }
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    },
+    "Properties": {
+      "DefaultStateType": "EAIStateType::Work",
+      "InitStateQueue": [
+        "EAIStateType::Work",
+        "EAIStateType::Leave",
+        "EAIStateType::None"
+      ]
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAINoneState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    },
+    "Properties": {
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemies_AcidBomb_SECSandworm_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_SA_SearchEnemies_AcidBomb_SECSandworm.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ],
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::Self",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Work.A",
+                "Resource.Audio.Work.A",
+                "Resource.Particle.Work.B"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyArousalComponent",
+    "Name": "ArousalComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyArousalComponent'",
+    "Outer": {
+      "ObjectName": "BP_Summon_AcidBomb_SECSandworm_C'Default__BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.1"
+    }
+  },
+  {
+    "Type": "CyRetainComponent",
+    "Name": "CyRetain_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    }
+  },
+  {
+    "Type": "CySceneMapSummonMaskComponent",
+    "Name": "CySceneMapSummonMask_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySceneMapSummonMaskComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    },
+    "Properties": {
+      "RangeVisibleType": "ESceneMap_VisibleType::EVERYONE_VISIBLE",
+      "AttackRange": 300.0,
+      "SummonConfigFlags": 4,
+      "SummonVisibleCustomFlags": 8,
+      "SummonVisibleAllowCustomFlags": 8,
+      "VisibleCustomSummonStateTypes": [
+        "EAIStateType::Work",
+        "EAIStateType::Leave"
+      ],
+      "VisionSwitch": {
+        "bUnVisibleToCustom": false,
+        "bVisibleToSelf": false,
+        "bVisibleToTeammates": false,
+        "bVisibleInSight": false
+      },
+      "SceneMapItemNameOption": "SceneMap_LilithXItem",
+      "bSummonValidCheckInvisibleToAnyway": false,
+      "StrategyName": {
+        "Group": "UIMapStrategy"
+      }
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    },
+    "Properties": {
+      "LocationType": "ELocationInitializeType::TargetOffset"
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "CySkin_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    }
+  },
+  {
+    "Type": "DecalComponent",
+    "Name": "Decal_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'DecalComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "BP_Summon_AcidBomb_SECSandworm_C'Default__BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.1"
+    },
+    "Properties": {
+      "StimuliSourceID": 23062
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Summon_AcidBomb_SECSandworm_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.16"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.27"
+        }
+      ],
+      "VariableGuid": "792A727B-4D536648-B18BB495-C3D44A89",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRetainComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRetainComponent'BP_Summon_AcidBomb_SECSandworm_C:CyRetain_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.10"
+      },
+      "VariableGuid": "BA7AB3FD-48C926E1-520CD9A9-E609F290",
+      "InternalVariableName": "CyRetain"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_AcidBomb_SECSandworm_C:CyAINoneState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.7"
+      },
+      "VariableGuid": "8E56D2E4-43CD4E4D-9D7D70A4-C100A316",
+      "InternalVariableName": "CyAINoneState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'BP_Summon_AcidBomb_SECSandworm_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.8"
+      },
+      "VariableGuid": "BFBFBCF9-46F263EE-DE0A068B-378B7D99",
+      "InternalVariableName": "CyAIWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAILeaveState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAILeaveState'BP_Summon_AcidBomb_SECSandworm_C:CyAILeaveState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.5"
+      },
+      "VariableGuid": "4053C852-43CC215F-373B55AE-8A0D2752",
+      "InternalVariableName": "CyAILeaveState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_GameStateComponent_Summon_C'BP_Summon_AcidBomb_SECSandworm_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.3"
+      },
+      "VariableGuid": "DC0E94CC-403053BC-88C7FF86-66164F25",
+      "InternalVariableName": "BP_GameStateComponent_Summon"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'BP_Summon_AcidBomb_SECSandworm_C:Ak_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.2"
+      },
+      "VariableGuid": "EA3EEF99-48435740-03FA7092-C524C692",
+      "InternalVariableName": "Ak"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_17",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIDeathState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIDeathState'BP_Summon_AcidBomb_SECSandworm_C:CyAIDeathState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.4"
+      },
+      "VariableGuid": "2332D242-41CA6E5A-ED387184-F207ABAA",
+      "InternalVariableName": "CyAIDeathState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_18",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySceneMapSummonMaskComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySceneMapSummonMaskComponent'BP_Summon_AcidBomb_SECSandworm_C:CySceneMapSummonMask_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.11"
+      },
+      "VariableGuid": "0EFCE420-4042877C-A64402B4-125271CB",
+      "InternalVariableName": "CySceneMapSummonMask"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'BP_Summon_AcidBomb_SECSandworm_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.12"
+      },
+      "VariableGuid": "53B47D63-42E73C82-647C3AAC-F0C16CB9",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'DecalComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DecalComponent'BP_Summon_AcidBomb_SECSandworm_C:Decal_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.14"
+      },
+      "VariableGuid": "765A629A-4588184C-EDED4996-41281A0A",
+      "InternalVariableName": "Decal"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySkinComponent'BP_Summon_AcidBomb_SECSandworm_C:CySkin_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.13"
+      },
+      "VariableGuid": "75CD9FB3-4FFC44B6-9E7F509E-9A75AF3D",
+      "InternalVariableName": "CySkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.30"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'BP_Summon_AcidBomb_SECSandworm_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.6"
+      },
+      "VariableGuid": "3F1E6959-4DFC696A-5A176C84-5A6DFE2F",
+      "InternalVariableName": "CyAIMachine"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_AcidBomb_SECSandworm_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.25"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.25"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Summon_AcidBomb_SECSandworm_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Sandworm/AcidBomb/Summon/BP_Summon_AcidBomb_SECSandworm.17"
+      }
+    }
+  }
+]
