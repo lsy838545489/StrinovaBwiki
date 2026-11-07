@@ -1,24 +1,30 @@
 return {
-	[10113108] = {
-		get = { "意识重构" },
+	[12303104] = {
+		get = {},
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",
 	},
-	[10304113] = {
-		get = { "意识重构" },
+	[18101053] = {
+		get = {},
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",
 	},
-	[12307106] = {
-		get = { "意识重构" },
+	[18301052] = {
+		get = {},
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",
 	},
-	[10603206] = {
-		get = { "意识重构" },
+	[10306051] = {
+		get = { "活动奖励" },
+		BabloCrystals = "",
+		Basestrings = "",
+		remark = "",
+	},
+	[10306201] = {
+		get = {},
 		BabloCrystals = "",
 		Basestrings = "",
 		remark = "",

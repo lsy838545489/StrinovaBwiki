@@ -1,0 +1,431 @@
+return {
+	{
+		id = 4139001,
+		tier = 1,
+		name = "谐定阵列-优秀",
+		quality = 1,
+		qualityName = "优秀",
+		affixNum = 0,
+		pressureMax = 50,
+		fixTier = 1,
+		fixPressure = {
+			{
+				lt = 30,
+				mult = 1,
+			},
+			{
+				lt = 70,
+				mult = 1.3,
+			},
+			{
+				lt = 120,
+				mult = 1.3,
+			},
+			{
+				lt = 999,
+				mult = 1.3,
+			},
+		},
+		wash = {
+			{
+				id = 14,
+				name = "联合币",
+				num = 2000,
+			},
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 20,
+			},
+		},
+		reset = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 100,
+			},
+			{
+				id = 14,
+				name = "联合币",
+				num = 10000,
+			},
+		},
+		['break'] = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 20,
+			},
+		},
+		packs = {
+			{
+				id = 4103303,
+				name = "阵列气运礼盒",
+				weight = 45,
+				total = 100,
+				fixed = false,
+				rate = 0.45,
+			},
+		},
+	},
+	{
+		id = 4139002,
+		tier = 2,
+		name = "谐定阵列-精致",
+		quality = 2,
+		qualityName = "精致",
+		affixNum = 1,
+		pressureMax = 70,
+		fixTier = 2,
+		fixPressure = {
+			{
+				lt = 30,
+				mult = 1,
+			},
+			{
+				lt = 70,
+				mult = 1.3,
+			},
+			{
+				lt = 120,
+				mult = 1.3,
+			},
+			{
+				lt = 999,
+				mult = 1.3,
+			},
+		},
+		wash = {
+			{
+				id = 14,
+				name = "联合币",
+				num = 2000,
+			},
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 20,
+			},
+		},
+		reset = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 200,
+			},
+			{
+				id = 14,
+				name = "联合币",
+				num = 20000,
+			},
+		},
+		['break'] = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 30,
+			},
+		},
+		packs = {
+			{
+				id = 4103303,
+				name = "阵列气运礼盒",
+				weight = 30,
+				total = 100,
+				fixed = false,
+				rate = 0.3,
+			},
+		},
+	},
+	{
+		id = 4139003,
+		tier = 3,
+		name = "谐定阵列-卓越",
+		quality = 3,
+		qualityName = "卓越",
+		affixNum = 2,
+		pressureMax = 90,
+		fixTier = 4,
+		fixPressure = {
+			{
+				lt = 30,
+				mult = 1,
+			},
+			{
+				lt = 70,
+				mult = 1.3,
+			},
+			{
+				lt = 120,
+				mult = 1.6,
+			},
+			{
+				lt = 999,
+				mult = 1.6,
+			},
+		},
+		wash = {
+			{
+				id = 14,
+				name = "联合币",
+				num = 2000,
+			},
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 20,
+			},
+		},
+		reset = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 300,
+			},
+			{
+				id = 14,
+				name = "联合币",
+				num = 30000,
+			},
+		},
+		['break'] = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 60,
+			},
+		},
+		packs = {
+			{
+				id = 4103305,
+				name = "阵列臻藏礼盒",
+				weight = 60,
+				total = 100,
+				fixed = false,
+				rate = 0.6,
+			},
+			{
+				id = 4103303,
+				name = "阵列气运礼盒",
+				weight = 15,
+				total = 100,
+				fixed = false,
+				rate = 0.15,
+			},
+		},
+	},
+	{
+		id = 4139004,
+		tier = 4,
+		name = "谐定阵列-完美",
+		quality = 4,
+		qualityName = "完美",
+		affixNum = 3,
+		pressureMax = 120,
+		fixTier = 8,
+		fixPressure = {
+			{
+				lt = 30,
+				mult = 1,
+			},
+			{
+				lt = 70,
+				mult = 1.3,
+			},
+			{
+				lt = 120,
+				mult = 1.6,
+			},
+			{
+				lt = 999,
+				mult = 1.6,
+			},
+		},
+		wash = {
+			{
+				id = 14,
+				name = "联合币",
+				num = 2000,
+			},
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 20,
+			},
+		},
+		reset = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 400,
+			},
+			{
+				id = 14,
+				name = "联合币",
+				num = 40000,
+			},
+		},
+		['break'] = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 120,
+			},
+		},
+		packs = {
+			{
+				id = 4103305,
+				name = "阵列臻藏礼盒",
+				weight = 32,
+				total = 100,
+				fixed = false,
+				rate = 0.32,
+			},
+			{
+				id = 4103303,
+				name = "阵列气运礼盒",
+				weight = 8,
+				total = 100,
+				fixed = false,
+				rate = 0.08,
+			},
+		},
+	},
+	{
+		id = 4139006,
+		tier = 5,
+		name = "谐定阵列-传说",
+		quality = 5,
+		qualityName = "臻藏",
+		affixNum = 4,
+		pressureMax = 150,
+		fixTier = 15,
+		fixPressure = {
+			{
+				lt = 30,
+				mult = 1,
+			},
+			{
+				lt = 70,
+				mult = 1.3,
+			},
+			{
+				lt = 120,
+				mult = 1.6,
+			},
+			{
+				lt = 999,
+				mult = 2,
+			},
+		},
+		wash = {
+			{
+				id = 14,
+				name = "联合币",
+				num = 2000,
+			},
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 20,
+			},
+		},
+		reset = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 500,
+			},
+			{
+				id = 14,
+				name = "联合币",
+				num = 50000,
+			},
+		},
+		['break'] = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 240,
+			},
+		},
+		packs = {
+			{
+				id = 4103305,
+				name = "阵列臻藏礼盒",
+				weight = 8,
+				total = 100,
+				fixed = false,
+				rate = 0.08,
+			},
+			{
+				id = 4103303,
+				name = "阵列气运礼盒",
+				weight = 2,
+				total = 100,
+				fixed = false,
+				rate = 0.02,
+			},
+		},
+	},
+	{
+		id = 4139005,
+		tier = 8,
+		name = "预留核",
+		quality = 8,
+		qualityName = "",
+		affixNum = 4,
+		pressureMax = 120,
+		fixTier = 8,
+		fixPressure = {
+			{
+				lt = 30,
+				mult = 1,
+			},
+			{
+				lt = 70,
+				mult = 1.3,
+			},
+			{
+				lt = 120,
+				mult = 1.6,
+			},
+			{
+				lt = 999,
+				mult = 1.6,
+			},
+		},
+		wash = {
+			{
+				id = 14,
+				name = "联合币",
+				num = 2000,
+			},
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 20,
+			},
+		},
+		reset = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 400,
+			},
+			{
+				id = 14,
+				name = "联合币",
+				num = 40000,
+			},
+		},
+		['break'] = {
+			{
+				id = 16,
+				name = "激化晶体",
+				num = 120,
+			},
+		},
+		reserved = true,
+	},
+}

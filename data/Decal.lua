@@ -2761,6 +2761,12 @@ Damn it... I should not have lost!",
 		desc = "“咖啡来咯！欸，前辈为什么要后退，难道是不喜欢吗？”",
 	},
 	{
+		id = 30002326,
+		name = "哄睡旋律",
+		quality = 4,
+		desc = "“诸位，现在是休息时间哦~”",
+	},
+	{
 		id = 30002327,
 		name = "奇异童话",
 		quality = 5,

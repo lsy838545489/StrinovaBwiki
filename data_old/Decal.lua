@@ -2761,6 +2761,12 @@ Damn it... I should not have lost!",
 		desc = "“咖啡来咯！欸，前辈为什么要后退，难道是不喜欢吗？”",
 	},
 	{
+		id = 30002327,
+		name = "奇异童话",
+		quality = 5,
+		desc = "“要买火柴吗？要听故事吗？要和我玩吗？”",
+	},
+	{
 		id = 30003001,
 		name = "至纯物质—S1",
 		quality = 3,
