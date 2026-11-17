@@ -1,0 +1,140 @@
+<includeonly>{{#tag:nowiki|{{#tag:bstyle| {{模板:武器/style.css}} }} }}{{#seo: 
+|title={{SUBPAGENAME}} - 卡拉彼丘WIKI
+|title_mode=replace 
+|locale=zh-CN 
+|image=武器-{{{武器名称|{{PAGENAME}}}}}.png 
+|image_alt=武器{{{武器名称|{{PAGENAME}}}}}的图片 
+|keywords={{{武器名称|{{PAGENAME}}}}}, 副武器, 卡拉彼丘 
+|description={{{武器介绍|}}} 
+}}{{#invoke:SMW|setAllArgs}}
+<div class="klbq-sub-overview">
+<!-- 1. 顶部副武器展台 (Hero Banner) -->
+<div class="klbq-sub-hero">
+<div class="klbq-sub-hero__image">[[文件:武器-{{{武器名称|{{PAGENAME}}}}}.png|240px|center|link={{{武器名称|{{PAGENAME}}}}}]]</div>
+<div class="klbq-sub-hero__name">{{{武器名称|{{PAGENAME}}}}}</div>
+<div class="klbq-sub-hero__badges">{{#if:{{{获得方式|}}}|<span class="klbq-sub-badge">获得方式：{{{获得方式|}}}</span>}}</div>
+<div class="klbq-sub-hero__intro">{{{武器介绍|}}}</div>
+</div>
+
+<!-- 2. 战术参数面板（PC 端） -->
+<div class="klbq-sub-grid">
+<div class="klbq-sub-grid__col">
+<div class="klbq-sub-panel">
+<div class="klbq-sub-section-title"><span>TACTICAL METRICS</span><em>战术参数</em></div>
+<div class="klbq-sub-metric-grid">
+<div class="klbq-sub-metric">
+<div class="klbq-sub-metric__head"><span class="klbq-sub-metric__label">弹匣容量</span><span class="klbq-sub-metric__val"><code class="klbq-sub-mono">{{{弹匣容量|}}}</code> 发</span></div>
+<div class="klbq-sub-metric__track"><div class="klbq-sub-metric__fill" style="width: {{#iferror:{{#expr:{{{弹匣容量|0}}}*2}}|0}}%;"></div></div>
+</div>
+{{#if:{{{射速|}}}|<div class="klbq-sub-metric">
+<div class="klbq-sub-metric__head"><span class="klbq-sub-metric__label">射速</span><span class="klbq-sub-metric__val"><code class="klbq-sub-mono">{{{射速}}}</code> RPM</span></div>
+<div class="klbq-sub-metric__track"><div class="klbq-sub-metric__fill" style="width: {{#iferror:{{#expr:{{{射速|0}}}*0.083}}|0}}%;"></div></div>
+</div>}}
+{{#if:{{{弹丸数|}}}|<div class="klbq-sub-metric">
+<div class="klbq-sub-metric__head"><span class="klbq-sub-metric__label">弹丸数</span><span class="klbq-sub-metric__val"><code class="klbq-sub-mono">{{{弹丸数}}}</code> 发</span></div>
+<div class="klbq-sub-metric__track"><div class="klbq-sub-metric__fill" style="width: {{#iferror:{{#expr:{{{弹丸数|0}}}*6}}|0}}%;"></div></div>
+</div>}}
+<div class="klbq-sub-metric">
+<div class="klbq-sub-metric__head"><span class="klbq-sub-metric__label">弦化伤害</span><span class="klbq-sub-metric__val"><code class="klbq-sub-mono">{{#iferror:{{#expr:{{{弦化伤害|67}}}*1}}|{{{弦化伤害|67%}}}|{{{弦化伤害|67}}}}}%</code></span></div>
+<div class="klbq-sub-metric__track"><div class="klbq-sub-metric__fill" style="width: {{#iferror:{{#expr:{{{弦化伤害|67}}}*1}}|{{{弦化伤害|67%}}}|{{{弦化伤害|67}}}%}};"></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 2b. 伤害分布面板（PC 端） -->
+<div class="klbq-sub-grid__col">
+<div class="klbq-sub-panel">
+<div class="klbq-sub-section-title"><span>DAMAGE MATRIX</span><em>伤害分布</em></div>
+{{#if:{{{伤害说明|}}}|<div class="klbq-sub-note">{{{伤害说明}}}</div>}}
+<div class="klbq-sub-chip-bar">{{#if:{{{基础伤害|}}}|<div class="klbq-sub-chip klbq-sub-chip--base"><span>基础伤害</span><strong>{{{基础伤害}}}</strong></div>}}{{#if:{{{头部倍率|}}}|<div class="klbq-sub-chip"><span>◆ 头部倍率</span><strong>{{{头部倍率}}}x</strong></div>}}{{#if:{{{上肢倍率|}}}|<div class="klbq-sub-chip"><span>◆ 上肢倍率</span><strong>{{{上肢倍率}}}x</strong></div>}}{{#if:{{{下肢倍率|}}}|<div class="klbq-sub-chip"><span>◆ 下肢倍率</span><strong>{{{下肢倍率}}}x</strong></div>}}</div>
+{{#switch: {{PAGENAME}}
+| 重焰 =
+{{#if:{{{10米|}}}|<div class="klbq-sub-decay-grid">
+<div class="klbq-sub-decay-card">
+<div class="klbq-sub-decay-card__distance">10 米</div>
+<div class="klbq-sub-decay-card__stats">
+<div class="klbq-sub-decay-card__row klbq-sub-decay-card__row--head"><span>总弹丸伤害</span><strong>{{{10米}}}</strong></div>
+</div>
+</div>
+<div class="klbq-sub-decay-card">
+<div class="klbq-sub-decay-card__distance">15 米</div>
+<div class="klbq-sub-decay-card__stats">
+<div class="klbq-sub-decay-card__row klbq-sub-decay-card__row--head"><span>总弹丸伤害</span><strong>{{{15米}}}</strong></div>
+</div>
+</div>
+<div class="klbq-sub-decay-card">
+<div class="klbq-sub-decay-card__distance">20 米</div>
+<div class="klbq-sub-decay-card__stats">
+<div class="klbq-sub-decay-card__row klbq-sub-decay-card__row--head"><span>总弹丸伤害</span><strong>{{{20米}}}</strong></div>
+</div>
+</div>
+</div>}}
+| #default =
+{{#if:{{{10米头部|}}}|<div class="klbq-sub-decay-grid">
+<div class="klbq-sub-decay-card">
+<div class="klbq-sub-decay-card__distance">10 米</div>
+<div class="klbq-sub-decay-card__stats">
+<div class="klbq-sub-decay-card__row klbq-sub-decay-card__row--head"><span>头部</span><strong>{{{10米头部}}}</strong></div>
+<div class="klbq-sub-decay-card__row"><span>上肢</span><strong>{{{10米上肢}}}</strong></div>
+<div class="klbq-sub-decay-card__row"><span>下肢</span><strong>{{{10米下肢}}}</strong></div>
+</div>
+</div>
+<div class="klbq-sub-decay-card">
+<div class="klbq-sub-decay-card__distance">15 米</div>
+<div class="klbq-sub-decay-card__stats">
+<div class="klbq-sub-decay-card__row klbq-sub-decay-card__row--head"><span>头部</span><strong>{{{15米头部}}}</strong></div>
+<div class="klbq-sub-decay-card__row"><span>上肢</span><strong>{{{15米上肢}}}</strong></div>
+<div class="klbq-sub-decay-card__row"><span>下肢</span><strong>{{{15米下肢}}}</strong></div>
+</div>
+</div>
+<div class="klbq-sub-decay-card">
+<div class="klbq-sub-decay-card__distance">20 米</div>
+<div class="klbq-sub-decay-card__stats">
+<div class="klbq-sub-decay-card__row klbq-sub-decay-card__row--head"><span>头部</span><strong>{{{20米头部}}}</strong></div>
+<div class="klbq-sub-decay-card__row"><span>上肢</span><strong>{{{20米上肢}}}</strong></div>
+<div class="klbq-sub-decay-card__row"><span>下肢</span><strong>{{{20米下肢}}}</strong></div>
+</div>
+</div>
+</div>}}
+}}
+</div>
+</div>
+<!-- 3. 战术参数（移动端）：仅当与 PC 端数值存在差异时渲染 -->
+{{武器-副武器/基础信息移动端
+|弹匣容量={{{弹匣容量|}}}
+|弹丸数={{{弹丸数|}}}
+|弦化伤害={{{弦化伤害|}}}
+|弹匣容量移动端={{{弹匣容量移动端|}}}
+|弹丸数移动端={{{弹丸数移动端|}}}
+|弦化伤害移动端={{{弦化伤害移动端|}}}
+}}
+<!-- 3b. 伤害分布（移动端）：仅当与 PC 端数值存在差异时渲染 -->
+{{武器-副武器/伤害移动端
+|10米头部={{{10米头部|}}}
+|10米上肢={{{10米上肢|}}}
+|10米下肢={{{10米下肢|}}}
+|15米头部={{{15米头部|}}}
+|15米上肢={{{15米上肢|}}}
+|15米下肢={{{15米下肢|}}}
+|20米头部={{{20米头部|}}}
+|20米上肢={{{20米上肢|}}}
+|20米下肢={{{20米下肢|}}}
+|基础伤害移动端={{{基础伤害移动端|}}}
+|头部倍率移动端={{{头部倍率移动端|}}}
+|上肢倍率移动端={{{上肢倍率移动端|}}}
+|下肢倍率移动端={{{下肢倍率移动端|}}}
+|10米头部移动端={{{10米头部移动端|}}}
+|10米上肢移动端={{{10米上肢移动端|}}}
+|10米下肢移动端={{{10米下肢移动端|}}}
+|15米头部移动端={{{15米头部移动端|}}}
+|15米上肢移动端={{{15米上肢移动端|}}}
+|15米下肢移动端={{{15米下肢移动端|}}}
+|20米头部移动端={{{20米头部移动端|}}}
+|20米上肢移动端={{{20米上肢移动端|}}}
+|20米下肢移动端={{{20米下肢移动端|}}}
+|10米移动端={{{10米移动端|}}}
+|15米移动端={{{15米移动端|}}}
+|20米移动端={{{20米移动端|}}}
+}}
+</div>
+</div>[[分类:副武器]]</includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>

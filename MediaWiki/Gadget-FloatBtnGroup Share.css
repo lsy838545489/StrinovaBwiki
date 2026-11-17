@@ -1,0 +1,30 @@
+.float-btn-group__toast { /* 分享组件轻提示弹窗 (Toast)  */
+	position: fixed;
+	bottom: 90px;
+	right: 20px;
+	background: var(--klbq-surface-glass, rgba(248, 249, 250, 0.95));
+	color: var(--klbq-accent, #3b82f6);
+	border: 1px solid var(--klbq-border, rgba(59, 130, 246, 0.15));
+	padding: 8px 16px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	font-size: 14px;
+	font-weight: bold;
+	z-index: 10000;
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+	pointer-events: none;
+	opacity: 0;
+	transform: translateY(10px);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.float-btn-group__toast--show { /* 动画状态修饰器 (Modifier: --show) */
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* -----------暗色模式----------- */
+.wiki-dark-mode .float-btn-group__toast {
+	background: rgba(30, 41, 59, 0.95);
+	border-color: rgba(255, 255, 255, 0.08);
+}

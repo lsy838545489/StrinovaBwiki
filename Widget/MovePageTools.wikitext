@@ -1,0 +1,47 @@
+<includeonly><style id="move_page_tools_tmp_css2">
+.mediawiki #biliContributors{display: none !important;}
+</style><script>
+(function() {
+    function move_page_tools(attempt) { // 贡献者栏移动到正文末尾，避免头部元素太多
+        try {
+            var b = document.getElementById('bodyContent')
+            var contri = document.getElementById('biliContributors');
+            b.parentNode.insertBefore(contri, b.nextSibling);
+            contri.style.display='flex';
+
+            var t = document.getElementById('move_page_tools_tmp_css2');
+            if (t) t.parentNode.removeChild(t);
+        } catch(e) {console.debug(e);}
+    }
+
+    function checkflowthread() { // 确保 flowthread 在页面底部，不要在贡献者栏上方
+        var tries = 0, timer = setInterval(function() {
+            var ft = document.getElementById('flowthread');
+            if (ft){
+                clearInterval(timer);
+                try {
+                    if (ft.parentNode && ft !== ft.parentNode.lastElementChild) {
+                        ft.parentNode.appendChild(ft);
+                    }
+                } catch (error) {console.debug(e);}
+            }
+            else if (++tries >= 10){
+                clearInterval(timer);
+            }
+        }, 200);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", move_page_tools);
+        document.addEventListener("DOMContentLoaded", checkflowthread);
+    } else {
+        try { move_page_tools(); } catch (error) {console.debug(e);}
+        try { checkflowthread(); } catch (error) {console.debug(e);}
+    }
+})();
+</script></includeonly><noinclude>
+https://wiki.biligame.com/mmyxzy/Widget:MovePageTools
+
+用于移动 贡献者 栏到正文下方
+
+</noinclude>

@@ -1,0 +1,834 @@
+<includeonly>
+<div id="batch-cat-tool">
+
+  <p>
+    每行输入一个分类名（不带 <code>Category:</code> 前缀）：
+  </p>
+
+  <textarea
+    id="bc-names"
+    rows="10"
+    style="width:100%; box-sizing:border-box;"
+  ></textarea>
+
+  <p>
+    分类页初始内容（可选，留空则创建为空页）：
+  </p>
+
+  <textarea
+    id="bc-content"
+    rows="5"
+    style="width:100%; box-sizing:border-box;"
+  ></textarea>
+
+  <p>
+    编辑摘要：
+    <input
+      id="bc-summary"
+      type="text"
+      style="width:60%;"
+      value="批量创建分类"
+    />
+  </p>
+
+  <p>
+    <button id="bc-start" type="button">
+      开始创建
+    </button>
+
+    <button id="bc-stop" type="button" disabled>
+      停止
+    </button>
+
+    <span id="bc-status"></span>
+  </p>
+
+  <ul id="bc-log"></ul>
+
+</div>
+
+
+<script>
+/*
+ * ============================================================
+ * 批量新建分类工具
+ * ============================================================
+ *
+ * 功能：
+ *
+ * 1. 每行输入一个分类名
+ * 2. 自动添加 Category: 前缀
+ * 3. 批量创建分类页面
+ * 4. 已存在页面自动跳过
+ * 5. 使用 createonly=1 防止覆盖已有页面
+ * 6. 自动获取 CSRF Token
+ * 7. 支持停止任务
+ * 8. 防止 Widget / Script 重复初始化
+ * 9. 防止同一任务重复运行
+ * 10. 防止按钮重复绑定
+ *
+ * ============================================================
+ */
+
+
+/* ============================================================
+ * 防止整个脚本重复初始化
+ * ============================================================
+ *
+ * MediaWiki Widget、AJAX / RLQ 等情况下，
+ * 同一个 <script> 有可能被执行多次。
+ *
+ * 如果已经初始化过，直接退出。
+ */
+
+if (!window.batchCatToolInitialized) {
+
+  window.batchCatToolInitialized = true;
+
+
+  (async function () {
+
+
+    /* ========================================================
+     * 全局状态
+     * ======================================================== */
+
+    var API = null;
+
+    var stopFlag = false;
+
+
+    /* ========================================================
+     * 获取 DOM
+     * ======================================================== */
+
+    var tool =
+      document.getElementById('batch-cat-tool');
+
+    if (!tool) {
+      return;
+    }
+
+
+    var startButton =
+      document.getElementById('bc-start');
+
+    var stopButton =
+      document.getElementById('bc-stop');
+
+    var status =
+      document.getElementById('bc-status');
+
+    var logContainer =
+      document.getElementById('bc-log');
+
+
+    /* ========================================================
+     * 日志
+     * ======================================================== */
+
+    function log(message, type) {
+
+      var li =
+        document.createElement('li');
+
+      li.textContent = message;
+
+
+      if (type === 'success') {
+
+        li.style.color = 'green';
+
+      } else if (type === 'error') {
+
+        li.style.color = 'red';
+
+      } else if (type === 'warning') {
+
+        li.style.color = '#b88600';
+
+      }
+
+
+      logContainer.appendChild(li);
+    }
+
+
+    /* ========================================================
+     * 延迟
+     * ======================================================== */
+
+    function sleep(ms) {
+
+      return new Promise(function (resolve) {
+
+        setTimeout(resolve, ms);
+
+      });
+    }
+
+
+    /* ========================================================
+     * 获取 API 地址
+     * ========================================================
+     *
+     * MediaWiki 环境下优先使用 wgScriptPath。
+     *
+     * 例如：
+     *
+     * https://wiki.biligame.com/klbq
+     *
+     * 会得到：
+     *
+     * https://wiki.biligame.com/klbq/api.php
+     */
+
+    function resolveApi() {
+
+      if (
+        window.mw &&
+        mw.config &&
+        mw.config.get('wgScriptPath')
+      ) {
+
+        return (
+          location.origin +
+          mw.config.get('wgScriptPath') +
+          '/api.php'
+        );
+      }
+
+
+      /*
+       * 理论上的备用路径。
+       */
+
+      return location.origin + '/api.php';
+    }
+
+
+    /* ========================================================
+     * API GET
+     * ======================================================== */
+
+    async function apiGet(params) {
+
+      params.format = 'json';
+
+
+      var url =
+        API +
+        '?' +
+        new URLSearchParams(params).toString();
+
+
+      var response =
+        await fetch(
+          url,
+          {
+            credentials: 'same-origin'
+          }
+        );
+
+
+      var contentType =
+        response.headers.get('content-type') || '';
+
+
+      if (
+        contentType.indexOf('json') === -1
+      ) {
+
+        throw new Error(
+          'API 返回了非 JSON 内容，API 地址可能错误'
+        );
+      }
+
+
+      var data =
+        await response.json();
+
+
+      if (data.error) {
+
+        throw new Error(
+          data.error.info ||
+          data.error.code ||
+          'API 请求失败'
+        );
+      }
+
+
+      return data;
+    }
+
+
+    /* ========================================================
+     * API POST
+     * ======================================================== */
+
+    async function apiPost(params) {
+
+      params.format = 'json';
+
+
+      var response =
+        await fetch(
+          API,
+          {
+            method: 'POST',
+
+            credentials: 'same-origin',
+
+            headers: {
+              'Content-Type':
+                'application/x-www-form-urlencoded'
+            },
+
+            body:
+              new URLSearchParams(params)
+          }
+        );
+
+
+      var contentType =
+        response.headers.get('content-type') || '';
+
+
+      if (
+        contentType.indexOf('json') === -1
+      ) {
+
+        throw new Error(
+          'API 返回了非 JSON 内容，API 地址可能错误'
+        );
+      }
+
+
+      var data =
+        await response.json();
+
+
+      /*
+       * 注意：
+       *
+       * 这里不要直接把 API error 抛出去。
+       *
+       * 因为：
+       *
+       * articleexists
+       *
+       * 是我们需要正常处理的情况。
+       */
+
+
+      return data;
+    }
+
+
+    /* ========================================================
+     * 获取 CSRF Token
+     * ======================================================== */
+
+    async function getToken() {
+
+      var data =
+        await apiGet({
+          action: 'query',
+          meta: 'tokens',
+          type: 'csrf'
+        });
+
+
+      if (
+        !data.query ||
+        !data.query.tokens ||
+        !data.query.tokens.csrftoken
+      ) {
+
+        throw new Error(
+          '无法获取编辑令牌，请确认已经登录'
+        );
+      }
+
+
+      return data.query.tokens.csrftoken;
+    }
+
+
+    /* ========================================================
+     * 主流程
+     * ======================================================== */
+
+    async function run() {
+
+
+      /*
+       * ======================================================
+       * 任务运行锁
+       * ======================================================
+       *
+       * 即使 click 事件因为某种原因绑定了两次，
+       * 第二个 run() 也不会真正开始。
+       */
+
+      if (window.batchCatToolRunning) {
+
+        return;
+      }
+
+
+      window.batchCatToolRunning = true;
+
+
+      try {
+
+
+        /* ====================================================
+         * 读取输入
+         * ==================================================== */
+
+        var names =
+          document
+            .getElementById('bc-names')
+            .value
+            .split('\n')
+            .map(function (s) {
+
+              return s.trim();
+
+            })
+            .filter(function (s) {
+
+              return s.length > 0;
+
+            });
+
+
+        var content =
+          document
+            .getElementById('bc-content')
+            .value
+            .trim();
+
+
+        var summary =
+          document
+            .getElementById('bc-summary')
+            .value
+            .trim();
+
+
+        if (!summary) {
+
+          summary = '批量创建分类';
+
+        }
+
+
+        /* ====================================================
+         * 检查分类名
+         * ==================================================== */
+
+        if (!names.length) {
+
+          alert('请先输入分类名');
+
+          return;
+        }
+
+
+        /* ====================================================
+         * 去重
+         * ====================================================
+         *
+         * 防止用户自己输入：
+         *
+         * 破片手雷
+         * 破片手雷
+         *
+         * 导致重复请求。
+         */
+
+        var uniqueNames = [];
+
+        var nameSet = Object.create(null);
+
+
+        names.forEach(function (name) {
+
+          if (!nameSet[name]) {
+
+            nameSet[name] = true;
+
+            uniqueNames.push(name);
+
+          }
+
+        });
+
+
+        names = uniqueNames;
+
+
+        /* ====================================================
+         * 确认
+         * ==================================================== */
+
+        if (
+          !confirm(
+            '将创建 ' +
+            names.length +
+            ' 个分类，确认继续？'
+          )
+        ) {
+
+          return;
+        }
+
+
+        /* ====================================================
+         * 初始化 UI
+         * ==================================================== */
+
+        startButton.disabled = true;
+
+        stopButton.disabled = false;
+
+        stopFlag = false;
+
+        logContainer.innerHTML = '';
+
+        status.textContent =
+          '正在初始化……';
+
+
+        /* ====================================================
+         * API
+         * ==================================================== */
+
+        API = resolveApi();
+
+
+        log(
+          'API：' + API
+        );
+
+
+        /* ====================================================
+         * 获取 Token
+         * ==================================================== */
+
+        status.textContent =
+          '正在获取编辑令牌……';
+
+
+        var token =
+          await getToken();
+
+
+        /* ====================================================
+         * 统计
+         * ==================================================== */
+
+        var created = 0;
+
+        var skipped = 0;
+
+        var failed = 0;
+
+        var stopped = false;
+
+
+        /* ====================================================
+         * 开始逐个创建
+         * ==================================================== */
+
+        for (
+          var i = 0;
+          i < names.length;
+          i++
+        ) {
+
+
+          /* --------------------------------------------------
+           * 检查停止状态
+           * -------------------------------------------------- */
+
+          if (stopFlag) {
+
+            stopped = true;
+
+            log(
+              '■ 用户停止任务',
+              'warning'
+            );
+
+            break;
+          }
+
+
+          /* --------------------------------------------------
+           * 分类标题
+           * -------------------------------------------------- */
+
+          var title =
+            'Category:' +
+            names[i];
+
+
+          status.textContent =
+            '进度：' +
+            (i + 1) +
+            '/' +
+            names.length +
+            ' — ' +
+            title;
+
+
+          try {
+
+
+            /* ------------------------------------------------
+             * 创建页面
+             * ------------------------------------------------
+             *
+             * createonly=1：
+             *
+             * 只有页面不存在时才允许创建。
+             *
+             * 如果页面已经存在：
+             *
+             * articleexists
+             *
+             * 不会修改原页面。
+             */
+
+            var res =
+              await apiPost({
+
+                action: 'edit',
+
+                title: title,
+
+                text: content,
+
+                summary: summary,
+
+                token: token,
+
+                createonly: 1
+
+              });
+
+
+            /* ------------------------------------------------
+             * 创建成功
+             * ------------------------------------------------ */
+
+            if (
+              res.edit &&
+              res.edit.result === 'Success'
+            ) {
+
+              created++;
+
+              log(
+                '✔ 已创建：' +
+                title,
+                'success'
+              );
+
+
+            /*
+             * ------------------------------------------------
+             * 页面已经存在
+             * ------------------------------------------------
+             */
+
+            } else if (
+              res.error &&
+              res.error.code === 'articleexists'
+            ) {
+
+              skipped++;
+
+              log(
+                '– 已存在，跳过：' +
+                title,
+                'warning'
+              );
+
+
+            /*
+             * ------------------------------------------------
+             * 其他 API 错误
+             * ------------------------------------------------
+             */
+
+            } else {
+
+              failed++;
+
+              log(
+                '✘ 创建失败：' +
+                title +
+                ' — ' +
+                JSON.stringify(res),
+                'error'
+              );
+            }
+
+
+          } catch (e) {
+
+
+            /* ----------------------------------------------
+             * 网络错误 / JavaScript 错误
+             * ---------------------------------------------- */
+
+            failed++;
+
+            log(
+              '✘ 请求失败：' +
+              title +
+              ' — ' +
+              e.message,
+              'error'
+            );
+          }
+
+
+          /* --------------------------------------------------
+           * 请求间隔
+           * -------------------------------------------------- */
+
+          if (i < names.length - 1) {
+
+            await sleep(500);
+
+          }
+        }
+
+
+        /* ====================================================
+         * 最终状态
+         * ==================================================== */
+
+        if (stopped) {
+
+          status.textContent =
+            '已停止：成功 ' +
+            created +
+            ' 个，跳过 ' +
+            skipped +
+            ' 个，失败 ' +
+            failed +
+            ' 个';
+
+        } else {
+
+          status.textContent =
+            '完成：成功 ' +
+            created +
+            ' 个，跳过 ' +
+            skipped +
+            ' 个，失败 ' +
+            failed +
+            ' 个';
+        }
+
+
+      } catch (e) {
+
+
+        /* ====================================================
+         * 致命错误
+         * ==================================================== */
+
+        log(
+          '✘ 致命错误：' +
+          e.message,
+          'error'
+        );
+
+
+        status.textContent =
+          '任务失败：' +
+          e.message;
+
+
+      } finally {
+
+
+        /* ====================================================
+         * 解锁
+         * ==================================================== */
+
+        window.batchCatToolRunning = false;
+
+
+        startButton.disabled = false;
+
+        stopButton.disabled = true;
+      }
+    }
+
+
+    /* ========================================================
+     * 开始按钮
+     * ========================================================
+     *
+     * dataset.bound 用来防止同一个 DOM 元素重复绑定。
+     */
+
+    if (
+      startButton &&
+      !startButton.dataset.bound
+    ) {
+
+      startButton.dataset.bound = '1';
+
+
+      startButton.addEventListener(
+        'click',
+        run
+      );
+    }
+
+
+    /* ========================================================
+     * 停止按钮
+     * ======================================================== */
+
+    if (
+      stopButton &&
+      !stopButton.dataset.bound
+    ) {
+
+      stopButton.dataset.bound = '1';
+
+
+      stopButton.addEventListener(
+        'click',
+        function () {
+
+          stopFlag = true;
+
+
+          status.textContent =
+            '正在停止……';
+
+        }
+      );
+    }
+
+
+  })();
+
+}
+</script>
+</includeonly>
+<noinclude>
+{{#widget:批量新建分类}}
+</noinclude>

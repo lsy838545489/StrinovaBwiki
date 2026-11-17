@@ -1,0 +1,157 @@
+/* 本模块专用功能色：取自游戏内弦能增幅网络装饰物的近似色，仅作分类区分用途。
+   使用频率低，不提升为全局令牌，仅在 .Growth 容器内声明。 */
+.Growth {
+    --xn-color-blue: #849FF8;    /* 蓝紫 —— 图标描边 */
+    --xn-color-green: #A4FA64;   /* 荧光绿 —— 增益类图标 */
+    --xn-color-red: #FF6868;     /* 红 —— 输出/伤害类图标 */
+    --xn-color-gold: #E5C04E;    /* 金 —— 核心图标描边（rgb(230,194,86)） */
+    --xn-color-gold-rgb: 230, 194, 86;
+    margin-bottom: 1em;
+}
+.Growth .upgrade-group {
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.Growth .upgrade-top {
+    height: 50px;
+    width: 100%;
+    display: flex;
+}
+.Growth .upgrade-icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    z-index: 1;
+}
+.Growth .upgrade-icon1 img {
+    width: 50px;
+    height: 50px;
+    border-style: solid;
+    border-width: 2px;
+    background-color: black;
+    border-color: var(--xn-color-blue);
+    border-radius: 5px;
+}
+.Growth .upgrade-icon2 {
+    border: solid 2px rgb(var(--xn-color-gold-rgb));
+    border-radius: 50%;
+    background-color: black;
+}
+.Growth .upgrade-icon2 img {
+    width: 40px;
+    height: 40px;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+.Growth .upgrade-icon3, .Growth .upgrade-icon4 {
+    width: 55px !important;
+    background-color: var(--xn-color-green);
+    clip-path:polygon(10% 0%,90% 0%,100% 19%,63% 100%,37% 100%,0% 19%);
+    display:inline-block;
+}
+.Growth .upgrade-icon3 .upgrade-icon-inner, .Growth .upgrade-icon4 .upgrade-icon-inner {
+    width:52px;
+    height:48px;
+    margin-left:1px;
+    margin-top:1px;
+    background-color: black;
+    clip-path:polygon(11% 1%,92% 1%,100% 18%,62% 99%,39% 99%,2% 18%);
+    display:inline-block;
+}
+.Growth .upgrade-icon3 img, .Growth .upgrade-icon4 img {
+    margin-left: 25%;
+    margin-top: 15%;
+    width: 50%;
+    height: 60%;
+}
+.Growth .upgrade-icon5 {
+    width: 55px !important;
+    background-color: var(--xn-color-red);
+    clip-path:polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    display:inline-block;
+}
+.Growth .upgrade-icon5 .upgrade-icon-inner {
+    width:52px;
+    height:48px;
+    margin-left:1px;
+    margin-top:1px;
+    background-color: black;
+    clip-path:polygon(50% 2%, 100% 40%, 80% 100%, 20% 100%, 2% 40%);
+    display:inline-block;
+}
+.Growth .upgrade-icon5 img {
+    margin-left: 25%;
+    margin-top: 25%;
+    width: 50%;
+    height: 60%;
+}
+.Growth .upgrade-name {
+    margin-top: 10px;
+    width: 180px;
+    height: 40px;
+    margin-left: -25px;
+    padding-left: 32px;
+    padding-top: 2px;
+    font-size: 24px;
+    background-color: var(--klbq-ink-300);
+}
+.Growth .upgrade-triangle {
+    margin-left: -50px;
+    margin-top: 10px;
+    height: 40px;
+    width: 70px;
+    background: linear-gradient(135deg, transparent 35px, var(--klbq-ink-300) 0)bottom right;
+    border-right: 2px solid white;
+    transform: skew(45deg);
+}
+.Growth .upgrade-options {
+    width: 100%;
+    max-width: 300px;
+    color: var(--klbq-line-200);
+    background-color: var(--klbq-ink-900);
+    border-radius: 5px;
+}
+.Growth .upgrade-row {
+	display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    color: var(--klbq-line-200);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.Growth .left-shade {
+    position: relative;
+    border-left: 3px solid var(--klbq-ink-500);
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    width: 0;
+    height: 25px;
+}
+.Growth .upgrade-text {
+	display: inline-flex;
+	align-items: center;
+	margin-right: auto;
+    padding-left: 5px;
+    font-weight: bold;
+}
+.Growth .upgrade-cost {
+	display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 8px;
+}
+.Growth .growthcollapse {
+	margin: 0.1em 1.6em 0.3em 1.6em;
+}
+.Growth #toggleAllGrowth {
+    padding: 5px;
+    margin: 2px 5px;
+    font-family: MicrosoftYaHei-Bold;
+    border: none;
+    border-radius: 5px;
+}
+.Growth #toggleAllGrowth:focus {
+    outline-color: var(--klbq-signal);
+}

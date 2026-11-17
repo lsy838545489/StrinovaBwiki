@@ -1,0 +1,571 @@
+<includeonly>
+<div class="wiki-replacer-container">
+    <div class="replacer-header">批量替换维护工具 (支持分类与页面双重筛选)</div>
+    
+    <div class="replacer-form">
+        <div class="input-group">
+            <label>目标模板 (带命名空间，如 Template:测试)</label>
+            <input type="text" id="replacer-template" placeholder="输入模板名称...">
+        </div>
+        
+        <div class="input-group">
+            <label>查找内容</label>
+            <textarea id="replacer-search" rows="3" placeholder="输入需要被替换的内容..."></textarea>
+            <div class="checkbox-group">
+                <input type="checkbox" id="replacer-is-regex">
+                <label for="replacer-is-regex">使用正则表达式 (例如: \d+ 将匹配所有数字)</label>
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <label>替换为</label>
+            <textarea id="replacer-replace" rows="3" placeholder="输入新的内容..."></textarea>
+        </div>
+
+        <button id="replacer-query-btn" class="replacer-btn">1. 查询链入页面及分类</button>
+    </div>
+
+    <div id="replacer-category-panel" class="selection-panel" style="display: none;">
+        <div class="selection-header">
+            <span class="selection-title">第 1 步：按页面分类筛选</span>
+            <div class="checkbox-group">
+                <input type="checkbox" id="replacer-cat-select-all" checked>
+                <label for="replacer-cat-select-all" style="font-weight: bold; color: #3b82f6;">全选 / 取消全选</label>
+            </div>
+        </div>
+        <div class="page-list-container cat-list-container" id="replacer-cat-list">
+            </div>
+    </div>
+
+    <div id="replacer-selection-panel" class="selection-panel" style="display: none;">
+        <div class="selection-header">
+            <span class="selection-title">第 2 步：确认最终要替换的页面</span>
+            <div class="checkbox-group">
+                <input type="checkbox" id="replacer-page-select-all" checked>
+                <label for="replacer-page-select-all" style="font-weight: bold; color: #3b82f6;">全选 / 取消全选</label>
+            </div>
+        </div>
+        <div class="page-list-container" id="replacer-page-list">
+            </div>
+        <button id="replacer-execute-btn" class="replacer-btn execute-btn">3. 执行可见选中页面的替换</button>
+    </div>
+
+    <div class="replacer-log-panel">
+        <div class="log-title">运行日志：</div>
+        <ul id="replacer-log-list"></ul>
+    </div>
+</div>
+
+<style>
+/* 浅色系圆润 UI 设计 */
+.wiki-replacer-container {
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(160, 207, 255, 0.3);
+    backdrop-filter: blur(8px);
+    font-size: 14px;
+    color: #475569;
+}
+
+.replacer-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e293b;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(96, 165, 250, 0.2);
+    padding-bottom: 10px;
+}
+
+.replacer-form .input-group {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.replacer-form label, .selection-title {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #334155;
+}
+
+.replacer-form input[type="text"],
+.replacer-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border: 1px solid rgba(160, 207, 255, 0.5);
+    border-radius: 8px;
+    background: #ffffff;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    outline: none;
+    resize: vertical;
+}
+
+.replacer-form input[type="text"]:focus,
+.replacer-form textarea:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    gap: 6px;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: normal;
+    color: #64748b;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-group input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: #3b82f6;
+    width: 16px;
+    height: 16px;
+}
+
+.replacer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.replacer-btn:hover {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
+    transform: translateY(-1px);
+}
+
+.replacer-btn:disabled {
+    background: #cbd5e1;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.execute-btn {
+    background: linear-gradient(135deg, #34d399, #10b981);
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    margin-top: 16px;
+    width: 100%;
+}
+
+.execute-btn:hover {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 6px 14px rgba(16, 185, 129, 0.4);
+}
+
+.selection-panel {
+    margin-top: 16px;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid rgba(160, 207, 255, 0.4);
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.selection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #cbd5e1;
+}
+
+.page-list-container {
+    max-height: 250px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    padding-right: 8px;
+}
+
+.cat-list-container {
+    max-height: 150px; /* 分类区域稍微矮一点 */
+}
+
+/* 滚动条美化 */
+.page-list-container::-webkit-scrollbar,
+.replacer-log-panel::-webkit-scrollbar {
+    width: 6px;
+}
+.page-list-container::-webkit-scrollbar-track,
+.replacer-log-panel::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+.page-list-container::-webkit-scrollbar-thumb,
+.replacer-log-panel::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+.page-list-container::-webkit-scrollbar-thumb:hover,
+.replacer-log-panel::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.page-item {
+    background: #f8fafc;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    margin-top: 0;
+    transition: background 0.2s;
+}
+
+.page-item:hover {
+    background: #f1f5f9;
+}
+
+.page-item label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 160px;
+    vertical-align: middle;
+}
+
+.replacer-log-panel {
+    margin-top: 24px;
+    padding: 16px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.replacer-log-panel .log-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+#replacer-log-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#replacer-log-list li {
+    padding: 4px 0;
+    border-bottom: 1px dashed #cbd5e1;
+    word-break: break-all;
+}
+
+#replacer-log-list li.success { color: #10b981; }
+#replacer-log-list li.error { color: #ef4444; }
+#replacer-log-list li.info { color: #3b82f6; }
+</style>
+
+<script>
+window.RLQ = window.RLQ || [];
+window.RLQ.push([
+    ['mediawiki.api'],
+    function() {
+        function initWidget() {
+            const queryBtn = document.getElementById('replacer-query-btn');
+            const executeBtn = document.getElementById('replacer-execute-btn');
+            const logList = document.getElementById('replacer-log-list');
+            
+            const catPanel = document.getElementById('replacer-category-panel');
+            const selectionPanel = document.getElementById('replacer-selection-panel');
+            
+            const catListContainer = document.getElementById('replacer-cat-list');
+            const pageListContainer = document.getElementById('replacer-page-list');
+            
+            const selectAllCatCheckbox = document.getElementById('replacer-cat-select-all');
+            const selectAllPageCheckbox = document.getElementById('replacer-page-select-all');
+
+            if (!queryBtn || !executeBtn) return;
+
+            function addLog(message, type = 'info') {
+                const li = document.createElement('li');
+                li.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+                li.className = type;
+                logList.appendChild(li);
+                logList.parentElement.scrollTop = logList.parentElement.scrollHeight;
+            }
+
+            // 根据分类的勾选状态，动态过滤显示的页面
+            function filterPagesByCategory() {
+                // 获取当前所有被勾选的分类
+                const checkedCats = Array.from(catListContainer.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+                const pageItems = pageListContainer.querySelectorAll('.page-item');
+                
+                pageItems.forEach(item => {
+                    const pageCatsStr = item.getAttribute('data-cats');
+                    const pageCats = pageCatsStr ? JSON.parse(pageCatsStr) : ['无分类'];
+                    
+                    // 判断该页面的分类中，是否至少有一个分类是被勾选的
+                    const isVisible = pageCats.some(cat => checkedCats.includes(cat));
+                    
+                    if (isVisible) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            // 第 1 步：查询页面，并分批查询分类信息
+            queryBtn.addEventListener('click', async () => {
+                const template = document.getElementById('replacer-template').value.trim();
+                if (!template) {
+                    addLog('请填写完整的模板名称！', 'error');
+                    return;
+                }
+
+                queryBtn.disabled = true;
+                catPanel.style.display = 'none';
+                selectionPanel.style.display = 'none';
+                addLog(`开始查询链入模板 ${template} 的页面...`);
+
+                const api = new mw.Api();
+
+                try {
+                    // 1. 获取所有链入页面
+                    const queryData = await api.get({
+                        action: 'query',
+                        list: 'embeddedin',
+                        eititle: template,
+                        eilimit: 'max'
+                    });
+
+                    const docPage = template + '/doc';
+                    const pagesToEdit = queryData.query.embeddedin
+                        .map(page => page.title)
+                        .filter(title => title !== template && title !== docPage);
+                    
+                    if (pagesToEdit.length === 0) {
+                        addLog('未找到任何链入该模板的页面（或仅包含模板本身和文档）。', 'info');
+                        queryBtn.disabled = false;
+                        return;
+                    }
+
+                    addLog(`找到 ${pagesToEdit.length} 个页面，正在拉取页面分类信息...`);
+
+                    // 2. 分批查询分类 (MediaWiki API 限制每次查询的 title 数量)
+                    const pageCategoriesMap = {};
+                    const allUniqueCats = new Set();
+                    const chunkSize = 50;
+
+                    for (let i = 0; i < pagesToEdit.length; i += chunkSize) {
+                        const chunkTitles = pagesToEdit.slice(i, i + chunkSize);
+                        const catRes = await api.get({
+                            action: 'query',
+                            prop: 'categories',
+                            titles: chunkTitles.join('|'),
+                            cllimit: 'max'
+                        });
+
+                        Object.values(catRes.query.pages).forEach(p => {
+                            if (p.categories && p.categories.length > 0) {
+                                // 提取分类名，去掉 Category: 或 分类: 前缀
+                                const cats = p.categories.map(c => c.title.replace(/^[^:]+:/, ''));
+                                pageCategoriesMap[p.title] = cats;
+                                cats.forEach(c => allUniqueCats.add(c));
+                            } else {
+                                pageCategoriesMap[p.title] = ['无分类'];
+                                allUniqueCats.add('无分类');
+                            }
+                        });
+                    }
+
+                    // 3. 渲染分类筛选列表
+                    catListContainer.innerHTML = '';
+                    const sortedCats = Array.from(allUniqueCats).sort((a, b) => a === '无分类' ? 1 : b === '无分类' ? -1 : a.localeCompare(b));
+                    
+                    sortedCats.forEach((cat, index) => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'page-item checkbox-group';
+                        itemDiv.innerHTML = `
+                            <input type="checkbox" id="cat-cb-${index}" value="${cat}" checked>
+                            <label for="cat-cb-${index}" title="${cat}">${cat}</label>
+                        `;
+                        catListContainer.appendChild(itemDiv);
+                    });
+
+                    // 给所有分类的 checkbox 绑定联动事件
+                    const catCheckboxes = catListContainer.querySelectorAll('input[type="checkbox"]');
+                    catCheckboxes.forEach(cb => {
+                        cb.addEventListener('change', filterPagesByCategory);
+                    });
+
+                    // 4. 渲染页面筛选列表
+                    pageListContainer.innerHTML = '';
+                    pagesToEdit.forEach((title, index) => {
+                        const cats = pageCategoriesMap[title] || ['无分类'];
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'page-item checkbox-group';
+                        // 将分类数据存入 DOM 属性中，方便联动过滤
+                        itemDiv.setAttribute('data-cats', JSON.stringify(cats));
+                        itemDiv.innerHTML = `
+                            <input type="checkbox" id="page-cb-${index}" value="${title}" checked>
+                            <label for="page-cb-${index}" title="${title}">${title}</label>
+                        `;
+                        pageListContainer.appendChild(itemDiv);
+                    });
+
+                    // 重置全选状态并显示面板
+                    selectAllCatCheckbox.checked = true;
+                    selectAllPageCheckbox.checked = true;
+                    catPanel.style.display = 'block';
+                    selectionPanel.style.display = 'block';
+
+                    addLog('数据拉取完毕，请在上方根据分类和页面进行筛选喵！', 'success');
+
+                } catch (err) {
+                    addLog(`查询过程中发生错误: ${err.message || err}`, 'error');
+                } finally {
+                    queryBtn.disabled = false;
+                }
+            });
+
+            // 分类：全选 / 取消全选联动
+            selectAllCatCheckbox.addEventListener('change', (e) => {
+                const checkboxes = catListContainer.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(cb => { cb.checked = e.target.checked; });
+                filterPagesByCategory(); // 触发页面过滤
+            });
+
+            // 页面：全选 / 取消全选联动
+            selectAllPageCheckbox.addEventListener('change', (e) => {
+                // 页面全选只会影响当前可见（未被分类过滤掉）的页面
+                const visibleCheckboxes = pageListContainer.querySelectorAll('.page-item:not([style*="display: none"]) input[type="checkbox"]');
+                visibleCheckboxes.forEach(cb => { cb.checked = e.target.checked; });
+            });
+
+            // 第 2 步：执行所选页面的替换
+            executeBtn.addEventListener('click', async () => {
+                const searchText = document.getElementById('replacer-search').value;
+                const replaceText = document.getElementById('replacer-replace').value;
+                const isRegex = document.getElementById('replacer-is-regex').checked;
+
+                if (!searchText) {
+                    addLog('请填写查找内容！', 'error');
+                    return;
+                }
+
+                // 核心安全逻辑：只获取可见（display不为none）且 被勾选（checked）的页面
+                const selectedCheckboxes = pageListContainer.querySelectorAll('.page-item:not([style*="display: none"]) input[type="checkbox"]:checked');
+                const targetPages = Array.from(selectedCheckboxes).map(cb => cb.value);
+
+                if (targetPages.length === 0) {
+                    addLog('你没有勾选任何可见的页面，取消执行。', 'error');
+                    return;
+                }
+
+                let searchPattern = searchText;
+                if (isRegex) {
+                    try {
+                        searchPattern = new RegExp(searchText, 'g');
+                    } catch (e) {
+                        addLog(`正则表达式解析错误: ${e.message}`, 'error');
+                        return;
+                    }
+                }
+
+                executeBtn.disabled = true;
+                queryBtn.disabled = true;
+                catPanel.style.pointerEvents = 'none';
+                catPanel.style.opacity = '0.7';
+                selectionPanel.style.pointerEvents = 'none';
+                selectionPanel.style.opacity = '0.7';
+
+                addLog(`准备开始替换，共 ${targetPages.length} 个页面...`);
+                const api = new mw.Api();
+
+                for (let i = 0; i < targetPages.length; i++) {
+                    const title = targetPages[i];
+                    addLog(`正在处理: ${title} (${i + 1}/${targetPages.length})`);
+
+                    try {
+                        const pageData = await api.get({
+                            action: 'query',
+                            prop: 'revisions',
+                            rvprop: 'content',
+                            titles: title
+                        });
+
+                        const pageObj = Object.values(pageData.query.pages)[0];
+                        if (!pageObj.revisions) {
+                            addLog(`${title} - 无法读取页面内容，跳过。`, 'error');
+                            continue;
+                        }
+
+                        const oldText = pageObj.revisions[0]['*'];
+                        let newText = '';
+
+                        if (isRegex) {
+                            newText = oldText.replace(searchPattern, replaceText);
+                        } else {
+                            newText = oldText.split(searchText).join(replaceText);
+                        }
+
+                        if (oldText !== newText) {
+                            await api.postWithToken('csrf', {
+                                action: 'edit',
+                                title: title,
+                                text: newText,
+                                summary: '使用替换工具进行批量维护',
+                                nocreate: true,
+                                bot: true
+                            });
+                            addLog(`${title} - 替换成功并已保存！`, 'success');
+                        } else {
+                            addLog(`${title} - 未找到匹配内容，跳过。`, 'info');
+                        }
+                        
+                        await new Promise(resolve => setTimeout(resolve, 300));
+
+                    } catch (err) {
+                        addLog(`${title} - 处理时发生错误: ${err.message || err}`, 'error');
+                    }
+                }
+
+                addLog('所有选中的页面处理完毕！', 'success');
+                
+                executeBtn.disabled = false;
+                queryBtn.disabled = false;
+                catPanel.style.pointerEvents = 'auto';
+                catPanel.style.opacity = '1';
+                selectionPanel.style.pointerEvents = 'auto';
+                selectionPanel.style.opacity = '1';
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initWidget);
+        } else {
+            initWidget();
+        }
+    }
+]);
+</script></includeonly><noinclude>{{#widget:链入批量修改}}</noinclude>

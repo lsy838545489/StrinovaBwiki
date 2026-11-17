@@ -1,0 +1,79 @@
+<includeonly>
+<div id="wiki-browser-check-container" style="margin: 15px 0;"></div>
+
+<script>
+// 初始化 RLQ
+window.RLQ = window.RLQ || [];
+
+// 向队列添加任务
+RLQ.push([[], function() {
+    // 监听 window.onload，确保页面所有资源（含延迟加载的图片等）加载完毕后再执行
+    window.addEventListener('load', function() {
+        let isSupported = true;
+        let unsupportedFeatures = [];
+
+        // 1. WIKI 高频使用的高级 CSS 属性名单（中划线格式即可）
+        const propsToCheck = [
+            'backdrop-filter', 
+            'gap',            
+            'container-type'   
+        ];
+
+        // 2. WIKI 高频使用的高级 CSS 选择器名单
+        const selectorsToCheck = [
+            ':has(div)',      
+            ':is(div)',       
+            ':where(div)'     
+        ];
+
+        // --- 执行检测 ---
+        
+        // 检测 CSS 属性 (利用 CSS.supports 直接检测属性名，无需赋值)
+        if (typeof CSS !== 'undefined' && CSS.supports) {
+            propsToCheck.forEach(prop => {
+                // 只要支持该属性（无论赋什么有效值），CSS.supports(prop, 'inherit') 都会返回 true
+                if (!CSS.supports(prop, 'inherit') && !CSS.supports('-webkit-' + prop, 'inherit')) {
+                    isSupported = false;
+                    unsupportedFeatures.push(`属性 ${prop}`);
+                }
+            });
+        } else {
+            isSupported = false;
+            unsupportedFeatures.push('基础 CSS API');
+        }
+
+        // 检测 CSS 选择器
+        selectorsToCheck.forEach(selector => {
+            try {
+                document.querySelector(selector);
+            } catch (e) {
+                isSupported = false;
+                const cleanSelector = selector.split('(')[0];
+                if (!unsupportedFeatures.includes(`选择器 ${cleanSelector}`)) {
+                    unsupportedFeatures.push(`选择器 ${cleanSelector}`);
+                }
+            }
+        });
+
+        // --- 结果渲染 ---
+        if (!isSupported) {
+            const container = document.getElementById('wiki-browser-check-container');
+            if (container) {
+                // 保持浅色二次元圆润 UI 风格的 BS3 组件，背景色与 WIKI 主内容框体一致
+                container.innerHTML = `
+                    <div class="alert alert-info alert-dismissible" role="alert" style="border-radius: 12px; background: rgba(248,249,250,0.9); border: 1px solid rgba(147,197,253,0.5); box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #64748b; font-size: 14px; backdrop-filter: blur(4px);">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color: #64748b; text-shadow: none; opacity: 0.6; margin-top: -2px;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong style="color: #00acc1;">环境兼容性提示：</strong> 
+                        您的浏览器可能无法完美渲染当前页面的部分视觉效果（不支持 <code>${unsupportedFeatures.join('、')}</code>）。建议升级浏览器内核喵~
+                    </div>
+                `;
+            }
+        } else {
+            console.log('%c[WIKI环境检测] 页面加载完成，当前浏览器完美支持 WIKI 的现代 CSS 特性喵！', 'color: #00acc1; font-weight: bold; background: rgba(248,249,250,0.9); padding: 4px 8px; border-radius: 4px;');
+        }
+    });
+}]);
+</script>
+</includeonly>

@@ -1,0 +1,24 @@
+<includeonly>{{#invoke:TimeDiff|main|{{{1|}}}|{{{2|}}}|format={{{format|text}}}|tz={{{tz|8}}}|abs={{{abs|}}}|unit={{{unit|}}}|decimals={{{decimals|2}}}}}</includeonly><noinclude>
+计算两个日期时间的差值，是 [[模块:TimeDiff]] 的模板外壳。
+
+; 参数
+* '''1'''：起始时间。支持 2026-11-18 / 2026-11-18 12:30 / 2026年11月18日 12:30 / 2026/11/18 / 2026.11.18 / now；省略或留空视为当前时间。
+* '''2'''：结束时间，格式同上；省略视为当前时间。
+* '''format'''：输出格式。text（默认，如「2天8小时23分」）/ days / hours / minutes / seconds。
+* '''decimals'''：format=days 时保留的小数位，默认 2。
+* '''unit'''：在结果后追加单位文字，如 天。
+* '''abs'''：填 1 则取绝对值，不保留正负方向。
+* '''tz'''：时区小时数，默认 8（北京时间）。
+
+; 示例
+* <code><nowiki>{{时长|2026-11-17 23:52|2026-11-20 08:15}}</nowiki></code> → {{时长|2026-11-17 23:52|2026-11-20 08:15}}
+* <code><nowiki>{{时长|2026年11月17日|2026年12月1日}}</nowiki></code> → {{时长|2026年11月17日|2026年12月1日}}
+* <code><nowiki>{{时长|2026-11-17|2027-01-01|format=days}}</nowiki></code> → {{时长|2026-11-17|2027-01-01|format=days}}
+* <code><nowiki>{{时长|2026-11-17|2027-01-01|format=days|unit=天}}</nowiki></code> → {{时长|2026-11-17|2027-01-01|format=days|unit=天}}
+* <code><nowiki>{{时长|2026-10-01|2026-12-31}}</nowiki></code>（反序）→ {{时长|2026-10-01|2026-12-31}}
+* <code><nowiki>{{时长|2026-10-01|2026-12-31|abs=1}}</nowiki></code> → {{时长|2026-10-01|2026-12-31|abs=1}}
+
+判断活动状态可直接用模块：<code><nowiki>{{#invoke:TimeDiff|status|开始|结束|before=未开始|during=进行中|after=已结束}}</nowiki></code>
+
+[[分类:模板]]
+</noinclude>

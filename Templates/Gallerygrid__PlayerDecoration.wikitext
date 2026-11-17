@@ -1,0 +1,211 @@
+<includeonly><div class="gallerygrid-item klbq-decoration-card">
+<div class="gallerygrid-imagebox" style="height:{{{height|150px}}};">[[{{{filename|}}}|{{{width|}}}|link={{{filename|}}}]]</div>
+<div class="gallerygrid-captionbox klbq-decoration-card__caption">
+<div class="gallerygrid-player-decoration klbq-decoration-card__badge-wrap">{{{1}}}</div>
+<div class="klbq-decoration-card__subtitle">{{{2}}}</div>
+<div class="klbq-decoration-card__obtain">
+<div class="klbq-decoration-card__obtain-label">获得方式</div>
+<div class="klbq-decoration-card__obtain-value">{{{3}}}</div>
+</div>
+</div>
+</div></includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>
+{{#if:{{#varexists:player-decoration-CSS}} || {{#vardefine:player-decoration-CSS | 1 }}<bstyle>/*<pre>*/
+@media (min-width: 320px) {
+    .gallerygrid {
+        --gg-cols: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+@media (min-width: 768px) {
+    .gallerygrid {
+        --gg-cols: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* --- 卡片主框体 --- */
+.gallerygrid-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: rgb(var(--klbq-surface-rgb) / 0.9);
+    border-radius: 12px;
+    border: 1px solid var(--klbq-border-soft);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* --- 顶部图片展示区 --- */
+.gallerygrid-imagebox {
+    margin-bottom: 0.5rem;
+    padding: 12px;
+    background: rgb(var(--klbq-surface-rgb) / 0.4);
+    border-radius: 12px 12px 0 0;
+}
+.gallerygrid-imagebox img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: var(--gallerygrid-fit, contain);
+    transition: transform 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .gallerygrid-item:hover .gallerygrid-imagebox img {
+        transform: scale(1.05);
+    }
+
+    .mw-parser-output .klbq-decoration-card__obtain-value ul > li:hover {
+        background: rgba(0, 172, 193, 0.15);
+        border-color: rgba(0, 172, 193, 0.4);
+    }
+
+    .client-js.wiki-dark-mode .klbq-decoration-card__obtain-value ul > li:hover {
+        background: rgba(77, 208, 225, 0.25) !important;
+        border-color: rgba(77, 208, 225, 0.5) !important;
+    }
+}
+
+/* --- 底部内容面板 --- */
+.klbq-decoration-card__caption {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 12px 10px;
+    flex-grow: 1;
+}
+
+.klbq-decoration-card__badge-wrap {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.klbq-decoration-card__subtitle {
+    text-align: center;
+    color: var(--klbq-text-muted);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+/* --- 获得方式：凹槽框体 --- */
+.klbq-decoration-card__obtain {
+    margin-top: auto;
+    padding: 8px 10px;
+    background: rgb(var(--klbq-surface-rgb) / 0.65);
+    border: 1px solid rgba(216, 222, 227, 0.85);
+    border-radius: 8px;
+    font-size: 0.8125rem;
+}
+
+.klbq-decoration-card__obtain-label {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    color: var(--klbq-text-subtle);
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.klbq-decoration-card__obtain-label::before {
+    content: "◆";
+    color: var(--klbq-accent-strong);
+    font-size: 0.6em;
+}
+
+/* --- 获得方式：Lua 自动生成的 <ul> 胶囊化（合并去重版） --- */
+.mw-parser-output .klbq-decoration-card__obtain-value ul,
+.mw-parser-output .klbq-skin-card__stat .klbq-decoration-card__obtain-value ul,
+.mw-parser-output .klbq-skin-card__stat .card-item-value ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px 6px !important;
+}
+
+.mw-parser-output .klbq-decoration-card__obtain-value ul > li {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    background: rgba(0, 172, 193, 0.08);
+    border: 1px solid rgba(0, 172, 193, 0.25);
+    border-radius: 4px;
+    color: var(--klbq-text);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+    transition: all 0.2s ease;
+}
+
+/* 微型图标前缀 */
+.mw-parser-output .klbq-decoration-card__obtain-value ul > li::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: var(--klbq-accent-strong);
+    border-radius: 1px;
+    flex-shrink: 0;
+    vertical-align: middle;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    top: 0;
+    box-shadow: unset;
+}
+
+
+/* --- 稀有度 Badge 基础与品质映射 --- */
+.gallerygrid-player-decoration .badge {
+    color: #fff;
+    vertical-align: baseline;
+    font-size: larger;
+    font-weight: bolder;
+    white-space: normal;
+    border-radius: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.gallerygrid-player-decoration .badge[data-quality="8"],
+.gallerygrid-player-decoration .badge[data-quality="6"] { background: var(--item-quality-Secret); }
+.gallerygrid-player-decoration .badge[data-quality="5"] { background: var(--item-quality-Legendary); }
+.gallerygrid-player-decoration .badge[data-quality="4"] { background: var(--item-quality-Perfect); }
+.gallerygrid-player-decoration .badge[data-quality="3"] { background: var(--item-quality-Superior); }
+.gallerygrid-player-decoration .badge[data-quality="2"] { background: var(--item-quality-Exquisite); }
+.gallerygrid-player-decoration .badge[data-quality="1"] {
+    background: var(--item-quality-Initial);
+    color: var(--klbq-text-muted);
+    text-shadow: none;
+}
+
+/* --- 暗色模式适配 (Dark Mode) --- */
+.client-js.wiki-dark-mode .gallerygrid-item.klbq-decoration-card {
+    background: var(--klbq-surface-glass);
+    border-color: var(--klbq-border);
+}
+.client-js.wiki-dark-mode .klbq-decoration-card .gallerygrid-imagebox {
+    background: linear-gradient(180deg, rgba(77, 208, 225, 0.1) 0%, rgba(18, 26, 33, 0) 100%);
+}
+.client-js.wiki-dark-mode .klbq-decoration-card__subtitle {
+    color: var(--klbq-text-muted);
+}
+.client-js.wiki-dark-mode .klbq-decoration-card__obtain {
+    background: rgba(18, 26, 33, 0.6);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+.client-js.wiki-dark-mode .klbq-decoration-card__obtain-label {
+    color: var(--klbq-text-muted);
+}
+.client-js.wiki-dark-mode .klbq-decoration-card__obtain-value {
+    color: var(--klbq-text);
+}
+.client-js.wiki-dark-mode .klbq-decoration-card__obtain-value ul > li {
+    background: rgba(77, 208, 225, 0.12) !important;
+    border-color: rgba(77, 208, 225, 0.3) !important;
+    color: var(--klbq-text) !important;
+}
+.client-js.wiki-dark-mode .klbq-decoration-card__obtain-value ul > li::before {
+    background-color: var(--klbq-accent) !important;
+    box-shadow: 0 0 4px rgba(77, 208, 225, 0.6) !important;
+}
+/*</pre>*/</bstyle>}}

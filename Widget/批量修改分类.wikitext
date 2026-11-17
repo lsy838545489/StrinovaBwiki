@@ -1,0 +1,72 @@
+<includeonly>
+<div class="form-group" style="max-width:500px">
+	<label for="titles">标题</label>
+	<input id="titles" name="titles" class="form-control" placeholder="英文逗号或顿号分割"></input>
+</div>
+<div class="form-group" style="max-width:500px">
+	<label for="category">分类</label>
+	<input id="category" name="category" class="form-control"></input>
+</div>
+<a class="btn btn-default" href="javascript:editCategories('add')" role="button">添加分类</a>
+<a class="btn btn-default" href="javascript:editCategories('remove')" role="button">移除分类</a>
+<div class="form-group" style="max-width:500px">
+	<label for="wikitext">wikitext</label>
+	<textarea id="wikitext" name="wikitext" class="form-control"></textarea>
+</div>
+<div class="checkbox">
+	<label>
+		<input id="isPrepend" type="checkbox"> 在页面内容之前插入
+	</label>
+</div>
+<a class="btn btn-default" href="javascript:editWikitext('add')" role="button">添加wikitext</a>
+<script>
+var lock = false;
+function editWikitext(mode){
+	if(lock) return false;
+	else lock = true
+	window.titleArray = $("#titles").val().replace(/、|，/g, ",").replace(/, /, ",").split(",")
+	window.category = $("#wikitext").val()
+	window.pageIndex = 0
+	window.editMode = mode
+	getPage()
+}
+function editCategories(mode){
+	if(lock) return false;
+	else lock = true
+	window.titleArray = $("#titles").val().replace(/、|，/g, ",").replace(/, /, ",").split(",")
+	window.category = "["+"[分类:" + $("#category").val() + "]]"
+	window.pageIndex = 0
+	window.editMode = mode
+	getPage()
+}
+function getPage(){
+	if(pageIndex >= titleArray.length){lock=false; return alert("刷新完毕")}
+	var isPrepend = $("#isPrepend").prop("checked")
+	new mw.Api().edit(
+		titleArray[pageIndex++],
+		function (revision) {
+			var text = revision.content,
+				hasCategory = text.indexOf(category) !== -1.
+			if(editMode === "add" && hasCategory) {
+				console.log(pageIndex-1, titleArray[pageIndex-1], "已有该分类，未操作")
+				return text;
+			}
+			if(editMode === "add") {
+				isPrepend ? text = category + "\n" + text : text += "\n" + category
+			} else if(editMode === "remove") text = text.replace(category, "")
+			return {
+				text: text,
+				summary: "批量修改分类",
+				minor: true
+			};
+		}
+	).then(function () {
+		console.log(pageIndex-1, titleArray[pageIndex-1], "操作成功")
+		$.get(mw.config.get("wgCookiePath") + titleArray[pageIndex-1])
+		setTimeout(getPage, 500)
+	}).catch(function (e) {
+		console.log(pageIndex-1, titleArray[pageIndex-1], "操作失败")
+		setTimeout(getPage, 500)
+	});
+}
+</script></includeonly><noinclude>{{#widget:批量修改分类}}</noinclude>

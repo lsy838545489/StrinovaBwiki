@@ -1,0 +1,138 @@
+<includeonly><div class="klbq-announce-row"><span class="klbq-announce-row__title">[[{{{1|}}}|<span class="klbq-announce-row__text">{{{1|}}}</span>]]</span></div></includeonly><noinclude>[[分类:SMW模板]]</noinclude>
+{{#if:{{#varexists:首页公告样式}} || {{#vardefine:首页公告样式 | 1 }}<bstyle>/*<pre>*/
+.klbq-announce-row { /* 公告行主容器 */
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    background: transparent;
+    box-sizing: border-box;
+    border-left: 3px solid transparent;
+    transition:
+        background 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        border-color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.klbq-announce-row:last-child { /* 末行不留多余空隙 */
+    margin-bottom: 0;
+}
+
+/* -----------行间分隔：弹道式分割线（弹头压在左端，整条线作尾迹）----------- */
+.klbq-announce-row:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 28px;
+    right: 12px;
+    height: 6px;
+    pointer-events: none;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+    background-image: linear-gradient(
+        270deg,
+        transparent 0,
+        rgba(0, 172, 193, 0.1) 12%,
+        rgba(0, 172, 193, 0.22) 42%,
+        rgba(0, 172, 193, 0.38) 72%,
+        rgba(0, 172, 193, 0.6) 100%
+    );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 1px;
+}
+.klbq-announce-row:not(:first-child)::after { /* 弹头：实心弹体+顶部高光，头部全圆在左、尾部近方 */
+    content: "";
+    position: absolute;
+    top: -5.5px;
+    left: 12px;
+    width: 16px;
+    height: 5px;
+    border-radius: 999px 1.5px 1.5px 999px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 58%),
+        linear-gradient(90deg, #00acc1 0%, #00acc1 20%, rgba(0, 172, 193, 0.62) 100%);
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.klbq-announce-row__title { /* 公告标题容器 */
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.klbq-announce-row__title a,
+.klbq-announce-row__text { /* 公告标题文本及链接样式重置 */
+    color: var(--klbq-ink-600);
+    text-decoration: none;
+    transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .klbq-announce-row:hover {
+        background: rgb(var(--klbq-surface-rgb) / 0.9);
+        border-left-color: var(--klbq-accent);
+        box-shadow: 0 2px 8px rgba(22, 32, 42, 0.03);
+    }
+
+    .klbq-announce-row:hover .klbq-announce-row__title { /* 悬停时文字轻微右移，分隔线保持不动 */
+        transform: translateX(4px);
+    }
+    .klbq-announce-row:hover .klbq-announce-row__title a,
+    .klbq-announce-row:hover .klbq-announce-row__text { /* 悬停时的文字颜色高亮 */
+        color: var(--klbq-accent-strong);
+    }
+
+    .klbq-announce-row:hover::before { /* 悬停行的分割线亮起 */
+        opacity: 1;
+    }
+    .klbq-announce-row:hover::after { /* 弹头随之提亮 */
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 58%),
+            linear-gradient(90deg, #22d3ee 0%, #22d3ee 20%, rgba(0, 172, 193, 0.8) 100%);
+    }
+
+    .client-js.wiki-dark-mode .klbq-announce-row:hover {
+        background: rgba(30, 42, 51, 0.6);
+        border-left-color: var(--klbq-accent);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .client-js.wiki-dark-mode .klbq-announce-row:hover .klbq-announce-row__title a,
+    .client-js.wiki-dark-mode .klbq-announce-row:hover .klbq-announce-row__text {
+        color: var(--klbq-accent);
+        text-shadow: 0 0 8px rgba(0, 172, 193, 0.3);
+    }
+}
+
+/* -----------暗色模式----------- */
+.client-js.wiki-dark-mode .klbq-announce-row .klbq-announce-row__title a,
+.client-js.wiki-dark-mode .klbq-announce-row .klbq-announce-row__text {
+    color: var(--klbq-text-muted);
+}
+.client-js.wiki-dark-mode .klbq-announce-row:not(:first-child)::before {
+    background-image: linear-gradient(
+        270deg,
+        transparent 0,
+        rgba(77, 208, 225, 0.08) 12%,
+        rgba(77, 208, 225, 0.16) 42%,
+        rgba(77, 208, 225, 0.28) 72%,
+        rgba(77, 208, 225, 0.48) 100%
+    );
+}
+.client-js.wiki-dark-mode .klbq-announce-row:not(:first-child)::after {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 58%),
+        linear-gradient(90deg, #4dd0e1 0%, #4dd0e1 20%, rgba(77, 208, 225, 0.5) 100%);
+}
+.client-js.wiki-dark-mode .klbq-announce-row:hover::after {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 58%),
+        linear-gradient(90deg, #7fe8f5 0%, #7fe8f5 20%, rgba(77, 208, 225, 0.7) 100%);
+}
+/*</pre>*/</bstyle>}}

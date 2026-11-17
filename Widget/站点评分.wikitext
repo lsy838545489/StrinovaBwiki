@@ -1,0 +1,252 @@
+<includeonly>
+<div class="kqp-poll-container kqp-rating-widget-compact">
+	<div class="poll-info" style="display: none">
+名称：WIKI站点评分
+限制票数：1
+结束时间：2099/12/31 23:59:59
+	</div>
+	<div class="poll-easter-egg" style="display:none;">
+感谢你为 WIKI 提出评分喵！✨
+    </div>
+
+	<!-- 极简头部：标题与人数左右对齐 -->
+	<div class="rating-header-compact">
+		<!-- <span class="rating-title-text">⭐ WIKI 站点评分</span> -->
+		<span class="poll-title tittleVote">加载中...</span>
+	</div>
+
+	<!-- 1-5分 紧凑单行列表 -->
+	<div class="rating-list-compact">
+		<label class="rating-row">
+			<input type="checkbox" value="5分" class="hidden-checkbox" />
+			<div class="rating-row-inner">
+				<div class="rating-left">
+					<span class="rating-tag">5分</span>
+					<span class="rating-stars">⭐⭐⭐⭐⭐</span>
+				</div>
+				<span data-role="5分" class="poll-info-text">读取中...</span>
+			</div>
+		</label>
+
+		<label class="rating-row">
+			<input type="checkbox" value="4分" class="hidden-checkbox" />
+			<div class="rating-row-inner">
+				<div class="rating-left">
+					<span class="rating-tag">4分</span>
+					<span class="rating-stars">⭐⭐⭐⭐</span>
+				</div>
+				<span data-role="4分" class="poll-info-text">读取中...</span>
+			</div>
+		</label>
+
+		<label class="rating-row">
+			<input type="checkbox" value="3分" class="hidden-checkbox" />
+			<div class="rating-row-inner">
+				<div class="rating-left">
+					<span class="rating-tag">3分</span>
+					<span class="rating-stars">⭐⭐⭐</span>
+				</div>
+				<span data-role="3分" class="poll-info-text">读取中...</span>
+			</div>
+		</label>
+
+		<label class="rating-row">
+			<input type="checkbox" value="2分" class="hidden-checkbox" />
+			<div class="rating-row-inner">
+				<div class="rating-left">
+					<span class="rating-tag">2分</span>
+					<span class="rating-stars">⭐⭐</span>
+				</div>
+				<span data-role="2分" class="poll-info-text">读取中...</span>
+			</div>
+		</label>
+
+		<label class="rating-row">
+			<input type="checkbox" value="1分" class="hidden-checkbox" />
+			<div class="rating-row-inner">
+				<div class="rating-left">
+					<span class="rating-tag">1分</span>
+					<span class="rating-stars">⭐</span>
+				</div>
+				<span data-role="1分" class="poll-info-text">读取中...</span>
+			</div>
+		</label>
+	</div>
+
+	<!-- 提交按钮 -->
+	<div class="poll-submit-wrap">
+		<button class="submit-button">
+			<span class="submit-button-text">提交评分</span>
+		</button>
+	</div>
+</div>
+
+<style>
+/* 极简超紧凑侧边栏评分卡片 */
+.kqp-rating-widget-compact {
+    background: rgba(247, 248, 246, 0.85);
+    border-radius: 12px 4px 12px 4px;
+    padding: 12px 14px;
+    backdrop-filter: blur(8px);
+    margin-top: 10px;
+}
+
+/* 头部左右对齐布局 */
+.rating-header-compact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed rgba(0, 172, 193, 0.35);
+}
+/*
+.rating-title-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3b82f6;
+}
+*/
+.kqp-rating-widget-compact .poll-title {
+    font-size: 11px;
+    color: var(--klbq-text-muted);
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 单行列表间距 */
+.rating-list-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rating-row {
+    cursor: pointer;
+    display: block;
+    user-select: none;
+    margin: 0;
+}
+
+/* 彻底隐藏原生 Checkbox */
+.rating-row .hidden-checkbox {
+    display: none !important;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 单行选项内部容器 */
+.rating-row-inner {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(216, 222, 227, 0.8);
+    border-radius: 6px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.rating-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rating-tag {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--klbq-text);
+}
+
+.rating-stars {
+    font-size: 10px;
+    line-height: 1;
+}
+
+.kqp-rating-widget-compact .poll-info-text {
+    font-size: 11px;
+    color: var(--klbq-text-muted);
+}
+
+/* Hover & 选中高亮效果 */
+.rating-row:hover .rating-row-inner {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 172, 193, 0.5);
+}
+
+.rating-row .hidden-checkbox:checked + .rating-row-inner {
+    border-color: var(--klbq-accent);
+    background: rgba(0, 172, 193, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 172, 193, 0.18);
+}
+
+.rating-row .hidden-checkbox:checked + .rating-row-inner .rating-tag {
+    color: var(--klbq-accent-strong);
+}
+
+/* 提交按钮紧凑化 */
+.kqp-rating-widget-compact .poll-submit-wrap {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.kqp-rating-widget-compact .submit-button {
+    width: 100%;
+    padding: 6px 0;
+    font-size: 13px;
+    font-weight: bold;
+    background: var(--klbq-accent-strong);
+    border: none;
+    border-radius: 6px;
+    color: var(--klbq-on-accent);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 172, 193, 0.2);
+    transition: all 0.2s ease;
+}
+
+.kqp-rating-widget-compact .submit-button:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+
+/* 暗色模式适配 */
+.client-js.wiki-dark-mode .kqp-rating-widget-compact {
+    background: rgba(18, 26, 33, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.client-js.wiki-dark-mode .rating-row-inner {
+    background: rgba(18, 26, 33, 0.6);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/*
+.client-js.wiki-dark-mode .rating-title-text {
+    color: #38bdf8;
+}
+*/
+</style>
+
+<script>
+(function() {
+    function bootstrap() {
+        if (window.jQuery && window.mw && mw.util && mw.util.wikiScript) {
+            var timestamp = new Date().getTime();
+            var scriptUrl = mw.util.wikiScript('index') + '?title=MediaWiki:CustomPoll.js&action=raw&ctype=text/javascript&cb=' + timestamp;
+            if (document.querySelector('script[src^="' + mw.util.wikiScript('index') + '?title=MediaWiki:CustomPoll.js"]')) return; 
+            var script = document.createElement('script');
+            script.src = scriptUrl;
+            script.async = true;
+            document.head.appendChild(script);
+        } else {
+            setTimeout(bootstrap, 50);
+        }
+    }
+    window.RLQ = window.RLQ || [];
+    window.RLQ.push(function() { bootstrap(); });
+})();
+</script>
+</includeonly>

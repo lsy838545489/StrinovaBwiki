@@ -1,0 +1,776 @@
+<includeonly>
+<div id="mw-ns-refresher" class="mw-ns-refresher">
+  <div class="mw-ns-refresher__header">
+    <div>
+      <h3>名字空间批量维护与强刷工具</h3>
+      <p>读取全站名字空间及页面，勾选目标空间与操作选项后执行批量轰炸。</p>
+    </div>
+    <button id="ns-btn-fetch" class="mw-ui-button mw-ui-progressive">获取命名空间及页面数</button>
+  </div>
+
+  <div id="mw-ns-list" class="mw-ns-refresher__list" style="display:none;">
+    <div class="mw-ns-refresher__toolbar">
+      <label><input type="checkbox" id="ns-select-all"> 全选名字空间</label>
+      <span>已选页面总数：<strong id="ns-selected-count">0</strong></span>
+    </div>
+    <div id="ns-checkbox-grid" class="mw-ns-refresher__grid"></div>
+  </div>
+
+  <div id="mw-ns-actions" class="mw-ns-refresher__actions" style="display:none;">
+    <div class="mw-ns-refresher__options">
+      <span class="mw-ns-refresher__opt-title">配置轰炸指令：</span>
+      <label class="mw-ns-opt-item">
+        <input type="checkbox" id="opt-do-purge" checked> 1. 刷新缓存 (Purge Cache)
+      </label>
+      <label class="mw-ns-opt-item">
+        <input type="checkbox" id="opt-do-nulledit"> 2. 执行空编辑 (Null Edit)
+      </label>
+    </div>
+    
+    <button id="ns-btn-explode" class="mw-ui-button mw-ui-destructive btn-explode">
+      💥 一键起爆
+    </button>
+  </div>
+
+  <div id="mw-ns-log" class="mw-ns-refresher__log" style="display:none;">
+    <div class="mw-ns-refresher__progress-bar">
+      <div id="ns-progress-inner"></div>
+    </div>
+    <div class="mw-ns-refresher__stats">
+      <span>总任务量 <strong id="ns-stat-total">0</strong></span>
+      <span>成功 <strong id="ns-stat-success">0</strong></span>
+      <span>失败 <strong id="ns-stat-failed">0</strong></span>
+      <span>跳过 <strong id="ns-stat-skipped">0</strong></span>
+    </div>
+    <div id="ns-log-text" class="mw-ns-refresher__log-text"></div>
+  </div>
+</div>
+
+<style>
+.mw-ns-refresher {
+  box-sizing: border-box;
+  border: 1px solid #d8dce2;
+  background: rgba(248, 249, 250, 0.96);
+  padding: 16px;
+  border-radius: 10px;
+  max-width: 1000px;
+  font-family: sans-serif;
+  color: #202122;
+}
+.mw-ns-refresher * {
+  box-sizing: border-box;
+}
+.mw-ns-refresher__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.mw-ns-refresher__header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+.mw-ns-refresher__header p {
+  margin: 5px 0 0;
+  color: #72777d;
+  font-size: .85rem;
+}
+.mw-ns-refresher__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaecf0;
+}
+.mw-ns-refresher__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #c8ccd1;
+  padding: 10px;
+  border-radius: 6px;
+}
+.mw-ns-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 8px;
+  border-radius: 5px;
+  font-size: .9rem;
+  overflow-wrap: anywhere;
+}
+.mw-ns-item:hover {
+  background: #f1f5f9;
+}
+.mw-ns-item small {
+  color: #72777d;
+  white-space: nowrap;
+}
+.mw-ns-refresher__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #d8dce2;
+}
+.mw-ns-refresher__options {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: #fff;
+  padding: 10px 14px;
+  border: 1px solid #c8ccd1;
+  border-radius: 6px;
+}
+.mw-ns-refresher__opt-title {
+  font-weight: bold;
+  font-size: .9rem;
+  color: #334155;
+}
+.mw-ns-opt-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .9rem;
+  cursor: pointer;
+  user-select: none;
+}
+.btn-explode {
+  align-self: flex-start;
+  font-weight: bold !important;
+  padding: 8px 24px !important;
+  font-size: 1rem !important;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(211, 53, 62, 0.25);
+  transition: all 0.2s ease !important;
+}
+.btn-explode:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(211, 53, 62, 0.4);
+}
+.mw-ns-refresher button {
+  cursor: pointer;
+}
+.mw-ns-refresher button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+.mw-ns-refresher__log {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid #d8dce2;
+  border-radius: 7px;
+  background: #fff;
+}
+.mw-ns-refresher__progress-bar {
+  height: 8px;
+  background: #eaecf0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+#ns-progress-inner {
+  height: 100%;
+  width: 0;
+  background: #d3353e;
+  transition: width .2s ease;
+}
+.mw-ns-refresher__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaecf0;
+  font-size: .88rem;
+}
+.mw-ns-refresher__log-text {
+  max-height: 260px;
+  overflow-y: auto;
+  padding-top: 6px;
+  font-family: Consolas, monospace;
+  font-size: .82rem;
+  overflow-wrap: anywhere;
+}
+.mw-ns-refresher__log-line {
+  padding: 3px 0;
+  color: #54595d;
+}
+.mw-ns-refresher__log-line--error {
+  color: #b32424;
+}
+.mw-ns-refresher__log-line--success {
+  color: #16803c;
+}
+.mw-ns-refresher__log-line--warn {
+  color: #d97706;
+}
+@media (max-width: 600px) {
+  .mw-ns-refresher {
+    padding: 10px;
+  }
+  .mw-ns-refresher__header {
+    align-items: stretch;
+  }
+  .mw-ns-refresher__header button,
+  .btn-explode {
+    width: 100%;
+  }
+  .mw-ns-refresher__grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+(window.RLQ = window.RLQ || []).push([
+  ['jquery', 'mediawiki.api'],
+  function () {
+    var $root = $('#mw-ns-refresher');
+    if (!$root.length || $root.data('ns-initialized')) {
+      return;
+    }
+    $root.data('ns-initialized', true);
+
+    var api = new mw.Api();
+    var nsData = { };
+    var busy = false;
+
+    var MAX_RETRIES = 3;
+    var RETRY_BASE_DELAY = 1000;
+    var REQUEST_DELAY = 150;
+
+    var stats = {
+      total: 0,
+      success: 0,
+      failed: 0,
+      skipped: 0
+    };
+
+    function sleep(ms) {
+      return new Promise(function (resolve) {
+        setTimeout(resolve, ms);
+      });
+    }
+
+    function getErrorCode(err) {
+      if (!err) return '';
+      if (typeof err === 'string') return err;
+      return err.code || (err.error && err.error.code) || '';
+    }
+
+    function getErrorMessage(err) {
+      if (!err) return '未知错误';
+      if (typeof err === 'string') return err;
+
+      var code = getErrorCode(err);
+      var info = err.info || (err.error && err.error.info) || '';
+
+      return (code ? code + ': ' : '') + (info || err.message || '未知错误');
+    }
+
+    function isRetryable(err) {
+      var code = getErrorCode(err);
+      return [
+        'maxlag',
+        'ratelimited',
+        'readonly',
+        'readonlytext',
+        'internal_api_error_DBConnectionError',
+        'internal_api_error_DBQueryError',
+        'http',
+        'timeout',
+        'network'
+      ].indexOf(code) !== -1 || !code;
+    }
+
+    function requestWithRetry(requestFactory, retries) {
+      retries = retries === undefined ? MAX_RETRIES : retries;
+
+      function attempt(number) {
+        return Promise.resolve()
+          .then(requestFactory)
+          .catch(function (err) {
+            if (number >= retries || !isRetryable(err)) {
+              throw err;
+            }
+
+            var delay = RETRY_BASE_DELAY * Math.pow(2, number);
+
+            addLog(
+              '网络或服务器繁忙，' + (delay / 1000) + ' 秒后重试（' +
+              (number + 1) + '/' + retries + '）：' + getErrorMessage(err),
+              'warn'
+            );
+
+            return sleep(delay).then(function () {
+              return attempt(number + 1);
+            });
+          });
+      }
+
+      return attempt(0);
+    }
+
+    function addLog(message, type) {
+      var $line = $('<div>').addClass('mw-ns-refresher__log-line');
+
+      if (type === 'error') {
+        $line.addClass('mw-ns-refresher__log-line--error');
+      } else if (type === 'success') {
+        $line.addClass('mw-ns-refresher__log-line--success');
+      } else if (type === 'warn') {
+        $line.addClass('mw-ns-refresher__log-line--warn');
+      }
+
+      $line.text('[' + new Date().toLocaleTimeString() + '] ' + message);
+
+      var $text = $('#ns-log-text');
+      $text.append($line);
+      $text.scrollTop($text[0].scrollHeight);
+      $('#mw-ns-log').show();
+    }
+
+    function resetLog() {
+      $('#ns-log-text').empty();
+      $('#ns-progress-inner').css('width', '0%');
+
+      stats = { total: 0, success: 0, failed: 0, skipped: 0 };
+      updateStats();
+      $('#mw-ns-log').show();
+    }
+
+    function updateStats() {
+      $('#ns-stat-total').text(stats.total);
+      $('#ns-stat-success').text(stats.success);
+      $('#ns-stat-failed').text(stats.failed);
+      $('#ns-stat-skipped').text(stats.skipped);
+
+      var finished = stats.success + stats.failed + stats.skipped;
+      var pct = stats.total ? Math.floor(finished / stats.total * 100) : 0;
+
+      $('#ns-progress-inner').css('width', pct + '%');
+    }
+
+    function finishOne(result, title, detail) {
+      if (result === 'success') {
+        stats.success++;
+        addLog('成功：' + title + (detail ? ' — ' + detail : ''), 'success');
+      } else if (result === 'skipped') {
+        stats.skipped++;
+        addLog('跳过：' + title + (detail ? ' — ' + detail : ''), 'warn');
+      } else {
+        stats.failed++;
+        addLog('失败：' + title + (detail ? ' — ' + detail : ''), 'error');
+      }
+
+      updateStats();
+    }
+
+    function setBusy(value) {
+      busy = value;
+      $('#ns-btn-fetch').prop('disabled', value);
+      $('#ns-btn-explode').prop('disabled', value);
+      $('#ns-select-all, #opt-do-purge, #opt-do-nulledit').prop('disabled', value);
+      $('.ns-cb').prop('disabled', value);
+    }
+
+    // 1. 获取全站命名空间及页面
+    $('#ns-btn-fetch').on('click', function () {
+      if (busy) return;
+
+      var $btn = $(this);
+      $btn.prop('disabled', true).text('正在读取站点结构……');
+
+      $('#mw-ns-list, #mw-ns-actions').hide();
+      resetLog();
+
+      nsData = { };
+      var fetchFailed = false;
+
+      addLog('正在获取全站名字空间列表……');
+
+      requestWithRetry(function () {
+        return api.get({
+          action: 'query',
+          meta: 'siteinfo',
+          siprop: 'namespaces',
+          formatversion: 2
+        });
+      }).then(function (data) {
+        var namespaces = data.query.namespaces;
+        var namespaceList = [];
+
+        $.each(namespaces, function (idStr, nsInfo) {
+          var nsId = parseInt(idStr, 10);
+          if (nsId < 0) return; // 忽略 Special/Media
+
+          nsData[nsId] = {
+            id: nsId,
+            name: nsInfo.name || '(主名字空间)',
+            pages: [],
+            failed: false
+          };
+
+          namespaceList.push(nsId);
+        });
+
+        var chain = Promise.resolve();
+
+        namespaceList.forEach(function (nsId) {
+          chain = chain.then(function () {
+            return fetchAllPagesInNS(nsId).then(function () {
+              addLog(
+                '解析完成：' + nsData[nsId].name +
+                '（NS:' + nsId + '，共 ' +
+                nsData[nsId].pages.length + ' 页）'
+              );
+            }).catch(function (err) {
+              nsData[nsId].failed = true;
+              fetchFailed = true;
+
+              addLog(
+                '读取名字空间失败：' + nsData[nsId].name +
+                '（NS:' + nsId + '）— ' + getErrorMessage(err),
+                'error'
+              );
+            }).then(function () {
+              return sleep(REQUEST_DELAY);
+            });
+          });
+        });
+
+        return chain;
+      }).then(function () {
+        renderCheckboxGrid();
+
+        $('#mw-ns-list, #mw-ns-actions').show();
+
+        if (fetchFailed) {
+          addLog(
+            '部分名字空间读取失败，已自动隔离。请重新获取以补齐页面数据。',
+            'warn'
+          );
+        } else {
+          addLog('全站名字空间索引加载完毕，请配置轰炸参数。', 'success');
+        }
+
+        $btn.prop('disabled', false).text('重新获取命名空间数据');
+      }).catch(function (err) {
+        addLog('获取名字空间失败：' + getErrorMessage(err), 'error');
+        $btn.prop('disabled', false).text('重试获取');
+      });
+    });
+
+    function fetchAllPagesInNS(nsId) {
+      function getBatch(apcontinue) {
+        var params = {
+          action: 'query',
+          list: 'allpages',
+          apnamespace: nsId,
+          aplimit: 'max',
+          formatversion: 2
+        };
+
+        if (apcontinue) params.apcontinue = apcontinue;
+
+        return requestWithRetry(function () {
+          return api.get(params);
+        }).then(function (res) {
+          if (!res.query || !res.query.allpages) {
+            throw { code: 'invalidresponse', info: 'API 未返回 allpages 节点' };
+          }
+
+          res.query.allpages.forEach(function (page) {
+            nsData[nsId].pages.push(page.title);
+          });
+
+          if (res.continue && res.continue.apcontinue) {
+            return getBatch(res.continue.apcontinue);
+          }
+        });
+      }
+
+      return getBatch(null);
+    }
+
+    function renderCheckboxGrid() {
+      var $grid = $('#ns-checkbox-grid').empty();
+
+      $.each(nsData, function (nsId, info) {
+        if (info.failed || info.pages.length === 0) return;
+
+        var $label = $('<label>').addClass('mw-ns-item');
+        var $checkbox = $('<input>')
+          .attr('type', 'checkbox')
+          .addClass('ns-cb')
+          .attr('data-ns', nsId);
+
+        var $name = $('<span>').text(info.name + ' (NS:' + nsId + ')');
+        var $count = $('<small>').text('[' + info.pages.length + ' 页]');
+
+        $label.append($checkbox, $name, $count);
+        $grid.append($label);
+      });
+
+      $('#ns-select-all').prop('checked', false);
+      updateSelectedCount();
+    }
+
+    function getSelectedPages() {
+      var titles = [];
+      var seen = { };
+
+      $('.ns-cb:checked').each(function () {
+        var nsId = $(this).attr('data-ns');
+        var info = nsData[nsId];
+
+        if (!info || info.failed) return;
+
+        info.pages.forEach(function (title) {
+          if (!seen[title]) {
+            seen[title] = true;
+            titles.push(title);
+          }
+        });
+      });
+
+      return titles;
+    }
+
+    function updateSelectedCount() {
+      $('#ns-selected-count').text(getSelectedPages().length);
+
+      var $all = $('.ns-cb');
+      var checkedCount = $('.ns-cb:checked').length;
+
+      $('#ns-select-all').prop(
+        'checked',
+        $all.length > 0 && checkedCount === $all.length
+      ).prop(
+        'indeterminate',
+        checkedCount > 0 && checkedCount < $all.length
+      );
+    }
+
+    $(document).on('change', '#mw-ns-refresher .ns-cb', updateSelectedCount);
+
+    $('#ns-select-all').on('change', function () {
+      $('.ns-cb').prop('checked', this.checked);
+      updateSelectedCount();
+    });
+
+    // 2. 轰炸逻辑：一键起爆 (Purge & Null Edit 顺序执行队列)
+    $('#ns-btn-explode').on('click', function () {
+      var pages = getSelectedPages();
+      var doPurge = $('#opt-do-purge').is(':checked');
+      var doNullEdit = $('#opt-do-nulledit').is(':checked');
+
+      if (!pages.length) {
+        alert('请先勾选至少一个名字空间！');
+        return;
+      }
+
+      if (!doPurge && !doNullEdit) {
+        alert('请至少勾选一种轰炸指令（缓存刷新 或 空编辑）！');
+        return;
+      }
+
+      var planDesc = [];
+      if (doPurge) planDesc.push('批量刷新缓存 (Purge)');
+      if (doNullEdit) planDesc.push('批量尝试空编辑 (Null Edit)');
+
+      if (!confirm(
+        '🚀 【警告：准备一键起爆】\n\n' +
+        '选定页面总数：' + pages.length + ' 个\n' +
+        '计划执行指令：\n - ' + planDesc.join('\n - ') + '\n\n' +
+        '确定要向服务器发起维护轰炸请求吗？'
+      )) {
+        return;
+      }
+
+      setBusy(true);
+      resetLog();
+
+      // 计算需要执行的总任务量（页面数 * 勾选的操作数）
+      var opsCount = (doPurge ? 1 : 0) + (doNullEdit ? 1 : 0);
+      stats.total = pages.length * opsCount;
+      updateStats();
+
+      addLog('🔥 指令已下达，准备对 ' + pages.length + ' 个页面展开一键起爆……', 'warn');
+
+      // 阶段 1：先执行 Purge
+      Promise.resolve().then(function () {
+        if (!doPurge) return;
+        addLog('>>> [阶段 1/2] 开始批量 Purge 缓存刷新...', 'warn');
+        return runPurgeTask(pages);
+      }).then(function () {
+        // 阶段 2：再执行 Null Edit
+        if (!doNullEdit) return;
+        addLog('>>> [阶段 ' + (doPurge ? '2/2' : '1/1') + '] 开始批量 Null Edit 空编辑...', 'warn');
+        return runNullEditTask(pages);
+      }).then(function () {
+        addLog(
+          '🎉 轰炸彻底结束！成功 ' + stats.success +
+          '，失败 ' + stats.failed +
+          '，跳过 ' + stats.skipped +
+          '，总计 ' + stats.total + ' 次操作。',
+          stats.failed ? 'warn' : 'success'
+        );
+      }).catch(function (err) {
+        addLog('起爆序列意外中断：' + getErrorMessage(err), 'error');
+      }).then(function () {
+        setBusy(false);
+      });
+    });
+
+    // 任务单元：Purge 缓存处理
+    function runPurgeTask(pages) {
+      var batchSize = 50;
+      var chunks = [];
+
+      for (var i = 0; i < pages.length; i += batchSize) {
+        chunks.push(pages.slice(i, i + batchSize));
+      }
+
+      function processBatch(index) {
+        if (index >= chunks.length) {
+          return Promise.resolve();
+        }
+
+        var chunk = chunks[index];
+
+        return requestWithRetry(function () {
+          return api.post({
+            action: 'purge',
+            titles: chunk.join('|'),
+            formatversion: 2
+          });
+        }).then(function (res) {
+          var results = res && res.purge ? res.purge : null;
+          var returned = { };
+
+          if (results) {
+            results.forEach(function (item) {
+              returned[item.title] = item;
+            });
+          }
+
+          chunk.forEach(function (title) {
+            if (returned[title]) {
+              finishOne('success', title, '[Purge] 缓存清除成功');
+            } else {
+              finishOne('failed', title, '[Purge] API未返回结果');
+            }
+          });
+        }).catch(function (err) {
+          chunk.forEach(function (title) {
+            finishOne('failed', title, '[Purge] ' + getErrorMessage(err));
+          });
+        }).then(function () {
+          return sleep(REQUEST_DELAY);
+        }).then(function () {
+          return processBatch(index + 1);
+        });
+      }
+
+      return processBatch(0);
+    }
+
+    // 任务单元：Null Edit 空编辑处理
+    function runNullEditTask(pages) {
+      function processPage(index) {
+        if (index >= pages.length) {
+          return Promise.resolve();
+        }
+
+        var title = pages[index];
+
+        return requestWithRetry(function () {
+          return api.get({
+            action: 'query',
+            prop: 'revisions',
+            titles: title,
+            rvprop: 'ids|timestamp|content',
+            rvslots: 'main',
+            rvlimit: 1,
+            curtimestamp: 1,
+            formatversion: 2
+          });
+        }).then(function (data) {
+          var page = data.query && data.query.pages && data.query.pages[0];
+
+          if (!page || page.missing !== undefined || !page.revisions || !page.revisions.length) {
+            finishOne('skipped', title, '[NullEdit] 页面不存在或无修订版本');
+            return;
+          }
+
+          var revision = page.revisions[0];
+          var slot = revision.slots && revision.slots.main;
+          var content = slot && slot.content;
+
+          if (typeof content !== 'string') {
+            finishOne('failed', title, '[NullEdit] 无法读取正文内容');
+            return;
+          }
+
+          if (!data.curtimestamp || !revision.revid || !revision.timestamp) {
+            finishOne('failed', title, '[NullEdit] API未返回版本时间戳');
+            return;
+          }
+
+          return requestWithRetry(function () {
+            return api.postWithToken('csrf', {
+              action: 'edit',
+              title: title,
+              text: content,
+              summary: 'Maintenance: Force null edit via Explode Widget',
+              baserevid: revision.revid,
+              basetimestamp: revision.timestamp,
+              starttimestamp: data.curtimestamp,
+              nocreate: 1,
+              minor: 1,
+              watchlist: 'nochange',
+              formatversion: 2
+            });
+          }).then(function (res) {
+            if (res && res.edit && res.edit.result === 'Success') {
+              finishOne('success', title, '[NullEdit] 空编辑写入成功 (rev:' + (res.edit.newrevid || '未变') + ')');
+            } else {
+              finishOne('failed', title, '[NullEdit] API未返回 Success 状态');
+            }
+          }).catch(function (err) {
+            var code = getErrorCode(err);
+
+            if (code === 'nochange') {
+              finishOne('skipped', title, '[NullEdit] API拒绝无变化的编辑（无需重新编译）');
+            } else if (code === 'editconflict' || code === 'pagedeleted' || code === 'missingtitle') {
+              finishOne('skipped', title, '[NullEdit] ' + getErrorMessage(err));
+            } else {
+              finishOne('failed', title, '[NullEdit] ' + getErrorMessage(err));
+            }
+          });
+        }).catch(function (err) {
+          finishOne('failed', title, '[NullEdit] 读取页面失败: ' + getErrorMessage(err));
+        }).then(function () {
+          return sleep(REQUEST_DELAY);
+        }).then(function () {
+          return processPage(index + 1);
+        });
+      }
+
+      return processPage(0);
+    }
+  }
+]);
+</script>
+</includeonly><noinclude>{{#widget:一键起爆}}</noinclude>

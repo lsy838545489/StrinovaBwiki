@@ -1,0 +1,141 @@
+<includeonly><script src="https://testingcf.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
+<button onclick="draw()">绘制</button>
+<label for="imgChoose">
+	<span>选择精灵图</span>
+	<input class="hide" id="imgChoose" type="file" accept=".png" onchange="chooseImg()" />
+</label>
+<label for="imgInfo">
+	<span>选择json数据（批量</span>
+	<input class="hide" id="imgInfo" type="file" multiple accept=".json" onchange="uploadData()" />
+</label>
+<button onclick="downloadImg()">下载</button>
+<div id="imgContain"></div>
+
+<script>
+//(window.RLQ = window.RLQ || []).push([["jquery"], function () {
+//	$(function () {
+   
+   
+   
+   var imgData = [];
+var SpritesImg;
+// 选择图片
+function chooseImg() {
+	let upload = document.getElementById("imgChoose");
+	let file = upload.files[0];
+	SpritesImg = URL.createObjectURL(file);
+}
+// 绘制
+function addCanvas(starTX, starTY, imgWidth, imgHeight, imgUrl, imgName) {
+	imgName = imgName || "cscs";
+	// 创建一个 canvas 元素
+	const canvas = document.createElement("canvas");
+	const attr = document.createAttribute("data-imgname");
+	attr.value = imgName;
+	canvas.setAttributeNode(attr);
+	canvas.width = imgWidth;
+	canvas.height = imgHeight;
+	const ctx = canvas.getContext("2d");
+	// 创建一个 Image 对象加载图片 a
+	const img = new Image();
+	// img.crossOrigin = "anonymous"; //添加此行anonymous必须小写
+	// img.src = props.plShareImg;
+	img.src = imgUrl;
+
+	// 当图片加载完成后执行绘制操作
+	img.onload = () => {
+		// 从图片 a 的 (796, 1021) 点开始绘制，绘制宽度为 84，高度为 84
+		ctx.drawImage(img, starTX, starTY, imgWidth, imgHeight, 0, 0, imgWidth, imgHeight);
+		// 将 canvas 添加到页面中
+		document.body.appendChild(canvas);
+		document.getElementById("imgContain").appendChild(canvas);
+	};
+}
+function draw() {
+	$("#imgContain").empty();
+	$.each(imgData, function (intex, item) {
+		let info = item[1];
+		const starTX = info.Properties.BakedSourceUV.X;
+		const starTY = info.Properties.BakedSourceUV.Y;
+		const imgWidth = info.Properties.BakedSourceDimension.X;
+		const imgHeight = info.Properties.BakedSourceDimension.Y;
+		// const imgUrl = "./SS_UI_CareerRankPC.png";
+		const imgUrl = SpritesImg;
+		const imgName = info.Name;
+		// console.log(starTX, starTY, imgWidth, imgHeight, imgUrl, imgName);
+		addCanvas(starTX, starTY, imgWidth, imgHeight, imgUrl, imgName);
+	});
+}
+
+// 获取数据（仅卡丘
+function uploadData() {
+	imgData = [];
+	// 获取上传控件dom
+	let upload = document.getElementById("imgInfo");
+	let files = upload.files;
+	$.each(files, function (index, item) {
+		let reader = new FileReader(); //新建一个FileReader
+		reader.readAsText(item, "UTF-8"); //读取文件
+		reader.onload = function (evt) {
+			//读取完文件之后会回来这里
+			let fileString = JSON.parse(evt.target.result); // 读取文件内容
+			imgData.push(fileString);
+		};
+	});
+}
+
+// 下载
+function downloadImg(params) {
+	// 创建一个新的 ZIP 文件实例
+	const zip = new JSZip();
+
+	// 将 canvas 图像数据添加到 ZIP 文件中
+	function addCanvasToZip(canvas, fileName) {
+		return new Promise((resolve, reject) => {
+			const imageDataURL = canvas.toDataURL("image/png");
+			const data = imageDataURL.split(",")[1]; // 去掉 "data:image/png;base64," 部分
+
+			zip.file(fileName, data, { base64: true });
+			resolve();
+		});
+	}
+
+	// 添加所有 canvas 到 ZIP 文件
+	const promises = [];
+	$("#imgContain canvas").each(function (index, item) {
+		let fileName = `${$(this).attr("data-imgname")}.png`;
+		promises.push(addCanvasToZip(item, fileName));
+	});
+	// promises.push(addCanvasToZip(canvas1, "canvas1.png"));
+	// promises.push(addCanvasToZip(canvas2, "canvas2.png"));
+	// 所有 canvas 添加完毕后，生成 ZIP 文件并进行下载
+	Promise.all(promises)
+		.then(() => {
+			zip.generateAsync({ type: "blob" }).then((content) => {
+				const zipFileName = "canvas_images.zip";
+
+				// 创建一个 Blob 对象
+				const blob = new Blob([content]);
+
+				// 创建一个下载链接
+				const link = document.createElement("a");
+				link.href = window.URL.createObjectURL(blob);
+				link.download = zipFileName;
+
+				// 模拟点击下载链接
+				link.click();
+			});
+		})
+		.catch((error) => {
+			console.error("Error adding canvas to ZIP:", error);
+		});
+}
+
+   
+   
+   
+
+//	})
+//}])
+</script><style>canvas{border:1px solid black;}.hide{display:none;}label{cursor:pointer;background-color:tomato;padding:2px 4px;margin:0 4px;}</style></includeonly><noinclude>{{#Widget:SpritesCut}}</noinclude>

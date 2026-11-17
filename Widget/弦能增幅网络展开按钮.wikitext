@@ -1,0 +1,73 @@
+<button id="toggleAllGrowth" class="btn btn-default">展开全部属性变化</button>
+<includeonly><script>
+window.RLQ = window.RLQ || [];
+window.RLQ.push(function() {
+  $(document).ready(function() {
+    const $collapses = $('.growthcollapse');
+    const $toggleBtn = $('#toggleAllGrowth');
+
+    $toggleBtn.click(function() {
+      const anyExpanded = $collapses.toArray().some(c => $(c).hasClass('in'));
+      
+      if (anyExpanded) {
+        $collapses.collapse('hide'); // 存在展开项 -> 全部折叠
+        $toggleBtn.text('展开全部属性变化');
+      } else {
+        $collapses.collapse('show'); // 全部折叠 -> 展开所有
+        $toggleBtn.text('折叠全部属性变化');
+      }
+    });
+
+    // 监听折叠状态更新按钮文本
+    $collapses.on('shown.bs.collapse hidden.bs.collapse', function() {
+      const anyExpanded = $collapses.toArray().some(c => $(c).hasClass('in'));
+      $toggleBtn.text(anyExpanded ? '折叠全部属性变化' : '展开全部属性变化');
+    });
+  });
+});
+</script>
+
+<style>
+  #toggleAllGrowth {
+    min-width: 80px;
+    width: auto;
+    min-height: 38px;
+    padding: 0 16px;
+    text-align: center;
+    color: var(--klbq-text-muted);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px 4px 12px 4px;  
+    background: var(--klbq-surface-glass);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+  }
+  #toggleAllGrowth:hover {
+    color: #fff;
+    background: linear-gradient(to bottom, rgba(96, 165, 250, 0.5), rgba(160, 207, 255, 0.6));
+    border-color: rgba(147, 197, 253, 0.5);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+  }
+  #toggleAllGrowth:focus {
+    outline-color: var(--klbq-signal);
+  }
+
+  /* 暗色模式：背景/文字由 --klbq-* 令牌自动切换，此处仅覆盖亮色特有的白边框、阴影与悬停色，避免浅色元素发亮 */
+  .client-js.wiki-dark-mode #toggleAllGrowth {
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  }
+  .client-js.wiki-dark-mode #toggleAllGrowth:hover {
+    color: #fff;
+    background: linear-gradient(to bottom, rgba(56, 189, 248, 0.28), rgba(96, 165, 250, 0.32));
+    border-color: rgba(147, 197, 253, 0.35);
+    box-shadow: 0 4px 8px rgba(14, 165, 233, 0.25);
+  }
+  .client-js.wiki-dark-mode #toggleAllGrowth:focus {
+    outline-color: var(--klbq-signal);
+  }
+</style></includeonly>

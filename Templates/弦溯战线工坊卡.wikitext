@@ -1,0 +1,139 @@
+<includeonly><div class="sec-ws-card"><div class="sec-ws-card__head"><div class="sec-ws-card__title">{{{名称|}}}</div>{{#if:{{{徽章|}}}|<span class="sec-ws-card__badge">{{{徽章|}}}</span>}}{{#if:{{{类型标签|}}}|<span class="sec-ws-card__tags">{{{类型标签|}}}</span>}}</div>{{#if:{{{成品图标|}}}|<div class="sec-ws-card__icon">{{{成品图标|}}}</div>}}{{#if:{{{信息行|}}}|<div class="sec-ws-card__sub">{{{信息行|}}}</div>}}{{#ifeq:{{{类型|}}}|配方|<div class="sec-ws-card__recipe">{{#if:{{{档1成本|}}}|<div class="sec-ws-card__tier sec-ws-card__tier--on"><span class="sec-ws-card__tiername">{{{档1名|档1}}}</span><span class="sec-ws-card__cost">{{{档1成本|}}}</span><span class="sec-ws-card__time">{{{档1耗时|}}}</span></div>}}{{#if:{{{档2成本|}}}|<div class="sec-ws-card__tier"><span class="sec-ws-card__tiername">{{{档2名|档2}}}</span><span class="sec-ws-card__cost">{{{档2成本|}}}</span><span class="sec-ws-card__time">{{{档2耗时|}}}</span></div>}}{{#if:{{{档3成本|}}}|<div class="sec-ws-card__tier"><span class="sec-ws-card__tiername">{{{档3名|档3}}}</span><span class="sec-ws-card__cost">{{{档3成本|}}}</span><span class="sec-ws-card__time">{{{档3耗时|}}}</span></div>}}{{#if:{{{档4成本|}}}|<div class="sec-ws-card__tier"><span class="sec-ws-card__tiername">{{{档4名|档4}}}</span><span class="sec-ws-card__cost">{{{档4成本|}}}</span><span class="sec-ws-card__time">{{{档4耗时|}}}</span></div>}}</div>|{{#if:{{{详情|}}}|<div class="sec-ws-card__desc">{{{详情|}}}</div>}}}}</div></includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>
+{{#if:{{#varexists:sec-ws-card-css}} || {{#vardefine:sec-ws-card-css | 1 }}<bstyle>/*<pre>*/
+/* ===== 弦溯战线 · 工坊卡片 =====
+   三类内容共用一张卡：舱室卡 / 配方卡（品质档）/ 角色·家具·套装·收藏卡。
+   数据由 ExportScripts/modules/generate_sec_workshop.py 生成后静态粘贴，
+   不依赖 Lua 模块。配方卡内按品质档纵向排布，不折叠（数据量已按成品名归并）。
+
+   关键坑（沿用掉落卡经验）：
+   ① 本站 bstyle 会把选择器里的 ">" 转义成 &gt;，带子选择器的规则会失效，一律用后代选择器。
+   ② MediaWiki 会把模板展开后残留的连续换行段落化成带 margin 的空 <p>，卡片里 p 一律清 margin。
+   ③ 折叠用 mw-collapsible（不用 details/summary，Sanitizer 白名单没有）。 */
+
+.sec-ws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    align-items: start;
+    margin: 0.6em 0 1.2em;
+}
+@media screen and (max-width: 767px) {
+    .sec-ws-grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
+.sec-ws-card {
+    display: flex;
+    flex-direction: column;
+    background: rgb(var(--klbq-surface-rgb) / 0.88);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    padding: 14px 16px;
+    gap: 10px;
+    align-self: start;
+}
+@media (hover: hover) and (pointer: fine) {
+    .sec-ws-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(15, 118, 110, 0.45);
+        box-shadow: 0 8px 24px rgba(15, 118, 110, 0.15);
+    }
+}
+
+/* 清空模板展开残留的空 <p> margin */
+.sec-ws-card p { margin: 0; }
+
+.sec-ws-card__head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.sec-ws-card__head p { display: flex; align-items: center; gap: 6px 8px; flex-wrap: wrap; }
+.sec-ws-card__title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.3;
+}
+.sec-ws-card__badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 20px;
+    background: rgba(15, 118, 110, 0.12);
+    color: #0f766e;
+    white-space: nowrap;
+}
+.sec-ws-card__tags {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--klbq-text-muted);
+    white-space: nowrap;
+}
+
+.sec-ws-card__icon { display: flex; justify-content: center; padding: 2px 0 4px; }
+.sec-ws-card__icon img { max-width: 100%; height: auto; border-radius: 8px; }
+
+.sec-ws-card__sub { font-size: 0.875rem; color: var(--klbq-text-muted); line-height: 1.6; }
+.sec-ws-card__desc {
+    font-size: 0.875rem;
+    color: var(--klbq-text-muted);
+    line-height: 1.7;
+}
+
+/* 配方卡：品质档纵向排布，第一档高亮 */
+.sec-ws-card__recipe { display: flex; flex-direction: column; gap: 8px; }
+.sec-ws-card__tier {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 9px 11px;
+    background: rgb(var(--klbq-surface-rgb) / 0.6);
+    border: 1px solid rgba(226, 232, 240, 0.85);
+    border-radius: 10px;
+}
+.sec-ws-card__tier--on {
+    background: rgba(15, 118, 110, 0.06);
+    border-color: rgba(15, 118, 110, 0.35);
+}
+.sec-ws-card__tiername {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #0f766e;
+    letter-spacing: 0.03rem;
+}
+.sec-ws-card__cost {
+    font-size: 0.875rem;
+    color: var(--klbq-text);
+    line-height: 1.7;
+}
+.sec-ws-card__cost img { vertical-align: -3px; }
+.sec-ws-card__time {
+    font-size: 0.75rem;
+    color: var(--klbq-text-subtle);
+    line-height: 1.5;
+}
+
+/* 暗色模式 */
+.client-js.wiki-dark-mode .sec-ws-card {
+    background: rgba(30, 41, 59, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+}
+.client-js.wiki-dark-mode .sec-ws-card__title { color: var(--klbq-text); }
+.client-js.wiki-dark-mode .sec-ws-card__badge {
+    background: rgba(45, 212, 191, 0.15);
+    color: #5eead4;
+}
+.client-js.wiki-dark-mode .sec-ws-card__sub,
+.client-js.wiki-dark-mode .sec-ws-card__tags,
+.client-js.wiki-dark-mode .sec-ws-card__time { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-ws-card__desc { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-ws-card__tier {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+.client-js.wiki-dark-mode .sec-ws-card__tier--on {
+    background: rgba(45, 212, 191, 0.08);
+    border-color: rgba(45, 212, 191, 0.35);
+}
+.client-js.wiki-dark-mode .sec-ws-card__tiername { color: #5eead4; }
+.client-js.wiki-dark-mode .sec-ws-card__cost { color: var(--klbq-text-muted); }
+/*</pre>*/</bstyle>}}

@@ -1,0 +1,142 @@
+<includeonly>
+<style>
+/* 遮罩层，默认隐藏并带有渐现动画 */
+.wiki-modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.wiki-modal-overlay.active { opacity: 1; visibility: visible; }
+
+/* 模态框主体 */
+.wiki-modal-box {
+    width: 90%;
+    max-width: 70vw;
+    max-height: 85vh;
+    background-color: rgba(248, 249, 250, 0.95);
+    color: #333;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 9999;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .wiki-modal-box {
+    max-width: 80vw;
+  }
+}
+@media (max-width: 320px) {
+  .wiki-modal-box {
+    max-width: 90vw;
+  }
+}
+.wiki-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+
+.wiki-modal-header h3 { margin: 0; font-size: 1.25rem; font-weight: bold; color: #333; }
+
+/* 内容区：文本左对齐 */
+.wiki-modal-body {
+    flex-grow: 1;
+    overflow-y: auto; 
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* 图片独立居中并防溢出 */
+.wiki-modal-body img { 
+    display: block; 
+    margin: 10px auto;
+}
+
+.wiki-modal-close { cursor: pointer; font-size: 28px; color: #9ca3af; line-height: 1; }
+.wiki-modal-close:hover { color: #87CEFA; }
+
+.wiki-lemma-word { cursor: pointer; display: inline-block; }
+</style>
+<script>
+window.RLQ = window.RLQ || [];
+window.RLQ.push(function() {
+    if (window.modalInited) return;
+    window.modalInited = true;
+
+    let modal = null;
+    let savedScrollY = 0; // 用于专门记录页面的滚动位置
+
+    document.body.addEventListener('click', function(e) {
+        const trigger = e.target.closest('.wiki-lemma-word');
+        if (trigger) {
+            const titleData = trigger.querySelector('.wiki-lemma-title-data');
+            const contentData = trigger.querySelector('.wiki-lemma-content-data');
+            
+            const titleText = titleData ? titleData.textContent.trim() : '详情';
+            const contentHtml = contentData ? contentData.innerHTML : '';
+            
+            showModal(titleText, contentHtml);
+            return;
+        }
+        
+        if (e.target.closest('.wiki-modal-close') || e.target.classList.contains('wiki-modal-overlay')) {
+            hideModal();
+        }
+    });
+
+    function showModal(title, content) {
+        if (!modal) {
+            document.body.insertAdjacentHTML('beforeend', `
+                <div class="wiki-modal-overlay" id="wiki-popup-panel">
+                    <div class="wiki-modal-box">
+                        <div class="wiki-modal-header">
+                            <h3></h3><span class="wiki-modal-close">&times;</span>
+                        </div>
+                        <div class="wiki-modal-body"></div>
+                    </div>
+                </div>`);
+            modal = document.getElementById('wiki-popup-panel');
+        }
+        
+        modal.querySelector('h3').textContent = title;
+        modal.querySelector('.wiki-modal-body').innerHTML = content;
+
+        // 记录当前滚动位置
+        savedScrollY = window.scrollY || document.documentElement.scrollTop;
+        
+        // 将 body 固定，并通过负的 top 值使其在视觉上保持不动
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.style.top = `-${savedScrollY}px`;
+
+        modal.classList.add('active');
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            
+            // 解除固定状态，并瞬间通过 JS 滚回之前的位置
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            window.scrollTo(0, savedScrollY);
+        }
+    }
+});
+</script>
+</includeonly>

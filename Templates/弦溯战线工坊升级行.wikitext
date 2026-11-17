@@ -1,0 +1,137 @@
+<includeonly><div class="sec-ws-lv"><div class="sec-ws-lv__lv">{{{等级|}}}</div><div class="sec-ws-lv__body"><div class="sec-ws-lv__effect">{{{效果|}}}</div>{{#if:{{{数值|}}}|<div class="sec-ws-lv__meta">{{{数值|}}}</div>}}<div class="sec-ws-lv__cost"><span class="sec-ws-lv__label">消耗</span>{{{消耗|}}}</div></div></div></includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>
+{{#if:{{#varexists:sec-ws-lv-css}} || {{#vardefine:sec-ws-lv-css | 1 }}<bstyle>/*<pre>*/
+/* ===== 弦溯战线 · 工坊舱室升级阶梯 =====
+   原来的 7 列宽表在移动端要横滑，改成「每级一行」的竖向阶梯：
+   左侧 Lv.N 徽章，右侧效果 / 关键数值 / 消耗。窄屏只换行不横滑。
+   数据由 ExportScripts/modules/generate_sec_workshop.py 生成后静态粘贴。
+
+   关键坑（同工坊卡）：bstyle 会把选择器里的 ">" 转义，只用后代选择器；
+   模板展开残留的空 <p> 一律清 margin。 */
+
+.sec-ws-ladder {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0.5em 0 1.4em;
+}
+
+.sec-ws-lv {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba(248, 249, 250, 0.88);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+}
+.sec-ws-lv p { margin: 0; }
+
+.sec-ws-lv__lv {
+    flex: 0 0 auto;
+    min-width: 48px;
+    height: 48px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(15, 118, 110, 0.10);
+    color: #0f766e;
+    font-weight: 800;
+    font-size: 0.9375rem;
+    white-space: nowrap;
+}
+
+.sec-ws-lv__body {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sec-ws-lv__effect {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+.sec-ws-lv__meta {
+    font-size: 0.8125rem;
+    color: #0f766e;
+    line-height: 1.6;
+}
+
+.sec-ws-lv__cost {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    line-height: 1.7;
+}
+
+.sec-ws-lv__label {
+    color: #94a3b8;
+    margin-right: 2px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+/* 货币：绿色胶囊 */
+.sec-ws-lv__cur {
+    display: inline-block;
+    padding: 1px 9px;
+    border-radius: 20px;
+    background: rgba(15, 118, 110, 0.10);
+    color: #0f766e;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* 材料：灰色小方块，数量弱化 */
+.sec-ws-lv__mat {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 7px;
+    background: rgba(148, 163, 184, 0.14);
+    color: #475569;
+    white-space: nowrap;
+}
+.sec-ws-lv__mat em {
+    font-style: normal;
+    color: #94a3b8;
+    margin-left: 3px;
+}
+
+@media screen and (max-width: 480px) {
+    .sec-ws-lv { padding: 10px 12px; gap: 10px; }
+    .sec-ws-lv__lv { min-width: 44px; height: 44px; font-size: 0.875rem; }
+    .sec-ws-lv__effect { font-size: 0.9375rem; }
+}
+
+/* 暗色模式 */
+.client-js.wiki-dark-mode .sec-ws-lv {
+    background: rgba(30, 41, 59, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+}
+.client-js.wiki-dark-mode .sec-ws-lv__lv {
+    background: rgba(45, 212, 191, 0.15);
+    color: #5eead4;
+}
+.client-js.wiki-dark-mode .sec-ws-lv__effect { color: #f1f5f9; }
+.client-js.wiki-dark-mode .sec-ws-lv__meta { color: #5eead4; }
+.client-js.wiki-dark-mode .sec-ws-lv__label { color: #64748b; }
+.client-js.wiki-dark-mode .sec-ws-lv__cur {
+    background: rgba(45, 212, 191, 0.15);
+    color: #5eead4;
+}
+.client-js.wiki-dark-mode .sec-ws-lv__mat {
+    background: rgba(148, 163, 184, 0.16);
+    color: #cbd5e1;
+}
+.client-js.wiki-dark-mode .sec-ws-lv__mat em { color: #94a3b8; }
+/*</pre>*/</bstyle>}}

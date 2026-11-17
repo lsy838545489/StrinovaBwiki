@@ -1,0 +1,301 @@
+CDMeta={
+	"size":300,
+	"barColor":"rgba(255,0,0,1)",
+	"music":document.createElement("audio"),
+	"cover":document.createElement("img"),
+	"canvas":document.createElement("canvas"),
+	"materialIndex":0,
+	"isMouseOver":false,
+	"isOnclick":false,
+	"isChangeBar":false,
+	"isPlay":false,
+	"playList":new Set(),
+	"lastPlayList":[],
+}
+CDMaterial=[]
+CDFun={
+	"initialize":function(){
+		let CDPlayer=document.getElementById("CDPlayer")
+		CDMeta.mode=CDPlayer.dataset.mode||"列表循环"
+		CDMeta.modeList=(CDPlayer.dataset.modeList||"列表循环,单曲循环,随机播放").split(",")
+		let music=CDPlayer.dataset.music.split("|")
+		let cover=CDPlayer.dataset.cover.split("|")
+		for(let i=0,ilen=music.length;i<ilen;i++){
+			CDMaterial.push([music[i],cover[i]])
+			CDMeta.playList.add(i)
+		}
+		CDMeta.canvas.width=CDMeta.size
+		CDMeta.canvas.height=CDMeta.size
+		CDPlayer.appendChild(CDMeta.canvas)
+		CDMeta.brush=CDMeta.canvas.getContext("2d")
+		CDMeta.brush.translate(CDMeta.size/2,CDMeta.size/2)
+		CDMeta.music.onplay=function(){
+			CDMeta.isPlay=true
+			if(CDMeta.music.played.length==0){
+				CDMeta.playList.delete(CDMeta.materialIndex)
+				CDMeta.lastPlayList.push(CDMeta.materialIndex)
+				if(CDMeta.lastPlayList.length>CDMaterial.length){
+					CDMeta.lastPlayList.shift()
+				}
+			}
+			if(CDMeta.playList.size==0){
+				for(let i=0,ilen=CDMaterial.length;i<ilen;i++){
+					CDMeta.playList.add(i)
+				}
+			}
+			requestAnimationFrame(CDFun.animation)
+		}
+		CDMeta.music.onended=function(){
+			switch(CDMeta.mode){
+				case "单曲播放":
+				CDMeta.music.currentTime=0
+				CDMeta.isPlay=false
+				CDFun.drawAll()
+				break
+				case "单曲循环":
+				CDMeta.music.currentTime=0
+				CDMeta.music.play()
+				break
+				case "列表播放":
+				CDMeta.materialIndex++
+				if(CDMeta.materialIndex==CDMaterial.length){
+					CDMeta.materialIndex%=CDMaterial.length
+					CDFun.loadMaterial()
+					CDMeta.isPlay=false
+					CDFun.drawAll()
+				}
+				else{
+					CDFun.loadMaterial()
+					CDMeta.music.play()
+				}
+				break
+				case "列表循环":
+				CDMeta.materialIndex++
+				CDMeta.materialIndex%=CDMaterial.length
+				CDFun.loadMaterial()
+				CDMeta.music.play()
+				break
+				case "随机播放":
+				let randomList=[...CDMeta.playList]
+				CDMeta.materialIndex=randomList[Math.floor(Math.random()*randomList.length)]
+				CDFun.loadMaterial()
+				CDMeta.music.play()
+				break
+			}
+		}
+		CDMeta.cover.onload=function(){
+			CDFun.drawAll()
+		}
+		CDMeta.canvas.onmousemove=function(e){
+			if(CDFun.isInRing([e.offsetX,e.offsetY],[[0,0],CDMeta.size/2])){
+				CDMeta.isMouseOver=true
+			}
+			else{
+				CDMeta.isMouseOver=false
+			}
+			if(CDMeta.isChangeBar&&CDMeta.isMouseOver){
+				CDFun.changeBar(e.offsetX,e.offsetY)
+			}
+			CDFun.drawAll()
+		}
+		CDMeta.canvas.onmouseout=function(){
+			CDMeta.isMouseOver=false
+			CDFun.drawAll()
+		}
+		CDMeta.canvas.onmousedown=function(e){
+			if(e.button==0){
+				CDMeta.isOnclick=true
+				if(CDFun.isInRing([e.offsetX,e.offsetY],[[0,0],CDMeta.size/2],[[0,0],CDMeta.size/2-CDMeta.size/12])){
+					CDMeta.isChangeBar=true
+					CDMeta.music.pause()
+					CDFun.changeBar(e.offsetX,e.offsetY)
+				}
+				CDFun.drawAll()
+			}
+		}
+		window.addEventListener("mouseup",function(e){
+			if(e.button==0){
+				if(CDMeta.isChangeBar&&CDMeta.isPlay){
+					CDMeta.music.play()
+				}
+				CDMeta.isOnclick=false
+				CDMeta.isChangeBar=false
+				CDFun.drawAll()
+			}
+		})
+		CDMeta.canvas.onmouseup=function(e){
+			if(e.button==0){
+				if(!CDMeta.isChangeBar&&CDFun.isInRing([e.offsetX,e.offsetY],[[0,0],CDMeta.size/2-CDMeta.size/12],[[0,0],CDMeta.size/8])){
+					if(CDMeta.music.paused){
+						CDMeta.music.play()
+					}
+					else{
+						CDMeta.music.pause()
+						CDMeta.isPlay=false
+					}
+				}
+				CDFun.drawAll()
+			}
+		}
+		CDMeta.canvas.onclick=function(e){
+			if(e.button==0){
+				if(CDFun.isInRing([e.offsetX,e.offsetY],[[0,0],CDMeta.size/8])){
+					CDMeta.mode=CDMeta.modeList[(CDMeta.modeList.indexOf(CDMeta.mode)+1)%CDMeta.modeList.length]
+					CDFun.drawAll()
+				}
+			}
+		}
+		CDMeta.canvas.oncontextmenu=function(e){
+			if(CDMeta.isMouseOver){
+				CDMeta.music.currentTime=0
+				CDMeta.music.pause()
+				CDFun.drawAll()
+			}
+			return false
+		}
+		CDMeta.canvas.ondblclick=function(e){
+			if(CDFun.isInRing([e.offsetX,e.offsetY],[[0,0],CDMeta.size/2],[[0,0],CDMeta.size/8])){
+				if(e.offsetX<CDMeta.size/2){
+					if(CDMeta.mode=="随机播放"){
+						CDMeta.lastPlayList.pop()
+						if(CDMeta.lastPlayList.length>0){
+							CDMeta.materialIndex=CDMeta.lastPlayList.pop()
+						}
+						else{
+							let randomList=[...CDMeta.playList]
+							CDMeta.materialIndex=randomList[Math.floor(Math.random()*randomList.length)]
+						}
+					}
+					else{
+						CDMeta.materialIndex+=CDMaterial.length-1
+					}
+				}
+				else{
+					if(CDMeta.mode=="随机播放"){
+						let randomList=[...CDMeta.playList]
+						CDMeta.materialIndex=randomList[Math.floor(Math.random()*randomList.length)]
+					}
+					else{
+						CDMeta.materialIndex++
+					}
+				}
+				CDMeta.materialIndex%=CDMaterial.length
+				CDFun.loadMaterial()
+				CDMeta.music.play()
+			}
+		}
+		this.loadMaterial()
+	},
+	"loadMaterial":function(){
+		CDMeta.music.src=CDMaterial[CDMeta.materialIndex][0]
+		CDMeta.cover.src=CDMaterial[CDMeta.materialIndex][1]
+		if(CDMeta.complete){
+			CDFun.drawAll()
+		}
+	},
+	"drawBase":function(){
+		CDMeta.brush.clearRect(-CDMeta.size/2,-CDMeta.size/2,CDMeta.size,CDMeta.size)
+		CDMeta.brush.save()
+		CDMeta.brush.beginPath()
+		CDMeta.brush.rotate(CDMeta.music.currentTime/5)
+		CDMeta.brush.strokeStyle="rgba(0,0,0,0.6)"
+		CDMeta.brush.lineWidth=CDMeta.size/6
+		CDMeta.brush.arc(0,0,CDMeta.size/2,0,2*Math.PI)
+		CDMeta.brush.clip()
+		CDMeta.brush.drawImage(CDMeta.cover,-CDMeta.size/2,-CDMeta.size/2,CDMeta.size,CDMeta.size)
+		CDMeta.brush.arc(0,0,CDMeta.size/2,0,2*Math.PI)
+		CDMeta.brush.stroke()
+		CDMeta.brush.restore()
+	},
+	"drawBar":function(){
+		CDMeta.brush.save()
+		CDMeta.brush.beginPath()
+		CDMeta.brush.rotate(-Math.PI/2)
+		CDMeta.brush.strokeStyle=CDMeta.barColor
+		CDMeta.brush.fillStyle=CDMeta.barColor
+		if(CDMeta.music.currentTime!=0){
+			CDMeta.brush.lineWidth=CDMeta.size/36
+			CDMeta.brush.lineCap="round"
+			CDMeta.brush.arc(0,0,CDMeta.size/2-CDMeta.size/24,0,CDMeta.music.currentTime/CDMeta.music.duration*2*Math.PI)
+			CDMeta.brush.stroke()
+		}
+		if(CDMeta.isMouseOver||CDMeta.isChangeBar){
+			CDMeta.brush.beginPath()
+			CDMeta.brush.rotate(CDMeta.music.currentTime/CDMeta.music.duration*2*Math.PI)
+			CDMeta.brush.arc(CDMeta.size/2-CDMeta.size/24,0,CDMeta.size/36,0,2*Math.PI)
+			CDMeta.brush.fill()
+		}
+		CDMeta.brush.restore()
+	},
+	"drawMode":function(){
+		if(CDMeta.isMouseOver&&!CDMeta.isChangeBar){
+			CDMeta.brush.save()
+			CDMeta.brush.beginPath()
+			CDMeta.brush.fillStyle="rgba(0,0,0,0.6)"
+			CDMeta.brush.arc(0,0,CDMeta.size/8,0,2*Math.PI)
+			CDMeta.brush.fill()
+			CDMeta.brush.fillStyle="rgba(255,255,255,1)"
+			CDMeta.brush.font=CDMeta.size/12+"px 黑体"
+			CDMeta.brush.textBaseline="bottom"
+			CDMeta.brush.textAlign="right"
+			CDMeta.brush.fillText(CDMeta.mode[0],0,0)
+			CDMeta.brush.textAlign="left"
+			CDMeta.brush.fillText(CDMeta.mode[1],0,0)
+			CDMeta.brush.textBaseline="top"
+			CDMeta.brush.fillText(CDMeta.mode[3],0,0)
+			CDMeta.brush.textAlign="right"
+			CDMeta.brush.fillText(CDMeta.mode[2],0,0)
+			CDMeta.brush.restore()
+		}
+	},
+	"drawAll":function(){
+		this.drawBase()
+		this.drawBar()
+		this.drawMode()
+	},
+	"changeBar":function(x,y){
+		x-=CDMeta.size/2
+		y-=CDMeta.size/2
+		let radian
+		if(x>0){
+			radian=Math.atan(y/x)+Math.PI/2
+		}
+		else{
+			radian=Math.atan(y/x)+Math.PI*3/2
+		}
+		CDMeta.music.currentTime=radian/Math.PI/2*CDMeta.music.duration
+	},
+	"isInRing":function(point,br,sr){
+		CDMeta.brush.save()
+		CDMeta.brush.beginPath()
+		CDMeta.brush.arc(br[0][0],br[0][1],br[1],0,2*Math.PI)
+		if(!CDMeta.brush.isPointInPath(...point)){
+			CDMeta.brush.restore()
+			return false
+		}
+		if(sr){
+			CDMeta.brush.beginPath()
+			CDMeta.brush.arc(sr[0][0],sr[0][1],sr[1],0,2*Math.PI)
+			if(CDMeta.brush.isPointInPath(...point)){
+				CDMeta.brush.restore()
+				return false
+			}
+		}
+		CDMeta.brush.restore()
+		return true
+	},
+	"animation":function(){
+		CDFun.drawAll()
+		if(!CDMeta.music.paused){
+			requestAnimationFrame(CDFun.animation)
+		}
+	}
+}
+if(document.readyState=="complete"){
+	CDFun.initialize()
+}
+else{
+	window.addEventListener("load",function(){
+		CDFun.initialize()
+	})
+}

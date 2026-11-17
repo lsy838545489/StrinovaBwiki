@@ -1,0 +1,105 @@
+<includeonly><div class="home-panel {{#if:{{{class|}}}|{{{class}}}}}">{{#if:{{{标题|}}}|<div class="home-panel__head"><div class="home-panel__title">{{{标题}}}</div></div>}}
+{{#forargs: 内容块 | k | v |{{#if:{{{小标题{{#var:k}}|}}}|<div class="home-panel__sub">{{{小标题{{#var:k}}}}}</div>}}{{#if:{{#var:v}}|<div class="home-panel__body">{{#var:v}}</div>}}}}
+</div></includeonly><noinclude>{{Documentation}}[[分类:首页模板]]</noinclude>
+{{#if:{{#varexists:首页卡片样式}} || {{#vardefine:首页卡片样式 | 1 }}<bstyle>/*<pre>*/
+.home-panel {
+    margin-bottom: 20px;
+    padding: 0;
+    background: rgb(var(--klbq-surface-rgb) / 0.95);
+    border-radius: 18px 2px 18px 2px;
+    border: 1px solid rgba(0, 172, 193, 0.2);
+    box-shadow: 4px 4px 0px rgba(0, 172, 193, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.home-panel__head {
+    padding: 12px 20px;
+    background: 
+        repeating-linear-gradient(45deg, rgba(0, 172, 193, 0.03) 0px, rgba(0, 172, 193, 0.03) 2px, transparent 2px, transparent 4px), 
+        linear-gradient(90deg, rgba(0, 172, 193, 0.15) 0%, transparent 100%);
+    border-bottom: 2px solid var(--klbq-accent);
+    display: flex;
+    align-items: center;
+}
+.home-panel__head::before {
+    content: "";
+    width: 6px;
+    height: 20px;
+    background: var(--klbq-accent);
+    margin-right: 12px;
+    border-radius: 2px;
+    box-shadow: 4px 0 0 rgba(0, 172, 193, 0.3);
+    display: inline-block;
+    animation: home-panel-pulse 3s infinite ease-in-out;
+}
+@keyframes home-panel-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+.home-panel__title {
+    color: var(--klbq-ink-900);
+    font-weight: 900;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+}
+.home-panel__head .home-panel__title::after {
+    content: "Strinova";
+    font-size: 0.625rem;
+    color: var(--klbq-accent);
+    opacity: 0.6;
+    letter-spacing: 1px;
+    margin-top: -2px;
+}
+.home-panel__sub {
+    color: var(--klbq-ink-600);
+    font-size: 1rem;
+    border-bottom: 1px dashed var(--klbq-line-200);
+    padding: 8px 5px;
+    margin: 0 10px;
+}
+.home-panel__body {
+    padding: 5px 10px;
+}
+
+/* -----------暗色模式----------- */
+.client-js.wiki-dark-mode .home-panel {
+    background: rgba(18, 26, 33, 0.85);
+    border: 1px solid rgba(0, 172, 193, 0.3);
+    box-shadow: 4px 4px 0 rgba(0, 172, 193, 0.15);
+}
+.client-js.wiki-dark-mode .home-panel__head {
+    background:
+        repeating-linear-gradient(
+            45deg,
+            rgba(0, 172, 193, 0.05) 0,
+            rgba(0, 172, 193, 0.05) 2px,
+            transparent 2px,
+            transparent 4px
+        ),
+        linear-gradient(90deg, rgba(77, 208, 225, 0.22) 0, transparent 100%);
+    border-bottom: 2px solid var(--klbq-accent);
+}
+.client-js.wiki-dark-mode .home-panel__head::before {
+    background: var(--klbq-accent);
+    box-shadow:
+        4px 0 0 rgba(0, 172, 193, 0.4),
+        0 0 10px rgba(0, 172, 193, 0.5);
+}
+.client-js.wiki-dark-mode .home-panel__title {
+    color: var(--klbq-text);
+}
+.client-js.wiki-dark-mode .home-panel__head .home-panel__title::after {
+    color: var(--klbq-accent);
+    opacity: 0.8;
+}
+.client-js.wiki-dark-mode .home-panel__sub {
+    color: var(--klbq-text-muted);
+    border-bottom: 1px dashed rgba(77, 208, 225, 0.35);
+}
+.client-js.wiki-dark-mode .home-panel__body {
+    color: var(--klbq-text);
+}
+/*</pre>*/</bstyle>}}

@@ -1,0 +1,375 @@
+<includeonly><div class="sec-drop-card" data-tier="{{{徽章色|0}}}"><div class="sec-drop-card__head"><div class="sec-drop-card__title">{{{名称|}}}</div>{{#if:{{{徽章|}}}|<span class="sec-drop-card__tier">{{{徽章|}}}</span>}}{{#if:{{{档次|}}}|<span class="sec-drop-card__grade {{{档次类|grade-normal}}}">{{{档次|}}}</span>}}</div>{{#if:{{{进度|}}}|{{{进度|}}}}}{{#if:{{{出现方式|}}}|<div class="sec-drop-card__sub">{{{出现方式|}}}</div>}}{{#if:{{{必掉|}}}{{{限定池|}}}{{{掉落列表|}}}{{{掉落池构成|}}}|<div class="sec-drop-card__items">{{#if:{{{必掉|}}}|<div class="sec-drop-card__label">{{{必掉标签|必掉物}}}</div><div class="sec-drop-card__must">{{{必掉|}}}</div>}}{{#if:{{{限定池|}}}|<div class="sec-drop-card__label">限定池</div><div class="sec-drop-card__list">{{{限定池|}}}</div>}}{{#if:{{{掉落列表|}}}|<div class="sec-drop-card__label">抽中率最高</div><div class="sec-drop-card__list">{{{掉落列表|}}}</div>}}{{#if:{{{掉落池构成|}}}|<div class="sec-drop-card__label">掉落池构成</div><div class="sec-drop-card__poolsum">{{{掉落池构成|}}}</div>}}</div>}}{{#if:{{{掉落件数|}}}{{{掉落池规模|}}}|<div class="sec-drop-card__meta">{{#if:{{{掉落件数|}}}|<div class="sec-drop-card__meta-item"><span class="sec-drop-card__meta-label">掉落件数</span><span class="sec-drop-card__meta-val">{{{掉落件数|}}}</span></div>}}{{#if:{{{掉落池规模|}}}|<div class="sec-drop-card__meta-item"><span class="sec-drop-card__meta-label">掉落池规模</span><span class="sec-drop-card__meta-val">{{{掉落池规模|}}}</span></div>}}</div>}}{{#if:{{{信息行|}}}|<div class="sec-drop-card__foot">{{{信息行|}}}</div>}}</div></includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>
+{{#if:{{#varexists:sec-drop-card-css}} || {{#vardefine:sec-drop-card-css | 1 }}<bstyle>/*<pre>*/
+/* ===== 弦溯战线 · 通用掉落卡 ===== */
+/* 三类内容共用一张卡：
+     · 晶源体卡（徽章=普通档/精英档，档次=普通/精英）
+     · Boss 阶段卡（徽章=阈值 N，档次=首领，带阈值进度条）
+     · 搜刮容器卡（徽章=子类，档次=顶级箱/精英/普通）
+   数据由 ExportScripts/modules/generate_sec_monsters.py 生成后静态粘贴，
+   不依赖 Lua 模块；页面不使用筛选栏，按条目逐个直读。
+
+   2026-11 改版要点：
+   ① 新增 .sec-drop-grid/.sec-drop-note —— 原先页面用的 klbq-store-goods-grid
+      只有「商城商品信息卡」模板会下发样式，本页没引用那个模板，
+      类名是死的，53 张卡一直整宽单列。改为模板自带网格类，桌面两列。
+   ② 出现方式从脚注提到副标题位；容器 ID 下沉到脚注。
+   ③ 件数/池规模改为可选（同档位共用的值提到 .sec-drop-note，不再逐卡重复）。
+   ④ 新增档次 chip 与阶段进度条。 */
+
+.sec-drop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    align-items: start;
+    margin: 0.6em 0 1.2em;
+}
+@media screen and (max-width: 767px) {
+    .sec-drop-grid { grid-template-columns: 1fr; gap: 12px; }
+}
+/* 只有一张卡的小节（Boss）：不让它孤零零占半列，直接通栏 */
+.sec-drop-grid--single { grid-template-columns: 1fr; }
+
+/* 档位共用信息条：跨两列，每档只出现一次 */
+.sec-drop-note {
+    grid-column: 1 / -1;
+    background: rgb(var(--klbq-surface-rgb) / 0.8);
+    border: 1px dashed rgba(148, 163, 184, 0.45);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    color: var(--klbq-text-muted);
+    line-height: 1.8;
+}
+.sec-drop-note b { color: var(--klbq-text); font-weight: 700; }
+
+/* ── 共用掉落池区块（D 方案）─────────────────────────────────
+   池从卡片里抽出来，按档（或按池）只写一次。原来的做法是每张卡各带
+   一份完整池，但 52 个容器其实只有 19 种不同的池、重复率 69%，
+   逐卡列会把 wikitext 从 236 KB 顶到 1.1 MB。
+   这里只铺 Q4 及以上：实测 300px 的内滚动框只放得下 288 项里的 51 项
+   （18%），框底没有截断提示，读者会以为「已经列完了」，所以不做内滚动；
+   该站 Sanitizer 白名单又不支持 details/summary（2026-11-03 实测会转义成
+   纯文本），低品级因此只给一行统计 + 指向总表。 */
+.sec-drop-pool {
+    grid-column: 1 / -1;
+    background: rgb(var(--klbq-surface-rgb) / 0.88);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin: 0 0 14px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+.sec-drop-pool__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+.sec-drop-pool__head b {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0f766e;
+    background: rgba(15, 118, 110, 0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+.sec-drop-pool__note { font-size: 0.75rem; font-weight: 400; color: var(--klbq-text-muted); }
+/* 2026-11-03：折叠用 MediaWiki 官方 mw-collapsible / mw-customtoggle——
+   jquery.makeCollapsible 默认加载（页面 RLPAGEMODULES 里带），无需手动引 JS。
+   不用 details/summary：该站 Sanitizer 白名单里没有这两个标签，会被转义成纯文本。 */
+.sec-drop-pool__sec {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0f766e;
+    padding: 9px 0 3px;
+}
+.sec-drop-pool__body { padding: 0 0 4px; }
+.sec-drop-pool__rest {
+    margin-top: 8px;
+    padding-top: 7px;
+    border-top: 1px dashed rgba(148, 163, 184, 0.45);
+    font-size: 0.75rem;
+    color: var(--klbq-text-subtle);
+    line-height: 1.7;
+}
+.sec-drop-pool__toggle {
+    cursor: pointer;
+    color: #0f766e;
+    font-weight: 600;
+    user-select: none;
+}
+.sec-drop-pool__toggle:hover { color: #0d9488; }
+.sec-drop-pool__toggle::before { content: "▸ "; }
+.sec-drop-pool__rest .mw-collapsible { color: var(--klbq-text); font-size: 0.875rem; }
+.sec-drop-pool__q { display: flex; align-items: center; gap: 8px; padding: 5px 0 3px; }
+.sec-drop-pool__tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #fff;
+    padding: 1px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+/* 品质标签背景色 = 游戏内品质色（SECItemQualityRes.Color），文字色按背景明暗单独配：
+   浅色背景（优秀/精致/卓越/完美）配深字，深色背景（臻藏/传说）配白字。 */
+.sec-q1 { background: var(--item-quality-Initial); color: var(--klbq-text-muted); }
+.sec-q2 { background: var(--item-quality-Exquisite); color: #0b2545; }
+.sec-q3 { background: var(--item-quality-Superior); color: #3b0a4d; }
+.sec-q4 { background: var(--item-quality-Perfect); color: #4a3000; }
+.sec-q5 { background: var(--item-quality-Secret); color: #fff; }
+.sec-q6 { background: var(--item-quality-Legendary); color: #fff; }
+/* 品质 7/8 是武器与超弦装甲的专有品质（不在 SECItemQualityRes 里），用中性深色 */
+.sec-q7, .sec-q8 { background: var(--klbq-text-muted); color: #fff; }
+.sec-drop-pool__cnt { font-size: 0.75rem; color: var(--klbq-text-subtle); }
+.sec-drop-pool__chips { display: flex; flex-wrap: wrap; gap: 4px 5px; padding-bottom: 4px; }
+.sec-drop-chip {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    font-size: 0.75rem;
+    color: var(--klbq-text);
+    line-height: 1.55;
+    white-space: nowrap;
+}
+
+.sec-drop-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgb(var(--klbq-surface-rgb) / 0.88);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding: 14px 16px;
+    gap: 10px;
+}
+@media (hover: hover) and (pointer: fine) {
+    .sec-drop-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(0, 172, 193, 0.45);
+        box-shadow: 0 8px 24px rgba(0, 172, 193, 0.15);
+    }
+}
+.sec-drop-card[data-tier="1"] { border-color: rgba(56, 138, 221, 0.45); }
+
+/* MediaWiki 会把模板源码里条件判断展开后留下的连续换行段落化成空段落。
+   这些空段落带着 <p> 默认的上下 margin（约 1em），在 flex 纵向布局里会把
+   卡片撑出一大块空白；徽章那行也会被整段包进一个 p 里。
+   2026-11-03 线上实测：不处理的话卡片内部会出现十几到几十 px 的空洞。
+   ① 卡片/池区块里的 p 一律清空 margin；
+   ② __items / __body 里的直接子 p 只可能是占位空段，整体隐藏。 */
+.sec-drop-card p,
+.sec-drop-pool p,
+.sec-drop-grid p { margin: 0; display: none; }
+/* 注意：这个站的 bstyle 会把选择器里的 ">" 转义成 &gt;，带子选择器的整条规则
+   直接失效（2026-11-03 线上实测），所以这里一律用后代选择器。顺序也有讲究：
+   先全部隐藏，再单独把徽章那一行恢复成 flex。 */
+.sec-drop-card__head p { display: flex; align-items: center; gap: 6px 8px; flex-wrap: wrap; }
+/* 双保险：即使有残留的占位元素把行高撑起来，卡片也只按自身内容高度对齐，
+   不再被 grid 的 stretch 拉平（拉伸会让 __items 的 flex-grow 撑出空心块） */
+.sec-drop-card { align-self: start; }
+.sec-drop-card[data-tier="2"] { border-color: rgba(213, 83, 126, 0.45); }
+.sec-drop-card[data-tier="3"] { border-color: rgba(83, 74, 183, 0.45); }
+
+.sec-drop-card__head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.sec-drop-card__title {
+    font-family: "Roboto Mono", monospace;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.3;
+}
+.sec-drop-card__tier {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 20px;
+    background: rgba(148, 163, 184, 0.18);
+    color: var(--klbq-text-muted);
+    white-space: nowrap;
+}
+.sec-drop-card[data-tier="1"] .sec-drop-card__tier {
+    background: rgba(56, 138, 221, 0.12);
+    color: #185FA5;
+}
+.sec-drop-card[data-tier="2"] .sec-drop-card__tier {
+    background: rgba(213, 83, 126, 0.12);
+    color: #993556;
+}
+.sec-drop-card[data-tier="3"] .sec-drop-card__tier {
+    background: rgba(83, 74, 183, 0.12);
+    color: #3c3489;
+}
+
+/* 掉落档次：描边 chip，与填充式徽章区分开 */
+.sec-drop-card__grade {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 1px 8px;
+    border-radius: 20px;
+    border: 1px solid currentColor;
+    background: transparent;
+    white-space: nowrap;
+}
+.grade-normal { color: var(--klbq-text-muted); }
+.grade-elite { color: #185FA5; }
+.grade-boss { color: #3c3489; }
+.grade-top { color: #9a3412; }
+.grade-air { color: #0f6e56; }
+
+/* 阶段进度条：6 格，填到当前阶段 */
+.sec-drop-card__prog { display: flex; gap: 3px; }
+.sec-drop-card__prog i {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(148, 163, 184, 0.28);
+}
+.sec-drop-card__prog i.on { background: rgba(83, 74, 183, 0.75); }
+
+/* 副标题位：出没方式 / 阶段，信息权重高于脚注 */
+.sec-drop-card__sub { font-size: 0.875rem; color: var(--klbq-text-muted); line-height: 1.6; }
+
+.sec-drop-card__items {
+    background: rgb(var(--klbq-surface-rgb) / 0.7);
+    border: 1px solid rgba(226, 232, 240, 0.85);
+    border-radius: 10px;
+    padding: 9px 11px;
+}
+.sec-drop-card__label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--klbq-text-subtle);
+    letter-spacing: 0.05rem;
+    margin-bottom: 6px;
+}
+.sec-drop-card__must { font-size: 0.875rem; color: #92400e; font-weight: 500; }
+.sec-drop-card__poolsum { font-size: 0.875rem; color: var(--klbq-text-muted); line-height: 1.7; }
+/* 列表：页面内容用 模板:Ul 生成真正的 <ul>（参数里的 * 列表不会被解析成列表）。
+   注意不要写 list-style：站点全局对「无 class 的 ul > li」画了一个 6px 蓝点
+   （.mw-parser-output ul:not([class]) > li::before，色 #60a5fa），再写
+   list-style: disc 会变成两个点叠加（2026-11-03 线上实测）。
+   站点那套圆点依赖 li 的 padding-left:15px 定位，这里也不动 padding。 */
+.sec-drop-card__list ul {
+    margin: 0;
+    list-style: none;
+}
+.sec-drop-card__list li {
+    font-size: 0.875rem;
+    color: var(--klbq-text);
+    line-height: 1.7;
+    margin-bottom: 2px;
+}
+.sec-drop-card__list li img { vertical-align: -3px; }
+
+.sec-drop-card__meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: auto;
+}
+.sec-drop-card__meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 5px 9px;
+    background: rgb(var(--klbq-surface-rgb) / 0.5);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 8px;
+}
+.sec-drop-card__meta-label {
+    color: var(--klbq-text-subtle);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+.sec-drop-card__meta-val {
+    color: var(--klbq-accent-strong);
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.sec-drop-card__foot {
+    font-size: 0.75rem;
+    color: var(--klbq-text-subtle);
+    border-top: 1px solid rgba(226, 232, 240, 0.85);
+    padding-top: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    justify-content: space-between;
+}
+.sec-drop-card__foot a { color: var(--klbq-accent-strong); text-decoration: none; }
+.sec-drop-card__foot a:hover { text-decoration: underline; }
+
+/* 暗色模式 */
+.client-js.wiki-dark-mode .sec-drop-card {
+    background: rgba(30, 41, 59, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+}
+.client-js.wiki-dark-mode .sec-drop-note {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(148, 163, 184, 0.3);
+    color: var(--klbq-text-muted);
+}
+.client-js.wiki-dark-mode .sec-drop-note b { color: var(--klbq-text); }
+.client-js.wiki-dark-mode .sec-drop-card__title { color: var(--klbq-text, var(--klbq-text)); }
+.client-js.wiki-dark-mode .sec-drop-card__items,
+.client-js.wiki-dark-mode .sec-drop-card__meta-item {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+.client-js.wiki-dark-mode .sec-drop-card__must { color: #fcd34d; }
+.client-js.wiki-dark-mode .sec-drop-card__poolsum,
+.client-js.wiki-dark-mode .sec-drop-card__sub { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-drop-card__meta-val { color: var(--klbq-accent); }
+.client-js.wiki-dark-mode .sec-drop-card__foot { color: var(--klbq-text-muted); border-top-color: rgba(255,255,255,.08); }
+.client-js.wiki-dark-mode .sec-drop-card__foot a { color: var(--klbq-accent); }
+.client-js.wiki-dark-mode .sec-drop-card__prog i { background: rgba(148, 163, 184, 0.25); }
+.client-js.wiki-dark-mode .sec-drop-card__prog i.on { background: rgba(165, 158, 240, 0.85); }
+
+/* 暗色模式：档次 chip 与档位徽章 —— 深色文字改提亮一档、色相不变 */
+.client-js.wiki-dark-mode .grade-elite { color: #60a5fa; }
+.client-js.wiki-dark-mode .grade-boss { color: #a78bfa; }
+.client-js.wiki-dark-mode .grade-top { color: #fb923c; }
+.client-js.wiki-dark-mode .grade-air { color: #4ade80; }
+.client-js.wiki-dark-mode .sec-drop-card[data-tier="1"] .sec-drop-card__tier { color: #7dd3fc; }
+.client-js.wiki-dark-mode .sec-drop-card[data-tier="2"] .sec-drop-card__tier { color: #f9a8d4; }
+.client-js.wiki-dark-mode .sec-drop-card[data-tier="3"] .sec-drop-card__tier { color: #c4b5fd; }
+/* 暗色模式：共用掉落池区块 */
+.client-js.wiki-dark-mode .sec-drop-pool {
+    background: rgba(30, 41, 59, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+}
+.client-js.wiki-dark-mode .sec-drop-pool__head { color: var(--klbq-text); }
+.client-js.wiki-dark-mode .sec-drop-pool__head b {
+    color: #5eead4;
+    background: rgba(45, 212, 191, 0.15);
+}
+.client-js.wiki-dark-mode .sec-drop-pool__note,
+.client-js.wiki-dark-mode .sec-drop-pool__cnt { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-drop-pool__sec { color: #5eead4; }
+.client-js.wiki-dark-mode .sec-drop-pool__rest {
+    color: var(--klbq-text-muted);
+    border-top-color: rgba(148, 163, 184, 0.25);
+}
+.client-js.wiki-dark-mode .sec-drop-pool__toggle { color: #5eead4; }
+.client-js.wiki-dark-mode .sec-drop-pool__toggle:hover { color: #99f6e4; }
+.client-js.wiki-dark-mode .sec-drop-pool__rest .mw-collapsible { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-drop-chip {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.06);
+    color: var(--klbq-text-muted);
+}
+/*</pre>*/</bstyle>}}

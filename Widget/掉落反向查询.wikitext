@@ -1,0 +1,695 @@
+<includeonly><style>
+/* ===== 弦溯战线 · 掉落反向查询 =====
+   输入物品名 → 反查哪个掉落源（容器/晶源体/Boss阶段）最容易出，按单件抽中率降序。
+   数据来自 MediaWiki:弦溯战线掉落反向-<n>.json 分片（api.php 的 prop=revisions 读取）。
+
+   视觉语言对齐「模板:弦溯战线掉落卡」：
+     · 卡片底 rgba(248,249,250,.88) + 1px rgba(226,232,240,.95) 边 + 16px 圆角
+     · 阴影 0 4px 16px rgba(15,23,42,.04)，backdrop-filter blur(10px)
+     · 主色青 #00ACC1（卡片 hover 同色），强调青绿 #0e7490 / #0f766e
+     · 品质色取自游戏 SECItemQualityRes.Color（Q1 灰 → Q6 红，Q7/8 中性深色）
+     · 类型徽章沿用掉落卡三档色：容器蓝 / 晶源体粉 / Boss 紫 */
+
+.sec-rev {
+    max-width: 720px;
+    margin: 0.6em 0 1.4em;
+    padding: 14px 16px 12px;
+    background: rgba(248, 249, 250, 0.88);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* 说明条：左侧青色竖条 + 小字，比裸文本更像卡片内的一块内容 */
+.sec-rev__hint {
+    display: block;
+    margin: 0 0 10px;
+    padding: 2px 0 2px 9px;
+    border-left: 3px solid rgba(0, 172, 193, 0.55);
+    font-size: 0.75rem;
+    color: var(--klbq-text-muted);
+    line-height: 1.7;
+}
+
+.sec-rev__box {
+    position: relative;
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.sec-rev__input {
+    flex: 1 1 240px; min-width: 200px;
+    padding: 9px 12px 9px 34px;
+    font-size: 0.875rem; font-family: inherit;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    border-radius: 10px;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-4.2-4.2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 11px center;
+    background-size: 15px 15px;
+    color: #1e293b;
+    outline: none;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+    transition: border-color 0.18s, box-shadow 0.18s;
+}
+.sec-rev__input::placeholder { color: #b6c2d1; }
+.sec-rev__input:focus {
+    border-color: rgba(0, 172, 193, 0.55);
+    box-shadow: 0 0 0 3px rgba(0, 172, 193, 0.12);
+}
+
+/* 自定义下拉：原生 <datalist> 无法控制弹出方向/尺寸，也不能分组，所以自己画一个。
+   这个面板在初始化时会被移动到 document.body（portal）：
+   卡片本身带 backdrop-filter，会强制创建层叠上下文，且实测其背景层会盖住溢出的子元素
+   —— 下拉留在卡片里就会被下方的二级标题、卡片底边切断。挂到 body + fixed 定位才干净。
+   left / top / width / max-height 由 JS 按输入框位置逐次写入。 */
+.sec-rev__dd {
+    position: fixed; z-index: 9999;
+    overflow-y: auto; overscroll-behavior: contain;
+    background: #fff;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
+    padding: 6px;
+}
+.sec-rev__dd[hidden] { display: none; }
+.sec-rev__dd-grp {
+    position: sticky; top: -6px; z-index: 1;
+    display: flex; align-items: center; gap: 6px;
+    margin: 0 -6px; padding: 5px 12px;
+    font-size: 0.6875rem; font-weight: 800; color: var(--klbq-text-muted);
+    background: rgba(241, 245, 249, 0.97);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    backdrop-filter: blur(6px);
+}
+.sec-rev__dd-opt {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 8px; font-size: 0.8125rem; color: #1e293b; cursor: pointer;
+    border-radius: 8px; line-height: 1.4;
+    transition: background 0.12s;
+}
+.sec-rev__dd-opt--on,
+.sec-rev__dd-opt:hover { background: rgba(0, 172, 193, 0.09); }
+.sec-rev__dd-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* 下拉里的品级 chip：底色复用 .sec-rev__q--N（游戏品质色） */
+.sec-rev__dd-q {
+    flex: 0 0 auto;
+    font-size: 0.6875rem; font-weight: 800;
+    padding: 1px 6px; border-radius: 5px;
+    white-space: nowrap;
+}
+.sec-rev__dd-empty { padding: 12px; font-size: 0.8125rem; color: var(--klbq-text-subtle); text-align: center; }
+
+/* 状态行 */
+.sec-rev__status {
+    font-size: 0.75rem;
+    color: var(--klbq-text-subtle);
+    padding: 0 2px 8px;
+    line-height: 1.6;
+}
+.sec-rev__status:empty { display: none; }
+
+/* 结果列表：每条做成可在卡片内浮起的小行，hover 才描边 */
+.sec-rev__list { margin: 0; padding: 0; list-style: none; }
+.sec-rev__item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    transition: background 0.16s, border-color 0.16s;
+}
+.sec-rev__item + .sec-rev__item { margin-top: 2px; }
+@media (hover: hover) and (pointer: fine) {
+    .sec-rev__item:hover {
+        background: rgba(255, 255, 255, 0.75);
+        border-color: rgba(226, 232, 240, 0.95);
+    }
+}
+
+/* 排名徽章：前三名金/银/铜，其余灰 */
+.sec-rev__rank {
+    flex: 0 0 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(148, 163, 184, 0.16);
+    color: var(--klbq-text-muted);
+    font-size: 0.6875rem; font-weight: 800;
+    line-height: 24px; text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+.sec-rev__item:nth-child(1) .sec-rev__rank { background: rgba(255, 197, 85, 0.28); color: #92400e; }
+.sec-rev__item:nth-child(2) .sec-rev__rank { background: rgba(148, 163, 184, 0.3); color: var(--klbq-text-muted); }
+.sec-rev__item:nth-child(3) .sec-rev__rank { background: rgba(247, 134, 83, 0.24); color: #9a3412; }
+
+/* 掉落源名：等宽字体对齐掉落卡标题 */
+.sec-rev__src {
+    flex: 1 1 180px; min-width: 0;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 700;
+    color: #1e293b;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* 类型徽章（掉落卡 tier 三档色） */
+.sec-rev__tag {
+    flex: 0 0 auto;
+    font-size: 0.6875rem; font-weight: 700;
+    padding: 1px 8px; border-radius: 20px;
+    white-space: nowrap;
+}
+.sec-rev__tag--container { background: rgba(56, 138, 221, 0.12); color: #185FA5; }
+.sec-rev__tag--monster { background: rgba(213, 83, 126, 0.12); color: #993556; }
+.sec-rev__tag--boss { background: rgba(83, 74, 183, 0.12); color: #3c3489; }
+
+/* 品级 chip：游戏内品质色（同 模板:弦溯战线掉落卡 的 .sec-q*） */
+.sec-rev__q {
+    flex: 0 0 auto;
+    font-size: 0.6875rem; font-weight: 800;
+    padding: 1px 6px; border-radius: 5px;
+    white-space: nowrap;
+}
+.sec-rev__q--1 { background: var(--item-quality-Initial); color: var(--klbq-text-muted); }
+.sec-rev__q--2 { background: var(--item-quality-Exquisite); color: #0b2545; }
+.sec-rev__q--3 { background: var(--item-quality-Superior); color: #3b0a4d; }
+.sec-rev__q--4 { background: var(--item-quality-Perfect); color: #4a3000; }
+.sec-rev__q--5 { background: var(--item-quality-Secret); color: #fff; }
+.sec-rev__q--6 { background: var(--item-quality-Legendary); color: #fff; }
+.sec-rev__q--7, .sec-rev__q--8 { background: var(--klbq-text-muted); color: #fff; }
+
+/* 池类型：默认弱化（每行都重复，避免抢注意力），必掉才强调 */
+.sec-rev__pool { flex: 0 0 auto; font-size: 0.6875rem; color: var(--klbq-text-subtle); }
+.sec-rev__pool--must { color: var(--klbq-warn); font-weight: 800; }
+
+/* 抽中率：进度条走青色渐变 */
+.sec-rev__rate { flex: 0 0 112px; text-align: right; white-space: nowrap; }
+.sec-rev__bar {
+    display: inline-block; vertical-align: middle;
+    width: 62px; height: 6px;
+    background: rgba(148, 163, 184, 0.22);
+    border-radius: 3px; overflow: hidden;
+    margin-right: 7px;
+}
+.sec-rev__bar i {
+    display: block; height: 100%;
+    background: linear-gradient(90deg, #22d3ee, #0e7490);
+    border-radius: 3px;
+}
+.sec-rev__pct {
+    font-size: 0.8125rem; font-weight: 800;
+    color: var(--klbq-accent-strong);
+    font-variant-numeric: tabular-nums;
+}
+.sec-rev__pct--max { color: var(--klbq-warn); }
+
+/* 空状态 / 提示：虚线框，同 .sec-drop-note */
+.sec-rev__empty {
+    padding: 18px 14px;
+    border: 1px dashed rgba(148, 163, 184, 0.45);
+    border-radius: 12px;
+    background: rgba(241, 245, 249, 0.6);
+    font-size: 0.8125rem;
+    color: var(--klbq-text-subtle);
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* 暗色模式 */
+.client-js.wiki-dark-mode .sec-rev {
+    background: rgba(30, 41, 59, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+}
+.client-js.wiki-dark-mode .sec-rev__hint { color: var(--klbq-text-muted); border-left-color: rgba(94, 234, 212, 0.5); }
+.client-js.wiki-dark-mode .sec-rev__input {
+    background-color: rgba(15, 23, 42, 0.6);
+    border-color: rgba(148, 163, 184, 0.3);
+    color: var(--klbq-text);
+    box-shadow: none;
+}
+.client-js.wiki-dark-mode .sec-rev__input:focus {
+    border-color: rgba(94, 234, 212, 0.55);
+    box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.12);
+}
+.client-js.wiki-dark-mode .sec-rev__dd {
+    background: var(--klbq-surface);
+    border-color: rgba(148, 163, 184, 0.25);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+.client-js.wiki-dark-mode .sec-rev__dd-grp {
+    background: rgba(51, 65, 85, 0.97);
+    color: var(--klbq-text-muted);
+    border-bottom-color: rgba(148, 163, 184, 0.2);
+}
+.client-js.wiki-dark-mode .sec-rev__dd-opt { color: var(--klbq-text); }
+.client-js.wiki-dark-mode .sec-rev__dd-opt--on,
+.client-js.wiki-dark-mode .sec-rev__dd-opt:hover { background: rgba(94, 234, 212, 0.12); }
+.client-js.wiki-dark-mode .sec-rev__dd-empty,
+.client-js.wiki-dark-mode .sec-rev__status { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-rev__src { color: var(--klbq-text); }
+.client-js.wiki-dark-mode .sec-rev__rank { background: rgba(148, 163, 184, 0.2); color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-rev__item:hover {
+    background: rgba(15, 23, 42, 0.45);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+.client-js.wiki-dark-mode .sec-rev__tag--container { background: rgba(56, 189, 248, 0.15); color: var(--klbq-accent); }
+.client-js.wiki-dark-mode .sec-rev__tag--monster { background: rgba(244, 114, 182, 0.15); color: #f9a8d4; }
+.client-js.wiki-dark-mode .sec-rev__tag--boss { background: rgba(165, 158, 240, 0.15); color: #c4b5fd; }
+.client-js.wiki-dark-mode .sec-rev__pct { color: #5eead4; }
+.client-js.wiki-dark-mode .sec-rev__pct--max { color: #fbbf24; }
+.client-js.wiki-dark-mode .sec-rev__pool { color: #5eead4; }
+.client-js.wiki-dark-mode .sec-rev__pool--must { color: #fbbf24; }
+.client-js.wiki-dark-mode .sec-rev__empty {
+    background: rgba(15, 23, 42, 0.5);
+    border-color: rgba(148, 163, 184, 0.3);
+    color: var(--klbq-text-muted);
+}
+</style>
+<div class="sec-rev" id="sec-rev-root" data-json-prefix="MediaWiki:弦溯战线掉落反向" data-json-index="MediaWiki:弦溯战线掉落反向索引.json" data-shard-count="8" data-api="/klbq/api.php" data-api-path="/api.php"></div>
+<script>
+(function () {
+    if (window.__secRevLoaded) { return; }
+    window.__secRevLoaded = true;
+
+    // 不用 window.RLQ / $(function(){})：实测两者在本站都可能不触发（参考 Widget:BalanceFilter）。
+    // 可靠做法：轮询等待目标元素 + jQuery 就绪后再 boot()。
+    function boot() {
+        if (typeof window.jQuery === 'undefined') {
+            console.error('[sec-rev] jQuery 未加载，无法初始化');
+            return;
+        }
+        var $ = window.jQuery;
+        var root = document.getElementById('sec-rev-root');
+        if (!root) {
+            console.warn('[sec-rev] 未找到 #sec-rev-root，跳过初始化');
+            return;
+        }
+
+        var apiPath = root.getAttribute('data-api-path') || '/api.php';
+        var apiBase = root.getAttribute('data-api') || '';
+        if (!apiBase) {
+            var sp = (window.mw && mw.config && mw.config.get('wgScriptPath')) || '';
+            if (!sp) {
+                var m = location.pathname.match(/^(.*?)\/(index\.php|[^\/]+)$/);
+                sp = (m && m[1]) || '';
+            }
+            apiBase = sp + apiPath;
+        }
+        var SHARD_PREFIX = root.getAttribute('data-json-prefix');   // 分片页标题前缀
+        var INDEX_TITLE = root.getAttribute('data-json-index');     // 索引页标题（物品名 → 分片号）
+        var SHARD_COUNT = parseInt(root.getAttribute('data-shard-count') || '8', 10);
+
+        // 类型标签中文
+        var TYPE_LABEL = { '容器': '容器', '晶源体': '晶源体', 'Boss阶段': 'Boss阶段' };
+        var TYPE_CLS = { '容器': 'container', '晶源体': 'monster', 'Boss阶段': 'boss' };
+
+        // 构建 DOM
+        root.innerHTML =
+            '<p class="sec-rev__hint">查某件物品在各掉落源的「单件抽中率」（该件恰好是它的概率），降序排列；「必掉」= 100%。低于 0.05% 的默认隐藏。</p>' +
+            '<div class="sec-rev__box">' +
+            '<input class="sec-rev__input" type="text" autocomplete="off" spellcheck="false" placeholder="输入物品名，如「切割器」「焚焰者」…">' +
+            '<div class="sec-rev__dd" hidden><div class="sec-rev__dd-body"></div></div>' +
+            '</div>' +
+            '<div class="sec-rev__status"></div>' +
+            '<ul class="sec-rev__list">' +
+            '<li class="sec-rev__empty">输入物品名，或点输入框从列表中选择</li>' +
+            '</ul>';
+
+        var input = root.querySelector('.sec-rev__input');
+        var dd = root.querySelector('.sec-rev__dd');
+        var ddBody = root.querySelector('.sec-rev__dd-body');
+        var statusEl = root.querySelector('.sec-rev__status');
+        var listEl = root.querySelector('.sec-rev__list');
+
+        var names = [];        // 全部物品名（来自索引，供下拉框）
+        var nameToShard = {};  // itemName -> 分片号（来自索引）
+        var qualOf = {};       // itemName -> 品级（数字，或多品级的 [最低, 最高]）
+        var shards = {};       // 分片号 -> { itemName: [entries] }（已加载的分片缓存）
+        var pending = null;    // 当前进行中的查询（避免快速输入时的竞态）
+
+        // 下拉状态
+        var ddItems = [];      // 当前渲染的选项（物品名数组），顺序与 DOM 中 .sec-rev__dd-opt 一致
+        var ddActive = -1;     // 键盘高亮的下标
+        var ddSuppress = false; // 刚由下拉选中时抑制重新弹出
+
+        // 品级中文（SECItemQualityRes 到 6；7/8 是同属"装备"的另一序列）
+        var QUAL_NAME = { 1: '优秀', 2: '精致', 3: '卓越', 4: '完美', 5: '臻藏', 6: '传说',
+                          7: '装备', 8: '装备' };
+
+        function setStatus(t) { statusEl.textContent = t; }
+
+        function qualMax(qv) {
+            if (qv === undefined || qv === null) { return 0; }
+            return (typeof qv === 'number') ? qv : qv[1];
+        }
+
+        function qualLabel(qv) {
+            if (qv === undefined || qv === null) { return ''; }
+            return (typeof qv === 'number') ? ('Q' + qv) : ('Q' + qv[0] + '~Q' + qv[1]);
+        }
+
+        // 渲染下拉：按最高品级分组（Q8 → Q1），组内按名称排序
+        function renderDropdown(kw) {
+            var q = (kw || '').trim().toLowerCase();
+            var matched = [];
+            for (var i = 0; i < names.length; i++) {
+                if (!q || names[i].toLowerCase().indexOf(q) >= 0) { matched.push(names[i]); }
+            }
+
+            if (!matched.length) {
+                ddBody.innerHTML = '<div class="sec-rev__dd-empty">没有匹配的物品</div>';
+                ddItems = [];
+                ddActive = -1;
+                return;
+            }
+
+            // 分组
+            var groups = {};
+            matched.forEach(function (n) {
+                var gq = qualMax(qualOf[n]);
+                if (!groups[gq]) { groups[gq] = []; }
+                groups[gq].push(n);
+            });
+            var gqs = Object.keys(groups).map(Number).sort(function (a, b) { return b - a; });
+
+            var html = '';
+            var items = [];
+            gqs.forEach(function (gq) {
+                var label = gq ? ('Q' + gq + (QUAL_NAME[gq] ? ' ' + QUAL_NAME[gq] : ''))
+                               : '未分类';
+                groups[gq].sort(function (a, b) { return a.localeCompare(b, 'zh'); });
+                html += '<div class="sec-rev__dd-grp">' + esc(label)
+                      + ' · ' + groups[gq].length + '</div>';
+                groups[gq].forEach(function (n) {
+                    items.push(n);
+                    var mq = qualMax(qualOf[n]);
+                    html += '<div class="sec-rev__dd-opt" data-name="'
+                          + esc(n).replace(/"/g, '&quot;') + '">'
+                          + '<span class="sec-rev__dd-name">' + esc(n) + '</span>'
+                          + '<span class="sec-rev__dd-q sec-rev__q--' + mq + '">'
+                          + qualLabel(qualOf[n]) + '</span>'
+                          + '</div>';
+                });
+            });
+
+            ddBody.innerHTML = html;
+            ddItems = items;
+            ddActive = -1;
+        }
+
+        // 下拉挂到 body：彻底脱离卡片（backdrop-filter）的层叠上下文，
+        // 否则溢出的面板会被卡片底边和下方二级标题切掉。位置每次展开时按输入框算。
+        document.body.appendChild(dd);
+
+        function positionDropdown() {
+            var r = input.getBoundingClientRect();
+            var gap = 6;
+            var below = window.innerHeight - r.bottom - gap - 8;
+            // 宽度至少 280，但不要顶出视口右侧（长物品名需要空间）
+            var w = Math.max(r.width, 280);
+            w = Math.min(w, window.innerWidth - r.left - 10);
+            dd.style.left = Math.round(r.left) + 'px';
+            dd.style.top = Math.round(r.bottom + gap) + 'px';
+            dd.style.width = Math.round(w) + 'px';
+            // 视口下方空间不足时收短面板，避免跑出屏幕（仍向下弹出）
+            dd.style.maxHeight = Math.max(140, Math.min(320, below)) + 'px';
+        }
+
+        function openDropdown() {
+            positionDropdown();
+            dd.hidden = false;
+            renderDropdown(input.value);
+        }
+
+        function closeDropdown() {
+            dd.hidden = true;
+            ddActive = -1;
+        }
+
+        function setActive(idx) {
+            var opts = ddBody.querySelectorAll('.sec-rev__dd-opt');
+            if (!opts.length) { return; }
+            if (idx < 0) { idx = opts.length - 1; }
+            if (idx >= opts.length) { idx = 0; }
+            for (var i = 0; i < opts.length; i++) {
+                opts[i].classList.toggle('sec-rev__dd-opt--on', i === idx);
+            }
+            ddActive = idx;
+            // 跟随滚动，保证高亮项可见
+            var el = opts[idx];
+            var top = el.offsetTop, bot = top + el.offsetHeight;
+            if (top < dd.scrollTop) { dd.scrollTop = top; }
+            else if (bot > dd.scrollTop + dd.clientHeight) { dd.scrollTop = bot - dd.clientHeight; }
+        }
+
+        function pick(name) {
+            ddSuppress = true;
+            input.value = name;
+            closeDropdown();
+            query(name);
+            setTimeout(function () { ddSuppress = false; }, 0);
+        }
+
+        // 通过 api.php prop=revisions 读取一个 JSON 内容模型页的纯文本（参考 Widget:BalanceFilter）
+        function fetchJsonText(title) {
+            var url = apiBase + '?action=query&format=json&formatversion=2'
+                + '&prop=revisions&rvslots=main&rvprop=content'
+                + '&titles=' + encodeURIComponent(title) + '&cb=' + Date.now();
+            return $.ajax({ url: url, dataType: 'text', cache: false })
+                .then(function (resp) {
+                    var d;
+                    try {
+                        d = JSON.parse(resp);
+                    } catch (e) {
+                        throw new Error('API 返回非 JSON（' + title + '）');
+                    }
+                    var page = (((d.query || {}).pages) || [])[0] || {};
+                    if (page.missing) { throw new Error('数据页不存在: ' + title); }
+                    var text = (((page.revisions || [])[0] || {}).slots || {}).main.content;
+                    if (typeof text !== 'string') {
+                        throw new Error('数据页内容为空: ' + title);
+                    }
+                    return JSON.parse(text);
+                }, function (jqXHR, textStatus, err) {
+                    console.error('[sec-rev] 请求失败:', title, textStatus, err,
+                        jqXHR && jqXHR.status);
+                    throw new Error('请求失败: ' + title + ' (' + textStatus + ')');
+                });
+        }
+
+        // 加载索引清单（很小），拿到全部物品名、分片号与品级
+        function loadIndex() {
+            return fetchJsonText(INDEX_TITLE).then(function (idx) {
+                var map = idx.index || {};
+                names = Object.keys(map).sort(function (a, b) { return a.localeCompare(b, 'zh'); });
+                nameToShard = map;
+                qualOf = idx.q || {};
+                setStatus('已加载 ' + names.length + ' 件物品，输入名称查询。');
+            });
+        }
+
+        // 按需加载某个分片（带缓存）
+        function loadShard(k) {
+            if (shards[k]) { return $.Deferred().resolve(shards[k]).promise(); }
+            var title = SHARD_PREFIX + '-' + k + '.json';
+            return fetchJsonText(title).then(function (data) {
+                shards[k] = data;
+                return data;
+            });
+        }
+
+        function esc(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        // 低于该阈值的条目四舍五入后显示为 0.0%，实战意义为零，默认隐藏。
+        // （容器池总权重 1e7，极低权重 2k 左右 → 0.02~0.05%，都落在这里）
+        var MIN_RATE = 0.05;
+
+        function render(itemName) {
+            var k = nameToShard[itemName];
+            if (k === undefined || k === null) {
+                listEl.innerHTML = '<li class="sec-rev__empty">未找到「'
+                    + esc(itemName) + '」的掉落记录</li>';
+                setStatus('');
+                return;
+            }
+            var data = shards[k];
+            var entries = data ? data[itemName] : null;
+            if (!entries || !entries.length) {
+                listEl.innerHTML = '<li class="sec-rev__empty">未找到「'
+                    + esc(itemName) + '」的掉落记录</li>';
+                setStatus('');
+                return;
+            }
+
+            // 默认只展示 ≥ 0.05% 的掉落源；全部低于阈值时（如部分配件）保留前几条兜底，
+            // 否则用户会看到「查询不到」，而那几件确实能掉，只是概率极低。
+            var visible = entries.filter(function (e) { return e.rate >= MIN_RATE; });
+            var hidden = entries.length - visible.length;
+            var statusTxt;
+            if (!visible.length) {
+                visible = entries.slice(0, 5);
+                statusTxt = '「' + itemName + '」所有掉落源单件抽中率均低于 0.05%（极低），仅列前 '
+                    + visible.length + ' 项。';
+            } else if (hidden > 0) {
+                statusTxt = '「' + itemName + '」共 ' + visible.length + ' 个掉落源'
+                    + '（已隐藏 ' + hidden + ' 个低于 0.05% 的）。';
+            } else {
+                statusTxt = '「' + itemName + '」共 ' + visible.length + ' 个掉落源（按单件抽中率降序）。';
+            }
+
+            var html = '';
+            visible.forEach(function (e, i) {
+                var cls = TYPE_CLS[e.type] || 'container';
+                var poolMust = e.pool === '必掉';
+                var pctCls = (e.rate >= 99.9) ? ' sec-rev__pct--max' : '';
+                var pctTxt = (e.rate >= 99.9) ? '必掉' : (e.rate + '%');
+                var barW = Math.min(100, e.rate);
+                var qTxt = e.q ? 'Q' + e.q : '';
+                var qCls = e.q ? (' sec-rev__q--' + e.q) : '';
+                html += '<li class="sec-rev__item">' +
+                    '<span class="sec-rev__rank">' + (i + 1) + '</span>' +
+                    '<span class="sec-rev__src" title="' + esc(e.src) + '">' + esc(e.src) + '</span>' +
+                    '<span class="sec-rev__tag sec-rev__tag--' + cls + '">' + (TYPE_LABEL[e.type] || e.type) + '</span>' +
+                    (qTxt ? '<span class="sec-rev__q' + qCls + '">' + qTxt + '</span>' : '') +
+                    '<span class="sec-rev__pool' + (poolMust ? ' sec-rev__pool--must' : '') + '">' + esc(e.pool) + '</span>' +
+                    '<span class="sec-rev__rate">' +
+                    '<span class="sec-rev__bar"><i style="width:' + barW + '%"></i></span>' +
+                    '<span class="sec-rev__pct' + pctCls + '">' + pctTxt + '</span>' +
+                    '</span></li>';
+            });
+            listEl.innerHTML = html;
+            setStatus(statusTxt);
+        }
+
+        // 查询：命中物品名 → 若分片未加载则先取分片，再渲染（用请求序号防竞态）
+        function query(v) {
+            if (!v) {
+                listEl.innerHTML = '<li class="sec-rev__empty">输入物品名，或点输入框从列表中选择</li>';
+                setStatus('已加载 ' + names.length + ' 件物品。');
+                return;
+            }
+            var k = nameToShard[v];
+            if (k === undefined || k === null) {
+                listEl.innerHTML = '<li class="sec-rev__empty">未找到「' + esc(v) + '」的掉落记录</li>';
+                setStatus('');
+                return;
+            }
+            var seq = Date.now();
+            pending = seq;
+            if (shards[k]) {
+                render(v);
+                return;
+            }
+            setStatus('数据加载中…');
+            loadShard(k).then(function () {
+                if (pending === seq) { render(v); }
+            }, function (err) {
+                if (pending === seq) {
+                    setStatus('数据加载失败，请刷新重试。');
+                    console.error('[sec-rev]', err);
+                }
+            });
+        }
+
+        // ---- 输入框 + 下拉交互 ----
+        input.addEventListener('focus', function () {
+            if (names.length) { openDropdown(); }
+        });
+
+        input.addEventListener('input', function () {
+            if (!names.length) { return; }
+            if (ddSuppress) { return; }
+            openDropdown();
+            query(input.value.trim());
+        });
+
+        // 点击选项（用事件委托，面板内容会重绘）
+        ddBody.addEventListener('mousedown', function (ev) {
+            var opt = ev.target.closest ? ev.target.closest('.sec-rev__dd-opt') : null;
+            if (!opt) { return; }
+            ev.preventDefault();   // 阻止输入框失焦
+            var nm = opt.getAttribute('data-name');
+            if (nm) { pick(nm); }
+        });
+
+        // 键盘导航
+        input.addEventListener('keydown', function (ev) {
+            if (dd.hidden) {
+                if (ev.key === 'ArrowDown' && names.length) {
+                    openDropdown();
+                    setActive(0);
+                    ev.preventDefault();
+                }
+                return;
+            }
+            if (ev.key === 'ArrowDown') {
+                setActive(ddActive + 1);
+                ev.preventDefault();
+            } else if (ev.key === 'ArrowUp') {
+                setActive(ddActive - 1);
+                ev.preventDefault();
+            } else if (ev.key === 'Enter') {
+                if (ddActive >= 0 && ddItems[ddActive] !== undefined) {
+                    pick(ddItems[ddActive]);
+                    ev.preventDefault();
+                }
+            } else if (ev.key === 'Escape') {
+                closeDropdown();
+                ev.preventDefault();
+            }
+        });
+
+        // 点击别处关闭（下拉已 portal 到 body，两处都要判断）
+        document.addEventListener('mousedown', function (ev) {
+            if (dd.hidden) { return; }
+            if (root.contains(ev.target) || dd.contains(ev.target)) { return; }
+            closeDropdown();
+        });
+
+        // 失焦关闭（延迟，避免与 mousedown 抢先后）
+        input.addEventListener('blur', function () {
+            setTimeout(function () {
+                var a = document.activeElement;
+                if (!root.contains(a) && !dd.contains(a)) { closeDropdown(); }
+            }, 120);
+        });
+
+        // 下拉是 fixed 定位：滚动/缩放时重新贴合输入框，而不是关闭。
+        // （用 capture 监听 window 的 scroll 会连页面初始化时的布局滚动一起捕获，
+        //   若在这里直接 close，下拉会刚打开就被关掉——实测踩过。）
+        var repositionRaf = null;
+        function scheduleReposition() {
+            if (dd.hidden || repositionRaf) { return; }
+            repositionRaf = window.requestAnimationFrame(function () {
+                repositionRaf = null;
+                if (!dd.hidden) { positionDropdown(); }
+            });
+        }
+        window.addEventListener('scroll', scheduleReposition, true);
+        window.addEventListener('resize', scheduleReposition);
+
+        // 启动：先加载索引（很小），失败才报错
+        loadIndex().fail(function (err) {
+            setStatus('数据加载失败，请刷新重试。');
+            console.error('[sec-rev]', err);
+        });
+    }
+
+    // 轮询等待目标元素与 jQuery 都就绪（BalanceFilter 同款启动机制）
+    var tries = 0;
+    var timer = setInterval(function () {
+        tries += 1;
+        var el = document.getElementById('sec-rev-root');
+        if (el && typeof window.jQuery !== 'undefined') {
+            clearInterval(timer);
+            boot();
+        } else if (tries > 100) {   // 约 10s 仍未就绪则放弃
+            clearInterval(timer);
+            console.warn('[sec-rev] 等待 #sec-rev-root 或 jQuery 超时，放弃初始化');
+        }
+    }, 100);
+})();
+</script></includeonly>

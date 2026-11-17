@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="//wiki-dev-patch-oss.oss-cn-hangzhou.aliyuncs.com/test/swiper-bundle.css">
+<script src="//wiki-dev-patch-oss.oss-cn-hangzhou.aliyuncs.com/test/swiper-bundle.min.js"></script>
+<script>
+RLQ.push(['jquery', () => {
+	$(function(){
+		const swipers = [];
+		Object.assign(mw.bwiki = mw.bwiki || {}, {swipers: swipers});
+		$.each($(".bwiki-swiper-thumbs").get().concat($(".bwiki-swiper:not('.bwiki-swiper-thumbs')").get()), function (i, el) {
+			const attrs = this.attributes;
+			const options = {};
+			$.each(attrs, function (i, attr) {
+				if (attr.nodeName.indexOf("data-swiper-") === -1 || attr.nodeName === "data-swiper-options") return true;
+				options[attr.nodeName.replace("data-swiper-", "")] = attr.nodeValue;
+			});
+			try {
+				const optionsTemp = (new Function('el', 'return ' + decodeURIComponent(($(this).attr("data-swiper-options")) || "{}").replace(/\n|\t/g, "").replace(/\+/g, " ")))(el);
+				$.extend(options, optionsTemp);
+			} catch (e) {
+				console.error(e);
+			}
+			console.log("swiper-options", options);
+			swipers.push(new Swiper($.extend({el:this}, options)));
+		})
+	})
+}]);
+</script>

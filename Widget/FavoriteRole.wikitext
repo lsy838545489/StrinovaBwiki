@@ -1,0 +1,213 @@
+<includeonly><div id="characters"></div>
+<div id="results" class="result"></div>
+<script type="text/javascript">
+// script.js
+setTimeout(() => {
+
+	var api = new mw.Api();
+
+	// 动态插入 CSS
+	const style = document.createElement('style');
+	style.innerHTML = `
+			.show-img {
+				cursor: pointer;
+				margin: 2 5px;
+				border: 2px solid white;
+			}
+	        .show-selected {
+	            border: 2px solid blue;
+	        }
+	        #statistics {
+	            display: none; /* 初始隐藏统计结果 */
+	            margin-top: 20px;
+	        }
+	        .pagination {
+	            margin-top: 20px;
+	        }
+	        .pagination button {
+	           
+			    margin: 2 5px;
+	            padding: 5px 10px;
+	            cursor: pointer;
+	        }
+	    `;
+	document.head.appendChild(style);
+
+	async function fetchPageContent(pageTitle) {
+		var api = new mw.Api();
+		return api.get({
+			action: 'query',
+			format: 'json',
+			titles: pageTitle,
+			prop: 'revisions',
+			rvprop: 'content'
+		}).then(function(data) {
+			const pages = data.query.pages;
+			const pageId = Object.keys(pages)[0];
+			const content = pages[pageId].revisions[0]['*'];
+			return content;
+		}).catch(function(error) {
+			console.error('Error fetching page content:', error);
+		});
+	}
+
+
+
+	fetchPageContent('模板:阵营角色').then(function(text) {
+		// 正则表达式匹配 | 和 -半身图.png 之间的名字
+		const regex = /\|([^|-]+)-半身图\.png/g;
+
+		// 提取所有匹配的名字
+		const matches = [];
+		let match;
+		text = text.slice(0, text.indexOf("default"));
+		while ((match = regex.exec(text)) !== null) {
+			matches.push(match[1]);
+		}
+
+		console.log(matches);
+
+		fetchPageContent('MediaWiki:RoleSkinData.json').then(function(content) {
+			var js = JSON.parse(content);
+
+			let rs = document.querySelector(".result");
+			let selectedCount = {}; // 用于统计每个角色的选中数量
+			let roleSkinCount = {}; // 用于统计每个角色的总皮肤数量
+
+			for (let s of matches) {
+				selectedCount[s] = null;
+				roleSkinCount[s] = null;
+			}
+
+			for (let s in js) {
+				let role = js[s].Role;
+
+				if (roleSkinCount[role] == null) {
+					roleSkinCount[role] = {};
+					selectedCount[role] = {};
+				}
+				roleSkinCount[role][js[s].Name] = 0;
+			}
+
+
+			// 创建分页按钮容器
+			let paginationDiv = document.createElement('div');
+			paginationDiv.className = 'pagination';
+			rs.appendChild(paginationDiv);
+
+			let currentPage = Object.keys(roleSkinCount)[0];
+
+			// 创建分页按钮
+			function createPaginationButtons() {
+				paginationDiv.innerHTML = ''; // 清空之前的按钮
+				for (let i in roleSkinCount) {
+					let button = document.createElement('button');
+					button.textContent = i;
+					if (i === currentPage) {
+						button.disabled = true; // 当前页码按钮不可点击
+					}
+					button.addEventListener('click', function() {
+						currentPage = i;
+						renderImages();
+						createPaginationButtons();
+					});
+					paginationDiv.appendChild(button);
+
+				}
+			}
+
+
+			// 渲染当前页的图片
+			function renderImages() {
+				rs.innerHTML = ''; // 清空之前的内容
+				rs.appendChild(paginationDiv); // 重新添加分页按钮
+
+
+
+				for (let s in js) {
+					let role = js[s].Role;
+					let name = js[s].Name;
+					if (role != currentPage) continue;
+					let div_r = document.querySelector("#" + role);
+					if (div_r == null) {
+						div_r = document.createElement('div');
+						div_r.id = role;
+						rs.appendChild(div_r);
+					}
+
+					let img = document.createElement('img');
+					img.src = js[s].RealFile;
+					img.alt = role + ":" + name;
+					img.width = 80;
+					img.height = 80;
+
+					if (selectedCount[role][name] != null) {
+						img.classList.add('show-selected');
+					}
+					img.classList.add('show-img');
+
+					// 添加点击事件监听器
+					img.addEventListener('click', function() {
+						if (img.classList.contains('show-selected')) {
+							img.classList.remove('show-selected');
+							delete selectedCount[role][name];
+						} else {
+							img.classList.add('show-selected');
+							selectedCount[role][name] = 1;
+						}
+					});
+
+					div_r.appendChild(img);
+				}
+
+				// 添加“显示结果”按钮
+				let showResultButton = document.createElement('button');
+				showResultButton.textContent = '显示结果';
+				showResultButton.style.marginTop = '20px';
+				rs.appendChild(showResultButton);
+
+				// 创建统计结果容器
+				let statsDiv = document.createElement('div');
+				statsDiv.id = "statistics";
+				rs.appendChild(statsDiv);
+
+				// 按钮点击事件：显示统计结果
+				showResultButton.addEventListener('click', function() {
+					// 计算每个角色的喜欢百分比
+					let maxPercentage = 0;
+					let maxRole = '';
+
+					for (let role in selectedCount) {
+						let percentage = ((Object.keys(selectedCount[role]).length /
+							Object
+							.keys(
+								roleSkinCount[role]).length) * 100).toFixed(2);
+						if (parseFloat(percentage) > maxPercentage) {
+							maxPercentage = parseFloat(percentage);
+							maxRole = role;
+						}
+					}
+
+					// 显示统计结果
+					if (maxRole) {
+						statsDiv.innerHTML =
+							`<h3>最受欢迎的角色: ${maxRole} (${maxPercentage}%)</h3>`;
+					} else {
+						statsDiv.innerHTML = `<h3>请先选择喜欢的皮肤！</h3>`;
+					}
+
+					statsDiv.style.display = 'block'; // 显示统计结果
+				});
+			}
+
+			// 初始化分页按钮和图片渲染
+			createPaginationButtons();
+			renderImages();
+		});
+
+	});
+
+
+}, 2000)
+</script></includeonly>
+<noinclude>{{#widget:FavoriteRole}}<!--也可以直接写英文逗号分割的页面名--></noinclude>

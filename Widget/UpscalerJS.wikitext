@@ -1,0 +1,225 @@
+<noinclude>
+UpscalerJS AI 图像超分放大 Widget（基于 TensorFlow.js）
+
+仅在图片进入可视区域附近后进行 AI 超分。
+脚本、Observer、依赖、Upscaler 实例均采用全局单例，避免重复初始化。
+
+用法：
+{{#widget:UpscalerJS|src=https://patchwiki.biligame.com/images/klbq/2/2a/s7uzltd131q57yryp0x6a6dnaqquf24.png}} </noinclude><includeonly><span class="upscaler-container" style="display:inline-block;position:relative;<!--{$style}-->"><img src="<!--{$src}-->" loading="lazy" crossorigin="anonymous" class="upscaler-container__image <!--{$class}-->" data-patch="<!--{$patchSize|default:'64'}-->" data-padding="<!--{$padding|default:'12'}-->"/><span class="upscaler-loading" style="display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(51,65,85,0.9);color:#fff;padding:4px 8px;border-radius:4px;font-size:12px;pointer-events:none;white-space:nowrap;z-index:2;">动漫AI处理中...</span></span><script>
+(function () {
+    'use strict';
+
+    if (window.mwApplyUpscaler) return;
+
+    function loadScript(src, callback) {
+        var script = document.createElement('script');
+        script.src = src;
+        script.onload = callback;
+        script.onerror = function () {
+            console.error('UpscalerJS 脚本加载失败:', src);
+        };
+        document.head.appendChild(script);
+    }
+
+    function getThickModel(scale) {
+        var raw = window['@upscalerjs/esrgan-thick'] || window.ESRGANThick || window.esrganThick;
+        if (!raw) return null;
+        var key = 'x' + (scale || 2);
+        return raw[key] || raw.x2 || raw.default || raw;
+    }
+
+    function ensureDependencies(callback) {
+        if (window.Upscaler && window.tf && getThickModel(2)) {
+            callback();
+            return;
+        }
+        if (window.__upscalerThickLoading) {
+            var checkInterval = setInterval(function () {
+                if (window.Upscaler && window.tf && getThickModel(2)) {
+                    clearInterval(checkInterval);
+                    callback();
+                }
+            }, 100);
+            return;
+        }
+        window.__upscalerThickLoading = true;
+
+        loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js', function () {
+            loadScript('https://cdn.jsdelivr.net/npm/@upscalerjs/esrgan-thick@latest/dist/umd/index.min.js', function () {
+                loadScript('https://cdn.jsdelivr.net/npm/upscaler@latest/dist/browser/umd/upscaler.min.js', function () {
+                    callback();
+                });
+            });
+        });
+    }
+
+    // 获取/创建全局唯一的 AI 超分模型单例喵
+    function getUpscalerInstance(callback) {
+        if (window.__upscalerGlobalInstance) {
+            callback(window.__upscalerGlobalInstance);
+            return;
+        }
+        ensureDependencies(function () {
+            if (!window.__upscalerGlobalInstance) {
+                var thickModel2x = getThickModel(2);
+                window.__upscalerGlobalInstance = new window.Upscaler({
+                    model: thickModel2x
+                });
+            }
+            callback(window.__upscalerGlobalInstance);
+        });
+    }
+
+    function createSmoothAlphaMask(imgElement, targetWidth, targetHeight) {
+    var origW = imgElement.naturalWidth || imgElement.width;
+    var origH = imgElement.naturalHeight || imgElement.height;
+
+    // 1. 提取原始 Alpha 图像
+    var origCanvas = document.createElement('canvas');
+    origCanvas.width = origW;
+    origCanvas.height = origH;
+    var origCtx = origCanvas.getContext('2d');
+    origCtx.drawImage(imgElement, 0, 0);
+
+    // 2. 创建 2 倍超采样 Canvas (SSAA)，赋予边缘更高计算精度喵
+    var ssaaW = targetWidth * 2;
+    var ssaaH = targetHeight * 2;
+    var ssaaCanvas = document.createElement('canvas');
+    ssaaCanvas.width = ssaaW;
+    ssaaCanvas.height = ssaaH;
+    var ssaaCtx = ssaaCanvas.getContext('2d');
+
+    ssaaCtx.imageSmoothingEnabled = true;
+    ssaaCtx.imageSmoothingQuality = 'high';
+
+    // 核心组合滤镜喵：
+    // blur: 抹平像素阶梯折线
+    // contrast: 恢复边缘锐利度，生成圆润弧度
+    // brightness: 轻微向内收缩，去除 AI 遗留的杂色黑晕
+    if ('filter' in ssaaCtx) {
+        ssaaCtx.filter = 'blur(2.5px) contrast(240%) brightness(80%)';
+    }
+
+    ssaaCtx.drawImage(origCanvas, 0, 0, ssaaW, ssaaH);
+
+    // 3. 将超采样后的遮罩重采样回最终目标尺寸
+    var finalCanvas = document.createElement('canvas');
+    finalCanvas.width = targetWidth;
+    finalCanvas.height = targetHeight;
+    var finalCtx = finalCanvas.getContext('2d');
+
+    finalCtx.imageSmoothingEnabled = true;
+    finalCtx.imageSmoothingQuality = 'high';
+    finalCtx.drawImage(ssaaCanvas, 0, 0, targetWidth, targetHeight);
+
+    return finalCanvas;
+}
+
+    function combineAlpha(upscaledImg, alphaMaskCanvas, callback) {
+        var w = upscaledImg.naturalWidth || upscaledImg.width;
+        var h = upscaledImg.naturalHeight || upscaledImg.height;
+
+        var resultCanvas = document.createElement('canvas');
+        resultCanvas.width = w;
+        resultCanvas.height = h;
+        var ctx = resultCanvas.getContext('2d');
+
+        ctx.drawImage(upscaledImg, 0, 0);
+        ctx.globalCompositeOperation = 'destination-in';
+        ctx.drawImage(alphaMaskCanvas, 0, 0, w, h);
+
+        callback(resultCanvas.toDataURL('image/png'));
+    }
+
+    // 核心超分推断处理逻辑喵
+    window.mwApplyUpscaler = function (imgElement) {
+        // 防重检查 1：若已标记处理或正在处理中则直接跳过喵
+        if (!imgElement || imgElement.getAttribute('data-upscaler-done') === '1') return;
+        imgElement.setAttribute('data-upscaler-done', '1');
+
+        var patchSize = parseInt(imgElement.getAttribute('data-patch'), 10) || 64;
+        var paddingSize = parseInt(imgElement.getAttribute('data-padding'), 10) || 12;
+        var container = imgElement.parentNode;
+        var loadingTip = container ? container.querySelector('.upscaler-loading') : null;
+
+        function runInference() {
+            if (loadingTip) loadingTip.style.display = 'block';
+
+            getUpscalerInstance(function (instance) {
+                instance.upscale(imgElement, {
+                    patchSize: patchSize,
+                    padding: paddingSize,
+                    output: 'base64',
+                    progress: function (percent) {
+                        if (loadingTip) {
+                            loadingTip.textContent = '动漫AI处理中: ' + Math.round(percent * 100) + '%';
+                        }
+                    }
+                }).then(function (upscaledSrc) {
+                    var upscaledImg = new Image();
+                    upscaledImg.crossOrigin = 'anonymous';
+                    upscaledImg.onload = function () {
+                        var targetW = upscaledImg.naturalWidth || upscaledImg.width;
+                        var targetH = upscaledImg.naturalHeight || upscaledImg.height;
+
+                        var alphaMask = createSmoothAlphaMask(imgElement, targetW, targetH);
+                        combineAlpha(upscaledImg, alphaMask, function (finalPngBase64) {
+                            if (loadingTip) loadingTip.style.display = 'none';
+                            imgElement.src = finalPngBase64;
+                        });
+                    };
+                    upscaledImg.src = upscaledSrc;
+                }).catch(function (err) {
+                    console.error('UpscalerJS 处理出错:', err);
+                    if (loadingTip) loadingTip.style.display = 'none';
+                });
+            });
+        }
+
+        // 确保原图片数据已下载完毕再执行推断喵
+        if (imgElement.complete && (imgElement.naturalWidth > 0 || imgElement.width > 0)) {
+            runInference();
+        } else {
+            imgElement.addEventListener('load', function () {
+                runInference();
+            });
+        }
+    };
+
+    // 全局视口 Observer 示例（提前 100px 进入视口时才触发 AI 推算）喵
+    var observer = null;
+    if ('IntersectionObserver' in window) {
+        observer = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+                var entry = entries[i];
+                if (entry.isIntersecting) {
+                    var target = entry.target;
+                    // 取消对该元素的视口监听，避免重复触发喵
+                    observer.unobserve(target);
+                    window.mwApplyUpscaler(target);
+                }
+            }
+        }, {
+            rootMargin: '100px 0px' // 视口上下提前 100px 触发
+        });
+    }
+
+    window.mwObserveUpscaler = function (img) {
+        if (!img || img.getAttribute('data-upscaler-done') === '1') return;
+        if (observer) {
+            observer.observe(img);
+        } else {
+            // 降级支持：不支持 IntersectionObserver 的旧浏览器直接执行喵
+            window.mwApplyUpscaler(img);
+        }
+    };
+
+    window.RLQ = window.RLQ || [];
+    window.RLQ.push([['jquery'], function () {
+        var imgs = document.querySelectorAll('.upscaler-container__image');
+        for (var i = 0; i < imgs.length; i++) {
+            window.mwObserveUpscaler(imgs[i]);
+        }
+    }]);
+})();
+</script></includeonly>

@@ -1092,7 +1092,7 @@
 .klbq-balance-card__value .klbq-vA {
     font-size: .82em;
     font-weight: 400;
-    color: #94a3b8;
+    color: var(--klbq-text-subtle);
     white-space: nowrap;
 }
 .klbq-balance-card__value .klbq-vA:empty { display: none; }
@@ -1110,9 +1110,9 @@
     letter-spacing: -.2px;
 }
 .klbq-balance-card__value .klbq-d:empty { display: none; }
-.klbq-balance-card__value .klbq-d.up { color: #2AA52F; }
+.klbq-balance-card__value .klbq-d.up { color: var(--klbq-ok); }
 .klbq-balance-card__value .klbq-d.down { color: #d9534f; }
-.klbq-balance-card__value .klbq-d.flat { color: #94a3b8; }
+.klbq-balance-card__value .klbq-d.flat { color: var(--klbq-text-subtle); }
 
 /* 赛季按钮上的 A / B 角标（用行内 sup，避免绝对定位被按钮裁切） */
 .klbq-balance-fbtn .klbq-ab {
@@ -1122,7 +1122,7 @@
     vertical-align: super;
     line-height: 0;
 }
-.klbq-balance-fbtn .klbq-ab { color: #2AA52F; }
+.klbq-balance-fbtn .klbq-ab { color: var(--klbq-ok); }
 .klbq-balance-fbtn.selected .klbq-ab { color: #fff; }
 .klbq-balance-fbtn.klbq-cmpsel { border-color: #e8890c; color: #c26c00; }
 .klbq-balance-fbtn.klbq-cmpsel .klbq-ab { color: #e8890c; }
@@ -1134,7 +1134,7 @@
 .klbq-balance-cmpbtn.selected { background: #e8890c; color: #fff; border-color: #e8890c; }
 .klbq-balance-cmpinfo {
     font-size: 12px;
-    color: #b45309;
+    color: var(--klbq-warn);
     align-self: center;
 }
 .klbq-balance-cmpinfo.klbq-warn { color: #b91c1c; }
@@ -1150,7 +1150,7 @@
     padding: 34px 0;
     text-align: center;
     font-size: 14px;
-    color: #94a3b8;
+    color: var(--klbq-text-subtle);
 }
 
 /* ===== 表格视图 =====
@@ -1181,7 +1181,7 @@
     padding: 10px 12px;
     font-size: 1.125rem;             /* 表头比正文（1rem）再大一档，层次更清楚 */
     font-weight: 700;
-    color: #64748b;
+    color: var(--klbq-text-muted);
     white-space: nowrap;
     text-align: left;
     background: linear-gradient(90deg, rgba(160,207,255,.22), rgba(160,207,255,.14));
@@ -1193,15 +1193,15 @@
     user-select: none;
     transition: color .15s, background .15s;
 }
-.klbq-bt thead th.klbq-bt-num:hover { color: #409eff; background: rgba(64, 158, 255, .12); }
-.klbq-bt thead th.klbq-bt-num.klbq-on { color: #409eff; }
+.klbq-bt thead th.klbq-bt-num:hover { color: var(--klbq-accent); background: rgba(64, 158, 255, .12); }
+.klbq-bt thead th.klbq-bt-num.klbq-on { color: var(--klbq-accent); }
 .klbq-bt thead th .klbq-bt-arrow { margin-left: 3px; font-size: .8em; }
 
 .klbq-bt tbody td {
     padding: 6px 12px;
     text-align: right;
     white-space: nowrap;
-    color: #334155;
+    color: var(--klbq-text);
     border-bottom: 1px solid rgba(226, 232, 240, .8);
 }
 .klbq-bt tbody tr:last-child td { border-bottom: 0; }
@@ -1211,7 +1211,7 @@
 .klbq-bt tbody tr.klbq-bt-norow td {
     padding: 34px 12px;
     text-align: center;
-    color: #94a3b8;
+    color: var(--klbq-text-subtle);
 }
 
 .klbq-bt td.klbq-bt-hero,
@@ -1229,19 +1229,19 @@
     flex: 0 0 auto;
     background: rgba(160, 207, 255, .2);
 }
-.klbq-bt .klbq-bt-name { font-weight: 600; color: #334155; text-decoration: none; }
-a.klbq-bt-name:hover { color: #409eff; text-decoration: underline; }
-.klbq-bt td.klbq-bt-role { color: #64748b; }
+.klbq-bt .klbq-bt-name { font-weight: 600; color: var(--klbq-text); text-decoration: none; }
+a.klbq-bt-name:hover { color: var(--klbq-accent); text-decoration: underline; }
+.klbq-bt td.klbq-bt-role { color: var(--klbq-text-muted); }
 
-.klbq-bt-v { font-weight: 700; color: #00acc1; }
-.klbq-bt-v.klbq-bt-max { color: #2AA52F; }
-.klbq-bt-none { color: #b0b7c3; font-weight: 400; }
-.klbq-bt-a { color: #94a3b8; font-size: .85em; }
+.klbq-bt-v { font-weight: 700; color: var(--klbq-accent); }
+.klbq-bt-v.klbq-bt-max { color: var(--klbq-ok); }
+.klbq-bt-none { color: var(--klbq-text-subtle); font-weight: 400; }
+.klbq-bt-a { color: var(--klbq-text-subtle); font-size: .85em; }
 .klbq-bt-arr { color: #cbd5e1; font-size: .85em; margin: 0 3px; }
 .klbq-bt-d { font-size: .75em; font-weight: 700; margin-left: 4px; }
-.klbq-bt-d.up { color: #2AA52F; }
+.klbq-bt-d.up { color: var(--klbq-ok); }
 .klbq-bt-d.down { color: #d9534f; }
-.klbq-bt-d.flat { color: #94a3b8; }
+.klbq-bt-d.flat { color: var(--klbq-text-subtle); }
 
 /* 对比模式每格是「基准 → 对比 差值」三段，1rem 主值下很容易把表撑出容器：
    基准与差值再缩一档、列内边距收窄，保证 1280 宽也放得下（窄了就整表横向滚）。 */
@@ -1252,7 +1252,7 @@ a.klbq-bt-name:hover { color: #409eff; text-decoration: underline; }
 .klbq-bt--cmp .klbq-bt-d { font-size: .7em; margin-left: 3px; }
 
 /* 暗色模式 */
-.client-js.wiki-dark-mode .klbq-balance-card__value .klbq-vA { color: #64748b; }
+.client-js.wiki-dark-mode .klbq-balance-card__value .klbq-vA { color: var(--klbq-text-muted); }
 .client-js.wiki-dark-mode .klbq-balance-fbtn.klbq-cmpsel { border-color: #f59e0b; color: #fbbf24; }
 .client-js.wiki-dark-mode .klbq-balance-cmpbtn { color: #fbbf24; }
 .client-js.wiki-dark-mode .klbq-balance-cmpinfo { color: #fbbf24; }
@@ -1261,23 +1261,23 @@ a.klbq-bt-name:hover { color: #409eff; text-decoration: underline; }
 /* 表格视图（暗色） */
 .client-js.wiki-dark-mode .klbq-bt { background: rgba(30, 41, 59, .85); border-color: rgba(14, 165, 233, .25); }
 .client-js.wiki-dark-mode .klbq-bt thead th {
-    color: #94a3b8;
+    color: var(--klbq-text-muted);
     background: linear-gradient(90deg, rgba(56,189,248,.16), rgba(56,189,248,.08));
     border-bottom-color: rgba(56, 189, 248, .35);
 }
-.client-js.wiki-dark-mode .klbq-bt thead th.klbq-bt-num:hover { color: #7dd3fc; background: rgba(56,189,248,.14); }
-.client-js.wiki-dark-mode .klbq-bt thead th.klbq-bt-num.klbq-on { color: #7dd3fc; }
-.client-js.wiki-dark-mode .klbq-bt tbody td { color: #cbd5e1; border-bottom-color: rgba(148, 163, 184, .2); }
+.client-js.wiki-dark-mode .klbq-bt thead th.klbq-bt-num:hover { color: var(--klbq-accent); background: rgba(56,189,248,.14); }
+.client-js.wiki-dark-mode .klbq-bt thead th.klbq-bt-num.klbq-on { color: var(--klbq-accent); }
+.client-js.wiki-dark-mode .klbq-bt tbody td { color: var(--klbq-text-muted); border-bottom-color: rgba(148, 163, 184, .2); }
 .client-js.wiki-dark-mode .klbq-bt tbody tr:nth-child(even) td { background: rgba(56, 189, 248, .07); }
 .client-js.wiki-dark-mode .klbq-bt tbody tr:hover td { background: rgba(56, 189, 248, .1); }
-.client-js.wiki-dark-mode .klbq-bt .klbq-bt-name { color: #e2e8f0; }
-.client-js.wiki-dark-mode .klbq-bt td.klbq-bt-role { color: #94a3b8; }
-.client-js.wiki-dark-mode .klbq-bt-v { color: #38bdf8; }
+.client-js.wiki-dark-mode .klbq-bt .klbq-bt-name { color: var(--klbq-text); }
+.client-js.wiki-dark-mode .klbq-bt td.klbq-bt-role { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .klbq-bt-v { color: var(--klbq-accent); }
 .client-js.wiki-dark-mode .klbq-bt-v.klbq-bt-max { color: #4ade80; }
-.client-js.wiki-dark-mode .klbq-bt-a { color: #64748b; }
-.client-js.wiki-dark-mode .klbq-bt-arr { color: #475569; }
+.client-js.wiki-dark-mode .klbq-bt-a { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .klbq-bt-arr { color: var(--klbq-text-muted); }
 .client-js.wiki-dark-mode .klbq-bt-d.up { color: #4ade80; }
 .client-js.wiki-dark-mode .klbq-bt-d.down { color: #f87171; }
-.client-js.wiki-dark-mode .klbq-bt tbody tr.klbq-bt-norow td { color: #64748b; }
-.client-js.wiki-dark-mode #klbq-balance-root[data-empty="1"] .klbq-balance-grid::after { color: #64748b; }
+.client-js.wiki-dark-mode .klbq-bt tbody tr.klbq-bt-norow td { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode #klbq-balance-root[data-empty="1"] .klbq-balance-grid::after { color: var(--klbq-text-muted); }
 </style></includeonly>

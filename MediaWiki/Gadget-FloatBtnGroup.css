@@ -1,0 +1,114 @@
+.float-btn-group {
+	position: fixed;
+	bottom: 24px;
+	right: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	z-index: 9999;
+}
+.float-btn-group__top { /* 向上扩展区 */
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.float-btn-group__main { /* 主控锚点区 */
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.float-btn-group__toggle { /* 主开关按钮*/
+	position: relative;
+	z-index: 2;
+	width: 46px;
+	height: 46px;
+	border-radius: 50%;
+	border: 1px solid var(--klbq-border, rgba(59, 130, 246, 0.15));
+	background: var(--klbq-surface-glass, rgba(248, 249, 250, 0.9));
+	backdrop-filter: blur(4px);
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s ease;
+	color: var(--klbq-text-muted, #64748b);
+	padding: 0;
+}
+.float-btn-group__toggle svg {
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.float-btn-group--active .float-btn-group__toggle svg {
+	transform: rotate(180deg);
+}
+.float-btn-group__left { /* 子菜单胶囊 */
+	position: absolute;
+	right: 100%;
+	margin-right: 12px;
+	display: flex;
+	flex-direction: row-reverse;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(20px);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	pointer-events: none;
+	background: var(--klbq-surface-glass, rgba(248, 249, 250, 0.9));
+	backdrop-filter: blur(4px);
+	border: 1px solid var(--klbq-border, rgba(59, 130, 246, 0.15));
+	border-radius: 23px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+}
+.float-btn-group--active .float-btn-group__left { /* 激活状态 */
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0);
+	pointer-events: auto;
+}
+.float-btn-group__item { /* 子按钮样式 */
+	width: 46px;
+	height: 46px;
+	border: none;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--klbq-text-muted, #64748b);
+	transition: all 0.2s ease;
+	padding: 0;
+	cursor: pointer;
+}
+.float-btn-group__item:not(:first-child) { /* BS3 风格的微弱分割线 */
+	border-right: 1px solid var(--klbq-border, rgba(59, 130, 246, 0.15));
+}
+
+/* -----------暗色模式----------- */
+.client-js.wiki-dark-mode .float-btn-group__left,
+.client-js.wiki-dark-mode .float-btn-group__toggle {
+	background: rgba(30, 41, 59, 0.9);
+	border-color: rgba(255, 255, 255, 0.08);
+}
+.client-js.wiki-dark-mode .float-btn-group__item:not(:first-child) {
+	border-right-color: rgba(255, 255, 255, 0.08);
+}
+
+/* -----------Hover效果----------- */
+@media (hover: hover) and (pointer: fine) {
+	.float-btn-group__toggle:hover {
+		background: #fff;
+		color: var(--klbq-accent, #3b82f6);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	}
+	.float-btn-group__item:hover { /* 组内交互 */
+		background: rgba(59, 130, 246, 0.1);
+		color: var(--klbq-accent, #3b82f6);
+	}
+	.client-js.wiki-dark-mode .float-btn-group__item:hover,
+	.client-js.wiki-dark-mode .float-btn-group__toggle:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+}

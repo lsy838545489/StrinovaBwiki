@@ -1,0 +1,1183 @@
+<noinclude>
+这是一个用于提交游戏卡组信息的Widget。
+数据源位置:
+[[MediaWiki:ZombieCardList.json]] 使用方法: {{#widget:晶源感染卡组分享}}
+</noinclude>
+<includeonly>
+  <script>
+    mw.loader.load([
+      "mediawiki.ui.button",
+      "mediawiki.ui.input",
+      "mediawiki.ui.textarea",
+    ]);
+  </script>
+
+  <style>
+    .deck-submission-form {
+      width: 100%;
+      max-width: 100%;
+      padding: 25px;
+      font-size: 14px;
+    }
+    .ds-label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .ds-input-group {
+      margin-bottom: 15px;
+    }
+    .zy-card-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .card-item {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      width: 110px;
+      margin: 6px;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease,
+        border-width 0.15s ease,
+        opacity 0.15s ease;
+      background: var(--klbq-bg);
+      border-style: solid;
+      border-width: 2px;
+      text-align: center;
+      vertical-align: top;
+      position: relative;
+      opacity: 0.85;
+    }
+    .card-item:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+    .card-item[data-rarity="完美"] {
+      border-color: var(--item-quality-Perfect);
+    }
+    .card-item[data-rarity="卓越"] {
+      border-color: var(--item-quality-Superior);
+    }
+    .card-item[data-rarity="精致"] {
+      border-color: var(--item-quality-Exquisite);
+    }
+    .card-item img.card-preview-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      background: var(--klbq-line-100);
+      border-radius: 6px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .card-item .card-name {
+      display: block;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      max-width: 100%;
+      word-break: break-word;
+      width: 100%;
+      border-radius: 0 0 6px 6px;
+    }
+    .card-item.selected {
+      border-width: 4px;
+      box-shadow:
+        0 0 0 3px rgba(96, 163, 247, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+      transform: translateY(-4px) scale(1.05);
+      background: var(--klbq-surface);
+      opacity: 1;
+      z-index: 10;
+    }
+    .card-item.selected::before {
+      content: "✓";
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 24px;
+      height: 24px;
+      background: var(--klbq-ok);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+    .ds-status-ok {
+      color: var(--klbq-ok);
+      font-weight: 700;
+    }
+    .ds-status-pending {
+      color: var(--klbq-warn);
+      font-weight: 700;
+    }
+    .ds-status-fail {
+      color: var(--klbq-err);
+      font-weight: 700;
+    }
+
+    /* 暗色模式：表单容器底色、卡片选中态与占位底随主题切换
+       （品质色 --item-quality-* 是固定色板，不随主题变化，故其配套文字色不在此覆盖） */
+    .client-js.wiki-dark-mode .deck-submission-form {
+      color: var(--klbq-text);
+    }
+    .client-js.wiki-dark-mode .card-item {
+      background: var(--klbq-surface-glass);
+    }
+    .client-js.wiki-dark-mode .card-item.selected {
+      background: var(--klbq-surface);
+      box-shadow:
+        0 0 0 3px rgba(77, 208, 225, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.12);
+    }
+    .client-js.wiki-dark-mode .card-item img.card-preview-img {
+      background: var(--klbq-slate-800);
+    }
+    .client-js.wiki-dark-mode #default-cards-note {
+      background: rgba(74, 222, 128, 0.1);
+      border-color: rgba(74, 222, 128, 0.3);
+    }
+    .client-js.wiki-dark-mode #cards-container,
+    .client-js.wiki-dark-mode #rarity-status {
+      background: var(--klbq-surface);
+      border-color: var(--klbq-line-200);
+    }
+
+    /* 暗色模式：mw-ui-input 输入框/下拉框/文本域沿用 MediaWiki 默认白底，暗色下发白刺眼，改为深色底+浅字 */
+    .client-js.wiki-dark-mode .deck-submission-form input.mw-ui-input,
+    .client-js.wiki-dark-mode .deck-submission-form select.mw-ui-input,
+    .client-js.wiki-dark-mode .deck-submission-form textarea.mw-ui-input {
+      color: var(--klbq-text);
+      background-color: var(--klbq-surface-glass);
+      border-color: var(--klbq-line-200);
+    }
+    .client-js.wiki-dark-mode .deck-submission-form input.mw-ui-input::placeholder,
+    .client-js.wiki-dark-mode .deck-submission-form textarea.mw-ui-input::placeholder {
+      color: var(--klbq-text-subtle);
+    }
+    .client-js.wiki-dark-mode .deck-submission-form input.mw-ui-input:focus,
+    .client-js.wiki-dark-mode .deck-submission-form select.mw-ui-input:focus,
+    .client-js.wiki-dark-mode .deck-submission-form textarea.mw-ui-input:focus {
+      border-color: var(--klbq-accent);
+      box-shadow: 0 0 0 1px var(--klbq-accent);
+    }
+  </style>
+
+  <div class="deck-submission-form radius5 box-shadow bgcolor">
+    <h2 style="padding-bottom: 10px; margin-top: 0">📚 晶源感染卡组分享</h2>
+
+    <div class="ds-input-group">
+      <label class="ds-label" for="deck-name">卡组名称</label>
+      <input
+        type="text"
+        id="deck-name"
+        class="mw-ui-input"
+        placeholder="例如：极速快攻流"
+        maxlength="60"
+      />
+    </div>
+
+    <div class="ds-input-group">
+      <label class="ds-label" for="deck-author">分享卡组作者</label>
+      <input
+        type="text"
+        id="deck-author"
+        class="mw-ui-input"
+        placeholder="你的署名"
+        maxlength="40"
+      />
+    </div>
+
+    <div class="ds-input-group">
+      <label class="ds-label" for="deck-faction">选择阵营</label>
+      <select id="deck-faction" class="mw-ui-input" disabled>
+        <option value="" selected>🔄 系统初始化中...</option>
+        <option value="超弦体">超弦体</option>
+        <option value="晶源体">晶源体</option>
+      </select>
+    </div>
+
+    <div class="ds-input-group">
+      <label class="ds-label" for="deck-desc">卡组介绍</label>
+      <textarea
+        id="deck-desc"
+        class="mw-ui-input"
+        placeholder="简单介绍卡组、思路或版本说明"
+        maxlength="2000"
+        style="width: 100%; height: 100px; resize: vertical"
+      ></textarea>
+    </div>
+
+    <div
+      id="default-cards-note"
+      style="
+        padding: 8px;
+        font-size: 13px;
+        color: var(--klbq-ok);
+        background: rgba(24, 121, 78, 0.08);
+        border: 1px solid rgba(24, 121, 78, 0.25);
+        border-radius: 3px;
+        display: none;
+        margin-bottom: 10px;
+      "
+    ></div>
+
+    <div
+      id="rarity-status"
+      style="
+        padding: 10px;
+        font-size: 13px;
+        margin-bottom: 15px;
+        border: 1px dashed var(--klbq-line-200);
+        background: var(--klbq-surface);
+        border-radius: 3px;
+      "
+    ></div>
+    <div class="ds-input-group">
+      <label class="ds-label" for="deck-sharecode"
+        >导入卡组分享码（仅支持现版本导出的分享码，不同版本之间导出的分享码不通用）</label
+      >
+      <div style="display: flex; gap: 8px; align-items: center">
+        <input
+          type="text"
+          id="deck-sharecode"
+          class="mw-ui-input"
+          placeholder="粘贴分享码后点击导入"
+          style="flex: 1"
+        />
+        <button
+          id="btn-import-deck"
+          class="mw-ui-button mw-ui-progressive"
+          style="white-space: nowrap"
+        >
+          导入卡组
+        </button>
+      </div>
+    </div>
+    <div class="ds-input-group">
+      <label class="ds-label">卡牌 (多选)（不包含默认卡）</label>
+      <div
+        id="cards-container"
+        style="
+          border: 1px solid var(--klbq-line-200);
+          padding: 10px;
+          background: var(--klbq-surface);
+          max-height: 360px;
+          overflow-y: auto;
+          border-radius: 2px;
+        "
+      >
+        <div
+          id="msg-status"
+          style="color: var(--klbq-text-muted); padding: 10px; text-align: center"
+        >
+          ⏳ 正在连接数据库...
+        </div>
+        <div id="dynamic-card-list"></div>
+      </div>
+    </div>
+
+    <button
+      id="btn-submit-deck"
+      class="editOptions mw-ui-button mw-ui-progressive radius5"
+    >
+      发布卡组
+    </button>
+    <div
+      id="submit-status"
+      style="margin-top: 15px; text-align: center; font-weight: bold"
+    ></div>
+  </div>
+
+  <script>
+    (window.RLQ = window.RLQ || []).push(function () {
+      // ========== 配置区 ==========
+      var WIKI_JSON_PAGE = "MediaWiki:ZombieCardList.json";
+      var TARGET_BASE = "晶源感染卡组分享";
+      var THRESHOLDS = {
+        超弦体: { 完美: 10, 卓越: 15, 精致: 15 },
+        晶源体: { 完美: 8, 卓越: 11, 精致: 11 },
+      };
+      var ALLOWED_RARITIES = ["完美", "卓越", "精致"];
+      var MAX_PER_RARITY = 20;
+      // ============================
+      var ui = {
+        name: document.getElementById("deck-name"),
+        author: document.getElementById("deck-author"),
+        sharecode: document.getElementById("deck-sharecode"),
+        desc: document.getElementById("deck-desc"),
+        faction: document.getElementById("deck-faction"),
+        list: document.getElementById("dynamic-card-list"),
+        msg: document.getElementById("msg-status"),
+        btn: document.getElementById("btn-submit-deck"),
+        btnImport: document.getElementById("btn-import-deck"),
+        status: document.getElementById("submit-status"),
+        defaultNote: document.getElementById("default-cards-note"),
+        rarityStatus: document.getElementById("rarity-status"),
+      };
+
+      // If some UI nodes missing, create minimal placeholders (to avoid runtime errors)
+      function ensureNode(id, tag, parent) {
+        var el = document.getElementById(id);
+        if (!el) {
+          el = document.createElement(tag || "div");
+          el.id = id;
+          (parent || document.body).appendChild(el);
+        }
+        return el;
+      }
+      if (!ui.defaultNote)
+        ui.defaultNote = ensureNode(
+          "default-cards-note",
+          "div",
+          ui.list || document.body,
+        );
+      if (!ui.rarityStatus)
+        ui.rarityStatus = ensureNode(
+          "rarity-status",
+          "div",
+          ui.list || document.body,
+        );
+
+      // 安全写入纯文本状态，避免把异常信息当 HTML 解析
+      function setStatusText(el, text, cls) {
+        if (!el) return;
+        el.textContent = "";
+        var span = document.createElement("span");
+        if (cls) span.className = cls;
+        span.textContent = String(text == null ? "" : text);
+        el.appendChild(span);
+      }
+
+      // 等待 mw.Api 就绪（轮询）
+      function ensureMwApi(timeoutMs) {
+        timeoutMs = typeof timeoutMs === "number" ? timeoutMs : 5000;
+        return new Promise(function (resolve, reject) {
+          try {
+            mw.loader.load("mediawiki.api");
+            mw.loader.load(
+              "//wiki.biligame.com" +
+                mw.util.wikiScript("") +
+                "?title=MediaWiki:DeckSharecode.js&action=raw&ctype=text/javascript",
+              "text/javascript",
+            );
+            console.log("DeckSharecode.js initialized!");
+          } catch (e) {}
+          var waited = 0,
+            interval = 100;
+          (function waitLoop() {
+            if (window.mw && window.mw.Api) {
+              resolve();
+            } else {
+              waited += interval;
+              if (waited >= timeoutMs) reject(new Error("mw.Api 加载超时"));
+              else setTimeout(waitLoop, interval);
+            }
+          })();
+        });
+      }
+
+      // 判断页面对象是否 missing
+      function pageIsMissing(page) {
+        return Object.prototype.hasOwnProperty.call(page || {}, "missing");
+      }
+
+      // 解析卡牌条目（兼容字符串或对象）
+      function parseCardEntry(entry) {
+        if (typeof entry === "string") {
+          return {
+            name: entry,
+            cardid: "",
+            quality: "",
+            default: false,
+            index: -1,
+          };
+        } else if (entry && typeof entry === "object") {
+          return {
+            name: String(entry.name || "").trim(),
+            cardid: String(entry.cardid || "").trim(),
+            quality: String(entry.quality || "").trim(),
+            default: !!entry.default,
+            index: typeof entry.index === "number" ? entry.index : -1,
+          };
+        }
+        return { name: "", cardid: "", quality: "", default: false, index: -1 };
+      }
+
+      // 简单模板参数安全化
+      function safeTemplateParam(s) {
+        return String(s || "")
+          .replace(/\r?\n/g, " ")
+          .replace(/\|/g, "｜")
+          .replace(/{{/g, "{ {")
+          .replace(/}}/g, "} }")
+          .replace(/[<>\[\]{}]/g, function (ch) {
+            var m = {
+              "<": "＜",
+              ">": "＞",
+              "[": "［",
+              "]": "］",
+              "{": "｛",
+              "}": "｝",
+            };
+            return m[ch] || ch;
+          })
+          .trim();
+      }
+
+      // 规范化 base name（用于匹配 API 返回 title 与 data-filename）
+      function normBasename(title) {
+        if (!title) return "";
+        var t = String(title);
+        t = t.replace(/^File:/i, "").replace(/^文件:/i, "");
+        t = t.replace(/_/g, " ").trim().toLowerCase();
+        return t;
+      }
+
+      // --- 批量加载图片（更稳健的实现） ---
+      function batchLoadImages(fileNames) {
+        if (!fileNames || fileNames.length === 0) return;
+        var uniq = Array.from(new Set(fileNames));
+        var chunkSize = 50;
+        for (var i = 0; i < uniq.length; i += chunkSize) {
+          (function (chunk) {
+            ensureMwApi()
+              .then(function () {
+                var api = new mw.Api();
+                api
+                  .get({
+                    action: "query",
+                    titles: chunk.join("|"),
+                    prop: "imageinfo",
+                    iiprop: "url",
+                    iiurlwidth: 100,
+                    format: "json",
+                    formatversion: 2,
+                  })
+                  .done(function (data) {
+                    try {
+                      var pages = (data.query && data.query.pages) || [];
+                      var urlMap = Object.create(null);
+                      pages.forEach(function (page) {
+                        var title = page.title || "";
+                        if (page.missing) {
+                          return;
+                        }
+                        var info = page.imageinfo && page.imageinfo[0];
+                        var imageUrl =
+                          (info && (info.thumburl || info.url)) || null;
+                        if (!imageUrl) return;
+                        var key = normBasename(title);
+                        urlMap[key] = imageUrl;
+                        var altKey = normBasename(title.replace(/ /g, "_"));
+                        if (!urlMap[altKey]) urlMap[altKey] = imageUrl;
+                      });
+
+                      var imgs = document.querySelectorAll(
+                        "img.card-preview-img[data-filename]",
+                      );
+                      imgs.forEach(function (img) {
+                        var rawFn = img.dataset.filename || "";
+                        if (!rawFn) return;
+                        var key = normBasename(rawFn);
+                        if (urlMap[key]) {
+                          img.src = urlMap[key];
+                          img.style.background = "transparent";
+                          img.removeAttribute("data-loading");
+                        } else {
+                          var alt = normBasename(rawFn.replace(/_/g, " "));
+                          if (urlMap[alt]) {
+                            img.src = urlMap[alt];
+                            img.style.background = "transparent";
+                            img.removeAttribute("data-loading");
+                          } else {
+                            img.style.background = "var(--klbq-line-100)";
+                            img.setAttribute("data-loading", "failed");
+                          }
+                        }
+                      });
+                    } catch (err) {
+                      console.error(
+                        "batchLoadImages: 处理返回时异常",
+                        err,
+                        data,
+                      );
+                    }
+                  })
+                  .fail(function (err) {
+                    console.error("batchLoadImages: API 请求失败", err);
+                  });
+              })
+              .catch(function (e) {
+                console.error("batchLoadImages: 无法加载 mw.Api", e);
+              });
+          })(uniq.slice(i, i + chunkSize));
+        }
+      }
+
+      // --- 拉取 JSON 数据 ---
+      var loadedCardData = null;
+      var defaultCardsForFaction = [];
+      var factionLookup = {};
+
+      function fetchDeckData() {
+        return new Promise(function (resolve, reject) {
+          ensureMwApi(5000)
+            .then(function () {
+              var api = new mw.Api();
+              api
+                .get({
+                  action: "query",
+                  prop: "revisions",
+                  titles: WIKI_JSON_PAGE,
+                  rvprop: "content",
+                  rvslots: "main",
+                  format: "json",
+                })
+                .done(function (data) {
+                  try {
+                    var pages = data.query && data.query.pages;
+                    var pageId = Object.keys(pages)[0];
+                    var page = pages[pageId];
+                    if (page && pageIsMissing(page)) {
+                      reject(new Error("数据源页面不存在"));
+                      return;
+                    }
+                    var content =
+                      (page &&
+                        page.revisions &&
+                        page.revisions[0].slots.main["*"]) ||
+                      "";
+                    var jsonText = content
+                      .trim()
+                      .replace(/^<pre[^>]*>/i, "")
+                      .replace(/<\/pre>$/i, "")
+                      .trim();
+                    resolve(JSON.parse(jsonText));
+                  } catch (e) {
+                    reject(new Error("JSON解析失败: " + e.message));
+                  }
+                })
+                .fail(function () {
+                  reject(new Error("API 请求失败"));
+                });
+            })
+            .catch(function (err) {
+              reject(err);
+            });
+        });
+      }
+
+      // 初始化加载
+      fetchDeckData()
+        .then(function (data) {
+          loadedCardData = data;
+          if (ui.msg) ui.msg.style.display = "none";
+          if (ui.list)
+            ui.list.innerHTML =
+              '<div style="color:var(--klbq-ok); text-align:center; padding:10px;">✅ 数据加载完成，请选择阵营</div>';
+          if (ui.faction) {
+            ui.faction.disabled = false;
+            if (ui.faction.options && ui.faction.options[0])
+              ui.faction.options[0].text = "-- 请选择阵营 --";
+          }
+          if (ui.btn) {
+            ui.btn.disabled = true;
+            ui.btn.style.opacity = "0.5";
+            ui.btn.style.cursor = "not-allowed";
+          }
+        })
+        .catch(function (err) {
+          console.error("Widget Error", err);
+          if (ui.msg)
+            setStatusText(
+              ui.msg,
+              "❌ 加载失败: " + (err && err.message ? err.message : err),
+              "ds-status-fail",
+            );
+        });
+
+      function getUserSelectedNames() {
+        var sel = [];
+        var items = document.querySelectorAll(".card-item.selected");
+        items.forEach(function (it) {
+          var n = it.dataset && it.dataset.name;
+          if (n && sel.indexOf(n) === -1) sel.push(n);
+        });
+        return sel;
+      }
+
+      function computeCountsFromSelectedArray(userSelectedNames) {
+        var selected = Array.isArray(userSelectedNames)
+          ? userSelectedNames.slice()
+          : [];
+        (defaultCardsForFaction || []).forEach(function (n) {
+          if (n && selected.indexOf(n) === -1) selected.push(n);
+        });
+        var counts = { 完美: 0, 卓越: 0, 精致: 0 };
+        selected.forEach(function (name) {
+          var card = factionLookup[name];
+          if (card && card.quality) {
+            var q = String(card.quality);
+            if (/完/.test(q)) counts["完美"]++;
+            else if (/卓/.test(q)) counts["卓越"]++;
+            else if (/精/.test(q)) counts["精致"]++;
+          }
+        });
+        return counts;
+      }
+
+      function renderCardListForFaction(factionName) {
+        if (!ui.list) return;
+        ui.list.innerHTML = "";
+        defaultCardsForFaction = [];
+        factionLookup = {};
+
+        if (!loadedCardData || !loadedCardData[factionName]) {
+          ui.defaultNote.style.display = "none";
+          ui.rarityStatus.innerHTML = "";
+          return;
+        }
+
+        var raw = loadedCardData[factionName];
+        var visibleCount = 0;
+        var imagesToLoad = [];
+        var row = document.createElement("div");
+        row.className = "zy-card-row";
+
+        raw.forEach(function (entry) {
+          var card = parseCardEntry(entry);
+          if (!card.name) return;
+          factionLookup[card.name] = card;
+          if (card.default) {
+            defaultCardsForFaction.push(card.name);
+          } else {
+            visibleCount++;
+            var item = document.createElement("div");
+            item.className = "card-item";
+            item.dataset.name = card.name;
+            item.dataset.cardid = card.cardid || "";
+            item.dataset.rarity = card.quality || "";
+            item.dataset.index = card.index;
+
+            var img = document.createElement("img");
+            img.className = "card-preview-img";
+            if (card.cardid) {
+              var fileName = "File:生化卡牌_" + card.cardid + ".png";
+              img.dataset.filename = fileName;
+              img.alt = card.name;
+              imagesToLoad.push(fileName);
+            } else img.style.display = "none";
+
+            var nameEl = document.createElement("span");
+            nameEl.className = "card-name";
+            nameEl.textContent = card.name;
+            if (/完/.test(card.quality)) {
+              nameEl.style.backgroundColor = "var(--item-quality-Perfect)";
+              nameEl.style.color = "#333";
+            } else if (/卓/.test(card.quality)) {
+              nameEl.style.backgroundColor = "var(--item-quality-Superior)";
+              nameEl.style.color = "#333";
+            } else if (/精/.test(card.quality)) {
+              nameEl.style.backgroundColor = "var(--item-quality-Exquisite)";
+              nameEl.style.color = "#fff";
+            } else {
+              nameEl.style.backgroundColor = "transparent";
+              nameEl.style.color = "#222";
+            }
+
+            item.addEventListener("click", function (e) {
+              e.preventDefault();
+              var willSelect = !item.classList.contains("selected");
+              if (willSelect) {
+                var userSelected = getUserSelectedNames();
+                if (userSelected.indexOf(item.dataset.name) === -1)
+                  userSelected.push(item.dataset.name);
+                var counts = computeCountsFromSelectedArray(userSelected);
+                var q = item.dataset.rarity || "";
+                var qNorm = /完/.test(q)
+                  ? "完美"
+                  : /卓/.test(q)
+                    ? "卓越"
+                    : /精/.test(q)
+                      ? "精致"
+                      : "";
+                if (qNorm && counts[qNorm] > MAX_PER_RARITY) {
+                  ui.status.innerHTML =
+                    '<span class="ds-status-fail">❌ ' +
+                    qNorm +
+                    " 卡牌已达到上限（" +
+                    MAX_PER_RARITY +
+                    "），无法再选择。</span>";
+                  setTimeout(function () {
+                    if (ui.status) ui.status.innerHTML = "";
+                  }, 4000);
+                  return;
+                }
+              }
+              item.classList.toggle("selected");
+              updateRarityCounts();
+            });
+
+            item.tabIndex = 0;
+            item.addEventListener("keydown", function (e) {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                var willSelect = !item.classList.contains("selected");
+                if (willSelect) {
+                  var userSelected = getUserSelectedNames();
+                  if (userSelected.indexOf(item.dataset.name) === -1)
+                    userSelected.push(item.dataset.name);
+                  var counts = computeCountsFromSelectedArray(userSelected);
+                  var q = item.dataset.rarity || "";
+                  var qNorm = /完/.test(q)
+                    ? "完美"
+                    : /卓/.test(q)
+                      ? "卓越"
+                      : /精/.test(q)
+                        ? "精致"
+                        : "";
+                  if (qNorm && counts[qNorm] > MAX_PER_RARITY) {
+                    ui.status.innerHTML =
+                      '<span class="ds-status-fail">❌ ' +
+                      qNorm +
+                      " 卡牌已达到上限（" +
+                      MAX_PER_RARITY +
+                      "），无法再选择。</span>";
+                    setTimeout(function () {
+                      if (ui.status) ui.status.innerHTML = "";
+                    }, 4000);
+                    return;
+                  }
+                }
+                item.classList.toggle("selected");
+                updateRarityCounts();
+              }
+            });
+
+            item.appendChild(img);
+            item.appendChild(nameEl);
+            row.appendChild(item);
+          }
+        });
+
+        ui.list.appendChild(row);
+        if (imagesToLoad.length > 0) batchLoadImages(imagesToLoad);
+        if (defaultCardsForFaction.length > 0) {
+          ui.defaultNote.style.display = "block";
+          ui.defaultNote.innerHTML =
+            "<strong>默认携带:</strong> " + defaultCardsForFaction.join("、");
+        } else {
+          ui.defaultNote.style.display = "none";
+          ui.defaultNote.innerHTML = "";
+        }
+        if (visibleCount === 0)
+          ui.list.innerHTML =
+            '<div style="color:var(--klbq-text-subtle); text-align:center;">无可选卡牌</div>';
+        updateRarityCounts();
+      }
+
+      function updateRarityCounts() {
+        var factionName =
+          ui.faction && ui.faction.value ? ui.faction.value : "";
+        if (!factionName || !THRESHOLDS[factionName]) {
+          ui.rarityStatus.innerHTML = "";
+          if (ui.btn) {
+            ui.btn.disabled = true;
+            ui.btn.style.opacity = "0.5";
+            ui.btn.style.cursor = "not-allowed";
+          }
+          return false;
+        }
+
+        var selected = getUserSelectedNames();
+        (defaultCardsForFaction || []).forEach(function (n) {
+          if (n && selected.indexOf(n) === -1) selected.push(n);
+        });
+
+        var counts = { 完美: 0, 卓越: 0, 精致: 0 };
+        selected.forEach(function (name) {
+          var card = factionLookup[name];
+          if (card && card.quality) {
+            var q = String(card.quality);
+            if (/完/.test(q)) counts["完美"]++;
+            else if (/卓/.test(q)) counts["卓越"]++;
+            else if (/精/.test(q)) counts["精致"]++;
+          }
+        });
+
+        var target = THRESHOLDS[factionName];
+        var htmlParts = [];
+        var allOk = true;
+        ALLOWED_RARITIES.forEach(function (r) {
+          var cur = counts[r] || 0;
+          var need = target[r] || 0;
+          var isOk = cur >= need;
+          if (!isOk) allOk = false;
+          var overCap = cur > MAX_PER_RARITY;
+          htmlParts.push(
+            '<div style="margin-bottom:3px;"><strong>' +
+              r +
+              "</strong>: " +
+              cur +
+              " / " +
+              need +
+              "（上限:" +
+              MAX_PER_RARITY +
+              "）" +
+              (isOk
+                ? ' <span style="color:var(--klbq-ok);">✔</span>'
+                : ' <span style="color:var(--klbq-err);">（还差 ' +
+                  (need - cur) +
+                  "）</span>") +
+              (overCap
+                ? ' <span style="color:var(--klbq-err);">（已超上限）</span>'
+                : "") +
+              "</div>",
+          );
+        });
+
+        var isValid = allOk &&
+          !(
+            counts["完美"] > MAX_PER_RARITY ||
+            counts["卓越"] > MAX_PER_RARITY ||
+            counts["精致"] > MAX_PER_RARITY
+          );
+        
+        ui.rarityStatus.innerHTML =
+          '<div style="font-weight:600; margin-bottom:6px;">当前稀有度统计（包含默认卡）</div>' +
+          htmlParts.join("") +
+          '<div style="margin-top:6px; color:' +
+          (allOk ? "var(--klbq-ok)" : "var(--klbq-err)") +
+          ';">' +
+          (allOk
+            ? "满足发布条件：可以发布"
+            : "不满足发布条件：无法发布，请调整选择或卡组内容") +
+          "</div>";
+        
+        if (ui.btn) {
+          ui.btn.disabled = !isValid;
+          if (!isValid) {
+            ui.btn.style.opacity = "0.5";
+            ui.btn.style.cursor = "not-allowed";
+            ui.btn.style.backgroundColor = "rgb(234, 236, 240)";
+          } else {
+            ui.btn.style.opacity = "";
+            ui.btn.style.cursor = "";
+            ui.btn.style.backgroundColor = "";
+          }
+        }
+        
+        return isValid;
+      }
+
+      if (ui.faction)
+        ui.faction.addEventListener("change", function () {
+          renderCardListForFaction(this.value);
+        });
+
+      if (ui.btnImport) {
+        ui.btnImport.addEventListener("click", function () {
+          var sharecode =
+            ui.sharecode && ui.sharecode.value ? ui.sharecode.value.trim() : "";
+          if (!sharecode) {
+            alert("请输入分享码");
+            return;
+          }
+
+          var factionVal =
+            ui.faction && ui.faction.value ? ui.faction.value : "";
+          if (!factionVal) {
+            alert("请先选择阵营");
+            return;
+          }
+
+          if (typeof window.decodeCode !== "function") {
+            alert("分享码解析功能尚未加载，请稍后再试");
+            return;
+          }
+
+          try {
+            var actualCode = sharecode;
+            var deckName = null;
+            
+            if (sharecode.indexOf('｜') !== -1 || sharecode.indexOf('|') !== -1) {
+              var parts = sharecode.split(/[｜|]/);
+              if (parts.length >= 2) {
+                actualCode = parts[parts.length - 1].trim();
+                if (parts.length >= 3) {
+                  deckName = parts[parts.length - 2].trim();
+                }
+              }
+            }
+            
+            var cardIds = window.decodeCode(actualCode, factionVal);
+            if (!Array.isArray(cardIds) || cardIds.length === 0) {
+              return;
+            }
+            
+            if (deckName && ui.name) {
+              ui.name.value = deckName;
+            }
+
+            var allItems = document.querySelectorAll(".card-item.selected");
+            allItems.forEach(function (item) {
+              item.classList.remove("selected");
+            });
+
+            var allCardNodes = document.querySelectorAll(".card-item");
+            cardIds.forEach(function (cardId) {
+              var item = null;
+              for (var ci = 0; ci < allCardNodes.length; ci++) {
+                if (allCardNodes[ci].dataset.cardid === String(cardId)) {
+                  item = allCardNodes[ci];
+                  break;
+                }
+              }
+              if (item && !item.classList.contains("selected")) {
+                item.click();
+              }
+            });
+
+            ui.status.innerHTML =
+              '<span class="ds-status-ok">✅ 卡组导入成功！已选中 ' +
+              cardIds.length +
+              " 张卡牌" + 
+              (deckName ? "，卡组名称已填入" : "") +
+              "</span>";
+            setTimeout(function () {
+              if (ui.status) ui.status.innerHTML = "";
+            }, 3000);
+          } catch (e) {
+            console.error("导入卡组失败：", e);
+          }
+        });
+      }
+
+      if (ui.btn) {
+        ui.btn.addEventListener("click", function () {
+          try {
+            var nameVal = ui.name && ui.name.value ? ui.name.value.trim() : "";
+            var author =
+              ui.author && ui.author.value ? ui.author.value.trim() : "";
+            var descVal = ui.desc && ui.desc.value ? ui.desc.value.trim() : "";
+            var factionVal =
+              ui.faction && ui.faction.value ? ui.faction.value : "";
+
+            if (!nameVal || !factionVal) {
+              alert("请填写：卡组名称 和 阵营（必填）");
+              return;
+            }
+
+            var countsOk = updateRarityCounts();
+            if (!countsOk) {
+              alert(
+                "不满足稀有度要求或超过稀有度上限，无法发布。请查看上方稀有度统计。",
+              );
+              return;
+            }
+
+            ui.btn.disabled = true;
+            ui.btn.innerText = "提交中...";
+            ui.status.innerHTML = "";
+
+            var finalSet = [];
+            getUserSelectedNames().forEach(function (n) {
+              if (n && finalSet.indexOf(n) === -1) finalSet.push(n);
+            });
+            (defaultCardsForFaction || []).forEach(function (n) {
+              if (n && finalSet.indexOf(n) === -1) finalSet.push(n);
+            });
+
+            var finalCards = (finalSet || []).map(function (name, idx) {
+              var c = factionLookup[name] || {};
+              return {
+                name: name,
+                cardid: c.cardid || "",
+                quality: c.quality || "",
+                index: c.index || -1,
+                _origIndex: idx,
+              };
+            });
+            function rarityRank(q) {
+              if (/完/.test(q)) return 3;
+              if (/卓/.test(q)) return 2;
+              if (/精/.test(q)) return 1;
+              return 0;
+            }
+            finalCards.sort(function (a, b) {
+              var ra = rarityRank(a.quality),
+                rb = rarityRank(b.quality);
+              if (ra !== rb) return rb - ra;
+              return a._origIndex - b._origIndex;
+            });
+
+            var cardTemplates = finalCards
+              .map(function (c) {
+                var safeName = safeTemplateParam(c.name);
+                var safeId = safeTemplateParam(c.cardid);
+                return (
+                  "{{晶源感染卡牌图标|cardName=" +
+                  safeName +
+                  "|cardID=" +
+                  safeId +
+                  "|quality=" +
+                  safeTemplateParam(c.quality) +
+                  "}}"
+                );
+              })
+              .join(" ");
+
+            var safeNameParam = safeTemplateParam(nameVal);
+            var safeAuthorParam = safeTemplateParam(author || "");
+            if (!safeNameParam) {
+              alert("卡组名称无效，请更换名称");
+              ui.btn.disabled = false;
+              ui.btn.innerText = "发布卡组";
+              return;
+            }
+
+            var titleName = (nameVal || "")
+              .replace(/[\r\n\t]/g, " ")
+              .replace(/\//g, "／")
+              .replace(/[#<>\[\]|{}]/g, "")
+              .trim()
+              .slice(0, 80);
+            if (!titleName) {
+              alert("卡组名称无效，请更换名称");
+              ui.btn.disabled = false;
+              ui.btn.innerText = "发布卡组";
+              return;
+            }
+            var targetTitle = TARGET_BASE + "/" + titleName;
+
+            var cardIdList = finalCards
+              .map(function (c) {
+                return c.cardid || "";
+              })
+              .filter(function (id) {
+                return id !== "";
+              });
+            var cardIdsForWidget = cardIdList.join(',');
+            
+            var shareCodeWidget = "{{#widget:晶源感染卡组分享码生成|cardIds=" + cardIdsForWidget + "|faction=" + factionVal + "}}";
+
+            var wikitext =
+              "{{晶源感染卡组分享\n" +
+              "|卡组名称=" +
+              safeNameParam +
+              "\n" +
+              "|卡组作者=" +
+              safeAuthorParam +
+              "\n" +
+              "|卡组分享ID=" +
+              shareCodeWidget +
+              "\n" +
+              (descVal
+                ? "|卡组介绍=<pre>" + safeTemplateParam(descVal) + "</pre>\n"
+                : "") +
+              "|卡组阵营=" +
+              factionVal +
+              "\n" +
+              "|卡牌列表=" +
+              (cardTemplates || "无") +
+              "}}\n" +
+              "<no" +
+              "include>[[分类:" +
+              factionVal +
+              "卡组分享]]</no" +
+              "include>";
+
+            ensureMwApi()
+              .then(function () {
+                var api = new mw.Api();
+                api
+                  .postWithToken("csrf", {
+                    action: "edit",
+                    title: targetTitle,
+                    text: wikitext,
+                    summary: "Widget 提交: " + safeNameParam.slice(0, 100),
+                    createonly: true,
+                  })
+                  .done(function (data) {
+                    try {
+                      var isPending =
+                        (data.edit && data.edit.moderation) ||
+                        (data.info && /moderation/i.test(String(data.info)));
+                      if (isPending) {
+                        ui.status.innerHTML =
+                          '<span class="ds-status-pending">🕒 提交成功：已进入审核队列，页面通过后会公开显示。</span>';
+                        setTimeout(function () {
+                          location.reload();
+                        }, 2200);
+                      } else {
+                        ui.status.innerHTML =
+                          '<span class="ds-status-ok">✅ 发布成功！页面即将刷新。</span>';
+                        setTimeout(function () {
+                          location.reload();
+                        }, 1200);
+                      }
+                    } catch (e) {
+                      console.error("提交后处理异常：", e, data);
+                      ui.status.innerHTML =
+                        '<span class="ds-status-fail">❌ 发布后处理出错，请查看控制台。</span>';
+                      ui.btn.disabled = false;
+                      ui.btn.innerText = "发布卡组";
+                    }
+                  })
+                  .fail(function (code, data) {
+                    console.error("编辑请求失败：", code, data);
+                    ui.btn.disabled = false;
+                    ui.btn.innerText = "发布卡组";
+                    if (code === "articleexists") {
+                      ui.status.innerHTML =
+                        '<span class="ds-status-fail">❌ 同名卡组已存在，请修改名称。</span>';
+                    } else {
+                      var info =
+                        data && data.error && data.error.info
+                          ? data.error.info
+                          : code;
+                      ui.status.innerHTML =
+                        '<span class="ds-status-fail">❌ 提交失败：' +
+                        safeTemplateParam(info) +
+                        "</span>";
+                    }
+                  });
+              })
+              .catch(function (e) {
+                setStatusText(
+                  ui.status,
+                  "❌ 系统错误: " + (e && e.message ? e.message : e),
+                  "ds-status-fail",
+                );
+                ui.btn.disabled = false;
+                ui.btn.innerText = "发布卡组";
+              });
+          } catch (err) {
+            console.error("提交逻辑异常：", err);
+            ui.status.innerHTML =
+              '<span class="ds-status-fail">❌ 脚本错误，请查看控制台。</span>';
+            ui.btn.disabled = false;
+            ui.btn.innerText = "发布卡组";
+          }
+        });
+      }
+    });
+  </script>
+</includeonly>

@@ -1,0 +1,451 @@
+<includeonly><script>
+/* ==========================================================================
+   Widget:CardSelectGallery —— 图鉴画廊「筛选 + 排序」
+
+   一、筛选（原有能力，逻辑未改动）
+     · 按钮：.cardSelectOption
+         data-group="分组键"            分组名，同时决定读卡片上的哪个属性
+         data-option="分组键|取值"      与 data-group 同值，后半段是取值
+         data-opt="OR|AND"              同组内多选的组合方式，默认 OR
+     · 卡片：.gallerygrid .gallerygrid-item
+         data-param<分组键>="值1,值2"   逗号分隔，命中任意一个即算
+     · 行为：只切换 display，不改 DOM 顺序。
+
+   二、排序
+     · 按钮：.cardSortOption
+         data-sort="键名"               读取卡片上的 data-sort-<键名>
+         data-sort-dir="asc|desc"       未选中时的默认方向标记；实际首次点击一律降序
+         data-sort-type="number|text"   取值类型，默认 number
+         data-sort-reset                存在即为「恢复默认序」按钮，可省略 data-sort
+     · 卡片：data-sort-<键名>="数值或文本"
+     · 行为：
+         1) 用 CSS order 重排（grid / flex 都吃 order），不移动 DOM 节点，
+            因此筛选的 display 状态、外部脚本持有的节点引用都不受影响；
+         2) 空值（属性缺失 / 空串 / 非数字）恒排最后，不随方向翻转；
+         3) 同值按 DOM 原始顺序稳定排列；
+         4) **同一维度三段式循环**：首次点击 = 降序（大→小）→ 二次点击 = 升序
+            （小→大）→ 三次点击 = 取消排序，回到默认序；点击另一个维度则重置为
+            降序重新开始。按钮文字只写维度名，当前方向由箭头指示：
+            ▼ = 降序（大→小）、▲ = 升序（小→大）；
+         5) 页面存在多个图鉴网格时，各网格内部各自排序，不会跨网格搬卡片。
+     · 与 CSS order 的关系：这里写的是行内 order，优先级高于类选择器里的
+       order（如旧的 .sec-card { order: var(--o-*) }），取消排序后行内值被
+       清空，立刻回到 DOM 原始顺序。若页面上还有别的脚本/CSS 也在改 order，
+       以行内值为准。
+
+   三、对外 API（调试 / 其它脚本调用）
+     window.CardSelectGallery.sort('value', 'desc')
+     window.CardSelectGallery.reset()
+     window.CardSelectGallery.refresh()   // 异步插入卡片后重新抓取
+     window.CardSelectGallery.state()     // 查看当前生效的排序
+   ========================================================================== */
+window.RLQ = window.RLQ || [];
+window.RLQ.push(function() {
+    $(function() {
+        if (window.__cardSelectGalleryLoaded) { return; }
+        window.__cardSelectGalleryLoaded = true;
+
+        var self = {};
+
+        /* ---------- 筛选状态 ---------- */
+        var selectOptions = [];
+        var filters = {};
+        var filterKeys = [];
+        var showAll = true;
+        var tableRows = [];
+
+        /* ---------- 排序状态 ---------- */
+        var sortButtons = [];
+        var activeSort = null;   // { key: String, dir: 1|-1, type: 'number'|'text' }
+
+        function isNil(s) {
+            return s === '' || s === undefined || s === null || s === false;
+        }
+
+        // 不用 $.trim：jQuery 4 已移除该别名，这里自己实现，跨版本都能跑
+        function trim(s) {
+            if (s === undefined || s === null) return '';
+            return String(s).replace(/^\s+|\s+$/g, '');
+        }
+
+        /* ==================== 筛选 ==================== */
+
+        // 点击筛选选项
+        function OnSelectOptionClick(e) {
+            var $x = e.data;
+            e.preventDefault();
+
+            // 重置功能
+            if ($x.FilterKey == 0) {
+                console.log('🔄 [重置触发] 点击了重置/全部按钮喵');
+                selectOptions.forEach(function(opt) {
+                    opt.Select = false;
+                    opt.removeClass('selected');
+                });
+                filters = {};
+                showAll = true;
+                self.FilterRows();
+                return;
+            }
+
+            showAll = false;
+            var select = !$x.Select;
+            $x.Select = select;
+
+            console.log('🏷️ [筛选触发] Group: ' + $x.FilterKey + ' | Value: ' + $x.FilterValue + ' | ' + (select ? '✅ 选中' : '❌ 取消') + '喵');
+
+            var key = $x.FilterKey;
+            filters[key] = filters[key] || {};
+
+            var opt = $x.FilterOpt === "AND" ? "AND" : "OR";
+            filters[key][opt] = filters[key][opt] || [];
+
+            if (select) {
+                filters[key][opt].push($x.FilterValue);
+            } else {
+                filters[key][opt] = filters[key][opt].filter(function(x) { return x !== $x.FilterValue; });
+                if (filters[key][opt].length < 1) delete filters[key][opt];
+            }
+
+            select ? $x.addClass('selected') : $x.removeClass('selected');
+            self.FilterRows();
+        }
+
+        function includeAll(t1, t2) {
+            if (!t1) return false;
+            for (var i = 0; i < t2.length; i++) {
+                if (t1.indexOf(t2[i]) < 0) return false;
+            }
+            return true;
+        }
+
+        function includeAny(t1, t2) {
+            if (t2.length === 0) return true;
+            if (!t1) return false;
+            for (var i = 0; i < t2.length; i++) {
+                if (t1.indexOf(t2[i]) > -1) return true;
+            }
+            return false;
+        }
+
+        // 执行筛选 (纯净版，仅控制 display 属性)
+        self.FilterRows = function() {
+            if (showAll) { filters = {}; }
+
+            console.log('🔍 [执行筛选] 当前生效规则字典:', JSON.parse(JSON.stringify(filters)), '喵');
+            var visibleCount = 0;
+
+            tableRows.forEach(function($x) {
+                var data = $x.FilterData;
+                var hide = false;
+
+                var keys = Object.keys(filters);
+                for (var i = 0; i < keys.length; i++) {
+                    var key = keys[i];
+                    hide = !data || !data[key];
+                    if (!hide && filters[key]['AND']) { hide = !includeAll(data[key], filters[key]['AND']); }
+                    if (!hide && filters[key]['OR']) { hide = !includeAny(data[key], filters[key]['OR']); }
+                    if (hide) break;
+                }
+
+                // 根据结果控制元素的隐藏与显示
+                if ($x.Hide !== hide) {
+                    $x.Hide = hide;
+                    hide ? $x.css('display', 'none') : $x.css('display', 'flex');
+                }
+
+                if (!hide) visibleCount++;
+            });
+
+            console.log('📊 [筛选完成] 满足条件的显示卡牌数: ' + visibleCount + ' / ' + tableRows.length + '喵');
+        };
+
+        /* ==================== 排序 ==================== */
+
+        // 读取某张卡片在某个维度上的值；不可排序的值统一返回 null
+        function readSortValue($x, key, type) {
+            var raw = $x.attr('data-sort-' + key);
+            if (raw === undefined || raw === null) return null;
+            raw = trim(String(raw));
+            if (raw === '') return null;
+
+            if (type === 'text') return raw;
+
+            // 数值：容忍 "1,234"、"12px"、"50%" 这类带杂质的写法
+            var num = parseFloat(raw.replace(/,/g, ''));
+            return isNaN(num) ? null : num;
+        }
+
+        // 清空行内 order，回到模板 / CSS 定义的默认顺序
+        function resetOrder() {
+            tableRows.forEach(function($x) {
+                if ($x[0].style.order) { $x[0].style.order = ''; }
+            });
+        }
+
+        // 按当前排序状态重排；用行内 order 而不是移动 DOM 节点
+        function applySort() {
+            if (!activeSort) { resetOrder(); return; }
+
+            var key = activeSort.key;
+            var dir = activeSort.dir;
+            var type = activeSort.type;
+
+            // 记录 DOM 原始次序，作为同值 / 空值时的稳定兜底
+            var list = tableRows.map(function($x, i) {
+                return { $x: $x, i: i, v: readSortValue($x, key, type) };
+            });
+
+            list.sort(function(a, b) {
+                var an = a.v === null, bn = b.v === null;
+                if (an && bn) return a.i - b.i;
+                if (an) return 1;   // 空值恒排最后（不随方向翻转）
+                if (bn) return -1;
+
+                var r;
+                if (type === 'text') {
+                    r = String(a.v).localeCompare(String(b.v), 'zh-Hans-CN');
+                } else {
+                    r = a.v - b.v;
+                }
+                if (r === 0) return a.i - b.i;
+                return r * dir;
+            });
+
+            list.forEach(function(o, idx) {
+                var el = o.$x[0];
+                var next = String(idx);
+                if (el.style.order !== next) { el.style.order = next; }
+            });
+        }
+
+        // 同步排序按钮的选中态
+        function syncSortButtons() {
+            sortButtons.forEach(function($x) {
+                var on = !!activeSort
+                    && !$x.IsReset
+                    && $x.SortKey === activeSort.key
+                    && $x.SortType === activeSort.type;
+                $x.toggleClass('selected', on);
+                $x.attr('aria-pressed', on ? 'true' : 'false');
+                // 方向箭头跟随当前生效方向：desc → ▼（大→小），asc → ▲（小→大）
+                $x.attr('data-sort-dir', (on ? activeSort.dir : $x.SortDir) < 0 ? 'desc' : 'asc');
+            });
+        }
+
+        // 点击排序按钮
+        function OnSortOptionClick(e) {
+            var $x = e.data;
+            e.preventDefault();
+
+            // 「恢复默认」按钮 → 直接取消排序
+            if ($x.IsReset) {
+                activeSort = null;
+                console.log('↩️ [排序取消] 回到默认顺序喵');
+            } else {
+                // 三段式循环：首次 = 降序（大→小）→ 二次 = 升序（小→大）→ 三次 = 取消
+                var sameKey = !!activeSort
+                    && activeSort.key === $x.SortKey
+                    && activeSort.type === $x.SortType;
+
+                if (!sameKey) {
+                    activeSort = { key: $x.SortKey, dir: -1, type: $x.SortType };
+                    console.log('🔀 [排序触发] 键: ' + $x.SortKey
+                        + ' | 方向: 降序（大→小）'
+                        + ' | 类型: ' + $x.SortType + '喵');
+                } else if (activeSort.dir < 0) {
+                    activeSort.dir = 1;
+                    console.log('🔀 [排序翻转] 键: ' + $x.SortKey
+                        + ' | 方向: 升序（小→大）'
+                        + ' | 类型: ' + $x.SortType + '喵');
+                } else {
+                    activeSort = null;
+                    console.log('↩️ [排序取消] 回到默认顺序喵');
+                }
+            }
+
+            syncSortButtons();
+            applySort();
+        }
+
+        /* ==================== 初始化 ==================== */
+
+        self.Init = function () {
+            // 抓取筛选按钮
+            selectOptions = $('.cardSelectOption').toArray().map(function(x) {
+                var $x = $(x);
+                var dataOption = trim($x.attr('data-option'));
+                var dataGroup = trim($x.attr('data-group'));
+
+                if (isNil(dataOption) || isNil(dataGroup)) return $x;
+                var splt = dataOption.split('|');
+                $x.FilterKey = dataGroup;
+                $x.FilterValue = trim(splt[1]);
+                $x.FilterOpt = trim($x.attr('data-opt') || 'OR').toUpperCase();
+
+                if (filterKeys.indexOf(dataGroup) < 0) filterKeys.push(dataGroup);
+                $x.off('click').click($x, OnSelectOptionClick);
+                return $x;
+            });
+
+            // 抓取画廊卡片 (仅读取 data-param / data-sort-* 属性，不干涉卡片内部DOM)
+            tableRows = $('.gallerygrid .gallerygrid-item').toArray().map(function(x) {
+                var $x = $(x);
+                $x.FilterData = {};
+
+                filterKeys.forEach(function(key) {
+                    var val = $x.attr('data-param' + key);
+                    if (val === undefined || val === null) return;
+
+                    var splt = String(val).split(',');
+                    splt.forEach(function(s) {
+                        s = trim(s);
+                        if (!isNil(s)) {
+                            $x.FilterData[key] = $x.FilterData[key] || [];
+                            $x.FilterData[key].push(s);
+                        }
+                    });
+                });
+                return $x;
+            });
+
+            console.log('⚙️ [初始化] 抓取到可筛选卡片数量: ' + tableRows.length + ' | 筛选维度(Keys):', filterKeys, '喵');
+        };
+
+        // 初始化排序按钮
+        self.InitSort = function () {
+            sortButtons = $('.cardSortOption').toArray().map(function(x) {
+                var $x = $(x);
+                var key = trim($x.attr('data-sort') || '');
+
+                $x.IsReset = $x.is('[data-sort-reset]') || key === '';
+                $x.SortKey = key;
+                $x.SortDir = (trim($x.attr('data-sort-dir') || 'asc').toLowerCase() === 'desc') ? -1 : 1;
+                $x.SortType = (trim($x.attr('data-sort-type') || 'number').toLowerCase() === 'text') ? 'text' : 'number';
+
+                $x.attr('role', 'button').attr('aria-pressed', 'false');
+                $x.off('click').click($x, OnSortOptionClick);
+                return $x;
+            });
+
+            if (sortButtons.length) {
+                console.log('⚙️ [初始化] 抓取到排序按钮数量: ' + sortButtons.length + '喵');
+            }
+        };
+
+        // 供外部调用的接口
+        window.CardSelectGallery = {
+            sort: function(key, dir, type) {
+                activeSort = {
+                    key: String(key),
+                    dir: (String(dir || '').toLowerCase() === 'desc') ? -1 : 1,
+                    type: (String(type || '').toLowerCase() === 'text') ? 'text' : 'number'
+                };
+                syncSortButtons();
+                applySort();
+            },
+            reset: function() {
+                activeSort = null;
+                syncSortButtons();
+                applySort();
+            },
+            refresh: function() {
+                self.Init();
+                self.InitSort();
+                applySort();
+                self.FilterRows();
+            },
+            state: function() {
+                return activeSort;
+            }
+        };
+
+        // 交互样式：排序按钮复用筛选按钮的 hover 类
+        $('.cardSortOption').on('mouseenter touchstart', function() {
+            $(this).addClass('hover');
+        }).on('mouseleave touchend', function() {
+            $(this).removeClass('hover');
+        });
+
+        // 启动初始化
+        self.Init();
+        self.InitSort();
+        console.log('🚀 Gallery Grid Filter + Sort 启动成功喵~');
+
+    });
+});
+</script>
+<style>
+/*筛选按钮*/
+li.btn.cardSelectOption.btn-default {
+    color: var(--klbq-text-muted);
+    margin: 2px 1px;
+    border: 2px solid var(--klbq-line-200);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+/*筛选按钮预选中*/
+li.btn.cardSelectOption.btn-default:hover,
+li.btn.cardSelectOption.hover {
+    background-color: #f0f7ff;
+    color: var(--klbq-accent);
+    border-color: var(--klbq-border-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(64, 158, 255, 0.15);
+}
+/*筛选按钮被选中*/
+li.btn.cardSelectOption.selected {
+    background-color: var(--klbq-accent);
+    color: #fff;
+    border-color: var(--klbq-accent);
+    transform: translateY(0);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/*排序按钮（与筛选按钮同款，靠 data-sort-* 区分行为）*/
+li.btn.cardSortOption.btn-default {
+    color: var(--klbq-text-muted);
+    margin: 2px 1px;
+    border: 2px solid var(--klbq-line-200);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+li.btn.cardSortOption.btn-default:hover,
+li.btn.cardSortOption.hover {
+    background-color: #f0f7ff;
+    color: var(--klbq-accent);
+    border-color: var(--klbq-border-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(64, 158, 255, 0.15);
+}
+li.btn.cardSortOption.selected {
+    background-color: var(--klbq-accent);
+    color: #fff;
+    border-color: var(--klbq-accent);
+    transform: translateY(0);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/*升/降序指示箭头*/
+li.btn.cardSortOption.selected::after {
+    content: " ▼";
+    font-size: 0.75em;
+}
+li.btn.cardSortOption.selected[data-sort-dir="asc"]::after {
+    content: " ▲";
+}
+.select-table {
+    width: 100%;
+    min-width: 60rem;
+}
+/*暗色模式*/
+.client-js.wiki-dark-mode li.btn.cardSortOption.btn-default {
+    color: var(--klbq-text-muted);
+    border-color: rgba(148, 163, 184, 0.35);
+}
+.client-js.wiki-dark-mode li.btn.cardSortOption.selected {
+    background-color: #0ea5e9;
+    border-color: #0ea5e9;
+    color: #fff;
+}
+</style></includeonly>

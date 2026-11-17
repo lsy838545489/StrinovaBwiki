@@ -1,0 +1,44 @@
+<includeonly><div class="cdkey-card">
+<div class="cdkey-info">
+<div class="cdkey" title="点击全选">{{{兑换码|}}}</div>
+<div class="time">有效期至：{{#invoke:TimeNormalizer|to_chinese_time|{{{兑换码失效时间|}}}}}</div></div>
+<div class="cdkey-reward">{{#invoke:兑换码录入|main|{{{奖励内容|}}}|50px}}</div></div></includeonly><noinclude>[[分类:首页模板]]</noinclude>{{#if:{{#varexists:cdkey-entry-card-CSS}}||{{#vardefine:cdkey-entry-card-CSS|1}}<bstyle>/*<pre>*/
+.cdkey-card {
+    background-color: rgb(var(--klbq-surface-rgb) / 0.9);
+    border-radius: 12px;
+    border-left: 5px solid var(--klbq-accent);
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.cdkey-card .cdkey-info .cdkey {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--klbq-ink-900);
+    font-family: Consolas, monospace;
+    cursor: pointer;
+    -webkit-user-select: all;
+    user-select: all;
+}
+.cdkey-card .cdkey-info .time {
+    font-size: 12px;
+    color: var(--klbq-ink-300);
+    margin-top: 4px;
+}
+
+/* --- 暗色模式 --- */
+.client-js.wiki-dark-mode .cdkey-card {
+    background-color: rgba(30, 42, 51, 0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.client-js.wiki-dark-mode .cdkey-card .cdkey-info .cdkey {
+    color: var(--klbq-text);
+}
+.client-js.wiki-dark-mode .cdkey-card .cdkey-info .time {
+    color: var(--klbq-text-subtle);
+}
+/*</pre>*/</bstyle>}}

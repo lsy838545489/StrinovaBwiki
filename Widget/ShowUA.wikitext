@@ -1,0 +1,31 @@
+<includeonly>
+<script>
+
+// 获取User Agent信息
+var userAgent = window.navigator.userAgent;
+
+// 找到id为"ua"的元素
+var uaElement = document.getElementById("ua");
+
+// 将User Agent信息添加到元素中
+uaElement.textContent = userAgent;
+
+var pageSizeElement = document.getElementById('pagesize');
+function updatePageDisplay() {
+    var pageWidth = window.innerWidth;
+    var pageHeight = window.innerHeight;
+    pageSizeElement.innerHTML = `宽度：${pageWidth}px<br>高度：${pageHeight}px`;
+}
+updatePageDisplay();
+window.addEventListener('resize', updatePageDisplay);
+</script></includeonly><noinclude>
+
+你的浏览器UA：
+
+<div id="ua"></div>
+
+你的浏览器页面宽高：
+
+<div id="pagesize"></div>
+
+{{#widget:ShowUA}}</noinclude>

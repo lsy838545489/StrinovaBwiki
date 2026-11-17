@@ -1,0 +1,111 @@
+{{#if:{{#varexists:弦溯战线筛选栏-css}} || {{#vardefine:弦溯战线筛选栏-css | 1 }}<bstyle>/*<pre>*/
+/* ===== 弦溯战线 · 图鉴筛选栏样式（筛选 + 排序） =====
+   物品图鉴与配件图鉴共用这一份样式。
+   筛选与排序都交给 [[Widget:CardSelectGallery]]：
+     · 筛选按钮 .cardSelectOption —— 读卡片上的 data-paramN
+     · 排序按钮 .cardSortOption   —— 读卡片上的 data-sort-<键>
+   排序写的是行内 order，不需要锚点、不走 :target；
+   脚本不执行时卡片保持模块输出的顺序（游戏内展示序）。
+   这里只补按钮尺寸与选中态，容器样式沿用 模板:筛选面板（它自带的 #css 在本站不生效）。 */
+
+/* ---- 面板容器 ---- */
+.gallery-filter {
+    background: rgb(var(--klbq-surface-rgb) / .9);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+    border: 1px solid rgba(160, 207, 255, .3);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.gallery-filter__row {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.gallery-filter__label {
+    flex-shrink: 0;
+    color: var(--klbq-text-muted);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 28px;
+    text-align: right;
+    padding-right: 8px;
+    text-wrap: nowrap;
+}
+.gallery-filter__divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(160, 207, 255, .4), transparent);
+    margin: 4px 0;
+}
+.gallery-filter .gallery-filter__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex: 1;
+}
+.gallery-filter__options li {
+    margin: 0 !important;
+    float: none !important;
+    list-style: none !important;
+}
+
+/* ---- 筛选 / 排序按钮（同款外形，行为由 data-* 区分） ---- */
+.gallery-filter__options .cardSelectOption,
+.gallery-filter__options .cardSortOption {
+    cursor: pointer;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: .875rem;
+    line-height: 20px;
+    user-select: none;
+    margin: 0;
+    transition: all .2s ease;
+}
+.gallery-filter__options .cardSelectOption:hover,
+.gallery-filter__options .cardSortOption:hover {
+    background-color: #f0f7ff;
+    color: var(--klbq-accent);
+    border-color: var(--klbq-border-strong);
+}
+.gallery-filter__options .cardSelectOption.selected,
+.gallery-filter__options .cardSortOption.selected {
+    background-color: var(--klbq-accent-strong);
+    color: var(--klbq-on-accent);
+    border-color: var(--klbq-accent-strong);
+}
+/* 排序方向指示箭头 */
+.gallery-filter__options .cardSortOption.selected::after {
+    content: " ▼";
+    font-size: .75em;
+}
+.gallery-filter__options .cardSortOption.selected[data-sort-dir="asc"]::after {
+    content: " ▲";
+}
+
+/* ---- 窄屏 ---- */
+@media screen and (max-width: 768px) {
+    .gallery-filter { padding: 12px; border-radius: 8px; }
+    .gallery-filter__label { width: 100%; text-align: left; line-height: 20px; font-size: .875rem; }
+}
+
+/* ---- 暗色模式 ---- */
+.client-js.wiki-dark-mode .gallery-filter {
+    background: rgba(30, 41, 59, .8);
+    border-color: rgba(14, 165, 233, .25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
+}
+.client-js.wiki-dark-mode .gallery-filter__divider {
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, .3), transparent);
+}
+.client-js.wiki-dark-mode .gallery-filter__label {
+    color: var(--klbq-text-muted);
+}
+/*</pre>*/</bstyle>}}

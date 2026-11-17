@@ -12,7 +12,7 @@
 
 | 分支名称 | 本地文件夹名 | 用途说明 | 主要包含内容 |
 | :--- | :--- | :--- | :--- |
-| **`main`** | `main` | **仓库说明与 WIKI 内容** | WIKI 模板、WIKI 模块、README |
+| **`main`** | `main` | **仓库说明与 WIKI 内容** | WIKI 模板 / 模块 / Widget / MediaWiki 系统页、README |
 | **`ExportScripts`** | `ExportScripts` | 源数据清洗脚本 | 用于将从游戏客户端提取原始数据清洗成 WIKI 侧可用结构的 Python 脚本 |
 | **`GameOrganizeData`** | `GameOrganizeData` | 游戏整理数据 | 将源数据清洗、格式化后的整理数据 |
 | **`GameSourceData/CN`** | `GameSourceDataCN` | 国服（CN）游戏源数据 | 国服解包 JSON/CSV/Lua 等原始数据 |
@@ -94,6 +94,21 @@ foreach ($kv in $worktrees.GetEnumerator()) {
 1. **清洗**：`ExportScripts` 中的脚本用于清洗各 `GameSourceData*` 文件夹中的原始数据。
 2. **整理**：`GameOrganizeData` 存放清洗为 WIKI 侧可用格式后的整理数据。
 3. **WIKI**：`main` 存放 WIKI 侧的模板与模块，可通过 `wiki_sync.py` 与线上 WIKI 增量同步。
+
+### `main` 分支本地目录 ↔ 线上命名空间
+
+`wiki_sync.py` 按命名空间把线上页面落到本地四个目录（目录名统一为纯英文、首字母大写）：
+
+| 本地目录 | 线上命名空间 | 命名空间 ID | 文件扩展名 |
+| :--- | :--- | :--- | :--- |
+| `Templates/` | Template（模板） | 10 | `.wikitext` |
+| `Modules/` | Module（模块） | 828 | `.lua` |
+| `Widget/` | Widget | 274 | `.wikitext` |
+| `MediaWiki/` | MediaWiki（系统消息） | 8 | `.css` / `.js` / `.json` / `.wikitext`（按页面标题后缀） |
+
+- 页面标题里的 `/` 在本地用 `__` 拍平，例如 `Module:Get/data` → `Modules/Get__data.lua`；推送时会自动还原。
+- 早于本次改造的工作副本使用 `模板(templates)`、`模块(modules)` 两个旧目录名，脚本首次运行会自动迁移到 `Templates`、`Modules` 并同步重写 `.sync_cache.json` 的键名。
+- `MediaWiki:` 系统页按内容类型保存（`MediaWiki:Common.css` → `MediaWiki/Common.css`），便于编辑器做语法高亮。
 
 ## 🛠️ 如何使用
 

@@ -1,0 +1,1355 @@
+<includeonly>
+<script type="text/javascript" src="https://registry.npmmirror.com/jszip/3.10.1/files/dist/jszip.min.js"></script>
+<style>
+	.BatchSuccess {
+		background: rgb(200 225 200);
+	}
+
+	.BatchEmpty {
+		background: rgb(230 230 200);
+	}
+
+	.BatchError {
+		background: rgb(225 200 200);
+	}
+
+	.alert-info {
+		margin: 0.5em 0;
+	}
+
+	#BatchTab,
+	#BatchEditTab {
+		margin: 0;
+	}
+
+	#BCBTdisplay,
+	#BEdisplay,
+	#BZdisplay {
+		margin: 0.5em 0 0;
+	}
+
+	#BCBTsubmit,
+	#PageDelete,
+	#PagePurge,
+	#PageToExcel {
+		padding: 0.5em 1em;
+		margin: 0.5em 0;
+	}
+
+	.AskBox {
+		margin: 0.5em 0;
+	}
+
+	#BCBTexcel {
+		width: 100%;
+		height: 300px;
+	}
+	.filter-active {
+		background-color: #337ab7;
+		color: white;
+	}
+
+	#todoTitles,
+	#wikitext,
+	#Oldwikitext,
+	#Newwikitext {
+		width: 100%;
+		height: 100px;
+		margin: 0.5em 0;
+	}
+
+	.flex {
+		display: flex;
+	}
+
+	.dropdown-menu li>a {
+		width: -webkit-fill-available;
+		text-align: center;
+	}
+
+	.btn-text {
+		background: #eee;
+		color: #555;
+	}
+
+	#goCopy,
+	#goCopy a {
+		color: #FFF
+	}
+</style>
+<ul id="BatchTab" class="nav nav-tabs">
+	<li class="active"><a href="#FillTab" data-toggle="tab">批量填充</a></li>
+	<li><a href="#ZipTab" data-toggle="tab">打包填充</a></li>
+	<li><a href="#EditTab" data-toggle="tab">批量操作</a></li>
+	<li><a href="#VerTab" data-toggle="tab" id="CheckVer">查询版本&反馈</a></li>
+</ul>
+<div id="BatchTabContent" class="tab-content">
+	<div class="tab-pane fade in active" id="FillTab">
+		<div id="BatchCreateByTemplate">
+			<div class="alert-info alert alert-warning">
+				<a href="#" class="close" data-dismiss="alert">
+					&times;
+				</a>
+				搬运自：<a href="https://wiki.biligame.com/allb/Widget:BatchCreateByTemplate"
+					target="_blank">https://wiki.biligame.com/allb/Widget:BatchCreateByTemplate</a><br>
+				看教程：<a href="https://www.bilibili.com/read/cv15352113/"
+					target="_blank">https://www.bilibili.com/read/cv15352113/</a><br>
+				<b><big>不能熟练使用模板的同学请不要使用此方法</big></b>
+				批量创建页面，在Excel里建表格复制进来
+				<table class="wikitable">
+					<tr>
+						<td>模板名</td>
+						<td>参数1名</td>
+						<td>参数2名</td>
+						<td>……</td>
+					</tr>
+					<tr>
+						<td>页面1名</td>
+						<td>参数1</td>
+						<td>参数2</td>
+						<td>……</td>
+					</tr>
+					<tr>
+						<td>页面2名</td>
+						<td>参数1</td>
+						<td>参数2</td>
+						<td>……</td>
+					</tr>
+					<tr>
+						<td colspan=4>……</td>
+					</tr>
+				</table>
+				<b><big>已修复excel单元格多行文本问题，如需显示换行请手动补充&lt;br&gt;，excel换行符替换方法可自行百度。</big></b>
+			</div>
+			<div class="btn-group flex">
+				<button type="button" class="btn btn-default btn-text">已有页面</button>
+				<button type="button" class="btn btn-default" id="FillMode">覆盖</button>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+					style="margin-right: 15px;">
+					<span class="caret"></span>
+					<span class="sr-only">切换下拉菜单</span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li class="CoverMode"><a href="javascript:(0)">覆盖</a></li>
+					<li class="SkipMode"><a href="javascript:(0)">跳过</a></li>
+				</ul>
+			</div>
+			<textarea id="BCBTexcel" class="form-control" style="margin-top: 10px;"></textarea>
+			<div id="BCBTFilter" class="btn-group flex" style="margin: 0.5em 0;">
+				<button type="button" class="btn btn-default filter-btn filter-active" data-filter="all" data-target="BCBT">全部</button>
+				<button type="button" class="btn btn-default filter-btn" data-filter="success" data-target="BCBT">成功</button>
+				<button type="button" class="btn btn-default filter-btn" data-filter="error" data-target="BCBT">失败</button>
+				<button type="button" class="btn btn-default filter-btn" data-filter="empty" data-target="BCBT">错误</button>
+				<span class="btn btn-default btn-text" id="BCBTFilterCount">共 0 条</span>
+				<button type="button" class="btn btn-danger" id="BCBTCopyError" data-target="BCBT">复制失败标题</button>
+				<button type="button" class="btn btn-warning" id="BCBTCopyEmpty" data-target="BCBT">复制错误标题</button>
+			</div>
+			<div id="BCBTdisplay" class="row"></div>
+			<button class="btn btn-danger" id="BCBTsubmit">确认创建</button>
+		</div>
+	</div>
+	<div class="tab-pane fade" id="ZipTab">
+		<div class="alert-info alert alert-warning">
+			<a href="#" class="close" data-dismiss="alert">
+				&times;
+			</a>
+			搬运自：<a href="https://wiki.biligame.com/qjnn/Widget:PagefillZip"
+				target="_blank">https://wiki.biligame.com/qjnn/Widget:PagefillZip</a><br>
+			文件名（删除后缀）=页面名，文件内容=页面内容。打包成zip后选定。
+		</div>
+		<div class="ZipBox flex" style="justify-content: space-between;">
+			<div class="btn-group flex">
+				<button type="button" class="btn btn-default btn-text">选择压缩包</button>
+				<input id="imgInfo" class="btn btn-default" type="file" accept=".zip" onchange="change('imgInfo')" />
+				<button class="btn btn-danger" id="BZsubmit">确认创建</button>
+			</div>
+		</div>
+		<div id="BatchFillByZip">
+			<div id="BZFilter" class="btn-group flex" style="margin: 0.5em 0;">
+				<button type="button" class="btn btn-default filter-btn filter-active" data-filter="all" data-target="BZ">全部</button>
+				<button type="button" class="btn btn-default filter-btn" data-filter="success" data-target="BZ">成功</button>
+				<button type="button" class="btn btn-default filter-btn" data-filter="error" data-target="BZ">失败</button>
+				<span class="btn btn-default btn-text" id="BZFilterCount">共 0 条</span>
+				<button type="button" class="btn btn-danger" id="BZCopyError" data-target="BZ">复制失败标题</button>
+			</div>
+			<div id="BZdisplay" class="row"></div>
+		</div>
+	</div>
+	<div class="tab-pane fade" id="EditTab">
+		<div class="alert-info alert alert-warning">
+			<a href="#" class="close" data-dismiss="alert">
+				&times;
+			</a>
+			搬运自：<a href="https://wiki.biligame.com/qjnn/Widget:刷新"
+				target="_blank">https://wiki.biligame.com/qjnn/Widget:刷新</a> & <a
+				href="https://wiki.biligame.com/qjnn/Widget:分类"
+				target="_blank">https://wiki.biligame.com/qjnn/Widget:分类</a> &
+			<a href="https://wiki.biligame.com/ys/Widget:Pagedel"
+				target="_blank">https://wiki.biligame.com/ys/Widget:Pagedel</a> &
+			<a href="https://wiki.biligame.com/allb/Widget:TemplateToExcel"
+				target="_blank">https://wiki.biligame.com/allb/Widget:TemplateToExcel</a><br>
+			首先将所有需要操作的页面标题用英文<kbd>|</kbd>分割后（可自定义）填入下方对应处（或直接查询）。<br>
+			格式举例：<br>
+			页面1|页面2|页面3|页面4<br>
+			删除图片：<br>
+			文件:测试1.jpg|文件:测试2.jpg
+		</div>
+		<div class="AskBox flex" style="justify-content: space-between;">
+			<div class="btn-group flex">
+				<button class="btn btn-default btn-text">查询方式</button>
+				<button class="btn btn-default" id="AskMode">分类</button>
+				<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="margin-right: 15px;">
+					<span class="caret"></span>
+					<span class="sr-only">切换下拉菜单</span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li class="CategoryMode"><a href="javascript:(0)">分类</a></li>
+					<li class="ParamMode"><a href="javascript:(0)">参数</a></li>
+				</ul>
+			</div>
+			<div class="input-group" style="width: -webkit-fill-available;">
+				<span class="AskParam">
+					<input id="AskParam" class="form-control" placeholder="请直接填入要处理的分类名称后查询"
+						style="border-radius: 4px 0 0 4px;">
+				</span>
+				<span class="input-group-btn">
+					<span class="btn btn-default" id="AskSubmit" role="button">👈查询</span>
+				</span>
+			</div>
+		</div>
+		<div class="PageTitleBOX">
+			<div for="todoTitles" style="display: flex;align-items: center;">
+				<div class="btn-group flex">
+					<button class="btn btn-default btn-text">页面数量</button>
+					<button class="btn btn-default PageNum" id="PageNum" style="font-weight: 700;">0</button>
+				</div>
+				<div class="input-group" style="max-width:500px;margin: 0.5em;">
+					<span class="input-group-btn">
+						<span class="btn btn-default btn-text">分隔符号</span>
+					</span>
+					<input id="Separator" name="Separator" class="form-control" placeholder="填入自定义分隔符号">
+				</div>
+				<span style="padding: 0 10px;font-weight: 700;">👇待处理页面标题👇（以下所有操作将对这些页面生效 请务必确认是否有误）
+				</span>
+			</div>
+			<textarea id="todoTitles" class="form-control" placeholder="默认为“|”（管道符）分隔"></textarea>
+		</div>
+		<ul id="BatchEditTab" class="nav nav-tabs">
+			<li><a href="#PurgeTab" data-toggle="tab">刷新</a></li>
+			<li><a href="#EditWikitextTab" data-toggle="tab">替换</a></li>
+			<li><a href="#AddWikitextTab" data-toggle="tab">插入</a></li>
+			<li><a href="#DelectTab" data-toggle="tab">删除</a></li>
+			<li><a href="#MoveTab" data-toggle="tab">移动</a></li>
+			<li><a href="#ConvertTab" data-toggle="tab">转换</a></li>
+			<li><a href="#CategoryTab" data-toggle="tab">分类</a></li>
+		</ul>
+		<div id="BatchEditTabContent" class="tab-content">
+			<div class="tab-pane fade" id="PurgeTab">
+				<div class="alert-info alert alert-warning">
+					<a href="#" class="close" data-dismiss="alert">
+						&times;
+					</a>
+					如需空编辑刷新，可使用“插入”功能，文本内容为空即可。
+				</div>
+				<div class="ManagePageBoxBTN flex">
+					<a class="btn btn-default" id="PagePurge" role="button" style="margin-right: 15px;">刷新所有页面</a>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="EditWikitextTab">
+				<div class="EditWikitextBox">
+					<label style="margin: 0.5em 0 0;">👇原始文本👇</label>
+					<textarea id="Oldwikitext" name="Oldwikitext" class="form-control"
+						placeholder="填入将被替换掉的原始文本"></textarea>
+					<label style="margin: 0; ">👇替换文本👇</label>
+					<textarea id="Newwikitext" name="Newwikitext" class="form-control"
+						placeholder="填入将被替换成为的新文本"></textarea>
+				</div>
+				<div class="EditWikitextMode flex">
+					<div class="btn-group flex">
+						<button type="button" class="btn btn-default btn-text">替换方式</button>
+						<button type="button" class="btn btn-default" id="EditWikitextMode">普通</button>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+							style="margin-right: 15px;">
+							<span class="caret"></span>
+							<span class="sr-only">切换下拉菜单</span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li class="NormalMode"><a href="javascript:(0)">普通</a></li>
+							<li class="RegularMode"><a href="javascript:(0)">正则</a></li>
+						</ul>
+					</div>
+					<div class="input-group" style="max-width:500px;margin-right:0.5em;">
+						<span class="input-group-btn">
+							<span class="btn btn-default btn-text">自定义摘要</span>
+						</span>
+						<input id="EditCustomSummary" name="CustomSummary" class="form-control" placeholder="填入自定义摘要内容">
+					</div>
+					<a class="btn btn-danger" id="replaceBTN" role="button">替换</a>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="AddWikitextTab">
+				<div class="InsertWikitextBoX">
+					<label style="margin: 0.5em 0 0;">👇文本内容👇</label>
+					<textarea id="wikitext" name="wikitext" class="form-control"
+						placeholder="填入待插入的wikitext"></textarea>
+					<div class="InsertWikitextBTN flex">
+						<div class="btn-group flex">
+							<button type="button" class="btn btn-default btn-text">插入位置</button>
+							<button type="button" class="btn btn-default" id="InsertMode">页面内容之前</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								style="margin-right: 15px;">
+								<span class="caret"></span>
+								<span class="sr-only">切换下拉菜单</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li class="BeforeMode"><a href="javascript:(0)">页面内容之前</a></li>
+								<li class="AfterMode"><a href="javascript:(0)">页面内容之后</a></li>
+							</ul>
+						</div>
+						<div class="input-group" style="max-width:500px;margin-right:0.5em;">
+							<span class="input-group-btn">
+								<span class="btn btn-default btn-text">自定义摘要</span>
+							</span>
+							<input id="AddCustomSummary" name="CustomSummary" class="form-control"
+								placeholder="填入自定义摘要内容">
+						</div>
+						<a class="btn btn-default" href="javascript:editWikitext('add')"
+							role="button">所有页面添加此wikitext</a>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="DelectTab">
+				<div class="ManagePageBoxBTN flex">
+					<a class="btn btn-danger" id="PageDelete" role="button"
+						style="color: white !important;margin-right: 15px;">删除所有页面</a>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="MoveTab">
+				<div class="RedirectBOX input-group" style="    margin-top: 0.5em;    width: 150px;">
+					<div class="input-group-addon">不留重定向</div>
+					<div class="input-group-addon" style="background: #FFF;border-left: 1px #ccc solid;">
+						<div class="isRedirect"><input type="checkbox" checked></div>
+					</div>
+				</div>
+				<div id="RuleMoveBOX">
+					<div class="btn-group flex" style="max-width:500px;margin: 0.5em 0;">
+						<input id="MoveModetext" name="MoveModetext" class="form-control" placeholder="填入待添加或者删除的前缀">
+					</div>
+					<div class="MoveBTNBOX flex">
+						<div class="btn-group flex">
+							<button type="button" class="btn btn-default btn-text">位置</button>
+							<button type="button" class="btn btn-default" id="FixMode">前缀</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								style="margin-right: 15px;">
+								<span class="caret"></span>
+								<span class="sr-only">切换下拉菜单</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li class="PrefixMode"><a href="javascript:(0)">前缀</a></li>
+								<li class="SuffixMode"><a href="javascript:(0)">后缀</a></li>
+							</ul>
+							<div class="btn-group flex">
+							</div>
+						</div>
+						<div class="btn-group flex">
+							<button type="button" class="btn btn-default btn-text">模式</button>
+							<button type="button" class="btn btn-default" id="MoveMode">添加</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								style="margin-right: 15px;">
+								<span class="caret"></span>
+								<span class="sr-only">切换下拉菜单</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li class="MoveAddMode"><a href="javascript:(0)">添加</a></li>
+								<li class="MoveDelMode"><a href="javascript:(0)">删除</a></li>
+							</ul>
+							<div class="btn-group flex">
+							</div>
+						</div>
+						<a class="btn btn-danger" id="RuleMoveBTN" role="button" style="margin-right: 15px;">移动</a>
+						<a class="btn btn-default" id="gotoCustomMove" role="button">切换至自定义批量移动</a>
+					</div>
+				</div>
+				<div id="CustomMoveBOX" style="display: none;">
+					<div class="alert-info alert alert-warning">
+						<a href="#" class="close" data-dismiss="alert">
+							×
+						</a>
+						请从Excel复制数据，左侧列为原标题，右侧列为新标题，一行一个。粘贴至上面输入框后先点击下面确认，再点击移动。
+					</div>
+					<a class="btn btn-primary" id="getCustomMoveData" role="button" style="margin-right: 15px;">确认</a>
+					<a class="btn btn-danger" id="CustomMoveBTN" role="button" style="margin-right: 15px;">移动</a>
+					<a class="btn btn-default" id="gotoRuleMove" role="button">退出自定义批量移动</a>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="ConvertTab">
+				<div class="ManagePageBoxBTN flex">
+					<a class="btn btn-default" id="PageToExcel" role="button">读取所有页面数据到表格</a>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="CategoryTab">
+				<div class="EditCategoryBox">
+					<div class="input-group" style="max-width:500px;margin: 0.5em 0;">
+						<span class="input-group-btn">
+							<span class="btn btn-default btn-text">分类名称</span>
+						</span>
+						<input id="category" name="category" class="form-control" placeholder="填入待添加或者删除的分类名称">
+					</div>
+					<div class="EditCategoryBTN flex">
+						<a class="btn btn-default" href="javascript:editCategories('add')" role="button"
+							style="margin-right: 15px;">所有页面添加此分类</a>
+						<a class="btn btn-default" href="javascript:editCategories('remove')"
+							role="button">所有页面移除此分类</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="BatchDeleteByTemplate">
+			<div id="BEFilter" class="btn-group flex" style="margin: 0.5em 0;">
+				<button type="button" class="btn btn-default filter-btn filter-active" data-filter="all" data-target="BE">全部</button>
+				<button type="button" class="btn btn-default filter-btn" data-filter="success" data-target="BE">成功</button>
+				<button type="button" class="btn btn-default filter-btn" data-filter="error" data-target="BE">失败</button>
+				<button type="button" class="btn btn-default filter-btn" data-filter="empty" data-target="BE">错误</button>
+				<span class="btn btn-default btn-text" id="BEFilterCount">共 0 条</span>
+				<button type="button" class="btn btn-danger" id="BECopyError" data-target="BE">复制失败标题</button>
+				<button type="button" class="btn btn-warning" id="BECopyEmpty" data-target="BE">复制错误标题</button>
+			</div>
+			<div id="BEdisplay" class="row"></div>
+		</div>
+	</div>
+	<div class="tab-pane fade" id="VerTab">
+		<div class="VersionBOX flex" style="margin: 0.5em 0;">
+			<div class="btn-group flex">
+				<button class="btn btn-default btn-text">您的版本</button>
+				<button class="btn btn-default YourVer" id="YourVer">2026-06-02</button>
+			</div>
+			<div class="btn-group flex" style="margin: 0 0.5em;">
+				<button class="btn btn-default btn-text">最新版本</button>
+				<button class="btn btn-default LastVer" id="LastVer">查询失败</button>
+			</div>
+			<a class="btn btn-primary" id="goCopy" role="button" href="https://wiki.biligame.com/tools/?curid=2730"
+				target="_blank">前往发布页面</a>
+		</div>
+	</div>
+</div>
+<div id="BEProgress" class="progress progress-striped active"
+	style="position: fixed;left: 19.5%;bottom: 0px;width: 61.1%;display:none;">
+	<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+		style="width: 0%;">
+		0% 完成
+	</div>
+</div>
+<script>
+	//↓↓↓批量创建↓↓↓
+	BCBTMeta = {
+		"template": "",
+		"key": [],
+		"page": {},
+		"state": "ready",
+		"titles": [],
+		"index": 0
+	}
+	function create() {
+		$("#BEProgress").show();
+		let title = BCBTMeta.titles[BCBTMeta.index++]
+		if (!title) {
+			alert("已完成全部任务！");
+			$("#BEProgress").hide();
+			return false;
+		}
+		let text = "{" + "{" + BCBTMeta.template
+		for (let i = 0, ilen = BCBTMeta.key.length; i < ilen; i++) {
+			text += "\n|" + (BCBTMeta.key[i] ? BCBTMeta.key[i] + "=" : "") + BCBTMeta.page[title][i]
+		}
+		text += "\n}}"
+		new mw.Api().postWithToken('csrf', {
+			action: 'edit',
+			title: title,
+			text: text,
+			createonly: $("#FillMode").text() === "跳过" ? true : false,
+			summary: '批量创建/编辑'
+		}).then(function (json) {
+			let title = json.edit.title
+			$.get(mw.config.get("wgCookiePath") + title)
+			$("#BCBTdisplay pre[data-title=\"" + title + "\"]").addClass("BatchSuccess")
+			mw.notify("[" + title + "]已填充！", { type: 'success', tag: 'fillSuccess' })
+			let ProcessValue = Math.floor((BCBTMeta.index) / BCBTMeta.titles.length * 100);
+			setProgress(ProcessValue);
+			return setTimeout(create, 200)
+		}).catch(function (e) {
+			console.log(e)
+			if (e == "articleexists") {
+				$("#BCBTdisplay pre[data-title=\"" + title + "\"]").addClass("BatchError")
+				mw.notify("[" + title + "]已存在！跳过！", { type: 'error', autoHide: false })
+				let ProcessValue = Math.floor((BCBTMeta.index) / BCBTMeta.titles.length * 100);
+				setProgress(ProcessValue);
+			}
+			if (e == "invalidtitle") {
+				$("#BCBTdisplay pre[data-title=\"" + title + "\"]").addClass("BatchEmpty")
+				mw.notify("[" + title + "]页面标题非法！", { type: 'warn', autoHide: false })
+				let ProcessValue = Math.floor((BCBTMeta.index) / BCBTMeta.titles.length * 100);
+				setProgress(ProcessValue);
+			}
+			return setTimeout(create, 200)
+		});
+	}
+	//↓↓↓批量查询↓↓↓
+    function askTitles() {
+        let AskMode = $("#AskMode").text();
+        let AskParam = (AskMode === "参数")
+            ? $("#AskParam").val() + '|limit=1000|format=plainlist'
+            : '[[分类:' + $("#AskParam").val() + ']]|limit=1000|format=plainlist';
+
+        new mw.Api().get({
+            action: 'ask',
+            query: AskParam,
+            api_version: 3
+        }).done(
+            data => {
+                titles = data["query"]["results"].flatMap(x => Object.keys(x)[0]);
+                $("#todoTitles").val(titles.join("|"));
+                if (titles.length === 0) {
+                    mw.notify("没有符合的页面！", { type: 'error' });
+                    $("#PageNum").text("0");
+                    updateBEdisplay();
+                } else {
+                    updateBEdisplay(titles.join("|"));
+                    mw.notify("查询到" + titles.length + "个页面！", { type: 'success' });
+                }
+            }
+        );
+    }
+	function setProgress(value) {
+		$("#BEProgress .progress-bar").css("width", value + "%").text(value + "% 已完成");
+	}
+	function purgePage() {
+		$("#BEProgress").show();
+		let pages = CPMeta.page;
+		if (pages.length > 5000) {
+			alert("页面数量超过5000，累死个人咯！不干不干！");
+			return;
+		}
+		pages.forEach((page, i) => {
+			setTimeout(() => {
+				new mw.Api().post({
+					"action": "purge",
+					"format": "json",
+					"titles": page
+				}).then(
+					function (json) {
+						let ProcessValue = Math.floor((i + 1) / pages.length * 100);
+						setProgress(ProcessValue);
+						json.purge.forEach((result, index) => {
+							let page = pages[i + index];
+							if (result.purged == "") {
+								$('#BEdisplay pre[data-title="' + page + '"]').addClass("BatchSuccess");
+								mw.notify("[" + page + "]已刷新！", { type: 'success', tag: 'purgeSuccess' });
+								$.get(mw.config.get("wgCookiePath") + page);
+							}
+							if (result.missing == "") {
+								$('#BEdisplay pre[data-title="' + page + '"]').addClass("BatchError");
+								mw.notify("[" + page + "]不存在！", { type: 'error', autoHide: false });
+							}
+						});
+						if (i === pages.length - 1) {
+							$("#BEProgress").hide();
+							alert("刷新完毕！");
+						}
+					}
+				).catch(function (e) {
+				});
+			}, i * 500);
+		});
+	}
+	//↓↓↓批量分类↓↓↓
+	var lock = false;
+	function editWikitext(mode) {
+		if (lock) return false;
+		else lock = true
+		window.titleArray = CPMeta.page;
+		window.category = $("#wikitext").val()
+		window.pageIndex = 0
+		window.editMode = mode
+		editPage()
+	}
+	function editCategories(mode) {
+		if (lock) return false;
+		else lock = true
+		window.titleArray = CPMeta.page;
+		window.category = "[" + "[分类:" + $("#category").val() + "]]"
+		window.pageIndex = 0
+		window.editMode = mode
+		editPage()
+	}
+	function editPage() {
+		$("#BEProgress").show();
+		let completedCount = 0;
+
+		titleArray.forEach((title, index) => {
+			setTimeout(async () => {
+				// 更新进度条
+				let ProcessValue = Math.floor((index + 1) / titleArray.length * 100);
+				setProgress(ProcessValue);
+
+				var isPrepend = $("#isPrepend").prop("checked");
+				try {
+					await new mw.Api().edit(
+						title,
+						function (revision) {
+							var text = revision.content,
+								hasCategory = text.indexOf(category) !== -1,
+								summary = "批量编辑";
+							if (editMode === "add" && hasCategory) {
+								console.log(index, title, "已有该分类，未操作");
+								if (category === "") {
+									$('#BEdisplay pre[data-title="' + title + '"]').addClass("BatchEmpty");
+									mw.notify("[" + title + "]无插入内容，空编辑！", { type: 'warn', tag: 'editEmpty' });
+									$.get(mw.config.get("wgCookiePath") + title);
+								} else {
+									$('#BEdisplay pre[data-title="' + title + '"]').addClass("BatchEmpty");
+									mw.notify("[" + title + "]已有该分类，未操作！", { type: 'warn', autoHide: false });
+									$.get(mw.config.get("wgCookiePath") + title);
+								}
+								return text;
+							}
+
+							if (editMode === "add") {
+								let InsertMode = $("#InsertMode").text();
+								let isPrepend = (InsertMode === "页面内容之前") ? text = category + "\n" + text : text += "\n" + category;
+								let AddCustomSummary = $("#AddCustomSummary").val();
+								summary = AddCustomSummary || "批量添加";
+								$('#BEdisplay pre[data-title="' + title + '"]').addClass("BatchSuccess");
+								mw.notify("[" + title + "]已添加！", { type: 'success', tag: 'editSuccess' });
+								$.get(mw.config.get("wgCookiePath") + title);
+							}
+							if (editMode === "replace") {
+								let Oldwikitext = $("#Oldwikitext").val();
+								let Newwikitext = $("#Newwikitext").val();
+								if ($("#EditWikitextMode").text() === "正则") {
+									let regex = new RegExp(Oldwikitext, 'g');
+									let newText = text.replace(regex, Newwikitext);
+									if (newText !== text) {
+										text = newText;
+										$('#BEdisplay pre[data-title="' + title + '"]').addClass("BatchSuccess");
+										mw.notify("[" + title + "]已替换！", { type: 'success', tag: 'editSuccess' });
+										$.get(mw.config.get("wgCookiePath") + title);
+									} else {
+										$('#BEdisplay pre[data-title="' + title + '"]').addClass("BatchEmpty");
+										mw.notify("[" + title + "]无匹配！", { type: 'warn', tag: 'editError' });
+										$.get(mw.config.get("wgCookiePath") + title);
+									}
+									text = newText;
+									let EditCustomSummary = $("#EditCustomSummary").val();
+									summary = EditCustomSummary || "批量正则替换（" + Oldwikitext + "->" + Newwikitext + "）";
+								} else {
+									if (text.indexOf(Oldwikitext) === -1) {
+										$('#BEdisplay pre[data-title="' + title + '"]').addClass("BatchEmpty");
+										mw.notify("[" + title + "]无匹配！", { type: 'warn', tag: 'editError' });
+										$.get(mw.config.get("wgCookiePath") + title);
+									} else {
+										$('#BEdisplay pre[data-title="' + title + '"]').addClass("BatchSuccess");
+										mw.notify("[" + title + "]已替换！", { type: 'success', tag: 'editSuccess' });
+										$.get(mw.config.get("wgCookiePath") + title);
+									}
+									text = text.split(Oldwikitext).join(Newwikitext);
+									let EditCustomSummary = $("#EditCustomSummary").val();
+									summary = EditCustomSummary || "批量替换（" + Oldwikitext + "->" + Newwikitext + "）";
+								}
+							} else if (editMode === "remove") {
+								text = text.replace(category, "")
+								summary = "批量删除分类";
+								$('#BEdisplay pre[data-title="' + title + '"]').addClass("BatchSuccess");
+								mw.notify("[" + title + "]已删除！", { type: 'success', tag: 'editSuccess' });
+								$.get(mw.config.get("wgCookiePath") + title);
+							}
+							return {
+								text: text,
+								summary: summary,
+								minor: true
+							};
+						}
+					);
+				} catch (e) {
+					console.log(index, title, "操作失败");
+					$('#BEdisplay pre[data-title="' + title + '"]').addClass("BatchError");
+					mw.notify("[" + title + "]处理失败", { type: 'error', autoHide: false });
+				}
+
+				// 计数完成的任务
+				completedCount++;
+
+				// 当所有任务完成时
+				if (completedCount === titleArray.length) {
+					lock = false;
+					$("#BEProgress").hide();
+					alert("处理完毕");
+				}
+			}, index * 1000);
+		});
+	}
+	//↓↓↓批量删除↓↓↓
+	CPMeta = {
+		template: "",
+		page: [],
+		state: "ready",
+		index: 0,
+	};
+
+	function updateBEdisplay(value) {
+		$("#BEdisplay").html("");
+		let Separator = $("#Separator").val();
+		let pageData;
+		if (Separator) {
+			pageData = value.split(Separator);
+		} else {
+			pageData = value.split("|");
+		}
+		CPMeta.page = pageData;
+		$("#PageNum").text(pageData.length);
+		updateFilterCount("BE");
+		if (pageData.length > 0) {
+			pageData.forEach(function (page) {
+				let text = "[[<a href=" + mw.config.values.wgScriptPath + "/" + encodeURIComponent(page) + " title=" + page + " target=_blank>" + page + "</a>]]";
+
+				let pre = $("<pre></pre>").addClass("col-md-3").attr("data-title", page).html(text);
+				$("#BEdisplay").append(pre);
+			});
+		}
+	};
+
+	function updateFilterCount(target) {
+		let displayId = `#${target}display`;
+		let countId = `#${target}FilterCount`;
+		let total = $(`${displayId} pre`).length;
+		let success = $(`${displayId} pre.BatchSuccess`).length;
+		let error = $(`${displayId} pre.BatchError`).length;
+		let empty = $(`${displayId} pre.BatchEmpty`).length;
+		if (target === "BZ") {
+			$(countId).text(`共 ${total} 条 (成功: ${success}, 失败: ${error})`);
+		} else {
+			$(countId).text(`共 ${total} 条 (成功: ${success}, 失败: ${error}, 错误: ${empty})`);
+		}
+	}
+
+	function filterByClass(filter, target) {
+		$(`.filter-btn[data-target="${target}"]`).removeClass("filter-active");
+		$(`.filter-btn[data-target="${target}"][data-filter="${filter}"]`).addClass("filter-active");
+		
+		let displayId = `#${target}display`;
+		
+		if (filter === "all") {
+			$(displayId + " pre").show();
+		} else if (filter === "success") {
+			$(displayId + " pre").hide();
+			$(displayId + " pre.BatchSuccess").show();
+		} else if (filter === "error") {
+			$(displayId + " pre").hide();
+			$(displayId + " pre.BatchError").show();
+		} else if (filter === "empty") {
+			$(displayId + " pre").hide();
+			$(displayId + " pre.BatchEmpty").show();
+		}
+	}
+
+	function copyTitlesByClass(target, className) {
+		let displayId = `#${target}display`;
+		let separator = $("#Separator").val() || "|";
+		let titles = [];
+		
+		$(displayId + ` pre.${className}`).each(function() {
+			let title = $(this).data("title");
+			if (title) {
+				titles.push(title);
+			}
+		});
+		
+		if (titles.length === 0) {
+			mw.notify("没有可复制的标题！", { type: 'warn' });
+			return;
+		}
+		
+		let text = titles.join(separator);
+		
+		navigator.clipboard.writeText(text).then(function() {
+			mw.notify(`已复制 ${titles.length} 个标题到剪贴板！`, { type: 'success' });
+		}).catch(function(err) {
+			console.error('复制失败:', err);
+			mw.notify("复制失败，请手动复制", { type: 'error' });
+		});
+	}
+	function deletePage() {
+		$("#BEProgress").show();
+		var title = CPMeta.page[CPMeta.index++];
+		new mw.Api()
+			.postWithToken("csrf", {
+				action: "delete",
+				title: title,
+				reason: "批量删除",
+			})
+			.then(function (json) {
+				let title = json.delete.title;
+				$.get(mw.config.get("wgCookiePath") + title);
+				document.querySelector('#BEdisplay pre[data-title="' + title + '"]').classList.add("BatchSuccess");
+				mw.notify("[" + title + "]已删除！", { type: 'success', tag: 'deleteSuccess' })
+				if (CPMeta.index < CPMeta.page.length) {
+					let ProcessValue = Math.floor((CPMeta.index) / CPMeta.page.length * 100);
+					setProgress(ProcessValue);
+					return setTimeout(deletePage, 500);
+				} else {
+					mw.notify("批量删除已完成！", { type: 'success' });
+					$("#BEProgress").hide();
+				}
+			})
+			.catch(function (e) {
+				console.log(e);
+				if (e == "missingtitle") {
+					document.querySelector('#BEdisplay pre[data-title="' + title + '"]').classList.add("BatchEmpty");
+					mw.notify("[" + title + "]未找到！", { type: 'error', autoHide: false });
+				} else {
+					document.querySelector('#BEdisplay pre[data-title="' + title + '"]').classList.add("BatchError");
+					mw.notify("[" + title + "]处理失败！", { type: 'error', autoHide: false });
+				}
+				if (CPMeta.index < CPMeta.page.length) {
+					let ProcessValue = Math.floor((CPMeta.index) / CPMeta.page.length * 100);
+					setProgress(ProcessValue);
+					return setTimeout(deletePage, 500);
+				} else {
+					mw.notify("批量删除已完成！", { type: 'success' });
+					$("#BEProgress").hide();
+				}
+			});
+	}
+	//↓↓↓批量移动↓↓↓
+	function movePage() {
+		$("#BEProgress").show();
+		let MoveModetext = $("#MoveModetext").val();
+		let FixMode = $("#FixMode").text();
+		let MoveMode = $("#MoveMode").text();
+		let pages = CPMeta.page;
+		pages.forEach((page, index) => {
+			setTimeout(() => {
+				let NewAddtitle = (FixMode === "前缀") ? MoveModetext + page : page + MoveModetext;
+				let NewDelPretitle = (page.startsWith(MoveModetext)) ? page.slice(MoveModetext.length) : page;
+				let NewDelSuftitle = (page.endsWith(MoveModetext)) ? page.slice(0, -MoveModetext.length) : page;
+				let NewDeltitle = (FixMode === "前缀") ? NewDelPretitle : NewDelSuftitle;
+				let Newtitle = (MoveMode === "添加") ? NewAddtitle : NewDeltitle;
+				new mw.Api()
+					.postWithToken("csrf", {
+						action: "move",
+						from: page,
+						to: Newtitle,
+						reason: "批量移动",
+						format: "json",
+						noredirect: $(".isRedirect input").is(":checked")
+					}).then(
+						function (json) {
+							let ProcessValue = Math.floor((index + 1) / pages.length * 100);
+							setProgress(ProcessValue);
+							if (json.move) {
+								document.querySelector('#BEdisplay pre[data-title="' + page + '"]').classList.add("BatchSuccess");
+								mw.notify("[" + page + "]已移动到[" + Newtitle + "]！", { type: 'success', tag: 'moveSuccess' });
+								$.get(mw.config.get("wgCookiePath") + Newtitle);
+							}
+						}
+					).catch(function (e) {
+						if (e == "articleexists") {
+							document.querySelector('#BEdisplay pre[data-title="' + page + '"]').classList.add("BatchError");
+							mw.notify("[" + Newtitle + "]已存在！", { type: 'warn', autoHide: false });
+						}
+						if (e === "selfmove") {
+							document.querySelector('#BEdisplay pre[data-title="' + page + '"]').classList.add("BatchError");
+							mw.notify("[" + page + "]未移动！", { type: 'error', autoHide: false });
+						}
+						if (e === "missingtitle") {
+							document.querySelector('#BEdisplay pre[data-title="' + page + '"]').classList.add("BatchError");
+							mw.notify("[" + page + "]未找到！", { type: 'error', autoHide: false });
+						}
+					});
+			}, index * 500);
+		});
+	}
+	let moveData = [];
+	function getCustomMoveData() {
+		moveData = [];
+		let str = $("#todoTitles").val();
+		str = str.replace(/\n$/, '');
+		let rows = str.split("\n");
+		$("#BEdisplay").empty();
+		rows.forEach(function (row) {
+			let columns = row.split("\t");
+			let oldtitle = columns[0];
+			let newtitle = columns[1];
+			if (oldtitle !== "") {
+				moveData[oldtitle] = newtitle;
+				let oldurl = "[[<a href=" + mw.config.values.wgScriptPath + "/" + encodeURIComponent(oldtitle) + " title=" + oldtitle + " target=_blank>" + oldtitle + "</a>]]";
+				let newurl = "[[<a href=" + mw.config.values.wgScriptPath + "/" + encodeURIComponent(newtitle) + " title=" + newtitle + " target=_blank>" + newtitle + "</a>]]";
+				let pre = $("<pre></pre>").addClass("col-md-3").attr("data-title", oldtitle).html(oldurl + "\n 🔃 \n" + newurl);
+				$("#BEdisplay").append(pre);
+			}
+		});
+		$("#PageNum").text(Object.keys(moveData).length);
+	}
+	function movePageCustom() {
+		$("#BEProgress").show();
+		let pages = moveData;
+		let total = Object.keys(moveData).length;
+		let count = 0;
+		Object.keys(pages).forEach(function (key, index) {
+			setTimeout(function () {
+				let Oldtitle = key;
+				let Newtitle = pages[key];
+				new mw.Api()
+					.postWithToken("csrf", {
+						action: "move",
+						from: Oldtitle,
+						to: Newtitle,
+						reason: "批量移动",
+						format: "json",
+						noredirect: $(".isRedirect input").is(":checked")
+					}).then(
+						function (json) {
+							let ProcessValue = Math.floor((index + 1) / total * 100);
+							setProgress(ProcessValue);
+							if (json.move) {
+								document.querySelector('#BEdisplay pre[data-title="' + Oldtitle + '"]').classList.add("BatchSuccess");
+								mw.notify("[" + Oldtitle + "]已移动到[" + Newtitle + "]！", { type: 'success', tag: 'moveSuccess' });
+							}
+							count++;
+							if (count === total) {
+								alert("批量移动已完成！");
+								$("#BEProgress").hide();
+							}
+						}
+					).catch(function (e) {
+						if (e === "articleexists") {
+							document.querySelector('#BEdisplay pre[data-title="' + Oldtitle + '"]').classList.add("BatchError");
+							mw.notify("[" + Newtitle + "]已存在！", { type: 'warn', autoHide: false });
+						}
+						if (e === "selfmove") {
+							document.querySelector('#BEdisplay pre[data-title="' + Oldtitle + '"]').classList.add("BatchError");
+							mw.notify("[" + Oldtitle + "]未移动！", { type: 'error', autoHide: false });
+						}
+						if (e === "missingtitle") {
+							document.querySelector('#BEdisplay pre[data-title="' + Oldtitle + '"]').classList.add("BatchError");
+							mw.notify("[" + Oldtitle + "]不存在！", { type: 'error', autoHide: false });
+						}
+						count++;
+						if (count === total) {
+							alert("批量移动已完成！");
+							$("#BEProgress").hide();
+						}
+					})
+			}, index * 1000);
+		});
+	}
+	//↓↓↓批量导出↓↓↓
+	TTEMeta = {
+		"page": [],
+		"state": "ready",
+		"data": [],
+		"table": [],
+	}
+	function sendPage() {
+		TTEMeta.wiki = mw.config.values.wgScriptPath
+		TTEMeta.page = CPMeta.page;
+		TTEMeta.state = TTEMeta.page.length
+		$("#BEdisplay").text("生成中…（" + (TTEMeta.state - TTEMeta.page.length) + "/" + TTEMeta.state + "）");
+		TTEMeta.page.forEach(function (page, index) {
+			setTimeout(function () {
+				let url = "https://wiki.biligame.com" + TTEMeta.wiki + "/api.php?action=parse&format=json&prop=wikitext"
+				url += "&page=" + page
+				console.log(index)
+				$("#BEdisplay").text("生成中…（" + (index + 1) + "/" + TTEMeta.state + "）");
+				getApi(url, function (json) {
+					let wikitext = JSON.parse(json).parse.wikitext["*"]
+					TTEMeta.data.push({ title: page, text: wikitext })
+					if (TTEMeta.data.length === TTEMeta.page.length) {
+						TTEMeta.table.push([])
+						let head = TTEMeta.data[0].text
+						TTEMeta.table[0].push(head.match(/\{\{(.*)\n/)[1])
+						let key = [...head.matchAll(/\|(.*)=/g)]
+						key.forEach(function (e) { TTEMeta.table[0].push(e[1]) })
+						TTEMeta.data.forEach(function (value) {
+							let row = []
+							row.push(value.title)
+							let text = [...value.text.matchAll(/\=(.*)/g)]
+							text.forEach(function (e, i) { row.push(e[1]) })
+							TTEMeta.table.push(row)
+						});
+						let result = ""
+						TTEMeta.table.forEach(function (row) {
+							row.forEach(function (cell) {
+								result += cell + "\t"
+							});
+							result += "\n"
+						});
+						$("#BEdisplay").html("<textarea id=\"TTEdisplay\" class=\"form-control\" style=\"width: 100%;height: 300px;\">" + result + "</textarea>");
+						$("#BEdisplay").prop('readonly', false);
+					}
+				})
+			}, 200 * index); // 设置延时间隔时间为200毫秒，以防服务器514拒绝连接
+
+		})
+	}
+	function getApi(url, callback = false, callbackE = false) {
+		let ajax = new XMLHttpRequest()
+		if (!callback) {
+			ajax.open("GET", url, false)
+			ajax.send()
+			let json = JSON.parse(ajax.responseText)
+			return json
+		}
+		ajax.open("GET", url)
+		ajax.send()
+		ajax.onreadystatechange = function () {
+			if (ajax.readyState == 4) {
+				if (ajax.status == 200) {
+					callback(ajax.responseText)
+				}
+				else if (ajax.status == 404 && callbackE) {
+					callbackE(true)
+				}
+			}
+		}
+	}
+	(window.RLQ = window.RLQ || []).push([["jquery"], function () {
+		$(function () {
+			$(document).on('click', '.nav-tabs > li > *', function (e) {
+				e.stopPropagation();
+			});
+			$("#PageToExcel").click(function () {
+				if (TTEMeta.state == "ready") {
+					$("#todoTitles").prop('readonly', true);
+					console.log("开始导出")
+					sendPage()
+				}
+			});
+			$(".CoverMode,.SkipMode").on('click', function () {
+				$("#FillMode").text($(this).text());
+			});
+			$(".CategoryMode").on('click', function () {
+				$("#AskMode").text($(this).text());
+				$("#AskParam").attr("placeholder", "请直接填入要处理的分类名称后查询");
+			});
+			$(".ParamMode").on('click', function () {
+				$("#AskMode").text($(this).text());
+				$("#AskParam").attr("placeholder", "请填入要查询的ASK参数后查询");
+			});
+			$(".BeforeMode,.AfterMode").on('click', function () {
+				$("#InsertMode").text($(this).text());
+			});
+			$(".NormalMode,.RegularMode").on('click', function () {
+				$("#EditWikitextMode").text($(this).text());
+			});
+			$(".PrefixMode,.SuffixMode").on('click', function () {
+				$("#FixMode").text($(this).text());
+			});
+			$(".MoveAddMode,.MoveDelMode").on('click', function () {
+				$("#MoveMode").text($(this).text());
+			});
+			$("#gotoCustomMove").on('click', function () {
+				$("#RuleMoveBOX").hide();
+				$("#CustomMoveBOX").show();
+				$("#todoTitles").val('');
+				$("#PageNum").text(0);
+				moveData = [];
+				$("#BEdisplay").empty();
+				$("#todoTitles").attr("placeholder", "请从excel中复制，粘贴到此处。左侧列为原标题，右侧列为新标题。");
+			});
+			$("#gotoRuleMove").on('click', function () {
+				$("#CustomMoveBOX").hide();
+				$("#RuleMoveBOX").show();
+				$("#todoTitles").val('');
+				$("#PageNum").text(0);
+				moveData = [];
+				$("#BEdisplay").empty();
+				$("#todoTitles").attr("placeholder", "默认为“|”（管道符）分隔");
+			});
+			$("#getCustomMoveData").on('click', function () {
+				getCustomMoveData();
+			});
+			$("#CustomMoveBTN").on('click', function () {
+				if (confirm("真的确认了吗")) {
+					movePageCustom();
+				}
+			});
+			//批量填充
+			if (mw.config.get('wgUserGroups').indexOf("sysop") == -1) {
+				document.getElementById("BatchCreateByTemplate").innerHTML = "你无权使用这个功能。"
+				document.getElementById("BatchCreateByTemplate").style.cssText = `font-size: large;font-weight: bold;`;
+				return
+			}
+			document.getElementById("BCBTexcel").oninput = function () {
+				let value = this.value;
+				value = value.replace(/""/g, "&&quot;").replace(/"([^"]+)"/g, function (match, group1) { return group1.replace(/\n/g, '\r'); });
+				let row = value.split("\n")
+				let title = row[0].split("\t")
+				title = title.map(function (e) { return e.trim() })
+				BCBTMeta.template = title[0]
+				BCBTMeta.key = []
+				BCBTMeta.page = {}
+				for (let i = 1, ilen = title.length; i < ilen; i++) {
+					BCBTMeta.key.push(title[i])
+				}
+				for (let i = 1, ilen = row.length; i < ilen; i++) {
+					let cell = row[i].split("\t")
+					cell = cell.map(function (e) { return e.trim().replace(/&&quot;/g, '"').replace(/\r/g, '\n'); })
+					if (cell[0]) {
+						BCBTMeta.page[cell[0]] = []
+						for (let j = 1, jlen = title.length; j < jlen; j++) {
+							BCBTMeta.page[cell[0]].push(cell[j] || "")
+						}
+					}
+				}
+				let BCBTdisplay = document.getElementById("BCBTdisplay")
+				BCBTdisplay.innerHTML = "";
+				for (let key in BCBTMeta.page) {
+					let text = "[[<a href=" + mw.config.values.wgScriptPath + "/" + encodeURIComponent(key) + " title=" + key + " target=_blank>" + key + "</a>]]"
+					text += "\n\n{{" + (BCBTMeta.template ? "<a href=" + mw.config.values.wgScriptPath + "/" + encodeURIComponent("模板:" + BCBTMeta.template) + " title=" + "模板:" + BCBTMeta.template + "  target=_blank>" + BCBTMeta.template + "</a>" : "<span style='color:red'>请确认模板</span>")
+					for (let i = 0, ilen = BCBTMeta.key.length; i < ilen; i++) {
+						text += "\n|" + (BCBTMeta.key[i] ? BCBTMeta.key[i] + "=" : "") + BCBTMeta.page[key][i]
+					}
+					text += "\n}}"
+					let pre = document.createElement("pre")
+					pre.classList.add("col-md-3")
+					pre.dataset.title = key
+					pre.innerHTML = text
+					BCBTdisplay.appendChild(pre)
+				}
+			}
+			document.getElementById("BCBTsubmit").onclick = function () {
+				if (BCBTMeta.state == "ready" && confirm("真的确认了吗？")) {
+					document.getElementById("BCBTexcel").readOnly = true
+					BCBTMeta.state = "busy";
+					BCBTMeta.titles = Object.keys(BCBTMeta.page)
+					create();
+				}
+			}
+			//查询版本：先取“您的版本”(当前页修订时间) → 再取 tools 页“最新版本”并比较
+			new mw.Api().get({
+			action: 'query',
+			prop: 'revisions',
+			titles: mw.config.get('wgPageName'),
+			rvprop: 'timestamp',
+			formatversion: 2
+			}).done(function (data) {
+			try {
+				var pg  = data.query.pages[0];
+				var ts  = pg.revisions[0].timestamp;          // ISO UTC
+				var ymd = new Date(ts).toISOString().split('T')[0];
+				$('#YourVer').text(ymd);
+			} catch (e) {
+				console.error('获取 YourVer 失败', e);
+			}
+
+			// 再取“最新版本”并比较
+			$.getJSON("//wiki.biligame.com/tools/api.php?action=query&prop=revisions&pageids=2730&rvprop=timestamp&format=json", function (data2) {
+			if (data2.query && data2.query.pages) {
+				var page      = Object.values(data2.query.pages)[0];
+				var timestamp = page.revisions[0].timestamp;
+				var dateStr   = new Date(timestamp).toISOString().split('T')[0]; // 只取 Y-m-d
+				$("#LastVer").text(dateStr);
+
+				// 兼容：如果您的版本比远端旧 → 显示“New”
+				var yourDateStr = $("#YourVer").text();
+				if (yourDateStr && dateStr) {
+				var yourDate = new Date(yourDateStr);
+				var lastDate = new Date(dateStr);
+				if (yourDate < lastDate) {
+					$("#CheckVer").append(' <sup><span class="label label-danger">New</span></sup>');
+				}
+				}
+			} else {
+				console.error("获取最后更新日期失败");
+			}
+			});
+			}).fail(function (e) {
+			console.error('YourVer API 调用失败', e);
+			});
+			//查询页面		
+			$("#AskSubmit").on("click", function () {
+				askTitles();
+			})
+			//批量刷新
+			$("#PagePurge").on("click", function () {
+				purgePage();
+			})
+			//批量删除
+			if (mw.config.get('wgUserGroups').indexOf("sysop") == -1) {
+				$("#BatchDeleteByTemplate").html("你无权使用这个功能。");
+				$("#BatchDeleteByTemplate").css("font-size", "large").css("font-weight", "bold");
+				return
+			}
+			$("#Separator").on('input', function () {
+				updateBEdisplay($("#todoTitles").val().replace(/[\n\r]+/g, ''));
+			});
+			$("#todoTitles").on('input', function () {
+				updateBEdisplay($(this).val().replace(/[\n\r]+/g, ''));
+			});
+			//批量移动
+			$("#RuleMoveBTN").click(function () {
+				if (CPMeta.state == "ready" && confirm("真的确认了吗？")) {
+					$("#todoTitles").prop("readOnly", true);
+					CPMeta.state = "busy";
+					movePage();
+				}
+			});
+			$("#PageDelete").click(function () {
+				if (CPMeta.state == "ready" && confirm("真的确认了吗？")) {
+					$("#todoTitles").prop("readOnly", true);
+					CPMeta.state = "busy";
+					deletePage();
+				}
+			});
+			//ZipFILL
+			zipFillData = {
+				zipData: [],
+				fileIndex: 0,
+			};
+			change = function (idName) {
+				let upload = document.getElementById(idName);
+				var file = upload.files[0];
+				JSZip.loadAsync(file)
+					.then(function (zip) {
+						var fileBox = [];
+						zip.forEach(function (relativePath, zipEntry) {
+							fileBox.push(
+								zipEntry.async("string").then(function (content) {
+									return { name: zipEntry.name, content: content };
+								})
+							);
+						});
+						return Promise.all(fileBox);
+					})
+					.then(function (files) {
+						// 在页面上显示每个文件的内容
+						zipFillData.zipData = files;
+						console.log(zipFillData.zipData);
+						$.each(zipFillData.zipData, function (index, item) {
+							let text = "[[<a href=" + mw.config.values.wgScriptPath + "/" + encodeURIComponent(item.name) + " title=" + item.name + " target=_blank>" + item.name + "</a>]]";
+							// let text = item.name;
+							text += `\n\n${item.content}`;
+							let pre = document.createElement("pre");
+							pre.classList.add("col-md-3");
+							pre.dataset.title = item.name;
+							pre.innerHTML = text;
+							BZdisplay.appendChild(pre);
+						});
+					})
+					.catch(function (error) {
+						console.log("读取ZIP文件时出错:", error);
+					});
+			};
+			createByZip = function () {
+				if (!zipFillData.zipData[zipFillData.fileIndex]) {
+					return false;
+				}
+				var title = zipFillData.zipData[zipFillData.fileIndex].name;
+				var text = zipFillData.zipData[zipFillData.fileIndex++].content;
+				new mw.Api()
+					.postWithToken("csrf", {
+						action: "edit",
+						title: title,
+						text: text,
+						summary: "读取zip生成的批量编辑",
+					})
+					.then(function (json) {
+						console.log(`创建成功${title}`);
+						document.querySelector('#BZdisplay pre[data-title="' + title + '"]').classList.add("BatchSuccess");
+						$("#BEProgress").show();
+						mw.notify("[" + title + "]已填充！", { type: 'success' })
+						let ProcessValue = Math.floor(zipFillData.fileIndex / zipFillData.zipData.length * 100);
+						setProgress(ProcessValue);
+						if (zipFillData.fileIndex >= zipFillData.zipData.length) {
+							$("#BEProgress").hide();
+							console.log("全部结束");
+						} else {
+							return setTimeout(createByZip, 500);
+						}
+					})
+					.catch(function (e) {
+						console.log(e);
+						document.querySelector('#BZdisplay pre[data-title="' + title + '"]').classList.add("BatchError");
+						if (zipFillData.fileIndex >= zipFillData.zipData.length) {
+							$("#BEProgress").hide();
+							console.log("全部结束");
+						} else {
+							return setTimeout(createByZip, 500);
+						}
+					});
+			};
+			$("#BZsubmit").on("click", function () {
+				if (confirm("真的确认了吗")) {
+					createByZip();
+				}
+			});
+			$("#replaceBTN").on("click", function () {
+				if (confirm("高危操作，真的确认了吗？")) {
+					editWikitext('replace');
+				}
+			});
+
+			$(".filter-btn").on("click", function () {
+				let filter = $(this).data("filter");
+				let target = $(this).data("target") || "BE";
+				filterByClass(filter, target);
+			});
+
+			$("#BECopyError").on("click", function () {
+				let target = $(this).data("target") || "BE";
+				copyTitlesByClass(target, "BatchError");
+			});
+
+			$("#BECopyEmpty").on("click", function () {
+				let target = $(this).data("target") || "BE";
+				copyTitlesByClass(target, "BatchEmpty");
+			});
+
+			$("#BCBTCopyError").on("click", function () {
+				let target = $(this).data("target") || "BCBT";
+				copyTitlesByClass(target, "BatchError");
+			});
+
+			$("#BCBTCopyEmpty").on("click", function () {
+				let target = $(this).data("target") || "BCBT";
+				copyTitlesByClass(target, "BatchEmpty");
+			});
+
+			$("#BZCopyError").on("click", function () {
+				let target = $(this).data("target") || "BZ";
+				copyTitlesByClass(target, "BatchError");
+			});
+
+			let BEObserver = new MutationObserver(function (mutations) {
+				updateFilterCount("BE");
+			});
+			BEObserver.observe(document.getElementById('BEdisplay'), {
+				childList: true,
+				attributes: true,
+				attributeFilter: ['class'],
+				subtree: true
+			});
+
+			let BCBTObserver = new MutationObserver(function (mutations) {
+				updateFilterCount("BCBT");
+			});
+			BCBTObserver.observe(document.getElementById('BCBTdisplay'), {
+				childList: true,
+				attributes: true,
+				attributeFilter: ['class'],
+				subtree: true
+			});
+
+			let BZObserver = new MutationObserver(function (mutations) {
+				updateFilterCount("BZ");
+			});
+			BZObserver.observe(document.getElementById('BZdisplay'), {
+				childList: true,
+				attributes: true,
+				attributeFilter: ['class'],
+				subtree: true
+			});
+		})
+	}])
+</script>
+</includeonly><noinclude>{{#Widget:批量}}</noinclude>

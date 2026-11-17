@@ -1,0 +1,186 @@
+<noinclude>
+这是一个用于提交视频作品信息的Widget。
+使用方法: {{#widget:视频作品投稿}}
+</noinclude>
+<includeonly>
+<script>mw.loader.load(['mediawiki.ui.button', 'mediawiki.ui.input']);</script>
+
+<style>
+/* 使用你偏好的浅色系二次元风格 UI */
+.video-submission-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 25px;
+    font-size: 14px;
+    background: rgba(248, 249, 250, 0.9); /* 你偏好的背景色 */
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin: 10px 0;
+}
+.vs-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+.vs-input-group {
+    margin-bottom: 18px;
+}
+.vs-status-ok { color: #1b7a13; font-weight: 700; }
+.vs-status-pending { color: #b56b00; font-weight: 700; }
+.vs-status-fail { color: #d33; font-weight: 700; }
+
+/* 微调输入框圆角 */
+.mw-ui-input {
+    border-radius: 6px !important;
+}
+</style>
+
+<div class="video-submission-form">
+    <h2 style="padding-bottom: 10px; margin-top: 0; border-bottom: 2px solid #60A3F7; color: #333;">🎬 视频作品投稿</h2>
+
+    <div class="vs-input-group">
+        <label class="vs-label" for="vs-title">作品名称 (将作为页面标题)</label>
+        <input type="text" id="vs-title" class="mw-ui-input" placeholder="请输入视频作品的名称">
+    </div>
+
+    <div class="vs-input-group">
+        <label class="vs-label" for="vs-bv">B站 BV 号</label>
+        <input type="text" id="vs-bv" class="mw-ui-input" placeholder="例如：BV1CzUDBBE2o">
+    </div>
+
+    <div class="vs-input-group" style="display: flex; gap: 15px;">
+        <div style="flex: 1;">
+            <label class="vs-label" for="vs-genre">作品题材</label>
+            <select id="vs-genre" class="mw-ui-input">
+                <option value="MAD">MAD</option>
+                <option value="AMV">AMV</option>
+                <option value="手书">手书</option>
+                <option value="世界观">世界观</option>
+                <option value="混剪">混剪</option>
+                <option value="教学">教学</option>
+            </select>
+        </div>
+        <div style="flex: 1;">
+            <label class="vs-label" for="vs-author">作者昵称</label>
+            <input type="text" id="vs-author" class="mw-ui-input" placeholder="作者署名">
+        </div>
+    </div>
+
+    <div class="vs-input-group">
+        <label class="vs-label" for="vs-uid">作者 UID</label>
+        <input type="text" id="vs-uid" class="mw-ui-input" placeholder="作者的 Bilibili UID">
+    </div>
+
+    <button id="btn-submit-video" class="mw-ui-button mw-ui-progressive mw-ui-big radius5" style="width: 100%;">确认投稿喵！</button>
+    <div id="vs-submit-status" style="margin-top: 15px; text-align: center; font-weight: bold;"></div>
+</div>
+
+<script>
+(window.RLQ = window.RLQ || []).push(function () {
+    var ui = {
+        title: document.getElementById("vs-title"),
+        bv: document.getElementById("vs-bv"),
+        genre: document.getElementById("vs-genre"),
+        author: document.getElementById("vs-author"),
+        uid: document.getElementById("vs-uid"),
+        btn: document.getElementById("btn-submit-video"),
+        status: document.getElementById("vs-submit-status")
+    };
+
+    // MediaWiki 禁止在标题中使用的字符正则
+    // 包含: # < > [ ] | { } / : (冒号和斜杠在某些设置下有限制，建议过滤或转义)
+    var FORBIDDEN_CHARS_REGEX = /[#<>[\]|{}%]/;
+    
+    function validateTitle(title) {
+        if (!title) return { ok: false, msg: "标题不能为空喵！" };
+        if (title.length > 200) return { ok: false, msg: "标题太长了，请控制在200字以内喵。" };
+        if (FORBIDDEN_CHARS_REGEX.test(title)) {
+            // 找出用户输入的非法字符具体是哪些，方便提醒
+            var found = title.match(/[#<>[\]|{}%]/g).join(' ');
+            return { ok: false, msg: "标题包含非法字符：[ " + found + " ]，请修改喵！" };
+        }
+        // 不能以冒号开头
+        if (title.indexOf(':') === 0) return { ok: false, msg: "标题不能以冒号开头喵！" };
+        return { ok: true };
+    }
+
+    function getFormattedDate() {
+        var now = new Date();
+        return now.getFullYear() + "年" + (now.getMonth() + 1) + "月" + now.getDate() + "日";
+    }
+
+    function safeParam(s) {
+        return String(s || "").replace(/\|/g, "｜").replace(/[<>[\]{}]/g, "").trim();
+    }
+
+    ui.btn.addEventListener("click", function () {
+        var titleVal = ui.title.value.trim();
+        var bvVal = ui.bv.value.trim();
+        var genreVal = ui.genre.value;
+        var authorVal = ui.author.value.trim();
+        var uidVal = ui.uid.value.trim();
+
+        // 1. 标题合法性检查
+        var check = validateTitle(titleVal);
+        if (!check.ok) {
+            ui.status.innerHTML = '<span class="vs-status-fail">❌ ' + check.msg + '</span>';
+            ui.title.focus(); // 自动聚焦到标题输入框
+            return;
+        }
+
+        // 2. 必填项检查
+        if (!bvVal || !authorVal) {
+            ui.status.innerHTML = '<span class="vs-status-fail">❌ BV号和作者也是必填的喵！</span>';
+            return;
+        }
+
+        ui.btn.disabled = true;
+        ui.btn.innerText = "正在传送数据...";
+        ui.status.innerHTML = '<span class="vs-status-pending">⏳ 正在校验并创建页面...</span>';
+
+        // 构造 Wikitext
+        var dateStr = getFormattedDate();
+        var wikitext = 
+            "{{投稿作品\n" +
+            "|类型=视频\n" +
+            "|作品题材=" + genreVal + "\n" +
+            "|时间=" + dateStr + "\n" +
+            "|作者=" + safeParam(authorVal) + "\n" +
+            "|作者UID=" + safeParam(uidVal) + "\n" +
+            "}}\n" +
+            "{{#Widget:Biliplayer|bv=" + safeParam(bvVal) + "|P=1|w=100%|h=600px}}\n";
+
+        // 3. 提交到 MediaWiki API
+        mw.loader.using(['mediawiki.api', 'mediawiki.util']).then(function () {
+            var api = new mw.Api();
+            api.postWithToken("csrf", {
+                action: "edit",
+                title: titleVal,
+                text: wikitext,
+                summary: "通过投稿Widget发布的视频作品: " + titleVal,
+                createonly: true 
+            })
+            .done(function (data) {
+                ui.status.innerHTML = '<span class="vs-status-ok">✅ 投稿成功！正在跳转喵~</span>';
+                setTimeout(function () {
+                    location.href = mw.util.getUrl(titleVal);
+                }, 1200);
+            })
+            .fail(function (code, data) {
+                ui.btn.disabled = false;
+                ui.btn.innerText = "重新提交喵";
+                if (code === "articleexists") {
+                    ui.status.innerHTML = '<span class="vs-status-fail">❌ 同名作品已存在，请尝试更换标题喵！</span>';
+                } else if (code === "invalidtitle") {
+                    ui.status.innerHTML = '<span class="vs-status-fail">❌ 标题不符合Wiki规范，请检查喵。</span>';
+                } else {
+                    ui.status.innerHTML = '<span class="vs-status-fail">❌ 出错了：' + code + '喵</span>';
+                }
+            });
+        });
+    });
+});
+</script>
+</includeonly>

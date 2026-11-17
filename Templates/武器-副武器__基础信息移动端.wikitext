@@ -1,0 +1,22 @@
+<includeonly>{{#if:{{{弹匣容量移动端|}}}{{{弹丸数移动端|}}}{{{弦化伤害移动端|}}}|
+{{#vardefine:sub-mob|}}
+{{#if:{{{弹匣容量移动端|}}}|{{#ifeq:{{{弹匣容量移动端}}}|{{{弹匣容量|}}}||{{#vardefine:sub-mob|1}}}}}}
+{{#if:{{{弹丸数移动端|}}}|{{#ifeq:{{{弹丸数移动端}}}|{{{弹丸数|}}}||{{#vardefine:sub-mob|1}}}}}}
+{{#if:{{{弦化伤害移动端|}}}|{{#ifeq:{{{弦化伤害移动端}}}|{{{弦化伤害|67}}}||{{#vardefine:sub-mob|1}}}}}}
+{{#if:{{#var:sub-mob}}|<div class="klbq-sub-grid__col">
+<div class="klbq-sub-panel">
+<div class="klbq-sub-section-title"><span>TACTICAL METRICS MOBILE</span><em>战术参数·移动端</em></div>
+<div class="klbq-sub-metric-grid">{{#if:{{{弹匣容量移动端|}}}|<div class="klbq-sub-metric">
+<div class="klbq-sub-metric__head"><span class="klbq-sub-metric__label">弹匣容量</span><span class="klbq-sub-metric__val"><code class="klbq-sub-mono">{{{弹匣容量移动端}}}</code> 发</span></div>
+<div class="klbq-sub-metric__track"><div class="klbq-sub-metric__fill" style="width: {{#iferror:{{#expr:{{{弹匣容量移动端|0}}}*2}}|0}}%;"></div></div>
+</div>}}{{#if:{{{弹丸数移动端|}}}|<div class="klbq-sub-metric">
+<div class="klbq-sub-metric__head"><span class="klbq-sub-metric__label">弹丸数</span><span class="klbq-sub-metric__val"><code class="klbq-sub-mono">{{{弹丸数移动端}}}</code> 发</span></div>
+<div class="klbq-sub-metric__track"><div class="klbq-sub-metric__fill" style="width: {{#iferror:{{#expr:{{{弹丸数移动端|0}}}*6}}|0}}%;"></div></div>
+</div>}}{{#if:{{{弦化伤害移动端|}}}|<div class="klbq-sub-metric">
+<div class="klbq-sub-metric__head"><span class="klbq-sub-metric__label">弦化伤害</span><span class="klbq-sub-metric__val"><code class="klbq-sub-mono">{{#iferror:{{#expr:{{{弦化伤害移动端}}}*1}}|{{{弦化伤害移动端}}}|{{{弦化伤害移动端}}}%}}</code></span></div>
+<div class="klbq-sub-metric__track"><div class="klbq-sub-metric__fill" style="width: {{#iferror:{{#expr:{{{弦化伤害移动端}}}*1}}|{{{弦化伤害移动端}}}|{{{弦化伤害移动端}}}%}};"></div></div>
+</div>}}
+</div>
+</div>
+</div>}}}}
+</includeonly><noinclude>[[分类:模板]]{{Documentation}}</noinclude>

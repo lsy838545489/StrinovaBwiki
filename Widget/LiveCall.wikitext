@@ -1,0 +1,218 @@
+<includeonly>
+<style>
+.wiki-call-img-btn-floating {
+  position: absolute;
+  right: -3%;
+  bottom: 30%;
+  z-index: 99;
+  width: 80px;
+  height: 80px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, rgba(234, 193, 211, 0.45) 0%, rgba(73, 65, 86, 0.65) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(254, 205, 186, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(211, 101, 138, 0.35), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  opacity: 0.92;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.wiki-call-img-btn-floating img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  transition: transform 0.3s ease;
+}
+
+.wiki-call-img-btn-floating:hover {
+  opacity: 1;
+  transform: scale(1.12) rotate(6deg);
+  background: linear-gradient(135deg, rgba(213, 101, 138, 0.65) 0%, rgba(73, 65, 86, 0.8) 100%);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 20px rgba(211, 101, 138, 0.6), 0 0 15px rgba(234, 193, 211, 0.5);
+}
+.wiki-call-img-btn-floating:hover img {
+  transform: scale(1.08);
+}
+
+.wiki-call-img-btn-floating:active {
+  transform: scale(0.92) rotate(-3deg);
+  box-shadow: 0 2px 8px rgba(211, 101, 138, 0.4);
+}
+
+/* 全屏动画容器（覆盖整个屏幕视口） */
+#wiki-call-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+  overflow: hidden;
+}
+
+/* 升起的荧光棒与粒子 */
+.call-item {
+  position: absolute;
+  bottom: -60px;
+  will-change: transform, opacity;
+  animation: floatUp 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.6) rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(var(--drift-x), -50vh) scale(1.2) rotate(var(--rot-deg));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--drift-x) * 1.5), -108vh) scale(0.8) rotate(calc(var(--rot-deg) * 1.5));
+  }
+}
+
+.penlight {
+  width: 12px;
+  height: 48px;
+  border-radius: 6px;
+  box-shadow: 0 0 12px var(--glow-color), 0 0 24px var(--glow-color);
+  background: var(--glow-color);
+  position: relative;
+}
+
+.penlight::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 12px;
+  background: #333;
+  border-radius: 2px;
+}
+
+.call-symbol {
+  font-size: 28px;
+  filter: drop-shadow(0 0 8px var(--glow-color));
+}
+</style>
+
+<button class="wiki-call-img-btn-floating wiki-live-call-action-btn" data-count="" title="打 Call !">
+  <img src="https://patchwiki.biligame.com/images/klbq/3/37/diec672ucivcs9vyxcorbkrjdx0zgh9.png" 
+       alt="打Call" 
+       style="width: 80px; height: 80px;" />
+</button>
+
+<script>
+(function () {
+  // 核心逻辑全局初始化
+  if (!window.triggerWikiCall) {
+    var COLOR_PALETTE = ['#D3658A', '#EAC1D3', '#FACDBA', '#BAC2CD', '#FF69B4', '#00FFFF', '#FFD700'];
+    var SYMBOLS = ['💖', '✨', '🎵', '🌟', '📣', '🎀'];
+
+    function getContainer() {
+      var container = document.getElementById('wiki-call-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'wiki-call-container';
+        document.body.appendChild(container);
+      }
+      return container;
+    }
+
+    // 在全屏底部的随机位置生成粒子
+    function spawnCallItem() {
+      var container = getContainer();
+      var item = document.createElement('div');
+      item.className = 'call-item';
+
+      var color = COLOR_PALETTE[Math.floor(Math.random() * COLOR_PALETTE.length)];
+      var driftX = ((Math.random() - 0.5) * 300) + 'px';
+      var rotDeg = ((Math.random() - 0.5) * 80) + 'deg';
+      var isPenlight = Math.random() > 0.4;
+
+      // 覆盖全网页底部：从 5%vw 到 95%vw 之间随机分布起点
+      var startX = Math.random() * (window.innerWidth - 80) + 40;
+
+      item.style.left = startX + 'px';
+      item.style.setProperty('--drift-x', driftX);
+      item.style.setProperty('--rot-deg', rotDeg);
+
+      if (isPenlight) {
+        var penlight = document.createElement('div');
+        penlight.className = 'penlight';
+        penlight.style.setProperty('--glow-color', color);
+        item.appendChild(penlight);
+      } else {
+        var symbol = document.createElement('div');
+        symbol.className = 'call-symbol';
+        symbol.textContent = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+        symbol.style.setProperty('--glow-color', color);
+        item.appendChild(symbol);
+      }
+
+      container.appendChild(item);
+
+      item.addEventListener('animationend', function () {
+        if (item.parentNode) {
+          item.parentNode.removeChild(item);
+        }
+      });
+    }
+
+    window.triggerWikiCall = function (count) {
+      var num = count || 30;
+      for (var i = 0; i < num; i++) {
+        (function (index) {
+          setTimeout(function () {
+            spawnCallItem();
+          }, index * 30);
+        })(i);
+      }
+    };
+
+    // 全局事件委托机制
+    document.addEventListener('click', function (e) {
+      var target = e.target;
+      while (target && target !== document) {
+        if (target.classList && target.classList.contains('wiki-live-call-action-btn')) {
+          var count = parseInt(target.getAttribute('data-count'), 10) || 30;
+          window.triggerWikiCall(count);
+          break;
+        }
+        target = target.parentNode;
+      }
+    });
+  }
+
+  // 自动挂载调整：确保按钮被放置在 .game-bg.container 内部右侧
+  function attachBtnToContainer() {
+    var parentElem = document.querySelector('.game-bg.container');
+    var btn = document.querySelector('.wiki-call-img-btn-floating');
+    if (parentElem && btn && btn.parentNode !== parentElem) {
+      parentElem.appendChild(btn);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachBtnToContainer);
+  } else {
+    attachBtnToContainer();
+  }
+})();
+</script>
+</includeonly>

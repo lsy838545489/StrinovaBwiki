@@ -1,0 +1,251 @@
+<includeonly>
+<style>
+/* ===========================
+   Freezeframe Wiki Wrapper 样式
+   =========================== */
+
+/* 容器基础，防止基线跳动 */
+.ff-container {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
+    min-height: 50px;
+    background-color: rgba(248, 249, 250, 0.9);
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    outline: none;
+
+    /* 防止图片替换为 canvas 时出现行内基线抖动 */
+    line-height: 0;
+    -webkit-font-smoothing: antialiased;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+/* img 和 freezeframe 生成的 canvas 都设为块级，避免基线/空隙 */
+.ff-container img,
+.ff-container .ff-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 可聚焦时的可视化（键盘用户） */
+.ff-container:focus-visible {
+    box-shadow: 0 0 0 4px rgba(66,133,244,0.08);
+    outline: none;
+}
+
+/* 覆盖层（未播放时显示） —— 使用独有类名避免与库冲突 */
+.wiki-ff-overlay {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background-color: rgba(255,255,255,0.20) !important;
+    backdrop-filter: blur(2px);
+    transition: opacity 0.22s ease !important;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* 中间圆形按钮（由 wiki overlay 绘制） */
+.wiki-ff-overlay:before {
+    content: '' !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px !important;
+    height: 48px !important;
+    background-color: rgba(248,249,250,0.98) !important;
+    border: 1px solid #e6e6e6;
+    border-radius: 50% !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23888888'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.14s ease;
+}
+
+/* 悬浮放大效果 */
+.ff-container:hover .wiki-ff-overlay:before {
+    transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* GIF 标识：加上 transform 提示以减少重影 */
+.ff-container::after {
+    content: 'GIF';
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(0,0,0,0.32);
+    padding: 6px;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.22s;
+    z-index: 11;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* 播放时隐藏遮罩 */
+.ff-container.ff-active .wiki-ff-overlay { opacity: 0 !important; pointer-events: none; }
+
+/* prefers-reduced-motion 支持 */
+@media (prefers-reduced-motion: reduce) {
+  .ff-container { transition: none !important; }
+  .wiki-ff-overlay:before { transition: none !important; transform: translate(-50%, -50%) !important; }
+}
+</style>
+
+<script>
+(function() {
+    // 统一的防重复执行标识
+    if (window.WikiCustomWidgetsLoaded) return;
+    window.WikiCustomWidgetsLoaded = true;
+
+    // ==========================================
+    // 模块 1：画廊折叠展开控制 (Gallery Expand)
+    // ==========================================
+    var initGalleryExpand = function() {
+        console.log('[WikiWidgets] 正在启动画廊展开逻辑喵...');
+        
+        mw.hook('wikipage.content').add(function() {
+            var wrappers = document.querySelectorAll('.artwork-gallery-wrapper');
+            wrappers.forEach(function(wrapper) {
+                // 防重复绑定标识
+                if (wrapper.dataset.galleryInitialized === 'true') return;
+                wrapper.dataset.galleryInitialized = 'true';
+
+                var gallery = wrapper.querySelector('.official-artwork-gallery');
+                var btnContainer = wrapper.querySelector('.expand-btn-container');
+                var expandBtn = wrapper.querySelector('.gallery-expand-btn');
+                
+                if (!gallery || !btnContainer || !expandBtn) return;
+                
+                var displayLimit = 8; 
+                var itemsCount = gallery.querySelectorAll('li').length;
+                
+                if (itemsCount <= displayLimit) {
+                    btnContainer.style.display = 'none';
+                    gallery.classList.remove('collapsed');
+                } else {
+                    expandBtn.addEventListener('click', function() {
+                        gallery.classList.remove('collapsed');
+                        btnContainer.style.transition = 'opacity 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                        btnContainer.style.opacity = '0';
+                        setTimeout(function() {
+                            btnContainer.style.display = 'none';
+                        }, 300);
+                    });
+                }
+            });
+        });
+    };
+
+    // ==========================================
+    // 模块 2：GIF 播放器控制 (Gif Player)
+    // ==========================================
+    var initGifPlayer = function() {
+        if (!window.Freezeframe) return;
+        console.log('[WikiWidgets] 正在启动 GIF 播放器主逻辑喵...');
+
+        var ffMap = new WeakMap();
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                var rec = ffMap.get(entry.target);
+                if (rec && entry.isIntersecting && !rec.manualPause) {
+                    rec.ff.start();
+                    entry.target.classList.add('ff-active');
+                } else if (rec) {
+                    rec.ff.stop();
+                    entry.target.classList.remove('ff-active');
+                }
+            });
+        }, { threshold: 0.01 });
+
+        function setup(img) {
+            if ($(img).data('ff-done') || $(img).closest('.ff-container').length) return;
+            try {
+                var $container = $('<div class="ff-container" tabindex="0" role="button"></div>');
+                $(img).wrap($container).after('<span class="wiki-ff-overlay"></span>');
+                var containerEl = img.parentElement;
+                var ff = new Freezeframe(img, { trigger: false, overlay: false, responsive: true });
+                ffMap.set(containerEl, { ff: ff, manualPause: true });
+                $(img).data('ff-done', true);
+                observer.observe(containerEl);
+            } catch (e) {}
+        }
+
+        function scan() {
+            $('.mw-parser-output img[src*=".gif"]').each(function() {
+                if (this.complete && this.naturalWidth > 0) setup(this);
+                else $(this).one('load', function() { setup(this); });
+            });
+        }
+
+        $(document).on('click.WikiGifPlayer', '.ff-container', function() {
+            var rec = ffMap.get(this);
+            if (!rec) return;
+            if (this.classList.contains('ff-active')) {
+                rec.ff.stop();
+                this.classList.remove('ff-active');
+                rec.manualPause = true;
+            } else {
+                rec.ff.start();
+                this.classList.add('ff-active');
+                rec.manualPause = false;
+            }
+        });
+
+        mw.hook('wikipage.content').add(scan);
+        scan();
+    };
+
+    // ==========================================
+    // 环境引导与启动器 (Bootstrap Orchestrator)
+    // ==========================================
+    function bootstrap() {
+        // 确保 mw, mw.util, jQuery 全部就绪
+        if (window.jQuery && window.mw && mw.util && mw.util.wikiScript) {
+            console.log('[WikiWidgets] 基础环境已就绪喵！');
+            
+            // 1. 启动无需依赖外部插件的原生/基础模块
+            initGalleryExpand();
+            
+            // 2. 构造外部脚本 URL 并启动 GIF 模块
+            var scriptUrl = mw.util.wikiScript('index') + '?title=MediaWiki:Freezeframe.min.js&action=raw&ctype=text/javascript';
+            
+            if (window.Freezeframe) {
+                initGifPlayer();
+            } else {
+                var script = document.createElement('script');
+                script.src = scriptUrl;
+                script.async = true;
+                script.onload = function() {
+                    var check = setInterval(function() {
+                        if (window.Freezeframe) {
+                            clearInterval(check);
+                            initGifPlayer();
+                        }
+                    }, 50);
+                };
+                document.head.appendChild(script);
+            }
+        } else {
+            // 环境未就绪，50ms 后重试
+            setTimeout(bootstrap, 50);
+        }
+    }
+
+    // 启动整合程序
+    bootstrap();
+})();
+</script>
+</includeonly>

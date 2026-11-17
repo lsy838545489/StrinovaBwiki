@@ -1,0 +1,226 @@
+<includeonly>{{#invoke:武器|武器外观}}</includeonly><noinclude>{{Lua|武器|ACandy|StringUtil|Get|Fun}}{{Documentation}}</noinclude>
+<bstyle>/*<pre>*/
+/* =========================================================
+   武器外观：稀有度下拉切换
+   结构对齐 模板:角色时装 的 klbq-skin-group（胶囊按钮 + dropdown-menu）
+   ========================================================= */
+.klbq-weapon-skin-group .klbq-skin-group__nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0 !important;
+    padding: 0;
+    list-style: none;
+}
+.klbq-weapon-skin-group .klbq-skin-group__item {
+    float: none;
+    margin: 0;
+    border-left: none;
+    list-style: none;
+}
+.klbq-weapon-skin-group .klbq-skin-group__nav > .klbq-skin-group__item:first-child {
+    margin-left: -10px;
+}
+.klbq-weapon-skin-group .klbq-skin-group__divider {
+    display: inline-flex;
+    align-self: center;
+    flex-shrink: 0;
+    width: 2px;
+    height: 22px;
+    margin: 0 4px;
+    padding: 0;
+    border-radius: 1px;
+    background: linear-gradient(
+        180deg,
+        rgba(148, 163, 184, 0) 0%,
+        rgba(148, 163, 184, 0.5) 50%,
+        rgba(148, 163, 184, 0) 100%
+    );
+    pointer-events: none;
+    list-style: none;
+}
+.klbq-weapon-skin-group .klbq-skin-group__item > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    min-height: 38px;
+    padding: 0 16px;
+    text-align: center;
+    color: var(--klbq-text-muted);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 12px 4px 12px 4px;
+    background: rgba(248, 249, 250, 0.8);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+.klbq-weapon-skin-group .klbq-skin-group__item[data-quality="0"] > a {
+    border-color: var(--item-quality-Initial);
+}
+.klbq-weapon-skin-group .klbq-skin-group__item[data-quality="2"] > a {
+    border-color: var(--item-quality-Exquisite);
+}
+.klbq-weapon-skin-group .klbq-skin-group__item[data-quality="3"] > a {
+    border-color: var(--item-quality-Superior);
+}
+.klbq-weapon-skin-group .klbq-skin-group__item[data-quality="4"] > a {
+    border-color: var(--item-quality-Perfect);
+}
+.klbq-weapon-skin-group .klbq-skin-group__item[data-quality="5"] > a {
+    border-color: var(--item-quality-Legendary);
+}
+.klbq-weapon-skin-group .klbq-skin-group__item[data-quality="8"] > a {
+    border-color: var(--item-quality-Secret);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .klbq-weapon-skin-group .klbq-skin-group__item > a:hover,
+    .klbq-weapon-skin-group .klbq-skin-group__item > a:focus,
+    .klbq-weapon-skin-group .klbq-skin-group__item.open > a,
+    .klbq-weapon-skin-group .klbq-skin-group__item.open > a:hover,
+    .klbq-weapon-skin-group .klbq-skin-group__item.open > a:focus {
+        color: #fff;
+        text-decoration: none;
+        background: linear-gradient(
+            to bottom,
+            rgba(77, 208, 225, 0.55),
+            rgba(178, 235, 242, 0.65)
+        );
+        border-color: rgba(128, 222, 234, 0.5);
+        box-shadow: 0 4px 8px rgba(0, 172, 193, 0.2);
+    }
+}
+.klbq-weapon-skin-group .klbq-skin-group__item.active > a,
+.klbq-weapon-skin-group .klbq-skin-group__item.active > a:hover,
+.klbq-weapon-skin-group .klbq-skin-group__item.active > a:focus {
+    color: #fff;
+    border-color: transparent;
+    background: rgba(255, 107, 47, 0.8);
+    box-shadow:
+        inset 0 0 12px rgba(255, 255, 255, 0.4),
+        0 4px 12px rgba(234, 88, 12, 0.4);
+}
+.klbq-weapon-skin-group .klbq-skin-group__item.active > a::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+/* 下拉面板 */
+.klbq-weapon-skin-group .dropdown-menu {
+    min-width: 150px;
+    max-height: 340px;
+    overflow-y: auto;
+    margin-top: 8px;
+    padding: 6px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 10px;
+    background: rgba(248, 249, 250, 0.96);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(22, 32, 42, 0.12);
+}
+.klbq-weapon-skin-group .dropdown-menu > li > a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: var(--klbq-text-muted);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+.klbq-weapon-skin-group .dropdown-menu > li > a:hover,
+.klbq-weapon-skin-group .dropdown-menu > li > a:focus {
+    color: var(--klbq-accent-strong);
+    background-color: rgba(0, 172, 193, 0.12);
+    text-decoration: none;
+}
+.klbq-weapon-skin-group .dropdown-menu > li.active > a,
+.klbq-weapon-skin-group .dropdown-menu > li.active > a:hover,
+.klbq-weapon-skin-group .dropdown-menu > li.active > a:focus {
+    color: #fff;
+    background-color: rgba(255, 107, 47, 0.8);
+}
+
+/* 暗色模式 */
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .klbq-skin-group__item > a {
+    color: var(--klbq-text);
+    background: rgba(15, 23, 42, 0.65);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .klbq-skin-group__item.active > a,
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .klbq-skin-group__item.active > a:hover,
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .klbq-skin-group__item.active > a:focus {
+    color: #fff;
+    background: rgba(234, 88, 12, 0.85);
+    box-shadow:
+        inset 0 0 10px rgba(255, 255, 255, 0.1),
+        0 4px 15px rgba(234, 88, 12, 0.4);
+}
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .klbq-skin-group__divider {
+    background: linear-gradient(
+        180deg,
+        rgba(56, 189, 248, 0) 0%,
+        rgba(56, 189, 248, 0.6) 50%,
+        rgba(56, 189, 248, 0) 100%
+    );
+    box-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
+}
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .dropdown-menu {
+    background: var(--klbq-slate-900);
+    border-color: var(--klbq-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .dropdown-menu > li > a {
+    color: var(--klbq-text-muted);
+}
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .dropdown-menu > li > a:hover,
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .dropdown-menu > li > a:focus {
+    color: var(--klbq-accent);
+    background-color: rgba(56, 189, 248, 0.15);
+}
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .dropdown-menu > li.active > a,
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .dropdown-menu > li.active > a:hover,
+.client-js.wiki-dark-mode .klbq-weapon-skin-group .dropdown-menu > li.active > a:focus {
+    color: #fff;
+    background-color: rgba(234, 88, 12, 0.85);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .client-js.wiki-dark-mode .klbq-weapon-skin-group .klbq-skin-group__item > a:hover,
+    .client-js.wiki-dark-mode .klbq-weapon-skin-group .klbq-skin-group__item > a:focus,
+    .client-js.wiki-dark-mode .klbq-weapon-skin-group .klbq-skin-group__item.open > a {
+        color: var(--klbq-text);
+        background: rgba(56, 189, 248, 0.16);
+        border-color: var(--klbq-accent);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* 移动端 */
+@media (max-width: 768px) {
+    .klbq-weapon-skin-group .klbq-skin-group__nav {
+        gap: 8px;
+    }
+    .klbq-weapon-skin-group .klbq-skin-group__nav > .klbq-skin-group__item:first-child {
+        margin-left: 0;
+    }
+    .klbq-weapon-skin-group .klbq-skin-group__item > a {
+        min-width: 68px;
+        padding: 0 12px;
+    }
+}
+/*</pre>*/</bstyle>

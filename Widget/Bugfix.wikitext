@@ -1,0 +1,22 @@
+<includeonly><script>
+// 重复提交及JS加载异常修复脚本
+
+// 临时修复前端api方法获取用户uid异常导致api报错问题，该错误码为 assertnameduserfailed
+RLCONF.wgUserName = (document.cookie.match(/DedeUserID=([^;]+)/) || [])[1] || ""; 
+if(window.mw && window.mw.config) mw.config.values.wgUserName = RLCONF.wgUserName; 
+
+console.log("widget:Bugfix 250107.1版载入")
+</script>
+<script src="https://wiki.biligame.com/tools/index.php?title=MediaWiki:Jquery.js&action=raw&ctype=text/javascript"></script>
+</includeonly><noinclude><pre>
+重复提交及JS加载异常修复脚本 V250107.1
+
+使用说明：
+    在自己站点新建 widget:Bugfix，粘入全部代码；
+    在 MediaWiki:Sitenotice 中补充 <div style="display:none">bugfix250107.1{{#widget:Bugfix}}</div>
+    如果修改过 MediaWiki:Anonnotice，同样需要在该页面补充（清空也需要！！）
+    可参考 /tools/MediaWiki:Sitenotice
+    建议完整抄写补充内容，以防止未更改文本时缓存异常的问题
+重复提交已全局修复，可查看历史修复方案 https://wiki.biligame.com/tools/index.php?title=Widget:Bugfix&oldid=47743
+onLoginLoaded 问题已全局修复
+</pre></noinclude>

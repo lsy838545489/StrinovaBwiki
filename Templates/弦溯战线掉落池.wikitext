@@ -1,0 +1,140 @@
+<includeonly>{{#if:{{{nocontent|}}}||<div class="sec-drop-pool"{{#if:{{{锚点|}}}| id="{{{锚点|}}}"}}><div class="sec-drop-pool__head">{{{标题|}}}<b>{{{项数|}}} 项</b>{{#if:{{{说明|}}}|<span class="sec-drop-pool__note">{{{说明|}}}</span>}}</div>{{#if:{{{高价值|}}}|<div class="sec-drop-pool__sec">{{{高价值标签|}}}</div><div class="sec-drop-pool__body">{{{高价值|}}}</div>}}{{#if:{{{折叠内容|}}}|<div class="sec-drop-pool__rest"><span class="mw-customtoggle-{{{折叠token|pool}}} sec-drop-pool__toggle">{{{折叠标签|}}}</span><div class="mw-collapsible mw-collapsed" id="mw-customcollapsible-{{{折叠token|pool}}}" style="margin-top:8px">{{{折叠内容|}}}</div></div>}}</div>}}</includeonly>{{#if:{{#varexists:sec-drop-pool-css}} || {{#vardefine:sec-drop-pool-css | 1 }}<bstyle>/*<pre>*/
+/* ===== 弦溯战线 · 共用掉落池 =====
+   池区块外壳模板（脚本 generate_sec_monsters.py 的 pool_panel 输出本模板调用，
+   chip 内容作为预渲染 HTML 参数传入）。样式原本放在「弦溯战线掉落卡」模板里，
+   但「掉落表格」页只引用本模板、不引用卡模板，池样式会缺失；
+   故本模板自带 .sec-drop-pool 系列 CSS（守卫变量 sec-drop-pool-css 注入一次），
+   与卡模板同名规则重复定义是幂等的，内容一致，无副作用。
+   折叠用 mw-collapsible / mw-customtoggle（jquery.makeCollapsible 默认加载），
+   不用 details/summary（Sanitizer 白名单没有，会被转义成纯文本）。 */
+.sec-drop-pool {
+    grid-column: 1 / -1;
+    background: rgb(var(--klbq-surface-rgb) / 0.88);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin: 0 0 14px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+.sec-drop-pool__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+.sec-drop-pool__head b {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0f766e;
+    background: rgba(15, 118, 110, 0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+.sec-drop-pool__note { font-size: 0.75rem; font-weight: 400; color: var(--klbq-text-muted); }
+.sec-drop-pool__sec {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0f766e;
+    padding: 9px 0 3px;
+}
+.sec-drop-pool__body { padding: 0 0 4px; }
+.sec-drop-pool__rest {
+    margin-top: 8px;
+    padding-top: 7px;
+    border-top: 1px dashed rgba(148, 163, 184, 0.45);
+    font-size: 0.75rem;
+    color: var(--klbq-text-subtle);
+    line-height: 1.7;
+}
+.sec-drop-pool__toggle {
+    cursor: pointer;
+    color: #0f766e;
+    font-weight: 600;
+    user-select: none;
+}
+.sec-drop-pool__toggle:hover { color: #0d9488; }
+.sec-drop-pool__toggle::before { content: "▸ "; }
+.sec-drop-pool__rest .mw-collapsible { color: var(--klbq-text); font-size: 0.875rem; }
+/* 掉落表格页：概览表「掉落池」列的展开按钮（mw-customtoggle 开关） */
+.sec-drop-tog {
+    cursor: pointer;
+    display: inline-block;
+    padding: 2px 10px;
+    border: 1px solid #0f766e;
+    border-radius: 6px;
+    background: rgba(15, 118, 110, 0.08);
+    color: #0f766e;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    user-select: none;
+}
+.sec-drop-tog:hover { background: rgba(15, 118, 110, 0.16); color: #0d9488; }
+.sec-drop-pool__q { display: flex; align-items: center; gap: 8px; padding: 5px 0 3px; }
+.sec-drop-pool__tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #fff;
+    padding: 1px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+.sec-q1 { background: var(--item-quality-Initial); color: var(--klbq-text-muted); }
+.sec-q2 { background: var(--item-quality-Exquisite); color: #0b2545; }
+.sec-q3 { background: var(--item-quality-Superior); color: #3b0a4d; }
+.sec-q4 { background: var(--item-quality-Perfect); color: #4a3000; }
+.sec-q5 { background: var(--item-quality-Secret); color: #fff; }
+.sec-q6 { background: var(--item-quality-Legendary); color: #fff; }
+.sec-q7, .sec-q8 { background: var(--klbq-text-muted); color: #fff; }
+.sec-drop-pool__cnt { font-size: 0.75rem; color: var(--klbq-text-subtle); }
+.sec-drop-pool__chips { display: flex; flex-wrap: wrap; gap: 4px 5px; padding-bottom: 4px; }
+.sec-drop-chip {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    font-size: 0.75rem;
+    color: var(--klbq-text);
+    line-height: 1.55;
+    white-space: nowrap;
+}
+/* MediaWiki 会把条件判断展开后残留的连续换行段落化成空 <p>，池区块里的 p 一律清空 margin */
+.sec-drop-pool p { margin: 0; display: none; }
+/* 暗色模式 */
+.client-js.wiki-dark-mode .sec-drop-pool {
+    background: rgba(30, 41, 59, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+}
+.client-js.wiki-dark-mode .sec-drop-pool__head { color: var(--klbq-text); }
+.client-js.wiki-dark-mode .sec-drop-pool__head b {
+    color: #5eead4;
+    background: rgba(45, 212, 191, 0.15);
+}
+.client-js.wiki-dark-mode .sec-drop-pool__note,
+.client-js.wiki-dark-mode .sec-drop-pool__cnt { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-drop-pool__sec { color: #5eead4; }
+.client-js.wiki-dark-mode .sec-drop-pool__rest {
+    color: var(--klbq-text-muted);
+    border-top-color: rgba(148, 163, 184, 0.25);
+}
+.client-js.wiki-dark-mode .sec-drop-pool__toggle { color: #5eead4; }
+.client-js.wiki-dark-mode .sec-drop-pool__toggle:hover { color: #99f6e4; }
+.client-js.wiki-dark-mode .sec-drop-tog {
+    border-color: #2dd4bf;
+    background: rgba(45, 212, 191, 0.12);
+    color: #5eead4;
+}
+.client-js.wiki-dark-mode .sec-drop-tog:hover { background: rgba(45, 212, 191, 0.2); color: #99f6e4; }
+.client-js.wiki-dark-mode .sec-drop-pool__rest .mw-collapsible { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-drop-chip {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.06);
+    color: var(--klbq-text-muted);
+}
+/*</pre>*/</bstyle>}}<noinclude>{{Documentation}}[[分类:模板]]</noinclude>

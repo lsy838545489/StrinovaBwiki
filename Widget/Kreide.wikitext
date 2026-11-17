@@ -1,0 +1,336 @@
+<noinclude>请放置在所有 {{tl|黑键}} 的最后。
+
+本 Widget 中文名为白垩{{非链入使用文件|music bg.png|Music_play.png|播放.svg|暂停.svg|切换.svg|Bd_icon.png}}</noinclude><includeonly><style>
+.playerBox {
+	display: inline-block;
+	position: relative;
+	aspect-ratio: 434/153;
+	background-image: url("https://patchwiki.biligame.com/images/klbq/4/4c/0br6uqnetn9f6hm1repv0e87zh0sg06.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	font-size: 0.75em;
+	text-align: initial;
+}
+@keyframes playerCoverSpin {
+	from {
+		transform: scale(0.875) rotate(0deg);
+	}
+	to {
+		transform: scale(0.875) rotate(360deg);
+	}
+}
+.playerCover {
+	display: inline-block;
+	box-sizing: border-box;
+	position: absolute;
+	height: 100%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	transform: scale(0.875) rotate(0deg);
+	border-radius: 50%;
+	border: 2px solid #e18b86;
+	animation: playerCoverSpin calc(60s / 33) linear infinite paused;
+}
+@media (prefers-reduced-motion: reduce) {
+	.playerCover {
+		animation: none;
+	}
+}
+.playerPlay {
+	display: inline-block;
+	box-sizing: border-box;
+	position: absolute;
+	height: 100%;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	transform: scale(0.25);
+	border: 2px solid #fff;
+	background-image: url("https://patchwiki.biligame.com/images/klbq/5/5a/i7h7tnq7vni35z83fifw5qvoyw23pjy.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	opacity: 0.8;
+	transition: opacity 0.1s;
+	cursor: pointer;
+}
+.playerPlay:hover {
+	opacity: 1;
+}
+.playerPlay::before {
+	display: inline-block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 50%;
+	aspect-ratio: 1/1;
+	background-image: url("https://patchwiki.biligame.com/images/klbq/4/46/dbsnom35gkz79lqfi4xp5jo93dsec5a.svg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.playerBox.playing > .playerPlay::before {
+	background-image: url("https://patchwiki.biligame.com/images/klbq/d/d8/asq90b8opfqll0o7jrzmcccfrzrg02y.svg");
+}
+.playerProgress {
+	display: inline-block;
+	position: absolute;
+	right: calc(5% + 14ch);
+	bottom: 25%;
+	width: calc(55% - 14ch);
+	height: 2.5%;
+	background-image: linear-gradient(
+		to right,
+		#e18b86 var(--progress, 0%),
+		#fff0e8 var(--progress, 0%)
+	);
+}
+.playerProgressThumb {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: var(--progress, 0%);
+	transform-origin: left top;
+	transform: scale(0) translate(-50%, -50%);
+	width: 5%;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	background-color: #fff0e8;
+	cursor: pointer;
+	transition: transform 0.3s ease-in-out;
+}
+.playerProgress:hover > .playerProgressThumb,
+.playerProgressThumb:active {
+	transform: scale(1) translate(-50%, -50%);
+}
+.playerTime {
+	display: inline-block;
+	position: absolute;
+	right: 2.5%;
+	bottom: 25%;
+	line-height: 1;
+	transform: translateY(25%);
+	color: #e18b86;
+	font-family: monospace, monospace;
+	text-shadow: 0 0 1px #fff0e8, 0 1px #fff0e8, 1px 0 #fff0e8, 0 -1px #fff0e8,
+		-1px 0 #fff0e8, 1px 1px #fff0e8, 1px -1px #fff0e8, -1px 1px #fff0e8,
+		-1px -1px #fff0e8, 0 .5px #fff0e8, .5px 0 #fff0e8, 0 -.5px #fff0e8,
+		-.5px 0 #fff0e8, .5px .5px #fff0e8, .5px -.5px #fff0e8, -.5px .5px #fff0e8,
+		-.5px -.5px #fff0e8;
+}
+.playerBack,
+.playerForward {
+	content: url("https://patchwiki.biligame.com/images/klbq/3/39/8fabw215h1qkenhymrlyv9j794vjl5m.svg");
+	display: inline-block;
+	position: absolute;
+	top: 45%;
+	height: 25%;
+	aspect-ratio: 1/1;
+	opacity: 0.4;
+	transition: opacity 0.2s ease-in-out;
+	cursor: pointer;
+}
+.playerBack:hover,
+.playerForward:hover {
+	opacity: 1;
+}
+.playerBack {
+	right: 45%;
+	transform: translate(-50%, -50%);
+}
+.playerForward {
+	right: 5%;
+	transform: translate(-50%, -50%) rotate(180deg);
+}
+.playerName {
+	display: inline-flex;
+	position: absolute;
+	right: 0;
+	top: 45%;
+	transform: translate(-50%, -50%);
+	height: 25%;
+	aspect-ratio: 5.75/1.5;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	font-size: 1.5em;
+	overflow-x: hidden;
+	white-space: nowrap;
+}
+</style><script>"use strict";
+(() => {
+	[...document.body.getElementsByClassName("playerBox")].forEach(
+		playerBox => {
+			try {
+				const covers = playerBox.dataset.cover
+					.split(",")
+					.map(url => url.trim());
+				const musics = playerBox.dataset.music
+					.split(",")
+					.map(url => url.trim());
+				const playList = playerBox.dataset.name
+					.split(",")
+					.map((name, i) => {
+						return {
+							index: i,
+							name: name.trim(),
+							cover: covers[i],
+							music: musics[i],
+						};
+					});
+				let playing = 0;
+				const audio = new Audio();
+				audio.onplaying = () => {
+					playerBox.classList.add("playing");
+					playerPlay.title = "暂停";
+					update();
+				};
+				audio.onpause = () => {
+					playerBox.classList.remove("playing");
+					playerPlay.title = "播放";
+				};
+				audio.src = playList[playing].music;
+				audio.onended = () => {
+					changeMusic((playing = ++playing % playList.length));
+					audio.play();
+				};
+				const playerCover = document.createElement("img");
+				playerCover.className = "playerCover";
+				const defaultCover =
+					"https://wiki.biligame.com/klbq/%E7%89%B9%E6%AE%8A:%E9%87%8D%E5%AE%9A%E5%90%91/file/Bd_icon.png";
+				playerCover.src = playList[playing].cover || defaultCover;
+				playerCover.onerror = function () {
+					if (this.src !== defaultCover) this.src = defaultCover;
+				};
+				playerBox.appendChild(playerCover);
+				const playerPlay = document.createElement("div");
+				playerPlay.className = "playerPlay";
+				playerPlay.title = "播放";
+				playerPlay.onclick = () =>
+					audio.paused ? audio.play() : audio.pause();
+				playerBox.appendChild(playerPlay);
+				const playerTime = document.createElement("div");
+				playerTime.className = "playerTime";
+				playerBox.appendChild(playerTime);
+				const playerProgress = document.createElement("div");
+				playerProgress.className = "playerProgress";
+				let duration, durationText;
+				audio.onloadedmetadata = () => {
+					duration = audio.duration;
+					durationText = `${((duration - (duration % 60)) / 60 || 0)
+						.toFixed()
+						.padStart(2, "0")}:${(duration % 60 || 0)
+						.toFixed()
+						.padStart(2, "0")}`;
+					update();
+				};
+				const update = () =>
+					requestAnimationFrame(() => {
+						playerCover.style.animationDelay = `-${
+							audio.currentTime % (60 / 33)
+						}s`;
+						playerProgress.setAttribute(
+							"style",
+							`--progress: ${
+								(audio.currentTime * 100) / duration || 0
+							}%`
+						);
+						playerTime.textContent = `${(+(
+							(audio.currentTime - (audio.currentTime % 60)) /
+								60 || 0
+						).toFixed())
+							.toFixed()
+							.padStart(2, "0")}:${(audio.currentTime % 60 || 0)
+							.toFixed()
+							.padStart(2, "0")} / ${durationText}`;
+						if (!audio.paused) update();
+					});
+				update();
+				const playerProgressThumb = document.createElement("div");
+				playerProgressThumb.className = "playerProgressThumb";
+				playerProgressThumb.onmousedown = e => {
+					if (e.button !== 0) return;
+					const x = e.clientX,
+						left = parseInt(
+							window.getComputedStyle(playerProgressThumb).left
+						);
+					const move = e => {
+						e.preventDefault();
+						const percent =
+							(Math.max(
+								Math.min(
+									left + e.clientX - x,
+									playerProgress.clientWidth
+								),
+								0
+							) *
+								100) /
+								playerProgress.clientWidth || 0;
+						playerProgress.setAttribute(
+							"style",
+							`--progress: ${percent}%`
+						);
+						audio.currentTime = (percent * duration) / 100;
+						update();
+					};
+					const up = () => {
+						playerProgressThumb.style.cursor = "grab";
+						document.removeEventListener("mousemove", move);
+					};
+
+					playerProgressThumb.style.cursor = "grabbing";
+					document.addEventListener("mousemove", move);
+					document.addEventListener("mouseup", up, { once: true });
+				};
+				playerProgress.appendChild(playerProgressThumb);
+				playerProgress.onclick = e => {
+					if (e.button !== 0 || e.target !== playerProgress) return;
+					const percent =
+						(e.offsetX * 100) / playerProgress.clientWidth || 0;
+					playerProgress.setAttribute(
+						"style",
+						`--progress: ${percent}%`
+					);
+					audio.currentTime = (percent * duration) / 100;
+					update();
+				};
+				playerBox.appendChild(playerProgress);
+				const changeMusic = () => {
+					audio.src = playList[playing].music;
+					playerCover.style.animation = "none";
+					playerCover.clientTop;
+					playerCover.src = playList[playing].cover || defaultCover;
+					playerName.textContent = names[playing];
+					audio.play();
+					playerCover.style.animation = "";
+				};
+				const playerBack = document.createElement("div");
+				playerBack.className = "playerBack";
+				playerBack.title = "上一首";
+				playerBack.onclick = () =>
+					changeMusic(
+						--playing < 0
+							? (playing = playList.length - 1)
+							: playing
+					);
+				playerBox.appendChild(playerBack);
+				const playerForward = document.createElement("div");
+				playerForward.className = "playerForward";
+				playerForward.title = "下一首";
+				playerForward.onclick = () =>
+					changeMusic((playing = ++playing % playList.length));
+				playerBox.appendChild(playerForward);
+				const playerName = document.createElement("b");
+				playerName.className = "playerName";
+				const names = playerBox.dataset.name.split(",");
+				playerName.textContent = names[playing % playList.length];
+				playerBox.appendChild(playerName);
+			} catch (e) {
+				console.error(e);
+			}
+		}
+	);
+})();
+</script></includeonly>

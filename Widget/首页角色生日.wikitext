@@ -1,0 +1,243 @@
+<includeonly>
+<style>
+    /* Block: birthday-widget */
+    .birthday-widget {
+        border: 1px solid var(--wiki-border, rgba(59, 130, 246, 0.15));
+        border-radius: 8px;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        margin: 0 auto 12px;
+        background: var(--wiki-content-bg, #ffffff);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    /* Element: header */
+    .birthday-widget__header {
+        background-color: #ff6b81;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* Element: alert-box */
+    .birthday-widget__alert-box {
+        padding: 15px;
+        text-align: center;
+        background-color: #fff0f3;
+        border-bottom: 1px dashed #eee;
+    }
+
+    /* Element: alert-days */
+    .birthday-widget__alert-days {
+        font-size: 2em;
+        color: #ff4757;
+        font-weight: bold;
+    }
+
+    /* Element: alert-text */
+    .birthday-widget__alert-text {
+        color: #555;
+        margin-top: 5px;
+    }
+
+    /* Element: month-list */
+    .birthday-widget__month-list {
+        padding: 10px;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    /* Element: list-title */
+    .birthday-widget__list-title {
+        font-size: 0.9em;
+        color: #888;
+        margin-bottom: 8px;
+        border-left: 3px solid #ff6b81;
+        padding-left: 5px;
+    }
+
+    /* Element: char-item */
+    .birthday-widget__char-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.95em;
+    }
+
+    /* Modifier: today */
+    .birthday-widget__char-item--today {
+        color: #ff4757;
+        font-weight: bold;
+    }
+
+    /* Modifier: passed */
+    .birthday-widget__char-item--passed {
+        color: #ccc;
+    }
+
+    /* Dark mode overrides */
+    .client-js.wiki-dark-mode .birthday-widget {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid var(--wiki-dark-border);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .client-js.wiki-dark-mode .birthday-widget__header {
+        background: linear-gradient(
+            to right,
+            rgba(225, 29, 72, 0.5),
+            rgba(15, 23, 42, 0.8)
+        );
+        color: #fff;
+        border-bottom: 1px solid rgba(225, 29, 72, 0.4);
+    }
+    .client-js.wiki-dark-mode .birthday-widget__alert-box {
+        background-color: rgba(225, 29, 72, 0.05);
+        border-bottom: 1px dashed rgba(225, 29, 72, 0.3);
+    }
+    .client-js.wiki-dark-mode .birthday-widget__alert-days {
+        color: #fb7185;
+        text-shadow: 0 0 8px rgba(251, 113, 133, 0.4);
+    }
+    .client-js.wiki-dark-mode .birthday-widget__alert-text {
+        color: var(--wiki-dark-text-muted);
+    }
+    .client-js.wiki-dark-mode .birthday-widget__list-title {
+        color: #cbd5e1;
+        border-left: 3px solid #fb7185;
+    }
+    .client-js.wiki-dark-mode .birthday-widget__char-item {
+        border-bottom: 1px solid var(--wiki-dark-border);
+        color: var(--wiki-dark-text);
+    }
+    .client-js.wiki-dark-mode .birthday-widget__char-item--today {
+        color: #fb7185;
+        text-shadow: 0 0 8px rgba(251, 113, 133, 0.5);
+    }
+</style>
+<div class="birthday-widget"></div>
+<script>
+(function() {
+    var characters = [
+        { name: "令", date: "01-05" },
+        { name: "千代", date: "01-10" },
+        { name: "香奈美", date: "01-27" },
+        { name: "芙拉薇娅", date: "02-14" },
+        { name: "加拉蒂亚", date: "02-22" },
+        { name: "玛德蕾娜", date: "03-07" },
+        { name: "忧雾", date: "03-22" },
+        { name: "米雪儿", date: "03-25" },
+        { name: "玛拉", date: "04-01" },
+        { name: "绯莎", date: "05-10" },
+        { name: "伊薇特", date: "05-23" },
+        { name: "莉莉丝", date: "06-06" },
+        { name: "官博娘", date: "06-06" },
+        { name: "汐", date: "06-21" },
+        { name: "信", date: "07-11" },
+        { name: "奥黛丽", date: "07-29" },
+        { name: "明", date: "08-15" },
+        { name: "梅瑞狄斯", date: "08-28" },
+        { name: "珐格兰丝", date: "09-10" },
+        { name: "星绘", date: "09-26" },
+        { name: "蕾欧娜", date: "10-10" },
+        { name: "诺诺", date: "10-24" },
+        { name: "拉薇", date: "10-29" },
+        { name: "艾卡", date: "11-11" },
+        { name: "心夏", date: "12-12" },
+        { name: "宣传车", date: "12-18" },
+        { name: "白墨", date: "12-20" }
+    ];
+
+    function renderWidget(root, data) {
+        var today = new Date();
+        var currentMonth = today.getMonth() + 1;
+        var currentDay = today.getDate();
+
+        var thisMonthChars = data.filter(function(char) {
+            return parseInt(char.date.split('-')[0], 10) === currentMonth;
+        });
+
+        if (thisMonthChars.length === 0) {
+            root.innerHTML = '<div class="birthday-widget__header">' + currentMonth + '月生日提醒</div>' +
+                '<div class="birthday-widget__alert-box">本月没有角色过生日喵</div>';
+            return;
+        }
+
+        var todayChars = thisMonthChars.filter(function(char) {
+            return parseInt(char.date.split('-')[1], 10) === currentDay;
+        });
+
+        var alertHtml = '';
+        if (todayChars.length > 0) {
+            var names = todayChars.map(function(c) { return c.name; }).join('、');
+            alertHtml = '<div class="birthday-widget__alert-days">🎂 今天!</div>' +
+                '<div class="birthday-widget__alert-text">是 <b>' + names + '</b> 的生日</div>';
+        } else {
+            var nearestChar = null;
+            var minDiff = Infinity;
+            thisMonthChars.forEach(function(char) {
+                var d = parseInt(char.date.split('-')[1], 10);
+                var diff = d - currentDay;
+                if (diff >= 0 && diff < minDiff) {
+                    minDiff = diff;
+                    nearestChar = char;
+                }
+            });
+
+            if (nearestChar) {
+                alertHtml = '<div class="birthday-widget__alert-days">' + minDiff +
+                    ' <span style="font-size:0.5em">天</span></div>' +
+                    '<div class="birthday-widget__alert-text">距离 <b>' + nearestChar.name +
+                    '</b> (' + nearestChar.date + ') 生日</div>';
+            } else {
+                alertHtml = '<div class="birthday-widget__alert-text">本月剩下的日子里没有寿星了喵 ~</div>';
+            }
+        }
+
+        var listHtml = '';
+        thisMonthChars.forEach(function(char) {
+            var d = parseInt(char.date.split('-')[1], 10);
+            var className = 'birthday-widget__char-item';
+            var statusText = '';
+
+            if (d < currentDay) {
+                className += ' birthday-widget__char-item--passed';
+                statusText = '已过';
+            } else if (d === currentDay) {
+                className += ' birthday-widget__char-item--today';
+                statusText = '今天';
+            } else {
+                statusText = (d - currentDay) + '天后';
+            }
+
+            listHtml += '<div class="' + className + '">' +
+                '<span>' + char.name + '</span>' +
+                '<span>' + char.date + ' <small>(' + statusText + ')</small></span></div>';
+        });
+
+        root.innerHTML = '<div class="birthday-widget__header">📅 ' + currentMonth + '月角色生日</div>' +
+            '<div class="birthday-widget__alert-box">' + alertHtml + '</div>' +
+            '<div class="birthday-widget__month-list">' +
+            '<div class="birthday-widget__list-title">本月寿星</div>' + listHtml + '</div>';
+    }
+
+    function initAll() {
+        var roots = document.querySelectorAll('.birthday-widget');
+        for (var i = 0; i < roots.length; i++) {
+            if (roots[i].children.length === 0) {
+                renderWidget(roots[i], characters);
+            }
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAll);
+    } else {
+        initAll();
+    }
+})();
+</script>
+</includeonly>

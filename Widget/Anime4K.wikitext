@@ -1,0 +1,185 @@
+<noinclude>
+Anime4K WebGL 图像超分放大 Widget
+用法：{{#widget:Anime4K|src=https://patchwiki.biligame.com/images/klbq/2/2a/s7uzltd131q57yryp0x6a6dnaqquf24.png}}
+</noinclude><includeonly><span class="anime4k-container" style="display:inline-block;<!--{$style}-->"><img src="<!--{$src}-->" loading="lazy" crossorigin="anonymous" class="anime4k-container__image <!--{$class}-->" data-scale="<!--{$scale|default:'2'}-->" onload="window.mwInitAnime4K&&window.mwInitAnime4K(this)"/></span><script>
+(function () {
+    'use strict';
+
+    if (window.mwApplyAnime4K) return;
+
+    var vsSource = [
+        'attribute vec2 a_position;',
+        'attribute vec2 a_texCoord;',
+        'varying vec2 v_texCoord;',
+        'void main() {',
+        '    gl_Position = vec4(a_position, 0.0, 1.0);',
+        '    v_texCoord = a_texCoord;',
+        '}'
+    ].join('\n');
+
+    // 修复透明度问题的片元着色器喵：只对 RGB 执行锐化，保持 Alpha 不变
+    var fsSource = [
+        'precision mediump float;',
+        'uniform sampler2D u_image;',
+        'uniform vec2 u_resolution;',
+        'varying vec2 v_texCoord;',
+        'void main() {',
+        '    vec2 step = 1.0 / u_resolution;',
+        '    vec4 c = texture2D(u_image, v_texCoord);', // 原始像素vec4喵
+        '    vec4 top = texture2D(u_image, v_texCoord + vec2(0.0, -step.y));',
+        '    vec4 bottom = texture2D(u_image, v_texCoord + vec2(0.0, step.y));',
+        '    vec4 left = texture2D(u_image, v_texCoord + vec2(-step.x, 0.0));',
+        '    vec4 right = texture2D(u_image, v_texCoord + vec2(step.x, 0.0));',
+        
+        // 关键逻辑修复喵：delta（边缘强度）只基于 RGB 通道进行计算
+        '    vec3 delta_rgb = abs(left.rgb - right.rgb) + abs(top.rgb - bottom.rgb);',
+        '    float isEdge = max(max(delta_rgb.r, delta_rgb.g), delta_rgb.b);',
+        
+        '    if (isEdge > 0.05) {',
+        '        vec3 avg_rgb = (top.rgb + bottom.rgb + left.rgb + right.rgb) * 0.25;',
+        // 关键逻辑修复喵：增强基于 RGB喵，输出 vec4 的 Alpha 通道保持原 c.a 不变喵
+        '        vec3 enhanced_rgb = clamp(c.rgb + (c.rgb - avg_rgb) * 1.5, 0.0, 1.0);',
+        '        gl_FragColor = vec4(enhanced_rgb, c.a);', // 输出 vec4喵
+        '    } else {',
+        '        gl_FragColor = c;',
+        '    }',
+        '}'
+    ].join('\n');
+
+    function createShader(gl, type, source) {
+        var shader = gl.createShader(type);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+            gl.deleteShader(shader);
+            return null;
+        }
+        return shader;
+    }
+
+    function createProgram(gl, vs, fs) {
+        var program = gl.createProgram();
+        gl.attachShader(program, vs);
+        gl.attachShader(program, fs);
+        gl.linkProgram(program);
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+            return null;
+        }
+        return program;
+    }
+
+    window.mwApplyAnime4K = function (imgElement) {
+        if (!imgElement || imgElement.getAttribute('data-anime4k-done') === '1') {
+            return;
+        }
+
+        var width = imgElement.naturalWidth || imgElement.width;
+        var height = imgElement.naturalHeight || imgElement.height;
+
+        if (!width || !height) {
+            return;
+        }
+
+        imgElement.setAttribute('data-anime4k-done', '1');
+
+        var scaleAttr = imgElement.getAttribute('data-scale');
+        var targetScale = parseFloat(scaleAttr) || 2;
+
+        var canvas = document.createElement('canvas');
+        canvas.width = width * targetScale;
+        canvas.height = height * targetScale;
+
+        var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) {
+            return;
+        }
+
+        var vs = createShader(gl, gl.VERTEX_SHADER, vsSource);
+        var fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+        var program = createProgram(gl, vs, fs);
+        if (!program) return;
+
+        gl.useProgram(program);
+
+        var buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(
+            gl.ARRAY_BUFFER,
+            new Float32Array([
+                -1.0, -1.0,  0.0,  1.0,
+                 1.0, -1.0,  1.0,  1.0,
+                -1.0,  1.0,  0.0,  0.0,
+                -1.0,  1.0,  0.0,  0.0,
+                 1.0, -1.0,  1.0,  1.0,
+                 1.0,  1.0,  1.0,  0.0
+            ]),
+            gl.STATIC_DRAW
+        );
+
+        var aPosition = gl.getAttribLocation(program, 'a_position');
+        var aTexCoord = gl.getAttribLocation(program, 'a_texCoord');
+
+        gl.enableVertexAttribArray(aPosition);
+        gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 16, 0);
+
+        gl.enableVertexAttribArray(aTexCoord);
+        gl.vertexAttribPointer(aTexCoord, 2, gl.FLOAT, false, 16, 8);
+
+        // 纹理配置核心修复喵
+        var texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        
+        // 关键逻辑修复喵：放大过滤器从 LINEAR 改为 NEAREST
+        // 这将提供锐利的最近邻放大基础纹理喵，供 Anime4K 着色器在毫秒级重构边缘喵。
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+        
+        // 透明度核心修复 1 喵：启用 Alpha 预乘喵
+        gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+        
+        try {
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, imgElement);
+        } catch (e) {
+            console.warn('Anime4K WebGL 跨域或纹理加载失败:', e);
+            return;
+        }
+
+        var uResolution = gl.getUniformLocation(program, 'u_resolution');
+        gl.uniform2f(uResolution, width, height);
+
+        // 透明度核心修复 2 喵：清除 Canvas 背景为完全透明喵
+        gl.clearColor(0.0, 0.0, 0.0, 0.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+        if (imgElement.parentNode) {
+            canvas.className = imgElement.className;
+            canvas.style.cssText = imgElement.style.cssText;
+            imgElement.parentNode.replaceChild(canvas, imgElement);
+        }
+    };
+
+    window.mwInitAnime4K = function (img) {
+        if (!img || img.getAttribute('data-anime4k-done') === '1') return;
+        if (img.complete && (img.naturalWidth > 0 || img.width > 0)) {
+            window.mwApplyAnime4K(img);
+        } else {
+            img.addEventListener('load', function () {
+                window.mwApplyAnime4K(img);
+            });
+        }
+    };
+
+    window.RLQ = window.RLQ || [];
+    window.RLQ.push([['jquery'], function () {
+        var imgs = document.querySelectorAll('.anime4k-container__image');
+        for (var i = 0; i < imgs.length; i++) {
+            window.mwInitAnime4K(imgs[i]);
+        }
+    }]);
+})();
+</script></includeonly>

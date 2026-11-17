@@ -1,0 +1,117 @@
+<noinclude>
+这是一个用于生成卡组分享码的Widget按钮。
+使用方法: {{#widget:晶源感染卡组分享码生成|cardIds=10241019|faction=超弦体}}
+参数说明:
+- cardIds: 卡牌cardId列表，用逗号分隔
+- faction: 阵营名称（超弦体 或 晶源体）
+</noinclude>
+<includeonly>
+<script>
+(function() {
+    var cardIdsParam = "<!--{$cardIds|escape:'javascript'}-->";
+    var factionParam = "<!--{$faction|escape:'javascript'}-->";
+
+    // 严格白名单：参数只能是逗号分隔的数字，阵营只接受两个固定值
+    if (!/^\d+(,\d+)*$/.test(cardIdsParam)) {
+        document.write('<span style="color:#d33;">错误：卡牌ID参数无效</span>');
+        return;
+    }
+    
+    // 解析cardIds参数
+    var cardIdArray = cardIdsParam ? cardIdsParam.split(',').map(function(id) {
+        return id.trim();
+    }).filter(function(id) {
+        return id !== '';
+    }) : [];
+    
+    if (cardIdArray.length === 0) {
+        document.write('<span style="color:#d33;">错误：未提供卡牌ID</span>');
+        return;
+    }
+    
+    if (!factionParam || (factionParam !== '超弦体' && factionParam !== '晶源体')) {
+        document.write('<span style="color:#d33;">错误：阵营参数无效</span>');
+        return;
+    }
+    
+    // 生成唯一ID
+    var btnId = 'share-code-btn-' + Math.random().toString(36).substr(2, 9);
+    var resultId = 'share-code-result-' + Math.random().toString(36).substr(2, 9);
+    var containerId = 'share-code-container-' + Math.random().toString(36).substr(2, 9);
+    
+    // 先输出容器（显示加载中）
+    document.write('<div id="' + containerId + '" style="display:inline-block;">⏳ 加载中...</div>');
+    
+    // 等待 mw.Api 就绪
+    function ensureMwApi(timeoutMs) {
+        timeoutMs = typeof timeoutMs === "number" ? timeoutMs : 5000;
+        return new Promise(function (resolve, reject) {
+            try {
+                mw.loader.load("mediawiki.api");
+            } catch (e) {}
+            var waited = 0,
+                interval = 100;
+            (function waitLoop() {
+                if (window.mw && window.mw.Api) {
+                    resolve();
+                } else {
+                    waited += interval;
+                    if (waited >= timeoutMs) reject(new Error("mw.Api 加载超时"));
+                    else setTimeout(waitLoop, interval);
+                }
+            })();
+        });
+    }
+    
+    // 等待 mw.Api 就绪后再加载按钮和功能
+    ensureMwApi().then(function() {
+        // 加载DeckSharecode.js
+        mw.loader.load('//wiki.biligame.com' + mw.util.wikiScript('') + '?title=MediaWiki:DeckSharecode.js&action=raw&ctype=text/javascript', 'text/javascript');
+        
+        // 等待页面加载完成后输出按钮并绑定事件
+        $(function() {
+            var container = document.getElementById(containerId);
+            if (!container) return;
+            
+            // 替换加载提示为按钮
+            container.innerHTML = 
+                '<button id="' + btnId + '" class="mw-ui-button mw-ui-progressive" style="margin-right:8px;">点击获取分享码</button>' +
+                '<span id="' + resultId + '"></span>';
+            
+            var btn = document.getElementById(btnId);
+            var result = document.getElementById(resultId);
+            
+            if (!btn || !result) return;
+            
+            btn.addEventListener('click', function() {
+                if (typeof window.encodeCode !== 'function') {
+                    alert('分享码生成功能尚未加载，请稍后再试');
+                    return;
+                }
+                
+                try {
+                    btn.disabled = true;
+                    btn.textContent = '生成中...';
+                    
+                    var shareCode = window.encodeCode(cardIdArray, factionParam);
+                    
+                    result.innerHTML = '<pre style="display:inline-block; padding:8px; background:#f6f6f6; border:1px solid #ddd; border-radius:3px; user-select:all; margin:0;">' + shareCode + '</pre>';
+                    btn.style.display = 'none';
+                } catch (e) {
+                    console.error('生成分享码失败：', e);
+                    alert('生成分享码失败：' + e.message);
+                    btn.disabled = false;
+                    btn.textContent = '点击获取分享码';
+                }
+            });
+        });
+    }).catch(function(e) {
+        console.error('初始化失败：', e);
+        var container = document.getElementById(containerId);
+        if (container) {
+            container.innerHTML = '<span style="color:#d33;">❌ 加载失败</span>';
+        }
+    });
+})();
+</script>
+</includeonly>

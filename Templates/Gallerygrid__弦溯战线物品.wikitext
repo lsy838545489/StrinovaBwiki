@@ -1,0 +1,227 @@
+<includeonly><div class="gallerygrid-item sec-card" data-quality="{{{5|}}}" data-param1="{{{10|}}}" data-param2="{{{5|}}}" data-param3="{{{9|}}}" data-sort-id="{{{16|}}}" data-sort-default="{{{11|}}}" data-sort-value="{{{12|}}}" data-sort-rate="{{{13|}}}" data-sort-weight="{{{14|}}}" data-sort-time="{{{15|}}}">
+<div class="sec-card-img">[[{{{filename|}}}|120px|link=]]</div>
+<div class="sec-card-body">
+<div class="sec-card-name">{{{2|}}}</div>
+<div class="sec-card-meta"><span class="sec-card-value">{{{3|}}}</span></div>
+<div class="sec-card-desc"><span class="sec-card-title">描述</span>{{{4|}}}</div>
+{{#if:{{{7|}}}{{{8|}}}{{{17|}}}{{{18|}}}{{{19|}}}{{{25|}}}|<div class="sec-card-stats">{{#if:{{{7|}}}|<span>{{{7|}}}</span>}}{{#if:{{{8|}}}|<span>{{{8|}}}</span>}}{{#if:{{{18|}}}|<span>{{{18|}}}</span>}}{{#if:{{{17|}}}|<span>{{{17|}}}</span>}}{{#if:{{{19|}}}|<span>{{{19|}}}</span>}}{{#if:{{{25|}}}|<span class="sec-card-stats-fx">{{{25|}}}</span>}}</div>}}
+{{#if:{{{20|}}}|<div class="sec-card-loot">出现率 {{{20|}}}{{#if:{{{21|}}}|&nbsp;·&nbsp;常见于 <b>{{{21|}}}</b>}}</div>}}
+<div class="sec-card-tags">{{#if:{{{6|}}}|<span class="sec-card-tag">{{{6|}}}</span>}}{{#if:{{{9|}}}|<span class="sec-card-tag" data-tag="贵重">{{{9|}}}</span>}}{{#if:{{{22|}}}|<span class="sec-card-tag">{{{22|}}}</span>}}{{#if:{{{23|}}}|<span class="sec-card-tag" data-tag="用途">{{{23|}}}</span>}}{{#if:{{{24|}}}|<span class="sec-card-tag" data-tag="流通">{{{24|}}}</span>}}</div>
+</div>
+</div>
+</includeonly><noinclude>{{Documentation}}[[分类:模板]]</noinclude>
+{{#if:{{#varexists:sec-item-card-css}} || {{#vardefine:sec-item-card-css | 1 }}<bstyle>/*<pre>*/
+/* ===== 弦溯战线 · 物品卡片 ===== */
+/* 列数只作用于本模式图鉴（容器额外带 sec-gallery 类），不影响同页其他 gallerygrid */
+@media (min-width: 320px) {
+    .gallerygrid.sec-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+@media (min-width: 768px) {
+    .gallerygrid.sec-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+.sec-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* 默认顺序 = 模块输出顺序（游戏内展示序）；
+       点排序按钮后由 [[Widget:CardSelectGallery]] 写行内 order 重排 */
+    background: rgb(var(--klbq-surface-rgb) / .9);
+    border: 1.5px solid rgba(216, 222, 227, .85);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform .28s cubic-bezier(.34, 1.56, .64, 1), box-shadow .28s ease;
+}
+.sec-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(18, 26, 33, .12);
+}
+
+/* 品质色：编号沿用弦溯战线自身口径（5=臻藏、6=传说），与主游戏不同 */
+.sec-card[data-quality="6"] {
+    border-color: var(--item-quality-Legendary);
+    box-shadow: 0 2px 10px -4px var(--item-quality-Legendary);
+}
+.sec-card[data-quality="5"] {
+    border-color: var(--item-quality-Secret);
+    box-shadow: 0 2px 10px -4px var(--item-quality-Secret);
+}
+.sec-card[data-quality="4"] {
+    border-color: var(--item-quality-Perfect);
+    box-shadow: 0 2px 10px -4px var(--item-quality-Perfect);
+}
+.sec-card[data-quality="3"] {
+    border-color: var(--item-quality-Superior);
+    box-shadow: 0 2px 10px -4px var(--item-quality-Superior);
+}
+.sec-card[data-quality="2"] {
+    border-color: var(--item-quality-Exquisite);
+    box-shadow: 0 2px 10px -4px var(--item-quality-Exquisite);
+}
+.sec-card[data-quality="1"], .sec-card[data-quality="0"] {
+    border-color: var(--item-quality-Initial);
+    box-shadow: 0 2px 6px -4px rgba(0, 0, 0, .25);
+}
+
+.sec-card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 104px;
+    padding: 12px 8px 4px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .5) 0%, rgba(247, 248, 246, 0) 100%);
+}
+.sec-card-img img {
+    object-fit: contain;
+    transition: transform .3s ease;
+}
+.sec-card:hover .sec-card-img img {
+    transform: scale(1.06);
+}
+
+.sec-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 6px 12px 12px;
+}
+.sec-card-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--klbq-text);
+    text-align: center;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    border-bottom: 1px dashed rgba(0, 172, 193, .5);
+}
+.sec-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+.sec-card-value {
+    font-size: .8125rem;
+    font-weight: bold;
+    color: var(--klbq-warning);
+    white-space: nowrap;
+    /* 品质徽章已移除，这一行只剩价值，靠右排 */
+    margin-left: auto;
+}
+.sec-card-desc {
+    font-size: .8125rem;
+    line-height: 1.5;
+    color: var(--klbq-text-muted);
+    background: rgb(var(--klbq-surface-rgb) / .6);
+    border: 1px solid rgba(0, 172, 193, .1);
+    border-radius: 8px;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+}
+/* 块内小标题 */
+.sec-card-title {
+    display: block;
+    font-size: .6875rem;
+    font-weight: 700;
+    letter-spacing: .03em;
+    margin-bottom: 3px;
+    color: var(--klbq-text-subtle);
+}
+
+/* 关键数值行：搜刮耗时 / 售价 / 堆叠 / 消耗品效果 */
+.sec-card-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    font-size: .75rem;
+    color: var(--klbq-text-muted);
+    margin-bottom: 4px;
+}
+.sec-card-stats > span + span {
+    position: relative;
+}
+.sec-card-stats > span + span::before {
+    content: "·";
+    position: absolute;
+    left: -8px;
+    color: var(--klbq-text-subtle);
+}
+.sec-card-stats-fx {
+    color: var(--klbq-accent-strong);
+}
+
+/* 搜刮产出：出现率 + 常见容器 */
+.sec-card-loot {
+    font-size: .75rem;
+    color: var(--klbq-warning);
+    background: rgba(253, 230, 138, .35);
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+.sec-card-loot b {
+    color: #92400e;
+}
+
+.sec-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: auto;
+}
+.sec-card-tag {
+    font-size: .6875rem;
+    color: var(--klbq-text-muted);
+    background: rgba(216, 222, 227, .8);
+    border-radius: 4px;
+    padding: 1px 5px;
+}
+.sec-card-tag[data-tag="贵重"] {
+    color: var(--klbq-warning);
+    background: rgba(253, 230, 138, .85);
+}
+.sec-card-tag[data-tag="用途"] {
+    color: var(--klbq-accent-strong);
+    background: rgba(207, 250, 254, .85);
+}
+.sec-card-tag[data-tag="流通"] {
+    color: #7c3aed;
+    background: rgba(237, 233, 254, .9);
+}
+
+/* ===== 暗色模式 ===== */
+.client-js.wiki-dark-mode .sec-card {
+    background: rgba(18, 26, 33, .85);
+    border-color: rgba(147, 163, 173, .25);
+}
+.client-js.wiki-dark-mode .sec-card-name { color: var(--klbq-text); }
+.client-js.wiki-dark-mode .sec-card-desc {
+    background: rgba(18, 26, 33, .6);
+    color: var(--klbq-text-muted);
+}
+.client-js.wiki-dark-mode .sec-card-title { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-card-stats { color: var(--klbq-text-muted); }
+.client-js.wiki-dark-mode .sec-card-stats-fx { color: var(--klbq-accent); }
+.client-js.wiki-dark-mode .sec-card-loot {
+    color: #fcd34d;
+    background: rgba(180, 83, 9, .25);
+}
+.client-js.wiki-dark-mode .sec-card-loot b { color: #fde68a; }
+.client-js.wiki-dark-mode .sec-card-tag {
+    background: rgba(51, 65, 85, .9);
+    color: var(--klbq-text);
+}
+.client-js.wiki-dark-mode .sec-card-tag[data-tag="流通"] {
+    color: #c4b5fd;
+    background: rgba(124, 58, 237, .25);
+}
+.client-js.wiki-dark-mode .sec-card-img {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .05) 0%, rgba(18, 26, 33, 0) 100%);
+}
+/*</pre>*/</bstyle>}}

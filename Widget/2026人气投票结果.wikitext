@@ -1,0 +1,229 @@
+<div class="wiki-echarts-wrapper">
+  <div id="chart-top"></div>
+  <div id="chart-bottom"></div>
+</div> 
+<includeonly><style>
+  .wiki-echarts-wrapper {
+    max-width: 100%;
+    width: 1000px; 
+    padding: 24px;
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* 两个图表之间的间距 */
+  }
+  #chart-top {
+    width: 100%;
+    height: 240px; /* 顶部3个角色不需要太高 */
+  }
+  #chart-bottom {
+    width: 100%;
+    height: 800px; /* 底部角色多，预留充足高度 */
+  }
+</style>
+<script>
+window.RLQ = window.RLQ || [];
+RLQ.push([
+    ['mediawiki.util'],
+    function() {
+        if (window.mw && mw.util && mw.util.wikiScript) {
+            var scriptUrl = mw.util.wikiScript('index') + '?title=MediaWiki:Echarts.min.js&action=raw&ctype=text/javascript';
+            var script = document.createElement('script');
+            script.src = scriptUrl;
+            
+            script.onload = function() {
+                const characterData = [
+                    { name: "米雪儿", votes: 775, avatar: "https://patchwiki.biligame.com/images/klbq/1/1b/tgwx7q9203dafj6rsypza3flbultqf7.png", emoji: "https://patchwiki.biligame.com/images/klbq/1/1a/1u4nf11f6hz0ki8y29bx3yvt843irqb.png" },
+                    { name: "信", votes: 62, avatar: "https://patchwiki.biligame.com/images/klbq/e/e6/s4r4y425r5vn5fbq0sw4i1d7l8d6ft4.png", emoji: "https://patchwiki.biligame.com/images/klbq/8/8f/d9gl4k4dcq7vq1a54huakrceix7rn8j.png" },
+                    { name: "心夏", votes: 413, avatar: "https://patchwiki.biligame.com/images/klbq/4/44/jvg14awbm8ip4fmf4nlkdr7f9nd88xs.png", emoji: "https://patchwiki.biligame.com/images/klbq/7/70/7nbnk3117m7wyb8t50nl5mi7zeljxpy.png" },
+                    { name: "伊薇特", votes: 454, avatar: "https://patchwiki.biligame.com/images/klbq/4/42/j71nx9i25shxr65jnoxxh24x4y0t0b5.png", emoji: "https://patchwiki.biligame.com/images/klbq/d/db/f1ulwntaq4cincpv7p2kaovqvfcndfj.png" },
+                    { name: "芙拉薇娅", votes: 208, avatar: "https://patchwiki.biligame.com/images/klbq/c/c5/8bp7psa0s66d19ceyczzv78b26ydaqp.png", emoji: "https://patchwiki.biligame.com/images/klbq/6/64/jbs819gfokqz0ut6b9sq2hxlbud5kin.png" },
+                    { name: "忧雾", votes: 327, avatar: "https://patchwiki.biligame.com/images/klbq/7/7e/r18lum2gqzm6yoshtggj3u5z8qpsdlo.png", emoji: "https://patchwiki.biligame.com/images/klbq/b/b7/k8g5vz1evdps5g73ec8f80s1cpqznku.png" },
+                    { name: "蕾欧娜", votes: 40, avatar: "https://patchwiki.biligame.com/images/klbq/3/38/3ep2g0eq8aaro0imscmrary2jr5n2w2.png", emoji: "https://patchwiki.biligame.com/images/klbq/b/b1/bmao7bln2d54khc8aiao7bmuoozsumq.png" },
+                    { name: "千代", votes: 310, avatar: "https://patchwiki.biligame.com/images/klbq/5/52/igsqgyro1n6ab6luk64lv4zj2yk7rwr.png", emoji: "https://patchwiki.biligame.com/images/klbq/0/03/ordik9zmmf6vbvysthjyr5jh1wjx1dk.png" },
+                    { name: "星绘", votes: 1014, avatar: "https://patchwiki.biligame.com/images/klbq/f/f2/9rwg399wannhzh80knjj5tmwffnjg0m.png", emoji: "https://patchwiki.biligame.com/images/klbq/3/35/2yan4au4p15gb0q8xbll4fj1td4y51r.png" },
+                    { name: "奥黛丽", votes: 104, avatar: "https://patchwiki.biligame.com/images/klbq/2/2d/hmkcsrcvp79ctofkwv92iint9iupvnk.png", emoji: "https://patchwiki.biligame.com/images/klbq/1/1c/588gry5iqdrrxm9p9hnmgo0jmzp9fsj.png" },
+                    { name: "白墨", votes: 233, avatar: "https://patchwiki.biligame.com/images/klbq/d/d1/pkh8t87a4gxu2qt52zsn1305od66jmg.png", emoji: "https://patchwiki.biligame.com/images/klbq/2/21/900zmlwvd0gyzdkf9ochmkq8fuwdunw.png" },
+                    { name: "玛德蕾娜", votes: 141, avatar: "https://patchwiki.biligame.com/images/klbq/d/d6/tlbgspg4i0qevvf5vor83rxikrq4xy5.png", emoji: "https://patchwiki.biligame.com/images/klbq/c/cb/p1zaldmufqjg07e7ifoh9xd0leyza9i.png" },
+                    { name: "绯莎", votes: 147, avatar: "https://patchwiki.biligame.com/images/klbq/f/f4/rtraite3bno62mzfatae961ke36hc5b.png", emoji: "https://patchwiki.biligame.com/images/klbq/8/8c/af7hvoxlki5h480ymazl73um604wc2r.png" },
+                    { name: "加拉蒂亚", votes: 58, avatar: "https://patchwiki.biligame.com/images/klbq/8/8f/79h9y6t4xnboft6wx3bf08tlfacph7v.png", emoji: "https://patchwiki.biligame.com/images/klbq/2/20/q126l8t3dk8naf7bjlswgjs26ix7r1a.png" },
+                    { name: "汐", votes: 145, avatar: "https://patchwiki.biligame.com/images/klbq/2/2e/2ti5xm227cj8xt5oy60awrv8ot6askx.png", emoji: "https://patchwiki.biligame.com/images/klbq/e/e0/hqrzlb8v7ybvl7e779fmwu3leo8pik5.png" },
+                    { name: "明", votes: 134, avatar: "https://patchwiki.biligame.com/images/klbq/1/11/0nwi3xouneowru6xxvkrb6uq4dy9vdz.png", emoji: "https://patchwiki.biligame.com/images/klbq/b/bf/0dyw2aa7zcb02mq7bubr7vo9fl598ez.png" },
+                    { name: "拉薇", votes: 124, avatar: "https://patchwiki.biligame.com/images/klbq/f/f3/1zor7pqxy3rn3uggyenorigvf37q4hr.png", emoji: "https://patchwiki.biligame.com/images/klbq/6/62/eyy2zv44fh8p7qcyfy2sv7o7hzdcfpv.png" },
+                    { name: "梅瑞狄斯", votes: 77, avatar: "https://patchwiki.biligame.com/images/klbq/d/dd/20gac3391nb2prx6r69yrdkfatxapdu.png", emoji: "https://patchwiki.biligame.com/images/klbq/e/eb/0xjx43zfr92usdzyf3gjrfko2ozl3xj.png" },
+                    { name: "艾卡", votes: 436, avatar: "https://patchwiki.biligame.com/images/klbq/9/92/oai6e3g5fqekd9023ikl9kvdk0mguy6.png", emoji: "https://patchwiki.biligame.com/images/klbq/a/a7/6z5wzyppp8cv2lx8lyc1t9lv5jbd5li.png" },
+                    { name: "香奈美", votes: 735, avatar: "https://patchwiki.biligame.com/images/klbq/1/1d/ffln5mqrwtvr0dj0wq54guvs10jsfdo.png", emoji: "https://patchwiki.biligame.com/images/klbq/7/77/44y96rstz4h3opmvicw8bc9c84ftg3g.png" },
+                    { name: "珐格兰丝", votes: 106, avatar: "https://patchwiki.biligame.com/images/klbq/2/2a/2cau3x7z99x3butkxp7wu3w78zjk3go.png", emoji: "https://patchwiki.biligame.com/images/klbq/8/8d/30qt54hotfg08pl4dq5l9amsi8vym7q.png" },
+                    { name: "令", votes: 109, avatar: "https://patchwiki.biligame.com/images/klbq/1/14/eqwt5hnh4lwfof08mcuzo67r2979a66.png", emoji: "https://patchwiki.biligame.com/images/klbq/0/0c/c0nn316mwyjxmfcvcqlxr6otejx5o40.png" },
+                    { name: "玛拉", votes: 46, avatar: "https://patchwiki.biligame.com/images/klbq/e/e7/gs4p0jqeei6dgxn6a3xcogywnest6gv.png", emoji: "https://patchwiki.biligame.com/images/klbq/5/5d/5oomnfe0u1k3se6f66eki9bd8w595nn.png" },
+                    { name: "爆裂魔怪", votes: 67, avatar: "https://patchwiki.biligame.com/images/klbq/3/3e/lovwp7bxq4znfwoz3cykpjrm6sybw04.png", emoji: "https://patchwiki.biligame.com/images/klbq/6/6f/nhbr5ju5nlww19cf2bhzfpkwx1kw8mv.png" },
+                    { name: "刺镰魔怪", votes: 10, avatar: "https://patchwiki.biligame.com/images/klbq/4/42/nb0ixtf9idpq8qtoagn54hejsgxqtpa.png", emoji: "https://patchwiki.biligame.com/images/klbq/4/42/nb0ixtf9idpq8qtoagn54hejsgxqtpa.png" },
+                    { name: "冥荆皇女", votes: 10, avatar: "https://patchwiki.biligame.com/images/klbq/b/b7/l0jy0ck9ppk9fw0a93nykqhr8ttbe88.png", emoji: "https://patchwiki.biligame.com/images/klbq/b/b7/l0jy0ck9ppk9fw0a93nykqhr8ttbe88.png" },
+                    { name: "血荆皇女", votes: 9, avatar: "https://patchwiki.biligame.com/images/klbq/7/7b/pvwg2j47xyprkiix46zsxdzeebz3bmm.png", emoji: "https://patchwiki.biligame.com/images/klbq/7/7b/pvwg2j47xyprkiix46zsxdzeebz3bmm.png" },
+                    { name: "莉莉丝", votes: 452, avatar: "https://patchwiki.biligame.com/images/klbq/1/1d/ten5w6kaavg85t400szqq7ll2odgg21.png", emoji: "https://patchwiki.biligame.com/images/klbq/1/1d/ten5w6kaavg85t400szqq7ll2odgg21.png" },
+                    { name: "宣传车", votes: 798, avatar: "https://patchwiki.biligame.com/images/klbq/c/c4/50pztvv1r8wsc0ci76yiaggqx2d2124.jpg", emoji: "https://patchwiki.biligame.com/images/klbq/c/c4/50pztvv1r8wsc0ci76yiaggqx2d2124.jpg" },
+                    { name: "官博娘", votes: 85, avatar: "https://patchwiki.biligame.com/images/klbq/b/b2/inshrfi46z92zploku8wkevvkozglzb.jpg", emoji: "https://patchwiki.biligame.com/images/klbq/b/b2/inshrfi46z92zploku8wkevvkozglzb.jpg" },
+                    { name: "卡璐酱", votes: 636, avatar: "https://patchwiki.biligame.com/images/klbq/4/40/jxoj5036754bwa287n9pc9xixj336ta.jpg", emoji: "https://patchwiki.biligame.com/images/klbq/4/40/jxoj5036754bwa287n9pc9xixj336ta.jpg" }
+                ];
+
+                // 拆分数据
+                const topTargets = ["米雪儿", "星绘", "香奈美"];
+                const topData = characterData.filter(item => topTargets.includes(item.name));
+                const bottomData = characterData.filter(item => !topTargets.includes(item.name));
+
+                // 提取生成图表的公共逻辑，避免代码重复
+                function createChart(containerId, data, titleConfig, isTop) {
+                    const richStyles = {
+                        nameStyle: {
+                            color: "#64748b",
+                            fontSize: 14,
+                            fontWeight: "bold",
+                            padding: [0, 0, 0, 8]
+                        }
+                    };
+                    
+                    data.forEach(item => {
+                        richStyles[`ava_${item.name}`] = {
+                            height: 32,
+                            width: 32,
+                            align: 'center',
+                            backgroundColor: { image: item.avatar },
+                            borderRadius: 16
+                        };
+                    });
+
+                    const chart = echarts.init(document.getElementById(containerId));
+                    
+                    const option = {
+                        title: titleConfig,
+                        grid: {
+                            left: '2%',
+                            right: '8%',
+                            bottom: isTop ? '15%' : '3%', // 顶部图表留出空间给X轴
+                            containLabel: true
+                        },
+                        tooltip: {
+                            trigger: "item",
+                            backgroundColor: "rgba(248, 249, 250, 0.85)",
+                            borderColor: "rgba(255, 255, 255, 0.5)",
+                            borderWidth: 1,
+                            padding: 12,
+                            borderRadius: 12,
+                            textStyle: { color: "#64748b" },
+                            extraCssText: "backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.08);",
+                            formatter: (params) => `
+                                <div style="text-align:center">
+                                    <img src="${params.data.emoji}" style="width:72px; height:72px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"/>
+                                </div>
+                                <div style="text-align:center; margin-top: 8px; color: #3b82f6; font-weight:bold;">
+                                    获得票数：${params.value}
+                                </div>
+                            `
+                        },
+                        xAxis: {
+                            type: "value",
+                            name: "票数",
+                            axisLabel: { color: "#94a3b8", fontWeight: "bold" },
+                            splitLine: {
+                                lineStyle: {
+                                    color: "rgba(148, 163, 184, 0.2)",
+                                    type: "dashed"
+                                }
+                            }
+                        },
+                        yAxis: {
+                            type: "category",
+                            max: "dataMax",
+                            inverse: true,
+                            axisLine: { show: false },
+                            axisTick: { show: false },
+                            axisLabel: {
+                                formatter: function (value) {
+                                    return `{nameStyle|${value}}`;
+                                },
+                                rich: richStyles
+                            },
+                            data: data.map(item => item.name)
+                        },
+                        series: [
+                            {
+                                type: "bar",
+                                realtimeSort: true,
+                                barWidth: 22,
+                                data: data.map(item => ({
+                                    value: item.votes,
+                                    emoji: item.emoji,
+                                    link: item.link,
+                                    itemStyle: item.itemStyle ? item.itemStyle : {
+                                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                            { offset: 0, color: "rgba(160, 207, 255, 0.5)" },
+                                            { offset: 1, color: "rgba(96, 165, 250, 0.9)" }
+                                        ]),
+                                        borderRadius: [0, 12, 12, 0],
+                                        borderColor: "rgba(147, 197, 253, 0.5)",
+                                        borderWidth: 1
+                                    }
+                                })),
+                                label: {
+                                    show: true,
+                                    position: "right",
+                                    color: "#64748b",
+                                    fontWeight: "bold",
+                                    fontSize: 13,
+                                    distance: 10
+                                },
+                                emphasis: {
+                                    itemStyle: {
+                                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                            { offset: 0, color: "rgba(96, 165, 250, 0.8)" },
+                                            { offset: 1, color: "rgba(59, 130, 246, 1)" }
+                                        ]),
+                                        shadowColor: "rgba(59, 130, 246, 0.3)",
+                                        shadowBlur: 12
+                                    }
+                                }
+                            }
+                        ]
+                    };
+
+                    chart.on('click', function (params) {
+                        if (params.data.link != null) {
+                            window.open(params.data.link);
+                        }
+                    });
+                    
+                    chart.setOption(option);
+                    return chart;
+                }
+
+                // 渲染上方图表
+                createChart("chart-top", topData, {
+                    text: "人气殿堂角色得票数",
+                    left: "center",
+                    textStyle: { color: "#334155", fontSize: 24, fontWeight: "bold" }
+                }, true);
+
+                // 渲染下方图表
+                createChart("chart-bottom", bottomData, {
+                    text: "2026年人气投票结果",
+                    subtext: "累计投票人数：2333人",
+                    left: "center",
+                    textStyle: { color: "#475569", fontSize: 20, fontWeight: "bold" },
+                    subtextStyle: { color: "#94a3b8", fontSize: 14 }
+                }, false);
+
+            };
+
+            script.onerror = function() {
+                console.error("Echarts 源码加载失败了喵！请检查 MediaWiki:Echarts.min.js 是否存在。");
+            };
+
+            document.head.appendChild(script);
+        } else {
+            console.error("MediaWiki 核心对象未就绪，无法挂载 Echarts 喵。");
+        }
+    }
+]);
+</script></includeonly>

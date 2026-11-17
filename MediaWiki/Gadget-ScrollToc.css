@@ -1,0 +1,259 @@
+@media screen and (min-width: 768px) {
+	.mw-parser-output:not(:has(#noscrolltoc)) #toc { /* 隐藏原生目录，配合浮动目录生效 */
+		display: none;
+	}
+	.scrolltoc.toc .toctogglecheckbox:checked ~ ul { /* 目录展开逻辑 */
+		display: block;
+	}
+	.scrolltoc.toc { /* 主容器：亮色默认苍穹蓝毛玻璃 */
+		position: fixed;
+		top: 90px;
+		right: 20px;
+		left: auto;
+		width: 250px;
+		display: block;
+		z-index: 990;
+		padding: 0 5px 5px 5px;
+		padding-top: 36px;
+		transition:
+			transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+			background-color 0.4s ease,
+			border-color 0.4s ease,
+			box-shadow 0.4s ease;
+		background: rgba(248, 249, 250, 1);
+		border-radius: var(--klbq-radius-md, 10px);
+		border: 1px solid rgba(59, 130, 246, 0.15);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+	}
+	.scrolltoc.toc .toctitle { /* 标题区容器：吸顶及边框分隔 */
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 36px;
+		background: transparent;
+		z-index: 999;
+		border-radius: 10px 10px 0 0;
+		cursor: pointer;
+		border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+	}
+	.scrolltoc.toc .toctitle h2 { /* 标题文字：亮色主文本 */
+		line-height: 36px !important;
+		font-size: 15px;
+		font-weight: bold;
+		color: #334155;
+		margin: 0;
+		padding-left: 14px;
+		text-shadow: none;
+	}
+	.scrolltoc.toc .toctogglespan,
+	.scrolltoc.toc input { /* 隐藏原生折叠组件 */
+		display: none !important;
+	}
+	.scrolltoc.toc > ul::-webkit-scrollbar { /* 自定义内部滚动条宽度 */
+		width: 6px;
+	}
+	.scrolltoc.toc > ul::-webkit-scrollbar-thumb { /* 滚动条滑块：亮色默认 */
+		background: rgba(59, 130, 246, 0.2);
+		border-radius: 3px;
+	}
+	.scrolltoc.toc > ul::-webkit-scrollbar-thumb:hover { /* 滚动滑块悬停高亮 */
+		background: var(--klbq-accent, #3b82f6);
+	}
+	.scrolltoc.toc > ul { /* 列表主容器：高度限制与溢出滚动 */
+		display: block;
+		position: relative;
+		min-height: 100px;
+		max-height: calc(100vh - 300px);
+		margin: 0;
+		padding: 8px 0;
+		z-index: 991;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	.scrolltoc.toc ul ul { /* 嵌套子目录缩进 */
+		margin: 0 0 0 1em;
+	}
+	.scrolltoc.toc li { /* 列表项边距重置 */
+		margin-bottom: 0;
+	}
+	.scrolltoc.toc li a { /* 列表链接基础：亮色常规文本 */
+		display: inline-flex;
+		color: #64748b;
+		padding: 6px 12px;
+		line-height: 1.4;
+		position: relative;
+		white-space: nowrap;
+		width: 100%;
+		transition: all 0.2s ease;
+		box-sizing: border-box;
+	}
+	.scrolltoc.toc li a > * { /* 子元素层级与透明背景控制 */
+		background-color: transparent !important;
+		position: relative;
+		z-index: 993;
+	}
+	.scrolltoc.toc li a .toctext { /* 目录过长文本省略号截断 */
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.scrolltoc.toc li a:hover,
+	.scrolltoc.toc li a:hover * { /* 链接悬停高亮：科技蓝 */
+		color: var(--klbq-accent, #3b82f6);
+		text-decoration: none;
+	}
+	.scrolltoc.toc li a:not(.titleActive):hover::after { /* 非激活状态的轻量悬停背景 */
+		background-color: rgba(59, 130, 246, 0.08);
+	}
+	.scrolltoc.toc .titleActive,
+	.toc-sticky .toc .titleActive { /* 当前阅读章节高亮文字 */
+		color: var(--klbq-accent, #3b82f6) !important;
+		font-weight: bold !important;
+		background-color: transparent !important;
+		text-shadow: none;
+	}
+	.scrolltoc.toc .titleActive::after,
+	.scrolltoc.toc a:hover::after { /* 激活章节与悬停的右侧光带渐变 */
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.12) 100%);
+		border-right: 3px solid var(--klbq-accent, #3b82f6);
+		border-radius: 4px;
+		z-index: 992;
+		pointer-events: none;
+	}
+	.scrolltoc.toc .toclevel-2 .titleActive::after,
+	.scrolltoc.toc .toclevel-2 a:hover::after,
+	.scrolltoc.toc .toclevel-3 .titleActive::after,
+	.scrolltoc.toc .toclevel-3 a:hover::after,
+	.scrolltoc.toc .toclevel-4 .titleActive::after,
+	.scrolltoc.toc .toclevel-4 a:hover::after,
+	.scrolltoc.toc .toclevel-5 .titleActive::after,
+	.scrolltoc.toc .toclevel-5 a:hover::after,
+	.scrolltoc.toc .toclevel-6 .titleActive::after,
+	.scrolltoc.toc .toclevel-6 a:hover::after { /* 多级嵌套光带宽度自适应补偿 */
+		width: calc(100% + 5em);
+	}
+	.scrolltoc.hidetoc.toc { /* 折叠状态：移出视口 */
+		box-shadow: none !important;
+		transform: translateX(calc(100% + 28px));
+	}
+	.scrolltoc.toc::after { /* 侧边收起按钮：亮色默认 */
+		content: "收起目录>";
+		position: absolute;
+		top: clamp(92px, calc(16vh - 34px), 50%);
+		left: 0;
+		transform: translate(-100%, -50%);
+		width: 32px;
+		padding: 20px 5px;
+		font-size: 0.875rem;
+		border-radius: 8px 0 0 8px;
+		background: rgba(248, 249, 250, 0.95);
+		color: #64748b;
+		text-align: center;
+		line-height: 1.2;
+		border: 1px solid rgba(59, 130, 246, 0.15);
+		border-right: none;
+		box-shadow:
+			0 0 15px 2px rgba(59, 130, 246, 0.15),
+			0 0 4px 1px rgba(59, 130, 246, 0.1);
+		cursor: pointer;
+		transition: all 0.3s ease;
+		z-index: 991;
+		writing-mode: vertical-lr;
+		letter-spacing: 2px;
+		white-space: nowrap;
+	}
+	.scrolltoc.toc:hover::after { /* 侧边收起按钮：悬停点亮 */
+		color: var(--klbq-accent, #3b82f6);
+		background: #ffffff;
+		box-shadow: -2px 2px 8px rgba(59, 130, 246, 0.15);
+	}
+	.scrolltoc.hidetoc.toc::after { /* 折叠状态按钮文字变为展开 */
+		content: "<展开目录";
+		color: var(--klbq-logo-color);
+		background-color: rgba(248, 249, 250, 1);
+		box-shadow:
+			0 0 15px 2px rgba(255, 107, 47, 0.4),
+			0 0 4px 1px rgba(255, 107, 47, 0.3);
+		transition: all 0.3s ease;
+	}
+	.scrolltoc.hidetoc.toc::after:hover { /* 折叠状态按钮：强烈发光 */
+		background-color: #ffffff !important;
+		color: var(--klbq-accent, #3b82f6) !important;
+		box-shadow:
+			4px 20px 0 0 rgba(59, 130, 246, 0.25),
+			1px 6px 0 0 rgba(59, 130, 246, 0.2);
+		transition: all 0.2s ease;
+	}
+
+	/* ==== 暗色模式 ==== */
+	.client-js.wiki-dark-mode .scrolltoc.toc { /* 暗色主容器 */
+		background: rgba(11, 15, 21, 0.85);
+		border-color: rgba(255, 255, 255, 0.1);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc .toctitle { /* 暗色标题区容器 */
+		border-bottom-color: rgba(255, 255, 255, 0.1);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc .toctitle h2 { /* 暗色标题文字 */
+		color: #f8fafc;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc > ul::-webkit-scrollbar-thumb { /* 暗色滚动条滑块 */
+		background: rgba(255, 255, 255, 0.2);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc > ul::-webkit-scrollbar-thumb:hover { /* 暗色滚动滑块悬停 */
+		background: var(--klbq-accent, #4cd4e6);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc li a { /* 暗色列表链接基础 */
+		color: #94a3b8;
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc li a:hover,
+	.client-js.wiki-dark-mode .scrolltoc.toc li a:hover * { /* 暗色链接悬停高亮 */
+		color: #f8fafc;
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc li a:not(.titleActive):hover::after { /* 暗色非激活状态悬停背景 */
+		background-color: rgba(255, 255, 255, 0.08);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc .titleActive,
+	.client-js.wiki-dark-mode .toc-sticky .toc .titleActive { /* 暗色当前章节文字发光 */
+		color: var(--klbq-accent, #4cd4e6) !important;
+		text-shadow: 0 0 8px rgba(76, 212, 230, 0.4);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc .titleActive::after,
+	.client-js.wiki-dark-mode .scrolltoc.toc a:hover::after { /* 暗色右侧光带渐变：青色 */
+		background: linear-gradient(90deg, transparent 0%, rgba(76, 212, 230, 0.15) 100%);
+		border-right-color: var(--klbq-accent, #4cd4e6);
+	}
+
+	.client-js.wiki-dark-mode .scrolltoc.toc::after { /* 暗色侧边收起按钮 */
+		background: rgba(30, 41, 59, 0.8);
+		color: #94a3b8;
+		border-color: rgba(255, 255, 255, 0.1);
+		box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.toc:hover::after { /* 暗色侧边收起按钮悬停 */
+		color: var(--klbq-accent, #4cd4e6);
+		background: rgba(11, 15, 21, 0.9);
+		box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.hidetoc.toc::after { /* 暗色折叠状态按钮（展开） */
+		color: #94a3b8;
+		background-color: rgba(30, 41, 59, 1);
+		box-shadow:
+			0 0 15px 2px rgba(45, 140, 255, 0.3),
+			0 0 4px 1px rgba(45, 140, 255, 0.5);
+	}
+	.client-js.wiki-dark-mode .scrolltoc.hidetoc.toc::after:hover { /* 暗色折叠按钮强烈悬停发光 */
+		background-color: rgba(11, 15, 21, 1) !important;
+		color: var(--klbq-accent, #4cd4e6) !important;
+		box-shadow:
+			0 0 20px 4px rgba(45, 140, 255, 0.5),
+			0 0 6px 1px rgba(45, 140, 255, 0.7);
+	}
+}

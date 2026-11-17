@@ -1,0 +1,296 @@
+#toc { /* 隐藏原生目录 */
+    display: none; 
+}
+@media (min-width: 768px) { 
+    #toc { /* PC端显示原生目录 */
+        display: inline-block; 
+    } 
+}
+
+/* ================= 呼出按钮代码 ================= */
+.mobile-toc { /* 移动端悬浮呼出按钮：默认亮色 */
+    cursor: pointer; 
+    -webkit-tap-highlight-color: transparent; 
+    display: block;
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    background-color: rgba(248, 249, 250, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), 0 0 12px rgba(59, 130, 246, 0.1);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* 将原 base64 转换为明文 SVG，方便定义颜色 #64748b */
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M56.5 48c1.9 0 3.5 1.6 3.5 3.5S58.4 55 56.5 55h-35c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5h35zm-50 0c1.9 0 3.5 1.6 3.5 3.5S8.4 55 6.5 55h-3C1.6 55 0 53.4 0 51.5S1.6 48 3.5 48h3zm50-21c1.9 0 3.5 1.6 3.5 3.5S58.4 34 56.5 34h-35c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5h35zm-50 0c1.9 0 3.5 1.6 3.5 3.5S8.4 34 6.5 34h-3C1.6 34 0 32.4 0 30.5S1.6 27 3.5 27h3zm50-21C58.4 6 60 7.6 60 9.5S58.4 13 56.5 13h-35c-1.9 0-3.5-1.6-3.5-3.5S19.6 6 21.5 6h35zm-50 0C8.4 6 10 7.6 10 9.5S8.4 13 6.5 13h-3C1.6 13 0 11.4 0 9.5S1.6 6 3.5 6h3z' fill-rule='evenodd' clip-rule='evenodd' fill='%2364748b'/%3E%3C/svg%3E");
+    background-size: 22px 22px;
+}
+@media screen and (max-width: 991px) {
+    .mobile-toc { /* 移动端防遮挡透明度 */
+        opacity: 0.8;
+    }
+}
+.mobile-toc:active { /* 悬浮按钮点击反馈：亮色科技蓝 */
+    transform: scale(0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 0 12px rgba(59, 130, 246, 0.3);
+    border-color: var(--klbq-accent, #3b82f6);
+}
+@media (min-width: 768px) {
+    .mobile-toc { /* PC端强制隐藏悬浮按钮 */
+        display: none !important; 
+    }
+}
+/* ================= 呼出按钮代码结束 ================= */
+
+
+.mw-toc { /* 侧滑菜单主容器：苍穹蓝毛玻璃 */
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-width: 80vw;
+    height: 100%;
+    top: 0;
+    padding: 0;
+    right: -100%;
+    z-index: 10000;
+    border: none;
+    border-left: 1px solid rgba(59, 130, 246, 0.15);
+    background-color: rgba(244, 250, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: fixed;
+    transition: right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-size: 0.95rem;
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.05);
+}
+.mw-toc.opentoc { /* 侧滑菜单展开状态 */
+    right: 0;
+}
+.mw-mask { /* 全屏背景遮罩 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 9998;
+}
+
+/* ================= 顶部标题区 ================= */
+.mw-toc .mw-toctitle { /* 标题区渐变背景：亮色淡蓝渐变 */
+    line-height: 30px;
+    text-align: left !important;
+    padding: 20px 16px 16px 20px; 
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1); 
+    background: linear-gradient(180deg, rgba(244, 250, 255, 0.9) 0%, transparent 100%);
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.mw-toc i.toc-close { /* 悬浮收起小拉手：默认亮色 */
+    position: absolute;
+    left: -36px;
+    top: 50%;   
+    transform: translateY(-50%);
+    width: 36px;
+    height: 64px; 
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-color: rgba(244, 250, 255, 0.95); 
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s ease, filter 0.2s ease;
+    z-index: -1; 
+}
+
+.mw-toc i.toc-close:active { /* 收起拉手点击反馈：高亮科技蓝 */
+    background-color: var(--klbq-accent, #3b82f6);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.mw-toc .mw-toctitle h2 { /* 标题文字：深色主文本 */
+    display: inline-block;
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #334155;
+    border: none;
+    padding: 0;
+    text-shadow: none;
+}
+
+/* ================= 列表排版与缩进机制重构 ================= */
+.mw-toc ul { /* 列表重置 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.mw-toc > ul { /* 内部滚动容器 */
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    padding: 8px 0 24px 0;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+.mw-toc > ul::-webkit-scrollbar { /* 亮色滚动条 */
+    width: 4px; 
+}
+.mw-toc > ul::-webkit-scrollbar-thumb { /* 亮色滚动条滑块 */
+    background: rgba(59, 130, 246, 0.2); 
+    border-radius: 4px; 
+}
+
+.mw-toc li { /* 列表项基础 */
+    padding: 0;
+    position: relative;
+}
+.mw-toc li > ul { /* 隐藏的子层级 */
+    display: none;
+}
+
+/* ================= 链接文字与色彩对比度优化 ================= */
+.mw-toc ul li a { /* 目录链接基础文字：次要文本色 */
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding: 10px 48px 10px 16px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+.mw-toc ul li a:active { /* 目录链接点击高亮：科技蓝渐变 */
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+    color: var(--klbq-accent, #3b82f6) !important;
+}
+
+/* ================= 自动缩进控制 ================= */
+.mw-toc .toclevel-1 > a { /* 1级缩进 */ padding-left: 16px; font-weight: bold; }
+.mw-toc .toclevel-2 > a { /* 2级缩进 */ padding-left: 36px; opacity: 0.95; }
+.mw-toc .toclevel-3 > a { /* 3级缩进 */ padding-left: 56px; opacity: 0.9; }
+.mw-toc .toclevel-4 > a { /* 4级缩进 */ padding-left: 76px; opacity: 0.85; }
+.mw-toc .toclevel-5 > a { /* 5级缩进 */ padding-left: 96px; opacity: 0.8; }
+.mw-toc .toclevel-6 > a { /* 6级缩进 */ padding-left: 116px; opacity: 0.8; }
+
+.mw-toc .tocnumber { /* 目录数字编号：科技蓝点缀 */
+    color: var(--klbq-accent, #3b82f6);
+    font-weight: 900;
+    opacity: 0.9;
+    margin-right: 8px;
+    font-size: 0.9em;
+    flex-shrink: 0;
+}
+.mw-toc .toctext { /* 目录正文 */
+    flex: 1;
+    color: #334155;
+    line-height: 1.5;
+    text-decoration: none;
+    white-space: normal;
+    word-break: break-word;
+}
+
+/* ================= 右侧折叠按钮 ================= */
+.mw-toc li > i { /* 折叠箭头：默认浅灰蓝 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    z-index: 2;
+}
+.mw-toc li > i:active { /* 折叠箭头点击背景 */
+    background-color: rgba(59, 130, 246, 0.08);
+}
+.mw-toc li > i.active { /* 折叠箭头展开状态：变成蓝色 */
+    transform: rotate(180deg);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+
+/* ==== 暗色模式 ==== */
+.client-js.wiki-dark-mode .mobile-toc { /* 暗色：移动端悬浮呼出按钮 */
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(51, 65, 85, 0.9);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 12px rgba(76, 212, 230, 0.1);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M56.5 48c1.9 0 3.5 1.6 3.5 3.5S58.4 55 56.5 55h-35c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5h35zm-50 0c1.9 0 3.5 1.6 3.5 3.5S8.4 55 6.5 55h-3C1.6 55 0 53.4 0 51.5S1.6 48 3.5 48h3zm50-21c1.9 0 3.5 1.6 3.5 3.5S58.4 34 56.5 34h-35c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5h35zm-50 0c1.9 0 3.5 1.6 3.5 3.5S8.4 34 6.5 34h-3C1.6 34 0 32.4 0 30.5S1.6 27 3.5 27h3zm50-21C58.4 6 60 7.6 60 9.5S58.4 13 56.5 13h-35c-1.9 0-3.5-1.6-3.5-3.5S19.6 6 21.5 6h35zm-50 0C8.4 6 10 7.6 10 9.5S8.4 13 6.5 13h-3C1.6 13 0 11.4 0 9.5S1.6 6 3.5 6h3z' fill-rule='evenodd' clip-rule='evenodd' fill='%23f8fafc'/%3E%3C/svg%3E");
+}
+.client-js.wiki-dark-mode .mobile-toc:active { /* 暗色：悬浮呼出按钮反馈 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 12px rgba(76, 212, 230, 0.4);
+    border-color: var(--klbq-accent, #4cd4e6);
+}
+
+.client-js.wiki-dark-mode .mw-toc { /* 暗色：侧滑菜单主容器 */
+    border-left-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(25, 33, 44, 0.95);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6);
+}
+.client-js.wiki-dark-mode .mw-toc .mw-toctitle { /* 暗色：顶部标题区渐变 */
+    border-bottom-color: rgba(255, 255, 255, 0.1); 
+    background: linear-gradient(180deg, rgba(11, 15, 21, 0.6) 0%, transparent 100%);
+}
+.client-js.wiki-dark-mode .mw-toc .mw-toctitle h2 { /* 暗色：标题文字 */
+    color: var(--klbq-text, #f8fafc);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.client-js.wiki-dark-mode .mw-toc i.toc-close { /* 暗色：悬浮收起小拉手 */
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23cbd5e1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+    background-color: rgba(25, 33, 44, 0.95); 
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+}
+.client-js.wiki-dark-mode .mw-toc i.toc-close:active { /* 暗色：收起小拉手反馈 */
+    background-color: var(--klbq-accent, #4cd4e6);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.client-js.wiki-dark-mode .mw-toc > ul::-webkit-scrollbar-thumb { /* 暗色：滚动滑块 */
+    background: rgba(255, 255, 255, 0.15); 
+}
+
+.client-js.wiki-dark-mode .mw-toc ul li a:active { /* 暗色：目录链接点击高亮 */
+    background: linear-gradient(90deg, rgba(76, 212, 230, 0.1) 0%, transparent 100%);
+    color: var(--klbq-accent, #4cd4e6) !important;
+}
+
+.client-js.wiki-dark-mode .mw-toc .tocnumber { /* 暗色：目录数字编号 */
+    color: var(--klbq-accent, #4cd4e6);
+}
+.client-js.wiki-dark-mode .mw-toc .toctext { /* 暗色：目录正文 */
+    color: var(--klbq-text, #f8fafc);
+}
+
+.client-js.wiki-dark-mode .mw-toc li > i { /* 暗色：右侧折叠箭头 */
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23cbd5e1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+.client-js.wiki-dark-mode .mw-toc li > i:active { /* 暗色：右侧折叠箭头背景 */
+    background-color: rgba(255, 255, 255, 0.08);
+}
+.client-js.wiki-dark-mode .mw-toc li > i.active { /* 暗色：右侧折叠箭头展开 */
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234cd4e6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}

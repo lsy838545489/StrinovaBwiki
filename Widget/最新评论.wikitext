@@ -1,0 +1,203 @@
+<includeonly>
+<style>
+.comment-user-level { 
+    margin-left: 8px; 
+    position: relative;
+}
+.comment-user-level i {
+background-color: transparent;
+background-image: url("//i0.hdslb.com/bfs/game-static/ab99bdaecebbb64d092aa49852e301fc3005edc1.png");
+background-repeat-x: ;
+background-repeat-y: ;
+display: inline-block;
+height: 9px;
+transform: scale(1.2); 
+vertical-align: middle;
+width: 19px;
+}
+.comment-user-level .blv-9 {
+background-position-x: -26px; background-position-y: -337px;
+}
+.comment-reply2 {
+    cursor: pointer;
+    transition: color 0.15s linear 0s;
+    padding-left: 14px;
+}
+@media (min-width: 768px) and (max-width: 991px)
+{
+#newComment
+{
+height:700px !important;
+}
+}
+#newComment
+{
+height:600px;
+overflow-y:scroll;
+}
+.comment-thread {
+    border-top: 1px solid rgba(0,0,0,0.13);
+}
+.comment-text2 {
+    font-size: 14px;
+    line-height: 1.5em;
+    margin-top: 8px;
+    word-wrap: break-word;
+    position: relative;
+    overflow: hidden;
+    min-height: 1em;
+    color: rgba(0,0,0,0.85);
+}
+@media screen and (max-width: 1000px){
+.comment-time {
+    display: block;
+    padding-bottom: 12px;
+}}
+.comment-footer{
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: rgba(0,0,0,0.35);
+    line-height: 20px;
+    padding-top: 12px;
+}
+.comment-post {
+    padding: 16px 0;
+}
+.comment-user, .comment-user a {
+    color: #777;
+    font-size: 13px;
+    display:unset;
+}
+.comment-user-name {
+display:flex;
+  align-items:center;
+color: Orgb (109, 117, 122); font-family: MicrosoftYaHei-Bold;
+font-size: 14px;
+font-weight: bold;
+  }
+.comment-avatar {
+    float: left;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    overflow: hidden;
+}
+.comment-img
+{
+height:50px;width:50px;
+}
+.comment-body {
+    padding-left: 74px;
+}
+/*@media (min-width: 991px){
+.comment-body{
+ padding-left: 55px !important;
+}
+.comment-img
+{
+height:40px !important;width:40px !important;
+}
+}*/
+</style>
+<script>
+(function () { var t = function () { if(window.jQuery && window.mw && mw.Api) LatestComments();else{window.setTimeout(t, 100);console.log("未加载！");} }; t();  })();
+
+function LatestComments()
+{
+$.get(mw.util.wikiScript( 'api'),{
+			action: "flowthread", // 解析
+			format: "json", // 返回内容的格式
+			disablelimitreport: true, // 不返回使用内存、时间信息
+			type: "listall", // 返回解析后的文本
+			utf8: "", // 内容模型
+        filter:"normal",   
+        offset:"0",
+        limit:"5",
+        dir:"older",
+			_: mw.config.get('debug') ? Date.now() : null // 调试时不使用缓存
+		}).then(function(result){
+        console.log( result);
+        var posts = result.flowthread.posts;
+        posts.forEach(function(item) {
+       // console.log(item.text);
+        var tmp = '<div class="comment-thread" id="comment-0615f3f60ae095ab15973b"><div class="comment-post"><div class="comment-avatar"><img src="@头像图源" class="comment-img"></div><div class="comment-body"><div class="comment-user"><div class="comment-user-name"><a href="https://space.bilibili.com/@UID">@昵称</a><div class="comment-user-level"><i class="iteminfo"></i></div></div><div>@父对象</div><div><span>@楼层数楼<a style="padding-left:10px" href="@页面链接">@页面名</a></span></div></div><span class="comment-text2">@回复内容</span><div class="comment-footer"><span class="comment-time2">@时间</span></div></div></div></div>';
+tmp = tmp.replace(/@头像图源/g,item.avatar);
+tmp = tmp.replace(/@UID/g,item.username);
+tmp = tmp.replace(/@昵称/g,item.uname);
+tmp = tmp.replace(/@父对象/g,item.parent_username);
+tmp = tmp.replace(/@楼层数/g,item.flowthread_floor);
+tmp = tmp.replace(/@页面链接/g,item.pageName);
+tmp = tmp.replace(/@页面名/g,item.pageName);
+tmp = tmp.replace(/@REF/g,item.ref);
+
+tmp = tmp.replace(/@回复内容/g,item.text);
+tmp = tmp.replace(/@时间/g,getDateDiff(item.timestamp));
+//console.log(new Date().getTime());
+        $("#newComment").append(tmp);
+        });
+           
+			});
+            
+console.log("%c 最新评论 %c", "color: #fff; padding: 5px 0; background: purple;", "padding: 5px 5px 5px 0; background: #e3f7ff;");
+}
+    function getDateDiff(dateStr) {
+  var publishTime = dateStr,
+    d_seconds,
+    d_minutes,
+    d_hours,
+    d_days,
+    timeNow = parseInt(new Date().getTime() / 1000),
+    d,
+ 
+    date = new Date(publishTime * 1000),
+    Y = date.getFullYear(),
+    M = date.getMonth() + 1,
+    D = date.getDate(),
+    H = date.getHours(),
+    m = date.getMinutes(),
+    s = date.getSeconds();
+  //小于10的在前面补0
+  if (M < 10) {
+    M = '0' + M;
+  }
+  if (D < 10) {
+    D = '0' + D;
+  }
+  if (H < 10) {
+    H = '0' + H;
+  }
+  if (m < 10) {
+    m = '0' + m;
+  }
+  if (s < 10) {
+    s = '0' + s;
+  }
+ 
+  d = timeNow - publishTime;
+  d_days = parseInt(d / 86400);
+  d_hours = parseInt(d / 3600);
+  d_minutes = parseInt(d / 60);
+  d_seconds = parseInt(d);
+ 
+  if (d_days > 0 && d_days < 3) {
+    return d_days + '天前';
+  } else if (d_days <= 0 && d_hours > 0) {
+    return d_hours + '小时前';
+  } else if (d_hours <= 0 && d_minutes > 0) {
+    return d_minutes + '分钟前';
+  } else if (d_seconds < 60) {
+    if (d_seconds <= 0) {
+      return '刚刚';
+    } else {
+      return d_seconds + '秒前';
+    }
+  } else if (d_days >= 3 && d_days < 30) {
+    return M + '-' + D + ' ' + H + ':' + m + ':' + s;
+  } else if (d_days >= 30) {
+    return Y + '-' + M + '-' + D + ' ' + H + ':' + m + ':' + s;
+  }
+}
+</script>
+<div>
+<div style="display:flex;flex-direction: column;" id="newComment">
+</div>
+</div></includeonly><noinclude>{{#Widget:最新评论}}</noinclude>

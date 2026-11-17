@@ -1,0 +1,24 @@
+<includeonly><script type="text/javascript">var titles = "<!--{$titles}-->";var hasInput = "<!--{$input}-->";</script>
+<div class="form-group" style="max-width:500px;display:none">
+	<label for="titles">标题</label>
+	<input id="titles" name="titles" class="form-control" placeholder="英文逗号或顿号分割"></input>
+</div>
+<a class="btn btn-default" href="javascript:purge()" role="button"><!--{$label}--></a>
+<script>
+if(hasInput !== "") setTimeout(function(){$("#titles").parent().show();$("#titles").val(titles)}, 1000)
+function purge(){
+	window.titleArray = titles.replace(", ", ",").split(",")
+	if(hasInput !== "") window.titleArray = $("#titles").val().replace(/、/g, ",").replace(/, /, ",").split(",")
+	window.pageIndex = 0
+	new mw.Api().post({
+		"action": "purge",
+		"format": "json",
+		"titles": titleArray.join("|")
+	}).then( getPage )
+}
+function getPage(){
+	if(pageIndex >= titleArray.length) return alert("刷新完毕")
+	$.get(mw.config.get("wgCookiePath") + titleArray[pageIndex++])
+	setTimeout(getPage, 500)
+}
+</script></includeonly><noinclude>{{#widget:刷新|label=刷新|titles={{#show:丢丢建筑师|?家具}}|input=1}}<!--也可以直接写英文逗号分割的页面名--></noinclude>
