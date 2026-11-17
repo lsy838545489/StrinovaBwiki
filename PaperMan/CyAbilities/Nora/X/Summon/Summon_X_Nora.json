@@ -385,12 +385,41 @@
       "CapsuleRadius": 17.0,
       "bGenerateOverlapEvents": true,
       "BodyInstance": {
-        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
-        "CollisionProfileName": "CharatcterCapsule",
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
         "CollisionResponses": {
           "ResponseArray": [
             {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
               "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
               "Response": "ECR_Ignore"
             },
             {
@@ -403,19 +432,19 @@
             },
             {
               "Channel": "Pickup",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Mesh",
-              "Response": "ECR_Overlap"
+              "Response": "ECR_Ignore"
             },
             {
               "Channel": "Mark",
               "Response": "ECR_Ignore"
             },
             {
-              "Channel": "Interaction",
-              "Response": "ECR_Overlap"
+              "Channel": "Summon",
+              "Response": "ECR_Ignore"
             }
           ]
         }
@@ -1039,10 +1068,7 @@
           "PositionEnd": 1.0,
           "bEndWithState": false,
           "bNoSkipped": false,
-          "Atom": {
-            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchAllEnemySummon_X_Nora_C'",
-            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Nora/X/Summon/Atom/BP_SA_SearchAllEnemySummon_X_Nora.0"
-          },
+          "Atom": null,
           "SubAtoms": [],
           "EventActions": []
         },
