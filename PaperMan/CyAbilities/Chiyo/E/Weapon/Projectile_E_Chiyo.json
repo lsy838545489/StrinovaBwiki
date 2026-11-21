@@ -322,7 +322,7 @@
   {
     "Type": "Projectile_E_Chiyo_C",
     "Name": "Default__Projectile_E_Chiyo_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Chiyo/E/Weapon/Projectile_E_Chiyo.Projectile_E_Chiyo_C'",
     "Package": "PM/Content/PaperMan/CyAbilities/Chiyo/E/Weapon/Projectile_E_Chiyo",
     "Properties": {
@@ -475,6 +475,30 @@
           },
           "SubAtoms": [],
           "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemyInner_E_Chiyo_SpeedFactor_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Chiyo/E/Weapon/StateAtom/BP_SA_SearchEnemyInner_E_Chiyo_SpeedFactor.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        },
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchEnemyOuter_E_Chiyo_SpeedFactor_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/Chiyo/E/Weapon/StateAtom/BP_SA_SearchEnemyOuter_E_Chiyo_SpeedFactor.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
         }
       ],
       "TotalDuration": {
@@ -516,8 +540,9 @@
       "StopChannelTypes": [
         "ECC_GameTraceChannel6"
       ],
-      "MaxBounceCount": 3,
-      "BouncinessScaleMin": 0.3,
+      "MaxBounceCount": 1,
+      "BouncinessScaleMin": 0.4,
+      "BouncinessDistanceMin": 1000.0,
       "bThroughTarget": true,
       "ThroughClasses": [
         {
@@ -527,7 +552,11 @@
       ],
       "InitialSpeed": 6000.0,
       "MaxSpeed": 6000.0,
+      "bShouldBounce": true,
+      "bBounceAngleAffectsFriction": true,
       "ProjectileGravityScale": 0.0,
+      "Bounciness": 1.0,
+      "BounceVelocityStopSimulatingThreshold": 800.0,
       "OnProjectileBounce": {
         "InvocationList": [
           {

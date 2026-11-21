@@ -8,7 +8,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
       }
     },
     "SuperStruct": {
@@ -16,6 +16,17 @@
       "ObjectPath": "/Script/PMGame"
     },
     "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
       {
         "Type": "ObjectProperty",
         "Name": "SkeletalMesh",
@@ -181,12 +192,13 @@
     "Properties": {
       "ArousalComponent": {
         "ObjectName": "CyArousalComponent'Default__Summon_SECCard_Maddelena_C:ArousalComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.9"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.10"
       },
       "PerceptionSystemComponent": {
         "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__Summon_SECCard_Maddelena_C:PerceptionSystemComponent'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.14"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.15"
       },
+      "GrowthSlotType": "EGrowthSlotType::SCGiftScaleLevel",
       "bReplicates": true
     }
   },
@@ -227,7 +239,19 @@
             "IgnoreTags": []
           },
           "TriggerType": "ECySEventTriggerType::None",
-          "AssetTagContainers": []
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Entry.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
         }
       ]
     }
@@ -240,6 +264,36 @@
     "Outer": {
       "ObjectName": "BlueprintGeneratedClass'Summon_SECCard_Maddelena_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.0"
+    },
+    "Properties": {
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Leave.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -258,7 +312,13 @@
       ],
       "bUseInitStateQueueLoopTime": true,
       "InitStateQueueLoopTime": {
-        "Value": 12.0
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "CurveTable'CT_SCGiftLevelAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CSV/CT_SCGiftLevelAttribute.0"
+          },
+          "RowName": "SCGift.AttractNumber.4133002"
+        }
       },
       "EndStateQueueAfterLoop": [
         "EAIStateType::Leave",
@@ -277,6 +337,35 @@
     }
   },
   {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIStateMonitor_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'Summon_SECCard_Maddelena_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::Work",
+        "EAIStateType::Wait"
+      ],
+      "BeginAssetTagContainers": [
+        {
+          "AttachComponentType": "EAttachComponentType::None",
+          "ResourceClassify": "ECyGCResourceClassify::Effect",
+          "MeshName": "None",
+          "AssetTagContainer": [
+            "Resource.Particle.Work.B"
+          ],
+          "AssetTagStopContainer": [],
+          "DefaultAssetKey": 0,
+          "bAllowLoop": true
+        }
+      ]
+    }
+  },
+  {
     "Type": "CyAIWaitState",
     "Name": "CyAIWaitState_GEN_VARIABLE",
     "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
@@ -284,6 +373,18 @@
     "Outer": {
       "ObjectName": "BlueprintGeneratedClass'Summon_SECCard_Maddelena_C'",
       "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.0"
+    },
+    "Properties": {
+      "TotalDuration": {
+        "MobileValue": 0.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "CurveTable'CT_SCGiftLevelAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CSV/CT_SCGiftLevelAttribute.0"
+          },
+          "RowName": "SCGift.IntervalTime.4133002"
+        }
+      }
     }
   },
   {
@@ -344,7 +445,14 @@
         }
       ],
       "TotalDuration": {
-        "Value": 0.2
+        "MobileValue": 0.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "CurveTable'CT_SCGiftLevelAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CSV/CT_SCGiftLevelAttribute.0"
+          },
+          "RowName": "SCGift.Duration.4133002"
+        }
       }
     }
   },
@@ -369,7 +477,14 @@
     },
     "Properties": {
       "AttractSpeed": {
-        "Value": 200.0
+        "Value": 1.0,
+        "Curve": {
+          "CurveTable": {
+            "ObjectName": "CurveTable'CT_SCGiftLevelAttribute'",
+            "ObjectPath": "PM/Content/PaperMan/CSV/CT_SCGiftLevelAttribute.0"
+          },
+          "RowName": "SCGift.AttractSpeed.4133002"
+        }
       }
     }
   },
@@ -430,7 +545,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -439,12 +554,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'Summon_SECCard_Maddelena_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.15"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.16"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
         }
       ],
       "VariableGuid": "F5201245-41664200-46CC2DBF-0FC48499",
@@ -458,7 +573,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -467,7 +582,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySkinComponent'Summon_SECCard_Maddelena_C:CySkin_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.13"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.14"
       },
       "VariableGuid": "F85D9611-4D80D017-4E719BAC-E08190F7",
       "InternalVariableName": "CySkin"
@@ -480,7 +595,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -489,7 +604,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWaitState'Summon_SECCard_Maddelena_C:CyAIWaitState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.7"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.8"
       },
       "VariableGuid": "0EE096FA-4158EB8C-30EB68B7-88C610F9",
       "InternalVariableName": "CyAIWaitState"
@@ -502,7 +617,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -524,7 +639,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -546,7 +661,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -568,7 +683,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -577,7 +692,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CySearchTargetsComponent'Summon_SECCard_Maddelena_C:CySearchTargets_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.12"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.13"
       },
       "VariableGuid": "D4443CD0-43671FE3-74B64385-8E8265BC",
       "InternalVariableName": "CySearchTargets"
@@ -590,7 +705,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -599,7 +714,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyForceMoveComponent'Summon_SECCard_Maddelena_C:CyForceMove_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.10"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.11"
       },
       "VariableGuid": "D9C92BE5-4EA6CADB-DE0860A9-6ADAD8B2",
       "InternalVariableName": "CyForceMove"
@@ -612,7 +727,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -621,7 +736,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyRetainComponent'Summon_SECCard_Maddelena_C:CyRetain_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.11"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.12"
       },
       "VariableGuid": "6497D8D3-4C1074A1-B778FAA6-4840D4ED",
       "InternalVariableName": "CyRetain"
@@ -634,7 +749,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -656,7 +771,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -678,7 +793,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -687,7 +802,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "CyAIWorkState'Summon_SECCard_Maddelena_C:CyAIWorkState_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.8"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.9"
       },
       "VariableGuid": "DE9E4C0A-410A61FF-DC3B3399-0A6B81CD",
       "InternalVariableName": "CyAIWorkState"
@@ -700,7 +815,7 @@
     "Class": "UScriptClass'SCS_Node'",
     "Outer": {
       "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
-      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
     },
     "Properties": {
       "ComponentClass": {
@@ -709,10 +824,32 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SkeletalMeshComponent'Summon_SECCard_Maddelena_C:SkeletalMesh_GEN_VARIABLE'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.30"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.32"
       },
       "VariableGuid": "9D866CBE-4DC34B83-10BBEC96-B4E15621",
       "InternalVariableName": "SkeletalMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.31"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'Summon_SECCard_Maddelena_C:CyAIStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.7"
+      },
+      "VariableGuid": "254EC5CE-412D855B-4C23FA8D-5A180C2A",
+      "InternalVariableName": "CyAIStateMonitor"
     }
   },
   {
@@ -728,110 +865,118 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.16"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.17"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.24"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.25"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.26"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.27"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.18"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_11'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.19"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_12'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.20"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_13'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.21"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_14'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.22"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_15'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.23"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.24"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.30"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.16"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.17"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.24"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.25"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.26"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.27"
-        },
-        {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.18"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.25"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.26"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.27"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.28"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_11'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.19"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_12'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.20"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_13'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.21"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_14'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.22"
         },
         {
-          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_15'",
           "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.23"
         },
         {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.24"
+        },
+        {
           "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_6'",
-          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.28"
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.29"
+        },
+        {
+          "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.30"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'Summon_SECCard_Maddelena_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.16"
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Maddelena/SEC/Card/Summon/Summon_SECCard_Maddelena.17"
       }
     }
   },

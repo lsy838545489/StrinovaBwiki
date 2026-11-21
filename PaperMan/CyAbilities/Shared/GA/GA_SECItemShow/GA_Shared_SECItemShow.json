@@ -60,8 +60,8 @@
                 "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_SECItemShow/BP_TCheck_SECItemShowIfView.0"
               },
               {
-                "ObjectName": "BlueprintGeneratedClass'BP_TCheck_SECItemShow_NotInWallNotify_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_SECItemShow/BP_TCheck_SECItemShow_NotInWallNotify.0"
+                "ObjectName": "BlueprintGeneratedClass'BP_TCheck_SECItemShow_StateNotify_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/GA/GA_SECItemShow/BP_TCheck_SECItemShow_StateNotify.0"
               }
             ],
             "TagRequirements": {
@@ -71,12 +71,6 @@
               "IgnoreAllTags": [],
               "RequireTags": [],
               "IgnoreTags": [
-                "State.Motion.Move",
-                "State.Motion.InAir",
-                "State.Shape.2D.Flying",
-                "State.Shape.2D.Side",
-                "State.Shape.Fake2D",
-                "State.Motion.InWall.Move",
                 "GA.Action.SECItemShow"
               ]
             },
@@ -313,66 +307,6 @@
             "LocallyAtomsForNoActive": [],
             "LocallyAtomsForInstance": []
           }
-        },
-        {
-          "Key": {
-            "TagName": "State.Shape.2D"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility.0"
-              }
-            ],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
-        },
-        {
-          "Key": {
-            "TagName": "State.Motion.NoMove"
-          },
-          "Value": {
-            "CheckAtoms": [],
-            "TagRequirements": {
-              "RequireTagType": "ERequireTagType::AND",
-              "bInverse": false,
-              "RequireAnyTags": [],
-              "IgnoreAllTags": [],
-              "RequireTags": [],
-              "IgnoreTags": []
-            },
-            "BothAtomsForActive": [],
-            "BothAtomsForNoActive": [],
-            "BothAtomsForInstance": [],
-            "AtomsForActive": [
-              {
-                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_CancelAbility_C'",
-                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_CancelAbility.0"
-              }
-            ],
-            "AtomsForNoActive": [],
-            "AtomsForInstance": [],
-            "LocallyAtomsForActive": [],
-            "LocallyAtomsForNoActive": [],
-            "LocallyAtomsForInstance": []
-          }
         }
       ],
       "WeaponClass": {
@@ -380,17 +314,12 @@
         "ObjectPath": "PM/Content/PaperMan/CyWeapons/SECItemShow/Weapon_SECItemShow.0"
       },
       "SlotType": "EWeaponSlotTypes::WeaponSlot_SECItemShow",
+      "CancelAbilitiesPreActivateWithTag": [
+        "GA.Action.Side"
+      ],
       "CommitCostMask": 0,
       "AbilityTags": [
         "GA.Action.SECItemShow"
-      ],
-      "BlockAbilitiesWithTag": [
-        "State.Motion.Move",
-        "State.Motion.InAir",
-        "State.Shape.2D.Flying",
-        "State.Shape.2D.Side",
-        "State.Shape.Fake2D",
-        "State.Motion.InWall.Move"
       ],
       "ActivationOwnedTags": [
         "GA.Action.SECItemShow"
@@ -398,12 +327,8 @@
       "ActivationBlockedTags": [
         "Buff.Strong.Stealth.ArousalTwo.Maddelena",
         "GA.Ability.SkillQ.Audrey",
-        "State.Motion.Move",
-        "State.Motion.InAir",
-        "Buff.Stealth.ArousalTwo.Galatea",
-        "State.Motion.InWall.Move",
-        "State.Player.DisableSwitchWeapon",
-        "GA.Ability.SkillQ.Cielle"
+        "GA.Ability.SkillX.Audrey",
+        "State.Player.DisableSwitchWeapon"
       ]
     }
   }

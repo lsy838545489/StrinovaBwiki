@@ -1,0 +1,973 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Summon_Truck_TrafficRush_Lilith_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CySummonActor'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIStateMonitor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIStateMonitor'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyRetain",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyRetainComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIEntryState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIEntryState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_GameStateComponent_Summon",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySearchTargets",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySearchTargetsComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAINoneState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAILeaveState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAILeaveState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIWorkState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIWorkState'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyAIMachine",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyAIMachine'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CyProjectileFlyDropMovement",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CyProjectileFlyDropMovementComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CySkin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySkinComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Ak",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AkComponent'",
+          "ObjectPath": "/Script/AkAudio"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "TruckMesh",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CySummonSkeletalMeshComponent'",
+          "ObjectPath": "/Script/PMGame"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Summon_Truck_TrafficRush_Lilith_C'Default__BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.1"
+    }
+  },
+  {
+    "Type": "BP_Summon_Truck_TrafficRush_Lilith_C",
+    "Name": "Default__BP_Summon_Truck_TrafficRush_Lilith_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.BP_Summon_Truck_TrafficRush_Lilith_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith",
+    "Properties": {
+      "ArousalComponent": {
+        "ObjectName": "CyArousalComponent'Default__BP_Summon_Truck_TrafficRush_Lilith_C:ArousalComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.10"
+      },
+      "PerceptionSystemComponent": {
+        "ObjectName": "PMAIPerceptionStimuliSourceComponent'Default__BP_Summon_Truck_TrafficRush_Lilith_C:PerceptionSystemComponent'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.16"
+      },
+      "HitActorType": "ECyHitActorType::None",
+      "bAutoSuspendReplication": false,
+      "bReplicateMovement": true,
+      "bReplicates": true,
+      "RemoteRole": "ROLE_SimulatedProxy",
+      "InitialLifeSpan": 10.0
+    }
+  },
+  {
+    "Type": "AkComponent",
+    "Name": "Ak_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'AkComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    }
+  },
+  {
+    "Type": "BP_GameStateComponent_Summon_C",
+    "Name": "BP_GameStateComponent_Summon_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.BP_GameStateComponent_Summon_C'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    },
+    "Template": {
+      "ObjectName": "BP_GameStateComponent_Summon_C'Default__BP_GameStateComponent_Summon_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.1"
+    }
+  },
+  {
+    "Type": "CyAIEntryState",
+    "Name": "CyAIEntryState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIEntryState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    },
+    "Properties": {
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Entry.A",
+                "Resource.Particle.Entry.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAILeaveState",
+    "Name": "CyAILeaveState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAILeaveState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    },
+    "Properties": {
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Particle.Leave.B",
+                "Resource.Audio.Leave.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIMachine",
+    "Name": "CyAIMachine_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIMachine'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    },
+    "Properties": {
+      "InitStateQueue": [
+        "EAIStateType::Work",
+        "EAIStateType::Leave",
+        "EAIStateType::None"
+      ]
+    }
+  },
+  {
+    "Type": "CyAIState",
+    "Name": "CyAINoneState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    }
+  },
+  {
+    "Type": "CyAIStateMonitor",
+    "Name": "CyAIStateMonitor_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIStateMonitor'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    },
+    "Properties": {
+      "MonitorStateTypes": [
+        "EAIStateType::Entry",
+        "EAIStateType::Work",
+        "EAIStateType::Leave"
+      ],
+      "Events": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "bEndWithState": false,
+          "bNoSkipped": false,
+          "Atom": {
+            "ObjectName": "BlueprintGeneratedClass'BP_SA_SearchTargetsTruck_TrafficRush_Lilith_C'",
+            "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_SA_SearchTargetsTruck_TrafficRush_Lilith.0"
+          },
+          "SubAtoms": [],
+          "EventActions": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CyAIWorkState",
+    "Name": "CyAIWorkState_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyAIWorkState'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    },
+    "Properties": {
+      "AssetEvents": [
+        {
+          "PositionStart": 0.0,
+          "PositionEnd": 1.0,
+          "RequireTags": {
+            "RequireTagType": "ERequireTagType::AND",
+            "bInverse": false,
+            "RequireAnyTags": [],
+            "IgnoreAllTags": [],
+            "RequireTags": [],
+            "IgnoreTags": []
+          },
+          "TriggerType": "ECySEventTriggerType::None",
+          "AssetTagContainers": [
+            {
+              "AttachComponentType": "EAttachComponentType::None",
+              "ResourceClassify": "ECyGCResourceClassify::Effect",
+              "MeshName": "None",
+              "AssetTagContainer": [
+                "Resource.Audio.Work.A"
+              ],
+              "AssetTagStopContainer": [],
+              "DefaultAssetKey": 0,
+              "bAllowLoop": true
+            }
+          ]
+        }
+      ],
+      "TotalDuration": {
+        "Value": 2.5
+      }
+    }
+  },
+  {
+    "Type": "CyArousalComponent",
+    "Name": "ArousalComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyArousalComponent'",
+    "Outer": {
+      "ObjectName": "BP_Summon_Truck_TrafficRush_Lilith_C'Default__BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.1"
+    }
+  },
+  {
+    "Type": "CyProjectileFlyDropMovementComponent",
+    "Name": "CyProjectileFlyDropMovement_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyProjectileFlyDropMovementComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    },
+    "Properties": {
+      "InitialSpeed": 1800.0,
+      "MaxSpeed": 1800.0,
+      "bRotationFollowsVelocity": true,
+      "bSweepCollision": false,
+      "ProjectileGravityScale": 0.0
+    }
+  },
+  {
+    "Type": "CyRetainComponent",
+    "Name": "CyRetain_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CyRetainComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    }
+  },
+  {
+    "Type": "CySearchTargetsComponent",
+    "Name": "CySearchTargets_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySearchTargetsComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    }
+  },
+  {
+    "Type": "CySkinComponent",
+    "Name": "CySkin_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySkinComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    }
+  },
+  {
+    "Type": "CySummonSkeletalMeshComponent",
+    "Name": "TruckMesh_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'CySummonSkeletalMeshComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    },
+    "Properties": {
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'MS_Lilith_Track'",
+        "ObjectPath": "PM/Content/PaperMan/Effects/FX_NE/Biochemistry/Lilith/MS_Lilith_Track.0"
+      },
+      "bRenderOutlineAtAllLODs": true,
+      "OutlineDistanceType": 2,
+      "CustomOutlineMaxDistance": 10000.0,
+      "RelativeLocation": {
+        "X": -100.0,
+        "Y": 220.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 90.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 2.0,
+        "Y": 2.0,
+        "Z": 2.0
+      },
+      "bAbsoluteRotation": true,
+      "ComponentTagSet": [
+        "WorkingMesh"
+      ]
+    }
+  },
+  {
+    "Type": "PMAIPerceptionStimuliSourceComponent",
+    "Name": "PerceptionSystemComponent",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'PMAIPerceptionStimuliSourceComponent'",
+    "Outer": {
+      "ObjectName": "BP_Summon_Truck_TrafficRush_Lilith_C'Default__BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.1"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SceneComponent'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Summon_Truck_TrafficRush_Lilith_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.17"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.20"
+        }
+      ],
+      "VariableGuid": "050CFC38-401C0280-5EFC39A4-FF10460C",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIStateMonitor'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIStateMonitor'BP_Summon_Truck_TrafficRush_Lilith_C:CyAIStateMonitor_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.8"
+      },
+      "VariableGuid": "F4A247B7-4F549961-B7A8E5B9-A912616C",
+      "InternalVariableName": "CyAIStateMonitor"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AkComponent'",
+        "ObjectPath": "/Script/AkAudio"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AkComponent'BP_Summon_Truck_TrafficRush_Lilith_C:Ak_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.2"
+      },
+      "VariableGuid": "6352E139-490D64BC-6A2BF3A8-43005278",
+      "InternalVariableName": "Ak"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySkinComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySkinComponent'BP_Summon_Truck_TrafficRush_Lilith_C:CySkin_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.14"
+      },
+      "VariableGuid": "E15C2B9A-45806ECA-8A8983B0-CE85A9E8",
+      "InternalVariableName": "CySkin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyProjectileFlyDropMovementComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyProjectileFlyDropMovementComponent'BP_Summon_Truck_TrafficRush_Lilith_C:CyProjectileFlyDropMovement_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.11"
+      },
+      "VariableGuid": "9DB2F160-42899950-8D1FF4B3-F9D8004B",
+      "InternalVariableName": "CyProjectileFlyDropMovement"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIMachine'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIMachine'BP_Summon_Truck_TrafficRush_Lilith_C:CyAIMachine_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.6"
+      },
+      "VariableGuid": "B9F1A671-43910F59-2B7448B1-5D43D081",
+      "InternalVariableName": "CyAIMachine"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIWorkState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIWorkState'BP_Summon_Truck_TrafficRush_Lilith_C:CyAIWorkState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.9"
+      },
+      "VariableGuid": "486EA0DD-488C4F1C-74859387-51030893",
+      "InternalVariableName": "CyAIWorkState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_15",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAILeaveState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAILeaveState'BP_Summon_Truck_TrafficRush_Lilith_C:CyAILeaveState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.5"
+      },
+      "VariableGuid": "95BFB0D8-4058BE5E-FC4A7491-DE120F89",
+      "InternalVariableName": "CyAILeaveState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_16",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIState'BP_Summon_Truck_TrafficRush_Lilith_C:CyAINoneState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.7"
+      },
+      "VariableGuid": "00D07D56-4F35B987-B13D4784-AFFDF2FF",
+      "InternalVariableName": "CyAINoneState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_17",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySearchTargetsComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySearchTargetsComponent'BP_Summon_Truck_TrafficRush_Lilith_C:CySearchTargets_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.13"
+      },
+      "VariableGuid": "FC2C1EE7-4AA3C9EC-4D4F1EA8-686AFE7A",
+      "InternalVariableName": "CySearchTargets"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_18",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GameStateComponent_Summon_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/Shared/Components/BP_GameStateComponent_Summon.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_GameStateComponent_Summon_C'BP_Summon_Truck_TrafficRush_Lilith_C:BP_GameStateComponent_Summon_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.3"
+      },
+      "VariableGuid": "A349BC5C-41DA3CBA-A65DB7B0-4A10BF73",
+      "InternalVariableName": "BP_GameStateComponent_Summon"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_19",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyAIEntryState'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyAIEntryState'BP_Summon_Truck_TrafficRush_Lilith_C:CyAIEntryState_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.4"
+      },
+      "VariableGuid": "217609A2-4AF70CDA-42C2B3BD-537E7522",
+      "InternalVariableName": "CyAIEntryState"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_20",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CyRetainComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CyRetainComponent'BP_Summon_Truck_TrafficRush_Lilith_C:CyRetain_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.12"
+      },
+      "VariableGuid": "309395C9-467238FB-90F23C9A-071424D4",
+      "InternalVariableName": "CyRetain"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SCS_Node'",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.32"
+    },
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CySummonSkeletalMeshComponent'",
+        "ObjectPath": "/Script/PMGame"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CySummonSkeletalMeshComponent'BP_Summon_Truck_TrafficRush_Lilith_C:TruckMesh_GEN_VARIABLE'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.15"
+      },
+      "VariableGuid": "00A18CB4-46878288-2AC52698-12C9D5D5",
+      "InternalVariableName": "TruckMesh"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Summon_Truck_TrafficRush_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.0"
+    },
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.19"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.20"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.19"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Summon_Truck_TrafficRush_Lilith_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/TrafficRush/Weapon/BP_Summon_Truck_TrafficRush_Lilith.18"
+      }
+    }
+  }
+]

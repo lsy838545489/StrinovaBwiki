@@ -37,8 +37,8 @@
         "NoteMapPerk": {
           "Namespace": "SECMapAccessValue",
           "Key": "1_NoteMapPerk",
-          "SourceString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点",
-          "LocalizedString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点"
+          "SourceString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视增伤】：处于该状态下的怪物将会受到20%易伤效果\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点\n（“透视增伤”通常由特定芯元/特定阵列词条触发提供）",
+          "LocalizedString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视增伤】：处于该状态下的怪物将会受到20%易伤效果\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点\n（“透视增伤”通常由特定芯元/特定阵列词条触发提供）"
         },
         "RankRange": [
           1,
@@ -52,13 +52,21 @@
         },
         "EquipmentValue": [
           0,
-          450000
+          99999999
         ],
+        "WarscoreMin": 0,
+        "WarscoreText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_WarscoreText",
+          "SourceString": "无限制",
+          "LocalizedString": "无限制"
+        },
+        "WarscoreRec": 1200,
         "EquipmentValueText": {
           "Namespace": "SECMapAccessValue",
           "Key": "1_EquipmentValueText",
-          "SourceString": "≤450000",
-          "LocalizedString": "≤450000"
+          "SourceString": "无限制",
+          "LocalizedString": "无限制"
         },
         "CurrencyId": 14,
         "CostCurrency": 0,
@@ -83,7 +91,12 @@
           4092007,
           4092008
         ],
-        "LootRate": 10
+        "LootRate": 10,
+        "IsShow": true,
+        "OpenMatchHours": [
+          1,
+          23
+        ]
       },
       "2": {
         "Id": 2,
@@ -91,7 +104,7 @@
         "Difficulty": 2,
         "CampCount": 8,
         "FightDuration": 1800,
-        "ScLevel": 0,
+        "ScLevel": 10,
         "MapTexture": {
           "AssetPathName": "/Game/PaperMan/UI/Atlas/DynamicResource/Map/Mini/T_Dynamic_Map_Mini_42001.T_Dynamic_Map_Mini_42001",
           "SubPathString": ""
@@ -110,8 +123,180 @@
         "NoteMapPerk": {
           "Namespace": "SECMapAccessValue",
           "Key": "1_NoteMapPerk",
-          "SourceString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点",
-          "LocalizedString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点"
+          "SourceString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视增伤】：处于该状态下的怪物将会受到20%易伤效果\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点\n（“透视增伤”通常由特定芯元/特定阵列词条触发提供）",
+          "LocalizedString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视增伤】：处于该状态下的怪物将会受到20%易伤效果\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点\n（“透视增伤”通常由特定芯元/特定阵列词条触发提供）"
+        },
+        "RankRange": [
+          1,
+          50
+        ],
+        "RankText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_RankText",
+          "SourceString": "白金3以下可获得段位分",
+          "LocalizedString": "白金3以下可获得段位分"
+        },
+        "EquipmentValue": [
+          200000,
+          9999999
+        ],
+        "WarscoreMin": 1000,
+        "WarscoreText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "2_WarscoreText",
+          "SourceString": "大于1000",
+          "LocalizedString": "大于1000"
+        },
+        "WarscoreRec": 2500,
+        "EquipmentValueText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "2_EquipmentValueText",
+          "SourceString": "≥200000",
+          "LocalizedString": "≥200000"
+        },
+        "CurrencyId": 14,
+        "CostCurrency": 0,
+        "CostCurrencyText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_CostCurrencyText",
+          "SourceString": "无",
+          "LocalizedString": "无"
+        },
+        "KeyDuraMult": 2,
+        "FxMapChoose": 2,
+        "RoleLevel": [
+          1,
+          1000
+        ],
+        "RoleLevelText": {
+          "CultureInvariantString": null
+        },
+        "CommonLootShow": [
+          4092001,
+          4092005,
+          4092007,
+          4092008
+        ],
+        "LootRate": 20,
+        "IsShow": true,
+        "OpenMatchHours": [
+          1,
+          23
+        ]
+      },
+      "4": {
+        "Id": 4,
+        "MapId": 4201,
+        "Difficulty": 1,
+        "CampCount": 2,
+        "FightDuration": 1500,
+        "ScLevel": 0,
+        "MapTexture": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "MapPerk": 101,
+        "IconMapPerk": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NameMapPerk": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_NameMapPerk",
+          "SourceString": "弱点暴露",
+          "LocalizedString": "弱点暴露"
+        },
+        "NoteMapPerk": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_NoteMapPerk",
+          "SourceString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视增伤】：处于该状态下的怪物将会受到20%易伤效果\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点\n（“透视增伤”通常由特定芯元/特定阵列词条触发提供）",
+          "LocalizedString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视增伤】：处于该状态下的怪物将会受到20%易伤效果\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点\n（“透视增伤”通常由特定芯元/特定阵列词条触发提供）"
+        },
+        "RankRange": [
+          1,
+          50
+        ],
+        "RankText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_RankText",
+          "SourceString": "白金3以下可获得段位分",
+          "LocalizedString": "白金3以下可获得段位分"
+        },
+        "EquipmentValue": [
+          0,
+          480000
+        ],
+        "WarscoreMin": 0,
+        "WarscoreText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "2_WarscoreText",
+          "SourceString": "大于1000",
+          "LocalizedString": "大于1000"
+        },
+        "WarscoreRec": 2000,
+        "EquipmentValueText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "4_EquipmentValueText",
+          "SourceString": "≥480000",
+          "LocalizedString": "≥480000"
+        },
+        "CurrencyId": 14,
+        "CostCurrency": 0,
+        "CostCurrencyText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_CostCurrencyText",
+          "SourceString": "无",
+          "LocalizedString": "无"
+        },
+        "KeyDuraMult": 4,
+        "FxMapChoose": 1,
+        "RoleLevel": [
+          1,
+          1000
+        ],
+        "RoleLevelText": {
+          "CultureInvariantString": null
+        },
+        "CommonLootShow": [
+          4092001,
+          4092005,
+          4092007,
+          4092008
+        ],
+        "LootRate": 10,
+        "IsShow": false,
+        "OpenMatchHours": [
+          1,
+          23
+        ]
+      },
+      "5": {
+        "Id": 5,
+        "MapId": 4201,
+        "Difficulty": 2,
+        "CampCount": 2,
+        "FightDuration": 1800,
+        "ScLevel": 0,
+        "MapTexture": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "MapPerk": 101,
+        "IconMapPerk": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NameMapPerk": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_NameMapPerk",
+          "SourceString": "弱点暴露",
+          "LocalizedString": "弱点暴露"
+        },
+        "NoteMapPerk": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_NoteMapPerk",
+          "SourceString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视增伤】：处于该状态下的怪物将会受到20%易伤效果\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点\n（“透视增伤”通常由特定芯元/特定阵列词条触发提供）",
+          "LocalizedString": "该地图中，玩家对怪物施加【透视增伤】状态时，将会额外附带【透视弱点】效果；\n【透视增伤】：处于该状态下的怪物将会受到20%易伤效果\n【透视弱点】：玩家攻击怪物任意部位均视作命中怪物弱点\n（“透视增伤”通常由特定芯元/特定阵列词条触发提供）"
         },
         "RankRange": [
           1,
@@ -127,9 +312,17 @@
           0,
           99999999
         ],
+        "WarscoreMin": 0,
+        "WarscoreText": {
+          "Namespace": "SECMapAccessValue",
+          "Key": "1_WarscoreText",
+          "SourceString": "无限制",
+          "LocalizedString": "无限制"
+        },
+        "WarscoreRec": 0,
         "EquipmentValueText": {
           "Namespace": "SECMapAccessValue",
-          "Key": "2_EquipmentValueText",
+          "Key": "1_EquipmentValueText",
           "SourceString": "无限制",
           "LocalizedString": "无限制"
         },
@@ -156,7 +349,9 @@
           4092007,
           4092008
         ],
-        "LootRate": 20
+        "LootRate": 20,
+        "IsShow": false,
+        "OpenMatchHours": []
       }
     }
   }

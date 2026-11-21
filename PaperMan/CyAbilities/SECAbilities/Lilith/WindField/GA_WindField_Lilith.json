@@ -1,0 +1,119 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GA_WindField_Lilith_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/WindField/GA_WindField_Lilith",
+    "SuperStruct": {
+      "ObjectName": "Class'CyBaseAbility'",
+      "ObjectPath": "/Script/PMGame"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GA_WindField_Lilith_C'Default__GA_WindField_Lilith_C'",
+      "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/WindField/GA_WindField_Lilith.1"
+    }
+  },
+  {
+    "Type": "GA_WindField_Lilith_C",
+    "Name": "Default__GA_WindField_Lilith_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/WindField/GA_WindField_Lilith.GA_WindField_Lilith_C'",
+    "Package": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/WindField/GA_WindField_Lilith",
+    "Properties": {
+      "GiverAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GAGiveWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/GAGiver/BP_GAGiveWeapon.0"
+        }
+      ],
+      "CheckAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_CheckClickInterval_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/CheckAtom/BP_CheckClickInterval.0"
+        }
+      ],
+      "ActivatorAtoms": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_ActivatorSwitchWeapon_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/ActivatorAtom/BP_ActivatorSwitchWeapon.0"
+        },
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_Activator_GodTime_Lilith_C'",
+          "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/Shared/BP_Activator_GodTime_Lilith.0"
+        }
+      ],
+      "RemoveTagEvents": [
+        {
+          "Key": {
+            "TagName": "GA.Ability.PVESkill9"
+          },
+          "Value": {
+            "CheckAtoms": [],
+            "TagRequirements": {
+              "RequireTagType": "ERequireTagType::AND",
+              "bInverse": false,
+              "RequireAnyTags": [],
+              "IgnoreAllTags": [],
+              "RequireTags": [],
+              "IgnoreTags": []
+            },
+            "BothAtomsForActive": [],
+            "BothAtomsForNoActive": [],
+            "BothAtomsForInstance": [],
+            "AtomsForActive": [
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_SummonGotoLeave_WindField_Lilith_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/WindField/BP_Trigger_SummonGotoLeave_WindField_Lilith.0"
+              },
+              {
+                "ObjectName": "BlueprintGeneratedClass'BP_Trigger_EndAbility_C'",
+                "ObjectPath": "PM/Content/PaperMan/CyAbilities/Atom/Trigger/BP_Trigger_EndAbility.0"
+              }
+            ],
+            "AtomsForNoActive": [],
+            "AtomsForInstance": [],
+            "LocallyAtomsForActive": [],
+            "LocallyAtomsForNoActive": [],
+            "LocallyAtomsForInstance": []
+          }
+        }
+      ],
+      "WeaponClass": {
+        "ObjectName": "BlueprintGeneratedClass'Weapon_WindField_Lilith_C'",
+        "ObjectPath": "PM/Content/PaperMan/CyAbilities/SECAbilities/Lilith/WindField/Weapon/Weapon_WindField_Lilith.0"
+      },
+      "SlotType": "EWeaponSlotTypes::CustomType243",
+      "RemainPointEndType": "EPointRemainType::None",
+      "CommitCostMask": 0,
+      "NetExecutionPolicy": "EGameplayAbilityNetExecutionPolicy::ServerOnly",
+      "AbilityTriggers": [
+        {
+          "TriggerTag": {
+            "TagName": "GA.Ability.PVESkill9"
+          },
+          "TriggerSource": "EGameplayAbilityTriggerSource::OwnedTagAdded",
+          "TriggerType": "EGameplayAbilityTriggerType::Active"
+        }
+      ],
+      "BlockAbilitiesWithTag": [
+        "GA.Ability.InterruptAction"
+      ],
+      "ActivationBlockedTags": [
+        "State.Player.Revival",
+        "State.Health.Injured",
+        "State.Game.Freeze",
+        "State.Game.Ready",
+        "State.Health.Death",
+        "State.Player.DisableUseSkill"
+      ]
+    }
+  }
+]
